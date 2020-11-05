@@ -14,7 +14,7 @@ module.exports = {
 	// Output names
 	output: {
 		// Directory, relative to root directory, cannot be empty
-		dir: 'dist',
+		dir: 'assets',
 		// Filename of script (build script will create ".js" and ".min.js" files)
 		script: 'icon-finder.js',
 		// Filename of stylesheet

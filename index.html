@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="./assets/style.css" />
+		<link rel="stylesheet" href="./line-md.css" />
+
+		<title>Material Line Icons Demo</title>
+
+		<style>
+			html {
+				background: #fff;
+			}
+			body {
+				max-width: 976px;
+				margin: 0 auto;
+				background: #fff;
+			}
+			.iif-wrapper--line-md,
+			.iif-wrapper--line-md .iif-block:last-child,
+			.iif-wrapper--line-md p:last-child {
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+		</style>
+		<script src="./assets/iconify.min.js"></script>
+	</head>
+
+	<body>
+		<div class="iif-wrapper iif-wrapper--line-md iif-content">
+			<div class="iif-block iif-block--collection-info no-bottom-spacing">
+				<div class="iif-collection-info-title">Material Line Icons</div>
+				<p>
+					This icon set has 24x24 icons designed to Material Design
+					guidelines that are used for 'Round' and 'TwoTone' icons in
+					official Material Design Icons with one minor change: thin
+					1px stroke is allowed where it makes sense.
+				</p>
+				<p>
+					Icons use stroke that can be animated on first render. All
+					you have to do is add class "iconify--line-md" to SVG
+					element (Iconify SVG framework does it automatically) and
+					include stylesheet from
+					https://code.iconify.design/css/line-md.css
+				</p>
+				<p>
+					To refresh animation you can either re-render icon or use
+					display to hide and show it.
+				</p>
+			</div>
+		</div>
+		<div id="container">
+			<div class="iif-wrapper iif-content">
+				<p>Loading icons...</p>
+			</div>
+		</div>
+		<script>
+			(function () {
+				var node = document.createElement('script');
+				node.type = 'text/javascript';
+				node.async = true;
+				node.src = './assets/icon-finder.min.js';
+				document.head.appendChild(node);
+			})();
+		</script>
+	</body>
+</html>

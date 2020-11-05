@@ -1,20 +1,21 @@
 {
-	"name": "@iconify/search-base-svelte",
-	"private": true,
-	"description": "Iconify Search, Svelte base (rename this)",
-	"author": "Vjacheslav Trushkin (Iconify OÜ)",
-	"license": "(Apache-2.0 OR GPL-2.0)",
+	"name": "line-md",
+	"description": "Material Line Icons",
+	"author": "Vjacheslav Trushkin <cyberalien@gmail.com> (https://iconify.design)",
+	"license": "MIT",
 	"scripts": {
 		"build": "node build/all",
 		"build:script": "rollup -c rollup.config.js",
 		"watch:script": "rollup -c rollup.config.js --watch",
 		"build:style": "node build/style"
 	},
-	"bugs": "https://github.com/iconify/icon-finder/issues",
-	"homepage": "https://github.com/iconify/icon-finder",
-	"repository": "github:iconify/icon-finder#base-svelte",
+	"bugs": "https://github.com/cyberalien/line-md/issues",
+	"homepage": "https://github.com/cyberalien/line-md",
+	"repository": "github:cyberalien/line-md",
 	"devDependencies": {
+		"@iconify/iconify": "^2.0.0-rc.2",
 		"@iconify/search-core": "^1.0.0-beta.2",
+		"@iconify/tools": "^1.3.15",
 		"@iconify/types": "^1.0.6",
 		"@rollup/plugin-buble": "^0.21.3",
 		"@rollup/plugin-commonjs": "^15.1.0",
@@ -34,8 +35,5 @@
 		"svelte-loader": "^2.13.6",
 		"svelte-preprocess": "^4.5.2",
 		"typescript": "^4.0.5"
-	},
-	"dependencies": {
-		"@iconify/iconify": "^2.0.0-rc.2"
 	}
 }

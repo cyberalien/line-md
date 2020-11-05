@@ -19,7 +19,7 @@
 	}
 </script>
 
-{#if info}
+{#if false}
 	<Block type="collection-info" extra={name}>
 		<div class="iif-collection-info-title">{info.name}</div>
 		{#if info.author}

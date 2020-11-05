@@ -9,7 +9,7 @@ export const canAddProviders = false;
 /**
  * Automatically focus search
  */
-export const canFocusSearch = false;
+export const canFocusSearch = true;
 
 /**
  * Show collection information block (author, license, etc...) when browsing collection
@@ -46,7 +46,7 @@ export const customiseRotate = true;
 export const customiseFlip = true;
 
 // Inline / block
-export const customiseInline = false;
+export const customiseInline = true;
 
 /**
  * Default values for color, width and height
@@ -66,7 +66,7 @@ export const iconSampleSize = {
 /**
  * Footer buttons
  */
-export const showButtons = true;
+export const showButtons = false;
 
 export const footerButtons: Record<string, FooterButton> = {
 	submit: {
@@ -81,4 +81,4 @@ export const footerButtons: Record<string, FooterButton> = {
  * Sample code
  */
 // To disable code block, also change link for CodeBlock to Empty.svelte in ./components.ts (it will remove component from bundle)
-export const showCode = false;
+export const showCode = true;
