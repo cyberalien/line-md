@@ -1,0 +1,327 @@
+// Block
+.iif-icons--list {
+	background: $iif-icons-wrapper-background-color;
+	border: $iif-icons-wrapper-border-width solid
+		$iif-icons-wrapper-border-color;
+
+	@if $iif-icons-list-highlight-borders {
+		@if $iif-icons-list-separator-width > 0 {
+			border-top-width: max(
+				0,
+				$iif-icons-wrapper-border-width -
+					$iif-icons-list-separator-width
+			);
+		}
+	}
+
+	ul {
+		display: block;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		max-height: $iif-icons-container-list-height;
+		overflow-y: auto;
+	}
+}
+
+// Item wrapper
+.iif-icon-list {
+	box-sizing: border-box;
+	position: relative;
+	min-height: $iif-icons-list-icon-size + $iif-icons-list-padding-vertical * 2;
+	list-style: none;
+	margin: 0;
+	padding: $iif-icons-list-padding-vertical;
+	padding-left: $iif-icons-list-stats-padding-left;
+	color: $iif-icons-list-color;
+
+	// Borders
+	border: $iif-icons-list-separator-width solid
+		$iif-icons-list-separator-color;
+
+	@if $iif-icons-list-highlight-borders {
+		border-width: $iif-icons-list-separator-width
+			$iif-icons-list-separator-width
+			0;
+		border-left-color: transparent;
+		border-right-color: transparent;
+		&:last-child {
+			border-bottom-width: $iif-icons-list-separator-width;
+		}
+	} @else {
+		border-width: 0 0 $iif-icons-list-separator-width;
+		&:last-child {
+			border-bottom-width: 0;
+		}
+
+		// Left border
+		@if $iif-icons-list-left-border-width {
+			border-left-width: $iif-icons-list-left-border-width;
+			@if $iif-icons-list-left-border-color !=
+				$iif-icons-list-separator-color
+			{
+				border-left-color: $iif-icons-list-left-border-color;
+			}
+		}
+	}
+
+	// Sample icon
+	.iif-icon-sample a {
+		display: block;
+		position: absolute;
+		left: $iif-icons-list-sample-left;
+		top: 50%;
+		width: 1em;
+		height: 1em;
+		font-size: $iif-icons-list-icon-size;
+		margin: -0.5em 0 0;
+		text-decoration: none;
+		color: $iif-icons-list-sample-color;
+
+		// Selection (when multiple icons can be selected)
+		svg + svg {
+			position: absolute;
+			right: -2px;
+			top: -2px;
+			font-size: $iif-icons-list-selecting-icon-size;
+			line-height: 1em;
+			width: 1em;
+			height: 1em;
+			border: $iif-icons-list-selecting-border-width solid
+				$iif-icons-list-selecting-border-color;
+			background: $iif-icons-wrapper-background-color;
+		}
+	}
+
+	// States for checkbox
+	&:hover {
+		.iif-icon-sample a {
+			svg + svg {
+				color: $iif-icons-list-hover-color;
+			}
+		}
+	}
+	&:focus-within {
+		.iif-icon-sample a {
+			svg + svg {
+				border-color: $iif-border-focus-color;
+			}
+		}
+	}
+
+	// Data
+	.iif-icon-data {
+		&:after {
+			content: ' ';
+			display: table;
+			clear: both;
+		}
+	}
+
+	// Icon name and size
+	.iif-icon-name,
+	.iif-icon-size {
+		display: block;
+		float: left;
+		margin: $iif-icons-list-text-margin;
+		white-space: nowrap;
+	}
+
+	.iif-icon-name {
+		@include iif-font('base', 'normal');
+		line-height: $iif-icons-list-stats-line-height;
+
+		text-decoration: none;
+		margin-left: 0;
+
+		color: $iif-icons-list-color;
+	}
+
+	.iif-icon-size {
+		@include iif-font('small', 'normal');
+		line-height: $iif-icons-list-stats-line-height;
+
+		float: left;
+		color: $iif-icons-list-size-color;
+	}
+
+	// Selected
+	&--selected {
+		background-color: $iif-icons-list-selected-background-color;
+
+		@if $iif-icons-list-highlight-borders {
+			// All borders
+			@if $iif-icons-list-selected-separator-color != transparent {
+				border-color: $iif-icons-list-selected-separator-color;
+				+ .iif-icon-list {
+					border-top-color: $iif-icons-list-selected-separator-color;
+				}
+			}
+		} @else {
+			// Left border
+			@if $iif-icons-list-left-border-width {
+				border-left-color: $iif-icons-list-selected-left-border-color;
+			}
+		}
+
+		.iif-icon-sample a {
+			color: $iif-icons-list-selected-sample-color;
+		}
+		.iif-icon-name {
+			color: $iif-icons-list-selected-color;
+		}
+	}
+
+	// Row hover colors
+	&:hover {
+		background-color: $iif-icons-list-row-hover-background-color;
+
+		@if $iif-icons-list-highlight-borders {
+			// All borders
+			@if $iif-icons-list-row-hover-separator-color != transparent {
+				border-color: $iif-icons-list-row-hover-separator-color;
+				+ .iif-icon-list {
+					border-top-color: $iif-icons-list-row-hover-separator-color;
+				}
+			}
+		} @else {
+			// Left border
+			@if $iif-icons-list-left-border-width {
+				border-left-color: $iif-icons-list-row-hover-left-border-color;
+			}
+		}
+
+		.iif-icon-sample a {
+			color: $iif-icons-list-row-hover-sample-color;
+		}
+		.iif-icon-name {
+			color: $iif-icons-list-row-hover-color;
+		}
+	}
+
+	// Selected + row hover colors
+	&--selected:hover {
+		background-color: $iif-icons-list-selected-row-hover-background-color;
+
+		@if $iif-icons-list-highlight-borders {
+			// All borders
+			@if $iif-icons-list-selected-row-hover-separator-color !=
+				transparent
+			{
+				border-color: $iif-icons-list-selected-row-hover-separator-color;
+				+ .iif-icon-list {
+					border-top-color: $iif-icons-list-selected-row-hover-separator-color;
+				}
+			}
+		} @else {
+			// Left border
+			@if $iif-icons-list-left-border-width {
+				border-left-color: $iif-icons-list-selected-row-hover-left-border-color;
+			}
+		}
+
+		.iif-icon-sample a {
+			color: $iif-icons-list-selected-row-hover-sample-color;
+		}
+		.iif-icon-name {
+			color: $iif-icons-list-selected-row-hover-color;
+		}
+	}
+
+	// Filters
+	.iif-filter {
+		float: right;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	// Sample icon hover/focus colors
+	.iif-icon-sample a {
+		&:hover,
+		&:active {
+			color: $iif-icons-list-sample-hover-color;
+		}
+		&:focus {
+			outline: none;
+		}
+		&:focus:not(:hover) {
+			outline: none;
+			color: $iif-icons-list-sample-focus-color;
+			box-shadow: 0 0 0 2px $iif-border-focus-color;
+		}
+
+		svg {
+			display: block;
+		}
+	}
+
+	// Icon name hover/focus colors
+	.iif-icon-name {
+		&:hover,
+		&:active {
+			color: $iif-icons-list-hover-color;
+		}
+		&:focus {
+			outline: none;
+		}
+		&:focus:not(:hover) {
+			outline: none;
+			color: $iif-icons-list-focus-color;
+			box-shadow: none;
+		}
+	}
+
+	// Reduce maximum filter width if there are many filters to show
+	.iif-icon-data--filters {
+		&--2 .iif-filter {
+			max-width: 80px;
+		}
+		&--3 .iif-filter {
+			max-width: 70px;
+		}
+		&--4 .iif-filter {
+			max-width: 50px;
+		}
+		&--5 .iif-filter {
+			max-width: 48px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.iif-filter {
+			max-width: 72px;
+		}
+		.iif-icon-data--filters {
+			&--2 .iif-filter {
+				max-width: 52px;
+			}
+			&--3 .iif-filter,
+			&--4 .iif-filter,
+			&--5 .iif-filter {
+				max-width: 42px;
+			}
+		}
+	}
+
+	// For modern browsers
+	@supports (display: flex) {
+		.iif-icon-data {
+			display: flex;
+			width: 100%;
+			flex-wrap: wrap;
+		}
+
+		.iif-icon-name {
+			float: none;
+			flex-grow: 1;
+		}
+
+		.iif-icon-size {
+			float: none;
+		}
+
+		.iif-filter {
+			float: none;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+.iif-content-error {
+	@include iif-font('large', 'bold');
+
+	margin: ($iif-spacing * 2) 0;
+	padding: $iif-spacing ($iif-spacing * 2);
+
+	color: $iif-error-color;
+	background: $iif-error-background-color;
+	border-radius: $iif-error-border-radius;
+	box-shadow: $iif-error-box-shadow;
+}

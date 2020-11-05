@@ -1,0 +1,105 @@
+.iif-option-button {
+	cursor: pointer;
+	white-space: nowrap;
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	text-align: center;
+
+	height: $iif-input-height;
+	min-width: $iif-input-height;
+	margin: 0;
+	padding: (
+			($iif-input-height - $iif-base-line-height) / 2 -
+				$iif-button-border-width
+		)
+		$iff-option-button-padding-left;
+
+	@include iif-font('base', 'normal');
+
+	color: $iif-button-color;
+	background: $iif-button-background-color;
+	border: $iif-button-border-width solid $iif-button-border-color;
+	border-radius: $iif-button-border-radius;
+	outline: none;
+
+	// Without icon
+	&--with-icon {
+		padding-left: $iff-option-button-with-icon-padding-left;
+		span {
+			color: $iff-input-dimmed-color;
+		}
+	}
+	&--without-text {
+		padding-right: $iff-option-button-with-icon-padding-right;
+		// padding-right: 0;
+		// span {
+		// 	display: none;
+		// }
+	}
+
+	// States
+	&:hover,
+	&:focus:not(:hover) {
+		span {
+			color: inherit;
+		}
+	}
+	&:hover {
+		color: $iif-button-hover-color;
+		background: $iif-button-hover-background-color;
+		border-color: $iif-button-hover-border-color;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:focus:not(:hover) {
+		color: $iif-button-focus-color;
+		background: $iif-button-focus-background-color;
+		border-color: $iif-button-focus-border-color;
+		@if $iif-button-border-width == 1px {
+			box-shadow: 0 0 0 1px $iif-button-focus-border-color;
+		}
+		@if $iif-button-border-width == 0 {
+			box-shadow: 0 0 0 2px $iif-button-focus-border-color;
+		}
+	}
+
+	// Checked
+	&--checked {
+		color: $iif-button-checked-color;
+		background: $iif-button-checked-background-color;
+		border-color: $iif-button-checked-border-color;
+		span {
+			color: inherit;
+		}
+
+		&:hover {
+			color: $iif-button-checked-hover-color;
+			background: $iif-button-checked-hover-background-color;
+			border-color: $iif-button-checked-hover-border-color;
+		}
+
+		&:focus:not(:hover) {
+			color: $iif-button-checked-focused-color;
+			background: $iif-button-checked-focused-background-color;
+			border-color: $iif-button-checked-focused-border-color;
+			box-shadow: none;
+		}
+	}
+
+	svg {
+		position: absolute;
+		left: $iif-spacing;
+		top: 50%;
+		font-size: $iif-option-button-icon-size;
+		line-height: 1em;
+		margin-top: -0.5em;
+	}
+
+	& + & {
+		margin-left: $iif-spacing;
+	}
+}

@@ -1,0 +1,81 @@
+// Icons list in footer, multiple icons are selected
+.iif-footer-options-block--icons {
+	margin: 0 0 $iif-spacing * 2;
+}
+
+.iif-footer-icons {
+	display: flex;
+	// margin: 0 0 $iif-spacing * 2;
+	color: $iif-icons-grid-icon-color;
+
+	a {
+		display: block;
+		height: 1em;
+		color: inherit;
+		font-size: $iif-icons-grid-icon-size;
+		margin: $iif-icons-grid-icon-margin;
+		background: $iif-icons-grid-icon-background-color;
+		border: $iif-icons-grid-icon-border-width solid
+			$iif-icons-grid-icon-border-color;
+		cursor: pointer;
+		text-decoration: none;
+		position: relative;
+
+		// "Remove" icon
+		svg + svg {
+			display: none;
+			position: absolute;
+			font-size: $iif-icon-size;
+			right: 0 - ($iif-icon-size) / 2;
+			top: 0 - ($iif-icon-size) / 2;
+			background: inherit;
+			color: inherit;
+			@if $iif-icons-grid-icon-border-width > 0 {
+				border: $iif-icons-grid-icon-border-width solid transparent;
+			}
+			box-shadow: inherit;
+		}
+
+		&:hover,
+		&:active {
+			color: $iif-icons-grid-icon-hover-color;
+			background: $iif-icons-grid-icon-hover-background-color;
+			border-color: $iif-icons-grid-icon-hover-border-color;
+			svg + svg {
+				display: block;
+				@if $iif-icons-grid-icon-border-width > 0 {
+					border-color: $iif-icons-grid-icon-hover-border-color;
+				}
+			}
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&:focus:not(:hover) {
+			color: $iif-icons-grid-icon-focus-color;
+			background: $iif-icons-grid-icon-focus-background-color;
+			@if $iif-icons-grid-icon-border-width > 0 {
+				border-color: $iif-icons-grid-icon-focus-border-color;
+			}
+			@if $iif-icons-grid-icon-border-width == 0 {
+				box-shadow: 0 0 0 2px $iif-icons-grid-icon-focus-border-color;
+			}
+			@if $iif-icons-grid-icon-border-width == 1px {
+				box-shadow: 0 0 0 1px $iif-icons-grid-icon-focus-border-color;
+			}
+			svg + svg {
+				display: block;
+				@if $iif-icons-grid-icon-border-width > 0 {
+					border-color: $iif-icons-grid-icon-focus-border-color;
+				}
+			}
+		}
+
+		@media (max-width: 600px) {
+			font-size: $iif-icons-grid-icon-compact-size;
+		}
+	}
+}

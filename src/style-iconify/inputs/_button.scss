@@ -1,0 +1,114 @@
+.iif-form-button {
+	cursor: pointer;
+	white-space: nowrap;
+	display: inline-block;
+	flex-shrink: 0;
+	position: relative;
+
+	font-size: $iif-button-font-size; // changed for search
+	line-height: $iif-button-line-height; // changed for search
+
+	height: $iif-input-height; // changed for search
+	margin: 0 0 0 $iif-spacing;
+	padding: (
+			($iif-input-height - $iif-button-line-height) / 2 -
+				$iif-button-border-width
+		)
+		($iif-spacing * 2); // changed for search
+
+	color: $iif-button-color;
+	background: $iif-button-background-color;
+	border: $iif-button-border-width solid $iif-button-border-color;
+	border-radius: $iif-button-border-radius;
+
+	text-decoration: none;
+	outline: none;
+
+	// Primary
+	&--primary {
+		color: $iif-button-primary-color;
+		background: $iif-button-primary-background-color;
+		border-color: $iif-button-primary-border-color;
+	}
+
+	// Secondary
+	&--secondary {
+		color: $iif-button-secondary-color;
+		background: $iif-button-secondary-background-color;
+		border-color: $iif-button-secondary-border-color;
+	}
+
+	// Destructive
+	&--destructive {
+		color: $iif-button-destructive-color;
+		background: $iif-button-destructive-background-color;
+		border-color: $iif-button-destructive-border-color;
+	}
+
+	// States
+	&:hover {
+		color: $iif-button-hover-color;
+		background: $iif-button-hover-background-color;
+		border-color: $iif-button-hover-border-color;
+	}
+
+	&--primary:hover {
+		color: $iif-button-primary-hover-color;
+		background: $iif-button-primary-hover-background-color;
+		border-color: $iif-button-primary-hover-border-color;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:focus:not(:hover) {
+		color: $iif-button-focus-color;
+		background: $iif-button-focus-background-color;
+		border-color: $iif-button-focus-border-color;
+		@if $iif-button-border-width == 1px {
+			box-shadow: 0 0 0 1px $iif-button-focus-border-color;
+		}
+	}
+
+	&:disabled,
+	.iif-input-wrapper--disabled + &,
+	.iif-input-wrapper--empty + & {
+		cursor: inherit;
+		color: $iif-button-disabled-color;
+		background: $iif-button-disabled-background-color;
+		border-color: $iif-button-disabled-border-color;
+	}
+
+	// Icon
+	&--with-icon {
+		padding-left: $iif-spacing * 2 + $iif-icon-size;
+	}
+	svg {
+		position: absolute;
+		font-size: $iif-icon-size;
+		left: $iif-spacing;
+		top: 50%;
+		margin-top: (0 - $iif-icon-size / 2);
+		opacity: 0.5;
+	}
+	&:hover svg {
+		opacity: 1;
+	}
+}
+
+// Changes for search (copy all values that are changed)
+.iif-block--search {
+	.iif-form-button {
+		font-size: $iif-big-button-font-size;
+		line-height: $iif-big-button-line-height;
+
+		height: $iif-big-input-height;
+		margin: 0 0 0 $iif-spacing;
+		padding: (
+				($iif-big-input-height - $iif-big-button-line-height) / 2 -
+					$iif-button-border-width
+			)
+			($iif-spacing * 2);
+	}
+}

@@ -1,0 +1,534 @@
+@import 'rotation';
+
+// Spacing between items
+$iif-spacing: 8px;
+
+// Fonts
+$iif-font-family: 'PT Sans', 'Open Sans', 'Droid Sans', sans-serif;
+$iif-font-weight-normal: 400;
+$iif-font-weight-bold: 700;
+
+$iif-letter-spacing: normal;
+
+$iif-base-font-size: 16px;
+$iif-base-line-height: 24px;
+
+$iif-small-font-size: 14px;
+$iif-small-line-height: 22px;
+
+$iif-medium-font-size: 18px;
+$iif-medium-line-height: 26px;
+
+$iif-large-font-size: 22px;
+$iif-large-line-height: 32px;
+
+// Main palette
+$iif-background-color: palette('gray', 0);
+$iif-background-color2: palette('gray', 25);
+$iif-background-color3: palette('gray', 0);
+
+$iif-text-color: palette('gray', 850);
+$iif-text-muted-color: palette('gray', 400);
+$iif-text-dimmed-color: palette('gray', 600);
+$iif-text-faint-color: palette('gray', 200);
+
+$iif-simple-border-color: palette('gray', 100);
+$iif-solid-border-color: palette('gray', 150);
+
+// Rotation
+$iif-rotation-palettes: $rotation;
+$iif-rotation-palettes-length: length($iif-rotation-palettes);
+$iif-rotation-default-palette: 'light-blue';
+
+// Links
+$iif-link-palette: 'blue';
+$iif-link-shade: 600;
+$iif-link-hover-palette: 'red';
+$iif-link-hover-shade: $iif-link-shade;
+
+$iif-link-color: palette($iif-link-palette, $iif-link-shade);
+$iif-link-hover-color: palette($iif-link-hover-palette, $iif-link-hover-shade);
+
+// Borders
+$iif-border-focus-color: palette($iif-link-palette, 150);
+$iif-border-width: 1px;
+$iif-border-radius-small: 2px;
+$iif-border-radius-medium: 5px;
+
+// Icon
+$iif-icon-size: 24px !default;
+$iif-icon-button-size: 24px !default;
+
+//
+// Inputs and form buttons
+//
+
+$iif-input-spacing: $iif-spacing; // Spacing on left/right of input
+$iif-input-height: 36px; // Input height
+$iif-input-border-width: $iif-border-width;
+$iif-input-border-radius: $iif-border-radius-medium;
+$iif-button-border-width: $iif-input-border-width;
+$iif-button-border-radius: $iif-border-radius-medium;
+
+$iif-input-font-size: $iif-base-font-size;
+$iif-input-line-height: $iif-base-line-height;
+$iif-button-font-size: $iif-base-font-size;
+$iif-button-line-height: $iif-base-line-height;
+
+$iif-input-icon-size: $iif-icon-size;
+$iif-input-reset-size: $iif-icon-button-size;
+$iif-option-button-icon-size: $iif-icon-size;
+$iif-input-icon-spacing: 22px;
+
+// Options button
+$iff-option-button-padding-left: $iif-spacing;
+$iff-option-button-with-icon-padding-left: $iif-spacing +
+	$iif-option-button-icon-size + 6px;
+$iff-option-button-with-icon-padding-right: $iif-spacing + 2px;
+
+// Input normal
+$iif-input-background-color: $iif-background-color3;
+$iif-input-border-color: $iif-simple-border-color;
+$iif-input-color: $iif-text-dimmed-color;
+$iff-input-dimmed-color: $iif-text-muted-color;
+
+// Input hover
+$iif-input-hover-background-color: $iif-input-background-color;
+$iif-input-hover-border-color: $iif-solid-border-color;
+$iif-input-hover-color: $iif-text-dimmed-color;
+
+// Input focus
+$iif-input-focus-background-color: $iif-input-background-color;
+$iif-input-focus-border-color: $iif-border-focus-color;
+$iif-input-focus-color: $iif-input-color;
+
+// Input Selection
+$iif-input-selection-color: $iif-input-color;
+$iif-input-selection-background-color: palette($iif-link-palette, 150);
+
+// Input placeholder
+$iif-input-placeholder-color: $iif-text-faint-color;
+$iif-input-placeholder-icon-color: palette('gray', 300);
+
+// Input Icon
+$iif-input-icon-color: $iif-input-placeholder-color;
+$iif-input-icon-hover-color: $iif-input-placeholder-color;
+$iif-input-icon-focus-color: $iif-text-muted-color;
+
+// Reset
+$iif-input-reset-color: $iif-link-color;
+$iif-input-reset-hover-color: $iif-link-hover-color;
+
+// Button
+$iif-button-background-color: $iif-input-background-color;
+$iif-button-border-color: $iif-input-border-color;
+$iif-button-color: $iif-input-color;
+
+// Primary button
+$iif-button-primary-background-color: palette($iif-link-palette, 600);
+$iif-button-primary-border-color: $iif-button-primary-background-color;
+$iif-button-primary-color: palette('gray', 0);
+
+$iif-button-primary-hover-background-color: palette(
+	$iif-link-hover-palette,
+	600
+);
+$iif-button-primary-hover-border-color: $iif-button-primary-hover-background-color;
+$iif-button-primary-hover-color: palette('gray', 0);
+
+// Secondary button
+$iif-button-secondary-background-color: $iif-background-color2;
+$iif-button-secondary-border-color: palette('gray', 100);
+$iif-button-secondary-color: $iif-text-muted-color;
+
+// Checked button
+$iif-button-checked-background-color: palette($iif-link-palette, 600);
+$iif-button-checked-border-color: $iif-button-checked-background-color;
+$iif-button-checked-color: palette($iif-link-palette, 0);
+
+$iif-button-checked-hover-background-color: palette(
+	$iif-link-hover-palette,
+	600
+);
+$iif-button-checked-hover-border-color: $iif-button-checked-hover-background-color;
+$iif-button-checked-hover-color: palette($iif-link-hover-palette, 0);
+
+$iif-button-checked-focused-background-color: palette($iif-link-palette, 500);
+$iif-button-checked-focused-border-color: $iif-button-checked-background-color;
+$iif-button-checked-focused-color: $iif-button-checked-color;
+
+// Destructive button
+$iif-button-destructive-background-color: palette('red', 600);
+$iif-button-destructive-border-color: $iif-button-destructive-background-color;
+$iif-button-destructive-color: palette('red', 0);
+
+// Button hover
+$iif-button-hover-background-color: $iif-input-hover-background-color;
+$iif-button-hover-border-color: $iif-input-hover-border-color;
+$iif-button-hover-color: $iif-link-hover-color;
+
+// Button focus
+$iif-button-focus-background-color: $iif-input-focus-background-color;
+$iif-button-focus-border-color: $iif-input-focus-border-color;
+$iif-button-focus-color: $iif-link-color;
+
+// Disabled button
+$iif-button-disabled-background-color: $iif-background-color;
+$iif-button-disabled-border-color: $iif-input-border-color;
+$iif-button-disabled-color: $iif-text-muted-color;
+
+//
+// Search form input and button
+//
+$iif-big-input-height: 44px;
+
+$iif-big-input-font-size: $iif-medium-font-size;
+$iif-big-input-line-height: $iif-medium-line-height;
+$iif-big-button-font-size: $iif-medium-font-size;
+$iif-big-button-line-height: $iif-medium-line-height;
+
+$iif-big-input-icon-spacing: 26px;
+
+//
+// Filters
+//
+$iif-filter-margin: ($iif-spacing / 2) ($iif-spacing / 2) ($iif-spacing / 2) 0;
+$iif-filter-padding: 2px $iif-spacing;
+
+$iif-filter-font-size: 'small';
+$iif-filter-title-color: $iif-text-dimmed-color;
+
+$iif-filter-border-width: 0;
+$iif-filter-border-radius: $iif-border-radius-small;
+
+// Normal status - based on palette
+$iif-filter-color-shade: 0;
+$iif-filter-background-shade: 600;
+$iif-filter-border-shade: 0; // Ignored because radius is 0. Change value if radius is changed
+
+// Hover status - red
+$iif-filter-hover-color: palette('gray', 0);
+$iif-filter-hover-background-color: palette($iif-link-hover-palette, 600);
+$iif-filter-hover-border-color: $iif-filter-hover-background-color;
+
+// Focus
+$iif-filter-focus-color: palette($iif-link-palette, $iif-link-shade);
+$iif-filter-focus-background-color: palette($iif-link-palette, 0);
+$iif-filter-focus-border-color: $iif-border-focus-color;
+$iif-filter-focus-shadow: 0 0 0 2px $iif-border-focus-color inset;
+
+// Unselected
+$iif-filter-unselected-color: palette('gray', 0);
+$iif-filter-unselected-background-color: palette('gray', 300);
+$iif-filter-unselected-border-color: palette('gray', 300);
+
+// Unselected + focus
+$iif-filter-unselected-focus-color: palette('gray', $iif-link-shade);
+$iif-filter-unselected-focus-background-color: $iif-filter-focus-background-color;
+$iif-filter-unselected-focus-border-color: $iif-filter-focus-border-color;
+$iif-filter-unselected-focus-shadow: 0 0 0 2px $iif-border-focus-color inset;
+
+// Selected + focus
+$iif-filter-selected-focus-color: palette(
+	$iif-link-hover-palette,
+	$iif-link-shade
+);
+$iif-filter-selected-focus-background-color: palette(
+	$iif-link-hover-palette,
+	0
+);
+$iif-filter-selected-focus-border-color: palette($iif-link-hover-palette, 0);
+$iif-filter-selected-focus-shadow: 0 0 0 2px
+	palette($iif-link-hover-palette, 150) inset;
+
+//
+// Collections list
+//
+$iif-collections-list-title-color: $iif-text-dimmed-color;
+
+$iif-collection-normal-border-width: $iif-border-width;
+$iif-collection-border-width: $iif-border-width;
+
+$iif-collections-list-stats-width: 80px + $iif-collection-border-width;
+$iif-collections-list-min-width: 200px;
+$iif-collections-list-max-width: $iif-collections-list-min-width + 120px;
+$iif-collections-list-spacing: 12px;
+
+// Collection
+$iif-collection-background-color: $iif-background-color3;
+$iif-collection-border-color: $iif-simple-border-color;
+
+// Collection, hover. Border exists only in hover state
+$iif-collection-hover-background-color: $iif-background-color2;
+$iif-collection-hover-border-color: $iif-simple-border-color;
+$iif-collection-focus-border-color: $iif-border-focus-color;
+
+// Text. Adjusting height might need some additional changes for stats block in components/_collections_list.scss
+$iif-collection-title-height: 28px;
+$iif-collection-author-height: 24px;
+
+$iif-collection-author-color: $iif-text-muted-color;
+
+// Stats
+$iif-collection-stats-color: palette('gray', 0);
+$iif-collection-background-shade: 600;
+$iif-collection-stats-overlay-background: rgba(
+	255,
+	255,
+	255,
+	0.1
+); // Slightly modified blue background, used for samples in collections list
+
+$iif-collection-stats-hover-color: $iif-text-dimmed-color;
+
+//
+// Error
+//
+$iif-error-color: palette('gray', 0);
+$iif-error-background-color: palette('red', 600);
+$iif-error-loading-background-color: palette('blue-gray', 600);
+
+$iif-error-border-radius: $iif-border-radius-medium;
+$iif-error-box-shadow: 0 5px 17px rgba(0, 0, 0, 0.2),
+	0 2px 7px rgba(0, 0, 0, 0.15);
+
+$iif-error-icon-size: $iif-icon-size;
+
+//
+// Parent block
+//
+$iif-parent-with-block: false;
+$iif-parent-has-steps: false;
+
+$iif-parent-border-width: $iif-border-width;
+$iif-parent-border-radius: $iif-border-radius-small;
+$iif-parent-icon-size: $iif-icon-size;
+$iif-parent-icon-spacing: $iif-parent-icon-size; // + 4px;
+$iif-parent-level-spacing: $iif-spacing;
+
+// Normal
+$iif-parent-color: if(
+	$iif-parent-with-block,
+	$iif-text-dimmed-color,
+	$iif-link-color
+);
+$iif-parent-background-color: $iif-background-color2;
+$iif-parent-border-color: $iif-simple-border-color;
+$iif-parent-icon-color: $iif-text-muted-color;
+
+// Hover on block
+$iif-parent-hover-color: $iif-link-color;
+$iif-parent-hover-background-color: $iif-background-color2;
+$iif-parent-hover-border-color: $iif-simple-border-color;
+
+// Link hover
+$iif-parent-link-hover-color: $iif-link-hover-color;
+
+//
+// Icon button
+//
+$iif-icon-button-border-width: 0;
+$iif-icon-button-border-radius: $iif-border-radius-small;
+
+// Normal
+$iif-icon-button-color: $iif-text-muted-color;
+$iif-icon-button-background-color: transparent;
+$iif-icon-button-border-color: transparent;
+
+// Hover
+$iif-icon-button-hover-color: $iif-link-hover-color;
+$iif-icon-button-hover-background-color: transparent;
+$iif-icon-button-hover-border-color: transparent;
+
+//
+// Icons container
+//
+$iif-icons-container-padding: $iif-spacing 4px 4px;
+$iif-icons-container-border-radius: $iif-border-radius-small;
+
+$iif-icons-container-background-color: $iif-background-color2;
+$iif-icons-container-border-color: $iif-simple-border-color;
+
+// Header
+$iif-icons-header-padding: 0 4px;
+$iif-icons-header-modes-icon-size: 20px;
+$iif-icons-header-modes-size: $iif-base-line-height;
+
+// Content wrapper
+$iif-icons-wrapper-border-width: 1px;
+
+$iif-icons-wrapper-background-color: $iif-background-color3;
+$iif-icons-wrapper-border-color: $iif-simple-border-color;
+
+//
+// Icons grid
+//
+// Container
+$iif-icons-container-grid-padding: 2px;
+$iif-icons-grid-icon-margin: 4px;
+$iif-icons-grid-icon-size: 48px;
+$iif-icons-grid-icon-compact-size: 36px;
+$iif-icons-grid-selecting-icon-size: $iif-icon-size / 2;
+
+// Icon link
+$iif-icons-grid-icon-border-width: max(1px, $iif-border-width);
+
+// Normal
+$iif-icons-grid-icon-color: $iif-text-dimmed-color;
+$iif-icons-grid-icon-background-color: transparent;
+$iif-icons-grid-icon-border-color: transparent;
+
+// Selecting
+$iif-icons-grid-icon-selecting-border-color: $iif-solid-border-color;
+
+// Hover
+$iif-icons-grid-icon-hover-color: $iif-link-hover-color;
+$iif-icons-grid-icon-hover-background-color: $iif-background-color2;
+$iif-icons-grid-icon-hover-border-color: $iif-solid-border-color;
+
+// Focus
+$iif-icons-grid-icon-focus-color: $iif-icons-grid-icon-color;
+$iif-icons-grid-icon-focus-background-color: $iif-icons-grid-icon-hover-background-color;
+$iif-icons-grid-icon-focus-border-color: $iif-border-focus-color;
+
+// Selected
+$iif-icons-grid-icon-selected-color: $iif-text-color;
+$iif-icons-grid-icon-selected-background-color: $iif-background-color3;
+$iif-icons-grid-icon-selected-border-color: palette($iif-link-palette, 300);
+
+// Selected, hover
+$iif-icons-grid-icon-selected-hover-color: $iif-link-hover-color;
+$iif-icons-grid-icon-selected-hover-background-color: $iif-icons-grid-icon-selected-background-color;
+$iif-icons-grid-icon-selected-hover-border-color: palette(
+	$iif-link-hover-palette,
+	300
+);
+
+//
+// Icons list
+//
+// Container
+$iif-icons-container-list-height: 320px;
+
+// Item
+$iif-icons-list-icon-size: 32px;
+$iif-icons-list-padding-vertical: 4px;
+$iif-icons-list-left-border-width: 2px;
+
+$iif-icons-list-separator-width: 1px;
+$iif-icons-list-highlight-borders: false; // True if borders are used to highlight hover/selected icon (changes behavior of borders)
+
+// Checkbox
+$iif-icons-list-selecting-icon-size: $iif-icon-size / 2;
+$iif-icons-list-selecting-border-width: 1px;
+$iif-icons-list-selecting-border-color: $iif-simple-border-color;
+
+// Sample
+$iif-icons-list-sample-left: $iif-icons-list-padding-vertical;
+
+// Stats
+$iif-icons-list-stats-padding-left: $iif-icons-list-icon-size +
+	$iif-icons-list-sample-left + $iif-spacing;
+$iif-icons-list-stats-line-height: 26px;
+$iif-icons-list-text-margin: 4px;
+
+// Normal color
+$iif-icons-list-color: $iif-text-color;
+$iif-icons-list-sample-color: $iif-icons-list-color;
+$iif-icons-list-separator-color: $iif-simple-border-color;
+$iif-icons-list-left-border-color: transparent;
+$iif-icons-list-size-color: $iif-text-muted-color;
+
+// Row hover
+$iif-icons-list-row-hover-color: $iif-link-color;
+$iif-icons-list-row-hover-sample-color: $iif-link-color;
+$iif-icons-list-row-hover-background-color: $iif-background-color2;
+$iif-icons-list-row-hover-separator-color: palette($iif-link-palette, 300);
+$iif-icons-list-row-hover-left-border-color: palette($iif-link-palette, 300);
+
+// Selected icon
+$iif-icons-list-selected-color: $iif-link-color;
+$iif-icons-list-selected-sample-color: $iif-link-color;
+$iif-icons-list-selected-background-color: $iif-background-color2;
+$iif-icons-list-selected-separator-color: transparent;
+$iif-icons-list-selected-left-border-color: palette('gray', 300);
+
+// Selected row hover
+$iif-icons-list-selected-row-hover-color: $iif-icons-list-row-hover-color;
+$iif-icons-list-selected-row-hover-sample-color: $iif-icons-list-selected-sample-color;
+$iif-icons-list-selected-row-hover-background-color: $iif-icons-list-row-hover-background-color;
+$iif-icons-list-selected-row-hover-separator-color: palette(
+	$iif-link-hover-palette,
+	300
+);
+$iif-icons-list-selected-row-hover-left-border-color: palette(
+	$iif-link-hover-palette,
+	300
+);
+
+// Hover color
+$iif-icons-list-hover-color: $iif-link-hover-color;
+$iif-icons-list-sample-hover-color: $iif-icons-list-hover-color;
+
+// Focus color
+$iif-icons-list-focus-color: $iif-link-color;
+$iif-icons-list-sample-focus-color: $iif-icons-list-focus-color;
+
+//
+// Pagination
+//
+$iif-pagination-margin: ($iif-spacing + 4px) 0 $iif-spacing;
+$iif-pagination-padding: 0 ($iif-spacing * 5);
+$iif-pagination-page-height: 32px;
+$iif-pagination-page-min-width: 26px;
+$iif-pagination-page-margin: 2px;
+$iif-pagination-icon-size: $iif-icon-size;
+$iif-pagination-icon-width: 32px;
+$iif-pagination-icon-position: 4px;
+
+$iif-pagination-border-radius: $iif-border-radius-small;
+$iif-pagination-border-width: $iif-border-width;
+
+// Normal
+$iif-pagination-dot-color: $iif-text-muted-color;
+$iif-pagination-color: $iif-link-color;
+$iif-pagination-background-color: $iif-background-color3;
+$iif-pagination-border-color: $iif-simple-border-color;
+
+// Hover
+$iif-pagination-hover-color: palette('gray', 0);
+$iif-pagination-hover-background-color: palette($iif-link-hover-palette, 600);
+$iif-pagination-hover-border-color: palette($iif-link-hover-palette, 600);
+
+// Focus
+$iif-pagination-focus-color: $iif-link-color;
+$iif-pagination-focus-background-color: $iif-background-color2;
+$iif-pagination-focus-border-color: $iif-border-focus-color;
+
+// Selected
+$iif-pagination-selected-color: palette('gray', 0);
+$iif-pagination-selected-background-color: palette('blue-gray', 600);
+$iif-pagination-selected-border-color: palette('blue-gray', 600);
+
+//
+// Footer
+//
+$iif-footer-icon-name-text: 180px;
+$iif-footer-icon-name-sample-size: 32px;
+$iif-footer-icon-name-spacing: $iif-spacing;
+$iif-footer-icon-name-text-padding: $iif-spacing / 2;
+
+// Normal
+$iif-footer-icon-name-text-color: $iif-text-dimmed-color;
+$iif-footer-icon-name-sample-color: $iif-text-dimmed-color;
+
+// Hover
+$iif-footer-icon-name-sample-hover-color: $iif-link-color;
+$iif-footer-icon-name-sample-hover-background-color: $iif-background-color2;
+$iif-footer-icon-name-sample-hover-box-shadow: $iif-simple-border-color;
+
+//
+// Success notice
+//
+$iif-success-notice-background: palette('green', 600);
+$iif-success-notice-text: palette('green', 0);

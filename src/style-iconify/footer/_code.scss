@@ -1,0 +1,51 @@
+.iif-code {
+	&-heading {
+		font-size: $iif-large-font-size;
+		line-height: $iif-large-line-height;
+		color: $iif-text-dimmed-color;
+		margin-bottom: $iif-spacing;
+	}
+
+	p a {
+		text-decoration: none;
+		color: $iif-link-color;
+		.iconify {
+			display: none;
+		}
+		&:hover {
+			text-decoration: underline;
+			color: $iif-link-hover-color;
+		}
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+		&:focus:not(:hover) {
+			box-shadow: 0 0 0 2px $iif-border-focus-color;
+		}
+	}
+
+	&-docs {
+		line-height: $iif-icon-size;
+		position: relative;
+		padding: 0 ($iif-icon-size + 4px);
+		.iconify {
+			font-size: $iif-icon-size;
+			position: absolute;
+			left: 0;
+		}
+		> .iconify {
+			color: $iif-input-placeholder-icon-color;
+		}
+
+		// Swap icons on hover
+		&:hover {
+			a .iconify {
+				display: inline-block;
+			}
+			> .iconify {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+.iif-icon-button {
+	width: $iif-icon-button-size;
+	height: $iif-icon-button-size;
+	margin: 0;
+	padding: ($iif-icon-button-size - $iif-icon-size) / 2;
+
+	color: $iif-icon-button-color;
+	background: $iif-icon-button-background-color;
+	border: $iif-icon-button-border-width solid $iif-icon-button-border-color;
+
+	border-radius: $iif-icon-button-border-radius;
+	line-height: $iif-icon-size;
+	box-sizing: border-box;
+	cursor: pointer;
+
+	&:hover,
+	&:active {
+		color: $iif-icon-button-hover-color;
+		background-color: $iif-icon-button-hover-background-color;
+		@if $iif-icon-button-border-width > 0 {
+			border-color: $iif-icon-button-hover-border-color;
+		}
+	}
+	&:focus {
+		outline: none;
+	}
+
+	&:focus:not(:hover) {
+		box-shadow: $iif-filter-focus-shadow;
+	}
+
+	svg {
+		display: block;
+		font-size: $iif-icon-size;
+	}
+}

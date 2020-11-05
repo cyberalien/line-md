@@ -1,0 +1,78 @@
+.iif-block--parent {
+	@if $iif-parent-with-block {
+		border: $iif-parent-border-width solid $iif-parent-border-color;
+		border-radius: $iif-parent-border-radius;
+		background: $iif-parent-background-color;
+		margin: $iif-spacing 0;
+		padding: 0 ($iif-spacing / 2);
+	}
+	color: $iif-parent-color;
+
+	@include iif-font('base', 'normal');
+
+	.iif-parent-link {
+		display: block;
+		margin: ($iif-spacing / 2) 0;
+		padding: ($iif-spacing / 2);
+		position: relative;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+			padding-left: $iif-parent-icon-spacing;
+		}
+
+		svg {
+			font-size: $iif-icon-size;
+			line-height: 1em;
+			color: $iif-parent-icon-color;
+			position: absolute;
+			left: 2px;
+			top: 50%;
+			margin-top: 0 - $iif-parent-icon-size / 2;
+			transition: left 0.2s ease;
+			pointer-events: none;
+		}
+
+		@if $iif-parent-has-steps {
+			&:nth-child(2) {
+				margin-left: $iif-parent-level-spacing;
+			}
+			&:nth-child(3) {
+				margin-left: $iif-parent-level-spacing * 2;
+			}
+			&:nth-child(4) {
+				margin-left: $iif-parent-level-spacing * 3;
+			}
+		}
+	}
+
+	@if $iif-parent-with-block {
+		&:hover {
+			background-color: $iif-parent-hover-background-color;
+			border-color: $iif-parent-hover-border-color;
+		}
+	}
+
+	a:hover,
+	a:focus {
+		outline: none;
+	}
+
+	.iif-parent-link {
+		&:hover,
+		&:focus {
+			svg {
+				left: 0;
+			}
+		}
+
+		a {
+			&:hover,
+			&:focus {
+				color: $iif-parent-link-hover-color;
+				text-decoration: underline;
+			}
+		}
+	}
+}

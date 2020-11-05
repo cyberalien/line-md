@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="../dist/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://code.iconify.design/css/line-md.css"
+		/>
+
+		<title>Test</title>
+
+		<style>
+			html,
+			body {
+				background: #fff;
+			}
+			body {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			#container {
+			}
+			#debug {
+				border-top: 1px dotted #ccc;
+				margin: 8px 0;
+				padding: 8px 0;
+				font-size: 12px;
+				color: #888;
+			}
+		</style>
+
+		<script src="../node_modules/@iconify/iconify/dist/iconify.js"></script>
+		<script src="https://code.iconify.design/samples.js"></script>
+	</head>
+
+	<body>
+		<div id="container"></div>
+		<script>
+			(function () {
+				var node = document.createElement('script');
+				node.type = 'text/javascript';
+				node.async = true;
+				node.src = '../dist/icon-finder.js';
+				document.head.appendChild(node);
+			})();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+@import 'normalize';
+
+@import 'palette';
+@import 'vars';
+@import 'mixins';
+
+@import 'wrapper';
+
+@import 'inputs/button';
+@import 'inputs/icon_button';
+@import 'inputs/input';
+@import 'inputs/search_form';
+@import 'inputs/option_button';
+@import 'inputs/add_form';
+@import 'inputs/sample';
+
+@import 'components/collection_info';
+@import 'components/collections_list';
+@import 'components/content_error';
+@import 'components/filters';
+@import 'components/icons_block';
+@import 'components/icons_grid';
+@import 'components/icons_list';
+@import 'components/pagination';
+@import 'components/parent';
+@import 'components/tabs';
+
+@import 'footer/block';
+@import 'footer/icon_name_block';
+@import 'footer/icon_name_simple';
+@import 'footer/icons';
+@import 'footer/wrapper';
+@import 'footer/code';
+
+@import 'views/collections';
+@import 'views/error';

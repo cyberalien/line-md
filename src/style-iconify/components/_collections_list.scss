@@ -1,0 +1,298 @@
+// Container
+.iif-collections-list-category {
+	margin: ($iif-spacing * 2) 0;
+	&:after {
+		content: ' ';
+		display: table;
+		clear: both;
+	}
+}
+
+// Title
+.iif-collections-list-title {
+	@include iif-font('large', 'bold');
+	margin: 0 0 $iif-spacing;
+	color: $iif-collections-list-title-color;
+}
+
+// Items container
+.iif-collections-list-items {
+	list-style: none;
+	margin: 0 (0 - $iif-spacing);
+	padding: 0;
+}
+
+// One item container
+.iif-collection {
+	float: left;
+	min-width: $iif-collections-list-min-width;
+	max-width: $iif-collections-list-max-width;
+	margin: $iif-spacing;
+	position: relative;
+	padding: $iif-spacing $iif-collections-list-spacing $iif-spacing
+		($iif-collections-list-stats-width + $iif-spacing);
+	background: $iif-collection-background-color;
+
+	@if $iif-collection-normal-border-width > 0 {
+		box-shadow: 0
+			0
+			0
+			$iif-collection-normal-border-width
+			$iif-collection-border-color
+			inset;
+	}
+
+	&:hover {
+		background: $iif-collection-hover-background-color;
+		@if ($iif-collection-border-width > 0) {
+			box-shadow: 0
+				0
+				0
+				$iif-collection-border-width
+				$iif-collection-hover-border-color
+				inset;
+		}
+	}
+
+	&--clickable {
+		cursor: pointer;
+	}
+}
+
+// For modern browsers
+@supports (display: flex) {
+	.iif-collections-list-items {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.iif-collection {
+		flex: 1 1 0;
+	}
+}
+
+// Text block
+.iif-collection-text {
+	text-align: right;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	// Title
+	> span,
+	> a {
+		display: block;
+		margin: 0;
+		padding: 0;
+		@include iif-font('medium', 'normal');
+		line-height: $iif-collection-title-height;
+		height: $iif-collection-title-height;
+	}
+	> span {
+		// Fallback text when link is not available for some reason
+		color: $iif-text-dimmed-color;
+	}
+
+	// Link
+	> a {
+		color: palette($iif-rotation-default-palette, $iif-link-shade);
+		&:hover {
+			color: $iif-link-hover-color;
+			text-decoration: underline;
+		}
+		&:focus:not(:hover) {
+			box-shadow: none;
+			text-decoration: none;
+		}
+	}
+
+	// Author
+	> small {
+		@include iif-font('small', 'normal');
+		float: right;
+		margin: 0;
+		padding: 0;
+		line-height: $iif-collection-author-height;
+		height: $iif-collection-author-height;
+		color: $iif-collection-author-color;
+		max-width: ($iif-collections-list-min-width - $iif-spacing);
+		a {
+			color: inherit;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+// Stats block
+.iif-collection-data {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: $iif-collections-list-stats-width;
+	color: $iif-collection-stats-color;
+	background: palette(
+		$iif-rotation-default-palette,
+		$iif-collection-background-shade
+	);
+	border-width: 0px;
+
+	@if ($iif-collection-border-width > 0) {
+		border-right: $iif-collection-border-width solid transparent;
+	}
+
+	.iif-collection-samples {
+		box-sizing: content-box;
+		margin-right: 0 - $iif-collection-border-width;
+		padding: 6px 4px;
+		height: 24px;
+		white-space: nowrap;
+		overflow: hidden;
+		font-size: 16px;
+		line-height: 24px;
+		text-align: center;
+		background: $iif-collection-stats-overlay-background;
+
+		.iconify {
+			display: inline-block;
+			height: 24px;
+			margin: 0 3px;
+			vertical-align: -0.125em;
+		}
+	}
+
+	// Adjustments for various icon sizes to make them look as pixel perfect as possible
+	.iif-collection-samples--18 {
+		font-size: 18px;
+		.iconify {
+			margin: 0 2px;
+		}
+	}
+
+	.iif-collection-samples--20 {
+		font-size: 20px;
+		.iconify {
+			margin: 0 2px;
+		}
+	}
+
+	.iif-collection-samples--21 {
+		font-size: 21px;
+		.iconify {
+			margin: 0 1px;
+			vertical-align: -2px;
+		}
+	}
+
+	.iif-collection-samples--24 {
+		font-size: 24px;
+		.iconify {
+			margin: 0;
+			vertical-align: -4px;
+		}
+	}
+
+	.iif-collection-samples--25 {
+		font-size: 25px;
+		margin-bottom: -1px;
+		.iconify {
+			margin: 0 0 0 -1px;
+			vertical-align: -4px;
+		}
+	}
+
+	// Total number of icons
+	.iif-collection-total {
+		position: absolute;
+		left: 6px;
+		bottom: 4px;
+		height: 24px;
+		svg {
+			font-size: 24px;
+			line-height: 24px;
+			transform: rotate(360deg);
+		}
+	}
+
+	// Height
+	.iif-collection-height {
+		position: absolute;
+		right: 6px;
+		bottom: 4px;
+		height: 24px;
+		svg {
+			font-size: 24px;
+			line-height: 24px;
+			transform: rotate(360deg);
+		}
+	}
+}
+
+// Colors
+.iif-collection {
+	// Palette rotation
+	@for $i from 1 to $iif-rotation-palettes-length + 1 {
+		&--#{$i} {
+			$palette: nth($iif-rotation-palettes, $i);
+			.iif-collection-text > a {
+				color: palette($palette, $iif-link-shade);
+			}
+			.iif-collection-data {
+				background: palette($palette, $iif-collection-background-shade);
+			}
+		}
+	}
+
+	// Hover on entire collection
+	&--clickable:hover {
+		.iif-collection-text > a:hover {
+			text-decoration: none;
+		}
+	}
+
+	// Hover
+	&:hover,
+	&:focus-within {
+		background: $iif-collection-hover-background-color;
+		@if $iif-collection-border-width > 0 {
+			box-shadow: 0
+				0
+				0
+				$iif-collection-border-width
+				$iif-collection-hover-border-color
+				inset;
+		}
+
+		.iif-collection-text {
+			> a,
+			> span {
+				color: $iif-link-hover-color;
+			}
+		}
+
+		.iif-collection-data {
+			background: transparent;
+			color: $iif-collection-stats-hover-color;
+			@if $iif-collection-border-width > 0 {
+				border-right-color: $iif-collection-hover-border-color;
+			}
+
+			.iif-collection-samples {
+				background-color: transparent;
+
+				svg:hover {
+					color: $iif-link-hover-color;
+				}
+			}
+		}
+	}
+	&:focus-within:not(:hover) {
+		box-shadow: 0 0 0 2px $iif-collection-focus-border-color inset;
+
+		.iif-collection-data {
+			border-right-color: $iif-collection-focus-border-color;
+		}
+	}
+}

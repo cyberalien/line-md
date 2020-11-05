@@ -1,0 +1,48 @@
+// Font
+@mixin iif-font($size, $weight) {
+	font-family: $iif-font-family;
+
+	// Font weight
+	@if $weight == 'bold' and $size != 'large' {
+		font-weight: $iif-font-weight-bold;
+	} @else {
+		font-weight: $iif-font-weight-normal;
+	}
+
+	// Size and optional spacing
+	@if $size == 'small' {
+		font-size: $iif-small-font-size;
+		line-height: $iif-small-line-height;
+		// letter-spacing: $iif-letter-spacing;
+	} @else if $size == 'medium' {
+		font-size: $iif-medium-font-size;
+		line-height: $iif-medium-line-height;
+		// letter-spacing: $iif-letter-spacing;
+	} @else if $size == 'large' {
+		font-size: $iif-large-font-size;
+		line-height: $iif-large-line-height;
+		// letter-spacing: $iif-letter-spacing;
+	} @else {
+		font-size: $iif-base-font-size;
+		line-height: $iif-base-line-height;
+		// letter-spacing: $iif-letter-spacing;
+	}
+}
+
+// Output rotation colors, excluding black/white colors.
+@mixin iif-shade-colors(
+	$color,
+	$color-shade,
+	$background-shade,
+	$border-shade
+) {
+	@if ($color-shade > 0 and $color-shade < 1000) {
+		color: palette($color, $color-shade);
+	}
+	@if ($background-shade > 0 and $background-shade < 1000) {
+		background: palette($color, $background-shade);
+	}
+	@if ($border-shade > 0 and $border-shade < 1000) {
+		border-color: palette($color, $border-shade);
+	}
+}

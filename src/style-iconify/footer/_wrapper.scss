@@ -1,0 +1,76 @@
+.iif-block--footer {
+	// Footer is not in content wrapper, so it must have same padding as content
+	padding: 0 ($iif-spacing * 2) ($iif-spacing * 2) ($iif-spacing * 2);
+	margin: (0 - $iif-spacing) 0 0;
+}
+
+// Full footer
+.iif-footer-full {
+	display: flex;
+	width: 100%;
+	> div:first-child {
+		font-size: 160px;
+		margin: 0;
+	}
+	> div:last-child {
+		flex-grow: 1;
+		margin: 0 0 0 $iif-spacing * 2;
+	}
+
+	@media (max-width: 600px) {
+		display: block;
+		> div:first-child {
+			margin: $iif-spacing auto;
+			text-align: center;
+			svg {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+		> div:last-child {
+			margin: $iif-spacing 0;
+		}
+	}
+
+	// Sample in block mode
+	.iif-footer-sample--block {
+		svg {
+			display: block;
+			margin: $iif-border-width;
+		}
+		&:hover {
+			svg {
+				color: $iif-footer-icon-name-sample-hover-color;
+				background-color: $iif-footer-icon-name-sample-hover-background-color;
+				box-shadow: 0 0 0 $iif-border-width
+					$iif-footer-icon-name-sample-hover-box-shadow;
+			}
+		}
+	}
+
+	// Sample in inline mode
+	.iif-footer-sample--inline {
+		p {
+			margin: 0;
+			padding: 0 ($iif-spacing / 2);
+			font-size: $iif-base-font-size;
+			line-height: $iif-base-line-height;
+			color: $iif-footer-icon-name-sample-color;
+			border: $iif-border-width dotted $iif-simple-border-color;
+			border-radius: $iif-border-radius-small;
+			min-width: 160px;
+			&:hover {
+				color: $iif-footer-icon-name-sample-hover-color;
+				background-color: $iif-footer-icon-name-sample-hover-background-color;
+				border-color: $iif-footer-icon-name-sample-hover-box-shadow;
+			}
+		}
+	}
+}
+
+.iif-footer-buttons {
+	text-align: right;
+	button:last-child {
+		margin-right: 0;
+	}
+}

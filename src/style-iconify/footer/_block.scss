@@ -1,0 +1,75 @@
+.iif-footer-options-block-title {
+	@include iif-font('base', 'normal');
+	margin: $iif-spacing 0 0;
+	padding: 0;
+	color: $iif-text-dimmed-color;
+}
+
+.iif-footer-options-blocks {
+	margin-bottom: $iif-spacing * 2;
+
+	&:empty {
+		display: none;
+	}
+	&:after {
+		content: ' ';
+		display: table;
+		clear: both;
+	}
+}
+
+.iif-footer-options-block {
+	position: relative;
+	float: left;
+	margin: ($iif-spacing * 1.5) ($iif-spacing * 2) 0 0;
+	padding: ($iif-spacing * 2) 0 0 0;
+	background: $iif-background-color;
+	border: $iif-border-width dashed $iif-simple-border-color;
+	border-radius: $iif-border-radius-medium;
+
+	&:focus-within {
+		border-color: $iif-input-focus-border-color;
+	}
+
+	// Title
+	> p {
+		position: absolute;
+		left: 10px;
+		top: -11px;
+
+		@include iif-font('small', 'normal');
+		line-height: 1em;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		background: $iif-background-color;
+		color: $iif-text-muted-color;
+		margin: 0;
+		padding: 2px $iif-spacing 2px ($iif-spacing / 2);
+	}
+
+	// Content
+	> div {
+		display: flex;
+		padding: 0 $iif-spacing $iif-spacing;
+
+		.iif-input-wrapper {
+			+ .iif-input-wrapper {
+				margin-left: $iif-spacing;
+			}
+		}
+	}
+}
+
+// For modern browsers
+@supports (display: flex) {
+	.iif-footer-options-blocks {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.iif-footer-options-block {
+		float: none;
+	}
+}

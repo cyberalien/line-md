@@ -1,0 +1,41 @@
+.iif-wrapper {
+	letter-spacing: $iif-letter-spacing;
+	@include iif-font('base', 'normal');
+}
+
+.iif-content {
+	// Reset font
+	font-family: $iif-font-family;
+	font-size: $iif-base-font-size;
+	line-height: $iif-base-line-height;
+	font-weight: $iif-font-weight-normal;
+
+	// Reset colors
+	color: $iif-text-color;
+	background: $iif-background-color;
+
+	// Content stuff
+	padding: $iif-spacing * 2;
+
+	// Links
+	a {
+		color: $iif-link-color;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: $iif-link-hover-color;
+			text-decoration: none;
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		&:focus:not(:hover) {
+			text-decoration: underline;
+			box-shadow: 0 0 0 max($iif-border-width, 1px)
+				$iif-border-focus-color;
+		}
+	}
+}

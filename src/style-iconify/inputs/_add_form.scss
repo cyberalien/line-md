@@ -1,0 +1,24 @@
+.iif-block--add-form {
+	margin: ($iif-spacing * 2) 0;
+	padding: $iif-spacing;
+	border: $iif-border-width solid $iif-icons-container-border-color;
+	border-radius: $iif-icons-container-border-radius;
+	background: $iif-icons-container-background-color;
+}
+.iif-block--add-form-title {
+}
+.iif-block--add-form-form {
+	margin: $iif-spacing 0 0;
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+}
+.iif-block--add-form-status {
+	margin: $iif-spacing 0 0;
+}
+.iif-block--add-form-invalid {
+	margin: $iif-spacing 0 0;
+	color: $iif-text-dimmed-color;
+	font-size: $iif-small-font-size;
+	line-height: $iif-small-line-height;
+}

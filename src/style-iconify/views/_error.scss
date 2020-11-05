@@ -1,0 +1,74 @@
+.iif-block--error {
+	@include iif-font('large', 'bold');
+
+	position: relative;
+	margin: ($iif-spacing * 2) 0;
+	padding: $iif-spacing ($iif-spacing * 2);
+
+	color: $iif-error-color;
+	background: $iif-error-background-color;
+	border-radius: $iif-error-border-radius;
+	box-shadow: $iif-error-box-shadow;
+
+	p {
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		@include iif-font('base', 'normal');
+		color: inherit;
+		text-decoration: underline;
+		&:hover,
+		&:focus {
+			color: inherit;
+			text-decoration: underline;
+			outline: none;
+		}
+		&:focus:not(:hover) {
+			box-shadow: 0 0 0 max($iif-border-width, 1px) $iif-error-color;
+		}
+	}
+
+	&--loading {
+		background: $iif-error-loading-background-color;
+		animation-name: iif-loading-notice;
+		animation-duration: 2s;
+		animation-fill-mode: forwards;
+
+		svg {
+			animation: iif-spinner-icon 1s linear infinite;
+		}
+	}
+
+	svg {
+		position: absolute;
+		left: ($iif-spacing * 2);
+		top: 50%;
+		font-size: $iif-error-icon-size;
+		line-height: 1em;
+		margin-top: 0 - ($iif-error-icon-size / 2);
+	}
+	svg + p {
+		margin-left: $iif-error-icon-size + $iif-spacing * 1.5;
+	}
+}
+
+@keyframes iif-loading-notice {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes iif-spinner-icon {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

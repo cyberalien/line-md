@@ -1,0 +1,121 @@
+.iif-footer-icon-name--simple {
+	display: block;
+	margin: 0 0 $iif-spacing;
+	padding: 0;
+
+	dl {
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
+	dt {
+		@include iif-font('base', 'normal');
+		color: $iif-footer-icon-name-text-color;
+		display: block;
+		float: left;
+		width: $iif-footer-icon-name-text - $iif-footer-icon-name-spacing;
+		text-align: right;
+		margin: 0;
+		padding: $iif-footer-icon-name-text-padding;
+		padding-left: 0;
+		box-sizing: border-box;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	dd {
+		display: block;
+		margin-left: $iif-footer-icon-name-text;
+		padding: 0;
+		position: relative;
+	}
+
+	// For modern browsers
+	@supports (display: flex) {
+		dl {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+
+		dt {
+			float: none;
+			width: auto;
+			max-width: $iif-footer-icon-name-text;
+		}
+		dd {
+			flex-grow: 1;
+			margin-left: $iif-footer-icon-name-spacing;
+		}
+	}
+
+	// Icon
+	dd > svg {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		font-size: $iif-footer-icon-name-sample-size;
+		width: 1em;
+		height: 1em;
+		margin: (0 - $iif-footer-icon-name-sample-size / 2) 0 0;
+
+		color: $iif-footer-icon-name-sample-color;
+	}
+	&:hover dd > svg,
+	&:focus-within dd > svg {
+		color: $iif-footer-icon-name-sample-hover-color;
+		background-color: $iif-footer-icon-name-sample-hover-background-color;
+		box-shadow: 0 0 0 $iif-border-width
+			$iif-footer-icon-name-sample-hover-box-shadow;
+	}
+
+	.iif-input-wrapper {
+		margin-left: (
+			$iif-footer-icon-name-sample-size + $iif-footer-icon-name-spacing
+		);
+		width: auto;
+	}
+
+	.iif-footer-icon-name-input {
+		height: $iif-input-height;
+		margin: 0 0 0
+			($iif-footer-icon-name-sample-size + $iif-footer-icon-name-spacing);
+		padding: 0;
+		white-space: nowrap;
+		box-sizing: border-box;
+		position: relative;
+		color: $iif-input-color;
+		border: $iif-input-border-width solid $iif-input-border-color;
+		border-radius: $iif-input-border-radius;
+		background-color: $iif-input-background-color;
+
+		// Text
+		span {
+			// From .iif-input input
+			position: absolute;
+			box-sizing: border-box;
+			width: 100%;
+
+			font-size: $iif-input-font-size;
+			line-height: $iif-input-line-height;
+
+			left: 0;
+			right: 0;
+			top: ($iif-input-height - $iif-input-line-height) / 2 -
+				$iif-input-border-width;
+			bottom: ($iif-input-height - $iif-input-line-height) / 2 -
+				$iif-input-border-width;
+
+			margin: 0;
+			padding: 0;
+			padding-left: $iif-input-spacing + $iif-input-border-width;
+			padding-right: $iif-input-spacing * 2 + $iif-input-reset-size +
+				$iif-input-border-width;
+
+			&::selection {
+				color: $iif-input-selection-color;
+				background-color: $iif-input-selection-background-color;
+			}
+		}
+	}
+}

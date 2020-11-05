@@ -1,0 +1,65 @@
+.iif-footer-icon-name--block {
+	display: block;
+	margin: 0 0 $iif-spacing;
+	padding: 0;
+
+	@include iif-font('base', 'normal');
+	line-height: 26px;
+
+	color: $iif-input-color;
+	border: $iif-input-border-width solid $iif-input-border-color;
+	border-radius: $iif-input-border-radius;
+	background-color: $iif-input-background-color;
+
+	svg {
+		display: block;
+		float: left;
+		margin: 0 4px;
+	}
+
+	.iif-footer-small-sample {
+		top: 5px;
+		font-size: 16px;
+		line-height: 1em;
+		position: relative;
+		display: block;
+		float: left;
+
+		&--14 {
+			font-size: 14px;
+			top: 6px;
+		}
+		&--15 {
+			font-size: 15px;
+			top: 6px;
+		}
+		&--17 {
+			font-size: 17px;
+			top: 5px;
+		}
+		&--18 {
+			font-size: 18px;
+			top: 4px;
+		}
+		&--20 {
+			font-size: 20px;
+			top: 3px;
+		}
+		&--22 {
+			font-size: 22px;
+			top: 2px;
+		}
+		&--24 {
+			font-size: 24px;
+			top: 1px;
+		}
+		&--25 {
+			font-size: 25px;
+			top: 0;
+		}
+		&--26 {
+			font-size: 26px;
+			top: 0;
+		}
+	}
+}

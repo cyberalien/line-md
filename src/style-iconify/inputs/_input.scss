@@ -1,0 +1,259 @@
+.iif-input-wrapper {
+	position: relative;
+	width: 100%;
+	height: $iif-input-height; // changed for search
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+
+.iif-block--search--global,
+.iif-footer-icon-name {
+	.iif-input-reset {
+		// Do not show reset button unless input is active in:
+		// global search, editing icon name in footer
+		display: none;
+	}
+}
+
+.iif-input {
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	min-width: 180px;
+	height: $iif-input-height; // changed for search
+
+	margin: 0;
+	padding: 0;
+
+	color: $iif-input-color;
+	border: $iif-input-border-width solid $iif-input-border-color;
+	border-radius: $iif-input-border-radius;
+	background-color: $iif-input-background-color;
+
+	outline: none;
+	box-shadow: none;
+
+	&--number {
+		min-width: 120px;
+	}
+	&--color {
+		min-width: 140px;
+	}
+
+	// Icon
+	.iif-input-icon {
+		position: absolute;
+		left: ($iif-input-height - $iif-input-icon-size) / 2 -
+			$iif-input-border-width; // changed for search
+		top: ($iif-input-height - $iif-input-icon-size) / 2 -
+			$iif-input-border-width; // changed for search
+		pointer-events: none;
+		color: $iif-input-icon-color;
+		svg {
+			display: block;
+			font-size: $iif-input-icon-size;
+			width: 1em;
+		}
+	}
+
+	// Hover
+	&:hover {
+		color: $iif-input-hover-color;
+		border-color: $iif-input-hover-border-color;
+		background-color: $iif-input-hover-background-color;
+
+		.iif-input-icon {
+			color: $iif-input-icon-hover-color;
+		}
+	}
+
+	// Focus
+	&:focus-within {
+		color: $iif-input-focus-color;
+		border-color: $iif-input-focus-border-color;
+		background-color: $iif-input-focus-background-color;
+
+		@if $iif-input-border-width == 1px {
+			box-shadow: 0 0 0 1px $iif-input-focus-border-color;
+		}
+
+		.iif-input-icon {
+			color: $iif-input-icon-focus-color;
+		}
+	}
+
+	// Fake placeholder. It is better for accessibility than actual placeholders
+	.iif-input-placeholder {
+		position: absolute;
+
+		font-size: $iif-input-font-size; // changed for search
+		line-height: $iif-input-line-height; // changed for search
+
+		left: $iif-input-spacing + $iif-input-border-width;
+		// right: $iif-input-spacing * 2 + $iif-input-border-width +
+		// 	$iif-input-reset-size;
+		right: $iif-input-spacing + $iif-input-border-width;
+		top: ($iif-input-height - $iif-input-line-height) / 2 -
+			$iif-input-border-width; // changed for search
+		bottom: ($iif-input-height - $iif-input-line-height) / 2 -
+			$iif-input-border-width; // changed for search
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		color: $iif-input-placeholder-color;
+		pointer-events: none;
+
+		// For older browsers
+		&:hover {
+			display: none;
+		}
+	}
+
+	// Reset button
+	.iif-input-reset {
+		position: absolute;
+		// display: none;
+		right: ($iif-input-height - $iif-input-reset-size) / 2 -
+			$iif-input-border-width; // changed for search
+		top: ($iif-input-height - $iif-input-reset-size) / 2 -
+			$iif-input-border-width; // changed for search
+		width: $iif-input-reset-size;
+		height: $iif-input-reset-size;
+		text-align: center;
+		text-decoration: none;
+		color: $iif-input-reset-color;
+		&:hover {
+			color: $iif-input-reset-hover-color;
+		}
+		&:focus {
+			outline: none;
+			color: $iif-input-reset-hover-color;
+		}
+		&:focus:not(:hover) {
+			box-shadow: 0 0 0 2px $iif-border-focus-color;
+		}
+		svg {
+			display: block;
+			font-size: $iif-input-icon-size;
+			width: 1em;
+			margin: ($iif-input-reset-size - $iif-input-icon-size) / 2;
+			padding: 0;
+		}
+	}
+
+	&:hover,
+	&:focus-within {
+		.iif-input-reset {
+			display: block;
+		}
+	}
+
+	input {
+		position: absolute;
+		box-sizing: border-box;
+		width: 100%;
+
+		font-size: $iif-input-font-size; // changed for search
+		line-height: $iif-input-line-height; // changed for search
+
+		left: 0;
+		right: 0;
+		top: ($iif-input-height - $iif-input-line-height) / 2 -
+			$iif-input-border-width; // changed for search
+		bottom: ($iif-input-height - $iif-input-line-height) / 2 -
+			$iif-input-border-width; // changed for search
+
+		margin: 0;
+		padding: 0;
+		padding-left: $iif-input-spacing + $iif-input-border-width;
+		padding-right: $iif-input-spacing * 2 + $iif-input-reset-size +
+			$iif-input-border-width;
+		background: none;
+		border: none;
+		box-shadow: none;
+		outline: none;
+		&::selection {
+			color: $iif-input-selection-color;
+			background-color: $iif-input-selection-background-color;
+		}
+
+		// For older browsers
+		// &:focus + .iif-input-placeholder {
+		// 	display: none;
+		// }
+	}
+
+	// Adjustments for icon
+	&--with-icon {
+		input {
+			padding-left: $iif-input-spacing + $iif-input-border-width +
+				$iif-input-icon-spacing; // changed for search
+		}
+		.iif-input-placeholder {
+			padding-left: $iif-input-icon-spacing; // changed for search
+		}
+	}
+
+	// Focused state
+	// &:focus-within {
+	// 	.iif-input-placeholder {
+	// 		display: none;
+	// 	}
+	// }
+}
+
+// Changes for search (copy all values that are changed)
+.iif-block--search {
+	.iif-input-wrapper,
+	.iif-input {
+		height: $iif-big-input-height;
+	}
+
+	.iif-input {
+		.iif-input-icon {
+			left: ($iif-big-input-height - $iif-input-icon-size) / 2 -
+				$iif-input-border-width;
+			top: ($iif-big-input-height - $iif-input-icon-size) / 2 -
+				$iif-input-border-width;
+		}
+
+		.iif-input-placeholder {
+			font-size: $iif-big-input-font-size;
+			line-height: $iif-big-input-line-height;
+
+			top: ($iif-big-input-height - $iif-big-input-line-height) / 2 -
+				$iif-input-border-width;
+			bottom: ($iif-big-input-height - $iif-big-input-line-height) / 2 -
+				$iif-input-border-width;
+		}
+
+		.iif-input-reset {
+			right: ($iif-big-input-height - $iif-input-reset-size) / 2 -
+				$iif-input-border-width;
+			top: ($iif-big-input-height - $iif-input-reset-size) / 2 -
+				$iif-input-border-width;
+		}
+
+		input {
+			font-size: $iif-big-input-font-size;
+			line-height: $iif-big-input-line-height;
+
+			top: ($iif-big-input-height - $iif-big-input-line-height) / 2 -
+				$iif-input-border-width;
+			bottom: ($iif-big-input-height - $iif-big-input-line-height) / 2 -
+				$iif-input-border-width;
+		}
+
+		&--with-icon {
+			input {
+				padding-left: $iif-input-spacing + $iif-input-border-width +
+					$iif-big-input-icon-spacing;
+			}
+			.iif-input-placeholder {
+				padding-left: $iif-big-input-icon-spacing;
+			}
+		}
+	}
+}

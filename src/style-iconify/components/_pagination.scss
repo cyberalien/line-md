@@ -1,0 +1,116 @@
+.iif-pagination {
+	margin: $iif-pagination-margin;
+	padding: $iif-pagination-padding;
+	text-align: center;
+	position: relative;
+
+	span,
+	.iif-page {
+		display: inline-block;
+		@include iif-font('base', 'normal');
+		padding: (
+				($iif-pagination-page-height - $iif-base-line-height) / 2 -
+					$iif-pagination-border-width
+			)
+			$iif-spacing;
+		box-sizing: border-box;
+		height: $iif-pagination-page-height;
+	}
+
+	span {
+		color: $iif-pagination-dot-color;
+		pointer-events: none;
+	}
+
+	.iif-page {
+		margin: $iif-pagination-page-margin;
+		min-width: $iif-pagination-page-min-width;
+
+		color: $iif-pagination-color;
+		background: $iif-pagination-background-color;
+		border: $iif-pagination-border-width solid $iif-pagination-border-color;
+		border-radius: $iif-pagination-border-radius;
+
+		text-align: center;
+		text-decoration: none;
+		box-sizing: border-box;
+
+		&:hover,
+		&:active {
+			color: $iif-pagination-hover-color;
+			background: $iif-pagination-hover-background-color;
+			@if $iif-pagination-border-width {
+				border-color: $iif-pagination-hover-border-color;
+			}
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		&:focus:not(:hover) {
+			color: $iif-pagination-focus-color;
+			background: $iif-pagination-focus-background-color;
+			@if $iif-pagination-border-width == 2px {
+				border-color: $iif-pagination-focus-border-color;
+				box-shadow: none;
+			}
+			@if $iif-pagination-border-width == 1px {
+				border-color: $iif-pagination-focus-border-color;
+				box-shadow: 0 0 0 1px $iif-border-focus-color;
+			}
+			@if $iif-pagination-border-width == 0 {
+				box-shadow: 0 0 0 1px $iif-border-focus-color;
+			}
+			text-decoration: none;
+		}
+
+		&--more {
+			padding-left: $iif-spacing;
+			padding-right: $iif-spacing;
+		}
+
+		// Selected page
+		&--selected {
+			color: $iif-pagination-selected-color;
+			background: $iif-pagination-selected-background-color;
+			@if $iif-pagination-border-width {
+				border-color: $iif-pagination-selected-border-color;
+			}
+
+			box-shadow: none !important;
+			pointer-events: none;
+		}
+
+		// Arrows
+		&--arrow {
+			position: absolute;
+			top: 50%;
+			margin: 0;
+			margin-top: (0 - $iif-pagination-page-height) / 2;
+			width: $iif-pagination-icon-width;
+			padding: (
+					($iif-pagination-page-height - $iif-pagination-icon-size) /
+						2 - $iif-pagination-border-width
+				)
+				(
+					($iif-pagination-icon-width - $iif-pagination-icon-size) / 2 -
+						$iif-pagination-border-width
+				);
+
+			svg {
+				display: block;
+				font-size: $iif-pagination-icon-size;
+				line-height: 1em;
+				margin: 0;
+				padding: 0;
+			}
+		}
+		&--prev {
+			left: $iif-pagination-icon-position;
+		}
+		&--next {
+			right: $iif-pagination-icon-position;
+		}
+	}
+}
