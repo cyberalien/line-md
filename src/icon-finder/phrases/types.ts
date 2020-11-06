@@ -74,6 +74,7 @@ export interface UITranslation {
 			after: string;
 		};
 		remove: string;
+		select: string;
 	};
 	footerButtons: Record<string, string>;
 	footerBlocks: Record<string, string>;
