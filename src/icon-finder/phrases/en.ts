@@ -107,6 +107,7 @@ export const phrases: UITranslation = {
 			after: 'to show icon alignment in text.',
 		},
 		remove: 'Remove {name}',
+		select: 'Select {name}',
 	},
 	footerButtons: {
 		submit: 'Submit',

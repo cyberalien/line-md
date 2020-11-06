@@ -4,6 +4,8 @@
 	// Block type
 	export let type: string;
 
+	const baseClass = 'iif-footer-options-block';
+
 	// Get title
 	let title: string;
 	$: {
@@ -21,7 +23,7 @@
 	}
 </script>
 
-<div class="iif-footer-options-block">
+<div class={baseClass + ' ' + baseClass + '--' + type}>
 	<p>{title}</p>
 	<div>
 		<slot />

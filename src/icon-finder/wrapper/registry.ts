@@ -1,7 +1,7 @@
 import type { Registry } from '@iconify/search-core';
 import type { FullIconFinderConfig } from '@iconify/search-core/lib/data/config';
 import type { UIEvent } from '../events/types';
-import type { ComponentsConfig } from './config';
+import type { ComponentsConfig } from '../config/wrapper';
 
 /**
  * Add UI to config

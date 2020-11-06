@@ -71,6 +71,7 @@ export const showButtons = false;
 export const footerButtons: Record<string, FooterButton> = {
 	submit: {
 		type: 'primary',
+		display: 'icons', // Show only when icon(s) have been selected
 	},
 	cancel: {
 		type: 'secondary',

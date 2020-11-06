@@ -37,7 +37,7 @@ import {
 	mergeCustomisations,
 } from './customisations';
 import type { ContainerProps } from './wrapper/container';
-import { defaultComponentsConfig } from './wrapper/config';
+import { defaultComponentsConfig } from './config/wrapper';
 import type { SelectedIcons, SelectIcon } from './wrapper/icons';
 import {
 	addToSelection,

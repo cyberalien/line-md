@@ -22,12 +22,20 @@
 	// Current route
 	export let route: FullRoute;
 
+	// Selected icon
+	export let selected: string = '';
+
+	// Callback when new icon has been selected
+	export let onSelect: ((icon: Icon) => void) | null = null;
+
 	// Convert icons list to strings
 	interface ListItem {
 		icon: Icon;
 		name: string;
 		text: string;
-		title: string;
+		removeTitle: string;
+		selectTitle: string;
+		selected: boolean;
 	}
 	let items: ListItem[];
 	$: {
@@ -42,14 +50,19 @@
 				: name;
 
 			// Hint
-			const title = phrases.footer.remove.replace('{name}', text);
+			const removeTitle = phrases.footer.remove.replace('{name}', text);
+			const selectTitle = onSelect
+				? phrases.footer.select.replace('{name}', text)
+				: removeTitle;
 
 			// Item
 			const item: ListItem = {
 				icon,
 				name,
 				text,
-				title,
+				removeTitle,
+				selectTitle,
+				selected: name === selected,
 			};
 			items.push(item);
 		});
@@ -93,7 +106,11 @@
 	}
 
 	// Toggle icon
-	function onClick(icon: Icon) {
+	function onClick(select: boolean, icon: Icon) {
+		if (select && onSelect) {
+			onSelect(icon);
+			return;
+		}
 		registry.callback({
 			type: 'selection',
 			icon,
@@ -103,17 +120,34 @@
 </script>
 
 <Block type="icons">
-	<div class="iif-footer-icons" {style}>
+	<ul class="iif-footer-icons" {style}>
 		{#each items as item, i (item.name)}
-			<a
-				href="# "
-				on:click|preventDefault={() => {
-					onClick(item.icon);
-				}}
-				title={item.title}>
-				<UIIcon icon={item.name} {props} />
-				<UIIcon icon="reset" />
-			</a>
+			<li>
+				<a
+					href="# "
+					on:click|preventDefault={() => {
+						onClick(true, item.icon);
+					}}
+					title={item.selectTitle}>
+					<UIIcon icon={item.name} {props} />
+					{#if !onSelect}
+						<span class="iif-footer-icons-reset">
+							<UIIcon icon="reset" />
+						</span>
+					{/if}
+				</a>
+				{#if onSelect}
+					<a
+						href="# "
+						class="iif-footer-icons-reset"
+						on:click|preventDefault={() => {
+							onClick(false, item.icon);
+						}}
+						title={item.removeTitle}>
+						<UIIcon icon="reset" />
+					</a>
+				{/if}
+			</li>
 		{/each}
-	</div>
+	</ul>
 </Block>
