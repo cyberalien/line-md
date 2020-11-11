@@ -32,7 +32,12 @@
 	) => void;
 
 	// Title
-	const title = showPropsTitle ? phrases.footerBlocks.title : '';
+	let title: string;
+	$: {
+		title = showPropsTitle
+			? phrases.footerBlocks[icons.length > 1 ? 'title2' : 'title']
+			: '';
+	}
 </script>
 
 {#if showPropsTitle && title}
