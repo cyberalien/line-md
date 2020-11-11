@@ -764,5 +764,36 @@ export function getIconCode(
 			assertNever(lang);
 	}
 
+	// Add line-md stylesheet
+	if (lang !== 'svg-uri') {
+		// Add link to footer
+		output.footer = {
+			text:
+				'Do not forget to add stylesheet to your page if you want animated icons:',
+			code:
+				'<link rel="stylesheet" href="https://code.iconify.design/css/line-md.css">',
+		};
+
+		// Modify code
+		if (output.component) {
+			if (typeof output.component.use === 'string') {
+				// Add class
+				output.component.use = output.component.use
+					// Rect and Svelte
+					.replace(
+						'Icon icon={',
+						'Icon class' +
+							(lang === 'svelte' ? '' : 'Name') +
+							'="iconify--line-md" icon={'
+					)
+					// Vue
+					.replace(
+						'Icon :icon',
+						'Icon class="iconify--line-md" :icon'
+					);
+			}
+		}
+	}
+
 	return output;
 }
