@@ -43,18 +43,12 @@
 	// Base class name
 	const baseClass = 'iif-icons';
 
-	// List of key maps: key = block name, value = icon attribute
-	const filtersMap: Partial<Record<
-		keyof CollectionViewBlocks,
-		keyof Icon
-	>> = {
-		tags: 'tags',
-		themePrefixes: 'themePrefix',
-		themeSuffixes: 'themeSuffix',
-	};
-	const filterKeys = Object.keys(
-		filtersMap
-	) as (keyof CollectionViewBlocks)[];
+	// List of keys used for filters. Same keys are used in both blocks and icon.
+	const filterKeys: (keyof CollectionViewBlocks & keyof Icon)[] = [
+		'tags',
+		'themePrefixes',
+		'themeSuffixes',
+	];
 
 	// Tooltip
 	const tooltipText = phrases.icons.tooltip;
@@ -94,18 +88,17 @@
 
 		// Filters
 		filterKeys.forEach((k) => {
-			const key = k as keyof CollectionViewBlocks;
+			const key = k as keyof CollectionViewBlocks & keyof Icon;
 			if (!(blocks as CollectionViewBlocks)[key]) {
 				return;
 			}
-			const attr = filtersMap[key]!;
-			if (icon[attr] === void 0) {
+			if (icon[key] === void 0) {
 				return;
 			}
 
 			const block = (blocks as CollectionViewBlocks)[key] as FiltersBlock;
 			const active = block.active;
-			const iconValue = icon[attr];
+			const iconValue = icon[key];
 
 			(typeof iconValue === 'string'
 				? [iconValue]

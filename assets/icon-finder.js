@@ -12015,18 +12015,18 @@
 
 	function get_each_context$9(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[16] = list[i];
-		child_ctx[18] = i;
+		child_ctx[15] = list[i];
+		child_ctx[17] = i;
 		return child_ctx;
 	}
 
-	// (224:3) {:else}
+	// (222:3) {:else}
 	function create_else_block$4(ctx) {
 		let icongrid;
 		let current;
 
 		const icongrid_spread_levels = [
-			/*item*/ ctx[16],
+			/*item*/ ctx[15],
 			{ onClick: /*onClick*/ ctx[3] },
 			{ isSelecting: /*isSelecting*/ ctx[1] }
 		];
@@ -12050,7 +12050,7 @@
 			p(ctx, dirty) {
 				const icongrid_changes = (dirty & /*parsedIcons, onClick, isSelecting*/ 14)
 				? get_spread_update(icongrid_spread_levels, [
-						dirty & /*parsedIcons*/ 4 && get_spread_object(/*item*/ ctx[16]),
+						dirty & /*parsedIcons*/ 4 && get_spread_object(/*item*/ ctx[15]),
 						dirty & /*onClick*/ 8 && { onClick: /*onClick*/ ctx[3] },
 						dirty & /*isSelecting*/ 2 && { isSelecting: /*isSelecting*/ ctx[1] }
 					])
@@ -12073,13 +12073,13 @@
 		};
 	}
 
-	// (222:3) {#if isList}
+	// (220:3) {#if isList}
 	function create_if_block$e(ctx) {
 		let iconlist;
 		let current;
 
 		const iconlist_spread_levels = [
-			/*item*/ ctx[16],
+			/*item*/ ctx[15],
 			{ onClick: /*onClick*/ ctx[3] },
 			{ isSelecting: /*isSelecting*/ ctx[1] }
 		];
@@ -12103,7 +12103,7 @@
 			p(ctx, dirty) {
 				const iconlist_changes = (dirty & /*parsedIcons, onClick, isSelecting*/ 14)
 				? get_spread_update(iconlist_spread_levels, [
-						dirty & /*parsedIcons*/ 4 && get_spread_object(/*item*/ ctx[16]),
+						dirty & /*parsedIcons*/ 4 && get_spread_object(/*item*/ ctx[15]),
 						dirty & /*onClick*/ 8 && { onClick: /*onClick*/ ctx[3] },
 						dirty & /*isSelecting*/ 2 && { isSelecting: /*isSelecting*/ ctx[1] }
 					])
@@ -12126,7 +12126,7 @@
 		};
 	}
 
-	// (221:2) {#each parsedIcons as item, i (item.name)}
+	// (219:2) {#each parsedIcons as item, i (item.name)}
 	function create_each_block$9(key_1, ctx) {
 		let first;
 		let current_block_type_index;
@@ -12209,7 +12209,7 @@
 		let div_class_value;
 		let current;
 		let each_value = /*parsedIcons*/ ctx[2];
-		const get_key = ctx => /*item*/ ctx[16].name;
+		const get_key = ctx => /*item*/ ctx[15].name;
 
 		for (let i = 0; i < each_value.length; i += 1) {
 			let child_ctx = get_each_context$9(ctx, each_value, i);
@@ -12293,14 +12293,8 @@
 		let { isList } = $$props;
 		let { isSelecting } = $$props;
 
-		// List of key maps: key = block name, value = icon attribute
-		const filtersMap = {
-			tags: "tags",
-			themePrefixes: "themePrefix",
-			themeSuffixes: "themeSuffix"
-		};
-
-		const filterKeys = Object.keys(filtersMap);
+		// List of keys used for filters. Same keys are used in both blocks and icon.
+		const filterKeys = ["tags", "themePrefixes", "themeSuffixes"];
 
 		// Tooltip
 		const tooltipText = phrases.icons.tooltip;
@@ -12329,15 +12323,13 @@
 					return;
 				}
 
-				const attr = filtersMap[key];
-
-				if (icon[attr] === void 0) {
+				if (icon[key] === void 0) {
 					return;
 				}
 
 				const block = blocks[key];
 				const active = block.active;
-				const iconValue = icon[attr];
+				const iconValue = icon[key];
 
 				(typeof iconValue === "string"
 				? [iconValue]
