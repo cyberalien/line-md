@@ -5,15 +5,6 @@
 	import { phrases } from '../../../config/phrases';
 	import type { IconsListFilter } from '../../types';
 	import UIIcon from '../../misc/Icon.svelte';
-
-	// List of key maps: key = block name, value = icon attribute
-	const filtersMap = {
-		tags: 'tags',
-		themePrefixes: 'themePrefix',
-		themeSuffixes: 'themeSuffix',
-	};
-	const filterKeys = Object.keys(filtersMap);
-
 	import Filter from '../filters/Filter.svelte';
 
 	// Icon name
