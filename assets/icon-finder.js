@@ -11132,11 +11132,11 @@
 
 	function get_each_context$8(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[17] = list[i];
+		child_ctx[15] = list[i];
 		return child_ctx;
 	}
 
-	// (85:3) {#if svg !== false}
+	// (78:3) {#if svg !== false}
 	function create_if_block_2$4(ctx) {
 		let html_tag;
 		let t;
@@ -11202,7 +11202,7 @@
 		};
 	}
 
-	// (87:4) {#if isSelecting}
+	// (80:4) {#if isSelecting}
 	function create_if_block_3$2(ctx) {
 		let uiicon;
 		let current;
@@ -11247,7 +11247,7 @@
 		};
 	}
 
-	// (103:2) {#if size}
+	// (96:2) {#if size}
 	function create_if_block_1$5(ctx) {
 		let div;
 		let t0_value = /*size*/ ctx[9].width + "";
@@ -11280,7 +11280,7 @@
 		};
 	}
 
-	// (106:2) {#if filters}
+	// (99:2) {#if filters}
 	function create_if_block$c(ctx) {
 		let each_1_anchor;
 		let current;
@@ -11364,21 +11364,21 @@
 		};
 	}
 
-	// (107:3) {#each filters as filter}
+	// (100:3) {#each filters as filter}
 	function create_each_block$8(ctx) {
 		let filter;
 		let current;
 
 		function func(...args) {
-			return /*func*/ ctx[14](/*filter*/ ctx[17], ...args);
+			return /*func*/ ctx[14](/*filter*/ ctx[15], ...args);
 		}
 
 		filter = new Filter({
 				props: {
-					filter: /*filter*/ ctx[17].item,
-					title: /*filter*/ ctx[17].item.title === ""
+					filter: /*filter*/ ctx[15].item,
+					title: /*filter*/ ctx[15].item.title === ""
 					? phrases.filters.uncategorised
-					: /*filter*/ ctx[17].item.title,
+					: /*filter*/ ctx[15].item.title,
 					onClick: func
 				}
 			});
@@ -11394,11 +11394,11 @@
 			p(new_ctx, dirty) {
 				ctx = new_ctx;
 				const filter_changes = {};
-				if (dirty & /*filters*/ 64) filter_changes.filter = /*filter*/ ctx[17].item;
+				if (dirty & /*filters*/ 64) filter_changes.filter = /*filter*/ ctx[15].item;
 
-				if (dirty & /*filters*/ 64) filter_changes.title = /*filter*/ ctx[17].item.title === ""
+				if (dirty & /*filters*/ 64) filter_changes.title = /*filter*/ ctx[15].item.title === ""
 				? phrases.filters.uncategorised
-				: /*filter*/ ctx[17].item.title;
+				: /*filter*/ ctx[15].item.title;
 
 				if (dirty & /*onClick, filters*/ 80) filter_changes.onClick = func;
 				filter.$set(filter_changes);
@@ -11595,6 +11595,9 @@
 	const baseClass$5 = "iif-icon-list";
 
 	function instance$l($$self, $$props, $$invalidate) {
+		
+		
+		
 		let { name } = $$props;
 		let { tooltip } = $$props;
 		let { text } = $$props;
