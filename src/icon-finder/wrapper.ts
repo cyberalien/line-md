@@ -546,34 +546,51 @@ export class Wrapper {
 	}
 
 	/**
-	 * Select / deselect icon
+	 * Select icon(s)
 	 */
-	selectIcon(
-		icon: Icon | string | null,
-		select: SelectIcon = 'toggle'
-	): void {
+	selectIcons(icons: (Icon | string)[] | null): void {
 		if (this._status === 'destroyed') {
 			return;
 		}
 
-		let iconValue: Icon | null;
+		const state = this._state;
 
-		// Convert and validate icon
-		if (typeof icon === 'string') {
-			// Convert from string. Allow empty string to reset selected icon
-			if (icon === '') {
-				iconValue = null;
-			} else {
-				iconValue = stringToIcon(icon);
-				if (!validateIcon(iconValue)) {
-					return;
+		// Reset icons
+		this._selection = Object.create(null);
+		const selection = this._selection;
+
+		// Add all icons (only last icon if multiple icons cannot be selected)
+		if (icons) {
+			(this._registry.config.components.multiSelect
+				? icons
+				: icons.slice(-1)
+			).forEach((icon) => {
+				const converted =
+					typeof icon === 'string' ? stringToIcon(icon) : icon;
+				if (converted) {
+					addToSelection(selection, converted);
 				}
-			}
-		} else {
-			iconValue = icon;
+			});
 		}
 
-		this._selectIcon(iconValue, select, true);
+		// Update variables
+		state.icons = selectionToArray(selection);
+		this._selectionLength = state.icons.length;
+
+		// Update container
+		if (this._container) {
+			const update: Partial<ContainerProps> = {
+				selection: selection,
+				selectionLength: this._selectionLength,
+			};
+			this._container.$set(update);
+		}
+
+		// Trigger event
+		this._triggerEvent({
+			type: 'selection',
+			icons: state.icons,
+		});
 	}
 
 	/**
