@@ -105,6 +105,7 @@
 		</div>
 
 		<CodeComponent
+			{registry}
 			mode={selection.active.key}
 			{icon}
 			{customisations}

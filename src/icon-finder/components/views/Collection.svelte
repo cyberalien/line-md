@@ -95,7 +95,7 @@
 	{/if}
 
 	{#if showCollectionInfoBlock && info !== null}
-		<CollectionInfoBlock name="info" block={blocks.info} />
+		<CollectionInfoBlock {registry} name="info" block={blocks.info} />
 	{/if}
 
 	<SearchBlock {registry} name="filter" block={blocks.filter} {info} />

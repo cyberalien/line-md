@@ -1,8 +1,11 @@
 <script lang="typescript">
 	import type { CollectionInfoBlock } from '@iconify/search-core';
 	import type { CollectionInfo } from '@iconify/search-core/lib/converters/collection';
+	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import Block from './Block.svelte';
+
+	export let registry: WrappedRegistry;
 
 	// Block name
 	export let name: string;
@@ -11,6 +14,9 @@
 	export let block: CollectionInfoBlock;
 
 	const text = phrases.collectionInfo;
+
+	// Callback for external link
+	const onExternalClick = registry.link;
 
 	// Split info into a separate object
 	let info: CollectionInfo | null;
@@ -29,6 +35,7 @@
 					{#if info.author.url}
 						<a
 							href={info.author.url}
+							on:click={onExternalClick}
 							target="_blank">{info.author.name}</a>
 					{:else}{info.author.name}{/if}
 				</dd>
@@ -41,6 +48,7 @@
 					{#if info.license.url}
 						<a
 							href={info.license.url}
+							on:click={onExternalClick}
 							target="_blank">{info.license.title}</a>
 					{:else}{info.license.title}{/if}
 				</dd>

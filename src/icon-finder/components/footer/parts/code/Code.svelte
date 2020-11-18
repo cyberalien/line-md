@@ -1,6 +1,7 @@
 <script lang="typescript">
 	import type { Icon } from '@iconify/search-core';
 	import { phrases } from '../../../../config/phrases';
+	import type { WrappedRegistry } from '../../../../wrapper/registry';
 	import type { IconCustomisations } from '../../../../customisations/types';
 	import type { AvailableLanguages } from '../../../../footer/code-tree';
 	import type { ProviderCodeData } from '../../../../footer/types';
@@ -13,6 +14,8 @@
 	import UIIcon from '../../../misc/Icon.svelte';
 	import SampleInput from './Sample.svelte';
 
+	export let registry: WrappedRegistry;
+
 	// Selected icon
 	export let icon: Icon;
 
@@ -24,6 +27,9 @@
 
 	// Mode
 	export let mode: AvailableLanguages;
+
+	// Callback for external link
+	const onExternalClick = registry.link;
 
 	// Get text
 	const codePhrases = phrases.codeSamples;
@@ -107,7 +113,10 @@
 	{#if output.docs}
 		<p class="iif-code-docs">
 			<UIIcon icon="docs" />
-			<a href={output.docs.href} target="_blank">
+			<a
+				href={output.docs.href}
+				on:click={onExternalClick}
+				target="_blank">
 				{docsText}
 				<UIIcon icon="link" />
 			</a>

@@ -118,6 +118,9 @@ export class Wrapper {
 		// Callback
 		registry.setCustom('callback', this._internalCallback.bind(this));
 
+		// External link callback
+		registry.setCustom('link', this._externalLinkCallback.bind(this));
+
 		// Add API providers
 		addCustomAPIProviders(registry);
 
@@ -419,6 +422,23 @@ export class Wrapper {
 			default:
 				// Should never reach this code
 				assertNever(type);
+		}
+	}
+
+	/**
+	 * External link was clicked
+	 */
+	_externalLinkCallback(event: MouseEvent): void {
+		if (event && event.target) {
+			const target = event.target as HTMLLinkElement;
+			const href = target.getAttribute('href');
+			if (typeof href === 'string') {
+				this._triggerEvent({
+					type: 'link',
+					href,
+					event,
+				});
+			}
 		}
 	}
 

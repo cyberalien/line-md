@@ -23,6 +23,9 @@
 	// Callback for click
 	export let onClick: (prefix: string) => void;
 
+	// Callback for external link
+	export let onExternalClick: (event: MouseEvent) => void;
+
 	// Get link
 	let link: string;
 	$: {
@@ -102,6 +105,7 @@
 				{#if showCollectionAuthorLink && info.author.url}
 					<a
 						href={info.author.url}
+						on:click={onExternalClick}
 						target="_blank">{info.author.name}</a>
 				{:else}{info.author.name}{/if}
 			</small>
