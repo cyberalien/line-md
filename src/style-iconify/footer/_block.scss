@@ -65,6 +65,10 @@
 	}
 }
 
+.iif-footer-block--props.iif-footer-block--expanded + .iif-footer-block {
+	margin-top: $iif-spacing * 2;
+}
+
 // Options block
 .iif-footer-options-block {
 	position: relative;
