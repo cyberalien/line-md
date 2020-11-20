@@ -1,16 +1,63 @@
-.iif-footer-options-block-title {
+// Block title
+.iif-footer-block > p:first-child {
 	@include iif-font('base', 'normal');
 	margin: $iif-spacing 0 0;
 	padding: 0;
 	color: $iif-text-dimmed-color;
+	position: relative;
+
+	svg {
+		display: none;
+		font-size: $iif-icon-size;
+		line-height: 1em;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		margin-top: 0 - $iif-icon-size / 2;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		position: relative;
+		margin-right: $iif-icon-size;
+	}
 }
 
-.iif-footer-options-blocks {
+.iif-footer-block--collapsed > p:first-child {
+	svg {
+		display: block;
+	}
+	a {
+		text-decoration: underline;
+		color: $iif-link-color;
+		left: $iif-icon-size;
+	}
+}
+
+.iif-footer-block > p:first-child {
+	a {
+		&:hover {
+			color: $iif-link-hover-color;
+			text-decoration: underline;
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&:focus:not(:hover) {
+			text-decoration: underline;
+			box-shadow: 0 0 0 1px $iif-border-focus-color inset;
+		}
+	}
+}
+
+// Block
+.iif-footer-block {
 	margin-bottom: $iif-spacing * 2;
 
-	&:empty {
-		display: none;
-	}
 	&:after {
 		content: ' ';
 		display: table;
@@ -18,6 +65,7 @@
 	}
 }
 
+// Options block
 .iif-footer-options-block {
 	position: relative;
 	float: left;
@@ -62,9 +110,10 @@
 	}
 }
 
-// For modern browsers
+// Properties container for modern browsers
 @supports (display: flex) {
-	.iif-footer-options-blocks {
+	// Parent of ".iif-footer-options-block"
+	.iif-footer-block--props > div {
 		display: flex;
 		flex-wrap: wrap;
 	}

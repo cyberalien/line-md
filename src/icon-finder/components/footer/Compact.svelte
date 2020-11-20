@@ -96,7 +96,11 @@
 			{/if}
 			<div class={icon ? 'iif-footer-full-content' : ''}>
 				{#if showCustomisatons && hasIcons}
-					<PropertiesContainer {icons} {customise} {customisations} />
+					<PropertiesContainer
+						{registry}
+						{icons}
+						{customise}
+						{customisations} />
 				{/if}
 				{#if showCode && icon}
 					<CodeBlock {registry} {icon} {customisations} />

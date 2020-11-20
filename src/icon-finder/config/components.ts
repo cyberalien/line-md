@@ -22,9 +22,16 @@ export const showCollectionInfoBlock = true;
 export const canShortenIconName = true;
 
 /**
- * Show title for properties block?
+ * Show title for footer blocks?
  */
-export const showPropsTitle = false;
+export const showFooterBlockTitles = false;
+
+/**
+ * Toggle footer blocks?
+ *
+ * Requires: showFooterBlockTitles === true
+ */
+export const canToggleFooterBlocks = false;
 
 /**
  * List of properties to customise

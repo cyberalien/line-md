@@ -45,6 +45,7 @@ export const icons: Record<string, string | null> = {
 	'left': 'line-md:chevron-left',
 	'right': 'line-md:chevron-right',
 	'parent': 'line-md:chevron-small-left',
+	'expand': 'line-md:chevron-small-right',
 	'grid': 'line-md:grid-3-solid',
 	'list': 'line-md:list-3-solid',
 	'check-list': 'line-md:check-list-3-solid',

@@ -60,7 +60,11 @@
 					<IconsList {registry} {route} {icons} {customisations} />
 				{/if}
 				{#if showCustomisatons && hasIcons}
-					<PropertiesContainer {icons} {customise} {customisations} />
+					<PropertiesContainer
+						{registry}
+						{icons}
+						{customise}
+						{customisations} />
 				{/if}
 				{#if showCode && icon}
 					<CodeBlock {registry} {icon} {customisations} />
