@@ -1,9 +1,6 @@
 <script lang="typescript">
 	import type { WrappedRegistry } from '../../../wrapper/registry';
-	import {
-		showFooterBlockTitles,
-		canToggleFooterBlocks,
-	} from '../../../config/components';
+	import { canToggleFooterBlocks } from '../../../config/components';
 	import UIIcon from '../../misc/Icon.svelte';
 
 	// Registry
@@ -25,10 +22,7 @@
 	>;
 
 	// Check if block can expand
-	const canExpand =
-		showFooterBlockTitles &&
-		canToggleFooterBlocks &&
-		typeof config[key] === 'boolean';
+	const canExpand = canToggleFooterBlocks && typeof config[key] === 'boolean';
 
 	// Check if info block is visible
 	let expanded: boolean = canExpand && title !== '' ? config[key] : true;
@@ -61,7 +55,7 @@
 </script>
 
 <div class={className}>
-	{#if showFooterBlockTitles && title !== ''}
+	{#if title !== ''}
 		<p class="iif-footer-block-title">
 			{#if !expanded}
 				<UIIcon icon="expand" />

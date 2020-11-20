@@ -5,6 +5,7 @@
 	import { phrases } from '../../../config/phrases';
 	import FooterBlock from '../misc/Block.svelte';
 	import {
+		showFooterBlockTitles,
 		customiseColor,
 		customiseWidth,
 		customiseHeight,
@@ -37,7 +38,9 @@
 	// Title
 	let title: string;
 	$: {
-		title = phrases.footerBlocks[icons.length > 1 ? 'title2' : 'title'];
+		title = showFooterBlockTitles
+			? phrases.footerBlocks[icons.length > 1 ? 'title2' : 'title']
+			: '';
 	}
 </script>
 

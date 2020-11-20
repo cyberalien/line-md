@@ -13,6 +13,12 @@
 	// Block data
 	export let block: CollectionInfoBlock;
 
+	// Short info?
+	export let short: boolean = false;
+
+	// Show title?
+	export let showTitle: boolean = true;
+
 	const text = phrases.collectionInfo;
 
 	// Callback for external link
@@ -27,7 +33,9 @@
 
 {#if info}
 	<Block type="collection-info" extra={name}>
-		<div class="iif-collection-info-title">{info.name}</div>
+		{#if showTitle}
+			<div class="iif-collection-info-title">{info.name}</div>
+		{/if}
 		{#if info.author}
 			<dl>
 				<dt>{text.author}</dt>
@@ -54,17 +62,19 @@
 				</dd>
 			</dl>
 		{/if}
-		<dl>
-			<dt>{text.total}</dt>
-			<dd>{info.total}</dd>
-		</dl>
-		{#if info.height}
+		{#if !short}
 			<dl>
-				<dt>{text.height}</dt>
-				<dd>
-					{typeof info.height === 'object' ? info.height.join(', ') : info.height}
-				</dd>
+				<dt>{text.total}</dt>
+				<dd>{info.total}</dd>
 			</dl>
+			{#if info.height}
+				<dl>
+					<dt>{text.height}</dt>
+					<dd>
+						{typeof info.height === 'object' ? info.height.join(', ') : info.height}
+					</dd>
+				</dl>
+			{/if}
 		{/if}
 	</Block>
 {/if}

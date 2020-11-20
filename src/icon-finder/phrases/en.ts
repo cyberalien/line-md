@@ -108,6 +108,7 @@ export const phrases: UITranslation = {
 		},
 		remove: 'Remove {name}',
 		select: 'Select {name}',
+		about: 'Aboout {title}',
 	},
 	footerButtons: {
 		submit: 'Submit',

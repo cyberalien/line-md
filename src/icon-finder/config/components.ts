@@ -13,6 +13,8 @@ export const canFocusSearch = false;
 
 /**
  * Show collection information block (author, license, etc...) when browsing collection
+ *
+ * Also see showInfoInFooter below (need to set both to false to disable icon set info block)
  */
 export const showCollectionInfoBlock = true;
 
@@ -32,6 +34,18 @@ export const showFooterBlockTitles = false;
  * Requires: showFooterBlockTitles === true
  */
 export const canToggleFooterBlocks = false;
+
+/**
+ * Show info block in footer?
+ *
+ * Block will show information about icon set for selected icon.
+ *
+ * When multiple icons are selected, block will be shown only when all icons have the same prefix.
+ *
+ * When browsing icon set, block will be shown only if block above icons
+ * list is not shown or when prefix is different or showCollectionInfoBlock is disabled.
+ */
+export const showInfoInFooter = true;
 
 /**
  * List of properties to customise

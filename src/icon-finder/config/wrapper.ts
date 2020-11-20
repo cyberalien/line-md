@@ -18,6 +18,7 @@ export interface ComponentsConfig {
 	// Works only if canToggleFooterBlocks is enabled in ./components.ts
 	// Remove config entry to disable toggle for one specific block
 	propsVisible: boolean;
+	infoVisible: boolean;
 }
 
 /**
@@ -38,4 +39,5 @@ export const defaultComponentsConfig: Required<ComponentsConfig> = {
 
 	// Toggle footer blocks
 	propsVisible: true,
+	infoVisible: false,
 };
