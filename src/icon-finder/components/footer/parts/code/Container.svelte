@@ -12,6 +12,7 @@
 	} from '../../../../footer/code-tree';
 	import { getCodeTree, filterCodeTabs } from '../../../../footer/code-tree';
 	import type { IconCustomisations } from '../../../../customisations/types';
+	import FooterBlock from '../../misc/Block.svelte';
 	import FiltersComponent from '../../../blocks/Filters.svelte';
 	import CodeComponent from './Code.svelte';
 
@@ -83,32 +84,33 @@
 </script>
 
 {#if codeTabs.tree.length}
-	<div class="iif-code">
-		<p class="iif-code-heading">
-			{codePhrases.heading.replace('{name}', icon.name)}
-		</p>
-
-		<div class="iif-filters">
-			<FiltersComponent
-				{registry}
-				name="code"
-				block={codeTabs.filters}
-				onClick={changeTab} />
-			{#if childFiltersBlock}
+	<FooterBlock
+		name="code"
+		{registry}
+		title={codePhrases.heading.replace('{name}', icon.name)}>
+		<div class="iif-code">
+			<div class="iif-filters">
 				<FiltersComponent
 					{registry}
 					name="code"
-					block={childFiltersBlock}
-					onClick={changeTab}
-					title={childTabsTitle} />
-			{/if}
-		</div>
+					block={codeTabs.filters}
+					onClick={changeTab} />
+				{#if childFiltersBlock}
+					<FiltersComponent
+						{registry}
+						name="code"
+						block={childFiltersBlock}
+						onClick={changeTab}
+						title={childTabsTitle} />
+				{/if}
+			</div>
 
-		<CodeComponent
-			{registry}
-			mode={selection.active.key}
-			{icon}
-			{customisations}
-			{providerConfig} />
-	</div>
+			<CodeComponent
+				{registry}
+				mode={selection.active.key}
+				{icon}
+				{customisations}
+				{providerConfig} />
+		</div>
+	</FooterBlock>
 {/if}

@@ -146,7 +146,7 @@ export const phrases: UITranslation = {
 	codeSamples: {
 		copy: 'Copy to clipboard',
 		copied: 'Copied to clipboard.',
-		heading: 'How to use "{name}" icon:',
+		heading: 'How to use "{name}" icon',
 		titles: {
 			'iconify': 'SVG Framework',
 			'svg': 'SVG',

@@ -19,6 +19,7 @@ export interface ComponentsConfig {
 	// Remove config entry to disable toggle for one specific block
 	propsVisible: boolean;
 	infoVisible: boolean;
+	codeVisible: boolean;
 }
 
 /**
@@ -40,4 +41,5 @@ export const defaultComponentsConfig: Required<ComponentsConfig> = {
 	// Toggle footer blocks
 	propsVisible: true,
 	infoVisible: false,
+	codeVisible: false,
 };
