@@ -1,4 +1,5 @@
-<script lang="ts">
+<script lang="typescript">
+	import { getContext } from 'svelte';
 	import Iconify from '@iconify/iconify';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
@@ -14,11 +15,13 @@
 	/**
 	 * Global exports
 	 */
-	export let registry: WrappedRegistry;
 	export let selection: SelectedIcons;
 	export let selectionLength: number;
 	export let customisations: IconCustomisations;
 	export let route: FullRoute;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Change icon customisation value
 	function customise(prop: keyof IconCustomisations, value: unknown) {
@@ -103,4 +106,4 @@
 	});
 </script>
 
-<Footer {registry} {icons} {customisations} {route} {customise} />
+<Footer {icons} {customisations} {route} {customise} />

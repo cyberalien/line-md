@@ -1,12 +1,10 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { FiltersBlock } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import Block from './Block.svelte';
 	import Filter from './filters/Filter.svelte';
-
-	// Registry
-	export let registry: WrappedRegistry;
 
 	// Block name
 	export let name: string;
@@ -28,6 +26,9 @@
 
 	// Title
 	export let title: string = '';
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Handle click
 	function handleClick(key: string) {

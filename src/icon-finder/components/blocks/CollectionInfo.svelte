@@ -1,6 +1,8 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { CollectionInfoBlock } from '@iconify/search-core';
 	import type { CollectionInfo } from '@iconify/search-core/lib/converters/collection';
+	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import Block from './Block.svelte';
 
@@ -10,7 +12,19 @@
 	// Block data
 	export let block: CollectionInfoBlock;
 
+	// Short info?
+	export let short: boolean = false;
+
+	// Show title?
+	export let showTitle: boolean = true;
+
 	const text = phrases.collectionInfo;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
+
+	// Callback for external link
+	const onExternalClick = registry.link;
 
 	// Split info into a separate object
 	let info: CollectionInfo | null;
@@ -21,7 +35,9 @@
 
 {#if false}
 	<Block type="collection-info" extra={name}>
-		<div class="iif-collection-info-title">{info.name}</div>
+		{#if showTitle}
+			<div class="iif-collection-info-title">{info.name}</div>
+		{/if}
 		{#if info.author}
 			<dl>
 				<dt>{text.author}</dt>
@@ -29,6 +45,7 @@
 					{#if info.author.url}
 						<a
 							href={info.author.url}
+							on:click={onExternalClick}
 							target="_blank">{info.author.name}</a>
 					{:else}{info.author.name}{/if}
 				</dd>
@@ -41,22 +58,25 @@
 					{#if info.license.url}
 						<a
 							href={info.license.url}
+							on:click={onExternalClick}
 							target="_blank">{info.license.title}</a>
 					{:else}{info.license.title}{/if}
 				</dd>
 			</dl>
 		{/if}
-		<dl>
-			<dt>{text.total}</dt>
-			<dd>{info.total}</dd>
-		</dl>
-		{#if info.height}
+		{#if !short}
 			<dl>
-				<dt>{text.height}</dt>
-				<dd>
-					{typeof info.height === 'object' ? info.height.join(', ') : info.height}
-				</dd>
+				<dt>{text.total}</dt>
+				<dd>{info.total}</dd>
 			</dl>
+			{#if info.height}
+				<dl>
+					<dt>{text.height}</dt>
+					<dd>
+						{typeof info.height === 'object' ? info.height.join(', ') : info.height}
+					</dd>
+				</dl>
+			{/if}
 		{/if}
 	</Block>
 {/if}

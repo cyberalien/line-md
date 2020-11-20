@@ -1,17 +1,19 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import type { PaginationBlock } from '@iconify/search-core';
 	import { showPagination } from '@iconify/search-core';
 	import UIIcon from '../misc/Icon.svelte';
 
-	export let registry: WrappedRegistry;
-
 	// Block name
 	export let name: string;
 
 	// Block data
 	export let block: PaginationBlock;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Class names
 	const baseClass = 'iif-page';

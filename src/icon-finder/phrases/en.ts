@@ -108,6 +108,7 @@ export const phrases: UITranslation = {
 		},
 		remove: 'Remove {name}',
 		select: 'Select {name}',
+		about: 'Aboout {title}',
 	},
 	footerButtons: {
 		submit: 'Submit',
@@ -117,8 +118,8 @@ export const phrases: UITranslation = {
 		close: 'Close',
 	},
 	footerBlocks: {
-		title: 'Customize icon:',
-		title2: 'Customize icons:',
+		title: 'Customize icon',
+		title2: 'Customize icons',
 		color: 'Color',
 		flip: 'Flip',
 		hFlip: 'Horizontal',
@@ -145,7 +146,7 @@ export const phrases: UITranslation = {
 	codeSamples: {
 		copy: 'Copy to clipboard',
 		copied: 'Copied to clipboard.',
-		heading: 'How to use "{name}" icon:',
+		heading: 'How to use "{name}" icon',
 		titles: {
 			'iconify': 'SVG Framework',
 			'svg': 'SVG',

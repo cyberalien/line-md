@@ -55,6 +55,15 @@ type IconFinderStateEvents =
  * Actions
  */
 
+// External link was clicked
+export interface IconFinderExternalLinkEvent {
+	type: 'link';
+	// Link target
+	href: string;
+	// Mouse event
+	event: MouseEvent;
+}
+
 // Event triggered when button was clicked in footer
 export interface IconFinderButtonEvent {
 	type: 'button';
@@ -62,7 +71,9 @@ export interface IconFinderButtonEvent {
 	state: IconFinderState;
 }
 
-type IconFinderActionEvents = IconFinderButtonEvent;
+type IconFinderActionEvents =
+	| IconFinderButtonEvent
+	| IconFinderExternalLinkEvent;
 
 /**
  * All events

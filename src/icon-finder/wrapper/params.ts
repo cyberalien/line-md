@@ -18,7 +18,4 @@ export interface IconFinderWrapperParams {
 
 	// Callback
 	callback: (event: IconFinderEvent) => void;
-
-	// Custom phrases
-	phrases?: Record<string, unknown>;
 }

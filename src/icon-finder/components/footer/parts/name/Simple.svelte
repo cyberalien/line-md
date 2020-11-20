@@ -1,14 +1,10 @@
 <script lang="typescript">
 	import type { FullRoute, Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
-	import type { WrappedRegistry } from '../../../../wrapper/registry';
 	import { canShortenIconName } from '../../../../config/components';
 	import { shortenIconName } from '../../../../footer/shorten-icon-name';
 	import { phrases } from '../../../../config/phrases';
 	import UIIcon from '../../../misc/Icon.svelte';
-
-	// Registry
-	// export let registry: WrappedRegistry;
 
 	// Icon name
 	export let icon: Icon;

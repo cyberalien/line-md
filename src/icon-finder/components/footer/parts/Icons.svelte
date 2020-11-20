@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { IconifyIconCustomisations } from '@iconify/iconify';
 	import type { Icon, FullRoute } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
@@ -9,9 +10,6 @@
 	import { phrases } from '../../../config/phrases';
 	import Block from './props/Block.svelte';
 	import UIIcon from '../../misc/Icon.svelte';
-
-	// Registry
-	export let registry: WrappedRegistry;
 
 	// Selected icons
 	export let icons: Icon[];
@@ -27,6 +25,9 @@
 
 	// Callback when new icon has been selected
 	export let onSelect: ((icon: Icon) => void) | null = null;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Convert icons list to strings
 	interface ListItem {

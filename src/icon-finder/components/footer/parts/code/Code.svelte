@@ -1,6 +1,8 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { Icon } from '@iconify/search-core';
 	import { phrases } from '../../../../config/phrases';
+	import type { WrappedRegistry } from '../../../../wrapper/registry';
 	import type { IconCustomisations } from '../../../../customisations/types';
 	import type { AvailableLanguages } from '../../../../footer/code-tree';
 	import type { ProviderCodeData } from '../../../../footer/types';
@@ -24,6 +26,12 @@
 
 	// Mode
 	export let mode: AvailableLanguages;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
+
+	// Callback for external link
+	const onExternalClick = registry.link;
 
 	// Get text
 	const codePhrases = phrases.codeSamples;
@@ -107,7 +115,10 @@
 	{#if output.docs}
 		<p class="iif-code-docs">
 			<UIIcon icon="docs" />
-			<a href={output.docs.href} target="_blank">
+			<a
+				href={output.docs.href}
+				on:click={onExternalClick}
+				target="_blank">
 				{docsText}
 				<UIIcon icon="link" />
 			</a>

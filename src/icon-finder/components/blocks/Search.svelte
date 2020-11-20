@@ -1,13 +1,11 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { CollectionInfo, SearchBlock } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import { canFocusSearch } from '../../config/components';
 	import Input from '../forms/Input.svelte';
 	import Block from './Block.svelte';
-
-	// Registry
-	export let registry: WrappedRegistry;
 
 	// Block name
 	export let name: string;
@@ -20,6 +18,9 @@
 
 	// Custom view type when searching custom view
 	export let customType: string = '';
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Phrases
 	const searchPhrases = phrases.search;
