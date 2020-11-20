@@ -5135,6 +5135,12 @@
 	function onDestroy(fn) {
 	    get_current_component().$$.on_destroy.push(fn);
 	}
+	function setContext(key, context) {
+	    get_current_component().$$.context.set(key, context);
+	}
+	function getContext(key) {
+	    return get_current_component().$$.context.get(key);
+	}
 
 	const dirty_components = [];
 	const binding_callbacks = [];
@@ -5563,6 +5569,10 @@
 	 */
 	const canFocusSearch = true;
 	/**
+	 * Toggle footer blocks?
+	 */
+	const canToggleFooterBlocks = false;
+	/**
 	 * Default values for color, width and height
 	 */
 	const defaultColor = '#000';
@@ -5685,6 +5695,7 @@
 	        },
 	        remove: 'Remove {name}',
 	        select: 'Select {name}',
+	        about: 'Aboout {title}',
 	    },
 	    footerButtons: {
 	        submit: 'Submit',
@@ -5694,8 +5705,8 @@
 	        close: 'Close',
 	    },
 	    footerBlocks: {
-	        title: 'Customize icon:',
-	        title2: 'Customize icons:',
+	        title: 'Customize icon',
+	        title2: 'Customize icons',
 	        color: 'Color',
 	        flip: 'Flip',
 	        hFlip: 'Horizontal',
@@ -5721,7 +5732,7 @@
 	    codeSamples: {
 	        copy: 'Copy to clipboard',
 	        copied: 'Copied to clipboard.',
-	        heading: 'How to use "{name}" icon:',
+	        heading: 'How to use "{name}" icon',
 	        titles: {
 	            'iconify': 'SVG Framework',
 	            'svg': 'SVG',
@@ -5793,6 +5804,7 @@
 	    'left': 'line-md:chevron-left',
 	    'right': 'line-md:chevron-right',
 	    'parent': 'line-md:chevron-small-left',
+	    'expand': 'line-md:chevron-small-right',
 	    'grid': 'line-md:grid-3-solid',
 	    'list': 'line-md:list-3-solid',
 	    'check-list': 'line-md:check-list-3-solid',
@@ -6623,7 +6635,7 @@
 		return child_ctx;
 	}
 
-	// (71:2) {#each [focusInput] as autofocus, i (autofocus)}
+	// (73:2) {#each [focusInput] as autofocus, i (autofocus)}
 	function create_each_block(key_1, ctx) {
 		let first;
 		let input;
@@ -6631,7 +6643,7 @@
 		let current;
 
 		function input_value_binding(value) {
-			/*input_value_binding*/ ctx[7].call(null, value);
+			/*input_value_binding*/ ctx[6].call(null, value);
 		}
 
 		let input_props = {
@@ -6689,7 +6701,7 @@
 		};
 	}
 
-	// (69:0) <Block type="search" name="global">
+	// (71:0) <Block type="search" name="global">
 	function create_default_slot(ctx) {
 		let form;
 		let each_blocks = [];
@@ -6824,9 +6836,11 @@
 	function instance$4($$self, $$props, $$invalidate) {
 		
 		
-		let { registry } = $$props;
 		let { viewChanged } = $$props;
 		let { route } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
 
 		// Phrases
 		const text = phrases.search;
@@ -6865,17 +6879,16 @@
 
 		function input_value_binding(value) {
 			keyword = value;
-			(($$invalidate(0, keyword), $$invalidate(6, route)), $$invalidate(5, viewChanged));
+			(($$invalidate(0, keyword), $$invalidate(5, route)), $$invalidate(4, viewChanged));
 		}
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(4, registry = $$props.registry);
-			if ("viewChanged" in $$props) $$invalidate(5, viewChanged = $$props.viewChanged);
-			if ("route" in $$props) $$invalidate(6, route = $$props.route);
+			if ("viewChanged" in $$props) $$invalidate(4, viewChanged = $$props.viewChanged);
+			if ("route" in $$props) $$invalidate(5, route = $$props.route);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*keyword, route, viewChanged*/ 97) {
+			if ($$self.$$.dirty & /*keyword, route, viewChanged*/ 49) {
 				// Overwrite keyword on first render or when current view changes to search results
 				 {
 					if (keyword === null) {
@@ -6896,7 +6909,7 @@
 				}
 			}
 
-			if ($$self.$$.dirty & /*route*/ 64) {
+			if ($$self.$$.dirty & /*route*/ 32) {
 				 {
 					{
 						$$invalidate(1, focusInput = route
@@ -6907,22 +6920,13 @@
 			}
 		};
 
-		return [
-			keyword,
-			focusInput,
-			text,
-			submitForm,
-			registry,
-			viewChanged,
-			route,
-			input_value_binding
-		];
+		return [keyword, focusInput, text, submitForm, viewChanged, route, input_value_binding];
 	}
 
 	class GlobalSearch extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$4, create_fragment$4, safe_not_equal, { registry: 4, viewChanged: 5, route: 6 });
+			init(this, options, instance$4, create_fragment$4, safe_not_equal, { viewChanged: 4, route: 5 });
 		}
 	}
 
@@ -7015,7 +7019,7 @@
 		return child_ctx;
 	}
 
-	// (70:0) {#if entries.length > 0}
+	// (71:0) {#if entries.length > 0}
 	function create_if_block$2(ctx) {
 		let block;
 		let current;
@@ -7060,14 +7064,14 @@
 		};
 	}
 
-	// (72:2) {#each entries as item, i (item.key)}
+	// (73:2) {#each entries as item, i (item.key)}
 	function create_each_block$1(key_1, ctx) {
 		let first;
 		let link;
 		let current;
 
 		function func(...args) {
-			return /*func*/ ctx[4](/*item*/ ctx[7], ...args);
+			return /*func*/ ctx[3](/*item*/ ctx[7], ...args);
 		}
 
 		link = new Link({
@@ -7113,7 +7117,7 @@
 		};
 	}
 
-	// (71:1) <Block type="parent">
+	// (72:1) <Block type="parent">
 	function create_default_slot$1(ctx) {
 		let each_blocks = [];
 		let each_1_lookup = new Map();
@@ -7237,8 +7241,11 @@
 		
 		
 		
-		let { registry } = $$props;
 		let { route } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
+
 		const parentPhrases = phrases.parent;
 		const collections = registry.collections;
 
@@ -7250,12 +7257,11 @@
 		const func = item => handleClick(item.level);
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(2, registry = $$props.registry);
-			if ("route" in $$props) $$invalidate(3, route = $$props.route);
+			if ("route" in $$props) $$invalidate(2, route = $$props.route);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*entries, route*/ 9) {
+			if ($$self.$$.dirty & /*entries, route*/ 5) {
 				 {
 					function addEntry(route, level) {
 						const routeParams = route.params;
@@ -7307,13 +7313,13 @@
 			}
 		};
 
-		return [entries, handleClick, registry, route, func];
+		return [entries, handleClick, route, func];
 	}
 
 	class Parent extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$6, create_fragment$6, safe_not_equal, { registry: 2, route: 3 });
+			init(this, options, instance$6, create_fragment$6, safe_not_equal, { route: 2 });
 		}
 	}
 
@@ -8296,7 +8302,7 @@
 		};
 	}
 
-	// (97:0) <Block type="providers">
+	// (96:0) <Block type="providers">
 	function create_default_slot$2(ctx) {
 		let tabs;
 		let t;
@@ -8424,9 +8430,12 @@
 		
 		
 		
-		let { registry } = $$props;
 		let { activeProvider } = $$props;
 		let { providers } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
+
 		const providersPhrases = phrases.providers;
 		let formVisible = false;
 		let status = "";
@@ -8483,13 +8492,12 @@
 		let list;
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(8, registry = $$props.registry);
 			if ("activeProvider" in $$props) $$invalidate(0, activeProvider = $$props.activeProvider);
-			if ("providers" in $$props) $$invalidate(9, providers = $$props.providers);
+			if ("providers" in $$props) $$invalidate(8, providers = $$props.providers);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*providers, list, formVisible*/ 522) {
+			if ($$self.$$.dirty & /*providers, list, formVisible*/ 266) {
 				 {
 					$$invalidate(3, list = []);
 
@@ -8513,7 +8521,6 @@
 			handleClick,
 			validateForm,
 			submitForm,
-			registry,
 			providers
 		];
 	}
@@ -8521,12 +8528,7 @@
 	class Providers extends SvelteComponent {
 		constructor(options) {
 			super();
-
-			init(this, options, instance$9, create_fragment$9, safe_not_equal, {
-				registry: 8,
-				activeProvider: 0,
-				providers: 9
-			});
+			init(this, options, instance$9, create_fragment$9, safe_not_equal, { activeProvider: 0, providers: 8 });
 		}
 	}
 
@@ -8538,7 +8540,7 @@
 		return child_ctx;
 	}
 
-	// (54:3) {#if canReturn}
+	// (55:3) {#if canReturn}
 	function create_if_block$6(ctx) {
 		let br;
 		let t0;
@@ -8575,7 +8577,7 @@
 		};
 	}
 
-	// (50:1) <Block type="error" extra={'error--' + type}>
+	// (51:1) <Block type="error" extra={'error--' + type}>
 	function create_default_slot$3(ctx) {
 		let uiicon;
 		let t0;
@@ -8649,7 +8651,7 @@
 		};
 	}
 
-	// (49:0) {#each [error] as type (type)}
+	// (50:0) {#each [error] as type (type)}
 	function create_each_block$3(key_1, ctx) {
 		let first;
 		let block;
@@ -8770,9 +8772,11 @@
 	function instance$a($$self, $$props, $$invalidate) {
 		
 		
-		let { registry } = $$props;
 		let { error } = $$props;
 		let { route } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
 
 		// Get text and check if can return
 		const errorPhrases = phrases.errors;
@@ -8792,13 +8796,12 @@
 		}
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(5, registry = $$props.registry);
 			if ("error" in $$props) $$invalidate(0, error = $$props.error);
-			if ("route" in $$props) $$invalidate(6, route = $$props.route);
+			if ("route" in $$props) $$invalidate(5, route = $$props.route);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*route, error, text*/ 67) {
+			if ($$self.$$.dirty & /*route, error, text*/ 35) {
 				 {
 					$$invalidate(2, canReturn = !!(route && (route.type !== "collections" || route.parent || route.params && route.params.provider) && errorPhrases.custom.home !== void 0));
 
@@ -8820,13 +8823,13 @@
 			}
 		};
 
-		return [error, text, canReturn, errorPhrases, handleReturn, registry, route];
+		return [error, text, canReturn, errorPhrases, handleReturn, route];
 	}
 
 	class Error$1 extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$a, create_fragment$a, safe_not_equal, { registry: 5, error: 0, route: 6 });
+			init(this, options, instance$a, create_fragment$a, safe_not_equal, { error: 0, route: 5 });
 		}
 	}
 
@@ -9027,7 +9030,7 @@
 		return child_ctx;
 	}
 
-	// (64:0) {#if filters.length > 1}
+	// (65:0) {#if filters.length > 1}
 	function create_if_block$8(ctx) {
 		let block_1;
 		let current;
@@ -9076,7 +9079,7 @@
 		};
 	}
 
-	// (66:2) {#if header !== ''}
+	// (67:2) {#if header !== ''}
 	function create_if_block_1$3(ctx) {
 		let div;
 		let t;
@@ -9100,14 +9103,14 @@
 		};
 	}
 
-	// (70:3) {#each Object.entries(block.filters) as [key, filter], i (key)}
+	// (71:3) {#each Object.entries(block.filters) as [key, filter], i (key)}
 	function create_each_block$4(key_1, ctx) {
 		let first;
 		let filter;
 		let current;
 
 		function func(...args) {
-			return /*func*/ ctx[12](/*key*/ ctx[13], ...args);
+			return /*func*/ ctx[11](/*key*/ ctx[13], ...args);
 		}
 
 		filter = new Filter({
@@ -9172,7 +9175,7 @@
 		};
 	}
 
-	// (65:1) <Block type="filters" {name} {extra}>
+	// (66:1) <Block type="filters" {name} {extra}>
 	function create_default_slot$4(ctx) {
 		let t;
 		let div;
@@ -9319,7 +9322,6 @@
 	function instance$c($$self, $$props, $$invalidate) {
 		
 		
-		let { registry } = $$props;
 		let { name } = $$props;
 		let { block } = $$props;
 		let { parent = "" } = $$props;
@@ -9327,6 +9329,9 @@
 		let { onClick = null } = $$props;
 		let { showTitle = false } = $$props;
 		let { title = "" } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
 
 		// Handle click
 		function handleClick(key) {
@@ -9349,18 +9354,17 @@
 		const func = key => handleClick(key);
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(7, registry = $$props.registry);
 			if ("name" in $$props) $$invalidate(0, name = $$props.name);
 			if ("block" in $$props) $$invalidate(1, block = $$props.block);
-			if ("parent" in $$props) $$invalidate(8, parent = $$props.parent);
+			if ("parent" in $$props) $$invalidate(7, parent = $$props.parent);
 			if ("link" in $$props) $$invalidate(2, link = $$props.link);
-			if ("onClick" in $$props) $$invalidate(9, onClick = $$props.onClick);
-			if ("showTitle" in $$props) $$invalidate(10, showTitle = $$props.showTitle);
-			if ("title" in $$props) $$invalidate(11, title = $$props.title);
+			if ("onClick" in $$props) $$invalidate(8, onClick = $$props.onClick);
+			if ("showTitle" in $$props) $$invalidate(9, showTitle = $$props.showTitle);
+			if ("title" in $$props) $$invalidate(10, title = $$props.title);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*showTitle, title, name, parent*/ 3329) {
+			if ($$self.$$.dirty & /*showTitle, title, name, parent*/ 1665) {
 				 {
 					if (showTitle === false) {
 						$$invalidate(3, header = "");
@@ -9405,7 +9409,6 @@
 			filters,
 			extra,
 			handleClick,
-			registry,
 			parent,
 			onClick,
 			showTitle,
@@ -9419,14 +9422,13 @@
 			super();
 
 			init(this, options, instance$c, create_fragment$c, safe_not_equal, {
-				registry: 7,
 				name: 0,
 				block: 1,
-				parent: 8,
+				parent: 7,
 				link: 2,
-				onClick: 9,
-				showTitle: 10,
-				title: 11
+				onClick: 8,
+				showTitle: 9,
+				title: 10
 			});
 		}
 	}
@@ -9439,7 +9441,7 @@
 		let current;
 
 		function input_value_binding(value) {
-			/*input_value_binding*/ ctx[5].call(null, value);
+			/*input_value_binding*/ ctx[4].call(null, value);
 		}
 
 		let input_props = {
@@ -9536,9 +9538,11 @@
 	function instance$d($$self, $$props, $$invalidate) {
 		
 		
-		let { registry } = $$props;
 		let { name } = $$props;
 		let { block } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
 
 		// Set initial input value
 		let value = block.keyword;
@@ -9556,13 +9560,12 @@
 		}
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(2, registry = $$props.registry);
-			if ("name" in $$props) $$invalidate(3, name = $$props.name);
-			if ("block" in $$props) $$invalidate(4, block = $$props.block);
+			if ("name" in $$props) $$invalidate(2, name = $$props.name);
+			if ("block" in $$props) $$invalidate(3, block = $$props.block);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*value, block, registry, name*/ 29) {
+			if ($$self.$$.dirty & /*value, block, name*/ 13) {
 				 {
 					// Update value
 					if (value !== block.keyword) {
@@ -9572,13 +9575,13 @@
 			}
 		};
 
-		return [value, placeholder, registry, name, block, input_value_binding];
+		return [value, placeholder, name, block, input_value_binding];
 	}
 
 	class CollectionsFilter extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$d, create_fragment$d, safe_not_equal, { registry: 2, name: 3, block: 4 });
+			init(this, options, instance$d, create_fragment$d, safe_not_equal, { name: 2, block: 3 });
 		}
 	}
 
@@ -9785,11 +9788,11 @@
 
 	function get_each_context$5(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[13] = list[i];
+		child_ctx[14] = list[i];
 		return child_ctx;
 	}
 
-	// (83:2) {#if info.author}
+	// (85:2) {#if info.author}
 	function create_if_block_2$3(ctx) {
 		let small;
 		let t0_value = phrases.collection.by + "";
@@ -9837,7 +9840,7 @@
 		};
 	}
 
-	// (90:4) {:else}
+	// (93:4) {:else}
 	function create_else_block$2(ctx) {
 		let t_value = /*info*/ ctx[2].author.name + "";
 		let t;
@@ -9858,12 +9861,14 @@
 		};
 	}
 
-	// (86:4) {#if showCollectionAuthorLink && info.author.url}
+	// (88:4) {#if showCollectionAuthorLink && info.author.url}
 	function create_if_block_3$1(ctx) {
 		let a;
 		let t_value = /*info*/ ctx[2].author.name + "";
 		let t;
 		let a_href_value;
+		let mounted;
+		let dispose;
 
 		return {
 			c() {
@@ -9875,8 +9880,17 @@
 			m(target, anchor) {
 				insert(target, a, anchor);
 				append(a, t);
+
+				if (!mounted) {
+					dispose = listen(a, "click", function () {
+						if (is_function(/*onExternalClick*/ ctx[4])) /*onExternalClick*/ ctx[4].apply(this, arguments);
+					});
+
+					mounted = true;
+				}
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				if (dirty & /*info*/ 4 && t_value !== (t_value = /*info*/ ctx[2].author.name + "")) set_data(t, t_value);
 
 				if (dirty & /*info*/ 4 && a_href_value !== (a_href_value = /*info*/ ctx[2].author.url)) {
@@ -9885,15 +9899,17 @@
 			},
 			d(detaching) {
 				if (detaching) detach(a);
+				mounted = false;
+				dispose();
 			}
 		};
 	}
 
-	// (95:2) {#if samples.length > 0}
+	// (98:2) {#if samples.length > 0}
 	function create_if_block_1$4(ctx) {
 		let div;
 		let div_class_value;
-		let each_value = /*samples*/ ctx[6];
+		let each_value = /*samples*/ ctx[7];
 		let each_blocks = [];
 
 		for (let i = 0; i < each_value.length; i += 1) {
@@ -9908,8 +9924,8 @@
 					each_blocks[i].c();
 				}
 
-				attr(div, "class", div_class_value = "iif-collection-samples" + (/*samplesHeight*/ ctx[7]
-				? " iif-collection-samples--" + /*samplesHeight*/ ctx[7]
+				attr(div, "class", div_class_value = "iif-collection-samples" + (/*samplesHeight*/ ctx[8]
+				? " iif-collection-samples--" + /*samplesHeight*/ ctx[8]
 				: ""));
 			},
 			m(target, anchor) {
@@ -9920,8 +9936,8 @@
 				}
 			},
 			p(ctx, dirty) {
-				if (dirty & /*provider, prefix, samples*/ 67) {
-					each_value = /*samples*/ ctx[6];
+				if (dirty & /*provider, prefix, samples*/ 131) {
+					each_value = /*samples*/ ctx[7];
 					let i;
 
 					for (i = 0; i < each_value.length; i += 1) {
@@ -9950,7 +9966,7 @@
 		};
 	}
 
-	// (98:4) {#each samples as sample}
+	// (101:4) {#each samples as sample}
 	function create_each_block$5(ctx) {
 		let span;
 		let span_data_icon_value;
@@ -9962,7 +9978,7 @@
 
 				attr(span, "data-icon", span_data_icon_value = (/*provider*/ ctx[0] === ""
 				? ""
-				: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[13]);
+				: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[14]);
 
 				attr(span, "data-inline", "false");
 			},
@@ -9972,7 +9988,7 @@
 			p(ctx, dirty) {
 				if (dirty & /*provider, prefix*/ 3 && span_data_icon_value !== (span_data_icon_value = (/*provider*/ ctx[0] === ""
 				? ""
-				: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[13])) {
+				: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[14])) {
 					attr(span, "data-icon", span_data_icon_value);
 				}
 			},
@@ -9982,12 +9998,12 @@
 		};
 	}
 
-	// (106:2) {#if info.height}
+	// (109:2) {#if info.height}
 	function create_if_block$9(ctx) {
 		let div;
 		let height_1;
 		let current;
-		height_1 = new Height({ props: { text: /*height*/ ctx[8] } });
+		height_1 = new Height({ props: { text: /*height*/ ctx[9] } });
 
 		return {
 			c() {
@@ -10034,7 +10050,7 @@
 		let mounted;
 		let dispose;
 		let if_block0 = /*info*/ ctx[2].author && create_if_block_2$3(ctx);
-		let if_block1 = /*samples*/ ctx[6].length > 0 && create_if_block_1$4(ctx);
+		let if_block1 = /*samples*/ ctx[7].length > 0 && create_if_block_1$4(ctx);
 		let if_block2 = /*info*/ ctx[2].height && create_if_block$9(ctx);
 
 		height_1 = new Height({
@@ -10057,11 +10073,11 @@
 				t4 = space();
 				div1 = element("div");
 				create_component(height_1.$$.fragment);
-				attr(a, "href", /*link*/ ctx[4]);
+				attr(a, "href", /*link*/ ctx[5]);
 				attr(div0, "class", "iif-collection-text");
 				attr(div1, "class", "iif-collection-total");
 				attr(div2, "class", "iif-collection-data");
-				attr(li, "class", /*className*/ ctx[5]);
+				attr(li, "class", /*className*/ ctx[6]);
 			},
 			m(target, anchor) {
 				insert(target, li, anchor);
@@ -10082,8 +10098,8 @@
 
 				if (!mounted) {
 					dispose = [
-						listen(a, "click", prevent_default(/*click_handler*/ ctx[10])),
-						listen(li, "click", /*handleBlockClick*/ ctx[9])
+						listen(a, "click", prevent_default(/*click_handler*/ ctx[11])),
+						listen(li, "click", /*handleBlockClick*/ ctx[10])
 					];
 
 					mounted = true;
@@ -10092,8 +10108,8 @@
 			p(ctx, [dirty]) {
 				if ((!current || dirty & /*info*/ 4) && t0_value !== (t0_value = /*info*/ ctx[2].name + "")) set_data(t0, t0_value);
 
-				if (!current || dirty & /*link*/ 16) {
-					attr(a, "href", /*link*/ ctx[4]);
+				if (!current || dirty & /*link*/ 32) {
+					attr(a, "href", /*link*/ ctx[5]);
 				}
 
 				if (/*info*/ ctx[2].author) {
@@ -10109,7 +10125,7 @@
 					if_block0 = null;
 				}
 
-				if (/*samples*/ ctx[6].length > 0) if_block1.p(ctx, dirty);
+				if (/*samples*/ ctx[7].length > 0) if_block1.p(ctx, dirty);
 
 				if (/*info*/ ctx[2].height) {
 					if (if_block2) {
@@ -10138,8 +10154,8 @@
 				if (dirty & /*info*/ 4) height_1_changes.text = /*info*/ ctx[2].total + "";
 				height_1.$set(height_1_changes);
 
-				if (!current || dirty & /*className*/ 32) {
-					attr(li, "class", /*className*/ ctx[5]);
+				if (!current || dirty & /*className*/ 64) {
+					attr(li, "class", /*className*/ ctx[6]);
 				}
 			},
 			i(local) {
@@ -10173,6 +10189,7 @@
 		let { prefix } = $$props;
 		let { info } = $$props;
 		let { onClick } = $$props;
+		let { onExternalClick } = $$props;
 
 		// Get link
 		let link;
@@ -10219,28 +10236,29 @@
 			if ("prefix" in $$props) $$invalidate(1, prefix = $$props.prefix);
 			if ("info" in $$props) $$invalidate(2, info = $$props.info);
 			if ("onClick" in $$props) $$invalidate(3, onClick = $$props.onClick);
+			if ("onExternalClick" in $$props) $$invalidate(4, onExternalClick = $$props.onExternalClick);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*provider, prefix, link*/ 19) {
+			if ($$self.$$.dirty & /*provider, prefix, link*/ 35) {
 				 {
 					const providerData = lib.getProvider(provider);
 
 					if (providerData) {
-						$$invalidate(4, link = providerData.links.collection.replace("{prefix}", prefix));
+						$$invalidate(5, link = providerData.links.collection.replace("{prefix}", prefix));
 
 						if (link === "") {
-							$$invalidate(4, link = "#");
+							$$invalidate(5, link = "#");
 						}
 					} else {
-						$$invalidate(4, link = "#");
+						$$invalidate(5, link = "#");
 					}
 				}
 			}
 
 			if ($$self.$$.dirty & /*prefix, provider, info*/ 7) {
 				 {
-					$$invalidate(5, className = baseClass$4 + " " + baseClass$4 + "--prefix--" + prefix + (provider === ""
+					$$invalidate(6, className = baseClass$4 + " " + baseClass$4 + "--prefix--" + prefix + (provider === ""
 					? ""
 					: " " + baseClass$4 + "--provider--" + provider) + ( "") + (info.index
 					? " " + baseClass$4 + "--" + info.index % maxIndex
@@ -10254,6 +10272,7 @@
 			prefix,
 			info,
 			onClick,
+			onExternalClick,
 			link,
 			className,
 			samples,
@@ -10272,7 +10291,8 @@
 				provider: 0,
 				prefix: 1,
 				info: 2,
-				onClick: 3
+				onClick: 3,
+				onExternalClick: 4
 			});
 		}
 	}
@@ -10281,13 +10301,13 @@
 
 	function get_each_context$6(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[5] = list[i][0];
-		child_ctx[6] = list[i][1];
-		child_ctx[8] = i;
+		child_ctx[6] = list[i][0];
+		child_ctx[7] = list[i][1];
+		child_ctx[9] = i;
 		return child_ctx;
 	}
 
-	// (16:1) {#if showCategories}
+	// (18:1) {#if showCategories}
 	function create_if_block$a(ctx) {
 		let div;
 		let t;
@@ -10311,7 +10331,7 @@
 		};
 	}
 
-	// (20:2) {#each Object.entries(items) as [prefix, info], i (prefix)}
+	// (22:2) {#each Object.entries(items) as [prefix, info], i (prefix)}
 	function create_each_block$6(key_1, ctx) {
 		let first;
 		let item;
@@ -10320,9 +10340,10 @@
 		item = new Item({
 				props: {
 					provider: /*provider*/ ctx[3],
-					prefix: /*prefix*/ ctx[5],
-					info: /*info*/ ctx[6],
-					onClick: /*onClick*/ ctx[4]
+					prefix: /*prefix*/ ctx[6],
+					info: /*info*/ ctx[7],
+					onClick: /*onClick*/ ctx[4],
+					onExternalClick: /*onExternalClick*/ ctx[5]
 				}
 			});
 
@@ -10342,9 +10363,10 @@
 			p(ctx, dirty) {
 				const item_changes = {};
 				if (dirty & /*provider*/ 8) item_changes.provider = /*provider*/ ctx[3];
-				if (dirty & /*items*/ 4) item_changes.prefix = /*prefix*/ ctx[5];
-				if (dirty & /*items*/ 4) item_changes.info = /*info*/ ctx[6];
+				if (dirty & /*items*/ 4) item_changes.prefix = /*prefix*/ ctx[6];
+				if (dirty & /*items*/ 4) item_changes.info = /*info*/ ctx[7];
 				if (dirty & /*onClick*/ 16) item_changes.onClick = /*onClick*/ ctx[4];
+				if (dirty & /*onExternalClick*/ 32) item_changes.onExternalClick = /*onExternalClick*/ ctx[5];
 				item.$set(item_changes);
 			},
 			i(local) {
@@ -10372,7 +10394,7 @@
 		let current;
 		let if_block = /*showCategories*/ ctx[0] && create_if_block$a(ctx);
 		let each_value = Object.entries(/*items*/ ctx[2]);
-		const get_key = ctx => /*prefix*/ ctx[5];
+		const get_key = ctx => /*prefix*/ ctx[6];
 
 		for (let i = 0; i < each_value.length; i += 1) {
 			let child_ctx = get_each_context$6(ctx, each_value, i);
@@ -10420,7 +10442,7 @@
 					if_block = null;
 				}
 
-				if (dirty & /*provider, Object, items, onClick*/ 28) {
+				if (dirty & /*provider, Object, items, onClick, onExternalClick*/ 60) {
 					const each_value = Object.entries(/*items*/ ctx[2]);
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$6, null, get_each_context$6);
@@ -10461,6 +10483,7 @@
 		let { items } = $$props;
 		let { provider } = $$props;
 		let { onClick } = $$props;
+		let { onExternalClick } = $$props;
 
 		$$self.$$set = $$props => {
 			if ("showCategories" in $$props) $$invalidate(0, showCategories = $$props.showCategories);
@@ -10468,9 +10491,10 @@
 			if ("items" in $$props) $$invalidate(2, items = $$props.items);
 			if ("provider" in $$props) $$invalidate(3, provider = $$props.provider);
 			if ("onClick" in $$props) $$invalidate(4, onClick = $$props.onClick);
+			if ("onExternalClick" in $$props) $$invalidate(5, onExternalClick = $$props.onExternalClick);
 		};
 
-		return [showCategories, category, items, provider, onClick];
+		return [showCategories, category, items, provider, onClick, onExternalClick];
 	}
 
 	class Category extends SvelteComponent {
@@ -10482,7 +10506,8 @@
 				category: 1,
 				items: 2,
 				provider: 3,
-				onClick: 4
+				onClick: 4,
+				onExternalClick: 5
 			});
 		}
 	}
@@ -10535,13 +10560,13 @@
 
 	function get_each_context$7(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[5] = list[i][0];
-		child_ctx[6] = list[i][1];
-		child_ctx[8] = i;
+		child_ctx[6] = list[i][0];
+		child_ctx[7] = list[i][1];
+		child_ctx[9] = i;
 		return child_ctx;
 	}
 
-	// (28:1) {:else}
+	// (33:1) {:else}
 	function create_else_block$3(ctx) {
 		let error;
 		let current;
@@ -10574,7 +10599,7 @@
 		};
 	}
 
-	// (21:1) {#each Object.entries(block.collections) as [category, items], i (category)}
+	// (25:1) {#each Object.entries(block.collections) as [category, items], i (category)}
 	function create_each_block$7(key_1, ctx) {
 		let first;
 		let category;
@@ -10582,11 +10607,12 @@
 
 		category = new Category({
 				props: {
-					onClick: /*onClick*/ ctx[2],
+					onExternalClick: /*onExternalClick*/ ctx[2],
+					onClick: /*onClick*/ ctx[3],
 					showCategories: /*block*/ ctx[0].showCategories,
-					category: /*category*/ ctx[5],
+					category: /*category*/ ctx[6],
 					provider: /*provider*/ ctx[1],
-					items: /*items*/ ctx[6]
+					items: /*items*/ ctx[7]
 				}
 			});
 
@@ -10606,9 +10632,9 @@
 			p(ctx, dirty) {
 				const category_changes = {};
 				if (dirty & /*block*/ 1) category_changes.showCategories = /*block*/ ctx[0].showCategories;
-				if (dirty & /*block*/ 1) category_changes.category = /*category*/ ctx[5];
+				if (dirty & /*block*/ 1) category_changes.category = /*category*/ ctx[6];
 				if (dirty & /*provider*/ 2) category_changes.provider = /*provider*/ ctx[1];
-				if (dirty & /*block*/ 1) category_changes.items = /*items*/ ctx[6];
+				if (dirty & /*block*/ 1) category_changes.items = /*items*/ ctx[7];
 				category.$set(category_changes);
 			},
 			i(local) {
@@ -10627,14 +10653,14 @@
 		};
 	}
 
-	// (20:0) <Block type="collections">
+	// (24:0) <Block type="collections">
 	function create_default_slot$6(ctx) {
 		let each_blocks = [];
 		let each_1_lookup = new Map();
 		let each_1_anchor;
 		let current;
 		let each_value = Object.entries(/*block*/ ctx[0].collections);
-		const get_key = ctx => /*category*/ ctx[5];
+		const get_key = ctx => /*category*/ ctx[6];
 
 		for (let i = 0; i < each_value.length; i += 1) {
 			let child_ctx = get_each_context$7(ctx, each_value, i);
@@ -10674,7 +10700,7 @@
 				current = true;
 			},
 			p(ctx, dirty) {
-				if (dirty & /*onClick, block, Object, provider, phrases*/ 7) {
+				if (dirty & /*onExternalClick, onClick, block, Object, provider, phrases*/ 15) {
 					const each_value = Object.entries(/*block*/ ctx[0].collections);
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$7, each_1_anchor, get_each_context$7);
@@ -10748,7 +10774,7 @@
 			p(ctx, [dirty]) {
 				const block_1_changes = {};
 
-				if (dirty & /*$$scope, block, provider*/ 515) {
+				if (dirty & /*$$scope, block, provider*/ 1027) {
 					block_1_changes.$$scope = { dirty, ctx };
 				}
 
@@ -10772,10 +10798,15 @@
 	function instance$i($$self, $$props, $$invalidate) {
 		
 		
-		let { registry } = $$props;
 		let { name } = $$props;
 		let { block } = $$props;
 		let { provider } = $$props;
+
+		// Get registry instance
+		const registry = getContext("registry");
+
+		// Callback for external link
+		const onExternalClick = registry.link;
 
 		// Click event
 		function onClick(prefix) {
@@ -10783,25 +10814,18 @@
 		}
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(3, registry = $$props.registry);
 			if ("name" in $$props) $$invalidate(4, name = $$props.name);
 			if ("block" in $$props) $$invalidate(0, block = $$props.block);
 			if ("provider" in $$props) $$invalidate(1, provider = $$props.provider);
 		};
 
-		return [block, provider, onClick, registry, name];
+		return [block, provider, onExternalClick, onClick, name];
 	}
 
 	class CollectionsList extends SvelteComponent {
 		constructor(options) {
 			super();
-
-			init(this, options, instance$i, create_fragment$i, safe_not_equal, {
-				registry: 3,
-				name: 4,
-				block: 0,
-				provider: 1
-			});
+			init(this, options, instance$i, create_fragment$i, safe_not_equal, { name: 4, block: 0, provider: 1 });
 		}
 	}
 
@@ -10813,9 +10837,8 @@
 
 		filtersblock = new Filters({
 				props: {
-					registry: /*registry*/ ctx[0],
 					name: "categories",
-					block: /*blocks*/ ctx[1].categories
+					block: /*blocks*/ ctx[0].categories
 				}
 			});
 
@@ -10829,8 +10852,7 @@
 			},
 			p(ctx, dirty) {
 				const filtersblock_changes = {};
-				if (dirty & /*registry*/ 1) filtersblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*blocks*/ 2) filtersblock_changes.block = /*blocks*/ ctx[1].categories;
+				if (dirty & /*blocks*/ 1) filtersblock_changes.block = /*blocks*/ ctx[0].categories;
 				filtersblock.$set(filtersblock_changes);
 			},
 			i(local) {
@@ -10856,22 +10878,20 @@
 		let t1;
 		let collectionslistblock;
 		let current;
-		let if_block = /*blocks*/ ctx[1].categories && create_if_block$b(ctx);
+		let if_block = /*blocks*/ ctx[0].categories && create_if_block$b(ctx);
 
 		collectionsfilterblock = new CollectionsFilter({
 				props: {
-					registry: /*registry*/ ctx[0],
 					name: "filter",
-					block: /*blocks*/ ctx[1].filter
+					block: /*blocks*/ ctx[0].filter
 				}
 			});
 
 		collectionslistblock = new CollectionsList({
 				props: {
-					registry: /*registry*/ ctx[0],
-					provider: /*route*/ ctx[2].params.provider,
+					provider: /*route*/ ctx[1].params.provider,
 					name: "collections",
-					block: /*blocks*/ ctx[1].collections
+					block: /*blocks*/ ctx[0].collections
 				}
 			});
 
@@ -10898,11 +10918,11 @@
 				current = true;
 			},
 			p(ctx, [dirty]) {
-				if (/*blocks*/ ctx[1].categories) {
+				if (/*blocks*/ ctx[0].categories) {
 					if (if_block) {
 						if_block.p(ctx, dirty);
 
-						if (dirty & /*blocks*/ 2) {
+						if (dirty & /*blocks*/ 1) {
 							transition_in(if_block, 1);
 						}
 					} else {
@@ -10922,13 +10942,11 @@
 				}
 
 				const collectionsfilterblock_changes = {};
-				if (dirty & /*registry*/ 1) collectionsfilterblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*blocks*/ 2) collectionsfilterblock_changes.block = /*blocks*/ ctx[1].filter;
+				if (dirty & /*blocks*/ 1) collectionsfilterblock_changes.block = /*blocks*/ ctx[0].filter;
 				collectionsfilterblock.$set(collectionsfilterblock_changes);
 				const collectionslistblock_changes = {};
-				if (dirty & /*registry*/ 1) collectionslistblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*route*/ 4) collectionslistblock_changes.provider = /*route*/ ctx[2].params.provider;
-				if (dirty & /*blocks*/ 2) collectionslistblock_changes.block = /*blocks*/ ctx[1].collections;
+				if (dirty & /*route*/ 2) collectionslistblock_changes.provider = /*route*/ ctx[1].params.provider;
+				if (dirty & /*blocks*/ 1) collectionslistblock_changes.block = /*blocks*/ ctx[0].collections;
 				collectionslistblock.$set(collectionslistblock_changes);
 			},
 			i(local) {
@@ -10955,24 +10973,21 @@
 
 	function instance$j($$self, $$props, $$invalidate) {
 		
-		
-		let { registry } = $$props;
 		let { blocks } = $$props;
 		let { route } = $$props;
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("blocks" in $$props) $$invalidate(1, blocks = $$props.blocks);
-			if ("route" in $$props) $$invalidate(2, route = $$props.route);
+			if ("blocks" in $$props) $$invalidate(0, blocks = $$props.blocks);
+			if ("route" in $$props) $$invalidate(1, route = $$props.route);
 		};
 
-		return [registry, blocks, route];
+		return [blocks, route];
 	}
 
 	class Collections extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$j, create_fragment$j, safe_not_equal, { registry: 0, blocks: 1, route: 2 });
+			init(this, options, instance$j, create_fragment$j, safe_not_equal, { blocks: 0, route: 1 });
 		}
 	}
 
@@ -11011,33 +11026,50 @@
 	function instance$k($$self, $$props, $$invalidate) {
 		
 		
+		
 		let { name } = $$props;
 		let { block } = $$props;
+		let { short = false } = $$props;
+		let { showTitle = true } = $$props;
 		const text = phrases.collectionInfo;
+
+		// Registry
+		const registry = getContext("registry");
+
+		// Callback for external link
+		const onExternalClick = registry.link;
 
 		// Split info into a separate object
 		let info;
 
 		$$self.$$set = $$props => {
 			if ("name" in $$props) $$invalidate(0, name = $$props.name);
-			if ("block" in $$props) $$invalidate(3, block = $$props.block);
+			if ("block" in $$props) $$invalidate(6, block = $$props.block);
+			if ("short" in $$props) $$invalidate(1, short = $$props.short);
+			if ("showTitle" in $$props) $$invalidate(2, showTitle = $$props.showTitle);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*block*/ 8) {
+			if ($$self.$$.dirty & /*block*/ 64) {
 				 {
-					$$invalidate(1, info = block.info);
+					$$invalidate(3, info = block.info);
 				}
 			}
 		};
 
-		return [name, info, text, block];
+		return [name, short, showTitle, info, text, onExternalClick, block];
 	}
 
 	class CollectionInfo extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$k, create_fragment$k, safe_not_equal, { name: 0, block: 3 });
+
+			init(this, options, instance$k, create_fragment$k, safe_not_equal, {
+				name: 0,
+				block: 6,
+				short: 1,
+				showTitle: 2
+			});
 		}
 	}
 
@@ -12289,12 +12321,14 @@
 		
 		
 		
-		let { registry } = $$props;
 		let { route } = $$props;
 		let { selection } = $$props;
 		let { blocks } = $$props;
 		let { isList } = $$props;
 		let { isSelecting } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
 
 		// List of keys used for filters. Same keys are used in both blocks and icon.
 		const filterKeys = ["tags", "themePrefixes", "themeSuffixes"];
@@ -12311,7 +12345,7 @@
 		let updateCounter = 0;
 
 		const loadingEvent = () => {
-			$$invalidate(10, updateCounter++, updateCounter);
+			$$invalidate(9, updateCounter++, updateCounter);
 		};
 
 		function getFilters(item) {
@@ -12401,27 +12435,26 @@
 		onDestroy(() => {
 			if (abortLoader !== null) {
 				abortLoader();
-				$$invalidate(9, abortLoader = null);
+				$$invalidate(8, abortLoader = null);
 			}
 		});
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(4, registry = $$props.registry);
-			if ("route" in $$props) $$invalidate(5, route = $$props.route);
-			if ("selection" in $$props) $$invalidate(6, selection = $$props.selection);
-			if ("blocks" in $$props) $$invalidate(7, blocks = $$props.blocks);
+			if ("route" in $$props) $$invalidate(4, route = $$props.route);
+			if ("selection" in $$props) $$invalidate(5, selection = $$props.selection);
+			if ("blocks" in $$props) $$invalidate(6, blocks = $$props.blocks);
 			if ("isList" in $$props) $$invalidate(0, isList = $$props.isList);
 			if ("isSelecting" in $$props) $$invalidate(1, isSelecting = $$props.isSelecting);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*route*/ 32) {
+			if ($$self.$$.dirty & /*route*/ 16) {
 				 {
-					$$invalidate(8, showPrefix = route.type !== "collection");
+					$$invalidate(7, showPrefix = route.type !== "collection");
 				}
 			}
 
-			if ($$self.$$.dirty & /*updateCounter, parsedIcons, blocks, showPrefix, selection, isList, abortLoader*/ 1989) {
+			if ($$self.$$.dirty & /*updateCounter, parsedIcons, blocks, showPrefix, selection, isList, abortLoader*/ 997) {
 				 {
 
 					// Reset icons list
@@ -12520,7 +12553,7 @@
 							abortLoader();
 						}
 
-						$$invalidate(9, abortLoader = Iconify__default['default'].loadIcons(pending, loadingEvent));
+						$$invalidate(8, abortLoader = Iconify__default['default'].loadIcons(pending, loadingEvent));
 					}
 
 					// Overwrite parseIcons variable only if something was updated, triggering component re-render
@@ -12532,7 +12565,7 @@
 			}
 		};
 
-		return [isList, isSelecting, parsedIcons, onClick, registry, route, selection, blocks];
+		return [isList, isSelecting, parsedIcons, onClick, route, selection, blocks];
 	}
 
 	class Container extends SvelteComponent {
@@ -12540,10 +12573,9 @@
 			super();
 
 			init(this, options, instance$n, create_fragment$n, safe_not_equal, {
-				registry: 4,
-				route: 5,
-				selection: 6,
-				blocks: 7,
+				route: 4,
+				selection: 5,
+				blocks: 6,
 				isList: 0,
 				isSelecting: 1
 			});
@@ -13033,7 +13065,7 @@
 		return child_ctx;
 	}
 
-	// (57:0) {#if pages.length > 0}
+	// (59:0) {#if pages.length > 0}
 	function create_if_block$g(ctx) {
 		let div;
 		let t0;
@@ -13176,7 +13208,7 @@
 		};
 	}
 
-	// (59:2) {#if prevPage !== -1}
+	// (61:2) {#if prevPage !== -1}
 	function create_if_block_4(ctx) {
 		let a;
 		let uiicon;
@@ -13199,7 +13231,7 @@
 				current = true;
 
 				if (!mounted) {
-					dispose = listen(a, "click", prevent_default(/*click_handler*/ ctx[9]));
+					dispose = listen(a, "click", prevent_default(/*click_handler*/ ctx[8]));
 					mounted = true;
 				}
 			},
@@ -13222,7 +13254,7 @@
 		};
 	}
 
-	// (68:3) {#if page.dot}
+	// (70:3) {#if page.dot}
 	function create_if_block_3$3(ctx) {
 		let span;
 
@@ -13240,7 +13272,7 @@
 		};
 	}
 
-	// (67:2) {#each pages as page, i (page.page)}
+	// (69:2) {#each pages as page, i (page.page)}
 	function create_each_block$b(key_1, ctx) {
 		let first;
 		let t0;
@@ -13316,7 +13348,7 @@
 		};
 	}
 
-	// (76:2) {#if block.more}
+	// (78:2) {#if block.more}
 	function create_if_block_2$6(ctx) {
 		let a;
 		let t_value = phrases.icons.more + "";
@@ -13336,7 +13368,7 @@
 				append(a, t);
 
 				if (!mounted) {
-					dispose = listen(a, "click", prevent_default(/*click_handler_1*/ ctx[10]));
+					dispose = listen(a, "click", prevent_default(/*click_handler_1*/ ctx[9]));
 					mounted = true;
 				}
 			},
@@ -13349,7 +13381,7 @@
 		};
 	}
 
-	// (84:2) {#if nextPage !== -1}
+	// (86:2) {#if nextPage !== -1}
 	function create_if_block_1$8(ctx) {
 		let a;
 		let uiicon;
@@ -13372,7 +13404,7 @@
 				current = true;
 
 				if (!mounted) {
-					dispose = listen(a, "click", prevent_default(/*click_handler_2*/ ctx[11]));
+					dispose = listen(a, "click", prevent_default(/*click_handler_2*/ ctx[10]));
 					mounted = true;
 				}
 			},
@@ -13455,9 +13487,12 @@
 	function instance$q($$self, $$props, $$invalidate) {
 		
 		
-		let { registry } = $$props;
 		let { name } = $$props;
 		let { block } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
+
 		const selectedClass = baseClass$8 + " " + baseClass$8 + "--selected";
 		const arrowClass = baseClass$8 + " " + baseClass$8 + "--arrow " + baseClass$8 + "--";
 		const moreClass = baseClass$8 + " " + baseClass$8 + "--more";
@@ -13475,8 +13510,7 @@
 		const click_handler_2 = () => setPage(nextPage);
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(7, registry = $$props.registry);
-			if ("name" in $$props) $$invalidate(8, name = $$props.name);
+			if ("name" in $$props) $$invalidate(7, name = $$props.name);
 			if ("block" in $$props) $$invalidate(0, block = $$props.block);
 		};
 
@@ -13530,7 +13564,6 @@
 			arrowClass,
 			moreClass,
 			setPage,
-			registry,
 			name,
 			click_handler,
 			click_handler_1,
@@ -13541,7 +13574,7 @@
 	class Pagination extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$q, create_fragment$q, safe_not_equal, { registry: 7, name: 8, block: 0 });
+			init(this, options, instance$q, create_fragment$q, safe_not_equal, { name: 7, block: 0 });
 		}
 	}
 
@@ -13570,7 +13603,7 @@
 			p(ctx, dirty) {
 				const block_changes = {};
 
-				if (dirty & /*$$scope, registry, pagination, selection, selectionLength, blocks, route, isList, isSelecting, headerText*/ 66495) {
+				if (dirty & /*$$scope, pagination, selection, blocks, route, isList, isSelecting, headerText*/ 33007) {
 					block_changes.$$scope = { dirty, ctx };
 				}
 
@@ -13591,7 +13624,7 @@
 		};
 	}
 
-	// (73:0) {#if isEmpty}
+	// (74:0) {#if isEmpty}
 	function create_if_block$h(ctx) {
 		let contenterror;
 		let current;
@@ -13624,7 +13657,7 @@
 		};
 	}
 
-	// (76:1) <Block type="icons">
+	// (77:1) <Block type="icons">
 	function create_default_slot$7(ctx) {
 		let iconsheader;
 		let t0;
@@ -13635,33 +13668,30 @@
 
 		iconsheader = new Header({
 				props: {
-					headerText: /*headerText*/ ctx[7],
-					isList: /*isList*/ ctx[8],
-					canChangeLayout: /*canChangeLayout*/ ctx[10],
-					changeLayout: /*changeLayout*/ ctx[11],
-					canSelectMultiple: /*canSelectMultiple*/ ctx[12],
-					isSelecting: /*isSelecting*/ ctx[9],
-					toggleSelection: /*toggleSelection*/ ctx[13]
+					headerText: /*headerText*/ ctx[5],
+					isList: /*isList*/ ctx[6],
+					canChangeLayout: /*canChangeLayout*/ ctx[8],
+					changeLayout: /*changeLayout*/ ctx[9],
+					canSelectMultiple: /*canSelectMultiple*/ ctx[10],
+					isSelecting: /*isSelecting*/ ctx[7],
+					toggleSelection: /*toggleSelection*/ ctx[11]
 				}
 			});
 
 		iconscontainer = new Container({
 				props: {
-					registry: /*registry*/ ctx[0],
-					selection: /*selection*/ ctx[2],
-					selectionLength: /*selectionLength*/ ctx[3],
-					blocks: /*blocks*/ ctx[4],
-					route: /*route*/ ctx[1],
-					isList: /*isList*/ ctx[8],
-					isSelecting: /*isSelecting*/ ctx[9]
+					selection: /*selection*/ ctx[1],
+					blocks: /*blocks*/ ctx[2],
+					route: /*route*/ ctx[0],
+					isList: /*isList*/ ctx[6],
+					isSelecting: /*isSelecting*/ ctx[7]
 				}
 			});
 
 		pagination_1 = new Pagination({
 				props: {
-					registry: /*registry*/ ctx[0],
 					name: "pagination",
-					block: /*pagination*/ ctx[5]
+					block: /*pagination*/ ctx[3]
 				}
 			});
 
@@ -13683,22 +13713,19 @@
 			},
 			p(ctx, dirty) {
 				const iconsheader_changes = {};
-				if (dirty & /*headerText*/ 128) iconsheader_changes.headerText = /*headerText*/ ctx[7];
-				if (dirty & /*isList*/ 256) iconsheader_changes.isList = /*isList*/ ctx[8];
-				if (dirty & /*isSelecting*/ 512) iconsheader_changes.isSelecting = /*isSelecting*/ ctx[9];
+				if (dirty & /*headerText*/ 32) iconsheader_changes.headerText = /*headerText*/ ctx[5];
+				if (dirty & /*isList*/ 64) iconsheader_changes.isList = /*isList*/ ctx[6];
+				if (dirty & /*isSelecting*/ 128) iconsheader_changes.isSelecting = /*isSelecting*/ ctx[7];
 				iconsheader.$set(iconsheader_changes);
 				const iconscontainer_changes = {};
-				if (dirty & /*registry*/ 1) iconscontainer_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*selection*/ 4) iconscontainer_changes.selection = /*selection*/ ctx[2];
-				if (dirty & /*selectionLength*/ 8) iconscontainer_changes.selectionLength = /*selectionLength*/ ctx[3];
-				if (dirty & /*blocks*/ 16) iconscontainer_changes.blocks = /*blocks*/ ctx[4];
-				if (dirty & /*route*/ 2) iconscontainer_changes.route = /*route*/ ctx[1];
-				if (dirty & /*isList*/ 256) iconscontainer_changes.isList = /*isList*/ ctx[8];
-				if (dirty & /*isSelecting*/ 512) iconscontainer_changes.isSelecting = /*isSelecting*/ ctx[9];
+				if (dirty & /*selection*/ 2) iconscontainer_changes.selection = /*selection*/ ctx[1];
+				if (dirty & /*blocks*/ 4) iconscontainer_changes.blocks = /*blocks*/ ctx[2];
+				if (dirty & /*route*/ 1) iconscontainer_changes.route = /*route*/ ctx[0];
+				if (dirty & /*isList*/ 64) iconscontainer_changes.isList = /*isList*/ ctx[6];
+				if (dirty & /*isSelecting*/ 128) iconscontainer_changes.isSelecting = /*isSelecting*/ ctx[7];
 				iconscontainer.$set(iconscontainer_changes);
 				const pagination_1_changes = {};
-				if (dirty & /*registry*/ 1) pagination_1_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*pagination*/ 32) pagination_1_changes.block = /*pagination*/ ctx[5];
+				if (dirty & /*pagination*/ 8) pagination_1_changes.block = /*pagination*/ ctx[3];
 				pagination_1.$set(pagination_1_changes);
 			},
 			i(local) {
@@ -13733,7 +13760,7 @@
 		const if_blocks = [];
 
 		function select_block_type(ctx, dirty) {
-			if (/*isEmpty*/ ctx[6]) return 0;
+			if (/*isEmpty*/ ctx[4]) return 0;
 			return 1;
 		}
 
@@ -13795,11 +13822,12 @@
 		
 		
 		
-		let { registry } = $$props;
 		let { route } = $$props;
 		let { selection } = $$props;
-		let { selectionLength } = $$props;
 		let { blocks } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
 
 		// Get config
 		const componentsConfig = registry.config.components;
@@ -13838,7 +13866,7 @@
 
 		function changeLayout() {
 			if (canChangeLayout) {
-				$$invalidate(8, isList = componentsConfig.list = !componentsConfig.list);
+				$$invalidate(6, isList = componentsConfig.list = !componentsConfig.list);
 
 				// UIConfigEvent
 				registry.callback({ type: "config" });
@@ -13851,41 +13879,37 @@
 		let isSelecting = false;
 
 		function toggleSelection() {
-			$$invalidate(9, isSelecting = !isSelecting);
+			$$invalidate(7, isSelecting = !isSelecting);
 		}
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("route" in $$props) $$invalidate(1, route = $$props.route);
-			if ("selection" in $$props) $$invalidate(2, selection = $$props.selection);
-			if ("selectionLength" in $$props) $$invalidate(3, selectionLength = $$props.selectionLength);
-			if ("blocks" in $$props) $$invalidate(4, blocks = $$props.blocks);
+			if ("route" in $$props) $$invalidate(0, route = $$props.route);
+			if ("selection" in $$props) $$invalidate(1, selection = $$props.selection);
+			if ("blocks" in $$props) $$invalidate(2, blocks = $$props.blocks);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*blocks*/ 16) {
+			if ($$self.$$.dirty & /*blocks*/ 4) {
 				 {
-					$$invalidate(5, pagination = blocks.pagination);
+					$$invalidate(3, pagination = blocks.pagination);
 				}
 			}
 
-			if ($$self.$$.dirty & /*pagination, blocks, isEmpty*/ 112) {
+			if ($$self.$$.dirty & /*pagination, blocks, isEmpty*/ 28) {
 				 {
-					$$invalidate(6, isEmpty = !pagination || !blocks.icons || blocks.icons.icons.length < 1);
+					$$invalidate(4, isEmpty = !pagination || !blocks.icons || blocks.icons.icons.length < 1);
 
 					if (!isEmpty) {
 						// Generate header text
-						$$invalidate(7, headerText = generateHeaderText().replace("{count}", pagination.length + ""));
+						$$invalidate(5, headerText = generateHeaderText().replace("{count}", pagination.length + ""));
 					}
 				}
 			}
 		};
 
 		return [
-			registry,
 			route,
 			selection,
-			selectionLength,
 			blocks,
 			pagination,
 			isEmpty,
@@ -13902,14 +13926,7 @@
 	class IconsWithPages extends SvelteComponent {
 		constructor(options) {
 			super();
-
-			init(this, options, instance$r, create_fragment$r, safe_not_equal, {
-				registry: 0,
-				route: 1,
-				selection: 2,
-				selectionLength: 3,
-				blocks: 4
-			});
+			init(this, options, instance$r, create_fragment$r, safe_not_equal, { route: 0, selection: 1, blocks: 2 });
 		}
 	}
 
@@ -14009,11 +14026,13 @@
 	function instance$s($$self, $$props, $$invalidate) {
 		
 		
-		let { registry } = $$props;
 		let { name } = $$props;
 		let { block } = $$props;
 		let { info = null } = $$props;
 		let { customType = "" } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
 
 		// Phrases
 		const searchPhrases = phrases.search;
@@ -14027,15 +14046,14 @@
 		}
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(4, registry = $$props.registry);
 			if ("name" in $$props) $$invalidate(0, name = $$props.name);
 			if ("block" in $$props) $$invalidate(1, block = $$props.block);
-			if ("info" in $$props) $$invalidate(5, info = $$props.info);
-			if ("customType" in $$props) $$invalidate(6, customType = $$props.customType);
+			if ("info" in $$props) $$invalidate(4, info = $$props.info);
+			if ("customType" in $$props) $$invalidate(5, customType = $$props.customType);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*customType, info*/ 96) {
+			if ($$self.$$.dirty & /*customType, info*/ 48) {
 				 {
 					if (customType !== "" && searchPhrases.placeholder[customType] !== void 0) {
 						$$invalidate(2, placeholder = searchPhrases.placeholder[customType]);
@@ -14048,7 +14066,7 @@
 			}
 		};
 
-		return [name, block, placeholder, changeValue, registry, info, customType];
+		return [name, block, placeholder, changeValue, info, customType];
 	}
 
 	class Search extends SvelteComponent {
@@ -14056,11 +14074,10 @@
 			super();
 
 			init(this, options, instance$s, create_fragment$s, safe_not_equal, {
-				registry: 4,
 				name: 0,
 				block: 1,
-				info: 5,
-				customType: 6
+				info: 4,
+				customType: 5
 			});
 		}
 	}
@@ -14069,12 +14086,12 @@
 
 	function get_each_context$c(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[11] = list[i];
-		child_ctx[13] = i;
+		child_ctx[9] = list[i];
+		child_ctx[11] = i;
 		return child_ctx;
 	}
 
-	// (65:1) {#if blocks.collections}
+	// (61:1) {#if blocks.collections}
 	function create_if_block_2$7(ctx) {
 		let div;
 		let filters;
@@ -14082,13 +14099,12 @@
 
 		filters = new Filters({
 				props: {
-					registry: /*registry*/ ctx[0],
 					name: "collections",
-					parent: /*route*/ ctx[4].parent
-					? /*route*/ ctx[4].parent.type
+					parent: /*route*/ ctx[2].parent
+					? /*route*/ ctx[2].parent.type
 					: "collections",
-					link: /*collectionsLink*/ ctx[8],
-					block: /*blocks*/ ctx[3].collections
+					link: /*collectionsLink*/ ctx[6],
+					block: /*blocks*/ ctx[1].collections
 				}
 			});
 
@@ -14105,14 +14121,13 @@
 			},
 			p(ctx, dirty) {
 				const filters_changes = {};
-				if (dirty & /*registry*/ 1) filters_changes.registry = /*registry*/ ctx[0];
 
-				if (dirty & /*route*/ 16) filters_changes.parent = /*route*/ ctx[4].parent
-				? /*route*/ ctx[4].parent.type
+				if (dirty & /*route*/ 4) filters_changes.parent = /*route*/ ctx[2].parent
+				? /*route*/ ctx[2].parent.type
 				: "collections";
 
-				if (dirty & /*collectionsLink*/ 256) filters_changes.link = /*collectionsLink*/ ctx[8];
-				if (dirty & /*blocks*/ 8) filters_changes.block = /*blocks*/ ctx[3].collections;
+				if (dirty & /*collectionsLink*/ 64) filters_changes.link = /*collectionsLink*/ ctx[6];
+				if (dirty & /*blocks*/ 2) filters_changes.block = /*blocks*/ ctx[1].collections;
 				filters.$set(filters_changes);
 			},
 			i(local) {
@@ -14131,7 +14146,7 @@
 		};
 	}
 
-	// (76:1) {#if showCollectionInfoBlock && info !== null}
+	// (71:1) {#if showCollectionInfoBlock && info !== null}
 	function create_if_block_1$9(ctx) {
 		let collectioninfoblock;
 		let current;
@@ -14139,7 +14154,7 @@
 		collectioninfoblock = new CollectionInfo({
 				props: {
 					name: "info",
-					block: /*blocks*/ ctx[3].info
+					block: /*blocks*/ ctx[1].info
 				}
 			});
 
@@ -14153,7 +14168,7 @@
 			},
 			p(ctx, dirty) {
 				const collectioninfoblock_changes = {};
-				if (dirty & /*blocks*/ 8) collectioninfoblock_changes.block = /*blocks*/ ctx[3].info;
+				if (dirty & /*blocks*/ 2) collectioninfoblock_changes.block = /*blocks*/ ctx[1].info;
 				collectioninfoblock.$set(collectioninfoblock_changes);
 			},
 			i(local) {
@@ -14171,14 +14186,14 @@
 		};
 	}
 
-	// (82:1) {#if filterBlocks.length > 0}
+	// (77:1) {#if filterBlocks.length > 0}
 	function create_if_block$i(ctx) {
 		let div;
 		let each_blocks = [];
 		let each_1_lookup = new Map();
 		let current;
-		let each_value = /*filterBlocks*/ ctx[9];
-		const get_key = ctx => /*item*/ ctx[11].key;
+		let each_value = /*filterBlocks*/ ctx[7];
+		const get_key = ctx => /*item*/ ctx[9].key;
 
 		for (let i = 0; i < each_value.length; i += 1) {
 			let child_ctx = get_each_context$c(ctx, each_value, i);
@@ -14206,8 +14221,8 @@
 				current = true;
 			},
 			p(ctx, dirty) {
-				if (dirty & /*registry, filterBlocks*/ 513) {
-					const each_value = /*filterBlocks*/ ctx[9];
+				if (dirty & /*filterBlocks*/ 128) {
+					const each_value = /*filterBlocks*/ ctx[7];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$c, null, get_each_context$c);
 					check_outros();
@@ -14239,7 +14254,7 @@
 		};
 	}
 
-	// (84:3) {#each filterBlocks as item, i (item.key)}
+	// (79:3) {#each filterBlocks as item, i (item.key)}
 	function create_each_block$c(key_1, ctx) {
 		let first;
 		let filters;
@@ -14247,9 +14262,8 @@
 
 		filters = new Filters({
 				props: {
-					registry: /*registry*/ ctx[0],
-					name: /*item*/ ctx[11].key,
-					block: /*item*/ ctx[11].item
+					name: /*item*/ ctx[9].key,
+					block: /*item*/ ctx[9].item
 				}
 			});
 
@@ -14268,9 +14282,8 @@
 			},
 			p(ctx, dirty) {
 				const filters_changes = {};
-				if (dirty & /*registry*/ 1) filters_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*filterBlocks*/ 512) filters_changes.name = /*item*/ ctx[11].key;
-				if (dirty & /*filterBlocks*/ 512) filters_changes.block = /*item*/ ctx[11].item;
+				if (dirty & /*filterBlocks*/ 128) filters_changes.name = /*item*/ ctx[9].key;
+				if (dirty & /*filterBlocks*/ 128) filters_changes.block = /*item*/ ctx[9].item;
 				filters.$set(filters_changes);
 			},
 			i(local) {
@@ -14299,27 +14312,24 @@
 		let iconswithpages;
 		let div_class_value;
 		let current;
-		let if_block0 = /*blocks*/ ctx[3].collections && create_if_block_2$7(ctx);
-		let if_block1 =  /*info*/ ctx[7] !== null && create_if_block_1$9(ctx);
+		let if_block0 = /*blocks*/ ctx[1].collections && create_if_block_2$7(ctx);
+		let if_block1 =  /*info*/ ctx[5] !== null && create_if_block_1$9(ctx);
 
 		searchblock = new Search({
 				props: {
-					registry: /*registry*/ ctx[0],
 					name: "filter",
-					block: /*blocks*/ ctx[3].filter,
-					info: /*info*/ ctx[7]
+					block: /*blocks*/ ctx[1].filter,
+					info: /*info*/ ctx[5]
 				}
 			});
 
-		let if_block2 = /*filterBlocks*/ ctx[9].length > 0 && create_if_block$i(ctx);
+		let if_block2 = /*filterBlocks*/ ctx[7].length > 0 && create_if_block$i(ctx);
 
 		iconswithpages = new IconsWithPages({
 				props: {
-					registry: /*registry*/ ctx[0],
-					blocks: /*blocks*/ ctx[3],
-					selection: /*selection*/ ctx[1],
-					selectionLength: /*selectionLength*/ ctx[2],
-					route: /*route*/ ctx[4]
+					blocks: /*blocks*/ ctx[1],
+					selection: /*selection*/ ctx[0],
+					route: /*route*/ ctx[2]
 				}
 			});
 
@@ -14336,9 +14346,9 @@
 				t3 = space();
 				create_component(iconswithpages.$$.fragment);
 
-				attr(div, "class", div_class_value = "iif-view " + baseClass$9 + "\n\t\t" + baseClass$9 + "--prefix--" + (/*prefix*/ ctx[6] + (/*provider*/ ctx[5] === ""
+				attr(div, "class", div_class_value = "iif-view " + baseClass$9 + "\n\t\t" + baseClass$9 + "--prefix--" + (/*prefix*/ ctx[4] + (/*provider*/ ctx[3] === ""
 				? ""
-				: " " + baseClass$9 + "--provider--" + /*provider*/ ctx[5])));
+				: " " + baseClass$9 + "--provider--" + /*provider*/ ctx[3])));
 			},
 			m(target, anchor) {
 				insert(target, div, anchor);
@@ -14354,11 +14364,11 @@
 				current = true;
 			},
 			p(ctx, [dirty]) {
-				if (/*blocks*/ ctx[3].collections) {
+				if (/*blocks*/ ctx[1].collections) {
 					if (if_block0) {
 						if_block0.p(ctx, dirty);
 
-						if (dirty & /*blocks*/ 8) {
+						if (dirty & /*blocks*/ 2) {
 							transition_in(if_block0, 1);
 						}
 					} else {
@@ -14377,11 +14387,11 @@
 					check_outros();
 				}
 
-				if ( /*info*/ ctx[7] !== null) {
+				if ( /*info*/ ctx[5] !== null) {
 					if (if_block1) {
 						if_block1.p(ctx, dirty);
 
-						if (dirty & /*info*/ 128) {
+						if (dirty & /*info*/ 32) {
 							transition_in(if_block1, 1);
 						}
 					} else {
@@ -14401,16 +14411,15 @@
 				}
 
 				const searchblock_changes = {};
-				if (dirty & /*registry*/ 1) searchblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*blocks*/ 8) searchblock_changes.block = /*blocks*/ ctx[3].filter;
-				if (dirty & /*info*/ 128) searchblock_changes.info = /*info*/ ctx[7];
+				if (dirty & /*blocks*/ 2) searchblock_changes.block = /*blocks*/ ctx[1].filter;
+				if (dirty & /*info*/ 32) searchblock_changes.info = /*info*/ ctx[5];
 				searchblock.$set(searchblock_changes);
 
-				if (/*filterBlocks*/ ctx[9].length > 0) {
+				if (/*filterBlocks*/ ctx[7].length > 0) {
 					if (if_block2) {
 						if_block2.p(ctx, dirty);
 
-						if (dirty & /*filterBlocks*/ 512) {
+						if (dirty & /*filterBlocks*/ 128) {
 							transition_in(if_block2, 1);
 						}
 					} else {
@@ -14430,16 +14439,14 @@
 				}
 
 				const iconswithpages_changes = {};
-				if (dirty & /*registry*/ 1) iconswithpages_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*blocks*/ 8) iconswithpages_changes.blocks = /*blocks*/ ctx[3];
-				if (dirty & /*selection*/ 2) iconswithpages_changes.selection = /*selection*/ ctx[1];
-				if (dirty & /*selectionLength*/ 4) iconswithpages_changes.selectionLength = /*selectionLength*/ ctx[2];
-				if (dirty & /*route*/ 16) iconswithpages_changes.route = /*route*/ ctx[4];
+				if (dirty & /*blocks*/ 2) iconswithpages_changes.blocks = /*blocks*/ ctx[1];
+				if (dirty & /*selection*/ 1) iconswithpages_changes.selection = /*selection*/ ctx[0];
+				if (dirty & /*route*/ 4) iconswithpages_changes.route = /*route*/ ctx[2];
 				iconswithpages.$set(iconswithpages_changes);
 
-				if (!current || dirty & /*prefix, provider*/ 96 && div_class_value !== (div_class_value = "iif-view " + baseClass$9 + "\n\t\t" + baseClass$9 + "--prefix--" + (/*prefix*/ ctx[6] + (/*provider*/ ctx[5] === ""
+				if (!current || dirty & /*prefix, provider*/ 24 && div_class_value !== (div_class_value = "iif-view " + baseClass$9 + "\n\t\t" + baseClass$9 + "--prefix--" + (/*prefix*/ ctx[4] + (/*provider*/ ctx[3] === ""
 				? ""
-				: " " + baseClass$9 + "--provider--" + /*provider*/ ctx[5])))) {
+				: " " + baseClass$9 + "--provider--" + /*provider*/ ctx[3])))) {
 					attr(div, "class", div_class_value);
 				}
 			},
@@ -14476,10 +14483,7 @@
 	function instance$t($$self, $$props, $$invalidate) {
 		
 		
-		
-		let { registry } = $$props;
 		let { selection } = $$props;
-		let { selectionLength } = $$props;
 		let { blocks } = $$props;
 		let { route } = $$props;
 
@@ -14500,39 +14504,37 @@
 		let filterBlocks;
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("selection" in $$props) $$invalidate(1, selection = $$props.selection);
-			if ("selectionLength" in $$props) $$invalidate(2, selectionLength = $$props.selectionLength);
-			if ("blocks" in $$props) $$invalidate(3, blocks = $$props.blocks);
-			if ("route" in $$props) $$invalidate(4, route = $$props.route);
+			if ("selection" in $$props) $$invalidate(0, selection = $$props.selection);
+			if ("blocks" in $$props) $$invalidate(1, blocks = $$props.blocks);
+			if ("route" in $$props) $$invalidate(2, route = $$props.route);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*route, provider, blocks*/ 56) {
+			if ($$self.$$.dirty & /*route, provider, blocks*/ 14) {
 				 {
-					$$invalidate(5, provider = route.params.provider);
+					$$invalidate(3, provider = route.params.provider);
 
 					if (typeof provider !== "string") {
-						$$invalidate(5, provider = "");
+						$$invalidate(3, provider = "");
 					}
 
-					$$invalidate(6, prefix = route.params.prefix);
-					$$invalidate(7, info = blocks.info === null ? null : blocks.info.info);
+					$$invalidate(4, prefix = route.params.prefix);
+					$$invalidate(5, info = blocks.info === null ? null : blocks.info.info);
 
 					// Get collection link
 					const providerData = lib.getProvider(provider);
 
 					if (providerData) {
-						$$invalidate(8, collectionsLink = providerData.links.collection);
+						$$invalidate(6, collectionsLink = providerData.links.collection);
 					} else {
-						$$invalidate(8, collectionsLink = "");
+						$$invalidate(6, collectionsLink = "");
 					}
 				}
 			}
 
-			if ($$self.$$.dirty & /*blocks*/ 8) {
+			if ($$self.$$.dirty & /*blocks*/ 2) {
 				 {
-					$$invalidate(9, filterBlocks = filterBlockKeys.filter(key => !!blocks[key]).map(key => {
+					$$invalidate(7, filterBlocks = filterBlockKeys.filter(key => !!blocks[key]).map(key => {
 						return { key, item: blocks[key] };
 					}));
 				}
@@ -14540,9 +14542,7 @@
 		};
 
 		return [
-			registry,
 			selection,
-			selectionLength,
 			blocks,
 			route,
 			provider,
@@ -14556,14 +14556,7 @@
 	class Collection extends SvelteComponent {
 		constructor(options) {
 			super();
-
-			init(this, options, instance$t, create_fragment$t, safe_not_equal, {
-				registry: 0,
-				selection: 1,
-				selectionLength: 2,
-				blocks: 3,
-				route: 4
-			});
+			init(this, options, instance$t, create_fragment$t, safe_not_equal, { selection: 0, blocks: 1, route: 2 });
 		}
 	}
 
@@ -14575,10 +14568,9 @@
 
 		filtersblock = new Filters({
 				props: {
-					registry: /*registry*/ ctx[0],
 					name: "collections",
-					block: /*blocks*/ ctx[4].collections,
-					link: /*collectionsLink*/ ctx[5]
+					block: /*blocks*/ ctx[2].collections,
+					link: /*collectionsLink*/ ctx[3]
 				}
 			});
 
@@ -14592,9 +14584,8 @@
 			},
 			p(ctx, dirty) {
 				const filtersblock_changes = {};
-				if (dirty & /*registry*/ 1) filtersblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*blocks*/ 16) filtersblock_changes.block = /*blocks*/ ctx[4].collections;
-				if (dirty & /*collectionsLink*/ 32) filtersblock_changes.link = /*collectionsLink*/ ctx[5];
+				if (dirty & /*blocks*/ 4) filtersblock_changes.block = /*blocks*/ ctx[2].collections;
+				if (dirty & /*collectionsLink*/ 8) filtersblock_changes.link = /*collectionsLink*/ ctx[3];
 				filtersblock.$set(filtersblock_changes);
 			},
 			i(local) {
@@ -14617,15 +14608,13 @@
 		let t;
 		let iconswithpages;
 		let current;
-		let if_block = /*blocks*/ ctx[4].collections && create_if_block$j(ctx);
+		let if_block = /*blocks*/ ctx[2].collections && create_if_block$j(ctx);
 
 		iconswithpages = new IconsWithPages({
 				props: {
-					registry: /*registry*/ ctx[0],
-					blocks: /*blocks*/ ctx[4],
-					selection: /*selection*/ ctx[2],
-					selectionLength: /*selectionLength*/ ctx[3],
-					route: /*route*/ ctx[1]
+					blocks: /*blocks*/ ctx[2],
+					selection: /*selection*/ ctx[1],
+					route: /*route*/ ctx[0]
 				}
 			});
 
@@ -14645,11 +14634,11 @@
 				current = true;
 			},
 			p(ctx, [dirty]) {
-				if (/*blocks*/ ctx[4].collections) {
+				if (/*blocks*/ ctx[2].collections) {
 					if (if_block) {
 						if_block.p(ctx, dirty);
 
-						if (dirty & /*blocks*/ 16) {
+						if (dirty & /*blocks*/ 4) {
 							transition_in(if_block, 1);
 						}
 					} else {
@@ -14669,11 +14658,9 @@
 				}
 
 				const iconswithpages_changes = {};
-				if (dirty & /*registry*/ 1) iconswithpages_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*blocks*/ 16) iconswithpages_changes.blocks = /*blocks*/ ctx[4];
-				if (dirty & /*selection*/ 4) iconswithpages_changes.selection = /*selection*/ ctx[2];
-				if (dirty & /*selectionLength*/ 8) iconswithpages_changes.selectionLength = /*selectionLength*/ ctx[3];
-				if (dirty & /*route*/ 2) iconswithpages_changes.route = /*route*/ ctx[1];
+				if (dirty & /*blocks*/ 4) iconswithpages_changes.blocks = /*blocks*/ ctx[2];
+				if (dirty & /*selection*/ 2) iconswithpages_changes.selection = /*selection*/ ctx[1];
+				if (dirty & /*route*/ 1) iconswithpages_changes.route = /*route*/ ctx[0];
 				iconswithpages.$set(iconswithpages_changes);
 			},
 			i(local) {
@@ -14698,26 +14685,21 @@
 	function instance$u($$self, $$props, $$invalidate) {
 		
 		
-		
-		let { registry } = $$props;
 		let { route } = $$props;
 		let { selection } = $$props;
-		let { selectionLength } = $$props;
 		let { blocks } = $$props;
 
 		// Get collection link
 		let collectionsLink;
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("route" in $$props) $$invalidate(1, route = $$props.route);
-			if ("selection" in $$props) $$invalidate(2, selection = $$props.selection);
-			if ("selectionLength" in $$props) $$invalidate(3, selectionLength = $$props.selectionLength);
-			if ("blocks" in $$props) $$invalidate(4, blocks = $$props.blocks);
+			if ("route" in $$props) $$invalidate(0, route = $$props.route);
+			if ("selection" in $$props) $$invalidate(1, selection = $$props.selection);
+			if ("blocks" in $$props) $$invalidate(2, blocks = $$props.blocks);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*route*/ 2) {
+			if ($$self.$$.dirty & /*route*/ 1) {
 				 {
 					let provider = route.params.provider;
 
@@ -14729,28 +14711,21 @@
 					const providerData = lib.getProvider(provider);
 
 					if (providerData) {
-						$$invalidate(5, collectionsLink = providerData.links.collection);
+						$$invalidate(3, collectionsLink = providerData.links.collection);
 					} else {
-						$$invalidate(5, collectionsLink = "");
+						$$invalidate(3, collectionsLink = "");
 					}
 				}
 			}
 		};
 
-		return [registry, route, selection, selectionLength, blocks, collectionsLink];
+		return [route, selection, blocks, collectionsLink];
 	}
 
 	class Search$1 extends SvelteComponent {
 		constructor(options) {
 			super();
-
-			init(this, options, instance$u, create_fragment$u, safe_not_equal, {
-				registry: 0,
-				route: 1,
-				selection: 2,
-				selectionLength: 3,
-				blocks: 4
-			});
+			init(this, options, instance$u, create_fragment$u, safe_not_equal, { route: 0, selection: 1, blocks: 2 });
 		}
 	}
 
@@ -14766,20 +14741,17 @@
 
 		searchblock = new Search({
 				props: {
-					registry: /*registry*/ ctx[0],
 					name: "filter",
-					block: /*blocks*/ ctx[4].filter,
-					customType: /*route*/ ctx[1].params.customType
+					block: /*blocks*/ ctx[2].filter,
+					customType: /*route*/ ctx[0].params.customType
 				}
 			});
 
 		iconswithpages = new IconsWithPages({
 				props: {
-					registry: /*registry*/ ctx[0],
-					blocks: /*blocks*/ ctx[4],
-					selection: /*selection*/ ctx[2],
-					selectionLength: /*selectionLength*/ ctx[3],
-					route: /*route*/ ctx[1]
+					blocks: /*blocks*/ ctx[2],
+					selection: /*selection*/ ctx[1],
+					route: /*route*/ ctx[0]
 				}
 			});
 
@@ -14789,7 +14761,7 @@
 				create_component(searchblock.$$.fragment);
 				t = space();
 				create_component(iconswithpages.$$.fragment);
-				attr(div, "class", div_class_value = "iif-view iif-view--custom iif-view--custom--" + /*route*/ ctx[1].params.customType);
+				attr(div, "class", div_class_value = "iif-view iif-view--custom iif-view--custom--" + /*route*/ ctx[0].params.customType);
 			},
 			m(target, anchor) {
 				insert(target, div, anchor);
@@ -14800,19 +14772,16 @@
 			},
 			p(ctx, [dirty]) {
 				const searchblock_changes = {};
-				if (dirty & /*registry*/ 1) searchblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*blocks*/ 16) searchblock_changes.block = /*blocks*/ ctx[4].filter;
-				if (dirty & /*route*/ 2) searchblock_changes.customType = /*route*/ ctx[1].params.customType;
+				if (dirty & /*blocks*/ 4) searchblock_changes.block = /*blocks*/ ctx[2].filter;
+				if (dirty & /*route*/ 1) searchblock_changes.customType = /*route*/ ctx[0].params.customType;
 				searchblock.$set(searchblock_changes);
 				const iconswithpages_changes = {};
-				if (dirty & /*registry*/ 1) iconswithpages_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*blocks*/ 16) iconswithpages_changes.blocks = /*blocks*/ ctx[4];
-				if (dirty & /*selection*/ 4) iconswithpages_changes.selection = /*selection*/ ctx[2];
-				if (dirty & /*selectionLength*/ 8) iconswithpages_changes.selectionLength = /*selectionLength*/ ctx[3];
-				if (dirty & /*route*/ 2) iconswithpages_changes.route = /*route*/ ctx[1];
+				if (dirty & /*blocks*/ 4) iconswithpages_changes.blocks = /*blocks*/ ctx[2];
+				if (dirty & /*selection*/ 2) iconswithpages_changes.selection = /*selection*/ ctx[1];
+				if (dirty & /*route*/ 1) iconswithpages_changes.route = /*route*/ ctx[0];
 				iconswithpages.$set(iconswithpages_changes);
 
-				if (!current || dirty & /*route*/ 2 && div_class_value !== (div_class_value = "iif-view iif-view--custom iif-view--custom--" + /*route*/ ctx[1].params.customType)) {
+				if (!current || dirty & /*route*/ 1 && div_class_value !== (div_class_value = "iif-view iif-view--custom iif-view--custom--" + /*route*/ ctx[0].params.customType)) {
 					attr(div, "class", div_class_value);
 				}
 			},
@@ -14838,35 +14807,23 @@
 	function instance$v($$self, $$props, $$invalidate) {
 		
 		
-		
-		let { registry } = $$props;
 		let { route } = $$props;
 		let { selection } = $$props;
-		let { selectionLength } = $$props;
 		let { blocks } = $$props;
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("route" in $$props) $$invalidate(1, route = $$props.route);
-			if ("selection" in $$props) $$invalidate(2, selection = $$props.selection);
-			if ("selectionLength" in $$props) $$invalidate(3, selectionLength = $$props.selectionLength);
-			if ("blocks" in $$props) $$invalidate(4, blocks = $$props.blocks);
+			if ("route" in $$props) $$invalidate(0, route = $$props.route);
+			if ("selection" in $$props) $$invalidate(1, selection = $$props.selection);
+			if ("blocks" in $$props) $$invalidate(2, blocks = $$props.blocks);
 		};
 
-		return [registry, route, selection, selectionLength, blocks];
+		return [route, selection, blocks];
 	}
 
 	class Custom extends SvelteComponent {
 		constructor(options) {
 			super();
-
-			init(this, options, instance$v, create_fragment$v, safe_not_equal, {
-				registry: 0,
-				route: 1,
-				selection: 2,
-				selectionLength: 3,
-				blocks: 4
-			});
+			init(this, options, instance$v, create_fragment$v, safe_not_equal, { route: 0, selection: 1, blocks: 2 });
 		}
 	}
 
@@ -14878,9 +14835,8 @@
 
 		providersblock = new Providers({
 				props: {
-					registry: /*registry*/ ctx[0],
-					providers: /*providers*/ ctx[11],
-					activeProvider: /*activeProvider*/ ctx[10]
+					providers: /*providers*/ ctx[9],
+					activeProvider: /*activeProvider*/ ctx[8]
 				}
 			});
 
@@ -14894,9 +14850,8 @@
 			},
 			p(ctx, dirty) {
 				const providersblock_changes = {};
-				if (dirty & /*registry*/ 1) providersblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*providers*/ 2048) providersblock_changes.providers = /*providers*/ ctx[11];
-				if (dirty & /*activeProvider*/ 1024) providersblock_changes.activeProvider = /*activeProvider*/ ctx[10];
+				if (dirty & /*providers*/ 512) providersblock_changes.providers = /*providers*/ ctx[9];
+				if (dirty & /*activeProvider*/ 256) providersblock_changes.activeProvider = /*activeProvider*/ ctx[8];
 				providersblock.$set(providersblock_changes);
 			},
 			i(local) {
@@ -14914,16 +14869,15 @@
 		};
 	}
 
-	// (135:1) {#if showGlobalSearch}
+	// (132:1) {#if showGlobalSearch}
 	function create_if_block_7(ctx) {
 		let searchblock;
 		let current;
 
 		searchblock = new GlobalSearch({
 				props: {
-					registry: /*registry*/ ctx[0],
-					viewChanged: /*viewChanged*/ ctx[3],
-					route: /*route*/ ctx[5]
+					viewChanged: /*viewChanged*/ ctx[1],
+					route: /*route*/ ctx[3]
 				}
 			});
 
@@ -14937,9 +14891,8 @@
 			},
 			p(ctx, dirty) {
 				const searchblock_changes = {};
-				if (dirty & /*registry*/ 1) searchblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*viewChanged*/ 8) searchblock_changes.viewChanged = /*viewChanged*/ ctx[3];
-				if (dirty & /*route*/ 32) searchblock_changes.route = /*route*/ ctx[5];
+				if (dirty & /*viewChanged*/ 2) searchblock_changes.viewChanged = /*viewChanged*/ ctx[1];
+				if (dirty & /*route*/ 8) searchblock_changes.route = /*route*/ ctx[3];
 				searchblock.$set(searchblock_changes);
 			},
 			i(local) {
@@ -14957,17 +14910,11 @@
 		};
 	}
 
-	// (139:1) {#if route?.parent}
+	// (136:1) {#if route?.parent}
 	function create_if_block_6(ctx) {
 		let parentblock;
 		let current;
-
-		parentblock = new Parent({
-				props: {
-					registry: /*registry*/ ctx[0],
-					route: /*route*/ ctx[5]
-				}
-			});
+		parentblock = new Parent({ props: { route: /*route*/ ctx[3] } });
 
 		return {
 			c() {
@@ -14979,8 +14926,7 @@
 			},
 			p(ctx, dirty) {
 				const parentblock_changes = {};
-				if (dirty & /*registry*/ 1) parentblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*route*/ 32) parentblock_changes.route = /*route*/ ctx[5];
+				if (dirty & /*route*/ 8) parentblock_changes.route = /*route*/ ctx[3];
 				parentblock.$set(parentblock_changes);
 			},
 			i(local) {
@@ -14998,7 +14944,7 @@
 		};
 	}
 
-	// (143:1) {#if !route || route.type !== 'empty'}
+	// (140:1) {#if !route || route.type !== 'empty'}
 	function create_if_block$k(ctx) {
 		let current_block_type_index;
 		let if_block;
@@ -15017,11 +14963,11 @@
 		const if_blocks = [];
 
 		function select_block_type(ctx, dirty) {
-			if (/*error*/ ctx[4] !== "" || !/*route*/ ctx[5]) return 0;
-			if (/*route*/ ctx[5].type === "collections") return 1;
-			if (/*route*/ ctx[5].type === "collection") return 2;
-			if (/*route*/ ctx[5].type === "search") return 3;
-			if (/*route*/ ctx[5].type === "custom") return 4;
+			if (/*error*/ ctx[2] !== "" || !/*route*/ ctx[3]) return 0;
+			if (/*route*/ ctx[3].type === "collections") return 1;
+			if (/*route*/ ctx[3].type === "collection") return 2;
+			if (/*route*/ ctx[3].type === "search") return 3;
+			if (/*route*/ ctx[3].type === "custom") return 4;
 			return 5;
 		}
 
@@ -15079,16 +15025,15 @@
 		};
 	}
 
-	// (172:2) {:else}
+	// (151:2) {:else}
 	function create_else_block$6(ctx) {
 		let viewerror;
 		let current;
 
 		viewerror = new Error$1({
 				props: {
-					registry: /*registry*/ ctx[0],
 					error: "bad_route",
-					route: /*route*/ ctx[5]
+					route: /*route*/ ctx[3]
 				}
 			});
 
@@ -15102,8 +15047,7 @@
 			},
 			p(ctx, dirty) {
 				const viewerror_changes = {};
-				if (dirty & /*registry*/ 1) viewerror_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*route*/ 32) viewerror_changes.route = /*route*/ ctx[5];
+				if (dirty & /*route*/ 8) viewerror_changes.route = /*route*/ ctx[3];
 				viewerror.$set(viewerror_changes);
 			},
 			i(local) {
@@ -15121,18 +15065,16 @@
 		};
 	}
 
-	// (165:36) 
+	// (149:36) 
 	function create_if_block_5(ctx) {
 		let customview;
 		let current;
 
 		customview = new Custom({
 				props: {
-					registry: /*registry*/ ctx[0],
-					route: /*route*/ ctx[5],
-					blocks: /*blocks*/ ctx[6],
-					selection: /*selection*/ ctx[1],
-					selectionLength: /*selectionLength*/ ctx[2]
+					route: /*route*/ ctx[3],
+					blocks: /*blocks*/ ctx[4],
+					selection: /*selection*/ ctx[0]
 				}
 			});
 
@@ -15146,11 +15088,9 @@
 			},
 			p(ctx, dirty) {
 				const customview_changes = {};
-				if (dirty & /*registry*/ 1) customview_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*route*/ 32) customview_changes.route = /*route*/ ctx[5];
-				if (dirty & /*blocks*/ 64) customview_changes.blocks = /*blocks*/ ctx[6];
-				if (dirty & /*selection*/ 2) customview_changes.selection = /*selection*/ ctx[1];
-				if (dirty & /*selectionLength*/ 4) customview_changes.selectionLength = /*selectionLength*/ ctx[2];
+				if (dirty & /*route*/ 8) customview_changes.route = /*route*/ ctx[3];
+				if (dirty & /*blocks*/ 16) customview_changes.blocks = /*blocks*/ ctx[4];
+				if (dirty & /*selection*/ 1) customview_changes.selection = /*selection*/ ctx[0];
 				customview.$set(customview_changes);
 			},
 			i(local) {
@@ -15168,18 +15108,16 @@
 		};
 	}
 
-	// (158:36) 
+	// (147:36) 
 	function create_if_block_4$1(ctx) {
 		let searchview;
 		let current;
 
 		searchview = new Search$1({
 				props: {
-					registry: /*registry*/ ctx[0],
-					route: /*route*/ ctx[5],
-					blocks: /*blocks*/ ctx[6],
-					selection: /*selection*/ ctx[1],
-					selectionLength: /*selectionLength*/ ctx[2]
+					route: /*route*/ ctx[3],
+					blocks: /*blocks*/ ctx[4],
+					selection: /*selection*/ ctx[0]
 				}
 			});
 
@@ -15193,11 +15131,9 @@
 			},
 			p(ctx, dirty) {
 				const searchview_changes = {};
-				if (dirty & /*registry*/ 1) searchview_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*route*/ 32) searchview_changes.route = /*route*/ ctx[5];
-				if (dirty & /*blocks*/ 64) searchview_changes.blocks = /*blocks*/ ctx[6];
-				if (dirty & /*selection*/ 2) searchview_changes.selection = /*selection*/ ctx[1];
-				if (dirty & /*selectionLength*/ 4) searchview_changes.selectionLength = /*selectionLength*/ ctx[2];
+				if (dirty & /*route*/ 8) searchview_changes.route = /*route*/ ctx[3];
+				if (dirty & /*blocks*/ 16) searchview_changes.blocks = /*blocks*/ ctx[4];
+				if (dirty & /*selection*/ 1) searchview_changes.selection = /*selection*/ ctx[0];
 				searchview.$set(searchview_changes);
 			},
 			i(local) {
@@ -15215,18 +15151,16 @@
 		};
 	}
 
-	// (151:40) 
+	// (145:40) 
 	function create_if_block_3$4(ctx) {
 		let collectionview;
 		let current;
 
 		collectionview = new Collection({
 				props: {
-					registry: /*registry*/ ctx[0],
-					route: /*route*/ ctx[5],
-					blocks: /*blocks*/ ctx[6],
-					selection: /*selection*/ ctx[1],
-					selectionLength: /*selectionLength*/ ctx[2]
+					route: /*route*/ ctx[3],
+					blocks: /*blocks*/ ctx[4],
+					selection: /*selection*/ ctx[0]
 				}
 			});
 
@@ -15240,11 +15174,9 @@
 			},
 			p(ctx, dirty) {
 				const collectionview_changes = {};
-				if (dirty & /*registry*/ 1) collectionview_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*route*/ 32) collectionview_changes.route = /*route*/ ctx[5];
-				if (dirty & /*blocks*/ 64) collectionview_changes.blocks = /*blocks*/ ctx[6];
-				if (dirty & /*selection*/ 2) collectionview_changes.selection = /*selection*/ ctx[1];
-				if (dirty & /*selectionLength*/ 4) collectionview_changes.selectionLength = /*selectionLength*/ ctx[2];
+				if (dirty & /*route*/ 8) collectionview_changes.route = /*route*/ ctx[3];
+				if (dirty & /*blocks*/ 16) collectionview_changes.blocks = /*blocks*/ ctx[4];
+				if (dirty & /*selection*/ 1) collectionview_changes.selection = /*selection*/ ctx[0];
 				collectionview.$set(collectionview_changes);
 			},
 			i(local) {
@@ -15262,16 +15194,15 @@
 		};
 	}
 
-	// (149:41) 
+	// (143:41) 
 	function create_if_block_2$8(ctx) {
 		let collectionsview;
 		let current;
 
 		collectionsview = new Collections({
 				props: {
-					registry: /*registry*/ ctx[0],
-					route: /*route*/ ctx[5],
-					blocks: /*blocks*/ ctx[6]
+					route: /*route*/ ctx[3],
+					blocks: /*blocks*/ ctx[4]
 				}
 			});
 
@@ -15285,9 +15216,8 @@
 			},
 			p(ctx, dirty) {
 				const collectionsview_changes = {};
-				if (dirty & /*registry*/ 1) collectionsview_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*route*/ 32) collectionsview_changes.route = /*route*/ ctx[5];
-				if (dirty & /*blocks*/ 64) collectionsview_changes.blocks = /*blocks*/ ctx[6];
+				if (dirty & /*route*/ 8) collectionsview_changes.route = /*route*/ ctx[3];
+				if (dirty & /*blocks*/ 16) collectionsview_changes.blocks = /*blocks*/ ctx[4];
 				collectionsview.$set(collectionsview_changes);
 			},
 			i(local) {
@@ -15305,16 +15235,15 @@
 		};
 	}
 
-	// (144:2) {#if error !== '' || !route}
+	// (141:2) {#if error !== '' || !route}
 	function create_if_block_1$a(ctx) {
 		let viewerror;
 		let current;
 
 		viewerror = new Error$1({
 				props: {
-					registry: /*registry*/ ctx[0],
-					error: /*error*/ ctx[4] !== "" ? /*error*/ ctx[4] : "bad_route",
-					route: /*route*/ ctx[5]
+					error: /*error*/ ctx[2] !== "" ? /*error*/ ctx[2] : "bad_route",
+					route: /*route*/ ctx[3]
 				}
 			});
 
@@ -15328,9 +15257,8 @@
 			},
 			p(ctx, dirty) {
 				const viewerror_changes = {};
-				if (dirty & /*registry*/ 1) viewerror_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*error*/ 16) viewerror_changes.error = /*error*/ ctx[4] !== "" ? /*error*/ ctx[4] : "bad_route";
-				if (dirty & /*route*/ 32) viewerror_changes.route = /*route*/ ctx[5];
+				if (dirty & /*error*/ 4) viewerror_changes.error = /*error*/ ctx[2] !== "" ? /*error*/ ctx[2] : "bad_route";
+				if (dirty & /*route*/ 8) viewerror_changes.route = /*route*/ ctx[3];
 				viewerror.$set(viewerror_changes);
 			},
 			i(local) {
@@ -15354,10 +15282,10 @@
 		let t1;
 		let t2;
 		let current;
-		let if_block0 = /*providersVisible*/ ctx[9] && create_if_block_8(ctx);
-		let if_block1 = /*showGlobalSearch*/ ctx[8] && create_if_block_7(ctx);
-		let if_block2 = /*route*/ ctx[5]?.parent && create_if_block_6(ctx);
-		let if_block3 = (!/*route*/ ctx[5] || /*route*/ ctx[5].type !== "empty") && create_if_block$k(ctx);
+		let if_block0 = /*providersVisible*/ ctx[7] && create_if_block_8(ctx);
+		let if_block1 = /*showGlobalSearch*/ ctx[6] && create_if_block_7(ctx);
+		let if_block2 = /*route*/ ctx[3]?.parent && create_if_block_6(ctx);
+		let if_block3 = (!/*route*/ ctx[3] || /*route*/ ctx[3].type !== "empty") && create_if_block$k(ctx);
 
 		return {
 			c() {
@@ -15369,7 +15297,7 @@
 				if (if_block2) if_block2.c();
 				t2 = space();
 				if (if_block3) if_block3.c();
-				attr(div, "class", /*className*/ ctx[7]);
+				attr(div, "class", /*className*/ ctx[5]);
 			},
 			m(target, anchor) {
 				insert(target, div, anchor);
@@ -15383,11 +15311,11 @@
 				current = true;
 			},
 			p(ctx, [dirty]) {
-				if (/*providersVisible*/ ctx[9]) {
+				if (/*providersVisible*/ ctx[7]) {
 					if (if_block0) {
 						if_block0.p(ctx, dirty);
 
-						if (dirty & /*providersVisible*/ 512) {
+						if (dirty & /*providersVisible*/ 128) {
 							transition_in(if_block0, 1);
 						}
 					} else {
@@ -15406,11 +15334,11 @@
 					check_outros();
 				}
 
-				if (/*showGlobalSearch*/ ctx[8]) {
+				if (/*showGlobalSearch*/ ctx[6]) {
 					if (if_block1) {
 						if_block1.p(ctx, dirty);
 
-						if (dirty & /*showGlobalSearch*/ 256) {
+						if (dirty & /*showGlobalSearch*/ 64) {
 							transition_in(if_block1, 1);
 						}
 					} else {
@@ -15429,11 +15357,11 @@
 					check_outros();
 				}
 
-				if (/*route*/ ctx[5]?.parent) {
+				if (/*route*/ ctx[3]?.parent) {
 					if (if_block2) {
 						if_block2.p(ctx, dirty);
 
-						if (dirty & /*route*/ 32) {
+						if (dirty & /*route*/ 8) {
 							transition_in(if_block2, 1);
 						}
 					} else {
@@ -15452,11 +15380,11 @@
 					check_outros();
 				}
 
-				if (!/*route*/ ctx[5] || /*route*/ ctx[5].type !== "empty") {
+				if (!/*route*/ ctx[3] || /*route*/ ctx[3].type !== "empty") {
 					if (if_block3) {
 						if_block3.p(ctx, dirty);
 
-						if (dirty & /*route*/ 32) {
+						if (dirty & /*route*/ 8) {
 							transition_in(if_block3, 1);
 						}
 					} else {
@@ -15475,8 +15403,8 @@
 					check_outros();
 				}
 
-				if (!current || dirty & /*className*/ 128) {
-					attr(div, "class", /*className*/ ctx[7]);
+				if (!current || dirty & /*className*/ 32) {
+					attr(div, "class", /*className*/ ctx[5]);
 				}
 			},
 			i(local) {
@@ -15509,10 +15437,7 @@
 	function instance$w($$self, $$props, $$invalidate) {
 		
 		
-		
-		let { registry } = $$props;
 		let { selection } = $$props;
-		let { selectionLength } = $$props;
 		let { viewChanged } = $$props;
 		let { error } = $$props;
 		let { route } = $$props;
@@ -15529,52 +15454,50 @@
 		let providers = [""];
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("selection" in $$props) $$invalidate(1, selection = $$props.selection);
-			if ("selectionLength" in $$props) $$invalidate(2, selectionLength = $$props.selectionLength);
-			if ("viewChanged" in $$props) $$invalidate(3, viewChanged = $$props.viewChanged);
-			if ("error" in $$props) $$invalidate(4, error = $$props.error);
-			if ("route" in $$props) $$invalidate(5, route = $$props.route);
-			if ("blocks" in $$props) $$invalidate(6, blocks = $$props.blocks);
+			if ("selection" in $$props) $$invalidate(0, selection = $$props.selection);
+			if ("viewChanged" in $$props) $$invalidate(1, viewChanged = $$props.viewChanged);
+			if ("error" in $$props) $$invalidate(2, error = $$props.error);
+			if ("route" in $$props) $$invalidate(3, route = $$props.route);
+			if ("blocks" in $$props) $$invalidate(4, blocks = $$props.blocks);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*error, className, route*/ 176) {
+			if ($$self.$$.dirty & /*error, className, route*/ 44) {
 				 {
 					// Check class name and search form value
-					$$invalidate(7, className = baseClass$a);
+					$$invalidate(5, className = baseClass$a);
 
 					if (error !== "") {
 						// View shows error
-						$$invalidate(7, className += " " + baseClass$a + "--error " + baseClass$a + "--error--" + error);
+						$$invalidate(5, className += " " + baseClass$a + "--error " + baseClass$a + "--error--" + error);
 					} else {
 						// View shows something
-						$$invalidate(7, className += " " + baseClass$a + "--view " + baseClass$a + "--view--" + route.type);
+						$$invalidate(5, className += " " + baseClass$a + "--view " + baseClass$a + "--view--" + route.type);
 
 						if (route.params && (route.type === "search" || route.type === "collections" || route.type === "collection") && route.params.provider) {
 							// Add provider: '{base}--view--{type}--provider--{provider}'
-							$$invalidate(7, className += " " + baseClass$a + "--view--" + route.type + "--provider--" + route.params.provider);
+							$$invalidate(5, className += " " + baseClass$a + "--view--" + route.type + "--provider--" + route.params.provider);
 						}
 
 						if (route.type === "collection") {
 							// Add prefix: '{base}--view--collection--prefix--{prefix}'
-							$$invalidate(7, className += " " + baseClass$a + "--view--collection--prefix--" + route.params.prefix);
+							$$invalidate(5, className += " " + baseClass$a + "--view--collection--prefix--" + route.params.prefix);
 						} else if (route.type === "custom") {
 							// Add custom type: '{base} {base}--view {base}--view--custom {base}--view--custom--{customType}'
-							$$invalidate(7, className += " " + baseClass$a + "--view--custom--" + route.params.customType);
+							$$invalidate(5, className += " " + baseClass$a + "--view--custom--" + route.params.customType);
 						}
 					}
 				}
 			}
 
-			if ($$self.$$.dirty & /*route, showGlobalSearch*/ 288) {
+			if ($$self.$$.dirty & /*route, showGlobalSearch*/ 72) {
 				 {
-					$$invalidate(8, showGlobalSearch = false);
+					$$invalidate(6, showGlobalSearch = false);
 					let item = route;
 
 					while (!showGlobalSearch && item) {
 						if (item.type === "collections") {
-							$$invalidate(8, showGlobalSearch = true);
+							$$invalidate(6, showGlobalSearch = true);
 						} else {
 							item = item.parent;
 						}
@@ -15582,19 +15505,17 @@
 				}
 			}
 
-			if ($$self.$$.dirty & /*route, providers*/ 2080) {
+			if ($$self.$$.dirty & /*route, providers*/ 520) {
 				 {
 					{
-						$$invalidate(9, providersVisible = false);
+						$$invalidate(7, providersVisible = false);
 					}
 				}
 			}
 		};
 
 		return [
-			registry,
 			selection,
-			selectionLength,
 			viewChanged,
 			error,
 			route,
@@ -15612,13 +15533,11 @@
 			super();
 
 			init(this, options, instance$w, create_fragment$w, safe_not_equal, {
-				registry: 0,
-				selection: 1,
-				selectionLength: 2,
-				viewChanged: 3,
-				error: 4,
-				route: 5,
-				blocks: 6
+				selection: 0,
+				viewChanged: 1,
+				error: 2,
+				route: 3,
+				blocks: 4
 			});
 		}
 	}
@@ -15678,6 +15597,350 @@
 	    return result;
 	}
 
+	/* src/icon-finder/components/footer/misc/Block.svelte generated by Svelte v3.29.4 */
+
+	function create_if_block_1$b(ctx) {
+		let p;
+		let t;
+		let current;
+		let if_block0 = !/*expanded*/ ctx[1] && create_if_block_3$5();
+
+		function select_block_type(ctx, dirty) {
+			if (/*canExpand*/ ctx[3]) return create_if_block_2$9;
+			return create_else_block$7;
+		}
+
+		let current_block_type = select_block_type(ctx);
+		let if_block1 = current_block_type(ctx);
+
+		return {
+			c() {
+				p = element("p");
+				if (if_block0) if_block0.c();
+				t = space();
+				if_block1.c();
+				attr(p, "class", "iif-footer-block-title");
+			},
+			m(target, anchor) {
+				insert(target, p, anchor);
+				if (if_block0) if_block0.m(p, null);
+				append(p, t);
+				if_block1.m(p, null);
+				current = true;
+			},
+			p(ctx, dirty) {
+				if (!/*expanded*/ ctx[1]) {
+					if (if_block0) {
+						if (dirty & /*expanded*/ 2) {
+							transition_in(if_block0, 1);
+						}
+					} else {
+						if_block0 = create_if_block_3$5();
+						if_block0.c();
+						transition_in(if_block0, 1);
+						if_block0.m(p, t);
+					}
+				} else if (if_block0) {
+					group_outros();
+
+					transition_out(if_block0, 1, 1, () => {
+						if_block0 = null;
+					});
+
+					check_outros();
+				}
+
+				if_block1.p(ctx, dirty);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(if_block0);
+				current = true;
+			},
+			o(local) {
+				transition_out(if_block0);
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(p);
+				if (if_block0) if_block0.d();
+				if_block1.d();
+			}
+		};
+	}
+
+	// (48:3) {#if !expanded}
+	function create_if_block_3$5(ctx) {
+		let uiicon;
+		let current;
+		uiicon = new Icon({ props: { icon: "expand" } });
+
+		return {
+			c() {
+				create_component(uiicon.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(uiicon, target, anchor);
+				current = true;
+			},
+			i(local) {
+				if (current) return;
+				transition_in(uiicon.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(uiicon.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(uiicon, detaching);
+			}
+		};
+	}
+
+	// (55:3) {:else}
+	function create_else_block$7(ctx) {
+		let t_value = /*title*/ ctx[0] + ":" + "";
+		let t;
+
+		return {
+			c() {
+				t = text(t_value);
+			},
+			m(target, anchor) {
+				insert(target, t, anchor);
+			},
+			p(ctx, dirty) {
+				if (dirty & /*title*/ 1 && t_value !== (t_value = /*title*/ ctx[0] + ":" + "")) set_data(t, t_value);
+			},
+			d(detaching) {
+				if (detaching) detach(t);
+			}
+		};
+	}
+
+	// (51:3) {#if canExpand}
+	function create_if_block_2$9(ctx) {
+		let a;
+		let t_value = /*title*/ ctx[0] + (/*expanded*/ ctx[1] ? ":" : "") + "";
+		let t;
+		let mounted;
+		let dispose;
+
+		return {
+			c() {
+				a = element("a");
+				t = text(t_value);
+				attr(a, "href", "# ");
+			},
+			m(target, anchor) {
+				insert(target, a, anchor);
+				append(a, t);
+
+				if (!mounted) {
+					dispose = listen(a, "click", prevent_default(/*toggle*/ ctx[4]));
+					mounted = true;
+				}
+			},
+			p(ctx, dirty) {
+				if (dirty & /*title, expanded*/ 3 && t_value !== (t_value = /*title*/ ctx[0] + (/*expanded*/ ctx[1] ? ":" : "") + "")) set_data(t, t_value);
+			},
+			d(detaching) {
+				if (detaching) detach(a);
+				mounted = false;
+				dispose();
+			}
+		};
+	}
+
+	// (58:1) {#if expanded}
+	function create_if_block$l(ctx) {
+		let current;
+		const default_slot_template = /*#slots*/ ctx[7].default;
+		const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[6], null);
+
+		return {
+			c() {
+				if (default_slot) default_slot.c();
+			},
+			m(target, anchor) {
+				if (default_slot) {
+					default_slot.m(target, anchor);
+				}
+
+				current = true;
+			},
+			p(ctx, dirty) {
+				if (default_slot) {
+					if (default_slot.p && dirty & /*$$scope*/ 64) {
+						update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[6], dirty, null, null);
+					}
+				}
+			},
+			i(local) {
+				if (current) return;
+				transition_in(default_slot, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(default_slot, local);
+				current = false;
+			},
+			d(detaching) {
+				if (default_slot) default_slot.d(detaching);
+			}
+		};
+	}
+
+	function create_fragment$x(ctx) {
+		let div;
+		let t;
+		let current;
+		let if_block0 = /*title*/ ctx[0] !== "" && create_if_block_1$b(ctx);
+		let if_block1 = /*expanded*/ ctx[1] && create_if_block$l(ctx);
+
+		return {
+			c() {
+				div = element("div");
+				if (if_block0) if_block0.c();
+				t = space();
+				if (if_block1) if_block1.c();
+				attr(div, "class", /*className*/ ctx[2]);
+			},
+			m(target, anchor) {
+				insert(target, div, anchor);
+				if (if_block0) if_block0.m(div, null);
+				append(div, t);
+				if (if_block1) if_block1.m(div, null);
+				current = true;
+			},
+			p(ctx, [dirty]) {
+				if (/*title*/ ctx[0] !== "") {
+					if (if_block0) {
+						if_block0.p(ctx, dirty);
+
+						if (dirty & /*title*/ 1) {
+							transition_in(if_block0, 1);
+						}
+					} else {
+						if_block0 = create_if_block_1$b(ctx);
+						if_block0.c();
+						transition_in(if_block0, 1);
+						if_block0.m(div, t);
+					}
+				} else if (if_block0) {
+					group_outros();
+
+					transition_out(if_block0, 1, 1, () => {
+						if_block0 = null;
+					});
+
+					check_outros();
+				}
+
+				if (/*expanded*/ ctx[1]) {
+					if (if_block1) {
+						if_block1.p(ctx, dirty);
+
+						if (dirty & /*expanded*/ 2) {
+							transition_in(if_block1, 1);
+						}
+					} else {
+						if_block1 = create_if_block$l(ctx);
+						if_block1.c();
+						transition_in(if_block1, 1);
+						if_block1.m(div, null);
+					}
+				} else if (if_block1) {
+					group_outros();
+
+					transition_out(if_block1, 1, 1, () => {
+						if_block1 = null;
+					});
+
+					check_outros();
+				}
+
+				if (!current || dirty & /*className*/ 4) {
+					attr(div, "class", /*className*/ ctx[2]);
+				}
+			},
+			i(local) {
+				if (current) return;
+				transition_in(if_block0);
+				transition_in(if_block1);
+				current = true;
+			},
+			o(local) {
+				transition_out(if_block0);
+				transition_out(if_block1);
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(div);
+				if (if_block0) if_block0.d();
+				if (if_block1) if_block1.d();
+			}
+		};
+	}
+
+	const baseClass$b = "iif-footer-block";
+
+	function instance$x($$self, $$props, $$invalidate) {
+		let { $$slots: slots = {}, $$scope } = $$props;
+		
+		let { name } = $$props;
+		let { title } = $$props;
+
+		// Config key
+		let key = name + "Visible";
+
+		// Registry
+		const registry = getContext("registry");
+
+		// Get config
+		const config = registry.config.components;
+
+		// Check if block can expand
+		const canExpand = canToggleFooterBlocks ;
+
+		// Check if info block is visible
+		let expanded =  true;
+
+		let className;
+
+		/**
+	 * Toggle block
+	 */
+		function toggle() {
+			$$invalidate(1, expanded = config[key] = !expanded);
+			registry.callback({ type: "config" });
+		}
+
+		$$self.$$set = $$props => {
+			if ("name" in $$props) $$invalidate(5, name = $$props.name);
+			if ("title" in $$props) $$invalidate(0, title = $$props.title);
+			if ("$$scope" in $$props) $$invalidate(6, $$scope = $$props.$$scope);
+		};
+
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*name, expanded*/ 34) {
+				 {
+					$$invalidate(2, className = baseClass$b + " " + baseClass$b + "--" + name + " " + baseClass$b + "--" + (expanded ? "expanded" : "collapsed"));
+				}
+			}
+		};
+
+		return [title, expanded, className, canExpand, toggle, name, $$scope, slots];
+	}
+
+	class Block$1 extends SvelteComponent {
+		constructor(options) {
+			super();
+			init(this, options, instance$x, create_fragment$x, safe_not_equal, { name: 5, title: 0 });
+		}
+	}
+
 	function shortenIconName(route, icon, fullName) {
 	    if (!route) {
 	        return fullName;
@@ -15706,7 +15969,7 @@
 
 	/* src/icon-finder/components/footer/parts/name/Simple.svelte generated by Svelte v3.29.4 */
 
-	function create_fragment$x(ctx) {
+	function create_fragment$y(ctx) {
 		let div1;
 		let dl;
 		let dt;
@@ -15768,8 +16031,7 @@
 		};
 	}
 
-	function instance$x($$self, $$props, $$invalidate) {
-		
+	function instance$y($$self, $$props, $$invalidate) {
 		
 		let { icon } = $$props;
 		let { route } = $$props;
@@ -15803,7 +16065,7 @@
 	class Simple extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$x, create_fragment$x, safe_not_equal, { icon: 2, route: 3 });
+			init(this, options, instance$y, create_fragment$y, safe_not_equal, { icon: 2, route: 3 });
 		}
 	}
 
@@ -16319,7 +16581,7 @@
 
 	/* src/icon-finder/components/footer/parts/props/Block.svelte generated by Svelte v3.29.4 */
 
-	function create_fragment$y(ctx) {
+	function create_fragment$z(ctx) {
 		let div1;
 		let p;
 		let t0;
@@ -16338,7 +16600,7 @@
 				t1 = space();
 				div0 = element("div");
 				if (default_slot) default_slot.c();
-				attr(div1, "class", div1_class_value = baseClass$b + " " + baseClass$b + "--" + /*type*/ ctx[0]);
+				attr(div1, "class", div1_class_value = baseClass$c + " " + baseClass$c + "--" + /*type*/ ctx[0]);
 			},
 			m(target, anchor) {
 				insert(target, div1, anchor);
@@ -16362,7 +16624,7 @@
 					}
 				}
 
-				if (!current || dirty & /*type*/ 1 && div1_class_value !== (div1_class_value = baseClass$b + " " + baseClass$b + "--" + /*type*/ ctx[0])) {
+				if (!current || dirty & /*type*/ 1 && div1_class_value !== (div1_class_value = baseClass$c + " " + baseClass$c + "--" + /*type*/ ctx[0])) {
 					attr(div1, "class", div1_class_value);
 				}
 			},
@@ -16382,9 +16644,9 @@
 		};
 	}
 
-	const baseClass$b = "iif-footer-options-block";
+	const baseClass$c = "iif-footer-options-block";
 
-	function instance$y($$self, $$props, $$invalidate) {
+	function instance$z($$self, $$props, $$invalidate) {
 		let { $$slots: slots = {}, $$scope } = $$props;
 		let { type } = $$props;
 
@@ -16411,20 +16673,20 @@
 		return [type, title, $$scope, slots];
 	}
 
-	class Block$1 extends SvelteComponent {
+	class Block$2 extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$y, create_fragment$y, safe_not_equal, { type: 0 });
+			init(this, options, instance$z, create_fragment$z, safe_not_equal, { type: 0 });
 		}
 	}
 
 	/* src/icon-finder/components/footer/parts/props/color/Color.svelte generated by Svelte v3.29.4 */
 
-	function create_if_block$l(ctx) {
+	function create_if_block$m(ctx) {
 		let block;
 		let current;
 
-		block = new Block$1({
+		block = new Block$2({
 				props: {
 					type: "color",
 					$$slots: { default: [create_default_slot$9] },
@@ -16518,10 +16780,10 @@
 		};
 	}
 
-	function create_fragment$z(ctx) {
+	function create_fragment$A(ctx) {
 		let if_block_anchor;
 		let current;
-		let if_block = /*hasColor*/ ctx[1] && create_if_block$l(ctx);
+		let if_block = /*hasColor*/ ctx[1] && create_if_block$m(ctx);
 
 		return {
 			c() {
@@ -16542,7 +16804,7 @@
 							transition_in(if_block, 1);
 						}
 					} else {
-						if_block = create_if_block$l(ctx);
+						if_block = create_if_block$m(ctx);
 						if_block.c();
 						transition_in(if_block, 1);
 						if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -16573,7 +16835,7 @@
 		};
 	}
 
-	function instance$z($$self, $$props, $$invalidate) {
+	function instance$A($$self, $$props, $$invalidate) {
 		
 		
 		let { icons } = $$props;
@@ -16664,13 +16926,13 @@
 	class Color extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$z, create_fragment$z, safe_not_equal, { icons: 6, value: 0, customise: 7 });
+			init(this, options, instance$A, create_fragment$A, safe_not_equal, { icons: 6, value: 0, customise: 7 });
 		}
 	}
 
 	/* src/icon-finder/components/footer/parts/props/size/SizeInput.svelte generated by Svelte v3.29.4 */
 
-	function create_fragment$A(ctx) {
+	function create_fragment$B(ctx) {
 		let input;
 		let current;
 
@@ -16717,7 +16979,7 @@
 		};
 	}
 
-	function instance$A($$self, $$props, $$invalidate) {
+	function instance$B($$self, $$props, $$invalidate) {
 		
 		let { prop } = $$props;
 		let { value } = $$props;
@@ -16786,7 +17048,7 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$A, create_fragment$A, safe_not_equal, {
+			init(this, options, instance$B, create_fragment$B, safe_not_equal, {
 				prop: 0,
 				value: 6,
 				placeholder: 1,
@@ -16920,11 +17182,11 @@
 		};
 	}
 
-	function create_fragment$B(ctx) {
+	function create_fragment$C(ctx) {
 		let block;
 		let current;
 
-		block = new Block$1({
+		block = new Block$2({
 				props: {
 					type: /*type*/ ctx[3],
 					$$slots: { default: [create_default_slot$a] },
@@ -16964,7 +17226,7 @@
 		};
 	}
 
-	function instance$B($$self, $$props, $$invalidate) {
+	function instance$C($$self, $$props, $$invalidate) {
 		
 		
 		let { icons } = $$props;
@@ -17107,7 +17369,7 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$B, create_fragment$B, safe_not_equal, {
+			init(this, options, instance$C, create_fragment$C, safe_not_equal, {
 				icons: 5,
 				customisations: 0,
 				customise: 1
@@ -17117,7 +17379,7 @@
 
 	/* src/icon-finder/components/forms/OptionButton.svelte generated by Svelte v3.29.4 */
 
-	function create_if_block$m(ctx) {
+	function create_if_block$n(ctx) {
 		let uiicon;
 		let current;
 
@@ -17156,7 +17418,7 @@
 		};
 	}
 
-	function create_fragment$C(ctx) {
+	function create_fragment$D(ctx) {
 		let button;
 		let t0;
 		let span;
@@ -17165,7 +17427,7 @@
 		let current;
 		let mounted;
 		let dispose;
-		let if_block = /*icon*/ ctx[0] && create_if_block$m(ctx);
+		let if_block = /*icon*/ ctx[0] && create_if_block$n(ctx);
 
 		return {
 			c() {
@@ -17204,7 +17466,7 @@
 							transition_in(if_block, 1);
 						}
 					} else {
-						if_block = create_if_block$m(ctx);
+						if_block = create_if_block$n(ctx);
 						if_block.c();
 						transition_in(if_block, 1);
 						if_block.m(button, t0);
@@ -17247,9 +17509,9 @@
 		};
 	}
 
-	const baseClass$c = "iif-option-button";
+	const baseClass$d = "iif-option-button";
 
-	function instance$C($$self, $$props, $$invalidate) {
+	function instance$D($$self, $$props, $$invalidate) {
 		let { icon = "" } = $$props;
 		let { onClick } = $$props;
 		let { title } = $$props;
@@ -17278,9 +17540,9 @@
 		$$self.$$.update = () => {
 			if ($$self.$$.dirty & /*hasIcon, text, textOptional, status*/ 456) {
 				 {
-					$$invalidate(4, className = baseClass$c + " " + baseClass$c + (hasIcon ? "--with-icon" : "--without-icon") + " " + baseClass$c + (text && !textOptional || !hasIcon
+					$$invalidate(4, className = baseClass$d + " " + baseClass$d + (hasIcon ? "--with-icon" : "--without-icon") + " " + baseClass$d + (text && !textOptional || !hasIcon
 					? "--with-text"
-					: "--without-text") + (status === "" ? "" : " " + baseClass$c + "--" + status));
+					: "--without-text") + (status === "" ? "" : " " + baseClass$d + "--" + status));
 				}
 			}
 		};
@@ -17292,7 +17554,7 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$C, create_fragment$C, safe_not_equal, {
+			init(this, options, instance$D, create_fragment$D, safe_not_equal, {
 				icon: 0,
 				onClick: 1,
 				title: 2,
@@ -17443,11 +17705,11 @@
 		};
 	}
 
-	function create_fragment$D(ctx) {
+	function create_fragment$E(ctx) {
 		let block;
 		let current;
 
-		block = new Block$1({
+		block = new Block$2({
 				props: {
 					type: "rotate",
 					$$slots: { default: [create_default_slot$b] },
@@ -17496,7 +17758,7 @@
 		};
 	}
 
-	function instance$D($$self, $$props, $$invalidate) {
+	function instance$E($$self, $$props, $$invalidate) {
 		
 		let { value } = $$props;
 		let { customise } = $$props;
@@ -17550,7 +17812,7 @@
 	class Rotate extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$D, create_fragment$D, safe_not_equal, { value: 0, customise: 4 });
+			init(this, options, instance$E, create_fragment$E, safe_not_equal, { value: 0, customise: 4 });
 		}
 	}
 
@@ -17691,11 +17953,11 @@
 		};
 	}
 
-	function create_fragment$E(ctx) {
+	function create_fragment$F(ctx) {
 		let block;
 		let current;
 
-		block = new Block$1({
+		block = new Block$2({
 				props: {
 					type: "flip",
 					$$slots: { default: [create_default_slot$c] },
@@ -17735,7 +17997,7 @@
 		};
 	}
 
-	function instance$E($$self, $$props, $$invalidate) {
+	function instance$F($$self, $$props, $$invalidate) {
 		
 		let { customisations } = $$props;
 		let { customise } = $$props;
@@ -17778,7 +18040,7 @@
 	class Flip extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$E, create_fragment$E, safe_not_equal, { customisations: 0, customise: 3 });
+			init(this, options, instance$F, create_fragment$F, safe_not_equal, { customisations: 0, customise: 3 });
 		}
 	}
 
@@ -17918,11 +18180,11 @@
 		};
 	}
 
-	function create_fragment$F(ctx) {
+	function create_fragment$G(ctx) {
 		let block;
 		let current;
 
-		block = new Block$1({
+		block = new Block$2({
 				props: {
 					type: "mode",
 					$$slots: { default: [create_default_slot$d] },
@@ -17974,7 +18236,7 @@
 		};
 	}
 
-	function instance$F($$self, $$props, $$invalidate) {
+	function instance$G($$self, $$props, $$invalidate) {
 		
 		let { value } = $$props;
 		let { customise } = $$props;
@@ -18024,7 +18286,7 @@
 	class Inline extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$F, create_fragment$F, safe_not_equal, { value: 0, customise: 4 });
+			init(this, options, instance$G, create_fragment$G, safe_not_equal, { value: 0, customise: 4 });
 		}
 	}
 
@@ -18822,7 +19084,7 @@
 
 	/* src/icon-finder/components/footer/parts/code/Sample.svelte generated by Svelte v3.29.4 */
 
-	function create_if_block$n(ctx) {
+	function create_if_block$o(ctx) {
 		let div;
 		let uiicon;
 		let t0;
@@ -18864,7 +19126,7 @@
 		};
 	}
 
-	function create_fragment$G(ctx) {
+	function create_fragment$H(ctx) {
 		let div1;
 		let div0;
 		let t0;
@@ -18878,7 +19140,7 @@
 		let mounted;
 		let dispose;
 		uiicon = new Icon({ props: { icon: "clipboard" } });
-		let if_block = /*notice*/ ctx[1] > 0 && create_if_block$n(ctx);
+		let if_block = /*notice*/ ctx[1] > 0 && create_if_block$o(ctx);
 
 		return {
 			c() {
@@ -18922,7 +19184,7 @@
 							transition_in(if_block, 1);
 						}
 					} else {
-						if_block = create_if_block$n(ctx);
+						if_block = create_if_block$o(ctx);
 						if_block.c();
 						transition_in(if_block, 1);
 						if_block.m(div1, null);
@@ -18964,7 +19226,7 @@
 
 	const baseClassName = "iif-input-sample";
 
-	function instance$G($$self, $$props, $$invalidate) {
+	function instance$H($$self, $$props, $$invalidate) {
 		let { content } = $$props;
 		const text = phrases.codeSamples;
 
@@ -19051,7 +19313,7 @@
 	class Sample extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$G, create_fragment$G, safe_not_equal, { content: 0 });
+			init(this, options, instance$H, create_fragment$H, safe_not_equal, { content: 0 });
 		}
 	}
 
@@ -19059,18 +19321,18 @@
 
 	function get_each_context$h(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[7] = list[i];
+		child_ctx[9] = list[i];
 		return child_ctx;
 	}
 
 	function get_each_context_1$1(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[10] = list[i];
+		child_ctx[12] = list[i];
 		return child_ctx;
 	}
 
-	// (43:0) {#if output}
-	function create_if_block$o(ctx) {
+	// (49:0) {#if output}
+	function create_if_block$p(ctx) {
 		let t0;
 		let t1;
 		let t2;
@@ -19080,12 +19342,12 @@
 		let if_block6_anchor;
 		let current;
 		let if_block0 = /*output*/ ctx[2].header && create_if_block_10(ctx);
-		let if_block1 = /*codePhrases*/ ctx[4].intro[/*mode*/ ctx[1]] && create_if_block_9(ctx);
+		let if_block1 = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] && create_if_block_9(ctx);
 		let if_block2 = /*output*/ ctx[2].iconify && create_if_block_8$1(ctx);
 		let if_block3 = /*output*/ ctx[2].raw && create_if_block_7$1(ctx);
 		let if_block4 = /*output*/ ctx[2].component && create_if_block_5$1(ctx);
-		let if_block5 = /*output*/ ctx[2].footer && create_if_block_2$9(ctx);
-		let if_block6 = /*output*/ ctx[2].docs && create_if_block_1$b(ctx);
+		let if_block5 = /*output*/ ctx[2].footer && create_if_block_2$a(ctx);
+		let if_block6 = /*output*/ ctx[2].docs && create_if_block_1$c(ctx);
 
 		return {
 			c() {
@@ -19145,7 +19407,7 @@
 					check_outros();
 				}
 
-				if (/*codePhrases*/ ctx[4].intro[/*mode*/ ctx[1]]) {
+				if (/*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]]) {
 					if (if_block1) {
 						if_block1.p(ctx, dirty);
 					} else {
@@ -19235,7 +19497,7 @@
 							transition_in(if_block5, 1);
 						}
 					} else {
-						if_block5 = create_if_block_2$9(ctx);
+						if_block5 = create_if_block_2$a(ctx);
 						if_block5.c();
 						transition_in(if_block5, 1);
 						if_block5.m(t5.parentNode, t5);
@@ -19258,7 +19520,7 @@
 							transition_in(if_block6, 1);
 						}
 					} else {
-						if_block6 = create_if_block_1$b(ctx);
+						if_block6 = create_if_block_1$c(ctx);
 						if_block6.c();
 						transition_in(if_block6, 1);
 						if_block6.m(if_block6_anchor.parentNode, if_block6_anchor);
@@ -19311,7 +19573,7 @@
 		};
 	}
 
-	// (44:1) {#if output.header}
+	// (50:1) {#if output.header}
 	function create_if_block_10(ctx) {
 		let t;
 		let if_block1_anchor;
@@ -19388,7 +19650,7 @@
 		};
 	}
 
-	// (45:2) {#if output.header.text}
+	// (51:2) {#if output.header.text}
 	function create_if_block_12(ctx) {
 		let p;
 		let t_value = /*output*/ ctx[2].header.text + "";
@@ -19412,7 +19674,7 @@
 		};
 	}
 
-	// (48:2) {#if output.header.code}
+	// (54:2) {#if output.header.code}
 	function create_if_block_11(ctx) {
 		let sampleinput;
 		let current;
@@ -19449,10 +19711,10 @@
 		};
 	}
 
-	// (53:1) {#if codePhrases.intro[mode]}
+	// (59:1) {#if codePhrases.intro[mode]}
 	function create_if_block_9(ctx) {
 		let p;
-		let t_value = /*codePhrases*/ ctx[4].intro[/*mode*/ ctx[1]] + "";
+		let t_value = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] + "";
 		let t;
 
 		return {
@@ -19465,7 +19727,7 @@
 				append(p, t);
 			},
 			p(ctx, dirty) {
-				if (dirty & /*mode*/ 2 && t_value !== (t_value = /*codePhrases*/ ctx[4].intro[/*mode*/ ctx[1]] + "")) set_data(t, t_value);
+				if (dirty & /*mode*/ 2 && t_value !== (t_value = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] + "")) set_data(t, t_value);
 			},
 			d(detaching) {
 				if (detaching) detach(p);
@@ -19473,10 +19735,10 @@
 		};
 	}
 
-	// (57:1) {#if output.iconify}
+	// (63:1) {#if output.iconify}
 	function create_if_block_8$1(ctx) {
 		let p0;
-		let t0_value = /*codePhrases*/ ctx[4].iconify.intro1.replace("{name}", /*icon*/ ctx[0].name) + "";
+		let t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace("{name}", /*icon*/ ctx[0].name) + "";
 		let t0;
 		let t1;
 		let sampleinput0;
@@ -19504,10 +19766,10 @@
 				create_component(sampleinput0.$$.fragment);
 				t2 = space();
 				p1 = element("p");
-				p1.textContent = `${/*codePhrases*/ ctx[4].iconify.intro2}`;
+				p1.textContent = `${/*codePhrases*/ ctx[5].iconify.intro2}`;
 				t4 = space();
 				p2 = element("p");
-				p2.textContent = `${/*codePhrases*/ ctx[4].iconify.head}`;
+				p2.textContent = `${/*codePhrases*/ ctx[5].iconify.head}`;
 				t6 = space();
 				create_component(sampleinput1.$$.fragment);
 			},
@@ -19525,7 +19787,7 @@
 				current = true;
 			},
 			p(ctx, dirty) {
-				if ((!current || dirty & /*icon*/ 1) && t0_value !== (t0_value = /*codePhrases*/ ctx[4].iconify.intro1.replace("{name}", /*icon*/ ctx[0].name) + "")) set_data(t0, t0_value);
+				if ((!current || dirty & /*icon*/ 1) && t0_value !== (t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace("{name}", /*icon*/ ctx[0].name) + "")) set_data(t0, t0_value);
 				const sampleinput0_changes = {};
 				if (dirty & /*output*/ 4) sampleinput0_changes.content = /*output*/ ctx[2].iconify.html;
 				sampleinput0.$set(sampleinput0_changes);
@@ -19558,7 +19820,7 @@
 		};
 	}
 
-	// (65:1) {#if output.raw}
+	// (71:1) {#if output.raw}
 	function create_if_block_7$1(ctx) {
 		let each_1_anchor;
 		let current;
@@ -19642,11 +19904,11 @@
 		};
 	}
 
-	// (66:2) {#each output.raw as code}
+	// (72:2) {#each output.raw as code}
 	function create_each_block_1$1(ctx) {
 		let sampleinput;
 		let current;
-		sampleinput = new Sample({ props: { content: /*code*/ ctx[10] } });
+		sampleinput = new Sample({ props: { content: /*code*/ ctx[12] } });
 
 		return {
 			c() {
@@ -19658,7 +19920,7 @@
 			},
 			p(ctx, dirty) {
 				const sampleinput_changes = {};
-				if (dirty & /*output*/ 4) sampleinput_changes.content = /*code*/ ctx[10];
+				if (dirty & /*output*/ 4) sampleinput_changes.content = /*code*/ ctx[12];
 				sampleinput.$set(sampleinput_changes);
 			},
 			i(local) {
@@ -19676,7 +19938,7 @@
 		};
 	}
 
-	// (71:1) {#if output.component}
+	// (77:1) {#if output.component}
 	function create_if_block_5$1(ctx) {
 		let each_1_anchor;
 		let current;
@@ -19708,7 +19970,7 @@
 				current = true;
 			},
 			p(ctx, dirty) {
-				if (dirty & /*output, codeOutputComponentKeys, codePhrases*/ 20) {
+				if (dirty & /*output, codeOutputComponentKeys, codePhrases*/ 36) {
 					each_value = codeOutputComponentKeys;
 					let i;
 
@@ -19760,10 +20022,10 @@
 		};
 	}
 
-	// (73:3) {#if output.component[key]}
+	// (79:3) {#if output.component[key]}
 	function create_if_block_6$1(ctx) {
 		let p;
-		let t0_value = /*codePhrases*/ ctx[4].component[/*key*/ ctx[7]] + "";
+		let t0_value = /*codePhrases*/ ctx[5].component[/*key*/ ctx[9]] + "";
 		let t0;
 		let t1;
 		let sampleinput;
@@ -19771,7 +20033,7 @@
 
 		sampleinput = new Sample({
 				props: {
-					content: /*output*/ ctx[2].component[/*key*/ ctx[7]]
+					content: /*output*/ ctx[2].component[/*key*/ ctx[9]]
 				}
 			});
 
@@ -19791,7 +20053,7 @@
 			},
 			p(ctx, dirty) {
 				const sampleinput_changes = {};
-				if (dirty & /*output*/ 4) sampleinput_changes.content = /*output*/ ctx[2].component[/*key*/ ctx[7]];
+				if (dirty & /*output*/ 4) sampleinput_changes.content = /*output*/ ctx[2].component[/*key*/ ctx[9]];
 				sampleinput.$set(sampleinput_changes);
 			},
 			i(local) {
@@ -19811,11 +20073,11 @@
 		};
 	}
 
-	// (72:2) {#each codeOutputComponentKeys as key}
+	// (78:2) {#each codeOutputComponentKeys as key}
 	function create_each_block$h(ctx) {
 		let if_block_anchor;
 		let current;
-		let if_block = /*output*/ ctx[2].component[/*key*/ ctx[7]] && create_if_block_6$1(ctx);
+		let if_block = /*output*/ ctx[2].component[/*key*/ ctx[9]] && create_if_block_6$1(ctx);
 
 		return {
 			c() {
@@ -19828,7 +20090,7 @@
 				current = true;
 			},
 			p(ctx, dirty) {
-				if (/*output*/ ctx[2].component[/*key*/ ctx[7]]) {
+				if (/*output*/ ctx[2].component[/*key*/ ctx[9]]) {
 					if (if_block) {
 						if_block.p(ctx, dirty);
 
@@ -19867,13 +20129,13 @@
 		};
 	}
 
-	// (80:1) {#if output.footer}
-	function create_if_block_2$9(ctx) {
+	// (86:1) {#if output.footer}
+	function create_if_block_2$a(ctx) {
 		let t;
 		let if_block1_anchor;
 		let current;
 		let if_block0 = /*output*/ ctx[2].footer.text && create_if_block_4$2(ctx);
-		let if_block1 = /*output*/ ctx[2].footer.code && create_if_block_3$5(ctx);
+		let if_block1 = /*output*/ ctx[2].footer.code && create_if_block_3$6(ctx);
 
 		return {
 			c() {
@@ -19911,7 +20173,7 @@
 							transition_in(if_block1, 1);
 						}
 					} else {
-						if_block1 = create_if_block_3$5(ctx);
+						if_block1 = create_if_block_3$6(ctx);
 						if_block1.c();
 						transition_in(if_block1, 1);
 						if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
@@ -19944,7 +20206,7 @@
 		};
 	}
 
-	// (81:2) {#if output.footer.text}
+	// (87:2) {#if output.footer.text}
 	function create_if_block_4$2(ctx) {
 		let p;
 		let t_value = /*output*/ ctx[2].footer.text + "";
@@ -19968,8 +20230,8 @@
 		};
 	}
 
-	// (84:2) {#if output.footer.code}
-	function create_if_block_3$5(ctx) {
+	// (90:2) {#if output.footer.code}
+	function create_if_block_3$6(ctx) {
 		let sampleinput;
 		let current;
 
@@ -20005,8 +20267,8 @@
 		};
 	}
 
-	// (89:1) {#if output.docs}
-	function create_if_block_1$b(ctx) {
+	// (95:1) {#if output.docs}
+	function create_if_block_1$c(ctx) {
 		let p;
 		let uiicon0;
 		let t0;
@@ -20016,6 +20278,8 @@
 		let uiicon1;
 		let a_href_value;
 		let current;
+		let mounted;
+		let dispose;
 		uiicon0 = new Icon({ props: { icon: "docs" } });
 		uiicon1 = new Icon({ props: { icon: "link" } });
 
@@ -20041,6 +20305,11 @@
 				append(a, t2);
 				mount_component(uiicon1, a, null);
 				current = true;
+
+				if (!mounted) {
+					dispose = listen(a, "click", /*onExternalClick*/ ctx[4]);
+					mounted = true;
+				}
 			},
 			p(ctx, dirty) {
 				if (!current || dirty & /*docsText*/ 8) set_data(t1, /*docsText*/ ctx[3]);
@@ -20064,14 +20333,16 @@
 				if (detaching) detach(p);
 				destroy_component(uiicon0);
 				destroy_component(uiicon1);
+				mounted = false;
+				dispose();
 			}
 		};
 	}
 
-	function create_fragment$H(ctx) {
+	function create_fragment$I(ctx) {
 		let if_block_anchor;
 		let current;
-		let if_block = /*output*/ ctx[2] && create_if_block$o(ctx);
+		let if_block = /*output*/ ctx[2] && create_if_block$p(ctx);
 
 		return {
 			c() {
@@ -20089,294 +20360,6 @@
 						if_block.p(ctx, dirty);
 
 						if (dirty & /*output*/ 4) {
-							transition_in(if_block, 1);
-						}
-					} else {
-						if_block = create_if_block$o(ctx);
-						if_block.c();
-						transition_in(if_block, 1);
-						if_block.m(if_block_anchor.parentNode, if_block_anchor);
-					}
-				} else if (if_block) {
-					group_outros();
-
-					transition_out(if_block, 1, 1, () => {
-						if_block = null;
-					});
-
-					check_outros();
-				}
-			},
-			i(local) {
-				if (current) return;
-				transition_in(if_block);
-				current = true;
-			},
-			o(local) {
-				transition_out(if_block);
-				current = false;
-			},
-			d(detaching) {
-				if (if_block) if_block.d(detaching);
-				if (detaching) detach(if_block_anchor);
-			}
-		};
-	}
-
-	function instance$H($$self, $$props, $$invalidate) {
-		
-		
-		
-		
-		
-		let { icon } = $$props;
-		let { customisations } = $$props;
-		let { providerConfig } = $$props;
-		let { mode } = $$props;
-
-		// Get text
-		const codePhrases = phrases.codeSamples;
-
-		// Get mode specific data and text
-		/*
-	    Actual type: "CodeOutput | null", but Svelte language tools cannot handle nested conditional
-	    statements in template, so intentionally using wrong type to get rid of warnings.
-	*/
-		let output;
-
-		let docsText;
-
-		$$self.$$set = $$props => {
-			if ("icon" in $$props) $$invalidate(0, icon = $$props.icon);
-			if ("customisations" in $$props) $$invalidate(5, customisations = $$props.customisations);
-			if ("providerConfig" in $$props) $$invalidate(6, providerConfig = $$props.providerConfig);
-			if ("mode" in $$props) $$invalidate(1, mode = $$props.mode);
-		};
-
-		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*mode, icon, customisations, providerConfig, output*/ 103) {
-				 {
-					$$invalidate(2, output = getIconCode(mode, icon, customisations, providerConfig));
-
-					// Get title for docs
-					if (output && output.docs) {
-						const docsType = output.docs.type;
-
-						$$invalidate(3, docsText = codePhrases.docs[docsType]
-						? codePhrases.docs[docsType]
-						: codePhrases.docsDefault.replace("{title}", capitalize(docsType)));
-					} else {
-						$$invalidate(3, docsText = "");
-					}
-				}
-			}
-		};
-
-		return [icon, mode, output, docsText, codePhrases, customisations, providerConfig];
-	}
-
-	class Code extends SvelteComponent {
-		constructor(options) {
-			super();
-
-			init(this, options, instance$H, create_fragment$H, safe_not_equal, {
-				icon: 0,
-				customisations: 5,
-				providerConfig: 6,
-				mode: 1
-			});
-		}
-	}
-
-	/* src/icon-finder/components/footer/parts/code/Container.svelte generated by Svelte v3.29.4 */
-
-	function create_if_block$p(ctx) {
-		let div1;
-		let p;
-		let t0_value = /*codePhrases*/ ctx[8].heading.replace("{name}", /*icon*/ ctx[1].name) + "";
-		let t0;
-		let t1;
-		let div0;
-		let filterscomponent;
-		let t2;
-		let t3;
-		let codecomponent;
-		let current;
-
-		filterscomponent = new Filters({
-				props: {
-					registry: /*registry*/ ctx[0],
-					name: "code",
-					block: /*codeTabs*/ ctx[4].filters,
-					onClick: /*changeTab*/ ctx[9]
-				}
-			});
-
-		let if_block = /*childFiltersBlock*/ ctx[6] && create_if_block_1$c(ctx);
-
-		codecomponent = new Code({
-				props: {
-					mode: /*selection*/ ctx[5].active.key,
-					icon: /*icon*/ ctx[1],
-					customisations: /*customisations*/ ctx[2],
-					providerConfig: /*providerConfig*/ ctx[3]
-				}
-			});
-
-		return {
-			c() {
-				div1 = element("div");
-				p = element("p");
-				t0 = text(t0_value);
-				t1 = space();
-				div0 = element("div");
-				create_component(filterscomponent.$$.fragment);
-				t2 = space();
-				if (if_block) if_block.c();
-				t3 = space();
-				create_component(codecomponent.$$.fragment);
-				attr(p, "class", "iif-code-heading");
-				attr(div0, "class", "iif-filters");
-				attr(div1, "class", "iif-code");
-			},
-			m(target, anchor) {
-				insert(target, div1, anchor);
-				append(div1, p);
-				append(p, t0);
-				append(div1, t1);
-				append(div1, div0);
-				mount_component(filterscomponent, div0, null);
-				append(div0, t2);
-				if (if_block) if_block.m(div0, null);
-				append(div1, t3);
-				mount_component(codecomponent, div1, null);
-				current = true;
-			},
-			p(ctx, dirty) {
-				if ((!current || dirty & /*icon*/ 2) && t0_value !== (t0_value = /*codePhrases*/ ctx[8].heading.replace("{name}", /*icon*/ ctx[1].name) + "")) set_data(t0, t0_value);
-				const filterscomponent_changes = {};
-				if (dirty & /*registry*/ 1) filterscomponent_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*codeTabs*/ 16) filterscomponent_changes.block = /*codeTabs*/ ctx[4].filters;
-				filterscomponent.$set(filterscomponent_changes);
-
-				if (/*childFiltersBlock*/ ctx[6]) {
-					if (if_block) {
-						if_block.p(ctx, dirty);
-
-						if (dirty & /*childFiltersBlock*/ 64) {
-							transition_in(if_block, 1);
-						}
-					} else {
-						if_block = create_if_block_1$c(ctx);
-						if_block.c();
-						transition_in(if_block, 1);
-						if_block.m(div0, null);
-					}
-				} else if (if_block) {
-					group_outros();
-
-					transition_out(if_block, 1, 1, () => {
-						if_block = null;
-					});
-
-					check_outros();
-				}
-
-				const codecomponent_changes = {};
-				if (dirty & /*selection*/ 32) codecomponent_changes.mode = /*selection*/ ctx[5].active.key;
-				if (dirty & /*icon*/ 2) codecomponent_changes.icon = /*icon*/ ctx[1];
-				if (dirty & /*customisations*/ 4) codecomponent_changes.customisations = /*customisations*/ ctx[2];
-				if (dirty & /*providerConfig*/ 8) codecomponent_changes.providerConfig = /*providerConfig*/ ctx[3];
-				codecomponent.$set(codecomponent_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(filterscomponent.$$.fragment, local);
-				transition_in(if_block);
-				transition_in(codecomponent.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(filterscomponent.$$.fragment, local);
-				transition_out(if_block);
-				transition_out(codecomponent.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				if (detaching) detach(div1);
-				destroy_component(filterscomponent);
-				if (if_block) if_block.d();
-				destroy_component(codecomponent);
-			}
-		};
-	}
-
-	// (78:3) {#if childFiltersBlock}
-	function create_if_block_1$c(ctx) {
-		let filterscomponent;
-		let current;
-
-		filterscomponent = new Filters({
-				props: {
-					registry: /*registry*/ ctx[0],
-					name: "code",
-					block: /*childFiltersBlock*/ ctx[6],
-					onClick: /*changeTab*/ ctx[9],
-					title: /*childTabsTitle*/ ctx[7]
-				}
-			});
-
-		return {
-			c() {
-				create_component(filterscomponent.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(filterscomponent, target, anchor);
-				current = true;
-			},
-			p(ctx, dirty) {
-				const filterscomponent_changes = {};
-				if (dirty & /*registry*/ 1) filterscomponent_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*childFiltersBlock*/ 64) filterscomponent_changes.block = /*childFiltersBlock*/ ctx[6];
-				if (dirty & /*childTabsTitle*/ 128) filterscomponent_changes.title = /*childTabsTitle*/ ctx[7];
-				filterscomponent.$set(filterscomponent_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(filterscomponent.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(filterscomponent.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(filterscomponent, detaching);
-			}
-		};
-	}
-
-	function create_fragment$I(ctx) {
-		let if_block_anchor;
-		let current;
-		let if_block = /*codeTabs*/ ctx[4].tree.length && create_if_block$p(ctx);
-
-		return {
-			c() {
-				if (if_block) if_block.c();
-				if_block_anchor = empty$1();
-			},
-			m(target, anchor) {
-				if (if_block) if_block.m(target, anchor);
-				insert(target, if_block_anchor, anchor);
-				current = true;
-			},
-			p(ctx, [dirty]) {
-				if (/*codeTabs*/ ctx[4].tree.length) {
-					if (if_block) {
-						if_block.p(ctx, dirty);
-
-						if (dirty & /*codeTabs*/ 16) {
 							transition_in(if_block, 1);
 						}
 					} else {
@@ -20417,9 +20400,347 @@
 		
 		
 		
-		let { registry } = $$props;
+		
 		let { icon } = $$props;
 		let { customisations } = $$props;
+		let { providerConfig } = $$props;
+		let { mode } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
+
+		// Callback for external link
+		const onExternalClick = registry.link;
+
+		// Get text
+		const codePhrases = phrases.codeSamples;
+
+		// Get mode specific data and text
+		/*
+	    Actual type: "CodeOutput | null", but Svelte language tools cannot handle nested conditional
+	    statements in template, so intentionally using wrong type to get rid of warnings.
+	*/
+		let output;
+
+		let docsText;
+
+		$$self.$$set = $$props => {
+			if ("icon" in $$props) $$invalidate(0, icon = $$props.icon);
+			if ("customisations" in $$props) $$invalidate(6, customisations = $$props.customisations);
+			if ("providerConfig" in $$props) $$invalidate(7, providerConfig = $$props.providerConfig);
+			if ("mode" in $$props) $$invalidate(1, mode = $$props.mode);
+		};
+
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*mode, icon, customisations, providerConfig, output*/ 199) {
+				 {
+					$$invalidate(2, output = getIconCode(mode, icon, customisations, providerConfig));
+
+					// Get title for docs
+					if (output && output.docs) {
+						const docsType = output.docs.type;
+
+						$$invalidate(3, docsText = codePhrases.docs[docsType]
+						? codePhrases.docs[docsType]
+						: codePhrases.docsDefault.replace("{title}", capitalize(docsType)));
+					} else {
+						$$invalidate(3, docsText = "");
+					}
+				}
+			}
+		};
+
+		return [
+			icon,
+			mode,
+			output,
+			docsText,
+			onExternalClick,
+			codePhrases,
+			customisations,
+			providerConfig
+		];
+	}
+
+	class Code extends SvelteComponent {
+		constructor(options) {
+			super();
+
+			init(this, options, instance$I, create_fragment$I, safe_not_equal, {
+				icon: 0,
+				customisations: 6,
+				providerConfig: 7,
+				mode: 1
+			});
+		}
+	}
+
+	/* src/icon-finder/components/footer/parts/code/Container.svelte generated by Svelte v3.29.4 */
+
+	function create_if_block$q(ctx) {
+		let footerblock;
+		let current;
+
+		footerblock = new Block$1({
+				props: {
+					name: "code",
+					title: /*codePhrases*/ ctx[7].heading.replace("{name}", /*icon*/ ctx[0].name),
+					$$slots: { default: [create_default_slot$e] },
+					$$scope: { ctx }
+				}
+			});
+
+		return {
+			c() {
+				create_component(footerblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(footerblock, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const footerblock_changes = {};
+				if (dirty & /*icon*/ 1) footerblock_changes.title = /*codePhrases*/ ctx[7].heading.replace("{name}", /*icon*/ ctx[0].name);
+
+				if (dirty & /*$$scope, selection, icon, customisations, providerConfig, childFiltersBlock, childTabsTitle, codeTabs*/ 4223) {
+					footerblock_changes.$$scope = { dirty, ctx };
+				}
+
+				footerblock.$set(footerblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(footerblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(footerblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(footerblock, detaching);
+			}
+		};
+	}
+
+	// (78:4) {#if childFiltersBlock}
+	function create_if_block_1$d(ctx) {
+		let filterscomponent;
+		let current;
+
+		filterscomponent = new Filters({
+				props: {
+					name: "code",
+					block: /*childFiltersBlock*/ ctx[5],
+					onClick: /*changeTab*/ ctx[8],
+					title: /*childTabsTitle*/ ctx[6]
+				}
+			});
+
+		return {
+			c() {
+				create_component(filterscomponent.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(filterscomponent, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const filterscomponent_changes = {};
+				if (dirty & /*childFiltersBlock*/ 32) filterscomponent_changes.block = /*childFiltersBlock*/ ctx[5];
+				if (dirty & /*childTabsTitle*/ 64) filterscomponent_changes.title = /*childTabsTitle*/ ctx[6];
+				filterscomponent.$set(filterscomponent_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(filterscomponent.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(filterscomponent.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(filterscomponent, detaching);
+			}
+		};
+	}
+
+	// (69:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}>
+	function create_default_slot$e(ctx) {
+		let div1;
+		let div0;
+		let filterscomponent;
+		let t0;
+		let t1;
+		let codecomponent;
+		let current;
+
+		filterscomponent = new Filters({
+				props: {
+					name: "code",
+					block: /*codeTabs*/ ctx[3].filters,
+					onClick: /*changeTab*/ ctx[8]
+				}
+			});
+
+		let if_block = /*childFiltersBlock*/ ctx[5] && create_if_block_1$d(ctx);
+
+		codecomponent = new Code({
+				props: {
+					mode: /*selection*/ ctx[4].active.key,
+					icon: /*icon*/ ctx[0],
+					customisations: /*customisations*/ ctx[1],
+					providerConfig: /*providerConfig*/ ctx[2]
+				}
+			});
+
+		return {
+			c() {
+				div1 = element("div");
+				div0 = element("div");
+				create_component(filterscomponent.$$.fragment);
+				t0 = space();
+				if (if_block) if_block.c();
+				t1 = space();
+				create_component(codecomponent.$$.fragment);
+				attr(div0, "class", "iif-filters");
+				attr(div1, "class", "iif-code");
+			},
+			m(target, anchor) {
+				insert(target, div1, anchor);
+				append(div1, div0);
+				mount_component(filterscomponent, div0, null);
+				append(div0, t0);
+				if (if_block) if_block.m(div0, null);
+				append(div1, t1);
+				mount_component(codecomponent, div1, null);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const filterscomponent_changes = {};
+				if (dirty & /*codeTabs*/ 8) filterscomponent_changes.block = /*codeTabs*/ ctx[3].filters;
+				filterscomponent.$set(filterscomponent_changes);
+
+				if (/*childFiltersBlock*/ ctx[5]) {
+					if (if_block) {
+						if_block.p(ctx, dirty);
+
+						if (dirty & /*childFiltersBlock*/ 32) {
+							transition_in(if_block, 1);
+						}
+					} else {
+						if_block = create_if_block_1$d(ctx);
+						if_block.c();
+						transition_in(if_block, 1);
+						if_block.m(div0, null);
+					}
+				} else if (if_block) {
+					group_outros();
+
+					transition_out(if_block, 1, 1, () => {
+						if_block = null;
+					});
+
+					check_outros();
+				}
+
+				const codecomponent_changes = {};
+				if (dirty & /*selection*/ 16) codecomponent_changes.mode = /*selection*/ ctx[4].active.key;
+				if (dirty & /*icon*/ 1) codecomponent_changes.icon = /*icon*/ ctx[0];
+				if (dirty & /*customisations*/ 2) codecomponent_changes.customisations = /*customisations*/ ctx[1];
+				if (dirty & /*providerConfig*/ 4) codecomponent_changes.providerConfig = /*providerConfig*/ ctx[2];
+				codecomponent.$set(codecomponent_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(filterscomponent.$$.fragment, local);
+				transition_in(if_block);
+				transition_in(codecomponent.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(filterscomponent.$$.fragment, local);
+				transition_out(if_block);
+				transition_out(codecomponent.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(div1);
+				destroy_component(filterscomponent);
+				if (if_block) if_block.d();
+				destroy_component(codecomponent);
+			}
+		};
+	}
+
+	function create_fragment$J(ctx) {
+		let if_block_anchor;
+		let current;
+		let if_block = /*codeTabs*/ ctx[3].tree.length && create_if_block$q(ctx);
+
+		return {
+			c() {
+				if (if_block) if_block.c();
+				if_block_anchor = empty$1();
+			},
+			m(target, anchor) {
+				if (if_block) if_block.m(target, anchor);
+				insert(target, if_block_anchor, anchor);
+				current = true;
+			},
+			p(ctx, [dirty]) {
+				if (/*codeTabs*/ ctx[3].tree.length) {
+					if (if_block) {
+						if_block.p(ctx, dirty);
+
+						if (dirty & /*codeTabs*/ 8) {
+							transition_in(if_block, 1);
+						}
+					} else {
+						if_block = create_if_block$q(ctx);
+						if_block.c();
+						transition_in(if_block, 1);
+						if_block.m(if_block_anchor.parentNode, if_block_anchor);
+					}
+				} else if (if_block) {
+					group_outros();
+
+					transition_out(if_block, 1, 1, () => {
+						if_block = null;
+					});
+
+					check_outros();
+				}
+			},
+			i(local) {
+				if (current) return;
+				transition_in(if_block);
+				current = true;
+			},
+			o(local) {
+				transition_out(if_block);
+				current = false;
+			},
+			d(detaching) {
+				if (if_block) if_block.d(detaching);
+				if (detaching) detach(if_block_anchor);
+			}
+		};
+	}
+
+	function instance$J($$self, $$props, $$invalidate) {
+		
+		
+		
+		
+		
+		let { icon } = $$props;
+		let { customisations } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
+
 		const codePhrases = phrases.codeSamples;
 		const componentsConfig = registry.config.components;
 
@@ -20438,59 +20759,57 @@
 		// Change current tab
 		function changeTab(tab) {
 			componentsConfig.codeTab = tab;
-			$$invalidate(11, currentTab = tab);
+			$$invalidate(10, currentTab = tab);
 
 			// UIConfigEvent
 			registry.callback({ type: "config" });
 		}
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("icon" in $$props) $$invalidate(1, icon = $$props.icon);
-			if ("customisations" in $$props) $$invalidate(2, customisations = $$props.customisations);
+			if ("icon" in $$props) $$invalidate(0, icon = $$props.icon);
+			if ("customisations" in $$props) $$invalidate(1, customisations = $$props.customisations);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*icon, providerConfig*/ 10) {
+			if ($$self.$$.dirty & /*icon, providerConfig*/ 5) {
 				 {
 					const provider = icon.provider;
 
-					$$invalidate(3, providerConfig = codeConfig.providers[provider] === void 0
+					$$invalidate(2, providerConfig = codeConfig.providers[provider] === void 0
 					? codeConfig.defaultProvider
 					: codeConfig.providers[provider]);
 
-					$$invalidate(4, codeTabs = getCodeTree(providerConfig, phrases));
+					$$invalidate(3, codeTabs = getCodeTree(providerConfig, phrases));
 				}
 			}
 
-			if ($$self.$$.dirty & /*codeTabs, currentTab, selection*/ 2096) {
+			if ($$self.$$.dirty & /*codeTabs, currentTab, selection*/ 1048) {
 				 {
-					$$invalidate(5, selection = filterCodeTabs(codeTabs, currentTab));
+					$$invalidate(4, selection = filterCodeTabs(codeTabs, currentTab));
 
 					// Update tabs
 					const key = selection.root.key;
 
-					$$invalidate(4, codeTabs.filters.active = key, codeTabs);
+					$$invalidate(3, codeTabs.filters.active = key, codeTabs);
 
 					if (selection.child && codeTabs.childFilters[key]) {
 						// Child tab: update active tab and get title
-						$$invalidate(6, childFiltersBlock = codeTabs.childFilters[key]);
+						$$invalidate(5, childFiltersBlock = codeTabs.childFilters[key]);
 
-						$$invalidate(6, childFiltersBlock.active = selection.child.key, childFiltersBlock);
+						$$invalidate(5, childFiltersBlock.active = selection.child.key, childFiltersBlock);
 
-						$$invalidate(7, childTabsTitle = codePhrases.childTabTitles[key] === void 0
+						$$invalidate(6, childTabsTitle = codePhrases.childTabTitles[key] === void 0
 						? codePhrases.childTabTitle.replace("{key}", key)
 						: codePhrases.childTabTitles[key]);
 					} else {
-						$$invalidate(6, childFiltersBlock = null);
-						$$invalidate(7, childTabsTitle = "");
+						$$invalidate(5, childFiltersBlock = null);
+						$$invalidate(6, childTabsTitle = "");
 					}
 				}
 			}
 		};
 
 		return [
-			registry,
 			icon,
 			customisations,
 			providerConfig,
@@ -20506,13 +20825,12 @@
 	class Container$1 extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$I, create_fragment$I, safe_not_equal, { registry: 0, icon: 1, customisations: 2 });
+			init(this, options, instance$J, create_fragment$J, safe_not_equal, { icon: 0, customisations: 1 });
 		}
 	}
 
 	/* src/icon-finder/components/footer/parts/Properties.svelte generated by Svelte v3.29.4 */
 
-	// (25:1) {#if customiseColor}
 	function create_if_block_4$3(ctx) {
 		let colorblock;
 		let current;
@@ -20555,8 +20873,8 @@
 		};
 	}
 
-	// (28:1) {#if customiseWidth || customiseHeight}
-	function create_if_block_3$6(ctx) {
+	// (27:2) {#if customiseWidth || customiseHeight}
+	function create_if_block_3$7(ctx) {
 		let sizeblock;
 		let current;
 
@@ -20598,8 +20916,8 @@
 		};
 	}
 
-	// (31:1) {#if customiseFlip}
-	function create_if_block_2$a(ctx) {
+	// (30:2) {#if customiseFlip}
+	function create_if_block_2$b(ctx) {
 		let flipblock;
 		let current;
 
@@ -20639,8 +20957,8 @@
 		};
 	}
 
-	// (34:1) {#if customiseRotate}
-	function create_if_block_1$d(ctx) {
+	// (33:2) {#if customiseRotate}
+	function create_if_block_1$e(ctx) {
 		let rotateblock;
 		let current;
 
@@ -20680,8 +20998,8 @@
 		};
 	}
 
-	// (37:1) {#if customiseInline && icons.length === 1}
-	function create_if_block$q(ctx) {
+	// (36:2) {#if customiseInline && icons.length === 1}
+	function create_if_block$r(ctx) {
 		let inlineblock;
 		let current;
 
@@ -20721,24 +21039,25 @@
 		};
 	}
 
-	function create_fragment$J(ctx) {
-		let t0;
+	// (22:0) <FooterBlock name="props" {title}>
+	function create_default_slot$f(ctx) {
 		let div;
+		let t0;
 		let t1;
 		let t2;
 		let t3;
-		let t4;
 		let current;
-		let if_block1 =  create_if_block_4$3(ctx);
-		let if_block2 =  create_if_block_3$6(ctx);
-		let if_block3 =  create_if_block_2$a(ctx);
-		let if_block4 =  create_if_block_1$d(ctx);
-		let if_block5 =  /*icons*/ ctx[0].length === 1 && create_if_block$q(ctx);
+		let if_block0 =  create_if_block_4$3(ctx);
+		let if_block1 =  create_if_block_3$7(ctx);
+		let if_block2 =  create_if_block_2$b(ctx);
+		let if_block3 =  create_if_block_1$e(ctx);
+		let if_block4 =  /*icons*/ ctx[0].length === 1 && create_if_block$r(ctx);
 
 		return {
 			c() {
-				t0 = space();
 				div = element("div");
+				if (if_block0) if_block0.c();
+				t0 = space();
 				if (if_block1) if_block1.c();
 				t1 = space();
 				if (if_block2) if_block2.c();
@@ -20746,13 +21065,11 @@
 				if (if_block3) if_block3.c();
 				t3 = space();
 				if (if_block4) if_block4.c();
-				t4 = space();
-				if (if_block5) if_block5.c();
-				attr(div, "class", "iif-footer-options-blocks");
 			},
 			m(target, anchor) {
-				insert(target, t0, anchor);
 				insert(target, div, anchor);
+				if (if_block0) if_block0.m(div, null);
+				append(div, t0);
 				if (if_block1) if_block1.m(div, null);
 				append(div, t1);
 				if (if_block2) if_block2.m(div, null);
@@ -20760,35 +21077,32 @@
 				if (if_block3) if_block3.m(div, null);
 				append(div, t3);
 				if (if_block4) if_block4.m(div, null);
-				append(div, t4);
-				if (if_block5) if_block5.m(div, null);
 				current = true;
 			},
-			p(ctx, [dirty]) {
-
+			p(ctx, dirty) {
+				if_block0.p(ctx, dirty);
 				if_block1.p(ctx, dirty);
 				if_block2.p(ctx, dirty);
 				if_block3.p(ctx, dirty);
-				if_block4.p(ctx, dirty);
 
 				if ( /*icons*/ ctx[0].length === 1) {
-					if (if_block5) {
-						if_block5.p(ctx, dirty);
+					if (if_block4) {
+						if_block4.p(ctx, dirty);
 
 						if (dirty & /*icons*/ 1) {
-							transition_in(if_block5, 1);
+							transition_in(if_block4, 1);
 						}
 					} else {
-						if_block5 = create_if_block$q(ctx);
-						if_block5.c();
-						transition_in(if_block5, 1);
-						if_block5.m(div, null);
+						if_block4 = create_if_block$r(ctx);
+						if_block4.c();
+						transition_in(if_block4, 1);
+						if_block4.m(div, null);
 					}
-				} else if (if_block5) {
+				} else if (if_block4) {
 					group_outros();
 
-					transition_out(if_block5, 1, 1, () => {
-						if_block5 = null;
+					transition_out(if_block4, 1, 1, () => {
+						if_block4 = null;
 					});
 
 					check_outros();
@@ -20796,34 +21110,79 @@
 			},
 			i(local) {
 				if (current) return;
+				transition_in(if_block0);
 				transition_in(if_block1);
 				transition_in(if_block2);
 				transition_in(if_block3);
 				transition_in(if_block4);
-				transition_in(if_block5);
 				current = true;
 			},
 			o(local) {
+				transition_out(if_block0);
 				transition_out(if_block1);
 				transition_out(if_block2);
 				transition_out(if_block3);
 				transition_out(if_block4);
-				transition_out(if_block5);
 				current = false;
 			},
 			d(detaching) {
-				if (detaching) detach(t0);
 				if (detaching) detach(div);
+				if (if_block0) if_block0.d();
 				if (if_block1) if_block1.d();
 				if (if_block2) if_block2.d();
 				if (if_block3) if_block3.d();
 				if (if_block4) if_block4.d();
-				if (if_block5) if_block5.d();
 			}
 		};
 	}
 
-	function instance$J($$self, $$props, $$invalidate) {
+	function create_fragment$K(ctx) {
+		let footerblock;
+		let current;
+
+		footerblock = new Block$1({
+				props: {
+					name: "props",
+					title: /*title*/ ctx[3],
+					$$slots: { default: [create_default_slot$f] },
+					$$scope: { ctx }
+				}
+			});
+
+		return {
+			c() {
+				create_component(footerblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(footerblock, target, anchor);
+				current = true;
+			},
+			p(ctx, [dirty]) {
+				const footerblock_changes = {};
+				if (dirty & /*title*/ 8) footerblock_changes.title = /*title*/ ctx[3];
+
+				if (dirty & /*$$scope, customisations, customise, icons*/ 23) {
+					footerblock_changes.$$scope = { dirty, ctx };
+				}
+
+				footerblock.$set(footerblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(footerblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(footerblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(footerblock, detaching);
+			}
+		};
+	}
+
+	function instance$K($$self, $$props, $$invalidate) {
 		
 		
 		let { icons } = $$props;
@@ -20854,7 +21213,7 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$J, create_fragment$J, safe_not_equal, {
+			init(this, options, instance$K, create_fragment$K, safe_not_equal, {
 				icons: 0,
 				customisations: 1,
 				customise: 2
@@ -20886,7 +21245,7 @@
 
 	/* src/icon-finder/components/footer/parts/samples/Full.svelte generated by Svelte v3.29.4 */
 
-	function create_fragment$K(ctx) {
+	function create_fragment$L(ctx) {
 		let div;
 		let uiicon;
 		let current;
@@ -20936,7 +21295,7 @@
 		};
 	}
 
-	function instance$K($$self, $$props, $$invalidate) {
+	function instance$L($$self, $$props, $$invalidate) {
 		
 		
 		
@@ -21079,13 +21438,13 @@
 	class Full extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$K, create_fragment$K, safe_not_equal, { icon: 3, customisations: 4 });
+			init(this, options, instance$L, create_fragment$L, safe_not_equal, { icon: 3, customisations: 4 });
 		}
 	}
 
 	/* src/icon-finder/components/footer/parts/samples/Inline.svelte generated by Svelte v3.29.4 */
 
-	function create_fragment$L(ctx) {
+	function create_fragment$M(ctx) {
 		let div;
 		let p;
 		let t0_value = /*samplePhrases*/ ctx[2].before + "";
@@ -21132,7 +21491,7 @@
 		};
 	}
 
-	function instance$L($$self, $$props, $$invalidate) {
+	function instance$M($$self, $$props, $$invalidate) {
 		
 		
 		let { icon } = $$props;
@@ -21204,7 +21563,7 @@
 	class Inline$1 extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$L, create_fragment$L, safe_not_equal, { icon: 3, customisations: 4 });
+			init(this, options, instance$M, create_fragment$M, safe_not_equal, { icon: 3, customisations: 4 });
 		}
 	}
 
@@ -21217,8 +21576,8 @@
 		return child_ctx;
 	}
 
-	// (106:5) {#if !onSelect}
-	function create_if_block_1$e(ctx) {
+	// (107:5) {#if !onSelect}
+	function create_if_block_1$f(ctx) {
 		let span;
 		let uiicon;
 		let current;
@@ -21251,8 +21610,8 @@
 		};
 	}
 
-	// (112:4) {#if onSelect}
-	function create_if_block$r(ctx) {
+	// (113:4) {#if onSelect}
+	function create_if_block$s(ctx) {
 		let a;
 		let uiicon;
 		let a_title_value;
@@ -21262,7 +21621,7 @@
 		uiicon = new Icon({ props: { icon: "reset" } });
 
 		function click_handler_1(...args) {
-			return /*click_handler_1*/ ctx[11](/*item*/ ctx[13], ...args);
+			return /*click_handler_1*/ ctx[10](/*item*/ ctx[13], ...args);
 		}
 
 		return {
@@ -21308,7 +21667,7 @@
 		};
 	}
 
-	// (97:2) {#each items as item, i (item.name)}
+	// (98:2) {#each items as item, i (item.name)}
 	function create_each_block$i(key_1, ctx) {
 		let li;
 		let a;
@@ -21328,13 +21687,13 @@
 				}
 			});
 
-		let if_block0 = !/*onSelect*/ ctx[0] && create_if_block_1$e();
+		let if_block0 = !/*onSelect*/ ctx[0] && create_if_block_1$f();
 
 		function click_handler(...args) {
-			return /*click_handler*/ ctx[10](/*item*/ ctx[13], ...args);
+			return /*click_handler*/ ctx[9](/*item*/ ctx[13], ...args);
 		}
 
-		let if_block1 = /*onSelect*/ ctx[0] && create_if_block$r(ctx);
+		let if_block1 = /*onSelect*/ ctx[0] && create_if_block$s(ctx);
 
 		return {
 			key: key_1,
@@ -21381,7 +21740,7 @@
 							transition_in(if_block0, 1);
 						}
 					} else {
-						if_block0 = create_if_block_1$e();
+						if_block0 = create_if_block_1$f();
 						if_block0.c();
 						transition_in(if_block0, 1);
 						if_block0.m(a, null);
@@ -21408,7 +21767,7 @@
 							transition_in(if_block1, 1);
 						}
 					} else {
-						if_block1 = create_if_block$r(ctx);
+						if_block1 = create_if_block$s(ctx);
 						if_block1.c();
 						transition_in(if_block1, 1);
 						if_block1.m(li, t2);
@@ -21447,8 +21806,8 @@
 		};
 	}
 
-	// (95:0) <Block type="icons">
-	function create_default_slot$e(ctx) {
+	// (96:0) <Block type="icons">
+	function create_default_slot$g(ctx) {
 		let ul;
 		let each_blocks = [];
 		let each_1_lookup = new Map();
@@ -21520,14 +21879,14 @@
 		};
 	}
 
-	function create_fragment$M(ctx) {
+	function create_fragment$N(ctx) {
 		let block;
 		let current;
 
-		block = new Block$1({
+		block = new Block$2({
 				props: {
 					type: "icons",
-					$$slots: { default: [create_default_slot$e] },
+					$$slots: { default: [create_default_slot$g] },
 					$$scope: { ctx }
 				}
 			});
@@ -21564,17 +21923,20 @@
 		};
 	}
 
-	function instance$M($$self, $$props, $$invalidate) {
+	function instance$N($$self, $$props, $$invalidate) {
 		
 		
 		
 		
-		let { registry } = $$props;
 		let { icons } = $$props;
 		let { customisations } = $$props;
 		let { route } = $$props;
 		let { selected = "" } = $$props;
 		let { onSelect = null } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
+
 		let items;
 
 		// Copy customisations
@@ -21602,16 +21964,15 @@
 		};
 
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(5, registry = $$props.registry);
-			if ("icons" in $$props) $$invalidate(6, icons = $$props.icons);
-			if ("customisations" in $$props) $$invalidate(7, customisations = $$props.customisations);
-			if ("route" in $$props) $$invalidate(8, route = $$props.route);
-			if ("selected" in $$props) $$invalidate(9, selected = $$props.selected);
+			if ("icons" in $$props) $$invalidate(5, icons = $$props.icons);
+			if ("customisations" in $$props) $$invalidate(6, customisations = $$props.customisations);
+			if ("route" in $$props) $$invalidate(7, route = $$props.route);
+			if ("selected" in $$props) $$invalidate(8, selected = $$props.selected);
 			if ("onSelect" in $$props) $$invalidate(0, onSelect = $$props.onSelect);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*icons, route, onSelect, selected, items*/ 835) {
+			if ($$self.$$.dirty & /*icons, route, onSelect, selected, items*/ 419) {
 				 {
 					$$invalidate(1, items = []);
 
@@ -21645,7 +22006,7 @@
 				}
 			}
 
-			if ($$self.$$.dirty & /*customisations*/ 128) {
+			if ($$self.$$.dirty & /*customisations*/ 64) {
 				 {
 					$$invalidate(2, props = {});
 
@@ -21682,7 +22043,6 @@
 			props,
 			style,
 			onClick,
-			registry,
 			icons,
 			customisations,
 			route,
@@ -21696,12 +22056,11 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$M, create_fragment$M, safe_not_equal, {
-				registry: 5,
-				icons: 6,
-				customisations: 7,
-				route: 8,
-				selected: 9,
+			init(this, options, instance$N, create_fragment$N, safe_not_equal, {
+				icons: 5,
+				customisations: 6,
+				route: 7,
+				selected: 8,
 				onSelect: 0
 			});
 		}
@@ -21709,14 +22068,14 @@
 
 	/* src/icon-finder/components/footer/Full.svelte generated by Svelte v3.29.4 */
 
-	function create_if_block$s(ctx) {
+	function create_if_block$t(ctx) {
 		let block;
 		let current;
 
 		block = new Block({
 				props: {
 					type: "footer",
-					$$slots: { default: [create_default_slot$f] },
+					$$slots: { default: [create_default_slot$h] },
 					$$scope: { ctx }
 				}
 			});
@@ -21732,7 +22091,7 @@
 			p(ctx, dirty) {
 				const block_changes = {};
 
-				if (dirty & /*$$scope, icon, registry, icons, route, customisations, customise, hasIcons*/ 255) {
+				if (dirty & /*$$scope, icon, icons, route, customisations, customise, hasIcons, infoBlockTitle, infoBlock*/ 767) {
 					block_changes.$$scope = { dirty, ctx };
 				}
 
@@ -21753,17 +22112,17 @@
 		};
 	}
 
-	// (34:3) {#if icon}
-	function create_if_block_6$2(ctx) {
+	// (101:3) {#if icon}
+	function create_if_block_7$2(ctx) {
 		let current_block_type_index;
 		let if_block;
 		let if_block_anchor;
 		let current;
-		const if_block_creators = [create_if_block_7$2, create_else_block$7];
+		const if_block_creators = [create_if_block_8$2, create_else_block$8];
 		const if_blocks = [];
 
 		function select_block_type(ctx, dirty) {
-			if ( /*customisations*/ ctx[3].inline) return 0;
+			if ( /*customisations*/ ctx[2].inline) return 0;
 			return 1;
 		}
 
@@ -21821,15 +22180,15 @@
 		};
 	}
 
-	// (37:4) {:else}
-	function create_else_block$7(ctx) {
+	// (104:4) {:else}
+	function create_else_block$8(ctx) {
 		let sample;
 		let current;
 
 		sample = new Full({
 				props: {
-					icon: /*icon*/ ctx[5],
-					customisations: /*customisations*/ ctx[3]
+					icon: /*icon*/ ctx[4],
+					customisations: /*customisations*/ ctx[2]
 				}
 			});
 
@@ -21843,8 +22202,8 @@
 			},
 			p(ctx, dirty) {
 				const sample_changes = {};
-				if (dirty & /*icon*/ 32) sample_changes.icon = /*icon*/ ctx[5];
-				if (dirty & /*customisations*/ 8) sample_changes.customisations = /*customisations*/ ctx[3];
+				if (dirty & /*icon*/ 16) sample_changes.icon = /*icon*/ ctx[4];
+				if (dirty & /*customisations*/ 4) sample_changes.customisations = /*customisations*/ ctx[2];
 				sample.$set(sample_changes);
 			},
 			i(local) {
@@ -21862,15 +22221,15 @@
 		};
 	}
 
-	// (35:4) {#if customiseInline && customisations.inline}
-	function create_if_block_7$2(ctx) {
+	// (102:4) {#if customiseInline && customisations.inline}
+	function create_if_block_8$2(ctx) {
 		let inlinesample;
 		let current;
 
 		inlinesample = new Inline$1({
 				props: {
-					icon: /*icon*/ ctx[5],
-					customisations: /*customisations*/ ctx[3]
+					icon: /*icon*/ ctx[4],
+					customisations: /*customisations*/ ctx[2]
 				}
 			});
 
@@ -21884,8 +22243,8 @@
 			},
 			p(ctx, dirty) {
 				const inlinesample_changes = {};
-				if (dirty & /*icon*/ 32) inlinesample_changes.icon = /*icon*/ ctx[5];
-				if (dirty & /*customisations*/ 8) inlinesample_changes.customisations = /*customisations*/ ctx[3];
+				if (dirty & /*icon*/ 16) inlinesample_changes.icon = /*icon*/ ctx[4];
+				if (dirty & /*customisations*/ 4) inlinesample_changes.customisations = /*customisations*/ ctx[2];
 				inlinesample.$set(inlinesample_changes);
 			},
 			i(local) {
@@ -21903,17 +22262,16 @@
 		};
 	}
 
-	// (44:23) 
-	function create_if_block_5$2(ctx) {
+	// (111:23) 
+	function create_if_block_6$2(ctx) {
 		let iconslist;
 		let current;
 
 		iconslist = new Icons({
 				props: {
-					registry: /*registry*/ ctx[0],
-					route: /*route*/ ctx[4],
-					icons: /*icons*/ ctx[1],
-					customisations: /*customisations*/ ctx[3]
+					route: /*route*/ ctx[3],
+					icons: /*icons*/ ctx[0],
+					customisations: /*customisations*/ ctx[2]
 				}
 			});
 
@@ -21927,10 +22285,9 @@
 			},
 			p(ctx, dirty) {
 				const iconslist_changes = {};
-				if (dirty & /*registry*/ 1) iconslist_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*route*/ 16) iconslist_changes.route = /*route*/ ctx[4];
-				if (dirty & /*icons*/ 2) iconslist_changes.icons = /*icons*/ ctx[1];
-				if (dirty & /*customisations*/ 8) iconslist_changes.customisations = /*customisations*/ ctx[3];
+				if (dirty & /*route*/ 8) iconslist_changes.route = /*route*/ ctx[3];
+				if (dirty & /*icons*/ 1) iconslist_changes.icons = /*icons*/ ctx[0];
+				if (dirty & /*customisations*/ 4) iconslist_changes.customisations = /*customisations*/ ctx[2];
 				iconslist.$set(iconslist_changes);
 			},
 			i(local) {
@@ -21948,16 +22305,15 @@
 		};
 	}
 
-	// (42:4) {#if icon}
-	function create_if_block_4$4(ctx) {
+	// (109:4) {#if icon}
+	function create_if_block_5$2(ctx) {
 		let iconname;
 		let current;
 
 		iconname = new Simple({
 				props: {
-					registry: /*registry*/ ctx[0],
-					icon: /*icon*/ ctx[5],
-					route: /*route*/ ctx[4]
+					icon: /*icon*/ ctx[4],
+					route: /*route*/ ctx[3]
 				}
 			});
 
@@ -21971,9 +22327,8 @@
 			},
 			p(ctx, dirty) {
 				const iconname_changes = {};
-				if (dirty & /*registry*/ 1) iconname_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*icon*/ 32) iconname_changes.icon = /*icon*/ ctx[5];
-				if (dirty & /*route*/ 16) iconname_changes.route = /*route*/ ctx[4];
+				if (dirty & /*icon*/ 16) iconname_changes.icon = /*icon*/ ctx[4];
+				if (dirty & /*route*/ 8) iconname_changes.route = /*route*/ ctx[3];
 				iconname.$set(iconname_changes);
 			},
 			i(local) {
@@ -21991,16 +22346,105 @@
 		};
 	}
 
-	// (47:4) {#if showCustomisatons && hasIcons}
-	function create_if_block_3$7(ctx) {
+	// (114:4) {#if infoBlock}
+	function create_if_block_4$4(ctx) {
+		let footerblock;
+		let current;
+
+		footerblock = new Block$1({
+				props: {
+					name: "info",
+					title: /*infoBlockTitle*/ ctx[7],
+					$$slots: { default: [create_default_slot_1] },
+					$$scope: { ctx }
+				}
+			});
+
+		return {
+			c() {
+				create_component(footerblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(footerblock, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const footerblock_changes = {};
+				if (dirty & /*infoBlockTitle*/ 128) footerblock_changes.title = /*infoBlockTitle*/ ctx[7];
+
+				if (dirty & /*$$scope, infoBlock*/ 576) {
+					footerblock_changes.$$scope = { dirty, ctx };
+				}
+
+				footerblock.$set(footerblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(footerblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(footerblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(footerblock, detaching);
+			}
+		};
+	}
+
+	// (115:5) <FooterBlock name="info" title={infoBlockTitle}>
+	function create_default_slot_1(ctx) {
+		let infoblock;
+		let current;
+
+		infoblock = new CollectionInfo({
+				props: {
+					name: "info",
+					block: /*infoBlock*/ ctx[6],
+					short: true,
+					showTitle: false
+				}
+			});
+
+		return {
+			c() {
+				create_component(infoblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(infoblock, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const infoblock_changes = {};
+				if (dirty & /*infoBlock*/ 64) infoblock_changes.block = /*infoBlock*/ ctx[6];
+				infoblock.$set(infoblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(infoblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(infoblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(infoblock, detaching);
+			}
+		};
+	}
+
+	// (123:4) {#if showCustomisatons && hasIcons}
+	function create_if_block_3$8(ctx) {
 		let propertiescontainer;
 		let current;
 
 		propertiescontainer = new Properties({
 				props: {
-					icons: /*icons*/ ctx[1],
-					customise: /*customise*/ ctx[2],
-					customisations: /*customisations*/ ctx[3]
+					icons: /*icons*/ ctx[0],
+					customise: /*customise*/ ctx[1],
+					customisations: /*customisations*/ ctx[2]
 				}
 			});
 
@@ -22014,9 +22458,9 @@
 			},
 			p(ctx, dirty) {
 				const propertiescontainer_changes = {};
-				if (dirty & /*icons*/ 2) propertiescontainer_changes.icons = /*icons*/ ctx[1];
-				if (dirty & /*customise*/ 4) propertiescontainer_changes.customise = /*customise*/ ctx[2];
-				if (dirty & /*customisations*/ 8) propertiescontainer_changes.customisations = /*customisations*/ ctx[3];
+				if (dirty & /*icons*/ 1) propertiescontainer_changes.icons = /*icons*/ ctx[0];
+				if (dirty & /*customise*/ 2) propertiescontainer_changes.customise = /*customise*/ ctx[1];
+				if (dirty & /*customisations*/ 4) propertiescontainer_changes.customisations = /*customisations*/ ctx[2];
 				propertiescontainer.$set(propertiescontainer_changes);
 			},
 			i(local) {
@@ -22034,16 +22478,15 @@
 		};
 	}
 
-	// (50:4) {#if showCode && icon}
-	function create_if_block_2$b(ctx) {
+	// (126:4) {#if showCode && icon}
+	function create_if_block_2$c(ctx) {
 		let codeblock;
 		let current;
 
 		codeblock = new Container$1({
 				props: {
-					registry: /*registry*/ ctx[0],
-					icon: /*icon*/ ctx[5],
-					customisations: /*customisations*/ ctx[3]
+					icon: /*icon*/ ctx[4],
+					customisations: /*customisations*/ ctx[2]
 				}
 			});
 
@@ -22057,9 +22500,8 @@
 			},
 			p(ctx, dirty) {
 				const codeblock_changes = {};
-				if (dirty & /*registry*/ 1) codeblock_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*icon*/ 32) codeblock_changes.icon = /*icon*/ ctx[5];
-				if (dirty & /*customisations*/ 8) codeblock_changes.customisations = /*customisations*/ ctx[3];
+				if (dirty & /*icon*/ 16) codeblock_changes.icon = /*icon*/ ctx[4];
+				if (dirty & /*customisations*/ 4) codeblock_changes.customisations = /*customisations*/ ctx[2];
 				codeblock.$set(codeblock_changes);
 			},
 			i(local) {
@@ -22077,8 +22519,8 @@
 		};
 	}
 
-	// (32:1) <Block type="footer">
-	function create_default_slot$f(ctx) {
+	// (99:1) <Block type="footer">
+	function create_default_slot$h(ctx) {
 		let div1;
 		let t0;
 		let div0;
@@ -22087,16 +22529,17 @@
 		let t1;
 		let t2;
 		let t3;
+		let t4;
 		let div0_class_value;
 		let div1_class_value;
 		let current;
-		let if_block0 = /*icon*/ ctx[5] && create_if_block_6$2(ctx);
-		const if_block_creators = [create_if_block_4$4, create_if_block_5$2];
+		let if_block0 = /*icon*/ ctx[4] && create_if_block_7$2(ctx);
+		const if_block_creators = [create_if_block_5$2, create_if_block_6$2];
 		const if_blocks = [];
 
 		function select_block_type_1(ctx, dirty) {
-			if (/*icon*/ ctx[5]) return 0;
-			if (/*hasIcons*/ ctx[6]) return 1;
+			if (/*icon*/ ctx[4]) return 0;
+			if (/*hasIcons*/ ctx[5]) return 1;
 			return -1;
 		}
 
@@ -22104,9 +22547,10 @@
 			if_block1 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
 		}
 
-		let if_block2 =  /*hasIcons*/ ctx[6] && create_if_block_3$7(ctx);
-		let if_block3 =  /*icon*/ ctx[5] && create_if_block_2$b(ctx);
-		let if_block4 = showButtons ;
+		let if_block2 = /*infoBlock*/ ctx[6] && create_if_block_4$4(ctx);
+		let if_block3 =  /*hasIcons*/ ctx[5] && create_if_block_3$8(ctx);
+		let if_block4 =  /*icon*/ ctx[4] && create_if_block_2$c(ctx);
+		let if_block5 = showButtons ;
 
 		return {
 			c() {
@@ -22120,8 +22564,10 @@
 				t2 = space();
 				if (if_block3) if_block3.c();
 				t3 = space();
-				attr(div0, "class", div0_class_value = /*icon*/ ctx[5] ? "iif-footer-full-content" : "");
-				attr(div1, "class", div1_class_value = /*icon*/ ctx[5] ? "iif-footer-full" : "");
+				if (if_block4) if_block4.c();
+				t4 = space();
+				attr(div0, "class", div0_class_value = /*icon*/ ctx[4] ? "iif-footer-full-content" : "");
+				attr(div1, "class", div1_class_value = /*icon*/ ctx[4] ? "iif-footer-full" : "");
 			},
 			m(target, anchor) {
 				insert(target, div1, anchor);
@@ -22138,18 +22584,20 @@
 				append(div0, t2);
 				if (if_block3) if_block3.m(div0, null);
 				append(div0, t3);
+				if (if_block4) if_block4.m(div0, null);
+				append(div0, t4);
 				current = true;
 			},
 			p(ctx, dirty) {
-				if (/*icon*/ ctx[5]) {
+				if (/*icon*/ ctx[4]) {
 					if (if_block0) {
 						if_block0.p(ctx, dirty);
 
-						if (dirty & /*icon*/ 32) {
+						if (dirty & /*icon*/ 16) {
 							transition_in(if_block0, 1);
 						}
 					} else {
-						if_block0 = create_if_block_6$2(ctx);
+						if_block0 = create_if_block_7$2(ctx);
 						if_block0.c();
 						transition_in(if_block0, 1);
 						if_block0.m(div1, t0);
@@ -22197,15 +22645,15 @@
 					}
 				}
 
-				if ( /*hasIcons*/ ctx[6]) {
+				if (/*infoBlock*/ ctx[6]) {
 					if (if_block2) {
 						if_block2.p(ctx, dirty);
 
-						if (dirty & /*hasIcons*/ 64) {
+						if (dirty & /*infoBlock*/ 64) {
 							transition_in(if_block2, 1);
 						}
 					} else {
-						if_block2 = create_if_block_3$7(ctx);
+						if_block2 = create_if_block_4$4(ctx);
 						if_block2.c();
 						transition_in(if_block2, 1);
 						if_block2.m(div0, t2);
@@ -22220,15 +22668,15 @@
 					check_outros();
 				}
 
-				if ( /*icon*/ ctx[5]) {
+				if ( /*hasIcons*/ ctx[5]) {
 					if (if_block3) {
 						if_block3.p(ctx, dirty);
 
-						if (dirty & /*icon*/ 32) {
+						if (dirty & /*hasIcons*/ 32) {
 							transition_in(if_block3, 1);
 						}
 					} else {
-						if_block3 = create_if_block_2$b(ctx);
+						if_block3 = create_if_block_3$8(ctx);
 						if_block3.c();
 						transition_in(if_block3, 1);
 						if_block3.m(div0, t3);
@@ -22243,11 +22691,34 @@
 					check_outros();
 				}
 
-				if (!current || dirty & /*icon*/ 32 && div0_class_value !== (div0_class_value = /*icon*/ ctx[5] ? "iif-footer-full-content" : "")) {
+				if ( /*icon*/ ctx[4]) {
+					if (if_block4) {
+						if_block4.p(ctx, dirty);
+
+						if (dirty & /*icon*/ 16) {
+							transition_in(if_block4, 1);
+						}
+					} else {
+						if_block4 = create_if_block_2$c(ctx);
+						if_block4.c();
+						transition_in(if_block4, 1);
+						if_block4.m(div0, t4);
+					}
+				} else if (if_block4) {
+					group_outros();
+
+					transition_out(if_block4, 1, 1, () => {
+						if_block4 = null;
+					});
+
+					check_outros();
+				}
+
+				if (!current || dirty & /*icon*/ 16 && div0_class_value !== (div0_class_value = /*icon*/ ctx[4] ? "iif-footer-full-content" : "")) {
 					attr(div0, "class", div0_class_value);
 				}
 
-				if (!current || dirty & /*icon*/ 32 && div1_class_value !== (div1_class_value = /*icon*/ ctx[5] ? "iif-footer-full" : "")) {
+				if (!current || dirty & /*icon*/ 16 && div1_class_value !== (div1_class_value = /*icon*/ ctx[4] ? "iif-footer-full" : "")) {
 					attr(div1, "class", div1_class_value);
 				}
 			},
@@ -22258,6 +22729,7 @@
 				transition_in(if_block2);
 				transition_in(if_block3);
 				transition_in(if_block4);
+				transition_in(if_block5);
 				current = true;
 			},
 			o(local) {
@@ -22266,6 +22738,7 @@
 				transition_out(if_block2);
 				transition_out(if_block3);
 				transition_out(if_block4);
+				transition_out(if_block5);
 				current = false;
 			},
 			d(detaching) {
@@ -22278,411 +22751,15 @@
 
 				if (if_block2) if_block2.d();
 				if (if_block3) if_block3.d();
+				if (if_block4) if_block4.d();
 			}
 		};
 	}
-
-	function create_fragment$N(ctx) {
-		let if_block_anchor;
-		let current;
-		let if_block = ( /*hasIcons*/ ctx[6]) && create_if_block$s(ctx);
-
-		return {
-			c() {
-				if (if_block) if_block.c();
-				if_block_anchor = empty$1();
-			},
-			m(target, anchor) {
-				if (if_block) if_block.m(target, anchor);
-				insert(target, if_block_anchor, anchor);
-				current = true;
-			},
-			p(ctx, [dirty]) {
-				if ( /*hasIcons*/ ctx[6]) {
-					if (if_block) {
-						if_block.p(ctx, dirty);
-
-						if (dirty & /*hasIcons*/ 64) {
-							transition_in(if_block, 1);
-						}
-					} else {
-						if_block = create_if_block$s(ctx);
-						if_block.c();
-						transition_in(if_block, 1);
-						if_block.m(if_block_anchor.parentNode, if_block_anchor);
-					}
-				} else if (if_block) {
-					group_outros();
-
-					transition_out(if_block, 1, 1, () => {
-						if_block = null;
-					});
-
-					check_outros();
-				}
-			},
-			i(local) {
-				if (current) return;
-				transition_in(if_block);
-				current = true;
-			},
-			o(local) {
-				transition_out(if_block);
-				current = false;
-			},
-			d(detaching) {
-				if (if_block) if_block.d(detaching);
-				if (detaching) detach(if_block_anchor);
-			}
-		};
-	}
-
-	function instance$N($$self, $$props, $$invalidate) {
-		
-		
-		
-		let { registry } = $$props;
-		let { icons } = $$props;
-		let { customise } = $$props;
-		let { customisations } = $$props;
-		let { route } = $$props;
-
-		// Check if icons are selected, get first icon
-		let icon;
-
-		let hasIcons;
-
-		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("icons" in $$props) $$invalidate(1, icons = $$props.icons);
-			if ("customise" in $$props) $$invalidate(2, customise = $$props.customise);
-			if ("customisations" in $$props) $$invalidate(3, customisations = $$props.customisations);
-			if ("route" in $$props) $$invalidate(4, route = $$props.route);
-		};
-
-		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*icons*/ 2) {
-				 {
-					$$invalidate(6, hasIcons = icons.length > 0);
-					$$invalidate(5, icon = icons.length === 1 ? icons[0] : null);
-				}
-			}
-		};
-
-		return [registry, icons, customise, customisations, route, icon, hasIcons];
-	}
-
-	class Full$1 extends SvelteComponent {
-		constructor(options) {
-			super();
-
-			init(this, options, instance$N, create_fragment$N, safe_not_equal, {
-				registry: 0,
-				icons: 1,
-				customise: 2,
-				customisations: 3,
-				route: 4
-			});
-		}
-	}
-
-	/* src/icon-finder/components/main/Footer.svelte generated by Svelte v3.29.4 */
 
 	function create_fragment$O(ctx) {
-		let footer;
-		let current;
-
-		footer = new Full$1({
-				props: {
-					registry: /*registry*/ ctx[0],
-					icons: /*icons*/ ctx[3],
-					customisations: /*customisations*/ ctx[1],
-					route: /*route*/ ctx[2],
-					customise: /*customise*/ ctx[4]
-				}
-			});
-
-		return {
-			c() {
-				create_component(footer.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(footer, target, anchor);
-				current = true;
-			},
-			p(ctx, [dirty]) {
-				const footer_changes = {};
-				if (dirty & /*registry*/ 1) footer_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*icons*/ 8) footer_changes.icons = /*icons*/ ctx[3];
-				if (dirty & /*customisations*/ 2) footer_changes.customisations = /*customisations*/ ctx[1];
-				if (dirty & /*route*/ 4) footer_changes.route = /*route*/ ctx[2];
-				footer.$set(footer_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(footer.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(footer.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(footer, detaching);
-			}
-		};
-	}
-
-	function instance$O($$self, $$props, $$invalidate) {
-		
-		
-		
-		
-		
-		let { registry } = $$props;
-		let { selection } = $$props;
-		let { selectionLength } = $$props;
-		let { customisations } = $$props;
-		let { route } = $$props;
-
-		// Change icon customisation value
-		function customise(prop, value) {
-			if (customisations[prop] !== void 0 && customisations[prop] !== value && typeof customisations[prop] === typeof value) {
-				// Change value then change object to force Svelte update components
-				const changed = { [prop]: value };
-
-				const newCustomisations = mergeCustomisations(customisations, changed);
-
-				// Send event: UICustomisationEvent
-				registry.callback({
-					type: "customisation",
-					changed,
-					customisations: newCustomisations
-				});
-			}
-		}
-
-		// Event listener
-		let updateCounter = 0;
-
-		let abortLoader = null;
-
-		function loadingEvent() {
-			$$invalidate(7, updateCounter++, updateCounter);
-		}
-
-		// Get list of loaded and pending icons
-		let icons;
-
-		let pending;
-
-		// Remove event listener
-		onDestroy(() => {
-			if (abortLoader !== null) {
-				abortLoader();
-			}
-		});
-
-		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("selection" in $$props) $$invalidate(5, selection = $$props.selection);
-			if ("selectionLength" in $$props) $$invalidate(6, selectionLength = $$props.selectionLength);
-			if ("customisations" in $$props) $$invalidate(1, customisations = $$props.customisations);
-			if ("route" in $$props) $$invalidate(2, route = $$props.route);
-		};
-
-		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*updateCounter, selectionLength, selection, icons, abortLoader, pending*/ 1000) {
-				 {
-
-					// Filter icons
-					$$invalidate(3, icons = []);
-
-					const newPending = [];
-					const toLoad = [];
-					const list = selectionLength ? selectionToArray(selection) : [];
-
-					list.forEach(icon => {
-						const name = lib.iconToString(icon);
-
-						if (Iconify__default['default'].iconExists(name)) {
-							icons.push(icon);
-							return;
-						}
-
-						// Icon is missing
-						if (abortLoader && pending && pending.indexOf(name) !== -1) {
-							// Already pending: do nothing
-							newPending.push(name);
-
-							return;
-						}
-
-						// Add icon to list of icons to load
-						newPending.push(name);
-
-						toLoad.push(name);
-					});
-
-					// Update pending list
-					$$invalidate(9, pending = newPending);
-
-					if (toLoad.length) {
-						// Load new icons
-						if (abortLoader !== null) {
-							abortLoader();
-						}
-
-						$$invalidate(8, abortLoader = Iconify__default['default'].loadIcons(toLoad, loadingEvent));
-					}
-				}
-			}
-		};
-
-		return [registry, customisations, route, icons, customise, selection, selectionLength];
-	}
-
-	class Footer_1 extends SvelteComponent {
-		constructor(options) {
-			super();
-
-			init(this, options, instance$O, create_fragment$O, safe_not_equal, {
-				registry: 0,
-				selection: 5,
-				selectionLength: 6,
-				customisations: 1,
-				route: 2
-			});
-		}
-	}
-
-	/* src/icon-finder/components/Container.svelte generated by Svelte v3.29.4 */
-
-	function create_if_block$t(ctx) {
-		let wrapper;
-		let current;
-
-		wrapper = new Wrapper({
-				props: {
-					$$slots: { default: [create_default_slot$g] },
-					$$scope: { ctx }
-				}
-			});
-
-		return {
-			c() {
-				create_component(wrapper.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(wrapper, target, anchor);
-				current = true;
-			},
-			p(ctx, dirty) {
-				const wrapper_changes = {};
-
-				if (dirty & /*$$scope, registry, selection, selectionLength, route, customisations, viewChanged, error, blocks*/ 1007) {
-					wrapper_changes.$$scope = { dirty, ctx };
-				}
-
-				wrapper.$set(wrapper_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(wrapper.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(wrapper.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(wrapper, detaching);
-			}
-		};
-	}
-
-	// (24:1) <Wrapper>
-	function create_default_slot$g(ctx) {
-		let content;
-		let t;
-		let footer;
-		let current;
-
-		content = new Content({
-				props: {
-					registry: /*registry*/ ctx[0],
-					selection: /*selection*/ ctx[1],
-					selectionLength: /*selectionLength*/ ctx[2],
-					viewChanged: /*viewChanged*/ ctx[5],
-					error: /*error*/ ctx[6],
-					route: /*route*/ ctx[7],
-					blocks: /*blocks*/ ctx[8]
-				}
-			});
-
-		footer = new Footer_1({
-				props: {
-					registry: /*registry*/ ctx[0],
-					selection: /*selection*/ ctx[1],
-					selectionLength: /*selectionLength*/ ctx[2],
-					route: /*route*/ ctx[7],
-					customisations: /*customisations*/ ctx[3]
-				}
-			});
-
-		return {
-			c() {
-				create_component(content.$$.fragment);
-				t = space();
-				create_component(footer.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(content, target, anchor);
-				insert(target, t, anchor);
-				mount_component(footer, target, anchor);
-				current = true;
-			},
-			p(ctx, dirty) {
-				const content_changes = {};
-				if (dirty & /*registry*/ 1) content_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*selection*/ 2) content_changes.selection = /*selection*/ ctx[1];
-				if (dirty & /*selectionLength*/ 4) content_changes.selectionLength = /*selectionLength*/ ctx[2];
-				if (dirty & /*viewChanged*/ 32) content_changes.viewChanged = /*viewChanged*/ ctx[5];
-				if (dirty & /*error*/ 64) content_changes.error = /*error*/ ctx[6];
-				if (dirty & /*route*/ 128) content_changes.route = /*route*/ ctx[7];
-				if (dirty & /*blocks*/ 256) content_changes.blocks = /*blocks*/ ctx[8];
-				content.$set(content_changes);
-				const footer_changes = {};
-				if (dirty & /*registry*/ 1) footer_changes.registry = /*registry*/ ctx[0];
-				if (dirty & /*selection*/ 2) footer_changes.selection = /*selection*/ ctx[1];
-				if (dirty & /*selectionLength*/ 4) footer_changes.selectionLength = /*selectionLength*/ ctx[2];
-				if (dirty & /*route*/ 128) footer_changes.route = /*route*/ ctx[7];
-				if (dirty & /*customisations*/ 8) footer_changes.customisations = /*customisations*/ ctx[3];
-				footer.$set(footer_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(content.$$.fragment, local);
-				transition_in(footer.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(content.$$.fragment, local);
-				transition_out(footer.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(content, detaching);
-				if (detaching) detach(t);
-				destroy_component(footer, detaching);
-			}
-		};
-	}
-
-	function create_fragment$P(ctx) {
 		let if_block_anchor;
 		let current;
-		let if_block = /*hidden*/ ctx[4] !== true && create_if_block$t(ctx);
+		let if_block = ( /*hasIcons*/ ctx[5]) && create_if_block$t(ctx);
 
 		return {
 			c() {
@@ -22695,11 +22772,11 @@
 				current = true;
 			},
 			p(ctx, [dirty]) {
-				if (/*hidden*/ ctx[4] !== true) {
+				if ( /*hasIcons*/ ctx[5]) {
 					if (if_block) {
 						if_block.p(ctx, dirty);
 
-						if (dirty & /*hidden*/ 16) {
+						if (dirty & /*hasIcons*/ 32) {
 							transition_in(if_block, 1);
 						}
 					} else {
@@ -22734,7 +22811,448 @@
 		};
 	}
 
+	function instance$O($$self, $$props, $$invalidate) {
+		
+		
+		
+		let { icons } = $$props;
+		let { customise } = $$props;
+		let { customisations } = $$props;
+		let { route } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
+
+		// Check if icons are selected, get first icon
+		let icon;
+
+		let hasIcons;
+
+		// Check if info block should be shown
+		let infoBlock;
+
+		let infoBlockTitle;
+
+		$$self.$$set = $$props => {
+			if ("icons" in $$props) $$invalidate(0, icons = $$props.icons);
+			if ("customise" in $$props) $$invalidate(1, customise = $$props.customise);
+			if ("customisations" in $$props) $$invalidate(2, customisations = $$props.customisations);
+			if ("route" in $$props) $$invalidate(3, route = $$props.route);
+		};
+
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*icons*/ 1) {
+				 {
+					$$invalidate(5, hasIcons = icons.length > 0);
+					$$invalidate(4, icon = icons.length === 1 ? icons[0] : null);
+				}
+			}
+
+			if ($$self.$$.dirty & /*icons, icon, route*/ 25) {
+				 {
+					let showInfo = true;
+
+					// Get provider and prefix for info
+					let provider = "";
+
+					let prefix = "";
+
+					{
+						// Disabled
+						showInfo = false;
+					}
+
+					// Check route
+					if ( showInfo && route.type === "collection" && provider === route.params.provider && prefix === route.params.prefix) {
+						// Already showing info for the same icon set above icons list
+						showInfo = false;
+					}
+
+					// Get data
+					if (showInfo) {
+						const info = lib.getCollectionInfo(registry.collections, provider, prefix);
+
+						if (!info) {
+							$$invalidate(6, infoBlock = null);
+							$$invalidate(7, infoBlockTitle = "");
+						} else {
+							$$invalidate(6, infoBlock = { type: "collection-info", prefix, info });
+							$$invalidate(7, infoBlockTitle = phrases.footer.about.replace("{title}", info.name));
+						}
+					} else {
+						$$invalidate(6, infoBlock = null);
+						$$invalidate(7, infoBlockTitle = "");
+					}
+				}
+			}
+		};
+
+		return [
+			icons,
+			customise,
+			customisations,
+			route,
+			icon,
+			hasIcons,
+			infoBlock,
+			infoBlockTitle
+		];
+	}
+
+	class Full$1 extends SvelteComponent {
+		constructor(options) {
+			super();
+
+			init(this, options, instance$O, create_fragment$O, safe_not_equal, {
+				icons: 0,
+				customise: 1,
+				customisations: 2,
+				route: 3
+			});
+		}
+	}
+
+	/* src/icon-finder/components/main/Footer.svelte generated by Svelte v3.29.4 */
+
+	function create_fragment$P(ctx) {
+		let footer;
+		let current;
+
+		footer = new Full$1({
+				props: {
+					icons: /*icons*/ ctx[2],
+					customisations: /*customisations*/ ctx[0],
+					route: /*route*/ ctx[1],
+					customise: /*customise*/ ctx[3]
+				}
+			});
+
+		return {
+			c() {
+				create_component(footer.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(footer, target, anchor);
+				current = true;
+			},
+			p(ctx, [dirty]) {
+				const footer_changes = {};
+				if (dirty & /*icons*/ 4) footer_changes.icons = /*icons*/ ctx[2];
+				if (dirty & /*customisations*/ 1) footer_changes.customisations = /*customisations*/ ctx[0];
+				if (dirty & /*route*/ 2) footer_changes.route = /*route*/ ctx[1];
+				footer.$set(footer_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(footer.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(footer.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(footer, detaching);
+			}
+		};
+	}
+
 	function instance$P($$self, $$props, $$invalidate) {
+		
+		
+		
+		
+		
+		let { selection } = $$props;
+		let { selectionLength } = $$props;
+		let { customisations } = $$props;
+		let { route } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
+
+		// Change icon customisation value
+		function customise(prop, value) {
+			if (customisations[prop] !== void 0 && customisations[prop] !== value && typeof customisations[prop] === typeof value) {
+				// Change value then change object to force Svelte update components
+				const changed = { [prop]: value };
+
+				const newCustomisations = mergeCustomisations(customisations, changed);
+
+				// Send event: UICustomisationEvent
+				registry.callback({
+					type: "customisation",
+					changed,
+					customisations: newCustomisations
+				});
+			}
+		}
+
+		// Event listener
+		let updateCounter = 0;
+
+		let abortLoader = null;
+
+		function loadingEvent() {
+			$$invalidate(6, updateCounter++, updateCounter);
+		}
+
+		// Get list of loaded and pending icons
+		let icons;
+
+		let pending;
+
+		// Remove event listener
+		onDestroy(() => {
+			if (abortLoader !== null) {
+				abortLoader();
+			}
+		});
+
+		$$self.$$set = $$props => {
+			if ("selection" in $$props) $$invalidate(4, selection = $$props.selection);
+			if ("selectionLength" in $$props) $$invalidate(5, selectionLength = $$props.selectionLength);
+			if ("customisations" in $$props) $$invalidate(0, customisations = $$props.customisations);
+			if ("route" in $$props) $$invalidate(1, route = $$props.route);
+		};
+
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*updateCounter, selectionLength, selection, icons, abortLoader, pending*/ 500) {
+				 {
+
+					// Filter icons
+					$$invalidate(2, icons = []);
+
+					const newPending = [];
+					const toLoad = [];
+					const list = selectionLength ? selectionToArray(selection) : [];
+
+					list.forEach(icon => {
+						const name = lib.iconToString(icon);
+
+						if (Iconify__default['default'].iconExists(name)) {
+							icons.push(icon);
+							return;
+						}
+
+						// Icon is missing
+						if (abortLoader && pending && pending.indexOf(name) !== -1) {
+							// Already pending: do nothing
+							newPending.push(name);
+
+							return;
+						}
+
+						// Add icon to list of icons to load
+						newPending.push(name);
+
+						toLoad.push(name);
+					});
+
+					// Update pending list
+					$$invalidate(8, pending = newPending);
+
+					if (toLoad.length) {
+						// Load new icons
+						if (abortLoader !== null) {
+							abortLoader();
+						}
+
+						$$invalidate(7, abortLoader = Iconify__default['default'].loadIcons(toLoad, loadingEvent));
+					}
+				}
+			}
+		};
+
+		return [customisations, route, icons, customise, selection, selectionLength];
+	}
+
+	class Footer_1 extends SvelteComponent {
+		constructor(options) {
+			super();
+
+			init(this, options, instance$P, create_fragment$P, safe_not_equal, {
+				selection: 4,
+				selectionLength: 5,
+				customisations: 0,
+				route: 1
+			});
+		}
+	}
+
+	/* src/icon-finder/components/Container.svelte generated by Svelte v3.29.4 */
+
+	function create_if_block$u(ctx) {
+		let wrapper;
+		let current;
+
+		wrapper = new Wrapper({
+				props: {
+					$$slots: { default: [create_default_slot$i] },
+					$$scope: { ctx }
+				}
+			});
+
+		return {
+			c() {
+				create_component(wrapper.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(wrapper, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const wrapper_changes = {};
+
+				if (dirty & /*$$scope, selection, selectionLength, route, customisations, viewChanged, error, blocks*/ 759) {
+					wrapper_changes.$$scope = { dirty, ctx };
+				}
+
+				wrapper.$set(wrapper_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(wrapper.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(wrapper.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(wrapper, detaching);
+			}
+		};
+	}
+
+	// (27:1) <Wrapper>
+	function create_default_slot$i(ctx) {
+		let content;
+		let t;
+		let footer;
+		let current;
+
+		content = new Content({
+				props: {
+					selection: /*selection*/ ctx[0],
+					viewChanged: /*viewChanged*/ ctx[4],
+					error: /*error*/ ctx[5],
+					route: /*route*/ ctx[6],
+					blocks: /*blocks*/ ctx[7]
+				}
+			});
+
+		footer = new Footer_1({
+				props: {
+					selection: /*selection*/ ctx[0],
+					selectionLength: /*selectionLength*/ ctx[1],
+					route: /*route*/ ctx[6],
+					customisations: /*customisations*/ ctx[2]
+				}
+			});
+
+		return {
+			c() {
+				create_component(content.$$.fragment);
+				t = space();
+				create_component(footer.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(content, target, anchor);
+				insert(target, t, anchor);
+				mount_component(footer, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const content_changes = {};
+				if (dirty & /*selection*/ 1) content_changes.selection = /*selection*/ ctx[0];
+				if (dirty & /*viewChanged*/ 16) content_changes.viewChanged = /*viewChanged*/ ctx[4];
+				if (dirty & /*error*/ 32) content_changes.error = /*error*/ ctx[5];
+				if (dirty & /*route*/ 64) content_changes.route = /*route*/ ctx[6];
+				if (dirty & /*blocks*/ 128) content_changes.blocks = /*blocks*/ ctx[7];
+				content.$set(content_changes);
+				const footer_changes = {};
+				if (dirty & /*selection*/ 1) footer_changes.selection = /*selection*/ ctx[0];
+				if (dirty & /*selectionLength*/ 2) footer_changes.selectionLength = /*selectionLength*/ ctx[1];
+				if (dirty & /*route*/ 64) footer_changes.route = /*route*/ ctx[6];
+				if (dirty & /*customisations*/ 4) footer_changes.customisations = /*customisations*/ ctx[2];
+				footer.$set(footer_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(content.$$.fragment, local);
+				transition_in(footer.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(content.$$.fragment, local);
+				transition_out(footer.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(content, detaching);
+				if (detaching) detach(t);
+				destroy_component(footer, detaching);
+			}
+		};
+	}
+
+	function create_fragment$Q(ctx) {
+		let if_block_anchor;
+		let current;
+		let if_block = /*hidden*/ ctx[3] !== true && create_if_block$u(ctx);
+
+		return {
+			c() {
+				if (if_block) if_block.c();
+				if_block_anchor = empty$1();
+			},
+			m(target, anchor) {
+				if (if_block) if_block.m(target, anchor);
+				insert(target, if_block_anchor, anchor);
+				current = true;
+			},
+			p(ctx, [dirty]) {
+				if (/*hidden*/ ctx[3] !== true) {
+					if (if_block) {
+						if_block.p(ctx, dirty);
+
+						if (dirty & /*hidden*/ 8) {
+							transition_in(if_block, 1);
+						}
+					} else {
+						if_block = create_if_block$u(ctx);
+						if_block.c();
+						transition_in(if_block, 1);
+						if_block.m(if_block_anchor.parentNode, if_block_anchor);
+					}
+				} else if (if_block) {
+					group_outros();
+
+					transition_out(if_block, 1, 1, () => {
+						if_block = null;
+					});
+
+					check_outros();
+				}
+			},
+			i(local) {
+				if (current) return;
+				transition_in(if_block);
+				current = true;
+			},
+			o(local) {
+				transition_out(if_block);
+				current = false;
+			},
+			d(detaching) {
+				if (if_block) if_block.d(detaching);
+				if (detaching) detach(if_block_anchor);
+			}
+		};
+	}
+
+	function instance$Q($$self, $$props, $$invalidate) {
 		
 		
 		
@@ -22749,20 +23267,22 @@
 		let { route } = $$props;
 		let { blocks } = $$props;
 
+		// Set context
+		setContext("registry", registry);
+
 		$$self.$$set = $$props => {
-			if ("registry" in $$props) $$invalidate(0, registry = $$props.registry);
-			if ("selection" in $$props) $$invalidate(1, selection = $$props.selection);
-			if ("selectionLength" in $$props) $$invalidate(2, selectionLength = $$props.selectionLength);
-			if ("customisations" in $$props) $$invalidate(3, customisations = $$props.customisations);
-			if ("hidden" in $$props) $$invalidate(4, hidden = $$props.hidden);
-			if ("viewChanged" in $$props) $$invalidate(5, viewChanged = $$props.viewChanged);
-			if ("error" in $$props) $$invalidate(6, error = $$props.error);
-			if ("route" in $$props) $$invalidate(7, route = $$props.route);
-			if ("blocks" in $$props) $$invalidate(8, blocks = $$props.blocks);
+			if ("registry" in $$props) $$invalidate(8, registry = $$props.registry);
+			if ("selection" in $$props) $$invalidate(0, selection = $$props.selection);
+			if ("selectionLength" in $$props) $$invalidate(1, selectionLength = $$props.selectionLength);
+			if ("customisations" in $$props) $$invalidate(2, customisations = $$props.customisations);
+			if ("hidden" in $$props) $$invalidate(3, hidden = $$props.hidden);
+			if ("viewChanged" in $$props) $$invalidate(4, viewChanged = $$props.viewChanged);
+			if ("error" in $$props) $$invalidate(5, error = $$props.error);
+			if ("route" in $$props) $$invalidate(6, route = $$props.route);
+			if ("blocks" in $$props) $$invalidate(7, blocks = $$props.blocks);
 		};
 
 		return [
-			registry,
 			selection,
 			selectionLength,
 			customisations,
@@ -22770,7 +23290,8 @@
 			viewChanged,
 			error,
 			route,
-			blocks
+			blocks,
+			registry
 		];
 	}
 
@@ -22778,16 +23299,16 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$P, create_fragment$P, safe_not_equal, {
-				registry: 0,
-				selection: 1,
-				selectionLength: 2,
-				customisations: 3,
-				hidden: 4,
-				viewChanged: 5,
-				error: 6,
-				route: 7,
-				blocks: 8
+			init(this, options, instance$Q, create_fragment$Q, safe_not_equal, {
+				registry: 8,
+				selection: 0,
+				selectionLength: 1,
+				customisations: 2,
+				hidden: 3,
+				viewChanged: 4,
+				error: 5,
+				route: 6,
+				blocks: 7
 			});
 		}
 	}
@@ -22804,6 +23325,10 @@
 	    codeTab: '',
 	    // Can select multiple icons
 	    multiSelect: false,
+	    // Toggle footer blocks
+	    propsVisible: true,
+	    infoVisible: false,
+	    codeVisible: false,
 	};
 
 	/**
@@ -22890,6 +23415,8 @@
 	        const registry = (this._registry = core.registry);
 	        // Callback
 	        registry.setCustom('callback', this._internalCallback.bind(this));
+	        // External link callback
+	        registry.setCustom('link', this._externalLinkCallback.bind(this));
 	        // Add API providers
 	        addCustomAPIProviders();
 	        // Set initial state
@@ -23139,6 +23666,22 @@
 	        }
 	    }
 	    /**
+	     * External link was clicked
+	     */
+	    _externalLinkCallback(event) {
+	        if (event && event.target) {
+	            const target = event.target;
+	            const href = target.getAttribute('href');
+	            if (typeof href === 'string') {
+	                this._triggerEvent({
+	                    type: 'link',
+	                    href,
+	                    event,
+	                });
+	            }
+	        }
+	    }
+	    /**
 	     * Set route
 	     */
 	    _setRoute(route) {
@@ -23238,30 +23781,43 @@
 	        return true;
 	    }
 	    /**
-	     * Select / deselect icon
+	     * Select icon(s)
 	     */
-	    selectIcon(icon, select = 'toggle') {
+	    selectIcons(icons) {
 	        if (this._status === 'destroyed') {
 	            return;
 	        }
-	        let iconValue;
-	        // Convert and validate icon
-	        if (typeof icon === 'string') {
-	            // Convert from string. Allow empty string to reset selected icon
-	            if (icon === '') {
-	                iconValue = null;
-	            }
-	            else {
-	                iconValue = lib.stringToIcon(icon);
-	                if (!lib.validateIcon(iconValue)) {
-	                    return;
+	        const state = this._state;
+	        // Reset icons
+	        this._selection = Object.create(null);
+	        const selection = this._selection;
+	        // Add all icons (only last icon if multiple icons cannot be selected)
+	        if (icons) {
+	            (this._registry.config.components.multiSelect
+	                ? icons
+	                : icons.slice(-1)).forEach((icon) => {
+	                const converted = typeof icon === 'string' ? lib.stringToIcon(icon) : icon;
+	                if (converted) {
+	                    addToSelection(selection, converted);
 	                }
-	            }
+	            });
 	        }
-	        else {
-	            iconValue = icon;
+	        // Update variables
+	        state.icons = selectionToArray(selection);
+	        this._selectionLength = state.icons.length;
+	        // Update container
+	        if (this._container) {
+	            const update = {
+	                selection: selection,
+	                selectionLength: this._selectionLength,
+	            };
+	            this._container.$set(update);
 	        }
-	        this._selectIcon(iconValue, select, true);
+	        // Trigger event
+	        this._triggerEvent({
+	            type: 'selection',
+	            icons: state.icons,
+	        });
 	    }
 	    /**
 	     * Change customisations

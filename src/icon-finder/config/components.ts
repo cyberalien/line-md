@@ -43,7 +43,7 @@ export const canToggleFooterBlocks = false;
  * When browsing icon set, block will be shown only if block above icons
  * list is not shown or when prefix is different or showCollectionInfoBlock is disabled.
  */
-export const showInfoInFooter = true;
+export const showInfoInFooter = false;
 
 /**
  * List of properties to customise

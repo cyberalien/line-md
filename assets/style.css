@@ -2103,7 +2103,7 @@ a.iif-filter--selected:focus:not(:hover) {
 	line-height: 24px;
 }
 
-.iif-footer-options-block-title {
+.iif-footer-block > p:first-child {
 	font-family: "PT Sans", "Open Sans", "Droid Sans", sans-serif;
 	font-weight: 400;
 	font-size: 16px;
@@ -2111,20 +2111,63 @@ a.iif-filter--selected:focus:not(:hover) {
 	margin: 8px 0 0;
 	padding: 0;
 	color: #626262;
+	position: relative;
 }
 
-.iif-footer-options-blocks {
-	margin-bottom: 16px;
-}
-
-.iif-footer-options-blocks:empty {
+.iif-footer-block > p:first-child svg {
 	display: none;
+	font-size: 24px;
+	line-height: 1em;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -12px;
 }
 
-.iif-footer-options-blocks:after {
+.iif-footer-block > p:first-child a {
+	color: inherit;
+	text-decoration: none;
+	position: relative;
+	margin-right: 24px;
+}
+
+.iif-footer-block--collapsed > p:first-child svg {
+	display: block;
+}
+
+.iif-footer-block--collapsed > p:first-child a {
+	text-decoration: underline;
+	color: #1769aa;
+	left: 24px;
+}
+
+.iif-footer-block > p:first-child a:hover {
+	color: #ba3329;
+	text-decoration: underline;
+}
+
+.iif-footer-block > p:first-child a:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.iif-footer-block > p:first-child a:focus:not(:hover) {
+	text-decoration: underline;
+	box-shadow: 0 0 0 1px #b0dafb inset;
+}
+
+.iif-footer-block {
+	margin: 8px 0;
+}
+
+.iif-footer-block:after {
 	content: ' ';
 	display: table;
 	clear: both;
+}
+
+.iif-footer-block--props.iif-footer-block--expanded + .iif-footer-block {
+	margin-top: 16px;
 }
 
 .iif-footer-options-block {
@@ -2169,7 +2212,7 @@ a.iif-filter--selected:focus:not(:hover) {
 }
 
 @supports (display: flex) {
-	.iif-footer-options-blocks {
+	.iif-footer-block--props > div {
 		display: flex;
 		flex-wrap: wrap;
 	}
@@ -2550,13 +2593,6 @@ a.iif-filter--selected:focus:not(:hover) {
 
 .iif-footer-buttons button:last-child {
 	margin-right: 0;
-}
-
-.iif-code-heading {
-	font-size: 22px;
-	line-height: 32px;
-	color: #626262;
-	margin-bottom: 8px;
 }
 
 .iif-code p a {
