@@ -7,19 +7,14 @@
 	} from '@iconify/search-core';
 	import { getProvider } from '@iconify/search-core';
 	import type { SelectedIcons } from '../../wrapper/icons';
-	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { showCollectionInfoBlock } from '../../config/components';
 	import Filters from '../blocks/Filters.svelte';
 	import CollectionInfoBlock from '../blocks/CollectionInfo.svelte';
 	import IconsWithPages from '../blocks/IconsWithPages.svelte';
 	import SearchBlock from '../blocks/Search.svelte';
 
-	// Registry
-	export let registry: WrappedRegistry;
-
 	// Selected icons
 	export let selection: SelectedIcons;
-	export let selectionLength: number;
 
 	// Blocks
 	export let blocks: CollectionViewBlocks;
@@ -86,7 +81,6 @@
 	{#if blocks.collections}
 		<div class="iff-filters">
 			<Filters
-				{registry}
 				name="collections"
 				parent={route.parent ? route.parent.type : 'collections'}
 				link={collectionsLink}
@@ -95,18 +89,18 @@
 	{/if}
 
 	{#if showCollectionInfoBlock && info !== null}
-		<CollectionInfoBlock {registry} name="info" block={blocks.info} />
+		<CollectionInfoBlock name="info" block={blocks.info} />
 	{/if}
 
-	<SearchBlock {registry} name="filter" block={blocks.filter} {info} />
+	<SearchBlock name="filter" block={blocks.filter} {info} />
 
 	{#if filterBlocks.length > 0}
 		<div class="iff-filters">
 			{#each filterBlocks as item, i (item.key)}
-				<Filters {registry} name={item.key} block={item.item} />
+				<Filters name={item.key} block={item.item} />
 			{/each}
 		</div>
 	{/if}
 
-	<IconsWithPages {registry} {blocks} {selection} {selectionLength} {route} />
+	<IconsWithPages {blocks} {selection} {route} />
 </div>

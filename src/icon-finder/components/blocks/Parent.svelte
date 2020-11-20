@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import { getCollectionTitle } from '@iconify/search-core';
 	import type { FullRoute } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../wrapper/registry';
@@ -10,11 +11,11 @@
 		FullCustomRouteParams,
 	} from '@iconify/search-core/lib/route/types/params';
 
-	// Registry instance
-	export let registry: WrappedRegistry;
-
 	// Route
 	export let route: FullRoute;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	const parentPhrases = phrases.parent;
 	const collections = registry.collections;

@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type {
 		CollectionViewBlocks,
 		PaginationBlock,
@@ -14,17 +15,17 @@
 	import IconsHeader from './icons/Header.svelte';
 	import Pagination from './Pagination.svelte';
 
-	export let registry: WrappedRegistry;
-
 	// Current route
 	export let route: FullRoute;
 
 	// Selected icons
 	export let selection: SelectedIcons;
-	export let selectionLength: number;
 
 	// Blocks
 	export let blocks: ViewBlocks;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Get config
 	const componentsConfig = registry.config.components;
@@ -107,14 +108,7 @@
 			{canSelectMultiple}
 			{isSelecting}
 			{toggleSelection} />
-		<IconsContainer
-			{registry}
-			{selection}
-			{selectionLength}
-			{blocks}
-			{route}
-			{isList}
-			{isSelecting} />
-		<Pagination {registry} name="pagination" block={pagination} />
+		<IconsContainer {selection} {blocks} {route} {isList} {isSelecting} />
+		<Pagination name="pagination" block={pagination} />
 	</Block>
 {/if}

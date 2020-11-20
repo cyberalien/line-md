@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import Iconify from '@iconify/iconify';
 	import {
 		iconToString,
@@ -21,15 +22,11 @@
 	import IconGrid from './IconGrid.svelte';
 	import type { IconsListFilter } from '../../types';
 
-	// Registry
-	export let registry: WrappedRegistry;
-
 	// Current route
 	export let route: FullRoute;
 
 	// Selected icons
 	export let selection: SelectedIcons;
-	// export let selectionLength: number;
 
 	// Blocks to render
 	export let blocks: ViewBlocks;
@@ -39,6 +36,9 @@
 
 	// Selecting multiple icons
 	export let isSelecting: boolean;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Base class name
 	const baseClass = 'iif-icons';

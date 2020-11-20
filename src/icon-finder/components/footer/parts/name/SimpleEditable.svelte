@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import Iconify from '@iconify/iconify';
 	import type { FullRoute, Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
@@ -8,14 +9,14 @@
 	import UIIcon from '../../../misc/Icon.svelte';
 	import Input from '../../../forms/Input.svelte';
 
-	// Registry
-	export let registry: WrappedRegistry;
-
 	// Selected icon
 	export let icon: Icon;
 
 	// Current route
 	// export let route: FullRoute;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Current value
 	let iconName: string;

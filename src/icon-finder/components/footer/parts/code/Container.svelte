@@ -1,5 +1,6 @@
 <script lang="typescript">
-	import type { FiltersBlock, FullRoute, Icon } from '@iconify/search-core';
+	import { getContext } from 'svelte';
+	import type { FiltersBlock, Icon } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../../../wrapper/registry';
 	import { phrases } from '../../../../config/phrases';
 	import type { ProviderCodeData } from '../../../../footer/types';
@@ -16,14 +17,14 @@
 	import FiltersComponent from '../../../blocks/Filters.svelte';
 	import CodeComponent from './Code.svelte';
 
-	// Registry
-	export let registry: WrappedRegistry;
-
 	// Selected icon
 	export let icon: Icon;
 
 	// Icon customisations
 	export let customisations: IconCustomisations;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	const codePhrases = phrases.codeSamples;
 	const componentsConfig = registry.config.components;
@@ -86,18 +87,15 @@
 {#if codeTabs.tree.length}
 	<FooterBlock
 		name="code"
-		{registry}
 		title={codePhrases.heading.replace('{name}', icon.name)}>
 		<div class="iif-code">
 			<div class="iif-filters">
 				<FiltersComponent
-					{registry}
 					name="code"
 					block={codeTabs.filters}
 					onClick={changeTab} />
 				{#if childFiltersBlock}
 					<FiltersComponent
-						{registry}
 						name="code"
 						block={childFiltersBlock}
 						onClick={changeTab}
@@ -106,7 +104,6 @@
 			</div>
 
 			<CodeComponent
-				{registry}
 				mode={selection.active.key}
 				{icon}
 				{customisations}

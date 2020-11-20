@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { Icon, FullRoute } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../../wrapper/registry';
@@ -10,14 +11,14 @@
 	import { footerButtons } from '../../../config/components';
 	import UIIcon from '../../misc/Icon.svelte';
 
-	// Registry
-	export let registry: WrappedRegistry;
-
 	// Selected icons
 	export let icons: Icon[];
 
 	// Current route
 	export let route: FullRoute;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Custom properties for buttons
 	interface ListItem extends FooterButton {

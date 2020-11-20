@@ -2,7 +2,6 @@
 	import type { FullRoute, ViewBlocks } from '@iconify/search-core';
 	import { listProviders } from '@iconify/search-core';
 	import type { SelectedIcons } from '../../wrapper/icons';
-	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { showProviders, canAddProviders } from '../../config/components';
 	import { getActiveProvider } from '../../provider/get-provider';
 	import SearchBlock from '../blocks/GlobalSearch.svelte';
@@ -17,9 +16,7 @@
 	/**
 	 * Global exports
 	 */
-	export let registry: WrappedRegistry;
 	export let selection: SelectedIcons;
-	export let selectionLength: number;
 
 	// RouterEvent
 	export let viewChanged: boolean;
@@ -138,48 +135,30 @@
 
 <div class={className}>
 	{#if providersVisible}
-		<ProvidersBlock {registry} {providers} {activeProvider} />
+		<ProvidersBlock {providers} {activeProvider} />
 	{/if}
 
 	{#if showGlobalSearch}
-		<SearchBlock {registry} {viewChanged} {route} />
+		<SearchBlock {viewChanged} {route} />
 	{/if}
 
 	{#if route?.parent}
-		<ParentBlock {registry} {route} />
+		<ParentBlock {route} />
 	{/if}
 
 	{#if !route || route.type !== 'empty'}
 		{#if error !== '' || !route}
-			<ViewError
-				{registry}
-				error={error !== '' ? error : 'bad_route'}
-				{route} />
+			<ViewError error={error !== '' ? error : 'bad_route'} {route} />
 		{:else if route.type === 'collections'}
-			<CollectionsView {registry} {route} {blocks} />
+			<CollectionsView {route} {blocks} />
 		{:else if route.type === 'collection'}
-			<CollectionView
-				{registry}
-				{route}
-				{blocks}
-				{selection}
-				{selectionLength} />
+			<CollectionView {route} {blocks} {selection} />
 		{:else if route.type === 'search'}
-			<SearchView
-				{registry}
-				{route}
-				{blocks}
-				{selection}
-				{selectionLength} />
+			<SearchView {route} {blocks} {selection} />
 		{:else if route.type === 'custom'}
-			<CustomView
-				{registry}
-				{route}
-				{blocks}
-				{selection}
-				{selectionLength} />
+			<CustomView {route} {blocks} {selection} />
 		{:else}
-			<ViewError {registry} error="bad_route" {route} />
+			<ViewError error="bad_route" {route} />
 		{/if}
 	{/if}
 </div>

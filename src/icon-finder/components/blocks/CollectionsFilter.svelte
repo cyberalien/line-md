@@ -1,18 +1,19 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { CollectionsFilterBlock } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import Block from './Block.svelte';
 	import Input from '../forms/Input.svelte';
 
-	// Global registry to get Router instance from
-	export let registry: WrappedRegistry;
-
 	// Block name
 	export let name: string;
 
 	// Block data
 	export let block: CollectionsFilterBlock;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Set initial input value
 	let value: string = block.keyword;

@@ -1,11 +1,10 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { CollectionInfoBlock } from '@iconify/search-core';
 	import type { CollectionInfo } from '@iconify/search-core/lib/converters/collection';
 	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import Block from './Block.svelte';
-
-	export let registry: WrappedRegistry;
 
 	// Block name
 	export let name: string;
@@ -20,6 +19,9 @@
 	export let showTitle: boolean = true;
 
 	const text = phrases.collectionInfo;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Callback for external link
 	const onExternalClick = registry.link;

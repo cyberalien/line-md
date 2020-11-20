@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { setContext } from 'svelte';
 	import type { FullRoute, ViewBlocks } from '@iconify/search-core';
 	import type { SelectedIcons } from '../wrapper/icons';
 	import type { WrappedRegistry } from '../wrapper/registry';
@@ -22,24 +23,15 @@
 	export let error: string;
 	export let route: FullRoute;
 	export let blocks: ViewBlocks | null;
+
+	// Set context
+	setContext('registry', registry);
 </script>
 
 {#if hidden !== true}
 	<Wrapper>
-		<!-- <Navigation {registry} {route} /> -->
-		<Content
-			{registry}
-			{selection}
-			{selectionLength}
-			{viewChanged}
-			{error}
-			{route}
-			{blocks} />
-		<Footer
-			{registry}
-			{selection}
-			{selectionLength}
-			{route}
-			{customisations} />
+		<!-- <Navigation {route} /> -->
+		<Content {selection} {viewChanged} {error} {route} {blocks} />
+		<Footer {selection} {selectionLength} {route} {customisations} />
 	</Wrapper>
 {/if}

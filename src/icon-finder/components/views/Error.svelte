@@ -1,18 +1,19 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { FullRoute } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import Block from '../blocks/Block.svelte';
 	import UIIcon from '../misc/Icon.svelte';
 
-	// Registry
-	export let registry: WrappedRegistry;
-
 	// Error
 	export let error: string;
 
 	// Current route
 	export let route: FullRoute | null;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Get text and check if can return
 	const errorPhrases = phrases.errors;

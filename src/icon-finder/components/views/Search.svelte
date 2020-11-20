@@ -5,19 +5,14 @@
 	} from '@iconify/search-core';
 	import { getProvider } from '@iconify/search-core';
 	import type { SelectedIcons } from '../../wrapper/icons';
-	import type { WrappedRegistry } from '../../wrapper/registry';
 	import FiltersBlock from '../blocks/Filters.svelte';
 	import IconsWithPages from '../blocks/IconsWithPages.svelte';
-
-	// Registry
-	export let registry: WrappedRegistry;
 
 	// Route
 	export let route: FullSearchRoute;
 
 	// Selected icons
 	export let selection: SelectedIcons;
-	export let selectionLength: number;
 
 	// Blocks
 	export let blocks: SearchViewBlocks;
@@ -43,11 +38,10 @@
 <div class="iif-view iif-view--search">
 	{#if blocks.collections}
 		<FiltersBlock
-			{registry}
 			name="collections"
 			block={blocks.collections}
 			link={collectionsLink} />
 	{/if}
 
-	<IconsWithPages {registry} {blocks} {selection} {selectionLength} {route} />
+	<IconsWithPages {blocks} {selection} {route} />
 </div>

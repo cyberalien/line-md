@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { FullRoute } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
@@ -6,11 +7,12 @@
 	import Input from '../forms/Input.svelte';
 	import Block from './Block.svelte';
 
-	export let registry: WrappedRegistry;
-
 	// Router data
 	export let viewChanged: boolean;
 	export let route: FullRoute;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Phrases
 	const text = phrases.search;

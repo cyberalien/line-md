@@ -1,6 +1,5 @@
 <script lang="typescript">
 	import type { Icon } from '@iconify/search-core';
-	import type { WrappedRegistry } from '../../../wrapper/registry';
 	import type { IconCustomisations } from '../../../customisations/types';
 	import { phrases } from '../../../config/phrases';
 	import FooterBlock from '../misc/Block.svelte';
@@ -20,8 +19,6 @@
 		FlipBlock,
 		InlineBlock,
 	} from '../../../config/footer-components';
-
-	export let registry: WrappedRegistry;
 
 	// Selected icons
 	export let icons: Icon[];
@@ -44,7 +41,7 @@
 	}
 </script>
 
-<FooterBlock name="props" {registry} {title}>
+<FooterBlock name="props" {title}>
 	<div>
 		{#if customiseColor}
 			<ColorBlock {icons} value={customisations.color} {customise} />

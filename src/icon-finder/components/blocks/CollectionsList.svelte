@@ -1,12 +1,11 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { CollectionsListBlock } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import Block from './Block.svelte';
 	import Category from './collections-list/Category.svelte';
 	import Error from './errors/ContentError.svelte';
-
-	export let registry: WrappedRegistry;
 
 	// Block name
 	export let name: string;
@@ -16,6 +15,9 @@
 
 	// API propvider
 	export let provider: string;
+
+	// Get registry instance
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Callback for external link
 	const onExternalClick = registry.link;

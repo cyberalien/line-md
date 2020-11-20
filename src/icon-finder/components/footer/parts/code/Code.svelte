@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type { Icon } from '@iconify/search-core';
 	import { phrases } from '../../../../config/phrases';
 	import type { WrappedRegistry } from '../../../../wrapper/registry';
@@ -14,8 +15,6 @@
 	import UIIcon from '../../../misc/Icon.svelte';
 	import SampleInput from './Sample.svelte';
 
-	export let registry: WrappedRegistry;
-
 	// Selected icon
 	export let icon: Icon;
 
@@ -27,6 +26,9 @@
 
 	// Mode
 	export let mode: AvailableLanguages;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Callback for external link
 	const onExternalClick = registry.link;

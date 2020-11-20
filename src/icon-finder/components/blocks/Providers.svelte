@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import { getProvider } from '@iconify/search-core';
 	// import type { FullRoute } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../wrapper/registry';
@@ -14,11 +15,6 @@
 	} from '../../provider/add-provider';
 	import type { Tab } from '../types';
 
-	/**
-	 * Global exports
-	 */
-	export let registry: WrappedRegistry;
-
 	// Route
 	// export let route: FullRoute;
 
@@ -27,6 +23,9 @@
 
 	// Available providers
 	export let providers: string[];
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	const providersPhrases = phrases.providers;
 

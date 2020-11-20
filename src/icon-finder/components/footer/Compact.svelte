@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import type {
 		Icon,
 		FullRoute,
@@ -26,9 +27,6 @@
 	import InfoBlock from '../blocks/CollectionInfo.svelte';
 	import { IconName, CodeBlock } from '../../config/footer-components';
 
-	// Registry
-	export let registry: WrappedRegistry;
-
 	// Selected icons
 	export let icons: Icon[];
 
@@ -43,6 +41,9 @@
 
 	// Current route
 	export let route: FullRoute;
+
+	// Registry
+	const registry = getContext('registry') as WrappedRegistry;
 
 	// Check if icons are selected, get first icon
 	let icon: Icon | null;
@@ -155,16 +156,10 @@
 {#if showButtons || hasIcons}
 	<Block type="footer">
 		{#if icons.length > 1}
-			<IconsList
-				{registry}
-				{route}
-				{icons}
-				{customisations}
-				{selected}
-				{onSelect} />
+			<IconsList {route} {icons} {customisations} {selected} {onSelect} />
 		{/if}
 		{#if icon}
-			<IconName {registry} {icon} {route} />
+			<IconName {icon} {route} />
 		{/if}
 		<div class={icon ? 'iif-footer-full' : ''}>
 			{#if icon}
@@ -176,27 +171,22 @@
 			{/if}
 			<div class={icon ? 'iif-footer-full-content' : ''}>
 				{#if infoBlock}
-					<FooterBlock name="info" {registry} title={infoBlockTitle}>
+					<FooterBlock name="info" title={infoBlockTitle}>
 						<InfoBlock
 							name="info"
-							{registry}
 							block={infoBlock}
 							short={true}
 							showTitle={false} />
 					</FooterBlock>
 				{/if}
 				{#if showCustomisatons && hasIcons}
-					<PropertiesContainer
-						{registry}
-						{icons}
-						{customise}
-						{customisations} />
+					<PropertiesContainer {icons} {customise} {customisations} />
 				{/if}
 				{#if showCode && icon}
-					<CodeBlock {registry} {icon} {customisations} />
+					<CodeBlock {icon} {customisations} />
 				{/if}
 				{#if showButtons}
-					<ButtonsContainer {registry} {icons} {route} />
+					<ButtonsContainer {icons} {route} />
 				{/if}
 			</div>
 		</div>
