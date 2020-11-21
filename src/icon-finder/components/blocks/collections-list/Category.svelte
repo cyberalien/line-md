@@ -16,9 +16,6 @@
 
 	// Callback for click
 	export let onClick: (prefix: string) => void;
-
-	// Callback for external link
-	export let onExternalClick: (event: MouseEvent) => void;
 </script>
 
 <div class="iif-collections-list-category">
@@ -27,7 +24,7 @@
 	{/if}
 	<ul class="iif-collections-list-items">
 		{#each Object.entries(items) as [prefix, info], i (prefix)}
-			<Item {provider} {prefix} {info} {onClick} {onExternalClick} />
+			<Item {provider} {prefix} {info} {onClick} />
 		{/each}
 	</ul>
 </div>
