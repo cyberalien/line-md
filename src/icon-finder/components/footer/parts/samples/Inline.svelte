@@ -2,7 +2,7 @@
 	import Iconify from '@iconify/iconify';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
-	import type { IconCustomisations } from '../../../../customisations/types';
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import { phrases } from '../../../../config/phrases';
 	import { iconSampleSize } from '../../../../config/components';
 

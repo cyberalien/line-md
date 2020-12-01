@@ -1,9 +1,9 @@
 <script lang="typescript">
 	import { getContext } from 'svelte';
 	import type { Icon } from '@iconify/search-core';
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import { phrases } from '../../../../config/phrases';
 	import type { WrappedRegistry } from '../../../../wrapper/registry';
-	import type { IconCustomisations } from '../../../../customisations/types';
 	import type { AvailableLanguages } from '../../../../footer/code-tree';
 	import type { ProviderCodeData } from '../../../../footer/types';
 	import { capitalize } from '../../../../footer/capitalize';

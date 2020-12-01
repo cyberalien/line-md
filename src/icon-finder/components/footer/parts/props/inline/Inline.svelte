@@ -1,6 +1,6 @@
 <script lang="typescript">
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import { phrases } from '../../../../../config/phrases';
-	import type { IconCustomisations } from '../../../../../customisations/types';
 	import Block from '../Block.svelte';
 	import Button from '../../../../forms/OptionButton.svelte';
 

@@ -15,6 +15,15 @@ import type {
 	IconFinderCoreParams,
 	RouterEvent,
 } from '@iconify/search-core';
+import type {
+	IconCustomisations,
+	PartialIconCustomisations,
+} from '@iconify/search-core/lib/misc/customisations';
+import {
+	defaultCustomisations,
+	filterCustomisations,
+	mergeCustomisations,
+} from '@iconify/search-core/lib/misc/customisations';
 import type { IconFinderWrapperParams } from './wrapper/params';
 import type { IconFinderState } from './wrapper/state';
 import type { WrapperStatus } from './wrapper/status';
@@ -26,16 +35,7 @@ import type {
 	UIFooterButtonEvent,
 	UISelectionEvent,
 } from './events/types';
-import type {
-	IconCustomisations,
-	PartialIconCustomisations,
-} from './customisations/types';
 import type { WrappedRegistry } from './wrapper/registry';
-import {
-	defaultCustomisations,
-	filterCustomisations,
-	mergeCustomisations,
-} from './customisations';
 import type { ContainerProps } from './wrapper/container';
 import { defaultComponentsConfig } from './config/wrapper';
 import type { SelectedIcons, SelectIcon } from './wrapper/icons';

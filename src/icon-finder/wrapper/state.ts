@@ -3,7 +3,7 @@ import type {
 	PartialRoute,
 	IconFinderConfig,
 } from '@iconify/search-core';
-import type { PartialIconCustomisations } from '../customisations/types';
+import type { PartialIconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 
 /**
  * Icon finder state.

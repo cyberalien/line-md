@@ -2,9 +2,9 @@ import type { IconifyIcon } from '@iconify/iconify';
 import Iconify from '@iconify/iconify';
 import type { Icon } from '@iconify/search-core';
 import { iconToString } from '@iconify/search-core';
+import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 import type { ProviderCodeData } from './types';
 import type { AvailableLanguages, LanguageKeys } from './code-tree';
-import type { IconCustomisations } from '../customisations/types';
 
 function assertNever(v: never) {
 	//

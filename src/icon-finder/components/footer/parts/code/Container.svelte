@@ -1,6 +1,7 @@
 <script lang="typescript">
 	import { getContext } from 'svelte';
 	import type { FiltersBlock, Icon } from '@iconify/search-core';
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import type { WrappedRegistry } from '../../../../wrapper/registry';
 	import { phrases } from '../../../../config/phrases';
 	import type { ProviderCodeData } from '../../../../footer/types';
@@ -12,7 +13,6 @@
 		FakeLanguages,
 	} from '../../../../footer/code-tree';
 	import { getCodeTree, filterCodeTabs } from '../../../../footer/code-tree';
-	import type { IconCustomisations } from '../../../../customisations/types';
 	import FooterBlock from '../../misc/Block.svelte';
 	import FiltersComponent from '../../../blocks/Filters.svelte';
 	import CodeComponent from './Code.svelte';

@@ -6,8 +6,8 @@
 		CollectionInfoBlock,
 	} from '@iconify/search-core';
 	import { getCollectionInfo } from '@iconify/search-core';
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import type { WrappedRegistry } from '../../wrapper/registry';
-	import type { IconCustomisations } from '../../customisations/types';
 	import { phrases } from '../../config/phrases';
 	import {
 		showCollectionInfoBlock,

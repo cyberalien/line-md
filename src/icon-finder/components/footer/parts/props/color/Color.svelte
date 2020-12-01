@@ -1,9 +1,12 @@
 <script lang="typescript">
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import Iconify from '@iconify/iconify';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
-	import type { IconCustomisations } from '../../../../../customisations/types';
-	import { stringToColor, colorToString } from '../../../../../footer/colors';
+	import {
+		stringToColor,
+		colorToString,
+	} from '@iconify/search-core/lib/misc/colors';
 	import { phrases } from '../../../../../config/phrases';
 	import { defaultColor } from '../../../../../config/components';
 	import Input from '../../../../forms/Input.svelte';
