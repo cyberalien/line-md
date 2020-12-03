@@ -8,15 +8,19 @@ export const codeConfig: CodeConfig = {
 
 	// Default configuration
 	defaultProvider: {
-		iconify: true,
+		raw: true,
 	},
 };
 
 // Add default provider
 codeConfig.providers[''] = {
-	// Show SVG framework
-	iconify: true,
+	// Show packages that use API
+	api: '',
 	// NPM packages for React, Vue, Svelte components
-	npm: '@iconify-icons/{prefix}',
-	file: '/{name}',
+	npm: {
+		package: '@iconify-icons/{prefix}',
+		file: '/{name}',
+	},
+	// Allow generating SVG
+	raw: true,
 };

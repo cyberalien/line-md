@@ -147,15 +147,6 @@ export const phrases: UITranslation = {
 		copy: 'Copy to clipboard',
 		copied: 'Copied to clipboard.',
 		heading: 'How to use "{name}" icon',
-		titles: {
-			'iconify': 'SVG Framework',
-			'svg': 'SVG',
-			'svg-raw': 'SVG',
-			'svg-box': 'SVG with viewBox rectangle',
-			'svg-uri': 'SVG as data: URI',
-			'react-npm': 'React',
-			'react-api': 'React with Iconify API',
-		},
 		childTabTitle: '{key} versions:',
 		childTabTitles: {
 			react: 'React component versions:',

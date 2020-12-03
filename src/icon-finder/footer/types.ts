@@ -1,4 +1,5 @@
 import type { FullRoute, Icon } from '@iconify/search-core';
+import type { CodeSampleAPIConfig } from '@iconify/search-core/lib/code-samples/types';
 import type { WrappedRegistry } from '../wrapper/registry';
 
 /**
@@ -75,26 +76,12 @@ export interface FooterButton {
 }
 
 /**
- * Provider data
- */
-export interface ProviderCodeData {
-	// Use with Iconify SVG framework?
-	iconify: boolean;
-
-	// NPM package for single files: '@iconify-icons/{prefix}'
-	npm?: string;
-
-	// File for icon data, relative to package: '/{name}'
-	file?: string;
-}
-
-/**
  * Configuration
  */
 export interface CodeConfig {
 	// Config for providers
-	providers: Record<string, ProviderCodeData>;
+	providers: Record<string, CodeSampleAPIConfig>;
 
 	// Default provider
-	defaultProvider: ProviderCodeData;
+	defaultProvider: CodeSampleAPIConfig;
 }

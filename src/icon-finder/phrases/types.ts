@@ -1,10 +1,10 @@
-import type { IconsListMode } from '../components/types';
-import type { ComponentCodeOutput } from '../footer/code-samples';
 import type {
-	AvailableLanguages,
-	LanguageKeys,
-	FakeLanguages,
-} from '../footer/code-tree';
+	CodeSampleMode,
+	CodeSampleTab,
+	CodeSampleKey,
+} from '@iconify/search-core/lib/code-samples/types';
+import type { ComponentCodeOutput } from '@iconify/search-core/lib/code-samples/code';
+import type { IconsListMode } from '../components/types';
 import type { APIProviderError } from '../provider/add-provider';
 
 export interface UITranslationAddForm {
@@ -93,12 +93,11 @@ export interface UITranslation {
 		copy: string;
 		copied: string;
 		heading: string;
-		titles: Partial<Record<LanguageKeys, string>>;
 		childTabTitle: string;
-		childTabTitles: Partial<Record<FakeLanguages, string>>;
+		childTabTitles: Partial<Record<CodeSampleTab, string>>;
 		docsDefault: string;
-		docs: Partial<Record<LanguageKeys, string>>;
-		intro: Partial<Record<AvailableLanguages, string>>;
+		docs: Partial<Record<CodeSampleKey, string>>;
+		intro: Partial<Record<CodeSampleMode, string>>;
 		component: Record<keyof ComponentCodeOutput, string>;
 		iconify: {
 			intro1: string;
