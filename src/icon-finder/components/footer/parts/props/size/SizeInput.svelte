@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import type { IconCustomisations } from '../../../../../customisations/types';
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import { phrases } from '../../../../../config/phrases';
 	import Input from '../../../../forms/Input.svelte';
 

@@ -1,18 +1,20 @@
 <script lang="typescript">
 	import { getContext } from 'svelte';
 	import type { FiltersBlock, Icon } from '@iconify/search-core';
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
+	import type {
+		CodeSampleAPIConfig,
+		CodeSampleKey,
+	} from '@iconify/search-core/lib/code-samples/types';
+	import type {
+		CodeSamplesTree,
+		CodeSamplesTreeItem,
+		CodeSamplesTreeChildItem,
+	} from '@iconify/search-core/lib/code-samples/tree';
+	import { getCodeSamplesTree } from '@iconify/search-core/lib/code-samples/tree';
 	import type { WrappedRegistry } from '../../../../wrapper/registry';
 	import { phrases } from '../../../../config/phrases';
-	import type { ProviderCodeData } from '../../../../footer/types';
 	import { codeConfig } from '../../../../config/code';
-	import type {
-		FilteredCodeTabs,
-		FilteredCodeSelection,
-		LanguageKeys,
-		FakeLanguages,
-	} from '../../../../footer/code-tree';
-	import { getCodeTree, filterCodeTabs } from '../../../../footer/code-tree';
-	import type { IconCustomisations } from '../../../../customisations/types';
 	import FooterBlock from '../../misc/Block.svelte';
 	import FiltersComponent from '../../../blocks/Filters.svelte';
 	import CodeComponent from './Code.svelte';
@@ -29,85 +31,301 @@
 	const codePhrases = phrases.codeSamples;
 	const componentsConfig = registry.config.components;
 
-	// Get list of all code tabs
-	let providerConfig: ProviderCodeData;
-	let codeTabs: FilteredCodeTabs;
-	$: {
-		const provider = icon.provider;
-		providerConfig =
-			codeConfig.providers[provider] === void 0
-				? codeConfig.defaultProvider
-				: codeConfig.providers[provider];
-		codeTabs = getCodeTree(providerConfig, phrases);
+	// Internal types
+	type CurrentTab = CodeSampleKey | '';
+
+	interface CurrentTabData {
+		tab: CurrentTab;
+		parent: CodeSamplesTreeItem | null;
+		child: CodeSamplesTreeChildItem | null;
 	}
 
-	// Selected tab
-	let currentTab: LanguageKeys = componentsConfig.codeTab as LanguageKeys;
-	let selection: FilteredCodeSelection;
-	let childFiltersBlock: FiltersBlock | null;
-	let childTabsTitle: string;
-	$: {
-		selection = filterCodeTabs(codeTabs, currentTab);
+	interface DataCache {
+		lastProvider: string | null;
+		lastParent: CodeSamplesTreeItem | null;
+		lastChild: CodeSamplesTreeChildItem | null;
+	}
 
-		// Update tabs
-		const key = selection.root.key as FakeLanguages;
-		codeTabs.filters.active = key;
-		if (
-			selection.child &&
-			(codeTabs.childFilters as Record<string, unknown>)[key]
+	interface ProviderCache {
+		config: CodeSampleAPIConfig;
+		tree: CodeSamplesTree;
+	}
+
+	// Cache
+	const providerCache: Record<string, ProviderCache> = Object.create(null);
+	const data: DataCache = {
+		lastProvider: null,
+		lastParent: null,
+		lastChild: null,
+	};
+
+	// Currently selected tab
+	let currentTab: CurrentTab;
+
+	// Filters
+	let parentFilters: FiltersBlock | null = null;
+	let childFilters: FiltersBlock | null = null;
+	let childTabsTitle: string = '';
+
+	// API provider for current icon
+	$: {
+		const provider = icon.provider;
+		if (provider !== data.lastProvider) {
+			// Changed API provider
+			data.lastProvider = provider;
+			getProviderData(provider);
+
+			// Get current tab
+			let tab = (typeof currentTab !== 'string'
+				? componentsConfig.codeTab
+				: currentTab) as CurrentTab;
+
+			// Update current tab
+			updateCurrentTab(checkCurrentTab(tab, true));
+		}
+	}
+
+	/**
+	 * Get data for provider
+	 */
+	function getProviderData(provider: string): ProviderCache {
+		if (providerCache[provider] === void 0) {
+			// Update cached data
+			const config =
+				codeConfig.providers[provider] === void 0
+					? codeConfig.defaultProvider
+					: codeConfig.providers[provider];
+			providerCache[provider] = {
+				config,
+				tree: getCodeSamplesTree(config),
+			};
+		}
+		return providerCache[provider];
+	}
+
+	/**
+	 * Update current tab
+	 */
+	function updateCurrentTab(item: CurrentTabData) {
+		function createFilters(
+			items: CodeSamplesTree,
+			active: CodeSampleKey,
+			startIndex = 0
+		): FiltersBlock | null {
+			if (items.length < 2) {
+				return null;
+			}
+
+			const block: FiltersBlock = {
+				type: 'filters',
+				filterType: 'code-tabs',
+				active,
+				filters: Object.create(null),
+			};
+
+			for (let i = 0; i < items.length; i++) {
+				const item = items[i];
+				const key = item.tab ? item.tab : item.mode!;
+				block.filters[key] = {
+					title: item.title,
+					index: i + startIndex,
+				};
+			}
+
+			return block;
+		}
+
+		const tab = item.tab;
+		if (currentTab !== tab) {
+			// Change tab
+			currentTab = componentsConfig.codeTab = tab;
+
+			// UIConfigEvent
+			registry.callback({
+				type: 'config',
+			});
+		} else if (
+			data.lastParent === item.parent &&
+			data.lastParent === item.child
 		) {
-			// Child tab: update active tab and get title
-			childFiltersBlock = (codeTabs.childFilters as Record<
-				string,
-				unknown
-			>)[key] as FiltersBlock;
-			childFiltersBlock.active = selection.child.key;
+			// Nothing to change
+			return;
+		}
+
+		if (tab === '') {
+			// Nothing to display
+			parentFilters = childFilters = data.lastChild = data.lastParent = null;
+			return;
+		}
+
+		// Update filters
+		const providerData = getProviderData(icon.provider);
+		const tree = providerData.tree;
+		const parent = item.parent!; // Cannot be empty
+		const child = item.child;
+		if (data.lastParent === parent) {
+			// Only change active tab
+			if (parentFilters) {
+				parentFilters.active = parent.tab ? parent.tab : parent.mode!;
+			}
+		} else {
+			// Create new filters
+			parentFilters = createFilters(
+				tree,
+				parent.tab ? parent.tab : parent.mode!
+			);
+		}
+
+		// Child filters
+		if (data.lastChild === child) {
+			// Only change active tab
+			if (childFilters) {
+				childFilters.active = child!.mode;
+			}
+		} else {
+			// Create new child filters
+			childFilters = child
+				? createFilters(parent.children!, child!.mode, tree.length)
+				: null;
+		}
+
+		// Update text
+		if (childFilters && parentFilters) {
+			const key = parent.tab!;
 			childTabsTitle =
 				codePhrases.childTabTitles[key] === void 0
 					? codePhrases.childTabTitle.replace('{key}', key)
 					: codePhrases.childTabTitles[key]!;
 		} else {
-			childFiltersBlock = null;
 			childTabsTitle = '';
 		}
+
+		// Store last items to avoid re-rendering if items do not change
+		data.lastParent = parent;
+		data.lastChild = child;
+	}
+
+	/**
+	 * Check currentTab, return new value
+	 */
+	function checkCurrentTab(
+		tab: CurrentTab,
+		useDefault: boolean
+	): CurrentTabData {
+		const providerData = getProviderData(icon.provider);
+		const tree = providerData.tree;
+
+		if (typeof tab === 'string') {
+			for (let i = 0; i < tree.length; i++) {
+				const parent = tree[i];
+				if (parent.mode === tab || parent.tab === tab) {
+					if (parent.children) {
+						// Has children: return first child
+						const child = parent.children[0];
+						return {
+							tab: child.mode,
+							parent,
+							child,
+						};
+					}
+
+					// No children, must have mode
+					return {
+						tab: parent.mode!,
+						parent,
+						child: null,
+					};
+				}
+
+				// Check children
+				if (parent.children) {
+					for (let j = 0; j < parent.children.length; j++) {
+						const child = parent.children[j];
+						if (child.mode === tab) {
+							return {
+								tab,
+								parent,
+								child,
+							};
+						}
+					}
+				}
+			}
+		}
+
+		// No match: use first item
+		if (useDefault) {
+			const parent = tree[0];
+			if (!parent) {
+				// No modes available
+				return {
+					tab: '',
+					parent: null,
+					child: null,
+				};
+			}
+			if (parent.children) {
+				// Has child items: use first item
+				const child = parent.children[0];
+				return {
+					tab: child.mode,
+					parent,
+					child,
+				};
+			}
+			// Tab without children
+			return {
+				tab: parent.mode!, // Must have mode
+				parent,
+				child: null,
+			};
+		}
+
+		return {
+			tab: '',
+			parent: null,
+			child: null,
+		};
 	}
 
 	// Change current tab
 	function changeTab(tab: string) {
-		componentsConfig.codeTab = tab;
-		currentTab = tab as LanguageKeys;
+		const item = checkCurrentTab(tab as CurrentTab, false);
+		if (item.tab === currentTab || (item.tab === '' && currentTab !== '')) {
+			// Do not change tab if it wasn't changed or if it doesn't exist
+			return;
+		}
 
-		// UIConfigEvent
-		registry.callback({
-			type: 'config',
-		});
+		updateCurrentTab(item);
 	}
 </script>
 
-{#if codeTabs.tree.length}
+{#if currentTab}
 	<FooterBlock
 		name="code"
 		title={codePhrases.heading.replace('{name}', icon.name)}>
 		<div class="iif-code">
 			<div class="iif-filters">
-				<FiltersComponent
-					name="code"
-					block={codeTabs.filters}
-					onClick={changeTab} />
-				{#if childFiltersBlock}
+				{#if parentFilters}
 					<FiltersComponent
 						name="code"
-						block={childFiltersBlock}
+						block={parentFilters}
+						onClick={changeTab} />
+				{/if}
+				{#if childFilters}
+					<FiltersComponent
+						name="code"
+						block={childFilters}
 						onClick={changeTab}
 						title={childTabsTitle} />
 				{/if}
 			</div>
 
 			<CodeComponent
-				mode={selection.active.key}
+				mode={currentTab}
 				{icon}
 				{customisations}
-				{providerConfig} />
+				providerConfig={getProviderData(icon.provider).config} />
 		</div>
 	</FooterBlock>
 {/if}

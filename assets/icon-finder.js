@@ -373,7 +373,7 @@
 	/**
 	 * Convert string to Icon object.
 	 */
-	exports.stringToIcon = (value, provider = '') => {
+	const stringToIcon = (value, provider = '') => {
 	    const colonSeparated = value.split(':');
 	    // Check for provider with correct '@' at start
 	    if (value.slice(0, 1) === '@') {
@@ -410,12 +410,13 @@
 	    }
 	    return null;
 	};
+	exports.stringToIcon = stringToIcon;
 	/**
 	 * Check if icon is valid.
 	 *
 	 * This function is not part of stringToIcon because validation is not needed for most code.
 	 */
-	exports.validateIcon = (icon) => {
+	const validateIcon = (icon) => {
 	    if (!icon) {
 	        return false;
 	    }
@@ -423,27 +424,30 @@
 	        icon.prefix.match(exports.match) &&
 	        icon.name.match(exports.match));
 	};
+	exports.validateIcon = validateIcon;
 	/**
 	 * Compare Icon objects.
 	 *
 	 * Note: null means icon is invalid, so null to null comparison = false.
 	 */
-	exports.compareIcons = (icon1, icon2) => {
+	const compareIcons = (icon1, icon2) => {
 	    return (icon1 !== null &&
 	        icon2 !== null &&
 	        icon1.provider === icon2.provider &&
 	        icon1.name === icon2.name &&
 	        icon1.prefix === icon2.prefix);
 	};
+	exports.compareIcons = compareIcons;
 	/**
 	 * Convert icon to string.
 	 */
-	exports.iconToString = (icon) => {
+	const iconToString = (icon) => {
 	    return ((icon.provider === '' ? '' : '@' + icon.provider + ':') +
 	        icon.prefix +
 	        ':' +
 	        icon.name);
 	};
+	exports.iconToString = iconToString;
 
 	});
 
@@ -721,18 +725,20 @@
 	     * @param endpoint End point string
 	     * @param params Query parameters as object
 	     * @param callback Callback to call when data is available
+	     * @param cacheKey Key to store provider specific cache, true if key should be generated, false if cache should be ignored
 	     */
-	    query(provider, endpoint, params, callback, ignoreCache = false) {
+	    query(provider, endpoint, params, callback, cacheKey = true) {
 	        const uri = mergeQuery(endpoint, params);
+	        const cacheKeyStr = typeof cacheKey === 'string' ? cacheKey : uri;
 	        // Check for cache
 	        if (this._cache[provider] === void 0) {
 	            this._cache[provider] = Object.create(null);
 	        }
 	        const providerCache = this._cache[provider];
-	        if (!ignoreCache && providerCache[uri] !== void 0) {
+	        if (cacheKey !== false && providerCache[cacheKeyStr] !== void 0) {
 	            // Return cached data on next tick
 	            setTimeout(() => {
-	                const cached = providerCache[uri];
+	                const cached = providerCache[cacheKeyStr];
 	                callback(cached === null ? null : JSON.parse(cached), true);
 	            });
 	            return;
@@ -759,7 +765,7 @@
 	            return;
 	        }
 	        // Create new query. Query will start on next tick, so no need to set timeout
-	        redundancy.query(uri, this._query.bind(this, provider), (data) => {
+	        redundancy.query(uri, this._query.bind(this, provider, cacheKey === false ? null : cacheKeyStr), (data) => {
 	            callback(data, false);
 	        });
 	    }
@@ -791,18 +797,18 @@
 	    /**
 	     * Send query, callback from Redundancy
 	     */
-	    _query(provider, host, params, status) {
+	    _query(provider, cacheKey, host, params, status) {
 	        // Should be implemented by child classes
 	        throw new Error('_query() should not be called on base API class');
 	    }
 	    /**
 	     * Store cached data
 	     */
-	    _storeCache(provider, params, data) {
+	    storeCache(provider, cacheKey, data) {
 	        if (this._cache[provider] === void 0) {
 	            this._cache[provider] = Object.create(null);
 	        }
-	        this._cache[provider][params] =
+	        this._cache[provider][cacheKey] =
 	            data === null ? null : JSON.stringify(data);
 	    }
 	    /**
@@ -873,17 +879,20 @@
 	     * Send query, callback from Redundancy
 	     *
 	     * @param provider Provider string
+	     * @param cacheKey API cache key, null if data should not be cached
 	     * @param host Host string
 	     * @param params End point and parameters as string
 	     * @param status Query status
 	     */
-	    _query(provider, host, params, status) {
+	    _query(provider, cacheKey, host, params, status) {
 	        // console.log('API request: ' + host + params);
 	        this.sendQuery(host, params, (response, data) => {
 	            switch (response) {
 	                case 'success':
 	                case 'not_found':
-	                    this._storeCache(provider, params, data);
+	                    if (cacheKey !== null) {
+	                        this.storeCache(provider, cacheKey, data);
+	                    }
 	                    status.done(data);
 	            }
 	        });
@@ -957,7 +966,8 @@
 	 *
 	 * This is used to pass registry as constant string in React/Svelte, so changes in Registry instance won't trigger refresh of entire UI.
 	 */
-	exports.getRegistry = (id) => registry[id];
+	const getRegistry = (id) => registry[id];
+	exports.getRegistry = getRegistry;
 
 	});
 
@@ -976,6 +986,7 @@
 	    provider: '',
 	    prefix: '',
 	    filter: '',
+	    icon: '',
 	    page: 0,
 	    tag: null,
 	    themePrefix: null,
@@ -1051,7 +1062,7 @@
 	/**
 	 * Remove default values from route
 	 */
-	exports.routeParamsToObject = (type, params) => {
+	const routeParamsToObject = (type, params) => {
 	    const result = {};
 	    const { defaults, required } = getValues(type);
 	    for (const key in defaults) {
@@ -1066,10 +1077,11 @@
 	    }
 	    return result;
 	};
+	exports.routeParamsToObject = routeParamsToObject;
 	/**
 	 * Convert route to object for export, ignoring default values
 	 */
-	exports.routeToObject = (route) => {
+	const routeToObject = (route) => {
 	    const result = {
 	        type: route.type,
 	    };
@@ -1085,6 +1097,7 @@
 	    }
 	    return result;
 	};
+	exports.routeToObject = routeToObject;
 	/**
 	 * List of parameters to change to lower case
 	 */
@@ -1092,7 +1105,7 @@
 	/**
 	 * Convert object to RouteParams
 	 */
-	exports.objectToRouteParams = (type, params) => {
+	const objectToRouteParams = (type, params) => {
 	    const result = {};
 	    const { defaults, required } = getValues(type);
 	    // Check for required properties
@@ -1123,15 +1136,23 @@
 	            result[key] = value;
 	            continue;
 	        }
+	        // Exception: null where default value is not null
+	        if (value === null) {
+	            if (key === 'page' && type === 'collection') {
+	                result[key] = value;
+	                continue;
+	            }
+	        }
 	        // Invalid value
 	        result[key] = defaultValue;
 	    }
 	    return result;
 	};
+	exports.objectToRouteParams = objectToRouteParams;
 	/**
 	 * Convert object to Route, adding missing values
 	 */
-	exports.objectToRoute = (data, defaultRoute = null) => {
+	const objectToRoute = (data, defaultRoute = null) => {
 	    // Check for valid object
 	    if (data === null ||
 	        typeof data !== 'object' ||
@@ -1176,6 +1197,7 @@
 	        parent,
 	    };
 	};
+	exports.objectToRoute = objectToRoute;
 
 	});
 
@@ -1283,7 +1305,7 @@
 	    /**
 	     * Load data from API
 	     */
-	    _loadAPI(provider, query, params) {
+	    _loadAPI(provider, query, params, cacheKey = true) {
 	        const registry = storage.getRegistry(this._instance);
 	        const providerData = providers.getProvider(provider);
 	        const configAPIData = providerData ? providerData.config : null;
@@ -1331,7 +1353,7 @@
 	            this._waitForParent(() => {
 	                this._parseAPIData(data);
 	            });
-	        });
+	        }, cacheKey);
 	    }
 	    /**
 	     * Wait for parent view to load
@@ -1404,12 +1426,13 @@
 	/**
 	 * Default block values
 	 */
-	exports.defaultCollectionsFilterBlock = () => {
+	const defaultCollectionsFilterBlock = () => {
 	    return {
 	        type: 'collections-filter',
 	        keyword: '',
 	    };
 	};
+	exports.defaultCollectionsFilterBlock = defaultCollectionsFilterBlock;
 	/**
 	 * Check if block is empty
 	 */
@@ -1937,6 +1960,10 @@
 	            }
 	        });
 	    }
+	    // Add hidden icons
+	    if (source.hidden instanceof Array) {
+	        result.hidden = source.hidden;
+	    }
 	    // Convert to sorted array
 	    const sortedIcons = sortIcons(icons);
 	    // Check tags
@@ -2249,17 +2276,18 @@
 	/**
 	 * Default values for filter
 	 */
-	exports.defaultFilter = (title) => {
+	const defaultFilter = (title) => {
 	    return {
 	        title,
 	        index: 0,
 	        disabled: false,
 	    };
 	};
+	exports.defaultFilter = defaultFilter;
 	/**
 	 * Default value
 	 */
-	exports.defaultFiltersBlock = () => {
+	const defaultFiltersBlock = () => {
 	    return {
 	        type: 'filters',
 	        filterType: '',
@@ -2267,6 +2295,7 @@
 	        filters: Object.create(null),
 	    };
 	};
+	exports.defaultFiltersBlock = defaultFiltersBlock;
 	/**
 	 * Check if block is empty
 	 */
@@ -2310,13 +2339,14 @@
 	/**
 	 * Default values
 	 */
-	exports.defaultCollectionsListBlock = () => {
+	const defaultCollectionsListBlock = () => {
 	    return {
 	        type: 'collections-list',
 	        showCategories: true,
 	        collections: Object.create(null),
 	    };
 	};
+	exports.defaultCollectionsListBlock = defaultCollectionsListBlock;
 	/**
 	 * Check if block is empty
 	 */
@@ -2491,7 +2521,7 @@
 	 * Get data
 	 */
 	function getCollectionInfo(storage, provider, prefix) {
-	    return storage[provider] !== void 0 && storage[provider][prefix] === void 0
+	    return storage[provider] === void 0 || storage[provider][prefix] === void 0
 	        ? null
 	        : storage[provider][prefix];
 	}
@@ -2509,9 +2539,170 @@
 
 	});
 
+	var customSets = createCommonjsModule(function (module, exports) {
+	var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || function (mod) {
+	    return (mod && mod.__esModule) ? mod : { "default": mod };
+	};
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.mergeCollections = exports.convertCustomSets = exports.emptyConvertedSet = void 0;
+	const iconify_1 = __importDefault(Iconify__default['default']);
+
+
+	/**
+	 * TypeScript guard
+	 */
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental, @typescript-eslint/no-empty-function
+	function assertNever(s) { }
+	/**
+	 * Empty
+	 */
+	exports.emptyConvertedSet = {
+	    merge: 'custom-last',
+	    providers: Object.create(null),
+	};
+	/**
+	 * Convert custom icon sets, return empty set on failure
+	 */
+	function convertCustomSets(data, importIcons = true) {
+	    if (!data.iconSets || !data.iconSets.length) {
+	        return exports.emptyConvertedSet;
+	    }
+	    // Merge
+	    let merge = 'only-custom';
+	    switch (data.merge) {
+	        case 'custom-first':
+	        case 'custom-last':
+	        case 'only-custom':
+	            merge = data.merge;
+	            break;
+	        case void 0:
+	            break;
+	        default:
+	            assertNever(data.merge);
+	    }
+	    // Set basic data
+	    const result = {
+	        merge,
+	        providers: Object.create(null),
+	    };
+	    // Info to parse later
+	    const rawInfo = Object.create(null);
+	    // Get all providers, add icon sets to Iconify.
+	    data.iconSets.forEach((item) => {
+	        if (typeof item.prefix !== 'string') {
+	            return;
+	        }
+	        // Get/set provider
+	        if (typeof data.provider === 'string') {
+	            item.provider = data.provider;
+	        }
+	        const provider = typeof item.provider === 'string' ? item.provider : '';
+	        // Custom info block
+	        if (!item.info && data.info && data.info[item.prefix]) {
+	            item.info = data.info[item.prefix];
+	        }
+	        // Convert data
+	        const convertedData = collection.rawDataToCollection(item);
+	        if (!convertedData) {
+	            return;
+	        }
+	        // Add data to result
+	        if (result.providers[provider] === void 0) {
+	            result.providers[provider] = {
+	                total: 0,
+	                data: Object.create(null),
+	                collections: {},
+	            };
+	        }
+	        const providerData = result.providers[provider];
+	        if (providerData.data[convertedData.prefix] !== void 0) {
+	            // Already exists
+	            return;
+	        }
+	        // Add data
+	        providerData.data[convertedData.prefix] = convertedData;
+	        providerData.total++;
+	        // Store raw info block to convert to collections list later, overwrite count
+	        if (rawInfo[provider] === void 0) {
+	            rawInfo[provider] = Object.create(null);
+	        }
+	        /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
+	        const rawItemInfo = Object.assign({}, item.info);
+	        rawItemInfo.total = convertedData.total;
+	        rawInfo[provider][convertedData.prefix] = rawItemInfo;
+	        // Add icons to Iconify
+	        if (importIcons) {
+	            iconify_1.default.addCollection(item);
+	        }
+	    });
+	    // Parse collections lists
+	    Object.keys(rawInfo).forEach((provider) => {
+	        result.providers[provider].collections = collections.dataToCollections(rawInfo[provider]);
+	    });
+	    return result;
+	}
+	exports.convertCustomSets = convertCustomSets;
+	/**
+	 * Merge icon sets from API and custom icon sets
+	 */
+	function mergeCollections(provider, defaultSets, customSets) {
+	    // Get list of parsed data
+	    const parsedData = [];
+	    if (defaultSets) {
+	        parsedData.push({
+	            isCustom: false,
+	            categories: defaultSets,
+	        });
+	    }
+	    if (customSets) {
+	        const customCollections = customSets.providers[provider].collections;
+	        // Unshift or push it, depending on merge order
+	        parsedData[customSets.merge === 'custom-first' ? 'unshift' : 'push']({
+	            isCustom: true,
+	            categories: customCollections,
+	        });
+	    }
+	    // Setup result as empty object
+	    const results = Object.create(null);
+	    // Store prefixes map to avoid duplicates
+	    const usedPrefixes = Object.create(null);
+	    // Parse all data
+	    parsedData.forEach((item) => {
+	        // Parse all categories
+	        const collectionsList = item.categories;
+	        Object.keys(collectionsList).forEach((category) => {
+	            const categoryItems = collectionsList[category];
+	            Object.keys(categoryItems).forEach((prefix) => {
+	                if (usedPrefixes[prefix] !== void 0) {
+	                    // Prefix has already been parsed
+	                    if (item.isCustom) {
+	                        // Remove previous entry
+	                        delete results[usedPrefixes[prefix]][prefix];
+	                    }
+	                    else {
+	                        // Do not overwrite: always show set from API in case of duplicate entries
+	                        return;
+	                    }
+	                }
+	                // Add item
+	                usedPrefixes[prefix] = category;
+	                if (results[category] === void 0) {
+	                    results[category] = Object.create(null);
+	                }
+	                results[category][prefix] = categoryItems[prefix];
+	            });
+	        });
+	    });
+	    return results;
+	}
+	exports.mergeCollections = mergeCollections;
+
+	});
+
 	var collections$2 = createCommonjsModule(function (module, exports) {
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.CollectionsView = void 0;
+
 
 
 
@@ -2563,7 +2754,7 @@
 	            });
 	            return;
 	        }
-	        this._loadAPI(this.provider, '/collections', {});
+	        this._loadAPI(this.provider, '/collections', {}, 'collections');
 	    }
 	    /**
 	     * Run action on view
@@ -2719,58 +2910,12 @@
 	            this._data = null;
 	        }
 	        else {
-	            // Get list of parsed data
-	            const parsedData = [];
-	            if (this._sources.api) {
-	                parsedData.push({
-	                    isCustom: false,
-	                    categories: collections.dataToCollections(data),
-	                });
-	            }
-	            if (this._sources.custom) {
-	                // Get data
-	                const registry = storage.getRegistry(this._instance);
-	                const customSets = registry.customIconSets;
-	                const customCollections = customSets.providers[this.route.params.provider]
-	                    .collections;
-	                // Unshift or push it, depending on merge order
-	                parsedData[this._sources.merge === 'custom-first' ? 'unshift' : 'push']({
-	                    isCustom: true,
-	                    categories: customCollections,
-	                });
-	            }
-	            // Setup result as empty object
-	            this._data = Object.create(null);
-	            const dataItem = this._data;
-	            // Store prefixes map to avoid duplicates
-	            const usedPrefixes = Object.create(null);
-	            // Parse all data
-	            parsedData.forEach((item) => {
-	                // Parse all categories
-	                const collectionsList = item.categories;
-	                Object.keys(collectionsList).forEach((category) => {
-	                    const categoryItems = collectionsList[category];
-	                    Object.keys(categoryItems).forEach((prefix) => {
-	                        if (usedPrefixes[prefix] !== void 0) {
-	                            // Prefix has already been parsed
-	                            if (item.isCustom) {
-	                                // Remove previous entry
-	                                delete dataItem[usedPrefixes[prefix]][prefix];
-	                            }
-	                            else {
-	                                // Do not overwrite: always show set from API in case of duplicate entries
-	                                return;
-	                            }
-	                        }
-	                        // Add item
-	                        usedPrefixes[prefix] = category;
-	                        if (dataItem[category] === void 0) {
-	                            dataItem[category] = Object.create(null);
-	                        }
-	                        dataItem[category][prefix] = categoryItems[prefix];
-	                    });
-	                });
-	            });
+	            // Convert and merge data
+	            this._data = customSets.mergeCollections(this.route.params.provider, this._sources.api
+	                ? collections.dataToCollections(data)
+	                : null, this._sources.custom
+	                ? storage.getRegistry(this._instance).customIconSets
+	                : null);
 	        }
 	        // Mark as loaded and mark blocks for re-render
 	        this.loading = false;
@@ -2833,13 +2978,14 @@
 	/**
 	 * Default block values
 	 */
-	exports.defaultCollectionInfoBlock = () => {
+	const defaultCollectionInfoBlock = () => {
 	    return {
 	        type: 'collection-info',
 	        prefix: '',
 	        info: null,
 	    };
 	};
+	exports.defaultCollectionInfoBlock = defaultCollectionInfoBlock;
 	/**
 	 * Check if block is empty
 	 */
@@ -2857,12 +3003,13 @@
 	/**
 	 * Default block values
 	 */
-	exports.defaultIconsListBlock = () => {
+	const defaultIconsListBlock = () => {
 	    return {
 	        type: 'icons-list',
 	        icons: [],
 	    };
 	};
+	exports.defaultIconsListBlock = defaultIconsListBlock;
 	/**
 	 * Check if block is empty
 	 */
@@ -3003,7 +3150,7 @@
 	/**
 	 * Default values
 	 */
-	exports.defaultPaginationBlock = () => {
+	const defaultPaginationBlock = () => {
 	    return {
 	        type: 'pagination',
 	        page: 0,
@@ -3012,6 +3159,7 @@
 	        more: false,
 	    };
 	};
+	exports.defaultPaginationBlock = defaultPaginationBlock;
 	/**
 	 * Check if pagination is empty
 	 */
@@ -3084,12 +3232,13 @@
 	/**
 	 * Default block values
 	 */
-	exports.defaultSearchBlock = () => {
+	const defaultSearchBlock = () => {
 	    return {
 	        type: 'search',
 	        keyword: '',
 	    };
 	};
+	exports.defaultSearchBlock = defaultSearchBlock;
 	/**
 	 * Check if block is empty
 	 */
@@ -3157,12 +3306,18 @@
 	    _startLoading() {
 	        this._startedLoading = true;
 	        if (!this._isCustom) {
-	            this._loadAPI(this.provider, '/collection', {
+	            const params = {
 	                prefix: this.prefix,
 	                info: 'true',
 	                chars: 'true',
 	                aliases: 'true',
-	            });
+	            };
+	            if (this.route.params.icon !== '') {
+	                // Ask for hidden icons (icons that were removed from icon set) if route has a
+	                // reference icon, in case if reference icon is hidden.
+	                params.hidden = 'true';
+	            }
+	            this._loadAPI(this.provider, '/collection', params, 'collection.' + this.prefix);
 	        }
 	        else {
 	            setTimeout(() => {
@@ -3215,6 +3370,22 @@
 	                }
 	                // Change page
 	                this.route.params.page = value;
+	                this.blocksRequireUpdate = true;
+	                break;
+	            // Change reference icon
+	            case 'icons-nav':
+	                if (value === '' || value === null) {
+	                    // Reset
+	                    this.route.params.icon = '';
+	                    break;
+	                }
+	                // Check type
+	                if (typeof value !== 'string') {
+	                    return;
+	                }
+	                // Change reference icon and automatically set page
+	                this.route.params.icon = value;
+	                this.route.params.page = null;
 	                this.blocksRequireUpdate = true;
 	                break;
 	            // Filters
@@ -3271,6 +3442,28 @@
 	        }
 	    }
 	    /**
+	     * Find icon in icons list
+	     *
+	     * Returns false on failure
+	     */
+	    _getIconIndex(icons, name) {
+	        for (let i = 0; i < icons.length; i++) {
+	            const icon = icons[i];
+	            if (icon.name === name) {
+	                return i;
+	            }
+	            if (icon.aliases) {
+	                const aliases = icon.aliases;
+	                for (let j = 0; j < aliases.length; j++) {
+	                    if (aliases[j] === name) {
+	                        return i;
+	                    }
+	                }
+	            }
+	        }
+	        return false;
+	    }
+	    /**
 	     * Render blocks
 	     */
 	    render() {
@@ -3297,21 +3490,72 @@
 	        if (blocks.themeSuffixes !== null) {
 	            blocks.themeSuffixes.active = this.route.params.themeSuffix;
 	        }
+	        // Find reference icon
+	        let iconsList$1 = blocks.icons.icons;
+	        const icon = this.route.params.icon;
+	        let iconIndex = icon === '' ? false : this._getIconIndex(iconsList$1, icon);
+	        if (iconIndex !== false) {
+	            // Get previous/next icons
+	            const max = iconsList$1.length - 1;
+	            blocks['icons-nav'] = {
+	                type: 'icons-nav',
+	                first: iconsList$1[0],
+	                last: iconsList$1[max],
+	                reference: iconsList$1[iconIndex],
+	                prev: iconIndex > 0 ? iconsList$1[iconIndex - 1] : void 0,
+	                next: iconIndex < max ? iconsList$1[iconIndex + 1] : void 0,
+	            };
+	        }
+	        else if (icon !== '' &&
+	            this._data.hidden &&
+	            this._data.hidden.indexOf(icon) !== -1) {
+	            // Icon exists, but it is hidden. Show first and last icons, indicating that reference icon exists
+	            blocks['icons-nav'] = {
+	                type: 'icons-nav',
+	                first: iconsList$1[0],
+	                last: iconsList$1[iconsList$1.length - 1],
+	                reference: {
+	                    provider: this.provider,
+	                    prefix: this.prefix,
+	                    name: icon,
+	                },
+	            };
+	        }
+	        else {
+	            blocks['icons-nav'] = null;
+	        }
 	        // Apply search
 	        blocks.icons = iconsList.applyIconFilters(blocks.icons, blocks.filter, filterKeys
 	            .filter((key) => blocks[key] !== null)
 	            .map((key) => blocks[key]));
+	        iconsList$1 = blocks.icons.icons;
+	        // Get current page
+	        const perPage = blocks.pagination.perPage;
+	        let page;
+	        if (this.route.params.page !== null) {
+	            page = this.route.params.page;
+	        }
+	        else if (icon === '') {
+	            page = 0;
+	        }
+	        else {
+	            if (iconsList$1.length !== this._data.icons.length) {
+	                // Update iconIndex
+	                iconIndex = this._getIconIndex(iconsList$1, icon);
+	            }
+	            page =
+	                iconIndex === false ? 0 : pagination.getPageForIndex(perPage, iconIndex);
+	        }
 	        // Check pagination
 	        blocks.pagination.length = blocks.icons.icons.length;
-	        blocks.pagination.page = this.route.params.page;
+	        blocks.pagination.page = page;
 	        const maximumPage = pagination.maxPage(blocks.pagination);
 	        if (maximumPage < blocks.pagination.page) {
 	            this.route.params.page = blocks.pagination.page = maximumPage;
 	        }
 	        // Apply pagination
-	        const perPage = blocks.pagination.perPage;
 	        const startIndex = blocks.pagination.page * perPage;
-	        blocks.icons.icons = blocks.icons.icons.slice(startIndex, startIndex + perPage);
+	        blocks.icons.icons = iconsList$1.slice(startIndex, startIndex + perPage);
 	        return this._blocks;
 	    }
 	    /**
@@ -3330,21 +3574,22 @@
 	        // Create empty blocks
 	        this._blocks = {
 	            // Info
-	            info: collectionInfo.defaultCollectionInfoBlock(),
+	            'info': collectionInfo.defaultCollectionInfoBlock(),
 	            // Search
-	            filter: Object.assign(search.defaultSearchBlock(), {
+	            'filter': Object.assign(search.defaultSearchBlock(), {
 	                keyword: this.route.params.filter,
 	                searchType: 'collection',
 	                title: this.prefix,
 	            }),
 	            // Filters
-	            collections: null,
-	            tags: null,
-	            themePrefixes: null,
-	            themeSuffixes: null,
+	            'collections': null,
+	            'tags': null,
+	            'themePrefixes': null,
+	            'themeSuffixes': null,
 	            // Icons and pagination
-	            icons: iconsList.defaultIconsListBlock(),
-	            pagination: pagination.defaultPaginationBlock(),
+	            'icons': iconsList.defaultIconsListBlock(),
+	            'pagination': pagination.defaultPaginationBlock(),
+	            'icons-nav': null,
 	        };
 	        const initialisedBlocks = this._blocks;
 	        // Check if data was valid
@@ -3385,7 +3630,9 @@
 	            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	            pagination$1.perPage = config.ui.itemsPerPage;
 	            pagination$1.fullLength = pagination$1.length = parsedData.icons.length;
-	            pagination$1.page = Math.min(this.route.params.page, pagination.maxPage(pagination$1));
+	            const page = this.route.params.page;
+	            pagination$1.page =
+	                page === null ? 0 : Math.min(page, pagination.maxPage(pagination$1));
 	            // Copy collections filter from parent view
 	            if (this.parent && !this.parent.loading) {
 	                if (this.parent.type === 'search') {
@@ -4542,112 +4789,6 @@
 
 	});
 
-	var customSets = createCommonjsModule(function (module, exports) {
-	var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || function (mod) {
-	    return (mod && mod.__esModule) ? mod : { "default": mod };
-	};
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.convertCustomSets = exports.emptyConvertedSet = void 0;
-	const iconify_1 = __importDefault(Iconify__default['default']);
-
-
-	/**
-	 * TypeScript guard
-	 */
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental, @typescript-eslint/no-empty-function
-	function assertNever(s) { }
-	/**
-	 * Empty
-	 */
-	exports.emptyConvertedSet = {
-	    merge: 'custom-last',
-	    providers: Object.create(null),
-	};
-	/**
-	 * Convert custom icon sets, return empty set on failure
-	 */
-	function convertCustomSets(data, importIcons = true) {
-	    if (!data.iconSets || !data.iconSets.length) {
-	        return exports.emptyConvertedSet;
-	    }
-	    // Merge
-	    let merge = 'only-custom';
-	    switch (data.merge) {
-	        case 'custom-first':
-	        case 'custom-last':
-	        case 'only-custom':
-	            merge = data.merge;
-	            break;
-	        case void 0:
-	            break;
-	        default:
-	            assertNever(data.merge);
-	    }
-	    // Set basic data
-	    const result = {
-	        merge,
-	        providers: Object.create(null),
-	    };
-	    // Info to parse later
-	    const rawInfo = Object.create(null);
-	    // Get all providers, add icon sets to Iconify.
-	    data.iconSets.forEach((item) => {
-	        if (typeof item.prefix !== 'string') {
-	            return;
-	        }
-	        // Get/set provider
-	        if (typeof data.provider === 'string') {
-	            item.provider = data.provider;
-	        }
-	        const provider = typeof item.provider === 'string' ? item.provider : '';
-	        // Custom info block
-	        if (!item.info && data.info && data.info[item.prefix]) {
-	            item.info = data.info[item.prefix];
-	        }
-	        // Convert data
-	        const convertedData = collection.rawDataToCollection(item);
-	        if (!convertedData) {
-	            return;
-	        }
-	        // Add data to result
-	        if (result.providers[provider] === void 0) {
-	            result.providers[provider] = {
-	                total: 0,
-	                data: Object.create(null),
-	                collections: {},
-	            };
-	        }
-	        const providerData = result.providers[provider];
-	        if (providerData.data[convertedData.prefix] !== void 0) {
-	            // Already exists
-	            return;
-	        }
-	        // Add data
-	        providerData.data[convertedData.prefix] = convertedData;
-	        providerData.total++;
-	        // Store raw info block to convert to collections list later, overwrite count
-	        if (rawInfo[provider] === void 0) {
-	            rawInfo[provider] = Object.create(null);
-	        }
-	        /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
-	        const rawItemInfo = Object.assign({}, item.info);
-	        rawItemInfo.total = convertedData.total;
-	        rawInfo[provider][convertedData.prefix] = rawItemInfo;
-	        // Add icons to Iconify
-	        if (importIcons) {
-	            iconify_1.default.addCollection(item);
-	        }
-	    });
-	    // Parse collections lists
-	    Object.keys(rawInfo).forEach((provider) => {
-	        result.providers[provider].collections = collections.dataToCollections(rawInfo[provider]);
-	    });
-	    return result;
-	}
-	exports.convertCustomSets = convertCustomSets;
-
-	});
-
 	var registry = createCommonjsModule(function (module, exports) {
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.Registry = void 0;
@@ -4841,6 +4982,9 @@
 	            return pagination.isPaginationEmpty(block);
 	        case 'search':
 	            return search.isSearchBlockEmpty(block);
+	        case 'icons-nav':
+	            // Cannot be empty if it exists
+	            return false;
 	        default:
 	            return true;
 	    }
@@ -4968,6 +5112,68 @@
 	        : void 0;
 	}
 	exports.getCoreInstance = getCoreInstance;
+
+	});
+
+	var customisations = createCommonjsModule(function (module, exports) {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.filterCustomisations = exports.mergeCustomisations = exports.defaultCustomisations = exports.emptyCustomisations = void 0;
+	/**
+	 * Empty values
+	 */
+	exports.emptyCustomisations = {
+	    hFlip: false,
+	    vFlip: false,
+	    rotate: 0,
+	    color: '',
+	    width: '',
+	    height: '',
+	    inline: false,
+	};
+	/**
+	 * Default values
+	 */
+	exports.defaultCustomisations = {
+	    hFlip: false,
+	    vFlip: false,
+	    rotate: 0,
+	    color: '',
+	    width: '',
+	    height: '',
+	    inline: false,
+	};
+	/**
+	 * Add missing values to customisations, creating new object. Function does type checking
+	 */
+	function mergeCustomisations(defaults, values) {
+	    const result = {};
+	    for (const key in defaults) {
+	        const attr = key;
+	        if (values && typeof values[attr] === typeof defaults[attr]) {
+	            result[attr] = values[attr];
+	        }
+	        else {
+	            result[attr] = defaults[attr];
+	        }
+	    }
+	    return result;
+	}
+	exports.mergeCustomisations = mergeCustomisations;
+	/**
+	 * Export only customised attributes
+	 */
+	function filterCustomisations(values) {
+	    const result = {};
+	    for (const key in exports.defaultCustomisations) {
+	        const attr = key;
+	        if (values[attr] !== exports.defaultCustomisations[attr] &&
+	            values[attr] !== exports.emptyCustomisations[attr]) {
+	            result[attr] = values[attr];
+	        }
+	    }
+	    return result;
+	}
+	exports.filterCustomisations = filterCustomisations;
 
 	});
 
@@ -5733,15 +5939,6 @@
 	        copy: 'Copy to clipboard',
 	        copied: 'Copied to clipboard.',
 	        heading: 'How to use "{name}" icon',
-	        titles: {
-	            'iconify': 'SVG Framework',
-	            'svg': 'SVG',
-	            'svg-raw': 'SVG',
-	            'svg-box': 'SVG with viewBox rectangle',
-	            'svg-uri': 'SVG as data: URI',
-	            'react-npm': 'React',
-	            'react-api': 'React with Iconify API',
-	        },
 	        childTabTitle: '{key} versions:',
 	        childTabTitles: {
 	            react: 'React component versions:',
@@ -9788,11 +9985,11 @@
 
 	function get_each_context$5(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[14] = list[i];
+		child_ctx[15] = list[i];
 		return child_ctx;
 	}
 
-	// (85:2) {#if info.author}
+	// (89:2) {#if info.author}
 	function create_if_block_2$3(ctx) {
 		let small;
 		let t0_value = phrases.collection.by + "";
@@ -9840,7 +10037,7 @@
 		};
 	}
 
-	// (93:4) {:else}
+	// (97:4) {:else}
 	function create_else_block$2(ctx) {
 		let t_value = /*info*/ ctx[2].author.name + "";
 		let t;
@@ -9861,7 +10058,7 @@
 		};
 	}
 
-	// (88:4) {#if showCollectionAuthorLink && info.author.url}
+	// (92:4) {#if showCollectionAuthorLink && info.author.url}
 	function create_if_block_3$1(ctx) {
 		let a;
 		let t_value = /*info*/ ctx[2].author.name + "";
@@ -9882,15 +10079,11 @@
 				append(a, t);
 
 				if (!mounted) {
-					dispose = listen(a, "click", function () {
-						if (is_function(/*onExternalClick*/ ctx[4])) /*onExternalClick*/ ctx[4].apply(this, arguments);
-					});
-
+					dispose = listen(a, "click", /*onExternalClick*/ ctx[6]);
 					mounted = true;
 				}
 			},
-			p(new_ctx, dirty) {
-				ctx = new_ctx;
+			p(ctx, dirty) {
 				if (dirty & /*info*/ 4 && t_value !== (t_value = /*info*/ ctx[2].author.name + "")) set_data(t, t_value);
 
 				if (dirty & /*info*/ 4 && a_href_value !== (a_href_value = /*info*/ ctx[2].author.url)) {
@@ -9905,7 +10098,7 @@
 		};
 	}
 
-	// (98:2) {#if samples.length > 0}
+	// (102:2) {#if samples.length > 0}
 	function create_if_block_1$4(ctx) {
 		let div;
 		let div_class_value;
@@ -9966,7 +10159,7 @@
 		};
 	}
 
-	// (101:4) {#each samples as sample}
+	// (105:4) {#each samples as sample}
 	function create_each_block$5(ctx) {
 		let span;
 		let span_data_icon_value;
@@ -9978,7 +10171,7 @@
 
 				attr(span, "data-icon", span_data_icon_value = (/*provider*/ ctx[0] === ""
 				? ""
-				: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[14]);
+				: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[15]);
 
 				attr(span, "data-inline", "false");
 			},
@@ -9988,7 +10181,7 @@
 			p(ctx, dirty) {
 				if (dirty & /*provider, prefix*/ 3 && span_data_icon_value !== (span_data_icon_value = (/*provider*/ ctx[0] === ""
 				? ""
-				: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[14])) {
+				: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[15])) {
 					attr(span, "data-icon", span_data_icon_value);
 				}
 			},
@@ -9998,7 +10191,7 @@
 		};
 	}
 
-	// (109:2) {#if info.height}
+	// (113:2) {#if info.height}
 	function create_if_block$9(ctx) {
 		let div;
 		let height_1;
@@ -10073,11 +10266,11 @@
 				t4 = space();
 				div1 = element("div");
 				create_component(height_1.$$.fragment);
-				attr(a, "href", /*link*/ ctx[5]);
+				attr(a, "href", /*link*/ ctx[4]);
 				attr(div0, "class", "iif-collection-text");
 				attr(div1, "class", "iif-collection-total");
 				attr(div2, "class", "iif-collection-data");
-				attr(li, "class", /*className*/ ctx[6]);
+				attr(li, "class", /*className*/ ctx[5]);
 			},
 			m(target, anchor) {
 				insert(target, li, anchor);
@@ -10108,8 +10301,8 @@
 			p(ctx, [dirty]) {
 				if ((!current || dirty & /*info*/ 4) && t0_value !== (t0_value = /*info*/ ctx[2].name + "")) set_data(t0, t0_value);
 
-				if (!current || dirty & /*link*/ 32) {
-					attr(a, "href", /*link*/ ctx[5]);
+				if (!current || dirty & /*link*/ 16) {
+					attr(a, "href", /*link*/ ctx[4]);
 				}
 
 				if (/*info*/ ctx[2].author) {
@@ -10154,8 +10347,8 @@
 				if (dirty & /*info*/ 4) height_1_changes.text = /*info*/ ctx[2].total + "";
 				height_1.$set(height_1_changes);
 
-				if (!current || dirty & /*className*/ 64) {
-					attr(li, "class", /*className*/ ctx[6]);
+				if (!current || dirty & /*className*/ 32) {
+					attr(li, "class", /*className*/ ctx[5]);
 				}
 			},
 			i(local) {
@@ -10185,11 +10378,17 @@
 
 	function instance$f($$self, $$props, $$invalidate) {
 		
+		
 		let { provider } = $$props;
 		let { prefix } = $$props;
 		let { info } = $$props;
 		let { onClick } = $$props;
-		let { onExternalClick } = $$props;
+
+		// Get registry instance
+		const registry = getContext("registry");
+
+		// on:click event for external links
+		const onExternalClick = registry.link;
 
 		// Get link
 		let link;
@@ -10236,29 +10435,28 @@
 			if ("prefix" in $$props) $$invalidate(1, prefix = $$props.prefix);
 			if ("info" in $$props) $$invalidate(2, info = $$props.info);
 			if ("onClick" in $$props) $$invalidate(3, onClick = $$props.onClick);
-			if ("onExternalClick" in $$props) $$invalidate(4, onExternalClick = $$props.onExternalClick);
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*provider, prefix, link*/ 35) {
+			if ($$self.$$.dirty & /*provider, prefix, link*/ 19) {
 				 {
 					const providerData = lib.getProvider(provider);
 
 					if (providerData) {
-						$$invalidate(5, link = providerData.links.collection.replace("{prefix}", prefix));
+						$$invalidate(4, link = providerData.links.collection.replace("{prefix}", prefix));
 
 						if (link === "") {
-							$$invalidate(5, link = "#");
+							$$invalidate(4, link = "#");
 						}
 					} else {
-						$$invalidate(5, link = "#");
+						$$invalidate(4, link = "#");
 					}
 				}
 			}
 
 			if ($$self.$$.dirty & /*prefix, provider, info*/ 7) {
 				 {
-					$$invalidate(6, className = baseClass$4 + " " + baseClass$4 + "--prefix--" + prefix + (provider === ""
+					$$invalidate(5, className = baseClass$4 + " " + baseClass$4 + "--prefix--" + prefix + (provider === ""
 					? ""
 					: " " + baseClass$4 + "--provider--" + provider) + ( "") + (info.index
 					? " " + baseClass$4 + "--" + info.index % maxIndex
@@ -10272,9 +10470,9 @@
 			prefix,
 			info,
 			onClick,
-			onExternalClick,
 			link,
 			className,
+			onExternalClick,
 			samples,
 			samplesHeight,
 			height,
@@ -10291,8 +10489,7 @@
 				provider: 0,
 				prefix: 1,
 				info: 2,
-				onClick: 3,
-				onExternalClick: 4
+				onClick: 3
 			});
 		}
 	}
@@ -10301,13 +10498,13 @@
 
 	function get_each_context$6(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[6] = list[i][0];
-		child_ctx[7] = list[i][1];
-		child_ctx[9] = i;
+		child_ctx[5] = list[i][0];
+		child_ctx[6] = list[i][1];
+		child_ctx[8] = i;
 		return child_ctx;
 	}
 
-	// (18:1) {#if showCategories}
+	// (16:1) {#if showCategories}
 	function create_if_block$a(ctx) {
 		let div;
 		let t;
@@ -10331,7 +10528,7 @@
 		};
 	}
 
-	// (22:2) {#each Object.entries(items) as [prefix, info], i (prefix)}
+	// (20:2) {#each Object.entries(items) as [prefix, info], i (prefix)}
 	function create_each_block$6(key_1, ctx) {
 		let first;
 		let item;
@@ -10340,10 +10537,9 @@
 		item = new Item({
 				props: {
 					provider: /*provider*/ ctx[3],
-					prefix: /*prefix*/ ctx[6],
-					info: /*info*/ ctx[7],
-					onClick: /*onClick*/ ctx[4],
-					onExternalClick: /*onExternalClick*/ ctx[5]
+					prefix: /*prefix*/ ctx[5],
+					info: /*info*/ ctx[6],
+					onClick: /*onClick*/ ctx[4]
 				}
 			});
 
@@ -10363,10 +10559,9 @@
 			p(ctx, dirty) {
 				const item_changes = {};
 				if (dirty & /*provider*/ 8) item_changes.provider = /*provider*/ ctx[3];
-				if (dirty & /*items*/ 4) item_changes.prefix = /*prefix*/ ctx[6];
-				if (dirty & /*items*/ 4) item_changes.info = /*info*/ ctx[7];
+				if (dirty & /*items*/ 4) item_changes.prefix = /*prefix*/ ctx[5];
+				if (dirty & /*items*/ 4) item_changes.info = /*info*/ ctx[6];
 				if (dirty & /*onClick*/ 16) item_changes.onClick = /*onClick*/ ctx[4];
-				if (dirty & /*onExternalClick*/ 32) item_changes.onExternalClick = /*onExternalClick*/ ctx[5];
 				item.$set(item_changes);
 			},
 			i(local) {
@@ -10394,7 +10589,7 @@
 		let current;
 		let if_block = /*showCategories*/ ctx[0] && create_if_block$a(ctx);
 		let each_value = Object.entries(/*items*/ ctx[2]);
-		const get_key = ctx => /*prefix*/ ctx[6];
+		const get_key = ctx => /*prefix*/ ctx[5];
 
 		for (let i = 0; i < each_value.length; i += 1) {
 			let child_ctx = get_each_context$6(ctx, each_value, i);
@@ -10442,7 +10637,7 @@
 					if_block = null;
 				}
 
-				if (dirty & /*provider, Object, items, onClick, onExternalClick*/ 60) {
+				if (dirty & /*provider, Object, items, onClick*/ 28) {
 					const each_value = Object.entries(/*items*/ ctx[2]);
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$6, null, get_each_context$6);
@@ -10483,7 +10678,6 @@
 		let { items } = $$props;
 		let { provider } = $$props;
 		let { onClick } = $$props;
-		let { onExternalClick } = $$props;
 
 		$$self.$$set = $$props => {
 			if ("showCategories" in $$props) $$invalidate(0, showCategories = $$props.showCategories);
@@ -10491,10 +10685,9 @@
 			if ("items" in $$props) $$invalidate(2, items = $$props.items);
 			if ("provider" in $$props) $$invalidate(3, provider = $$props.provider);
 			if ("onClick" in $$props) $$invalidate(4, onClick = $$props.onClick);
-			if ("onExternalClick" in $$props) $$invalidate(5, onExternalClick = $$props.onExternalClick);
 		};
 
-		return [showCategories, category, items, provider, onClick, onExternalClick];
+		return [showCategories, category, items, provider, onClick];
 	}
 
 	class Category extends SvelteComponent {
@@ -10506,8 +10699,7 @@
 				category: 1,
 				items: 2,
 				provider: 3,
-				onClick: 4,
-				onExternalClick: 5
+				onClick: 4
 			});
 		}
 	}
@@ -10560,13 +10752,13 @@
 
 	function get_each_context$7(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[6] = list[i][0];
-		child_ctx[7] = list[i][1];
-		child_ctx[9] = i;
+		child_ctx[5] = list[i][0];
+		child_ctx[6] = list[i][1];
+		child_ctx[8] = i;
 		return child_ctx;
 	}
 
-	// (33:1) {:else}
+	// (30:1) {:else}
 	function create_else_block$3(ctx) {
 		let error;
 		let current;
@@ -10599,7 +10791,7 @@
 		};
 	}
 
-	// (25:1) {#each Object.entries(block.collections) as [category, items], i (category)}
+	// (23:1) {#each Object.entries(block.collections) as [category, items], i (category)}
 	function create_each_block$7(key_1, ctx) {
 		let first;
 		let category;
@@ -10607,12 +10799,11 @@
 
 		category = new Category({
 				props: {
-					onExternalClick: /*onExternalClick*/ ctx[2],
-					onClick: /*onClick*/ ctx[3],
+					onClick: /*onClick*/ ctx[2],
 					showCategories: /*block*/ ctx[0].showCategories,
-					category: /*category*/ ctx[6],
+					category: /*category*/ ctx[5],
 					provider: /*provider*/ ctx[1],
-					items: /*items*/ ctx[7]
+					items: /*items*/ ctx[6]
 				}
 			});
 
@@ -10632,9 +10823,9 @@
 			p(ctx, dirty) {
 				const category_changes = {};
 				if (dirty & /*block*/ 1) category_changes.showCategories = /*block*/ ctx[0].showCategories;
-				if (dirty & /*block*/ 1) category_changes.category = /*category*/ ctx[6];
+				if (dirty & /*block*/ 1) category_changes.category = /*category*/ ctx[5];
 				if (dirty & /*provider*/ 2) category_changes.provider = /*provider*/ ctx[1];
-				if (dirty & /*block*/ 1) category_changes.items = /*items*/ ctx[7];
+				if (dirty & /*block*/ 1) category_changes.items = /*items*/ ctx[6];
 				category.$set(category_changes);
 			},
 			i(local) {
@@ -10653,14 +10844,14 @@
 		};
 	}
 
-	// (24:0) <Block type="collections">
+	// (22:0) <Block type="collections">
 	function create_default_slot$6(ctx) {
 		let each_blocks = [];
 		let each_1_lookup = new Map();
 		let each_1_anchor;
 		let current;
 		let each_value = Object.entries(/*block*/ ctx[0].collections);
-		const get_key = ctx => /*category*/ ctx[6];
+		const get_key = ctx => /*category*/ ctx[5];
 
 		for (let i = 0; i < each_value.length; i += 1) {
 			let child_ctx = get_each_context$7(ctx, each_value, i);
@@ -10700,7 +10891,7 @@
 				current = true;
 			},
 			p(ctx, dirty) {
-				if (dirty & /*onExternalClick, onClick, block, Object, provider, phrases*/ 15) {
+				if (dirty & /*onClick, block, Object, provider, phrases*/ 7) {
 					const each_value = Object.entries(/*block*/ ctx[0].collections);
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$7, each_1_anchor, get_each_context$7);
@@ -10774,7 +10965,7 @@
 			p(ctx, [dirty]) {
 				const block_1_changes = {};
 
-				if (dirty & /*$$scope, block, provider*/ 1027) {
+				if (dirty & /*$$scope, block, provider*/ 515) {
 					block_1_changes.$$scope = { dirty, ctx };
 				}
 
@@ -10805,27 +10996,24 @@
 		// Get registry instance
 		const registry = getContext("registry");
 
-		// Callback for external link
-		const onExternalClick = registry.link;
-
 		// Click event
 		function onClick(prefix) {
 			registry.router.action(name, prefix);
 		}
 
 		$$self.$$set = $$props => {
-			if ("name" in $$props) $$invalidate(4, name = $$props.name);
+			if ("name" in $$props) $$invalidate(3, name = $$props.name);
 			if ("block" in $$props) $$invalidate(0, block = $$props.block);
 			if ("provider" in $$props) $$invalidate(1, provider = $$props.provider);
 		};
 
-		return [block, provider, onExternalClick, onClick, name];
+		return [block, provider, onClick, name];
 	}
 
 	class CollectionsList extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$i, create_fragment$i, safe_not_equal, { name: 4, block: 0, provider: 1 });
+			init(this, options, instance$i, create_fragment$i, safe_not_equal, { name: 3, block: 0, provider: 1 });
 		}
 	}
 
@@ -13506,7 +13694,7 @@
 		}
 
 		const click_handler = () => setPage(prevPage);
-		const click_handler_1 = () => setPage(phrases.icons.moreAsNumber ? 2 : "more");
+		const click_handler_1 = () => setPage( "more");
 		const click_handler_2 = () => setPage(nextPage);
 
 		$$self.$$set = $$props => {
@@ -15542,61 +15730,6 @@
 		}
 	}
 
-	/**
-	 * Empty values
-	 */
-	const emptyCustomisations = {
-	    hFlip: false,
-	    vFlip: false,
-	    rotate: 0,
-	    color: '',
-	    width: '',
-	    height: '',
-	    inline: false,
-	};
-	/**
-	 * Default values
-	 */
-	const defaultCustomisations = {
-	    hFlip: false,
-	    vFlip: false,
-	    rotate: 0,
-	    color: '',
-	    width: '',
-	    height: '',
-	    inline: false,
-	};
-	/**
-	 * Add missing values to customisations, creating new object. Function does type checking
-	 */
-	function mergeCustomisations(defaults, values) {
-	    let result = {};
-	    for (let key in defaults) {
-	        const attr = key;
-	        if (values && typeof values[attr] === typeof defaults[attr]) {
-	            result[attr] = values[attr];
-	        }
-	        else {
-	            result[attr] = defaults[attr];
-	        }
-	    }
-	    return result;
-	}
-	/**
-	 * Export only customised attributes
-	 */
-	function filterCustomisations(values) {
-	    let result = {};
-	    for (let key in defaultCustomisations) {
-	        const attr = key;
-	        if (values[attr] !== defaultCustomisations[attr] &&
-	            values[attr] !== emptyCustomisations[attr]) {
-	            result[attr] = values[attr];
-	        }
-	    }
-	    return result;
-	}
-
 	/* src/icon-finder/components/footer/misc/Block.svelte generated by Svelte v3.29.4 */
 
 	function create_if_block_1$b(ctx) {
@@ -16069,10 +16202,13 @@
 		}
 	}
 
+	var colorKeywords = createCommonjsModule(function (module, exports) {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.extendedColorKeywords = exports.baseColorKeywords = void 0;
 	/**
 	 * List of base colors. From https://www.w3.org/TR/css3-color/
 	 */
-	const baseColorKeywords = {
+	exports.baseColorKeywords = {
 	    silver: [192, 192, 192],
 	    gray: [128, 128, 128],
 	    white: [255, 255, 255],
@@ -16092,7 +16228,7 @@
 	/**
 	 * List of extended colors. From https://www.w3.org/TR/css3-color/
 	 */
-	const extendedColorKeywords = {
+	exports.extendedColorKeywords = {
 	    aliceblue: [240, 248, 255],
 	    antiquewhite: [250, 235, 215],
 	    aqua: [0, 255, 255],
@@ -16244,6 +16380,12 @@
 	    rebeccapurple: [102, 51, 153],
 	};
 
+	});
+
+	var colors = createCommonjsModule(function (module, exports) {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.colorToString = exports.stringToColor = void 0;
+
 	/**
 	 * Attempt to convert color to keyword.
 	 *
@@ -16251,7 +16393,7 @@
 	 */
 	function colorToKeyword(color) {
 	    // Test all keyword lists
-	    const lists = [baseColorKeywords, extendedColorKeywords];
+	    const lists = [colorKeywords.baseColorKeywords, colorKeywords.extendedColorKeywords];
 	    for (let i = 0; i < lists.length; i++) {
 	        const list = lists[i];
 	        const keys = Object.keys(list);
@@ -16293,10 +16435,9 @@
 	    let start = 0;
 	    switch (value.length) {
 	        case 4:
-	            alphaStr = value.slice(0, 1);
+	            alphaStr = value.slice(-1);
 	            alphaStr += alphaStr;
-	            start++;
-	        // no break
+	        // eslint-disable-next-line no-fallthrough
 	        case 3:
 	            redStr = value.slice(start, ++start);
 	            redStr += redStr;
@@ -16306,9 +16447,8 @@
 	            blueStr += blueStr;
 	            break;
 	        case 8:
-	            alphaStr = value.slice(0, 2);
-	            start += 2;
-	        // no break
+	            alphaStr = value.slice(-2);
+	        // eslint-disable-next-line no-fallthrough
 	        case 6:
 	            redStr = value.slice(start++, ++start);
 	            greenStr = value.slice(start++, ++start);
@@ -16330,11 +16470,11 @@
 	function stringToColor(value) {
 	    value = value.toLowerCase();
 	    // Test keywords
-	    if (baseColorKeywords[value] !== void 0) {
-	        return valueToKeyword(baseColorKeywords[value]);
+	    if (colorKeywords.baseColorKeywords[value] !== void 0) {
+	        return valueToKeyword(colorKeywords.baseColorKeywords[value]);
 	    }
-	    if (extendedColorKeywords[value] !== void 0) {
-	        return valueToKeyword(extendedColorKeywords[value]);
+	    if (colorKeywords.extendedColorKeywords[value] !== void 0) {
+	        return valueToKeyword(colorKeywords.extendedColorKeywords[value]);
 	    }
 	    // Test for function
 	    if (value.indexOf('(') === -1) {
@@ -16355,57 +16495,56 @@
 	    }
 	    const keyword = parts[0];
 	    const colors = parts[1].split(',');
-	    let alpha = 1;
-	    // Test for alpha and get alpha
-	    if (keyword.slice(-1) === 'a') {
-	        // with alpha
-	        if (colors.length !== 4) {
-	            return null;
-	        }
-	        alpha = parseFloat(colors.pop());
-	        if (isNaN(alpha)) {
-	            alpha = 0;
-	        }
-	        else {
-	            alpha = alpha < 0 ? 0 : alpha > 1 ? 1 : alpha;
-	        }
-	    }
-	    else if (colors.length !== 3) {
+	    if (colors.length !== 3 && colors.length !== 4) {
 	        return null;
 	    }
+	    let alpha = 1;
+	    // Get alpha
+	    if (colors.length === 4) {
+	        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	        const lastItem = colors.pop();
+	        alpha = parseFloat(lastItem) * (lastItem.slice(-1) === '%' ? 0.01 : 1);
+	        if (isNaN(alpha)) {
+	            return null;
+	        }
+	        alpha = alpha < 0 ? 0 : alpha > 1 ? 1 : alpha;
+	    }
 	    // Parse
+	    let color1; // red or hue
+	    let color2; // green or saturation
+	    let color3; // blue or lightness
+	    let isPercentages;
+	    let multiplier;
 	    switch (keyword) {
 	        case 'rgb':
 	        case 'rgba':
-	            if (colors[0].slice(-1) === '%') {
-	                // All components must be percentages
-	                if (colors[1].slice(-1) !== '%' ||
-	                    colors[2].slice(-1) !== '%') {
-	                    return null;
-	                }
-	                // Convert to numbers and normalize colors
-	                let r = parseFloat(colors[0]);
-	                let g = parseFloat(colors[1]);
-	                let b = parseFloat(colors[2]);
-	                return {
-	                    r: isNaN(r) || r < 0 ? 0 : r > 100 ? 255 : r * 2.55,
-	                    g: isNaN(g) || g < 0 ? 0 : g > 100 ? 255 : g * 2.55,
-	                    b: isNaN(b) || b < 0 ? 0 : b > 100 ? 255 : b * 2.55,
-	                    a: alpha,
-	                };
-	            }
-	            // None of components must be percentages
-	            if (parts[1].indexOf('%') !== -1) {
+	            // Either all or no components can be percentages
+	            isPercentages = colors[0].slice(-1) === '%';
+	            if ((colors[1].slice(-1) === '%') !== isPercentages ||
+	                (colors[2].slice(-1) === '%') !== isPercentages) {
 	                return null;
 	            }
-	            // Double values are not allowed in rgb()
-	            let r = parseInt(colors[0]);
-	            let g = parseInt(colors[1]);
-	            let b = parseInt(colors[2]);
+	            // Convert to numbers and normalize colors
+	            multiplier = isPercentages ? 2.55 : 1;
+	            color1 = parseFloat(colors[0]) * multiplier;
+	            color2 = parseFloat(colors[1]) * multiplier;
+	            color3 = parseFloat(colors[2]) * multiplier;
 	            return {
-	                r: isNaN(r) || r < 0 ? 0 : r > 255 ? 255 : r,
-	                g: isNaN(g) || g < 0 ? 0 : g > 255 ? 255 : g,
-	                b: isNaN(b) || b < 0 ? 0 : b > 255 ? 255 : b,
+	                r: isNaN(color1) || color1 < 0
+	                    ? 0
+	                    : color1 > 255
+	                        ? 255
+	                        : color1,
+	                g: isNaN(color2) || color2 < 0
+	                    ? 0
+	                    : color2 > 255
+	                        ? 255
+	                        : color2,
+	                b: isNaN(color3) || color3 < 0
+	                    ? 0
+	                    : color3 > 255
+	                        ? 255
+	                        : color3,
 	                a: alpha,
 	            };
 	        case 'hsl':
@@ -16416,25 +16555,34 @@
 	                // Hue cannot be percentage, saturation and lightness must be percentage
 	                return null;
 	            }
-	            // All values could be double numbers
-	            let h = parseFloat(colors[0]);
-	            let s = parseFloat(colors[1]);
-	            let l = parseFloat(colors[2]);
+	            // Convert to numbers and normalize colors
+	            color1 = parseFloat(colors[0]);
+	            color2 = parseFloat(colors[1]);
+	            color3 = parseFloat(colors[2]);
 	            return {
-	                h: isNaN(h)
+	                h: isNaN(color1)
 	                    ? 0
-	                    : h < 0
-	                        ? (h % 360) + 360
-	                        : h >= 360
-	                            ? h % 360
-	                            : h,
-	                s: isNaN(s) || s < 0 ? 0 : s > 100 ? 100 : s,
-	                l: isNaN(l) || l < 0 ? 0 : l > 100 ? 100 : l,
+	                    : color1 < 0
+	                        ? (color1 % 360) + 360
+	                        : color1 >= 360
+	                            ? color1 % 360
+	                            : color1,
+	                s: isNaN(color2) || color2 < 0
+	                    ? 0
+	                    : color2 > 100
+	                        ? 100
+	                        : color2,
+	                l: isNaN(color3) || color3 < 0
+	                    ? 0
+	                    : color3 > 100
+	                        ? 100
+	                        : color3,
 	                a: alpha,
 	            };
 	    }
 	    return null;
 	}
+	exports.stringToColor = stringToColor;
 	/**
 	 * Convert HSL to RGB
 	 */
@@ -16452,13 +16600,13 @@
 	        }
 	        return n1 + ((n2 - n1) * (240 - hue)) / 60;
 	    }
-	    let hue = value.h < 0
+	    const hue = value.h < 0
 	        ? (value.h % 360) + 360
 	        : value.h >= 360
 	            ? value.h % 360
 	            : value.h;
-	    let sat = value.s < 0 ? 0 : value.s > 100 ? 1 : value.s / 100;
-	    let lum = value.l < 0 ? 0 : value.l > 100 ? 1 : value.l / 100;
+	    const sat = value.s < 0 ? 0 : value.s > 100 ? 1 : value.s / 100;
+	    const lum = value.l < 0 ? 0 : value.l > 100 ? 1 : value.l / 100;
 	    let m2;
 	    if (lum <= 0.5) {
 	        m2 = lum * (1 + sat);
@@ -16466,7 +16614,7 @@
 	    else {
 	        m2 = lum + sat * (1 - lum);
 	    }
-	    let m1 = 2 * lum - m2;
+	    const m1 = 2 * lum - m2;
 	    let c1, c2, c3;
 	    if (sat === 0 && hue === 0) {
 	        c1 = lum;
@@ -16500,7 +16648,7 @@
 	    catch (err) {
 	        return '';
 	    }
-	    // Check for floats
+	    // Check precision
 	    const rgbRounded = rgbColor.r === Math.round(rgbColor.r) &&
 	        rgbColor.g === Math.round(rgbColor.g) &&
 	        rgbColor.b === Math.round(rgbColor.b);
@@ -16578,6 +16726,9 @@
 	    }
 	    return (rgbColor.a === 1 ? 'rgb(' : 'rgba(') + list.join(', ') + ')';
 	}
+	exports.colorToString = colorToString;
+
+	});
 
 	/* src/icon-finder/components/footer/parts/props/Block.svelte generated by Svelte v3.29.4 */
 
@@ -16851,13 +17002,13 @@
 
 		// Convert color to valid string
 		function getColor(value, defaultValue) {
-			const color = stringToColor(value);
+			const color = colors.stringToColor(value);
 
 			if (!color) {
 				return defaultValue;
 			}
 
-			const cleanColor = colorToString(color);
+			const cleanColor = colors.colorToString(color);
 			return cleanColor === "" ? defaultValue : cleanColor;
 		}
 
@@ -18290,25 +18441,9 @@
 		}
 	}
 
-	/**
-	 * Configuration for API providers for code samples
-	 */
-	const codeConfig = {
-	    providers: Object.create(null),
-	    // Default configuration
-	    defaultProvider: {
-	        iconify: true,
-	    },
-	};
-	// Add default provider
-	codeConfig.providers[''] = {
-	    // Show SVG framework
-	    iconify: true,
-	    // NPM packages for React, Vue, Svelte components
-	    npm: '@iconify-icons/{prefix}',
-	    file: '/{name}',
-	};
-
+	var capitalize_1 = createCommonjsModule(function (module, exports) {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.capitalize = void 0;
 	// Split numbers
 	const unitsSplit = /([0-9]+[0-9.]*)/g;
 	/**
@@ -18326,255 +18461,181 @@
 	    })
 	        .join(' ');
 	}
+	exports.capitalize = capitalize;
 
+	});
+
+	var phrases$1 = createCommonjsModule(function (module, exports) {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.translateCodeSampleTitles = exports.codeSampleTitles = void 0;
 	/**
-	 * Raw code tabs
+	 * Code sample tab and mode titles
+	 *
+	 * This list contains only items that require custom text.
+	 * Everything else will be capitalized using capitalize() function, such as 'vue2' changed to 'Vue 2'
 	 */
-	const rawCodeTabs = [
-	    {
-	        lang: 'iconify',
-	        mode: 'iconify',
-	    },
-	    {
-	        tab: 'svg',
-	        mode: 'raw',
-	        children: [
-	            {
-	                lang: 'svg-raw',
-	            },
-	            {
-	                lang: 'svg-box',
-	            },
-	            {
-	                lang: 'svg-uri',
-	            },
-	        ],
-	    },
-	    {
-	        tab: 'react',
-	        children: [
-	            {
-	                lang: 'react-npm',
-	                mode: 'npm',
-	            },
-	            {
-	                lang: 'react-api',
-	                mode: 'iconify',
-	            },
-	        ],
-	    },
-	    {
-	        tab: 'vue',
-	        mode: 'npm',
-	        children: [
-	            {
-	                lang: 'vue3',
-	            },
-	            {
-	                lang: 'vue2',
-	            },
-	        ],
-	    },
-	    {
-	        lang: 'svelte',
-	        mode: 'npm',
-	    },
-	];
+	exports.codeSampleTitles = {
+	    'iconify': 'SVG Framework',
+	    'svg': 'SVG',
+	    'svg-raw': 'SVG',
+	    'svg-box': 'SVG with viewBox rectangle',
+	    'svg-uri': 'SVG as data: URI',
+	    'react-npm': 'React',
+	    'react-api': 'React with Iconify API',
+	};
 	/**
-	 * Get code tree
+	 * Add / replace custom sample titles
 	 */
-	function getCodeTree(config, phrases) {
-	    const modes = {
-	        raw: true,
-	        iconify: config.iconify,
-	        npm: !!config.npm,
-	    };
-	    const result = {
-	        tree: [],
-	        aliases: Object.create(null),
-	        filters: {
-	            type: 'filters',
-	            filterType: 'code-tabs',
-	            active: '',
-	            filters: Object.create(null),
-	        },
-	        childFilters: Object.create(null),
-	    };
-	    rawCodeTabs.forEach((sourceItem) => {
-	        if (sourceItem.mode && !modes[sourceItem.mode]) {
-	            // Root item is disabled
-	            return;
+	function translateCodeSampleTitles(translation) {
+	    for (const key in translation) {
+	        const attr = key;
+	        exports.codeSampleTitles[attr] = translation[attr];
+	    }
+	}
+	exports.translateCodeSampleTitles = translateCodeSampleTitles;
+
+	});
+
+	var tree = createCommonjsModule(function (module, exports) {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.getCodeSamplesTree = void 0;
+
+
+	const rawCodeTabs = {
+	    iconify: 'api',
+	    react: {
+	        'react-npm': 'npm',
+	        'react-api': 'api',
+	    },
+	    vue: {
+	        vue3: 'npm',
+	        vue2: 'npm',
+	    },
+	    svelte: 'npm',
+	    svg: {
+	        'svg-raw': 'raw',
+	        'svg-box': 'raw',
+	        'svg-uri': 'raw',
+	    },
+	};
+	/**
+	 * Get code samples tree
+	 */
+	function getCodeSamplesTree(config) {
+	    const results = [];
+	    /**
+	     * Check if code sample can be shown
+	     */
+	    function canUse(type) {
+	        switch (type) {
+	            case 'raw':
+	                return config[type];
+	            case 'api':
+	            case 'npm':
+	                return config[type] !== void 0;
 	        }
-	        // Item without child items
-	        if (typeof sourceItem.lang === 'string') {
-	            const lang = sourceItem.lang;
-	            const title = getCodeTitle(phrases, lang);
-	            result.tree.push({
-	                lang,
-	                title,
-	            });
-	            result.filters.filters[lang] = {
-	                title,
-	            };
-	            return;
+	    }
+	    /**
+	     * Get title
+	     */
+	    function getTitle(mode) {
+	        if (phrases$1.codeSampleTitles[mode] !== void 0) {
+	            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	            return phrases$1.codeSampleTitles[mode];
 	        }
-	        // Test child items
-	        const sourceTab = sourceItem;
-	        const tab = sourceTab.tab;
-	        // Test child items
-	        const children = [];
-	        sourceTab.children.forEach((childItem) => {
-	            if (childItem.mode && !modes[childItem.mode]) {
-	                return;
+	        return capitalize_1.capitalize(mode);
+	    }
+	    for (const key in rawCodeTabs) {
+	        // Using weird type casting because TypeScript can't property resolve it
+	        const attr = key;
+	        const item = rawCodeTabs[key];
+	        // Item without children
+	        if (typeof item === 'string') {
+	            const mode = attr;
+	            if (canUse(item)) {
+	                // Add item without children
+	                const newItem = {
+	                    mode,
+	                    type: item,
+	                    title: getTitle(attr),
+	                };
+	                results.push(newItem);
 	            }
-	            const lang = childItem.lang;
-	            children.push({
-	                lang,
-	                title: getCodeTitle(phrases, lang),
-	            });
-	        });
-	        let title;
-	        let filters$1;
-	        let lang;
+	            continue;
+	        }
+	        // Item with children
+	        const children = [];
+	        for (const key2 in item) {
+	            const mode = key2;
+	            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	            const type = item[mode];
+	            if (canUse(type)) {
+	                const newItem = {
+	                    mode,
+	                    type,
+	                    title: getTitle(mode),
+	                };
+	                children.push(newItem);
+	            }
+	        }
+	        let firstChild;
+	        const tab = attr;
+	        const title = getTitle(tab);
 	        switch (children.length) {
 	            case 0:
-	                return;
+	                break;
 	            case 1:
-	                // Move child item to root, use title from parent item
-	                title = getCodeTitle(phrases, tab);
-	                lang = children[0].lang;
-	                result.tree.push({
-	                    lang,
+	                // Merge children
+	                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	                firstChild = children[0];
+	                results.push({
+	                    tab,
+	                    mode: firstChild.mode,
+	                    type: firstChild.type,
 	                    title,
 	                });
-	                result.filters.filters[lang] = {
-	                    title,
-	                };
-	                result.aliases[tab] = lang;
 	                break;
 	            default:
-	                title = getCodeTitle(phrases, tab);
-	                result.tree.push({
+	                // Add all children
+	                results.push({
 	                    tab,
-	                    title,
 	                    children,
-	                });
-	                result.filters.filters[tab] = {
 	                    title,
-	                };
-	                // Create filters block
-	                filters$1 = Object.create(null);
-	                result.childFilters[tab] = {
-	                    type: 'filters',
-	                    filterType: 'code-tabs',
-	                    active: '',
-	                    filters: filters$1,
-	                };
-	                children.forEach((item) => {
-	                    filters$1[item.lang] = {
-	                        title: item.title,
-	                    };
 	                });
-	                filters.autoIndexFilters(result.childFilters[tab]);
-	        }
-	    });
-	    filters.autoIndexFilters(result.filters);
-	    return result;
-	}
-	/**
-	 * Filter code tabs
-	 */
-	function filterCodeTabs(codeTabs, selected) {
-	    const result = {};
-	    let found = false;
-	    let selected2 = codeTabs.aliases[selected];
-	    // Check tree for matches
-	    for (let i = 0; i < codeTabs.tree.length; i++) {
-	        const tab = codeTabs.tree[i];
-	        if (typeof tab.lang === 'string') {
-	            // Tab for language
-	            const langTab = tab;
-	            const key = langTab.lang;
-	            if (key === selected || key === selected2) {
-	                // Found match
-	                found = true;
-	                result.active = {
-	                    key,
-	                    title: tab.title,
-	                };
-	                result.root = result.active;
-	                break;
-	            }
-	        }
-	        else {
-	            // Tab with child items
-	            const tabTab = tab;
-	            const key = tabTab.tab;
-	            if (key === selected) {
-	                // Tab matched: use first child
-	                selected = tabTab.children[0].lang;
-	            }
-	            // Test child items
-	            for (let j = 0; j < tabTab.children.length; j++) {
-	                const childTab = tabTab.children[j];
-	                const lang = childTab.lang;
-	                if (lang === selected || lang === selected2) {
-	                    // Child matched
-	                    found = true;
-	                    result.active = {
-	                        key: lang,
-	                        title: childTab.title,
-	                    };
-	                    result.child = result.active;
-	                    result.root = {
-	                        key,
-	                        title: tabTab.title,
-	                    };
-	                    break;
-	                }
-	            }
-	        }
-	        if (found) {
-	            break;
 	        }
 	    }
-	    // Not found? Use first tab
-	    if (!found) {
-	        const firstTab = codeTabs.tree[0];
-	        if (typeof firstTab.lang === 'string') {
-	            const childTab = firstTab;
-	            // Tab without child item
-	            result.active = {
-	                key: childTab.lang,
-	                title: childTab.title,
-	            };
-	            result.root = result.active;
-	        }
-	        else {
-	            // Tab with child item
-	            const parentTab = firstTab;
-	            const childTab = parentTab.children[0];
-	            result.active = {
-	                key: childTab.lang,
-	                title: childTab.title,
-	            };
-	            result.root = {
-	                key: parentTab.tab,
-	                title: parentTab.title,
-	            };
-	            result.child = result.active;
-	        }
-	    }
-	    return result;
+	    return results;
 	}
-	/**
-	 * Get title for code block
-	 */
-	function getCodeTitle(phrases, key) {
-	    const titles = phrases.codeSamples.titles;
-	    return titles[key] === void 0 ? capitalize(key) : titles[key];
-	}
+	exports.getCodeSamplesTree = getCodeSamplesTree;
 
+	});
+
+	/**
+	 * Configuration for API providers for code samples
+	 */
+	const codeConfig = {
+	    providers: Object.create(null),
+	    // Default configuration
+	    defaultProvider: {
+	        raw: true,
+	    },
+	};
+	// Add default provider
+	codeConfig.providers[''] = {
+	    // Show packages that use API
+	    api: '',
+	    // NPM packages for React, Vue, Svelte components
+	    npm: {
+	        package: '@iconify-icons/{prefix}',
+	        file: '/{name}',
+	    },
+	    // Allow generating SVG
+	    raw: true,
+	};
+
+	var codeParsers = createCommonjsModule(function (module, exports) {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.codeParser = exports.getCustomisationAttributes = exports.varName = void 0;
 	/**
 	 * Convert icon name to variable
 	 */
@@ -18594,6 +18655,7 @@
 	    }
 	    return name;
 	}
+	exports.varName = varName;
 	/**
 	 * Check if string contains units
 	 */
@@ -18601,7 +18663,7 @@
 	    return typeof value === 'number'
 	        ? true
 	        : typeof value === 'string'
-	            ? !!value.match(/^\-?[0-9.]+$/)
+	            ? !!value.match(/^-?[0-9.]+$/)
 	            : false;
 	}
 	/**
@@ -18633,31 +18695,25 @@
 	    'hFlip',
 	    'vFlip',
 	];
-	const colorCustomisationAttributes = [
-	    'color',
-	].concat(baseCustomisationAttributes);
-	const inlineCustomisationAttributes = [
-	    'inline',
-	].concat(baseCustomisationAttributes);
-	const allCustomisationAttributes = [
-	    'color',
-	].concat(inlineCustomisationAttributes);
+	function getCustomisationAttributes(color, inline) {
+	    const results = baseCustomisationAttributes.slice(0);
+	    if (color) {
+	        results.push('color');
+	    }
+	    if (inline) {
+	        results.push('inline');
+	    }
+	    return results;
+	}
+	exports.getCustomisationAttributes = getCustomisationAttributes;
 	/**
 	 * Documentation
 	 */
 	const docsBase = 'https://docs.iconify.design/implementations/';
 	/**
-	 * Convert template to string
-	 */
-	function resolveTemplate(value, attr, customisations) {
-	    return typeof value === 'string'
-	        ? value.replace('{attr}', attr)
-	        : value(attr, customisations);
-	}
-	/**
 	 * Generate parsers
 	 */
-	function generateParsers() {
+	function generateParser(mode) {
 	    /**
 	     * Add attributes to parsed attributes
 	     */
@@ -18747,153 +18803,196 @@
 	            .join(' ');
 	    }
 	    /**
-	     * Generate all parsers
+	     * Get Vue parser
 	     */
-	    // SVG framework
-	    const iconifyParser = {
-	        init: (customisations) => {
+	    function vueParser(vue3) {
+	        const vue2Usage = '<template>\n\t<IconifyIcon {attr} />\n</template>';
+	        const vue2Template = 'export default {\n\tcomponents: {\n\t\tIconifyIcon,\n\t},\n\tdata() {\n\t\treturn {\n\t\t\ticons: {\n\t\t\t\t{varName},\n\t\t\t},\n\t\t};\n\t},\n});';
+	        const parser = {
+	            iconParser: (list, valueStr, valueIcon) => addVueAttr(list, 'icon', 'icons.' + varName(valueIcon.name)),
+	            parsers: {
+	                hFlip: (list, value) => addVueAttr(list, 'horizontalFlip', value),
+	                vFlip: (list, value) => addVueAttr(list, 'verticalFlip', value),
+	            },
+	            merge: mergeAttributes,
+	            template: (attr, customisations) => vue3
+	                ? vue2Usage
+	                    .replace(/IconifyIcon/g, customisations.inline ? 'InlineIcon' : 'Icon')
+	                    .replace('{attr}', attr)
+	                : vue2Usage,
+	            vueTemplate: (attr, customisations) => vue3
+	                ? vue2Template
+	                    .replace(/IconifyIcon/g, customisations.inline ? 'InlineIcon' : 'Icon')
+	                    .replace('{attr}', attr)
+	                : vue2Template,
+	            docs: {
+	                type: 'vue',
+	                href: docsBase + (vue3 ? 'vue/' : 'vue2/'),
+	            },
+	            npm: vue3
+	                ? {
+	                    install: '@iconify/vue@beta',
+	                    import: (attr, customisations) => 'import { ' +
+	                        (customisations.inline ? 'InlineIcon' : 'Icon') +
+	                        " } from '@iconify/vue';",
+	                }
+	                : {
+	                    install: '@iconify/vue@^1',
+	                    import: "import IconifyIcon from '@iconify/vue';",
+	                },
+	        };
+	        addMultipleAttributeParsers(parser, getCustomisationAttributes(true, false), addVueAttr);
+	        if (!vue3) {
+	            // Add inline attribute for vue2
+	            // Vue3 uses different component imports
+	            parser.parsers.inline = (list, value) => addVueAttr(list, 'inline', value);
+	        }
+	        return parser;
+	    }
+	    /**
+	     * Generate parser
+	     */
+	    let parser;
+	    switch (mode) {
+	        case 'iconify':
+	            // SVG framework
 	            return {
-	                class: 'class="' +
-	                    (customisations.inline ? 'iconify-inline' : 'iconify') +
-	                    '"',
+	                init: (customisations) => {
+	                    return {
+	                        class: 'class="' +
+	                            (customisations.inline
+	                                ? 'iconify-inline'
+	                                : 'iconify') +
+	                            '"',
+	                    };
+	                },
+	                iconParser: (list, valueStr, valueIcon) => addAttr(list, 'data-icon', valueStr),
+	                parsers: {
+	                    color: (list, value) => mergeAttr(list, 'style', 'color: ' + value + ';', ' '),
+	                    onlyHeight: (list, value) => mergeAttr(list, 'style', 'font-size: ' +
+	                        value +
+	                        (isNumber(value) ? 'px;' : ';'), ' '),
+	                    width: (list, value) => addAttr(list, 'data-width', toString(value)),
+	                    height: (list, value) => addAttr(list, 'data-height', toString(value)),
+	                    rotate: (list, value) => addAttr(list, 'data-rotate', degrees(value)),
+	                    hFlip: (list) => mergeAttr(list, 'data-flip', 'horizontal', ','),
+	                    vFlip: (list) => mergeAttr(list, 'data-flip', 'vertical', ','),
+	                },
+	                merge: mergeAttributes,
+	                template: '<span {attr}></span>',
+	                docs: {
+	                    type: 'iconify',
+	                    href: docsBase + 'svg-framework/',
+	                },
 	            };
-	        },
-	        iconParser: (list, valueStr, valueIcon) => addAttr(list, 'data-icon', valueStr),
-	        parsers: {
-	            color: (list, value) => mergeAttr(list, 'style', 'color: ' + value + ';', ' '),
-	            onlyHeight: (list, value) => mergeAttr(list, 'style', 'font-size: ' + value + (isNumber(value) ? 'px;' : ';'), ' '),
-	            width: (list, value) => addAttr(list, 'data-width', toString(value)),
-	            height: (list, value) => addAttr(list, 'data-height', toString(value)),
-	            rotate: (list, value) => addAttr(list, 'data-rotate', degrees(value)),
-	            hFlip: (list) => mergeAttr(list, 'data-flip', 'horizontal', ','),
-	            vFlip: (list) => mergeAttr(list, 'data-flip', 'vertical', ','),
-	        },
-	        merge: mergeAttributes,
-	        template: '<span {attr}></span>',
-	        docs: {
-	            type: 'iconify',
-	            href: docsBase + 'svg-framework/',
-	        },
-	    };
-	    // React
-	    const reactNPMParser = {
-	        iconParser: (list, valueStr, valueIcon) => addReactAttr(list, 'icon', varName(valueIcon.name)),
-	        parsers: {},
-	        merge: mergeAttributes,
-	        template: (attr, customisations) => '<' +
-	            (customisations.inline ? 'InlineIcon' : 'Icon') +
-	            ' ' +
-	            attr +
-	            ' />',
-	        docs: {
-	            type: 'react',
-	            href: docsBase + 'react/',
-	        },
-	        npm: {
-	            install: '@iconify/react@beta',
-	            import: (attr, customisations) => 'import { ' +
-	                (customisations.inline ? 'InlineIcon' : 'Icon') +
-	                " } from '@iconify/react';",
-	        },
-	    };
-	    const reactAPIParser = {
-	        iconParser: (list, valueStr, valueIcon) => addAttr(list, 'icon', valueStr),
-	        parsers: {},
-	        merge: mergeAttributes,
-	        template: reactNPMParser.template,
-	        docs: {
-	            type: 'react',
-	            href: docsBase + 'react-with-api/',
-	        },
-	        npm: {
-	            install: '@iconify/react-with-api',
-	            import: (attr, customisations) => 'import { ' +
-	                (customisations.inline ? 'InlineIcon' : 'Icon') +
-	                " } from '@iconify/react-with-api';",
-	        },
-	    };
-	    addMultipleAttributeParsers(reactNPMParser, colorCustomisationAttributes, addReactAttr);
-	    addMultipleAttributeParsers(reactAPIParser, colorCustomisationAttributes, addReactAttr);
-	    // Vue
-	    const vue2Usage = '<template>\n\t<IconifyIcon {attr} />\n</template>';
-	    const vue2Template = 'export default {\n\tcomponents: {\n\t\tIconifyIcon,\n\t},\n\tdata() {\n\t\treturn {\n\t\t\ticons: {\n\t\t\t\t{varName},\n\t\t\t},\n\t\t};\n\t},\n});';
-	    const vueParser = {
-	        iconParser: (list, valueStr, valueIcon) => addVueAttr(list, 'icon', 'icons.' + varName(valueIcon.name)),
-	        parsers: {
-	            hFlip: (list, value) => addVueAttr(list, 'horizontalFlip', value),
-	            vFlip: (list, value) => addVueAttr(list, 'verticalFlip', value),
-	        },
-	        merge: mergeAttributes,
-	        template: (attr, customisations) => vue2Usage
-	            .replace(/IconifyIcon/g, customisations.inline ? 'InlineIcon' : 'Icon')
-	            .replace('{attr}', attr),
-	        vueTemplate: (attr, customisations) => vue2Template
-	            .replace(/IconifyIcon/g, customisations.inline ? 'InlineIcon' : 'Icon')
-	            .replace('{attr}', attr),
-	        docs: {
-	            type: 'vue',
-	            href: docsBase + 'vue/',
-	        },
-	        npm: {
-	            install: '@iconify/vue@beta',
-	            import: (attr, customisations) => 'import { ' +
-	                (customisations.inline ? 'InlineIcon' : 'Icon') +
-	                " } from '@iconify/vue';",
-	        },
-	    };
-	    addMultipleAttributeParsers(vueParser, colorCustomisationAttributes, addVueAttr);
-	    const vue2Parser = Object.assign({}, vueParser, {
-	        docs: {
-	            type: 'vue',
-	            href: docsBase + 'vue2/',
-	        },
-	        npm: {
-	            install: '@iconify/vue@^1',
-	            import: "import IconifyIcon from '@iconify/vue';",
-	        },
-	        parsers: Object.assign({
-	            inline: (list, value) => addVueAttr(list, 'inline', value),
-	        }, vueParser.parsers),
-	        template: vue2Usage,
-	        vueTemplate: vue2Template,
-	    });
-	    // Svelte
-	    const svelteParser = {
-	        iconParser: (list, valueStr, valueIcon) => addReactAttr(list, 'icon', varName(valueIcon.name)),
-	        parsers: {},
-	        merge: mergeAttributes,
-	        template: '<IconifyIcon {attr} />',
-	        docs: {
-	            type: 'svelte',
-	            href: docsBase + 'svelte/',
-	        },
-	        npm: {
-	            install: '@iconify/svelte',
-	            import: "import IconifyIcon from '@iconify/svelte';",
-	        },
-	    };
-	    addMultipleAttributeParsers(svelteParser, allCustomisationAttributes, addReactAttr);
-	    // SVG
-	    const svgParser = {
-	        parsers: {},
-	    };
-	    addMultipleAttributeParsers(svgParser, inlineCustomisationAttributes, addRawAttr);
-	    // Merge all parsers
-	    const parsers = {
-	        'iconify': iconifyParser,
-	        'svg-raw': svgParser,
-	        'svg-box': svgParser,
-	        'svg-uri': svgParser,
-	        'react-npm': reactNPMParser,
-	        'react-api': reactAPIParser,
-	        'vue2': vue2Parser,
-	        'vue3': vueParser,
-	        'svelte': svelteParser,
-	    };
-	    return parsers;
+	        // SVG
+	        case 'svg-raw':
+	        case 'svg-uri':
+	        case 'svg-box':
+	            parser = {
+	                parsers: {},
+	            };
+	            addMultipleAttributeParsers(parser, getCustomisationAttributes(false, true), addRawAttr);
+	            return parser;
+	        // React components
+	        case 'react-npm':
+	            parser = {
+	                iconParser: (list, valueStr, valueIcon) => addReactAttr(list, 'icon', varName(valueIcon.name)),
+	                parsers: {},
+	                merge: mergeAttributes,
+	                template: (attr, customisations) => '<' +
+	                    (customisations.inline ? 'InlineIcon' : 'Icon') +
+	                    ' ' +
+	                    attr +
+	                    ' />',
+	                docs: {
+	                    type: 'react',
+	                    href: docsBase + 'react/',
+	                },
+	                npm: {
+	                    install: '@iconify/react@beta',
+	                    import: (attr, customisations) => 'import { ' +
+	                        (customisations.inline ? 'InlineIcon' : 'Icon') +
+	                        " } from '@iconify/react';",
+	                },
+	            };
+	            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, false), addReactAttr);
+	            return parser;
+	        case 'react-api':
+	            parser = {
+	                iconParser: (list, valueStr, valueIcon) => addAttr(list, 'icon', valueStr),
+	                parsers: {},
+	                merge: mergeAttributes,
+	                template: (attr, customisations) => '<' +
+	                    (customisations.inline ? 'InlineIcon' : 'Icon') +
+	                    ' ' +
+	                    attr +
+	                    ' />',
+	                docs: {
+	                    type: 'react',
+	                    href: docsBase + 'react-with-api/',
+	                },
+	                npm: {
+	                    install: '@iconify/react-with-api',
+	                    import: (attr, customisations) => 'import { ' +
+	                        (customisations.inline ? 'InlineIcon' : 'Icon') +
+	                        " } from '@iconify/react-with-api';",
+	                },
+	            };
+	            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, false), addReactAttr);
+	            return parser;
+	        // Vue
+	        case 'vue2':
+	            return vueParser(false);
+	        case 'vue3':
+	            return vueParser(true);
+	        // Svelte
+	        case 'svelte':
+	            parser = {
+	                iconParser: (list, valueStr, valueIcon) => addReactAttr(list, 'icon', varName(valueIcon.name)),
+	                parsers: {},
+	                merge: mergeAttributes,
+	                template: '<IconifyIcon {attr} />',
+	                docs: {
+	                    type: 'svelte',
+	                    href: docsBase + 'svelte/',
+	                },
+	                npm: {
+	                    install: '@iconify/svelte',
+	                    import: "import IconifyIcon from '@iconify/svelte';",
+	                },
+	            };
+	            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
+	            return parser;
+	    }
 	}
-	const parsers = generateParsers();
-	const codeOutputComponentKeys = [
+	/**
+	 * Parsers cache
+	 */
+	const cache = Object.create(null);
+	/**
+	 * Get code parser
+	 */
+	function codeParser(mode) {
+	    if (cache[mode] === void 0) {
+	        cache[mode] = generateParser(mode);
+	    }
+	    return cache[mode];
+	}
+	exports.codeParser = codeParser;
+
+	});
+
+	var code = createCommonjsModule(function (module, exports) {
+	var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || function (mod) {
+	    return (mod && mod.__esModule) ? mod : { "default": mod };
+	};
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.getIconCode = exports.codeOutputComponentKeys = void 0;
+	const iconify_1 = __importDefault(Iconify__default['default']);
+
+
+	exports.codeOutputComponentKeys = [
 	    'install',
 	    'install1',
 	    'import',
@@ -18902,29 +19001,55 @@
 	    'use',
 	];
 	/**
+	 * Convert template to string
+	 */
+	function resolveTemplate(value, attr, customisations) {
+	    return typeof value === 'string'
+	        ? value.replace('{attr}', attr)
+	        : value(attr, customisations);
+	}
+	/**
 	 * Get code for icon
 	 */
-	function getIconCode(lang, icon, customisations, providerConfig) {
+	function getIconCode(lang, icon$1, customisations, providerConfig) {
 	    function npmIconImport() {
-	        const name = varName(icon.name);
+	        const name = codeParsers.varName(icon$1.name);
+	        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	        const npm = providerConfig.npm;
+	        const packageName = typeof npm.package === 'string'
+	            ? npm.package.replace('{prefix}', icon$1.prefix)
+	            : typeof npm.package === 'function'
+	                ? npm.package(providerConfig, icon$1)
+	                : null;
+	        if (typeof packageName !== 'string') {
+	            return null;
+	        }
+	        const file = typeof npm.file === 'string'
+	            ? npm.file.replace('{name}', icon$1.name)
+	            : typeof npm.file === 'function'
+	                ? npm.file(providerConfig, icon$1)
+	                : null;
+	        if (typeof file !== 'string') {
+	            return null;
+	        }
 	        return {
 	            name,
-	            package: providerConfig.npm.replace('{prefix}', icon.prefix),
-	            file: providerConfig.file.replace('{name}', icon.name),
+	            package: packageName,
+	            file,
 	        };
 	    }
-	    if (parsers[lang] === void 0) {
+	    const parser = codeParsers.codeParser(lang);
+	    if (!parser) {
 	        return null;
 	    }
-	    const parser = parsers[lang];
 	    // Icon as string
-	    const iconName = lib.iconToString(icon);
+	    const iconName = icon.iconToString(icon$1);
 	    // Init parser
 	    const attr = parser.init ? parser.init(customisations) : {};
 	    const attrParsers = parser.parsers;
 	    // Add icon name
 	    if (parser.iconParser) {
-	        parser.iconParser(attr, iconName, icon);
+	        parser.iconParser(attr, iconName, icon$1);
 	    }
 	    // Add color
 	    if (customisations.color !== '' && attrParsers.color) {
@@ -18940,6 +19065,7 @@
 	        ['width', 'height'].forEach((prop) => {
 	            const key = prop;
 	            if (customisations[key] !== '' && attrParsers[key]) {
+	                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	                attrParsers[key](attr, customisations[key]);
 	            }
 	        });
@@ -18948,6 +19074,7 @@
 	    ['rotate', 'vFlip', 'hFlip'].forEach((prop) => {
 	        const key = prop;
 	        if (customisations[key] && attrParsers[key]) {
+	            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	            attrParsers[key](attr, customisations[key]);
 	        }
 	    });
@@ -18971,7 +19098,7 @@
 	    let npm;
 	    switch (lang) {
 	        case 'iconify':
-	            str = Iconify__default['default'].getVersion();
+	            str = iconify_1.default.getVersion();
 	            output.iconify = {
 	                head: '<script src="https://code.iconify.design/' +
 	                    str.split('.').shift() +
@@ -18981,17 +19108,19 @@
 	                    '/script>',
 	                html,
 	            };
-	            break;
+	            return output;
 	        case 'svg-raw':
 	        case 'svg-box':
 	        case 'svg-uri':
-	            str = Iconify__default['default'].renderHTML(iconName, attr);
+	            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	            str = iconify_1.default.renderHTML(iconName, attr);
 	            if (customisations.color !== '') {
 	                str = str.replace(/currentColor/g, customisations.color);
 	            }
 	            if (lang === 'svg-box') {
 	                // Add empty rectangle before shapes
-	                data = Iconify__default['default'].getIcon(iconName);
+	                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	                data = iconify_1.default.getIcon(iconName);
 	                str = str.replace('>', '><rect x="' +
 	                    data.left +
 	                    '" y="' +
@@ -19005,6 +19134,7 @@
 	            if (lang === 'svg-uri') {
 	                // Remove unused attributes
 	                const parts = str.split('>');
+	                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	                let firstTag = parts.shift();
 	                ['aria-hidden', 'focusable', 'role', 'class', 'style'].forEach((attr) => {
 	                    firstTag = firstTag.replace(new RegExp('\\s' + attr + '="[^"]*"'), '');
@@ -19016,15 +19146,18 @@
 	                    "url('data:image/svg+xml," + encodeURIComponent(str) + "')";
 	            }
 	            output.raw = [str];
-	            break;
+	            return output;
 	        case 'react-npm':
 	        case 'svelte':
 	        case 'vue2':
 	        case 'vue3':
 	            if (!parser.npm || !providerConfig.npm) {
-	                break;
+	                return null;
 	            }
 	            npm = npmIconImport();
+	            if (!npm) {
+	                return null;
+	            }
 	            output.component = {
 	                install: 'npm install --save-dev ' +
 	                    parser.npm.install +
@@ -19046,41 +19179,22 @@
 	                    .replace(/{varName}/g, npm.name)
 	                    .replace('{iconPackage}', npm.package + npm.file);
 	            }
-	            break;
+	            return output;
 	        case 'react-api':
 	            if (!parser.npm) {
-	                break;
+	                return null;
 	            }
 	            output.component = {
 	                install1: 'npm install --save-dev ' + parser.npm.install,
 	                import1: resolveTemplate(parser.npm.import, merged, customisations),
 	                use: html,
 	            };
-	            break;
+	            return output;
 	    }
-	    // Add line-md stylesheet
-	    if (lang !== 'svg-uri') {
-	        // Add link to footer
-	        output.footer = {
-	            text: 'Do not forget to add stylesheet to your page if you want animated icons:',
-	            code: '<link rel="stylesheet" href="https://code.iconify.design/css/line-md.css">',
-	        };
-	        // Modify code
-	        if (output.component) {
-	            if (typeof output.component.use === 'string') {
-	                // Add class
-	                output.component.use = output.component.use
-	                    // Rect and Svelte
-	                    .replace('Icon icon={', 'Icon class' +
-	                    (lang === 'svelte' ? '' : 'Name') +
-	                    '="iconify--line-md" icon={')
-	                    // Vue
-	                    .replace('Icon :icon', 'Icon class="iconify--line-md" :icon');
-	            }
-	        }
-	    }
-	    return output;
 	}
+	exports.getIconCode = getIconCode;
+
+	});
 
 	/* src/icon-finder/components/footer/parts/code/Sample.svelte generated by Svelte v3.29.4 */
 
@@ -19331,7 +19445,7 @@
 		return child_ctx;
 	}
 
-	// (49:0) {#if output}
+	// (69:0) {#if output}
 	function create_if_block$p(ctx) {
 		let t0;
 		let t1;
@@ -19573,7 +19687,7 @@
 		};
 	}
 
-	// (50:1) {#if output.header}
+	// (70:1) {#if output.header}
 	function create_if_block_10(ctx) {
 		let t;
 		let if_block1_anchor;
@@ -19650,7 +19764,7 @@
 		};
 	}
 
-	// (51:2) {#if output.header.text}
+	// (71:2) {#if output.header.text}
 	function create_if_block_12(ctx) {
 		let p;
 		let t_value = /*output*/ ctx[2].header.text + "";
@@ -19674,7 +19788,7 @@
 		};
 	}
 
-	// (54:2) {#if output.header.code}
+	// (74:2) {#if output.header.code}
 	function create_if_block_11(ctx) {
 		let sampleinput;
 		let current;
@@ -19711,7 +19825,7 @@
 		};
 	}
 
-	// (59:1) {#if codePhrases.intro[mode]}
+	// (79:1) {#if codePhrases.intro[mode]}
 	function create_if_block_9(ctx) {
 		let p;
 		let t_value = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] + "";
@@ -19735,7 +19849,7 @@
 		};
 	}
 
-	// (63:1) {#if output.iconify}
+	// (83:1) {#if output.iconify}
 	function create_if_block_8$1(ctx) {
 		let p0;
 		let t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace("{name}", /*icon*/ ctx[0].name) + "";
@@ -19820,7 +19934,7 @@
 		};
 	}
 
-	// (71:1) {#if output.raw}
+	// (91:1) {#if output.raw}
 	function create_if_block_7$1(ctx) {
 		let each_1_anchor;
 		let current;
@@ -19904,7 +20018,7 @@
 		};
 	}
 
-	// (72:2) {#each output.raw as code}
+	// (92:2) {#each output.raw as code}
 	function create_each_block_1$1(ctx) {
 		let sampleinput;
 		let current;
@@ -19938,11 +20052,11 @@
 		};
 	}
 
-	// (77:1) {#if output.component}
+	// (97:1) {#if output.component}
 	function create_if_block_5$1(ctx) {
 		let each_1_anchor;
 		let current;
-		let each_value = codeOutputComponentKeys;
+		let each_value = code.codeOutputComponentKeys;
 		let each_blocks = [];
 
 		for (let i = 0; i < each_value.length; i += 1) {
@@ -19971,7 +20085,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*output, codeOutputComponentKeys, codePhrases*/ 36) {
-					each_value = codeOutputComponentKeys;
+					each_value = code.codeOutputComponentKeys;
 					let i;
 
 					for (i = 0; i < each_value.length; i += 1) {
@@ -20022,7 +20136,7 @@
 		};
 	}
 
-	// (79:3) {#if output.component[key]}
+	// (99:3) {#if output.component[key]}
 	function create_if_block_6$1(ctx) {
 		let p;
 		let t0_value = /*codePhrases*/ ctx[5].component[/*key*/ ctx[9]] + "";
@@ -20073,7 +20187,7 @@
 		};
 	}
 
-	// (78:2) {#each codeOutputComponentKeys as key}
+	// (98:2) {#each codeOutputComponentKeys as key}
 	function create_each_block$h(ctx) {
 		let if_block_anchor;
 		let current;
@@ -20129,7 +20243,7 @@
 		};
 	}
 
-	// (86:1) {#if output.footer}
+	// (106:1) {#if output.footer}
 	function create_if_block_2$a(ctx) {
 		let t;
 		let if_block1_anchor;
@@ -20206,7 +20320,7 @@
 		};
 	}
 
-	// (87:2) {#if output.footer.text}
+	// (107:2) {#if output.footer.text}
 	function create_if_block_4$2(ctx) {
 		let p;
 		let t_value = /*output*/ ctx[2].footer.text + "";
@@ -20230,7 +20344,7 @@
 		};
 	}
 
-	// (90:2) {#if output.footer.code}
+	// (110:2) {#if output.footer.code}
 	function create_if_block_3$6(ctx) {
 		let sampleinput;
 		let current;
@@ -20267,7 +20381,7 @@
 		};
 	}
 
-	// (95:1) {#if output.docs}
+	// (115:1) {#if output.docs}
 	function create_if_block_1$c(ctx) {
 		let p;
 		let uiicon0;
@@ -20400,7 +20514,6 @@
 		
 		
 		
-		
 		let { icon } = $$props;
 		let { customisations } = $$props;
 		let { providerConfig } = $$props;
@@ -20434,7 +20547,7 @@
 		$$self.$$.update = () => {
 			if ($$self.$$.dirty & /*mode, icon, customisations, providerConfig, output*/ 199) {
 				 {
-					$$invalidate(2, output = getIconCode(mode, icon, customisations, providerConfig));
+					$$invalidate(2, output = code.getIconCode(mode, icon, customisations, providerConfig));
 
 					// Get title for docs
 					if (output && output.docs) {
@@ -20442,9 +20555,36 @@
 
 						$$invalidate(3, docsText = codePhrases.docs[docsType]
 						? codePhrases.docs[docsType]
-						: codePhrases.docsDefault.replace("{title}", capitalize(docsType)));
+						: codePhrases.docsDefault.replace("{title}", capitalize_1.capitalize(docsType)));
 					} else {
 						$$invalidate(3, docsText = "");
+					}
+
+					// Add line-md stylesheet
+					if (mode !== "svg-uri") {
+						// Add link to footer
+						$$invalidate(
+							2,
+							output.footer = {
+								text: "Do not forget to add stylesheet to your page if you want animated icons:",
+								code: "<link rel=\"stylesheet\" href=\"https://code.iconify.design/css/line-md.css\">"
+							},
+							output
+						);
+
+						// Modify code
+						if (output.component) {
+							if (typeof output.component.use === "string") {
+								// Add class
+								$$invalidate(
+									2,
+									output.component.use = output.component.use.// Rect and Svelte
+									replace("Icon icon={", "Icon class" + (mode === "svelte" ? "" : "Name") + "=\"iconify--line-md\" icon={").// Vue
+									replace("Icon :icon", "Icon class=\"iconify--line-md\" :icon"),
+									output
+								);
+							}
+						}
 					}
 				}
 			}
@@ -20484,7 +20624,7 @@
 		footerblock = new Block$1({
 				props: {
 					name: "code",
-					title: /*codePhrases*/ ctx[7].heading.replace("{name}", /*icon*/ ctx[0].name),
+					title: /*codePhrases*/ ctx[6].heading.replace("{name}", /*icon*/ ctx[0].name),
 					$$slots: { default: [create_default_slot$e] },
 					$$scope: { ctx }
 				}
@@ -20500,9 +20640,9 @@
 			},
 			p(ctx, dirty) {
 				const footerblock_changes = {};
-				if (dirty & /*icon*/ 1) footerblock_changes.title = /*codePhrases*/ ctx[7].heading.replace("{name}", /*icon*/ ctx[0].name);
+				if (dirty & /*icon*/ 1) footerblock_changes.title = /*codePhrases*/ ctx[6].heading.replace("{name}", /*icon*/ ctx[0].name);
 
-				if (dirty & /*$$scope, selection, icon, customisations, providerConfig, childFiltersBlock, childTabsTitle, codeTabs*/ 4223) {
+				if (dirty & /*$$scope, currentTab, icon, customisations, childFilters, childTabsTitle, parentFilters*/ 32831) {
 					footerblock_changes.$$scope = { dirty, ctx };
 				}
 
@@ -20523,17 +20663,16 @@
 		};
 	}
 
-	// (78:4) {#if childFiltersBlock}
-	function create_if_block_1$d(ctx) {
+	// (242:4) {#if parentFilters}
+	function create_if_block_2$b(ctx) {
 		let filterscomponent;
 		let current;
 
 		filterscomponent = new Filters({
 				props: {
 					name: "code",
-					block: /*childFiltersBlock*/ ctx[5],
-					onClick: /*changeTab*/ ctx[8],
-					title: /*childTabsTitle*/ ctx[6]
+					block: /*parentFilters*/ ctx[3],
+					onClick: /*changeTab*/ ctx[8]
 				}
 			});
 
@@ -20547,8 +20686,7 @@
 			},
 			p(ctx, dirty) {
 				const filterscomponent_changes = {};
-				if (dirty & /*childFiltersBlock*/ 32) filterscomponent_changes.block = /*childFiltersBlock*/ ctx[5];
-				if (dirty & /*childTabsTitle*/ 64) filterscomponent_changes.title = /*childTabsTitle*/ ctx[6];
+				if (dirty & /*parentFilters*/ 8) filterscomponent_changes.block = /*parentFilters*/ ctx[3];
 				filterscomponent.$set(filterscomponent_changes);
 			},
 			i(local) {
@@ -20566,32 +20704,66 @@
 		};
 	}
 
-	// (69:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}>
-	function create_default_slot$e(ctx) {
-		let div1;
-		let div0;
+	// (248:4) {#if childFilters}
+	function create_if_block_1$d(ctx) {
 		let filterscomponent;
-		let t0;
-		let t1;
-		let codecomponent;
 		let current;
 
 		filterscomponent = new Filters({
 				props: {
 					name: "code",
-					block: /*codeTabs*/ ctx[3].filters,
-					onClick: /*changeTab*/ ctx[8]
+					block: /*childFilters*/ ctx[4],
+					onClick: /*changeTab*/ ctx[8],
+					title: /*childTabsTitle*/ ctx[5]
 				}
 			});
 
-		let if_block = /*childFiltersBlock*/ ctx[5] && create_if_block_1$d(ctx);
+		return {
+			c() {
+				create_component(filterscomponent.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(filterscomponent, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const filterscomponent_changes = {};
+				if (dirty & /*childFilters*/ 16) filterscomponent_changes.block = /*childFilters*/ ctx[4];
+				if (dirty & /*childTabsTitle*/ 32) filterscomponent_changes.title = /*childTabsTitle*/ ctx[5];
+				filterscomponent.$set(filterscomponent_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(filterscomponent.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(filterscomponent.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(filterscomponent, detaching);
+			}
+		};
+	}
+
+	// (237:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}>
+	function create_default_slot$e(ctx) {
+		let div1;
+		let div0;
+		let t0;
+		let t1;
+		let codecomponent;
+		let current;
+		let if_block0 = /*parentFilters*/ ctx[3] && create_if_block_2$b(ctx);
+		let if_block1 = /*childFilters*/ ctx[4] && create_if_block_1$d(ctx);
 
 		codecomponent = new Code({
 				props: {
-					mode: /*selection*/ ctx[4].active.key,
+					mode: /*currentTab*/ ctx[2],
 					icon: /*icon*/ ctx[0],
 					customisations: /*customisations*/ ctx[1],
-					providerConfig: /*providerConfig*/ ctx[2]
+					providerConfig: /*getProviderData*/ ctx[7](/*icon*/ ctx[0].provider).config
 				}
 			});
 
@@ -20599,9 +20771,9 @@
 			c() {
 				div1 = element("div");
 				div0 = element("div");
-				create_component(filterscomponent.$$.fragment);
+				if (if_block0) if_block0.c();
 				t0 = space();
-				if (if_block) if_block.c();
+				if (if_block1) if_block1.c();
 				t1 = space();
 				create_component(codecomponent.$$.fragment);
 				attr(div0, "class", "iif-filters");
@@ -20610,65 +20782,84 @@
 			m(target, anchor) {
 				insert(target, div1, anchor);
 				append(div1, div0);
-				mount_component(filterscomponent, div0, null);
+				if (if_block0) if_block0.m(div0, null);
 				append(div0, t0);
-				if (if_block) if_block.m(div0, null);
+				if (if_block1) if_block1.m(div0, null);
 				append(div1, t1);
 				mount_component(codecomponent, div1, null);
 				current = true;
 			},
 			p(ctx, dirty) {
-				const filterscomponent_changes = {};
-				if (dirty & /*codeTabs*/ 8) filterscomponent_changes.block = /*codeTabs*/ ctx[3].filters;
-				filterscomponent.$set(filterscomponent_changes);
+				if (/*parentFilters*/ ctx[3]) {
+					if (if_block0) {
+						if_block0.p(ctx, dirty);
 
-				if (/*childFiltersBlock*/ ctx[5]) {
-					if (if_block) {
-						if_block.p(ctx, dirty);
-
-						if (dirty & /*childFiltersBlock*/ 32) {
-							transition_in(if_block, 1);
+						if (dirty & /*parentFilters*/ 8) {
+							transition_in(if_block0, 1);
 						}
 					} else {
-						if_block = create_if_block_1$d(ctx);
-						if_block.c();
-						transition_in(if_block, 1);
-						if_block.m(div0, null);
+						if_block0 = create_if_block_2$b(ctx);
+						if_block0.c();
+						transition_in(if_block0, 1);
+						if_block0.m(div0, t0);
 					}
-				} else if (if_block) {
+				} else if (if_block0) {
 					group_outros();
 
-					transition_out(if_block, 1, 1, () => {
-						if_block = null;
+					transition_out(if_block0, 1, 1, () => {
+						if_block0 = null;
+					});
+
+					check_outros();
+				}
+
+				if (/*childFilters*/ ctx[4]) {
+					if (if_block1) {
+						if_block1.p(ctx, dirty);
+
+						if (dirty & /*childFilters*/ 16) {
+							transition_in(if_block1, 1);
+						}
+					} else {
+						if_block1 = create_if_block_1$d(ctx);
+						if_block1.c();
+						transition_in(if_block1, 1);
+						if_block1.m(div0, null);
+					}
+				} else if (if_block1) {
+					group_outros();
+
+					transition_out(if_block1, 1, 1, () => {
+						if_block1 = null;
 					});
 
 					check_outros();
 				}
 
 				const codecomponent_changes = {};
-				if (dirty & /*selection*/ 16) codecomponent_changes.mode = /*selection*/ ctx[4].active.key;
+				if (dirty & /*currentTab*/ 4) codecomponent_changes.mode = /*currentTab*/ ctx[2];
 				if (dirty & /*icon*/ 1) codecomponent_changes.icon = /*icon*/ ctx[0];
 				if (dirty & /*customisations*/ 2) codecomponent_changes.customisations = /*customisations*/ ctx[1];
-				if (dirty & /*providerConfig*/ 4) codecomponent_changes.providerConfig = /*providerConfig*/ ctx[2];
+				if (dirty & /*icon*/ 1) codecomponent_changes.providerConfig = /*getProviderData*/ ctx[7](/*icon*/ ctx[0].provider).config;
 				codecomponent.$set(codecomponent_changes);
 			},
 			i(local) {
 				if (current) return;
-				transition_in(filterscomponent.$$.fragment, local);
-				transition_in(if_block);
+				transition_in(if_block0);
+				transition_in(if_block1);
 				transition_in(codecomponent.$$.fragment, local);
 				current = true;
 			},
 			o(local) {
-				transition_out(filterscomponent.$$.fragment, local);
-				transition_out(if_block);
+				transition_out(if_block0);
+				transition_out(if_block1);
 				transition_out(codecomponent.$$.fragment, local);
 				current = false;
 			},
 			d(detaching) {
 				if (detaching) detach(div1);
-				destroy_component(filterscomponent);
-				if (if_block) if_block.d();
+				if (if_block0) if_block0.d();
+				if (if_block1) if_block1.d();
 				destroy_component(codecomponent);
 			}
 		};
@@ -20677,7 +20868,7 @@
 	function create_fragment$J(ctx) {
 		let if_block_anchor;
 		let current;
-		let if_block = /*codeTabs*/ ctx[3].tree.length && create_if_block$q(ctx);
+		let if_block = /*currentTab*/ ctx[2] && create_if_block$q(ctx);
 
 		return {
 			c() {
@@ -20690,11 +20881,11 @@
 				current = true;
 			},
 			p(ctx, [dirty]) {
-				if (/*codeTabs*/ ctx[3].tree.length) {
+				if (/*currentTab*/ ctx[2]) {
 					if (if_block) {
 						if_block.p(ctx, dirty);
 
-						if (dirty & /*codeTabs*/ 8) {
+						if (dirty & /*currentTab*/ 4) {
 							transition_in(if_block, 1);
 						}
 					} else {
@@ -20744,25 +20935,201 @@
 		const codePhrases = phrases.codeSamples;
 		const componentsConfig = registry.config.components;
 
-		// Get list of all code tabs
-		let providerConfig;
+		// Cache
+		const providerCache = Object.create(null);
 
-		let codeTabs;
+		const data = {
+			lastProvider: null,
+			lastParent: null,
+			lastChild: null
+		};
 
-		// Selected tab
-		let currentTab = componentsConfig.codeTab;
+		// Currently selected tab
+		let currentTab;
 
-		let selection;
-		let childFiltersBlock;
-		let childTabsTitle;
+		// Filters
+		let parentFilters = null;
+
+		let childFilters = null;
+		let childTabsTitle = "";
+
+		/**
+	 * Get data for provider
+	 */
+		function getProviderData(provider) {
+			if (providerCache[provider] === void 0) {
+				// Update cached data
+				const config = codeConfig.providers[provider] === void 0
+				? codeConfig.defaultProvider
+				: codeConfig.providers[provider];
+
+				providerCache[provider] = { config, tree: tree.getCodeSamplesTree(config) };
+			}
+
+			return providerCache[provider];
+		}
+
+		/**
+	 * Update current tab
+	 */
+		function updateCurrentTab(item) {
+			function createFilters(items, active, startIndex = 0) {
+				if (items.length < 2) {
+					return null;
+				}
+
+				const block = {
+					type: "filters",
+					filterType: "code-tabs",
+					active,
+					filters: Object.create(null)
+				};
+
+				for (let i = 0; i < items.length; i++) {
+					const item = items[i];
+					const key = item.tab ? item.tab : item.mode;
+					block.filters[key] = { title: item.title, index: i + startIndex };
+				}
+
+				return block;
+			}
+
+			const tab = item.tab;
+
+			if (currentTab !== tab) {
+				// Change tab
+				$$invalidate(2, currentTab = $$invalidate(9, componentsConfig.codeTab = tab, componentsConfig));
+
+				// UIConfigEvent
+				registry.callback({ type: "config" });
+			} else if (data.lastParent === item.parent && data.lastParent === item.child) {
+				// Nothing to change
+				return;
+			}
+
+			if (tab === "") {
+				// Nothing to display
+				$$invalidate(3, parentFilters = $$invalidate(4, childFilters = $$invalidate(11, data.lastChild = $$invalidate(11, data.lastParent = null, data), data)));
+
+				return;
+			}
+
+			// Update filters
+			const providerData = getProviderData(icon.provider);
+
+			const tree = providerData.tree;
+			const parent = item.parent; // Cannot be empty
+			const child = item.child;
+
+			if (data.lastParent === parent) {
+				// Only change active tab
+				if (parentFilters) {
+					$$invalidate(3, parentFilters.active = parent.tab ? parent.tab : parent.mode, parentFilters);
+				}
+			} else {
+				// Create new filters
+				$$invalidate(3, parentFilters = createFilters(tree, parent.tab ? parent.tab : parent.mode));
+			}
+
+			// Child filters
+			if (data.lastChild === child) {
+				// Only change active tab
+				if (childFilters) {
+					$$invalidate(4, childFilters.active = child.mode, childFilters);
+				}
+			} else {
+				// Create new child filters
+				$$invalidate(4, childFilters = child
+				? createFilters(parent.children, child.mode, tree.length)
+				: null);
+			}
+
+			// Update text
+			if (childFilters && parentFilters) {
+				const key = parent.tab;
+
+				$$invalidate(5, childTabsTitle = codePhrases.childTabTitles[key] === void 0
+				? codePhrases.childTabTitle.replace("{key}", key)
+				: codePhrases.childTabTitles[key]);
+			} else {
+				$$invalidate(5, childTabsTitle = "");
+			}
+
+			// Store last items to avoid re-rendering if items do not change
+			$$invalidate(11, data.lastParent = parent, data);
+
+			$$invalidate(11, data.lastChild = child, data);
+		}
+
+		/**
+	 * Check currentTab, return new value
+	 */
+		function checkCurrentTab(tab, useDefault) {
+			const providerData = getProviderData(icon.provider);
+			const tree = providerData.tree;
+
+			if (typeof tab === "string") {
+				for (let i = 0; i < tree.length; i++) {
+					const parent = tree[i];
+
+					if (parent.mode === tab || parent.tab === tab) {
+						if (parent.children) {
+							// Has children: return first child
+							const child = parent.children[0];
+
+							return { tab: child.mode, parent, child };
+						}
+
+						// No children, must have mode
+						return { tab: parent.mode, parent, child: null };
+					}
+
+					// Check children
+					if (parent.children) {
+						for (let j = 0; j < parent.children.length; j++) {
+							const child = parent.children[j];
+
+							if (child.mode === tab) {
+								return { tab, parent, child };
+							}
+						}
+					}
+				}
+			}
+
+			// No match: use first item
+			if (useDefault) {
+				const parent = tree[0];
+
+				if (!parent) {
+					// No modes available
+					return { tab: "", parent: null, child: null };
+				}
+
+				if (parent.children) {
+					// Has child items: use first item
+					const child = parent.children[0];
+
+					return { tab: child.mode, parent, child };
+				}
+
+				// Tab without children
+				return { tab: parent.mode, parent, child: null };
+			}
+
+			return { tab: "", parent: null, child: null };
+		}
 
 		// Change current tab
 		function changeTab(tab) {
-			componentsConfig.codeTab = tab;
-			$$invalidate(10, currentTab = tab);
+			const item = checkCurrentTab(tab, false);
 
-			// UIConfigEvent
-			registry.callback({ type: "config" });
+			if (item.tab === currentTab || item.tab === "" && currentTab !== "") {
+				// Do not change tab if it wasn't changed or if it doesn't exist
+				return;
+			}
+
+			updateCurrentTab(item);
 		}
 
 		$$self.$$set = $$props => {
@@ -20771,39 +21138,24 @@
 		};
 
 		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*icon, providerConfig*/ 5) {
+			if ($$self.$$.dirty & /*icon, data, currentTab, componentsConfig*/ 2565) {
+				// API provider for current icon
 				 {
 					const provider = icon.provider;
 
-					$$invalidate(2, providerConfig = codeConfig.providers[provider] === void 0
-					? codeConfig.defaultProvider
-					: codeConfig.providers[provider]);
+					if (provider !== data.lastProvider) {
+						// Changed API provider
+						$$invalidate(11, data.lastProvider = provider, data);
 
-					$$invalidate(3, codeTabs = getCodeTree(providerConfig, phrases));
-				}
-			}
+						getProviderData(provider);
 
-			if ($$self.$$.dirty & /*codeTabs, currentTab, selection*/ 1048) {
-				 {
-					$$invalidate(4, selection = filterCodeTabs(codeTabs, currentTab));
+						// Get current tab
+						let tab = typeof currentTab !== "string"
+						? componentsConfig.codeTab
+						: currentTab;
 
-					// Update tabs
-					const key = selection.root.key;
-
-					$$invalidate(3, codeTabs.filters.active = key, codeTabs);
-
-					if (selection.child && codeTabs.childFilters[key]) {
-						// Child tab: update active tab and get title
-						$$invalidate(5, childFiltersBlock = codeTabs.childFilters[key]);
-
-						$$invalidate(5, childFiltersBlock.active = selection.child.key, childFiltersBlock);
-
-						$$invalidate(6, childTabsTitle = codePhrases.childTabTitles[key] === void 0
-						? codePhrases.childTabTitle.replace("{key}", key)
-						: codePhrases.childTabTitles[key]);
-					} else {
-						$$invalidate(5, childFiltersBlock = null);
-						$$invalidate(6, childTabsTitle = "");
+						// Update current tab
+						updateCurrentTab(checkCurrentTab(tab, true));
 					}
 				}
 			}
@@ -20812,12 +21164,12 @@
 		return [
 			icon,
 			customisations,
-			providerConfig,
-			codeTabs,
-			selection,
-			childFiltersBlock,
+			currentTab,
+			parentFilters,
+			childFilters,
 			childTabsTitle,
 			codePhrases,
+			getProviderData,
 			changeTab
 		];
 	}
@@ -20917,7 +21269,7 @@
 	}
 
 	// (30:2) {#if customiseFlip}
-	function create_if_block_2$b(ctx) {
+	function create_if_block_2$c(ctx) {
 		let flipblock;
 		let current;
 
@@ -21049,7 +21401,7 @@
 		let current;
 		let if_block0 =  create_if_block_4$3(ctx);
 		let if_block1 =  create_if_block_3$7(ctx);
-		let if_block2 =  create_if_block_2$b(ctx);
+		let if_block2 =  create_if_block_2$c(ctx);
 		let if_block3 =  create_if_block_1$e(ctx);
 		let if_block4 =  /*icons*/ ctx[0].length === 1 && create_if_block$r(ctx);
 
@@ -22479,7 +22831,7 @@
 	}
 
 	// (126:4) {#if showCode && icon}
-	function create_if_block_2$c(ctx) {
+	function create_if_block_2$d(ctx) {
 		let codeblock;
 		let current;
 
@@ -22549,7 +22901,7 @@
 
 		let if_block2 = /*infoBlock*/ ctx[6] && create_if_block_4$4(ctx);
 		let if_block3 =  /*hasIcons*/ ctx[5] && create_if_block_3$8(ctx);
-		let if_block4 =  /*icon*/ ctx[4] && create_if_block_2$c(ctx);
+		let if_block4 =  /*icon*/ ctx[4] && create_if_block_2$d(ctx);
 		let if_block5 = showButtons ;
 
 		return {
@@ -22699,7 +23051,7 @@
 							transition_in(if_block4, 1);
 						}
 					} else {
-						if_block4 = create_if_block_2$c(ctx);
+						if_block4 = create_if_block_2$d(ctx);
 						if_block4.c();
 						transition_in(if_block4, 1);
 						if_block4.m(div0, t4);
@@ -22965,7 +23317,7 @@
 		
 		let { selection } = $$props;
 		let { selectionLength } = $$props;
-		let { customisations } = $$props;
+		let { customisations: customisations$1 } = $$props;
 		let { route } = $$props;
 
 		// Registry
@@ -22973,11 +23325,11 @@
 
 		// Change icon customisation value
 		function customise(prop, value) {
-			if (customisations[prop] !== void 0 && customisations[prop] !== value && typeof customisations[prop] === typeof value) {
+			if (customisations$1[prop] !== void 0 && customisations$1[prop] !== value && typeof customisations$1[prop] === typeof value) {
 				// Change value then change object to force Svelte update components
 				const changed = { [prop]: value };
 
-				const newCustomisations = mergeCustomisations(customisations, changed);
+				const newCustomisations = customisations.mergeCustomisations(customisations$1, changed);
 
 				// Send event: UICustomisationEvent
 				registry.callback({
@@ -23012,7 +23364,7 @@
 		$$self.$$set = $$props => {
 			if ("selection" in $$props) $$invalidate(4, selection = $$props.selection);
 			if ("selectionLength" in $$props) $$invalidate(5, selectionLength = $$props.selectionLength);
-			if ("customisations" in $$props) $$invalidate(0, customisations = $$props.customisations);
+			if ("customisations" in $$props) $$invalidate(0, customisations$1 = $$props.customisations);
 			if ("route" in $$props) $$invalidate(1, route = $$props.route);
 		};
 
@@ -23064,7 +23416,7 @@
 			}
 		};
 
-		return [customisations, route, icons, customise, selection, selectionLength];
+		return [customisations$1, route, icons, customise, selection, selectionLength];
 	}
 
 	class Footer_1 extends SvelteComponent {
@@ -23553,7 +23905,7 @@
 	            selection: this._selection,
 	            selectionLength: this._selectionLength,
 	            // Full icon customisations
-	            customisations: mergeCustomisations(defaultCustomisations, state.customisations ? state.customisations : {}),
+	            customisations: customisations.mergeCustomisations(customisations.defaultCustomisations, state.customisations ? state.customisations : {}),
 	            // Registry
 	            registry: this._core.registry,
 	            // Status
@@ -23769,13 +24121,13 @@
 	        // Reset customisations for multiple icons
 	        if (state.icons.length > 1) {
 	            let changed = false;
-	            const customisations = mergeCustomisations(defaultCustomisations, state.customisations);
-	            if (customisations.inline) {
-	                customisations.inline = false;
+	            const customisations$1 = customisations.mergeCustomisations(customisations.defaultCustomisations, state.customisations);
+	            if (customisations$1.inline) {
+	                customisations$1.inline = false;
 	                changed = true;
 	            }
 	            if (changed) {
-	                this._setCustomisations(customisations);
+	                this._setCustomisations(customisations$1);
 	            }
 	        }
 	        return true;
@@ -23822,41 +24174,41 @@
 	    /**
 	     * Change customisations
 	     */
-	    _setCustomisations(customisations) {
+	    _setCustomisations(customisations$1) {
 	        const state = this._state;
 	        if (state.customisations !== void 0 &&
-	            lib.compareObjects(state.customisations, customisations)) {
+	            lib.compareObjects(state.customisations, customisations$1)) {
 	            return false;
 	        }
 	        // Save partial customisations in state
-	        state.customisations = filterCustomisations(customisations);
+	        state.customisations = customisations.filterCustomisations(customisations$1);
 	        // Update container
 	        if (this._container) {
 	            this._container.$set({
-	                customisations,
+	                customisations: customisations$1,
 	            });
 	        }
 	        else {
 	            if (!this._params.state) {
 	                this._params.state = {};
 	            }
-	            this._params.state.customisations = customisations;
+	            this._params.state.customisations = customisations$1;
 	        }
 	        // Trigger evemt
 	        this._triggerEvent({
 	            type: 'customisations',
-	            customisations,
+	            customisations: customisations$1,
 	        });
 	        return true;
 	    }
 	    /**
 	     * Change customisations
 	     */
-	    setCustomisations(customisations) {
+	    setCustomisations(customisations$1) {
 	        if (this._status === 'destroyed') {
 	            return;
 	        }
-	        this._setCustomisations(mergeCustomisations(defaultCustomisations, customisations));
+	        this._setCustomisations(customisations.mergeCustomisations(customisations.defaultCustomisations, customisations$1));
 	    }
 	}
 

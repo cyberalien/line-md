@@ -1,5 +1,5 @@
 import type { Icon } from '@iconify/search-core';
-import type { IconCustomisations } from '../customisations/types';
+import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 
 // Icon selection
 export interface UISelectionEvent {

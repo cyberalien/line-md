@@ -1,6 +1,8 @@
 <script lang="typescript">
+	import { getContext } from 'svelte';
 	import { getProvider } from '@iconify/search-core';
 	import type { CollectionInfo } from '@iconify/search-core/lib/converters/collection';
+	import type { WrappedRegistry } from '../../../wrapper/registry';
 	import {
 		maxIndex,
 		showCollectionAuthorLink,
@@ -23,8 +25,11 @@
 	// Callback for click
 	export let onClick: (prefix: string) => void;
 
-	// Callback for external link
-	export let onExternalClick: (event: MouseEvent) => void;
+	// Get registry instance
+	const registry = getContext('registry') as WrappedRegistry;
+
+	// on:click event for external links
+	const onExternalClick = registry.link;
 
 	// Get link
 	let link: string;

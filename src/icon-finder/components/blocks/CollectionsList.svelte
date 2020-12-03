@@ -19,9 +19,6 @@
 	// Get registry instance
 	const registry = getContext('registry') as WrappedRegistry;
 
-	// Callback for external link
-	const onExternalClick = registry.link;
-
 	// Click event
 	function onClick(prefix: string) {
 		registry.router.action(name, prefix);
@@ -31,7 +28,6 @@
 <Block type="collections">
 	{#each Object.entries(block.collections) as [category, items], i (category)}
 		<Category
-			{onExternalClick}
 			{onClick}
 			showCategories={block.showCategories}
 			{category}
