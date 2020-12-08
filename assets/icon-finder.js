@@ -180,6 +180,8 @@
 	const defaultRouterConfig = {
 	    // Home route as string, empty to automatically detect route
 	    home: '',
+	    // Allow synchronous rendering when API data is available?
+	    syncRender: false,
 	};
 	/**
 	 * Default configuration.
@@ -653,7 +655,7 @@
 
 	var base = createCommonjsModule(function (module, exports) {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.BaseAPI = exports.mergeQuery = void 0;
+	exports.searchCacheKey = exports.collectionCacheKey = exports.collectionsCacheKey = exports.BaseAPI = exports.mergeQuery = void 0;
 
 	/**
 	 * Add parameters to query
@@ -736,20 +738,16 @@
 	        }
 	        const providerCache = this._cache[provider];
 	        if (cacheKey !== false && providerCache[cacheKeyStr] !== void 0) {
-	            // Return cached data on next tick
-	            setTimeout(() => {
-	                const cached = providerCache[cacheKeyStr];
-	                callback(cached === null ? null : JSON.parse(cached), true);
-	            });
+	            // Return cached data
+	            const cached = providerCache[cacheKeyStr];
+	            callback(cached === null ? null : JSON.parse(cached), true);
 	            return;
 	        }
 	        // Init redundancy
 	        const redundancy = this._getRedundancy(provider);
 	        if (!redundancy) {
 	            // Error
-	            setTimeout(() => {
-	                callback(null, false);
-	            });
+	            callback(null, false);
 	            return;
 	        }
 	        // Send query
@@ -764,7 +762,7 @@
 	            });
 	            return;
 	        }
-	        // Create new query. Query will start on next tick, so no need to set timeout
+	        // Create new query
 	        redundancy.query(uri, this._query.bind(this, provider, cacheKey === false ? null : cacheKeyStr), (data) => {
 	            callback(data, false);
 	        });
@@ -831,6 +829,21 @@
 	    }
 	}
 	exports.BaseAPI = BaseAPI;
+	/**
+	 * Various cache keys
+	 */
+	function collectionsCacheKey() {
+	    return 'collections';
+	}
+	exports.collectionsCacheKey = collectionsCacheKey;
+	function collectionCacheKey(prefix) {
+	    return 'collection.' + prefix;
+	}
+	exports.collectionCacheKey = collectionCacheKey;
+	function searchCacheKey(query, limit) {
+	    return 'search.' + query + '.' + limit;
+	}
+	exports.searchCacheKey = searchCacheKey;
 
 	});
 
@@ -1224,6 +1237,17 @@
 	        // Loading control: waiting for parent view
 	        this.onLoad = null;
 	        this._mustWaitForParent = false;
+	        this._isSync = null;
+	    }
+	    /**
+	     * Set _isSync variable
+	     */
+	    _checkSync() {
+	        if (this._isSync === null) {
+	            this._isSync = !!storage.getRegistry(this._instance).config.router
+	                .syncRender;
+	        }
+	        return this._isSync;
 	    }
 	    /**
 	     * Change parent view
@@ -1270,7 +1294,21 @@
 	        }
 	        this._startLoading();
 	    }
+	    /**
+	     * Start loading
+	     */
 	    _startLoading() {
+	        this._startedLoading = true;
+	        if (this._checkSync()) {
+	            this._startLoadingData();
+	        }
+	        else {
+	            setTimeout(() => {
+	                this._startLoadingData();
+	            });
+	        }
+	    }
+	    _startLoadingData() {
 	        throw new Error('startLoading should not be called on base view');
 	    }
 	    /**
@@ -1407,12 +1445,18 @@
 	    _triggerUpdated() {
 	        if (!this.updating) {
 	            this.updating = true;
-	            setTimeout(() => {
+	            const update = () => {
 	                this.updating = false;
 	                const registry = storage.getRegistry(this._instance);
 	                const events = registry.events;
 	                events.fire('view-updated', this);
-	            });
+	            };
+	            if (this._checkSync()) {
+	                update();
+	            }
+	            else {
+	                setTimeout(update);
+	            }
 	        }
 	    }
 	}
@@ -2710,6 +2754,7 @@
 
 
 
+
 	/**
 	 * Class
 	 */
@@ -2746,15 +2791,12 @@
 	    /**
 	     * Start loading
 	     */
-	    _startLoading() {
-	        this._startedLoading = true;
+	    _startLoadingData() {
 	        if (!this._sources.api) {
-	            setTimeout(() => {
-	                this._parseAPIData(null);
-	            });
+	            this._parseAPIData(null);
 	            return;
 	        }
-	        this._loadAPI(this.provider, '/collections', {}, 'collections');
+	        this._loadAPI(this.provider, '/collections', {}, base.collectionsCacheKey());
 	    }
 	    /**
 	     * Run action on view
@@ -3262,6 +3304,7 @@
 
 
 
+
 	const filterKeys = [
 	    'tags',
 	    'themePrefixes',
@@ -3303,8 +3346,7 @@
 	    /**
 	     * Start loading
 	     */
-	    _startLoading() {
-	        this._startedLoading = true;
+	    _startLoadingData() {
 	        if (!this._isCustom) {
 	            const params = {
 	                prefix: this.prefix,
@@ -3317,12 +3359,10 @@
 	                // reference icon, in case if reference icon is hidden.
 	                params.hidden = 'true';
 	            }
-	            this._loadAPI(this.provider, '/collection', params, 'collection.' + this.prefix);
+	            this._loadAPI(this.provider, '/collection', params, base.collectionCacheKey(this.prefix));
 	        }
 	        else {
-	            setTimeout(() => {
-	                this._parseAPIData(null);
-	            });
+	            this._parseAPIData(null);
 	        }
 	    }
 	    /**
@@ -3809,6 +3849,7 @@
 
 
 
+
 	/**
 	 * Class
 	 */
@@ -3841,12 +3882,13 @@
 	    /**
 	     * Start loading
 	     */
-	    _startLoading() {
-	        this._startedLoading = true;
+	    _startLoadingData() {
+	        const query = this.keyword;
+	        const limit = this.itemsLimit;
 	        this._loadAPI(this.provider, '/search', {
-	            query: this.keyword,
-	            limit: this.itemsLimit,
-	        });
+	            query,
+	            limit,
+	        }, base.searchCacheKey(query, limit));
 	    }
 	    /**
 	     * Run action on view
@@ -4119,18 +4161,14 @@
 	    /**
 	     * Start loading
 	     */
-	    _startLoading() {
-	        this._startedLoading = true;
-	        // Send event to load icons on next tick, unless they've been set synchronously after creating instance
-	        setTimeout(() => {
-	            if (this._data !== null) {
-	                return;
-	            }
-	            const registry = storage.getRegistry(this._instance);
-	            const events = registry.events;
-	            // Fire public event, exposed to external code
-	            events.fire('load-' + this.customType, this.setIcons.bind(this));
-	        });
+	    _startLoadingData() {
+	        if (this._data !== null) {
+	            return;
+	        }
+	        const registry = storage.getRegistry(this._instance);
+	        const events = registry.events;
+	        // Fire public event, exposed to external code
+	        events.fire('load-' + this.customType, this.setIcons.bind(this));
 	    }
 	    /**
 	     * Run action on view
@@ -4225,7 +4263,15 @@
 	     */
 	    setIcons(data) {
 	        this._waitForParent(() => {
-	            this._setIcons(data);
+	            if (!this._checkSync()) {
+	                // Make sure its async unless synchronous loading is enabled
+	                setTimeout(() => {
+	                    this._setIcons(data);
+	                });
+	            }
+	            else {
+	                this._setIcons(data);
+	            }
 	        });
 	    }
 	    _setIcons(data) {
@@ -4334,13 +4380,9 @@
 	    /**
 	     * Start loading
 	     */
-	    _startLoading() {
-	        this._startedLoading = true;
-	        // Complete on next tick
-	        setTimeout(() => {
-	            this.loading = false;
-	            this._triggerLoaded();
-	        });
+	    _startLoadingData() {
+	        this.loading = false;
+	        this._triggerLoaded();
 	    }
 	    /**
 	     * Run action on view
@@ -4636,16 +4678,16 @@
 	    _setView(view, immediate) {
 	        this._view = view;
 	        view.startLoading();
-	        if ((immediate && this._visibleView !== view) ||
-	            !view.loading ||
-	            this._visibleView === null) {
-	            // Change visible view immediately and trigger event
-	            this._visibleView = view;
-	            this._triggerChange(true);
-	        }
-	        else {
-	            // Start timer that will change visible view and trigger event after delay
-	            this._startTimer();
+	        if (this._visibleView !== view) {
+	            if (immediate || !view.loading || this._visibleView === null) {
+	                // Change visible view immediately and trigger event
+	                this._visibleView = view;
+	                this._triggerChange(true);
+	            }
+	            else {
+	                // Start timer that will change visible view and trigger event after delay
+	                this._startTimer();
+	            }
 	        }
 	    }
 	    /**
@@ -23761,6 +23803,8 @@
 	        // Init core
 	        const core = (this._core = new lib.IconFinderCore(coreParams));
 	        const registry = (this._registry = core.registry);
+	        // Enable synchronous loading
+	        registry.config.router.syncRender = true;
 	        // Callback
 	        registry.setCustom('callback', this._internalCallback.bind(this));
 	        // External link callback

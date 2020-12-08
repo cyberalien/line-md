@@ -115,6 +115,9 @@ export class Wrapper {
 		const core = (this._core = new IconFinderCore(coreParams));
 		const registry = (this._registry = core.registry as WrappedRegistry);
 
+		// Enable synchronous loading
+		registry.config.router.syncRender = true;
+
 		// Callback
 		registry.setCustom('callback', this._internalCallback.bind(this));
 
