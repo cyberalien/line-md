@@ -37,6 +37,7 @@
 	interface CurrentTabData {
 		tab: CurrentTab;
 		parent: CodeSamplesTreeItem | null;
+		parentIndex: number;
 		child: CodeSamplesTreeChildItem | null;
 	}
 
@@ -185,7 +186,11 @@
 		} else {
 			// Create new child filters
 			childFilters = child
-				? createFilters(parent.children!, child!.mode, tree.length)
+				? createFilters(
+						parent.children!,
+						child!.mode,
+						item.parentIndex + 1
+				  )
 				: null;
 		}
 
@@ -216,8 +221,12 @@
 		const tree = providerData.tree;
 
 		if (typeof tab === 'string') {
-			for (let i = 0; i < tree.length; i++) {
-				const parent = tree[i];
+			for (
+				let parentIndex = 0;
+				parentIndex < tree.length;
+				parentIndex++
+			) {
+				const parent = tree[parentIndex];
 				if (parent.mode === tab || parent.tab === tab) {
 					if (parent.children) {
 						// Has children: return first child
@@ -225,6 +234,7 @@
 						return {
 							tab: child.mode,
 							parent,
+							parentIndex,
 							child,
 						};
 					}
@@ -233,6 +243,7 @@
 					return {
 						tab: parent.mode!,
 						parent,
+						parentIndex,
 						child: null,
 					};
 				}
@@ -245,6 +256,7 @@
 							return {
 								tab,
 								parent,
+								parentIndex,
 								child,
 							};
 						}
@@ -261,6 +273,7 @@
 				return {
 					tab: '',
 					parent: null,
+					parentIndex: 0,
 					child: null,
 				};
 			}
@@ -270,6 +283,7 @@
 				return {
 					tab: child.mode,
 					parent,
+					parentIndex: 0,
 					child,
 				};
 			}
@@ -277,6 +291,7 @@
 			return {
 				tab: parent.mode!, // Must have mode
 				parent,
+				parentIndex: 0,
 				child: null,
 			};
 		}
@@ -284,6 +299,7 @@
 		return {
 			tab: '',
 			parent: null,
+			parentIndex: 0,
 			child: null,
 		};
 	}
