@@ -740,7 +740,7 @@
 	        if (cacheKey !== false && providerCache[cacheKeyStr] !== void 0) {
 	            // Return cached data
 	            const cached = providerCache[cacheKeyStr];
-	            callback(cached === null ? null : JSON.parse(cached), true);
+	            callback(cached === null ? null : JSON.parse(cached), void 0, true);
 	            return;
 	        }
 	        // Init redundancy
@@ -757,14 +757,14 @@
 	        });
 	        if (query !== null) {
 	            // Attach callback to existing query
-	            query().subscribe((data) => {
-	                callback(data, false);
+	            query().subscribe((data, error) => {
+	                callback(data, error, false);
 	            });
 	            return;
 	        }
 	        // Create new query
-	        redundancy.query(uri, this._query.bind(this, provider, cacheKey === false ? null : cacheKeyStr), (data) => {
-	            callback(data, false);
+	        redundancy.query(uri, this._query.bind(this, provider, cacheKey === false ? null : cacheKeyStr), (data, error) => {
+	            callback(data, error, false);
 	        });
 	    }
 	    /**
@@ -795,7 +795,7 @@
 	    /**
 	     * Send query, callback from Redundancy
 	     */
-	    _query(provider, cacheKey, host, params, status) {
+	    _query(provider, cacheKey, host, params, item) {
 	        // Should be implemented by child classes
 	        throw new Error('_query() should not be called on base API class');
 	    }
@@ -865,27 +865,22 @@
 	    sendQuery(host, params, callback) {
 	        fetch(host + params)
 	            .then((response) => {
-	            if (response.status === 404) {
-	                // Not found. Should be called in error handler
-	                callback('not_found', null);
-	                return;
-	            }
 	            if (response.status !== 200) {
-	                callback('error', null);
+	                callback(void 0, response.status);
 	                return;
 	            }
 	            return response.json();
 	        })
 	            .then((data) => {
 	            if (typeof data !== 'object' || data === null) {
-	                callback('error', null);
+	                callback(void 0, null);
 	                return;
 	            }
 	            // Store cache and complete
-	            callback('success', data);
+	            callback(data);
 	        })
-	            .catch(() => {
-	            callback('error', null);
+	            .catch((err) => {
+	            callback(void 0, err === null || err === void 0 ? void 0 : err.errno);
 	        });
 	    }
 	    /**
@@ -895,19 +890,16 @@
 	     * @param cacheKey API cache key, null if data should not be cached
 	     * @param host Host string
 	     * @param params End point and parameters as string
-	     * @param status Query status
+	     * @param item Query item
 	     */
-	    _query(provider, cacheKey, host, params, status) {
+	    _query(provider, cacheKey, host, params, item) {
 	        // console.log('API request: ' + host + params);
-	        this.sendQuery(host, params, (response, data) => {
-	            switch (response) {
-	                case 'success':
-	                case 'not_found':
-	                    if (cacheKey !== null) {
-	                        this.storeCache(provider, cacheKey, data);
-	                    }
-	                    status.done(data);
+	        this.sendQuery(host, params, (data, error) => {
+	            if (data !== void 0 && cacheKey !== null) {
+	                // Store cache on success
+	                this.storeCache(provider, cacheKey, data);
 	            }
+	            item.done(data, error);
 	        });
 	    }
 	}
@@ -1345,42 +1337,17 @@
 	     */
 	    _loadAPI(provider, query, params, cacheKey = true) {
 	        const registry = storage.getRegistry(this._instance);
-	        const providerData = providers.getProvider(provider);
-	        const configAPIData = providerData ? providerData.config : null;
 	        const api = registry.api;
-	        // Calculate and create timer
-	        let timeout = 0;
-	        if (configAPIData &&
-	            typeof configAPIData.rotate === 'number' &&
-	            typeof configAPIData.timeout === 'number' &&
-	            typeof configAPIData.limit === 'number' &&
-	            configAPIData.limit > 0) {
-	            // Calculate maximum possible timeout per one rotation
-	            timeout =
-	                configAPIData.timeout +
-	                    configAPIData.rotate *
-	                        (configAPIData.resources.length - 1);
-	            timeout *= configAPIData.limit;
-	        }
-	        if (timeout > 0) {
-	            this._loadingTimer = setTimeout(() => {
-	                if (this._loadingTimer !== null) {
-	                    clearTimeout(this._loadingTimer);
-	                    this._loadingTimer = null;
-	                }
-	                if (this.loading && this.error === '') {
-	                    this.error = 'timeout';
+	        // Send query
+	        api.query(provider, query, params, (data, error) => {
+	            if (data === void 0) {
+	                // Error
+	                if (this.loading) {
+	                    this.error = error === 404 ? 'not_found' : 'timeout';
 	                    this.loading = false;
 	                    this._triggerLoaded();
 	                }
-	            }, timeout);
-	        }
-	        // Send query
-	        api.query(provider, query, params, (data) => {
-	            // Clear timeout
-	            if (this._loadingTimer !== null) {
-	                clearTimeout(this._loadingTimer);
-	                this._loadingTimer = null;
+	                return;
 	            }
 	            if (data === null || !this._mustWaitForParent) {
 	                // Parse immediately
@@ -1487,9 +1454,9 @@
 
 	});
 
-	var collection = createCommonjsModule(function (module, exports) {
+	var info = createCommonjsModule(function (module, exports) {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.rawDataToCollection = exports.dataToCollection = exports.dataToCollectionInfo = void 0;
+	exports.dataToCollectionInfo = void 0;
 	const minDisplayHeight = 16;
 	const maxDisplayHeight = 24;
 	/**
@@ -1656,563 +1623,6 @@
 	    return result;
 	}
 	exports.dataToCollectionInfo = dataToCollectionInfo;
-	/**
-	 * Parse themes
-	 */
-	function parseThemes(iconSet, sortedIcons, result) {
-	    const data = {
-	        prefix: {
-	            hasEmpty: false,
-	            hasUncategorized: false,
-	            values: [],
-	            titles: Object.create(null),
-	            found: Object.create(null),
-	            test: (name, test) => name.slice(0, test.length) === test,
-	        },
-	        suffix: {
-	            hasEmpty: false,
-	            hasUncategorized: false,
-	            values: [],
-	            titles: Object.create(null),
-	            found: Object.create(null),
-	            test: (name, test) => name.slice(0 - test.length) === test,
-	        },
-	    };
-	    const keys = ['prefix', 'suffix'];
-	    // Converted icon set data, using ThemeType as key, new theme format as value
-	    const iconSetData = {
-	        prefix: null,
-	        suffix: null,
-	    };
-	    // Convert legacy format
-	    if (typeof iconSet.themes === 'object' && iconSet.themes) {
-	        const themes = iconSet.themes;
-	        Object.keys(themes).forEach((key) => {
-	            const theme = themes[key];
-	            keys.forEach((attr) => {
-	                const prop = attr;
-	                if (typeof theme[prop] === 'string') {
-	                    // Has prefix or suffix
-	                    const value = theme[prop];
-	                    if (iconSetData[attr] === null) {
-	                        iconSetData[attr] = Object.create(null);
-	                    }
-	                    iconSetData[attr][value] = theme.title;
-	                }
-	            });
-	        });
-	    }
-	    // Check themes
-	    keys.forEach((key) => {
-	        const attr = (key + 'es');
-	        if (typeof iconSet[attr] === 'object' && iconSet[attr] !== null) {
-	            // Prefixes or suffixes exist: overwrite old entry
-	            iconSetData[key] = iconSet[attr];
-	        }
-	        if (!iconSetData[key]) {
-	            // No prefix or suffix? Delete entry in data
-	            delete data[key];
-	            return;
-	        }
-	        // Validate themes
-	        const dataItem = data[key];
-	        const theme = iconSetData[key];
-	        Object.keys(theme).forEach((value) => {
-	            const title = theme[value];
-	            if (value !== '') {
-	                // Check for '-' at start or end
-	                switch (key) {
-	                    case 'prefix':
-	                        if (value.slice(-1) !== '-') {
-	                            value += '-';
-	                        }
-	                        break;
-	                    case 'suffix':
-	                        if (value.slice(0, 1) !== '-') {
-	                            value = '-' + value;
-	                        }
-	                        break;
-	                }
-	            }
-	            if (dataItem.titles[value] !== void 0) {
-	                // Duplicate entry
-	                return;
-	            }
-	            // Add value
-	            if (value === '') {
-	                dataItem.hasEmpty = true;
-	            }
-	            else {
-	                dataItem.values.push(value);
-	            }
-	            // Set data
-	            dataItem.titles[value] = title;
-	            dataItem.found[value] = 0;
-	        });
-	        // Check if theme is empty
-	        if (!Object.keys(dataItem.titles).length) {
-	            delete data[key];
-	        }
-	    });
-	    // Check stuff
-	    Object.keys(data).forEach((attr) => {
-	        const dataItem = data[attr];
-	        const matches = dataItem.values;
-	        const iconKey = attr === 'prefix' ? 'themePrefixes' : 'themeSuffixes';
-	        // Sort matches by length, then alphabetically
-	        matches.sort((a, b) => a.length === b.length ? a.localeCompare(b) : b.length - a.length);
-	        // Check all icons
-	        sortedIcons.forEach((icon) => {
-	            // Check icon
-	            (icon.aliases
-	                ? [icon.name].concat(icon.aliases)
-	                : [icon.name]).forEach((name, index) => {
-	                // Find match
-	                let theme = null;
-	                for (let i = 0; i < matches.length; i++) {
-	                    const match = matches[i];
-	                    if (dataItem.test(name, match)) {
-	                        // Found matching theme
-	                        dataItem.found[match]++;
-	                        theme = match;
-	                        break;
-	                    }
-	                }
-	                if (theme === null && dataItem.hasEmpty && !index) {
-	                    // Empty prefix/suffix, but do not test aliases
-	                    theme = '';
-	                    dataItem.found['']++;
-	                }
-	                // Get title
-	                const title = theme === null ? '' : dataItem.titles[theme];
-	                // Not found
-	                if (theme === null) {
-	                    if (index > 0) {
-	                        return;
-	                    }
-	                    // Uncategorized
-	                    dataItem.hasUncategorized = true;
-	                    theme = '';
-	                }
-	                // Found
-	                if (icon[iconKey] === void 0) {
-	                    icon[iconKey] = [title];
-	                    return;
-	                }
-	                const titles = icon[iconKey];
-	                if (titles.indexOf(title) === -1) {
-	                    titles.push(title);
-	                }
-	            });
-	        });
-	        // Add result
-	        const titles = [];
-	        Object.keys(dataItem.titles).forEach((match) => {
-	            if (dataItem.found[match]) {
-	                titles.push(dataItem.titles[match]);
-	            }
-	        });
-	        if (dataItem.hasUncategorized) {
-	            titles.push('');
-	        }
-	        switch (titles.length) {
-	            case 0:
-	                // Nothing to do
-	                break;
-	            case 1:
-	                // 1 theme: remove all entries
-	                sortedIcons.forEach((icon) => {
-	                    delete icon[iconKey];
-	                });
-	                break;
-	            default:
-	                // Many entries
-	                result[iconKey] = titles;
-	        }
-	    });
-	}
-	/**
-	 * Parse characters map
-	 */
-	function parseChars(chars, icons) {
-	    Object.keys(chars).forEach((char) => {
-	        const name = chars[char];
-	        if (icons[name] !== void 0) {
-	            const icon = icons[name];
-	            if (icon.chars === void 0) {
-	                icon.chars = [];
-	            }
-	            icon.chars.push(char);
-	        }
-	    });
-	}
-	/**
-	 * Convert icons to sorted array
-	 */
-	function sortIcons(icons) {
-	    const sortedIcons = [];
-	    Object.keys(icons)
-	        .sort((a, b) => a.localeCompare(b))
-	        .forEach((name) => {
-	        sortedIcons.push(icons[name]);
-	    });
-	    return sortedIcons;
-	}
-	/**
-	 * Convert collection data
-	 */
-	function dataToCollection(provider, data) {
-	    if (typeof data !== 'object' || data === null) {
-	        return null;
-	    }
-	    const source = data;
-	    // Check required fields
-	    if (typeof source.prefix !== 'string') {
-	        return null;
-	    }
-	    // Create result
-	    const result = {
-	        provider,
-	        prefix: source.prefix,
-	        name: '',
-	        total: 0,
-	        icons: [],
-	    };
-	    // Get info
-	    if (typeof source.info === 'object' && source.info !== null) {
-	        const info = dataToCollectionInfo(source.info, result.prefix);
-	        if (info === null) {
-	            // Invalid info block, so something is wrong
-	            return null;
-	        }
-	        result.info = info;
-	    }
-	    // Get collection name
-	    if (typeof source.name === 'string') {
-	        result.name = source.name;
-	    }
-	    else if (typeof source.title === 'string') {
-	        // Correct API response
-	        result.name = source.title;
-	    }
-	    else if (result.info !== void 0) {
-	        result.name = result.info.name;
-	    }
-	    else {
-	        return null;
-	    }
-	    // Check for categories
-	    let tags = typeof source.categories === 'object' && source.categories !== null
-	        ? Object.keys(source.categories)
-	        : [];
-	    let hasUncategorised = false, uncategorisedKey = 'uncategorized';
-	    ['uncategorized', 'uncategorised'].forEach((attr) => {
-	        if (typeof source[attr] === 'object' &&
-	            source[attr] instanceof Array &&
-	            source[attr].length > 0) {
-	            uncategorisedKey = attr;
-	            hasUncategorised = true;
-	        }
-	    });
-	    // Find all icons
-	    const icons = Object.create(null);
-	    function addCategory(iconsList, category) {
-	        let added = false;
-	        iconsList.forEach((name) => {
-	            if (typeof name !== 'string') {
-	                return;
-	            }
-	            added = true;
-	            if (icons[name] === void 0) {
-	                // Add new icon
-	                const icon = {
-	                    provider,
-	                    prefix: result.prefix,
-	                    name,
-	                    tags: [category],
-	                };
-	                icons[name] = icon;
-	                return;
-	            }
-	            // Add tag to existing icon
-	            if (icons[name].tags === void 0) {
-	                icons[name].tags = [];
-	            }
-	            if (icons[name].tags.indexOf(category) === -1) {
-	                icons[name].tags.push(category);
-	            }
-	        });
-	        return added;
-	    }
-	    tags = tags.filter((category) => {
-	        let added = false;
-	        const categoryItems = source.categories[category];
-	        if (categoryItems instanceof Array) {
-	            added = addCategory(categoryItems, category);
-	        }
-	        else {
-	            Object.keys(categoryItems).forEach((subcategory) => {
-	                const subcategoryItems = categoryItems[subcategory];
-	                if (subcategoryItems instanceof Array) {
-	                    added = addCategory(subcategoryItems, category) || added;
-	                }
-	            });
-	        }
-	        return added;
-	    });
-	    const hasTags = tags.length > 0;
-	    // Add uncategorised icons
-	    if (hasUncategorised) {
-	        const list = source[uncategorisedKey];
-	        list.forEach((name) => {
-	            if (typeof name !== 'string') {
-	                return;
-	            }
-	            if (icons[name] === void 0) {
-	                // Add new icon
-	                const icon = {
-	                    provider,
-	                    prefix: result.prefix,
-	                    name: name,
-	                };
-	                if (hasTags) {
-	                    icon.tags = [''];
-	                }
-	                icons[name] = icon;
-	                return;
-	            }
-	        });
-	        if (hasTags) {
-	            tags.push('');
-	        }
-	    }
-	    // Add characters
-	    if (typeof source.chars === 'object') {
-	        parseChars(source.chars, icons);
-	    }
-	    // Add aliases
-	    if (typeof source.aliases === 'object') {
-	        const aliases = source.aliases;
-	        Object.keys(aliases).forEach((alias) => {
-	            const name = aliases[alias];
-	            if (icons[name] !== void 0) {
-	                const icon = icons[name];
-	                if (icon.aliases === void 0) {
-	                    icon.aliases = [];
-	                }
-	                icon.aliases.push(alias);
-	            }
-	        });
-	    }
-	    // Add hidden icons
-	    if (source.hidden instanceof Array) {
-	        result.hidden = source.hidden;
-	    }
-	    // Convert to sorted array
-	    const sortedIcons = sortIcons(icons);
-	    // Check tags
-	    if (tags.length > 1) {
-	        result.tags = tags.sort(sortTags);
-	    }
-	    else if (hasTags) {
-	        // Only one tag - delete tags
-	        sortedIcons.forEach((icon) => {
-	            delete icon.tags;
-	        });
-	    }
-	    // Add themes
-	    parseThemes(source, sortedIcons, result);
-	    // Add icons
-	    result.icons = sortedIcons;
-	    result.total = result.icons.length;
-	    if (result.info) {
-	        result.info.total = result.total;
-	    }
-	    return result;
-	}
-	exports.dataToCollection = dataToCollection;
-	/**
-	 * Convert raw data from icon set
-	 */
-	function rawDataToCollection(source) {
-	    /**
-	     * Add icon
-	     */
-	    function addIcon(name, depth = 0) {
-	        if (depth > 3) {
-	            // Alias recursion is too high. Do not make aliases of aliases.
-	            return null;
-	        }
-	        if (icons[name] !== void 0) {
-	            // Already added
-	            return name;
-	        }
-	        // Add icon
-	        if (source.icons[name] !== void 0) {
-	            if (!source.icons[name].hidden) {
-	                icons[name] = {
-	                    provider: result.provider,
-	                    prefix: result.prefix,
-	                    name,
-	                    tags: [],
-	                };
-	                return name;
-	            }
-	            return null;
-	        }
-	        // Add alias
-	        if (source.aliases &&
-	            source.aliases[name] !== void 0 &&
-	            !source.aliases[name].hidden) {
-	            // Resolve alias
-	            const item = source.aliases[name];
-	            const parent = item.parent;
-	            // Add parent icon
-	            const added = addIcon(parent, depth + 1);
-	            if (added !== null) {
-	                // Icon was added, which means parent icon is a viable icon
-	                // Check if new icon is an alias or full icon
-	                if (!(item.rotate || item.hFlip || item.vFlip)) {
-	                    // Alias
-	                    const parentIcon = icons[added];
-	                    if (!parentIcon.aliases) {
-	                        parentIcon.aliases = [name];
-	                    }
-	                    else if (parentIcon.aliases.indexOf(name) === -1) {
-	                        parentIcon.aliases.push(name);
-	                    }
-	                    return added;
-	                }
-	                else {
-	                    // New icon
-	                    icons[name] = {
-	                        provider: result.provider,
-	                        prefix: result.prefix,
-	                        name,
-	                        tags: [],
-	                    };
-	                    return name;
-	                }
-	            }
-	        }
-	        return null;
-	    }
-	    /**
-	     * Add tag to icons
-	     */
-	    function addTag(iconsList, tag) {
-	        let added = false;
-	        iconsList.forEach((name) => {
-	            if (icons[name] !== void 0 &&
-	                icons[name].tags.indexOf(tag) === -1) {
-	                icons[name].tags.push(tag);
-	                added = true;
-	            }
-	        });
-	        return added;
-	    }
-	    // Check required fields
-	    if (typeof source.prefix !== 'string') {
-	        return null;
-	    }
-	    const result = {
-	        provider: typeof source.provider === 'string' ? source.provider : '',
-	        prefix: source.prefix,
-	        name: '',
-	        total: 0,
-	        icons: [],
-	    };
-	    // Get required info
-	    if (typeof source.info !== 'object' || source.info === null) {
-	        return null;
-	    }
-	    const info = dataToCollectionInfo(source.info, result.prefix);
-	    if (info === null) {
-	        // Invalid info block, so something is wrong
-	        return null;
-	    }
-	    result.info = info;
-	    // Get collection name
-	    result.name = result.info.name;
-	    // Find all icons
-	    const icons = Object.create(null);
-	    Object.keys(source.icons).forEach((name) => addIcon(name));
-	    if (typeof source.aliases === 'object') {
-	        Object.keys(source.aliases).forEach((name) => addIcon(name));
-	    }
-	    const iconNames = Object.keys(icons);
-	    // Check for categories
-	    const tags = [];
-	    if (typeof source.categories === 'object' && source.categories !== null) {
-	        let hasUncategorised = false;
-	        const categories = source.categories;
-	        Object.keys(categories).forEach((category) => {
-	            const categoryItems = categories[category];
-	            // Array
-	            if (categoryItems instanceof Array) {
-	                if (addTag(categoryItems, category)) {
-	                    tags.push(category);
-	                }
-	            }
-	            else if (typeof categoryItems === 'object') {
-	                // Sub-categories. No longer used, but can be found in some older icon sets
-	                Object.keys(categoryItems).forEach((subcategory) => {
-	                    const subcategoryItems = categoryItems[subcategory];
-	                    if (subcategoryItems instanceof Array) {
-	                        if (addTag(subcategoryItems, category) &&
-	                            tags.indexOf(category) === -1) {
-	                            tags.push(category);
-	                        }
-	                    }
-	                });
-	            }
-	        });
-	        // Check if icons without categories exist
-	        iconNames.forEach((name) => {
-	            if (!icons[name].tags.length) {
-	                icons[name].tags.push('');
-	                hasUncategorised = true;
-	            }
-	        });
-	        if (hasUncategorised) {
-	            tags.push('');
-	        }
-	    }
-	    // Remove tags if there are less than 2 categories
-	    if (tags.length < 2) {
-	        Object.keys(icons).forEach((name) => {
-	            delete icons[name].tags;
-	        });
-	    }
-	    else {
-	        result.tags = tags.sort(sortTags);
-	    }
-	    // Add characters
-	    if (typeof source.chars === 'object') {
-	        parseChars(source.chars, icons);
-	    }
-	    // Sort icons
-	    const sortedIcons = sortIcons(icons);
-	    // Add themes
-	    parseThemes(source, sortedIcons, result);
-	    // Add icons
-	    result.icons = sortedIcons;
-	    result.total = result.info.total = result.icons.length;
-	    return result;
-	}
-	exports.rawDataToCollection = rawDataToCollection;
-	/**
-	 * Sort categories
-	 */
-	function sortTags(a, b) {
-	    if (a === '') {
-	        return 1;
-	    }
-	    if (b === '') {
-	        return -1;
-	    }
-	    return a.localeCompare(b);
-	}
 
 	});
 
@@ -2238,7 +1648,7 @@
 	            return;
 	        }
 	        // Convert item
-	        const item = collection.dataToCollectionInfo(row, prefix);
+	        const item = info.dataToCollectionInfo(row, prefix);
 	        if (item === null) {
 	            return;
 	        }
@@ -2580,6 +1990,570 @@
 	    return storage[provider][prefix].name;
 	}
 	exports.getCollectionTitle = getCollectionTitle;
+
+	});
+
+	var collection = createCommonjsModule(function (module, exports) {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.rawDataToCollection = exports.dataToCollection = void 0;
+
+	/**
+	 * Parse themes
+	 */
+	function parseThemes(iconSet, sortedIcons, result) {
+	    const data = {
+	        prefix: {
+	            hasEmpty: false,
+	            hasUncategorized: false,
+	            values: [],
+	            titles: Object.create(null),
+	            found: Object.create(null),
+	            test: (name, test) => name.slice(0, test.length) === test,
+	        },
+	        suffix: {
+	            hasEmpty: false,
+	            hasUncategorized: false,
+	            values: [],
+	            titles: Object.create(null),
+	            found: Object.create(null),
+	            test: (name, test) => name.slice(0 - test.length) === test,
+	        },
+	    };
+	    const keys = ['prefix', 'suffix'];
+	    // Converted icon set data, using ThemeType as key, new theme format as value
+	    const iconSetData = {
+	        prefix: null,
+	        suffix: null,
+	    };
+	    // Convert legacy format
+	    if (typeof iconSet.themes === 'object' && iconSet.themes) {
+	        const themes = iconSet.themes;
+	        Object.keys(themes).forEach((key) => {
+	            const theme = themes[key];
+	            keys.forEach((attr) => {
+	                const prop = attr;
+	                if (typeof theme[prop] === 'string') {
+	                    // Has prefix or suffix
+	                    const value = theme[prop];
+	                    if (iconSetData[attr] === null) {
+	                        iconSetData[attr] = Object.create(null);
+	                    }
+	                    iconSetData[attr][value] = theme.title;
+	                }
+	            });
+	        });
+	    }
+	    // Check themes
+	    keys.forEach((key) => {
+	        const attr = (key + 'es');
+	        if (typeof iconSet[attr] === 'object' && iconSet[attr] !== null) {
+	            // Prefixes or suffixes exist: overwrite old entry
+	            iconSetData[key] = iconSet[attr];
+	        }
+	        if (!iconSetData[key]) {
+	            // No prefix or suffix? Delete entry in data
+	            delete data[key];
+	            return;
+	        }
+	        // Validate themes
+	        const dataItem = data[key];
+	        const theme = iconSetData[key];
+	        Object.keys(theme).forEach((value) => {
+	            const title = theme[value];
+	            if (value !== '') {
+	                // Check for '-' at start or end
+	                switch (key) {
+	                    case 'prefix':
+	                        if (value.slice(-1) !== '-') {
+	                            value += '-';
+	                        }
+	                        break;
+	                    case 'suffix':
+	                        if (value.slice(0, 1) !== '-') {
+	                            value = '-' + value;
+	                        }
+	                        break;
+	                }
+	            }
+	            if (dataItem.titles[value] !== void 0) {
+	                // Duplicate entry
+	                return;
+	            }
+	            // Add value
+	            if (value === '') {
+	                dataItem.hasEmpty = true;
+	            }
+	            else {
+	                dataItem.values.push(value);
+	            }
+	            // Set data
+	            dataItem.titles[value] = title;
+	            dataItem.found[value] = 0;
+	        });
+	        // Check if theme is empty
+	        if (!Object.keys(dataItem.titles).length) {
+	            delete data[key];
+	        }
+	    });
+	    // Check stuff
+	    Object.keys(data).forEach((attr) => {
+	        const dataItem = data[attr];
+	        const matches = dataItem.values;
+	        const iconKey = attr === 'prefix' ? 'themePrefixes' : 'themeSuffixes';
+	        // Sort matches by length, then alphabetically
+	        matches.sort((a, b) => a.length === b.length ? a.localeCompare(b) : b.length - a.length);
+	        // Check all icons
+	        sortedIcons.forEach((icon) => {
+	            // Check icon
+	            (icon.aliases
+	                ? [icon.name].concat(icon.aliases)
+	                : [icon.name]).forEach((name, index) => {
+	                // Find match
+	                let theme = null;
+	                for (let i = 0; i < matches.length; i++) {
+	                    const match = matches[i];
+	                    if (dataItem.test(name, match)) {
+	                        // Found matching theme
+	                        dataItem.found[match]++;
+	                        theme = match;
+	                        break;
+	                    }
+	                }
+	                if (theme === null && dataItem.hasEmpty && !index) {
+	                    // Empty prefix/suffix, but do not test aliases
+	                    theme = '';
+	                    dataItem.found['']++;
+	                }
+	                // Get title
+	                const title = theme === null ? '' : dataItem.titles[theme];
+	                // Not found
+	                if (theme === null) {
+	                    if (index > 0) {
+	                        return;
+	                    }
+	                    // Uncategorized
+	                    dataItem.hasUncategorized = true;
+	                    theme = '';
+	                }
+	                // Found
+	                if (icon[iconKey] === void 0) {
+	                    icon[iconKey] = [title];
+	                    return;
+	                }
+	                const titles = icon[iconKey];
+	                if (titles.indexOf(title) === -1) {
+	                    titles.push(title);
+	                }
+	            });
+	        });
+	        // Add result
+	        const titles = [];
+	        Object.keys(dataItem.titles).forEach((match) => {
+	            if (dataItem.found[match]) {
+	                titles.push(dataItem.titles[match]);
+	            }
+	        });
+	        if (dataItem.hasUncategorized) {
+	            titles.push('');
+	        }
+	        switch (titles.length) {
+	            case 0:
+	                // Nothing to do
+	                break;
+	            case 1:
+	                // 1 theme: remove all entries
+	                sortedIcons.forEach((icon) => {
+	                    delete icon[iconKey];
+	                });
+	                break;
+	            default:
+	                // Many entries
+	                result[iconKey] = titles;
+	        }
+	    });
+	}
+	/**
+	 * Parse characters map
+	 */
+	function parseChars(chars, icons) {
+	    Object.keys(chars).forEach((char) => {
+	        const name = chars[char];
+	        if (icons[name] !== void 0) {
+	            const icon = icons[name];
+	            if (icon.chars === void 0) {
+	                icon.chars = [];
+	            }
+	            icon.chars.push(char);
+	        }
+	    });
+	}
+	/**
+	 * Convert icons to sorted array
+	 */
+	function sortIcons(icons) {
+	    const sortedIcons = [];
+	    Object.keys(icons)
+	        .sort((a, b) => a.localeCompare(b))
+	        .forEach((name) => {
+	        sortedIcons.push(icons[name]);
+	    });
+	    return sortedIcons;
+	}
+	/**
+	 * Convert collection data
+	 */
+	function dataToCollection(provider, data) {
+	    if (typeof data !== 'object' || data === null) {
+	        return null;
+	    }
+	    const source = data;
+	    // Check required fields
+	    if (typeof source.prefix !== 'string') {
+	        return null;
+	    }
+	    // Create result
+	    const result = {
+	        provider,
+	        prefix: source.prefix,
+	        name: '',
+	        total: 0,
+	        icons: [],
+	    };
+	    // Get info
+	    if (typeof source.info === 'object' && source.info !== null) {
+	        const info$1 = info.dataToCollectionInfo(source.info, result.prefix);
+	        if (info$1 === null) {
+	            // Invalid info block, so something is wrong
+	            return null;
+	        }
+	        result.info = info$1;
+	    }
+	    // Get collection name
+	    if (typeof source.name === 'string') {
+	        result.name = source.name;
+	    }
+	    else if (typeof source.title === 'string') {
+	        // Correct API response
+	        result.name = source.title;
+	    }
+	    else if (result.info !== void 0) {
+	        result.name = result.info.name;
+	    }
+	    else {
+	        return null;
+	    }
+	    // Check for categories
+	    let tags = typeof source.categories === 'object' && source.categories !== null
+	        ? Object.keys(source.categories)
+	        : [];
+	    let hasUncategorised = false, uncategorisedKey = 'uncategorized';
+	    ['uncategorized', 'uncategorised'].forEach((attr) => {
+	        if (typeof source[attr] === 'object' &&
+	            source[attr] instanceof Array &&
+	            source[attr].length > 0) {
+	            uncategorisedKey = attr;
+	            hasUncategorised = true;
+	        }
+	    });
+	    // Find all icons
+	    const icons = Object.create(null);
+	    function addCategory(iconsList, category) {
+	        let added = false;
+	        iconsList.forEach((name) => {
+	            if (typeof name !== 'string') {
+	                return;
+	            }
+	            added = true;
+	            if (icons[name] === void 0) {
+	                // Add new icon
+	                const icon = {
+	                    provider,
+	                    prefix: result.prefix,
+	                    name,
+	                    tags: [category],
+	                };
+	                icons[name] = icon;
+	                return;
+	            }
+	            // Add tag to existing icon
+	            if (icons[name].tags === void 0) {
+	                icons[name].tags = [];
+	            }
+	            if (icons[name].tags.indexOf(category) === -1) {
+	                icons[name].tags.push(category);
+	            }
+	        });
+	        return added;
+	    }
+	    tags = tags.filter((category) => {
+	        let added = false;
+	        const categoryItems = source.categories[category];
+	        if (categoryItems instanceof Array) {
+	            added = addCategory(categoryItems, category);
+	        }
+	        else {
+	            Object.keys(categoryItems).forEach((subcategory) => {
+	                const subcategoryItems = categoryItems[subcategory];
+	                if (subcategoryItems instanceof Array) {
+	                    added = addCategory(subcategoryItems, category) || added;
+	                }
+	            });
+	        }
+	        return added;
+	    });
+	    const hasTags = tags.length > 0;
+	    // Add uncategorised icons
+	    if (hasUncategorised) {
+	        const list = source[uncategorisedKey];
+	        list.forEach((name) => {
+	            if (typeof name !== 'string') {
+	                return;
+	            }
+	            if (icons[name] === void 0) {
+	                // Add new icon
+	                const icon = {
+	                    provider,
+	                    prefix: result.prefix,
+	                    name: name,
+	                };
+	                if (hasTags) {
+	                    icon.tags = [''];
+	                }
+	                icons[name] = icon;
+	                return;
+	            }
+	        });
+	        if (hasTags) {
+	            tags.push('');
+	        }
+	    }
+	    // Add characters
+	    if (typeof source.chars === 'object') {
+	        parseChars(source.chars, icons);
+	    }
+	    // Add aliases
+	    if (typeof source.aliases === 'object') {
+	        const aliases = source.aliases;
+	        Object.keys(aliases).forEach((alias) => {
+	            const name = aliases[alias];
+	            if (icons[name] !== void 0) {
+	                const icon = icons[name];
+	                if (icon.aliases === void 0) {
+	                    icon.aliases = [];
+	                }
+	                icon.aliases.push(alias);
+	            }
+	        });
+	    }
+	    // Add hidden icons
+	    if (source.hidden instanceof Array) {
+	        result.hidden = source.hidden;
+	    }
+	    // Convert to sorted array
+	    const sortedIcons = sortIcons(icons);
+	    // Check tags
+	    if (tags.length > 1) {
+	        result.tags = tags.sort(sortTags);
+	    }
+	    else if (hasTags) {
+	        // Only one tag - delete tags
+	        sortedIcons.forEach((icon) => {
+	            delete icon.tags;
+	        });
+	    }
+	    // Add themes
+	    parseThemes(source, sortedIcons, result);
+	    // Add icons
+	    result.icons = sortedIcons;
+	    result.total = result.icons.length;
+	    if (result.info) {
+	        result.info.total = result.total;
+	    }
+	    return result;
+	}
+	exports.dataToCollection = dataToCollection;
+	/**
+	 * Convert raw data from icon set
+	 */
+	function rawDataToCollection(source) {
+	    /**
+	     * Add icon
+	     */
+	    function addIcon(name, depth = 0) {
+	        if (depth > 3) {
+	            // Alias recursion is too high. Do not make aliases of aliases.
+	            return null;
+	        }
+	        if (icons[name] !== void 0) {
+	            // Already added
+	            return name;
+	        }
+	        // Add icon
+	        if (source.icons[name] !== void 0) {
+	            if (!source.icons[name].hidden) {
+	                icons[name] = {
+	                    provider: result.provider,
+	                    prefix: result.prefix,
+	                    name,
+	                    tags: [],
+	                };
+	                return name;
+	            }
+	            return null;
+	        }
+	        // Add alias
+	        if (source.aliases &&
+	            source.aliases[name] !== void 0 &&
+	            !source.aliases[name].hidden) {
+	            // Resolve alias
+	            const item = source.aliases[name];
+	            const parent = item.parent;
+	            // Add parent icon
+	            const added = addIcon(parent, depth + 1);
+	            if (added !== null) {
+	                // Icon was added, which means parent icon is a viable icon
+	                // Check if new icon is an alias or full icon
+	                if (!(item.rotate || item.hFlip || item.vFlip)) {
+	                    // Alias
+	                    const parentIcon = icons[added];
+	                    if (!parentIcon.aliases) {
+	                        parentIcon.aliases = [name];
+	                    }
+	                    else if (parentIcon.aliases.indexOf(name) === -1) {
+	                        parentIcon.aliases.push(name);
+	                    }
+	                    return added;
+	                }
+	                else {
+	                    // New icon
+	                    icons[name] = {
+	                        provider: result.provider,
+	                        prefix: result.prefix,
+	                        name,
+	                        tags: [],
+	                    };
+	                    return name;
+	                }
+	            }
+	        }
+	        return null;
+	    }
+	    /**
+	     * Add tag to icons
+	     */
+	    function addTag(iconsList, tag) {
+	        let added = false;
+	        iconsList.forEach((name) => {
+	            if (icons[name] !== void 0 &&
+	                icons[name].tags.indexOf(tag) === -1) {
+	                icons[name].tags.push(tag);
+	                added = true;
+	            }
+	        });
+	        return added;
+	    }
+	    // Check required fields
+	    if (typeof source.prefix !== 'string') {
+	        return null;
+	    }
+	    const result = {
+	        provider: typeof source.provider === 'string' ? source.provider : '',
+	        prefix: source.prefix,
+	        name: '',
+	        total: 0,
+	        icons: [],
+	    };
+	    // Get required info
+	    if (typeof source.info !== 'object' || source.info === null) {
+	        return null;
+	    }
+	    const info$1 = info.dataToCollectionInfo(source.info, result.prefix);
+	    if (info$1 === null) {
+	        // Invalid info block, so something is wrong
+	        return null;
+	    }
+	    result.info = info$1;
+	    // Get collection name
+	    result.name = result.info.name;
+	    // Find all icons
+	    const icons = Object.create(null);
+	    Object.keys(source.icons).forEach((name) => addIcon(name));
+	    if (typeof source.aliases === 'object') {
+	        Object.keys(source.aliases).forEach((name) => addIcon(name));
+	    }
+	    const iconNames = Object.keys(icons);
+	    // Check for categories
+	    const tags = [];
+	    if (typeof source.categories === 'object' && source.categories !== null) {
+	        let hasUncategorised = false;
+	        const categories = source.categories;
+	        Object.keys(categories).forEach((category) => {
+	            const categoryItems = categories[category];
+	            // Array
+	            if (categoryItems instanceof Array) {
+	                if (addTag(categoryItems, category)) {
+	                    tags.push(category);
+	                }
+	            }
+	            else if (typeof categoryItems === 'object') {
+	                // Sub-categories. No longer used, but can be found in some older icon sets
+	                Object.keys(categoryItems).forEach((subcategory) => {
+	                    const subcategoryItems = categoryItems[subcategory];
+	                    if (subcategoryItems instanceof Array) {
+	                        if (addTag(subcategoryItems, category) &&
+	                            tags.indexOf(category) === -1) {
+	                            tags.push(category);
+	                        }
+	                    }
+	                });
+	            }
+	        });
+	        // Check if icons without categories exist
+	        iconNames.forEach((name) => {
+	            if (!icons[name].tags.length) {
+	                icons[name].tags.push('');
+	                hasUncategorised = true;
+	            }
+	        });
+	        if (hasUncategorised) {
+	            tags.push('');
+	        }
+	    }
+	    // Remove tags if there are less than 2 categories
+	    if (tags.length < 2) {
+	        Object.keys(icons).forEach((name) => {
+	            delete icons[name].tags;
+	        });
+	    }
+	    else {
+	        result.tags = tags.sort(sortTags);
+	    }
+	    // Add characters
+	    if (typeof source.chars === 'object') {
+	        parseChars(source.chars, icons);
+	    }
+	    // Sort icons
+	    const sortedIcons = sortIcons(icons);
+	    // Add themes
+	    parseThemes(source, sortedIcons, result);
+	    // Add icons
+	    result.icons = sortedIcons;
+	    result.total = result.info.total = result.icons.length;
+	    return result;
+	}
+	exports.rawDataToCollection = rawDataToCollection;
+	/**
+	 * Sort categories
+	 */
+	function sortTags(a, b) {
+	    if (a === '') {
+	        return 1;
+	    }
+	    if (b === '') {
+	        return -1;
+	    }
+	    return a.localeCompare(b);
+	}
 
 	});
 
@@ -3819,11 +3793,11 @@
 	                if (sourceCollections[prefix] === void 0) {
 	                    throw new Error(`Missing data for prefix ${prefix}`);
 	                }
-	                const info = collection.dataToCollectionInfo(sourceCollections[prefix], prefix);
-	                if (info === null) {
+	                const info$1 = info.dataToCollectionInfo(sourceCollections[prefix], prefix);
+	                if (info$1 === null) {
 	                    throw new Error(`Invalid data for prefix ${prefix}`);
 	                }
-	                result.collections[prefix] = info;
+	                result.collections[prefix] = info$1;
 	            }
 	        });
 	    }
@@ -20701,7 +20675,7 @@
 		};
 	}
 
-	// (242:4) {#if parentFilters}
+	// (249:4) {#if parentFilters}
 	function create_if_block_2$b(ctx) {
 		let filterscomponent;
 		let current;
@@ -20742,7 +20716,7 @@
 		};
 	}
 
-	// (248:4) {#if childFilters}
+	// (255:4) {#if childFilters}
 	function create_if_block_1$d(ctx) {
 		let filterscomponent;
 		let current;
@@ -20785,7 +20759,7 @@
 		};
 	}
 
-	// (237:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}>
+	// (244:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}>
 	function create_default_slot$e(ctx) {
 		let div1;
 		let div0;
@@ -21078,7 +21052,7 @@
 			} else {
 				// Create new child filters
 				$$invalidate(4, childFilters = child
-				? createFilters(parent.children, child.mode, tree.length)
+				? createFilters(parent.children, child.mode, item.parentIndex + 1)
 				: null);
 			}
 
@@ -21107,19 +21081,29 @@
 			const tree = providerData.tree;
 
 			if (typeof tab === "string") {
-				for (let i = 0; i < tree.length; i++) {
-					const parent = tree[i];
+				for (let parentIndex = 0; parentIndex < tree.length; parentIndex++) {
+					const parent = tree[parentIndex];
 
 					if (parent.mode === tab || parent.tab === tab) {
 						if (parent.children) {
 							// Has children: return first child
 							const child = parent.children[0];
 
-							return { tab: child.mode, parent, child };
+							return {
+								tab: child.mode,
+								parent,
+								parentIndex,
+								child
+							};
 						}
 
 						// No children, must have mode
-						return { tab: parent.mode, parent, child: null };
+						return {
+							tab: parent.mode,
+							parent,
+							parentIndex,
+							child: null
+						};
 					}
 
 					// Check children
@@ -21128,7 +21112,7 @@
 							const child = parent.children[j];
 
 							if (child.mode === tab) {
-								return { tab, parent, child };
+								return { tab, parent, parentIndex, child };
 							}
 						}
 					}
@@ -21141,21 +21125,41 @@
 
 				if (!parent) {
 					// No modes available
-					return { tab: "", parent: null, child: null };
+					return {
+						tab: "",
+						parent: null,
+						parentIndex: 0,
+						child: null
+					};
 				}
 
 				if (parent.children) {
 					// Has child items: use first item
 					const child = parent.children[0];
 
-					return { tab: child.mode, parent, child };
+					return {
+						tab: child.mode,
+						parent,
+						parentIndex: 0,
+						child
+					};
 				}
 
 				// Tab without children
-				return { tab: parent.mode, parent, child: null };
+				return {
+					tab: parent.mode,
+					parent,
+					parentIndex: 0,
+					child: null
+				};
 			}
 
-			return { tab: "", parent: null, child: null };
+			return {
+				tab: "",
+				parent: null,
+				parentIndex: 0,
+				child: null
+			};
 		}
 
 		// Change current tab
