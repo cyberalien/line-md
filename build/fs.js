@@ -8,17 +8,17 @@ const rootDir = path.dirname(__dirname);
  */
 function mkdir(dir) {
 	if (dir.slice(0, rootDir.length) !== rootDir) {
-		return;
+		throw new Error(`Invalid mkdir(): ${dir}`);
 	}
 	let current = rootDir;
 	const parts = dir.slice(rootDir.length).split('/');
 	while (parts.length) {
-		try {
-			fs.mkdirSync(dir, 0o755);
-		} catch (err) {}
 		const next = parts.shift();
 		if (next !== '') {
 			current += '/' + next;
+			try {
+				fs.mkdirSync(current, 0o755);
+			} catch (err) {}
 		}
 	}
 }
