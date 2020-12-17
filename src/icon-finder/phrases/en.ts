@@ -21,7 +21,7 @@ export const phrases: UITranslation = {
 		defaultError: 'Error loading Iconify Icon Finder.',
 		custom: {
 			loading: 'Loading...',
-			timeout: 'Connection timed out.',
+			timeout: 'Could not connect to Iconify API.',
 			invalid_data: 'Invalid response from Iconify API.',
 			empty: 'Nothing to show.',
 			not_found: 'Collection {prefix} does not exist.',
