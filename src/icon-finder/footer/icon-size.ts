@@ -22,15 +22,13 @@ export function getDimensions(
 	}
 
 	if (!height) {
-		height = Iconify._internal.calculateSize(
-			width,
-			rotated ? ratio : 1 / ratio
-		) as number | string;
+		height = Iconify.calculateSize(width, rotated ? ratio : 1 / ratio) as
+			| number
+			| string;
 	} else {
-		width = Iconify._internal.calculateSize(
-			height,
-			rotated ? 1 / ratio : ratio
-		) as number | string;
+		width = Iconify.calculateSize(height, rotated ? 1 / ratio : ratio) as
+			| number
+			| string;
 	}
 	return {
 		width,

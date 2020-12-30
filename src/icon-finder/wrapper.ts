@@ -1,6 +1,7 @@
 import Iconify from '@iconify/iconify';
 import type { SvelteComponent } from 'svelte';
 import {
+	setIconify,
 	compareObjects,
 	stringToIcon,
 	validateIcon,
@@ -49,6 +50,9 @@ import { addCustomAPIProviders } from './config/api';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental, @typescript-eslint/no-empty-function
 function assertNever(s: never) {}
+
+// Set SVG framework
+setIconify(Iconify);
 
 // Add components configuration to config object
 setComponentsConfig(defaultComponentsConfig);
@@ -108,8 +112,7 @@ export class Wrapper {
 		}
 
 		// Disable Iconify cache
-		Iconify.enableCache('local', false);
-		Iconify.enableCache('session', false);
+		Iconify.disableCache('all');
 
 		// Init core
 		const core = (this._core = new IconFinderCore(coreParams));

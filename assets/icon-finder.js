@@ -5,8 +5,6 @@
 
 	var Iconify__default = /*#__PURE__*/_interopDefaultLegacy(Iconify);
 
-	var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
 	function createCommonjsModule(fn) {
 	  var module = { exports: {} };
 		return fn(module, module.exports), module.exports;
@@ -356,6 +354,40 @@
 
 	});
 
+	var iconify = createCommonjsModule(function (module, exports) {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.setIconify = exports.Iconify = void 0;
+	/**
+	 * Iconify functions
+	 *
+	 * Used functions:
+	 *  addCollection
+	 *  addAPIProvider
+	 *  getAPI (from _api)
+	 */
+	exports.Iconify = {};
+	/**
+	 * Set Iconify functions
+	 *
+	 * Use this to set Iconify module before doing anything
+	 */
+	function setIconify(functions) {
+	    // Merge all functions, including _api
+	    [functions, functions._api].forEach((items) => {
+	        if (typeof items === 'object') {
+	            for (const key in items) {
+	                const value = items[key];
+	                if (typeof value === 'function') {
+	                    exports.Iconify[key] = value;
+	                }
+	            }
+	        }
+	    });
+	}
+	exports.setIconify = setIconify;
+
+	});
+
 	var icon = createCommonjsModule(function (module, exports) {
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.iconToString = exports.compareIcons = exports.validateIcon = exports.stringToIcon = exports.match = void 0;
@@ -445,12 +477,8 @@
 	});
 
 	var providers = createCommonjsModule(function (module, exports) {
-	var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || function (mod) {
-	    return (mod && mod.__esModule) ? mod : { "default": mod };
-	};
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.listProviders = exports.addProvider = exports.getProvider = exports.convertProviderData = void 0;
-	const iconify_1 = __importDefault(Iconify__default['default']);
 	/**
 	 * Default values
 	 */
@@ -592,7 +620,7 @@
 	        }
 	        const source = sourceCache[provider];
 	        // Get Redundancy instance from Iconify
-	        const data = iconify_1.default._internal.getAPI(provider);
+	        const data = iconify.Iconify.getAPI ? iconify.Iconify.getAPI(provider) : void 0;
 	        if (data === void 0) {
 	            // Failed again - something is wrong with config
 	            configuredCache[provider] = null;
@@ -622,8 +650,8 @@
 	 * Add provider
 	 */
 	function addProvider(provider, config) {
-	    if (sourceCache[provider] !== void 0) {
-	        // Cannot overwrite provider
+	    if (!iconify.Iconify.addAPIProvider || sourceCache[provider] !== void 0) {
+	        // addAPIProvider is not set or cannot overwrite provider
 	        return;
 	    }
 	    if (config.title === void 0) {
@@ -631,7 +659,7 @@
 	        config.title = provider;
 	    }
 	    sourceCache[provider] = config;
-	    iconify_1.default.addAPIProvider(provider, config.config);
+	    iconify.Iconify.addAPIProvider(provider, config.config);
 	}
 	exports.addProvider = addProvider;
 	/**
@@ -863,7 +891,12 @@
 	            return response.json();
 	        })
 	            .then((data) => {
+	            if (data === void 0) {
+	                // Return from previous then() without Promise
+	                return;
+	            }
 	            if (typeof data !== 'object' || data === null) {
+	                // Error
 	                callback(void 0, null);
 	                return;
 	            }
@@ -2549,12 +2582,9 @@
 	});
 
 	var customSets = createCommonjsModule(function (module, exports) {
-	var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || function (mod) {
-	    return (mod && mod.__esModule) ? mod : { "default": mod };
-	};
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.mergeCollections = exports.convertCustomSets = exports.emptyConvertedSet = void 0;
-	const iconify_1 = __importDefault(Iconify__default['default']);
+
 
 
 	/**
@@ -2640,8 +2670,8 @@
 	        rawItemInfo.total = convertedData.total;
 	        rawInfo[provider][convertedData.prefix] = rawItemInfo;
 	        // Add icons to Iconify
-	        if (importIcons) {
-	            iconify_1.default.addCollection(item);
+	        if (importIcons && iconify.Iconify.addCollection) {
+	            iconify.Iconify.addCollection(item);
 	        }
 	    });
 	    // Parse collections lists
@@ -5002,7 +5032,7 @@
 
 	var lib = createCommonjsModule(function (module, exports) {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.getCoreInstance = exports.IconFinderCore = exports.cloneObject = exports.compareObjects = exports.stringToIcon = exports.compareIcons = exports.validateIcon = exports.iconToString = exports.setComponentsConfig = exports.mergeConfig = exports.customisedConfig = exports.getCollectionTitle = exports.getCollectionInfo = exports.objectToRoute = exports.listProviders = exports.convertProviderData = exports.getProvider = exports.addProvider = exports.maxPage = exports.showPagination = exports.iterateCollectionsBlock = exports.getCollectionsBlockPrefixes = exports.getCollectionsBlockCategories = exports.isBlockEmpty = void 0;
+	exports.getCoreInstance = exports.IconFinderCore = exports.cloneObject = exports.compareObjects = exports.stringToIcon = exports.compareIcons = exports.validateIcon = exports.iconToString = exports.setComponentsConfig = exports.mergeConfig = exports.customisedConfig = exports.getCollectionTitle = exports.getCollectionInfo = exports.objectToRoute = exports.listProviders = exports.convertProviderData = exports.getProvider = exports.addProvider = exports.setIconify = exports.maxPage = exports.showPagination = exports.iterateCollectionsBlock = exports.getCollectionsBlockPrefixes = exports.getCollectionsBlockCategories = exports.isBlockEmpty = void 0;
 
 
 
@@ -5020,6 +5050,12 @@
 
 	Object.defineProperty(exports, "showPagination", { enumerable: true, get: function () { return pagination.showPagination; } });
 	Object.defineProperty(exports, "maxPage", { enumerable: true, get: function () { return pagination.maxPage; } });
+	/**
+	 * Export various types and functions that do not depend on core instance
+	 */
+	// Iconify wrapper
+
+	Object.defineProperty(exports, "setIconify", { enumerable: true, get: function () { return iconify.setIconify; } });
 
 	Object.defineProperty(exports, "addProvider", { enumerable: true, get: function () { return providers.addProvider; } });
 	Object.defineProperty(exports, "getProvider", { enumerable: true, get: function () { return providers.getProvider; } });
@@ -5827,7 +5863,7 @@
 	        defaultError: 'Error loading Iconify Icon Finder.',
 	        custom: {
 	            loading: 'Loading...',
-	            timeout: 'Connection timed out.',
+	            timeout: 'Could not connect to Iconify API.',
 	            invalid_data: 'Invalid response from Iconify API.',
 	            empty: 'Nothing to show.',
 	            not_found: 'Collection {prefix} does not exist.',
@@ -18572,6 +18608,7 @@
 	exports.getCodeSamplesTree = void 0;
 
 
+
 	const rawCodeTabs = {
 	    iconify: 'api',
 	    react: {
@@ -18597,7 +18634,17 @@
 	    /**
 	     * Check if code sample can be shown
 	     */
-	    function canUse(type) {
+	    function canUse(mode, type) {
+	        // Check for required functions
+	        switch (mode) {
+	            case 'svg-box':
+	            case 'svg-raw':
+	            case 'svg-uri':
+	                if (!iconify.Iconify.renderHTML) {
+	                    return false;
+	                }
+	        }
+	        // Check type
 	        switch (type) {
 	            case 'raw':
 	                return config[type];
@@ -18623,7 +18670,7 @@
 	        // Item without children
 	        if (typeof item === 'string') {
 	            const mode = attr;
-	            if (canUse(item)) {
+	            if (canUse(mode, item)) {
 	                // Add item without children
 	                const newItem = {
 	                    mode,
@@ -18640,7 +18687,7 @@
 	            const mode = key2;
 	            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	            const type = item[mode];
-	            if (canUse(type)) {
+	            if (canUse(mode, type)) {
 	                const newItem = {
 	                    mode,
 	                    type,
@@ -19051,14 +19098,13 @@
 	});
 
 	var code = createCommonjsModule(function (module, exports) {
-	var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || function (mod) {
-	    return (mod && mod.__esModule) ? mod : { "default": mod };
-	};
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.getIconCode = exports.codeOutputComponentKeys = void 0;
-	const iconify_1 = __importDefault(Iconify__default['default']);
 
 
+
+	// Iconify version (replaced during build!)
+	const iconifyVersion = '2.0.0-rc.5';
 	exports.codeOutputComponentKeys = [
 	    'install',
 	    'install1',
@@ -19165,7 +19211,7 @@
 	    let npm;
 	    switch (lang) {
 	        case 'iconify':
-	            str = iconify_1.default.getVersion();
+	            str = iconify.Iconify.getVersion ? iconify.Iconify.getVersion() : iconifyVersion;
 	            output.iconify = {
 	                head: '<script src="https://code.iconify.design/' +
 	                    str.split('.').shift() +
@@ -19179,24 +19225,33 @@
 	        case 'svg-raw':
 	        case 'svg-box':
 	        case 'svg-uri':
-	            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	            str = iconify_1.default.renderHTML(iconName, attr);
+	            str = iconify.Iconify.renderHTML
+	                ? iconify.Iconify.renderHTML(iconName, attr)
+	                : null;
+	            if (str === null) {
+	                return null;
+	            }
 	            if (customisations.color !== '') {
 	                str = str.replace(/currentColor/g, customisations.color);
 	            }
 	            if (lang === 'svg-box') {
 	                // Add empty rectangle before shapes
 	                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	                data = iconify_1.default.getIcon(iconName);
-	                str = str.replace('>', '><rect x="' +
-	                    data.left +
-	                    '" y="' +
-	                    data.top +
-	                    '" width="' +
-	                    data.width +
-	                    '" height="' +
-	                    data.height +
-	                    '" fill="none" stroke="none" />');
+	                data = iconify.Iconify.getIcon ? iconify.Iconify.getIcon(iconName) : null;
+	                if (data) {
+	                    str = str.replace('>', '><rect x="' +
+	                        data.left +
+	                        '" y="' +
+	                        data.top +
+	                        '" width="' +
+	                        data.width +
+	                        '" height="' +
+	                        data.height +
+	                        '" fill="none" stroke="none" />');
+	                }
+	                else {
+	                    return null;
+	                }
 	            }
 	            if (lang === 'svg-uri') {
 	                // Remove unused attributes
@@ -21683,10 +21738,10 @@
 	        };
 	    }
 	    if (!height) {
-	        height = Iconify__default['default']._internal.calculateSize(width, rotated ? ratio : 1 / ratio);
+	        height = Iconify__default['default'].calculateSize(width, rotated ? ratio : 1 / ratio);
 	    }
 	    else {
-	        width = Iconify__default['default']._internal.calculateSize(height, rotated ? 1 / ratio : ratio);
+	        width = Iconify__default['default'].calculateSize(height, rotated ? 1 / ratio : ratio);
 	    }
 	    return {
 	        width,
@@ -23831,6 +23886,8 @@
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental, @typescript-eslint/no-empty-function
 	function assertNever(s) { }
+	// Set SVG framework
+	lib.setIconify(Iconify__default['default']);
 	// Add components configuration to config object
 	lib.setComponentsConfig(defaultComponentsConfig);
 	/**
@@ -23873,8 +23930,7 @@
 	            // console.log('Params.iconSets:', coreParams.iconSets);
 	        }
 	        // Disable Iconify cache
-	        Iconify__default['default'].enableCache('local', false);
-	        Iconify__default['default'].enableCache('session', false);
+	        Iconify__default['default'].disableCache('all');
 	        // Init core
 	        const core = (this._core = new lib.IconFinderCore(coreParams));
 	        const registry = (this._registry = core.registry);
