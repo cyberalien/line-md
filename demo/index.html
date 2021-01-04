@@ -20,8 +20,6 @@
 				max-width: 800px;
 				margin: 0 auto;
 			}
-			#container {
-			}
 			#debug {
 				border-top: 1px dotted #ccc;
 				margin: 8px 0;
@@ -37,14 +35,6 @@
 
 	<body>
 		<div id="container"></div>
-		<script>
-			(function () {
-				var node = document.createElement('script');
-				node.type = 'text/javascript';
-				node.async = true;
-				node.src = '../dist/icon-finder.js';
-				document.head.appendChild(node);
-			})();
-		</script>
+		<script src="../dist/icon-finder.js" async></script>
 	</body>
 </html>
