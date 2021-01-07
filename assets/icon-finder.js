@@ -18649,8 +18649,9 @@
 	            case 'raw':
 	                return config[type];
 	            case 'api':
+	                return config.api !== void 0;
 	            case 'npm':
-	                return config[type] !== void 0;
+	                return config.npmES !== void 0 || config.npmCJS !== void 0;
 	        }
 	    }
 	    /**
@@ -18743,8 +18744,12 @@
 	    // Show packages that use API
 	    api: '',
 	    // NPM packages for React, Vue, Svelte components
-	    npm: {
+	    npmES: {
 	        package: '@iconify-icons/{prefix}',
+	        file: '/{name}',
+	    },
+	    npmCJS: {
+	        package: '@iconify/icons-{prefix}',
 	        file: '/{name}',
 	    },
 	    // Allow generating SVG
@@ -19125,10 +19130,18 @@
 	 * Get code for icon
 	 */
 	function getIconCode(lang, icon$1, customisations, providerConfig) {
-	    function npmIconImport() {
+	    function npmIconImport(preferES) {
 	        const name = codeParsers.varName(icon$1.name);
-	        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	        const npm = providerConfig.npm;
+	        const npm = preferES
+	            ? providerConfig.npmES
+	                ? providerConfig.npmES
+	                : providerConfig.npmCJS
+	            : providerConfig.npmCJS
+	                ? providerConfig.npmCJS
+	                : providerConfig.npmES;
+	        if (!npm) {
+	            return null;
+	        }
 	        const packageName = typeof npm.package === 'string'
 	            ? npm.package.replace('{prefix}', icon$1.prefix)
 	            : typeof npm.package === 'function'
@@ -19273,10 +19286,11 @@
 	        case 'svelte':
 	        case 'vue2':
 	        case 'vue3':
-	            if (!parser.npm || !providerConfig.npm) {
+	            if (!parser.npm ||
+	                (!providerConfig.npmCJS && !providerConfig.npmES)) {
 	                return null;
 	            }
-	            npm = npmIconImport();
+	            npm = npmIconImport(lang === 'vue3');
 	            if (!npm) {
 	                return null;
 	            }

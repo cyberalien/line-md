@@ -17,8 +17,12 @@ codeConfig.providers[''] = {
 	// Show packages that use API
 	api: '',
 	// NPM packages for React, Vue, Svelte components
-	npm: {
+	npmES: {
 		package: '@iconify-icons/{prefix}',
+		file: '/{name}',
+	},
+	npmCJS: {
+		package: '@iconify/icons-{prefix}',
 		file: '/{name}',
 	},
 	// Allow generating SVG
