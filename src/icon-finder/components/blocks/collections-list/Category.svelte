@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import type { CollectionInfo } from '@iconify/search-core/lib/converters/collection';
+	import type { CollectionInfo } from '@iconify/search-core/lib/converters/info';
 	import Item from './Item.svelte';
 
 	// Show categories

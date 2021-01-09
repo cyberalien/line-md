@@ -1,7 +1,7 @@
 <script lang="typescript">
 	import { getContext } from 'svelte';
 	import type { CollectionInfoBlock } from '@iconify/search-core';
-	import type { CollectionInfo } from '@iconify/search-core/lib/converters/collection';
+	import type { CollectionInfo } from '@iconify/search-core/lib/converters/info';
 	import type { WrappedRegistry } from '../../wrapper/registry';
 	import { phrases } from '../../config/phrases';
 	import Block from './Block.svelte';
