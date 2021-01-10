@@ -2356,6 +2356,7 @@
 	        parseChars(source.chars, icons);
 	    }
 	    // Add aliases
+	    const missingAliases = Object.create(null);
 	    if (typeof source.aliases === 'object') {
 	        const aliases = source.aliases;
 	        Object.keys(aliases).forEach((alias) => {
@@ -2366,12 +2367,27 @@
 	                    icon.aliases = [];
 	                }
 	                icon.aliases.push(alias);
+	                return;
 	            }
+	            // Alias is not found. Hidden icon?
+	            if (missingAliases[name] === void 0) {
+	                missingAliases[name] = [];
+	            }
+	            missingAliases[name].push(alias);
 	        });
 	    }
 	    // Add hidden icons
 	    if (source.hidden instanceof Array) {
-	        result.hidden = source.hidden;
+	        let hidden = [];
+	        source.hidden.forEach((icon) => {
+	            // Add icon
+	            hidden.push(icon);
+	            // Look for aliases of hidden icon
+	            if (missingAliases[icon] !== void 0) {
+	                hidden = hidden.concat(missingAliases[icon]);
+	            }
+	        });
+	        result.hidden = hidden;
 	    }
 	    // Convert to sorted array
 	    const sortedIcons = sortIcons(icons);
