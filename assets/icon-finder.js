@@ -2798,12 +2798,20 @@
 	                api: true,
 	            };
 	        }
+	        // Check for cache
+	        const cache = registry.getCustom('core-cache');
+	        if (typeof cache === 'object') {
+	            const providerCache = cache[this.provider];
+	            if (providerCache && providerCache.collections) {
+	                this._data = providerCache.collections;
+	            }
+	        }
 	    }
 	    /**
 	     * Start loading
 	     */
 	    _startLoadingData() {
-	        if (!this._sources.api) {
+	        if (this._data || !this._sources.api) {
 	            this._parseAPIData(null);
 	            return;
 	        }
@@ -2958,11 +2966,11 @@
 	     * Should be overwritten by child classes
 	     */
 	    _parseAPIData(data) {
-	        if (this._sources.api && !data) {
+	        if (this._sources.api && !data && !this._data) {
 	            // Error
 	            this._data = null;
 	        }
-	        else {
+	        else if (!this._data) {
 	            // Convert and merge data
 	            this._data = customSets.mergeCollections(this.route.params.provider, this._sources.api
 	                ? collections.dataToCollections(data)
@@ -3353,12 +3361,22 @@
 	        this._mustWaitForParent =
 	            parent !== null &&
 	                (parent.type === 'search' || parent.type === 'collections');
+	        // Check for cache
+	        if (!this._data) {
+	            const cache = registry.getCustom('core-cache');
+	            if (typeof cache === 'object' && cache[this.provider]) {
+	                const collectionCache = cache[this.provider].collection;
+	                if (collectionCache && collectionCache[this.prefix]) {
+	                    this._data = collectionCache[this.prefix];
+	                }
+	            }
+	        }
 	    }
 	    /**
 	     * Start loading
 	     */
 	    _startLoadingData() {
-	        if (!this._isCustom) {
+	        if (!this._data) {
 	            const params = {
 	                prefix: this.prefix,
 	                info: 'true',
@@ -3615,7 +3633,7 @@
 	     * Should be overwritten by child classes
 	     */
 	    _parseAPIData(data) {
-	        if (!this._isCustom) {
+	        if (!this._data && !this._isCustom) {
 	            this._data = collection.dataToCollection(this.provider, data);
 	        }
 	        // Mark as loaded, mark blocks for re-render and reset error
@@ -3887,6 +3905,16 @@
 	        if (this.route.params.page > 1) {
 	            this.route.params.short = false;
 	        }
+	        // Check for cache
+	        const cache = registry.getCustom('core-cache');
+	        if (typeof cache === 'object' && cache[this.provider]) {
+	            const searchCache = cache[this.provider].search;
+	            if (searchCache && searchCache[this.keyword]) {
+	                this._data = searchCache[this.keyword];
+	                // Only full pages can be cached
+	                this.route.params.short = false;
+	            }
+	        }
 	        // Set items limit for query
 	        this.itemsLimit = this.route.params.short ? this.itemsPerPage * 2 : 999;
 	    }
@@ -3894,12 +3922,17 @@
 	     * Start loading
 	     */
 	    _startLoadingData() {
-	        const query = this.keyword;
-	        const limit = this.itemsLimit;
-	        this._loadAPI(this.provider, '/search', {
-	            query,
-	            limit,
-	        }, base.searchCacheKey(query, limit));
+	        if (!this._data) {
+	            const query = this.keyword;
+	            const limit = this.itemsLimit;
+	            this._loadAPI(this.provider, '/search', {
+	                query,
+	                limit,
+	            }, base.searchCacheKey(query, limit));
+	        }
+	        else {
+	            this._parseAPIData(null);
+	        }
 	    }
 	    /**
 	     * Run action on view
@@ -4071,7 +4104,9 @@
 	     * Should be overwritten by child classes
 	     */
 	    _parseAPIData(data) {
-	        this._data = search$1.dataToSearchResults(this.provider, data);
+	        if (!this._data) {
+	            this._data = search$1.dataToSearchResults(this.provider, data);
+	        }
 	        // Mark as loaded, mark blocks for re-render and reset error
 	        this.loading = false;
 	        this.blocksRequireUpdate = true;
@@ -5236,6 +5271,144 @@
 
 	});
 
+	/**
+	 * Default values
+	 */
+	const defaultComponentsConfig = {
+	    // Icons list mode.
+	    list: false,
+	    // True if icons list mode can be changed.
+	    toggleList: true,
+	    // Active code tab
+	    codeTab: '',
+	    // Can select multiple icons
+	    multiSelect: false,
+	    // Toggle footer blocks
+	    propsVisible: true,
+	    infoVisible: false,
+	    codeVisible: false,
+	};
+
+	/**
+	 * Add icon to selection
+	 */
+	function addToSelection(icons, icon) {
+	    if (icons[icon.provider] === void 0) {
+	        icons[icon.provider] = Object.create(null);
+	    }
+	    const providerIcons = icons[icon.provider];
+	    if (providerIcons[icon.prefix] === void 0) {
+	        providerIcons[icon.prefix] = [];
+	    }
+	    const list = providerIcons[icon.prefix];
+	    if (list.indexOf(icon.name) === -1) {
+	        list.push(icon.name);
+	        return true;
+	    }
+	    return false;
+	}
+	/**
+	 * Remove icon from selection
+	 */
+	function removeFromSelection(icons, icon) {
+	    if (icons[icon.provider] === void 0 ||
+	        icons[icon.provider][icon.prefix] === void 0) {
+	        return false;
+	    }
+	    const providerIcons = icons[icon.provider];
+	    let oldCount = providerIcons[icon.prefix].length;
+	    const matches = icon.aliases
+	        ? icon.aliases.concat([icon.name])
+	        : [icon.name];
+	    providerIcons[icon.prefix] = providerIcons[icon.prefix].filter((name) => matches.indexOf(name) === -1);
+	    const found = oldCount !== providerIcons[icon.prefix].length;
+	    if (!providerIcons[icon.prefix].length) {
+	        // Clean up
+	        delete providerIcons[icon.prefix];
+	        if (!Object.keys(providerIcons).length) {
+	            delete icons[icon.provider];
+	        }
+	    }
+	    return found;
+	}
+	/**
+	 * Check if icon is selected
+	 */
+	function isIconSelected(icons, icon) {
+	    // Check if provider and prefix exist
+	    if (icons[icon.provider] === void 0) {
+	        return false;
+	    }
+	    const provider = icons[icon.provider];
+	    if (provider[icon.prefix] === void 0) {
+	        return false;
+	    }
+	    // Check name and aliases
+	    const list = provider[icon.prefix];
+	    if (list.indexOf(icon.name) !== -1) {
+	        return true;
+	    }
+	    if (icon.aliases) {
+	        for (let i = 0; i < icon.aliases.length; i++) {
+	            if (list.indexOf(icon.aliases[i]) !== -1) {
+	                return true;
+	            }
+	        }
+	    }
+	    return false;
+	}
+	/**
+	 * Convert selection to array
+	 */
+	function selectionToArray(icons) {
+	    const result = [];
+	    Object.keys(icons).forEach((provider) => {
+	        Object.keys(icons[provider]).forEach((prefix) => {
+	            icons[provider][prefix].forEach((name) => {
+	                result.push({
+	                    provider,
+	                    prefix,
+	                    name,
+	                });
+	            });
+	        });
+	    });
+	    return result;
+	}
+
+	/**
+	 * List of custom API providers
+	 *
+	 * Each array item must have:
+	 *  provider: unique provider key, similar to icon set prefix
+	 *  title: title to show in API providers tabs (used if showProviders is enabled in ./components.ts)
+	 *  api: host name(s) as string or array of strings
+	 */
+	const customProviders = [
+	/*
+	{
+	    provider: 'local',
+	    title: 'Local Test',
+	    api: 'http://localhost:3100',
+	},
+	*/
+	];
+	/**
+	 * Add custom API providers
+	 */
+	function addCustomAPIProviders(registry) {
+	    if (customProviders.length) {
+	        customProviders.forEach((item) => {
+	            const converted = lib.convertProviderData('', item);
+	            if (converted) {
+	                lib.addProvider(item.provider, converted);
+	            }
+	        });
+	        // Set default API provider in router
+	        // registry.router.defaultProvider = customProviders[0].provider;
+	    }
+	}
+
 	function noop() { }
 	function assign(tar, src) {
 	    // @ts-ignore
@@ -5765,7 +5938,7 @@
 	    }
 	}
 
-	/* src/icon-finder/components/main/Wrapper.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/main/Wrapper.svelte generated by Svelte v3.31.2 */
 
 	function create_fragment(ctx) {
 		let div;
@@ -6090,7 +6263,7 @@
 	    'selecting-unselected': customIconsPrefix + ':empty',
 	};
 
-	/* src/icon-finder/components/misc/Icon.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/misc/Icon.svelte generated by Svelte v3.31.2 */
 
 	function create_else_block(ctx) {
 		let current;
@@ -6351,7 +6524,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/forms/Input.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/forms/Input.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block_2(ctx) {
 		let div;
@@ -6477,7 +6650,6 @@
 		let t0;
 		let input;
 		let input_title_value;
-		let input_spellcheck_value;
 		let t1;
 		let t2;
 		let current;
@@ -6504,7 +6676,7 @@
 				? /*title*/ ctx[2]
 				: /*placeholder*/ ctx[1]);
 
-				attr(input, "spellcheck", input_spellcheck_value = false);
+				attr(input, "spellcheck", false);
 				attr(input, "autocomplete", "off");
 				attr(input, "autocorrect", "off");
 				attr(input, "autocapitalize", "off");
@@ -6802,7 +6974,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/Block.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/Block.svelte generated by Svelte v3.31.2 */
 
 	function create_fragment$3(ctx) {
 		let div;
@@ -6899,7 +7071,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/GlobalSearch.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/GlobalSearch.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -6946,7 +7118,8 @@
 				mount_component(input, target, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				const input_changes = {};
 				if (dirty & /*focusInput*/ 2) input_changes.autofocus = /*autofocus*/ ctx[10];
 
@@ -7026,7 +7199,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*text, focusInput, keyword*/ 7) {
-					const each_value = [/*focusInput*/ ctx[1]];
+					each_value = [/*focusInput*/ ctx[1]];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, form, outro_and_destroy_block, create_each_block, t0, get_each_context);
 					check_outros();
@@ -7203,7 +7376,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/parent/Link.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/parent/Link.svelte generated by Svelte v3.31.2 */
 
 	function create_fragment$5(ctx) {
 		let div;
@@ -7283,7 +7456,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/Parent.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/Parent.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$1(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -7423,7 +7596,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*entries, handleClick*/ 3) {
-					const each_value = /*entries*/ ctx[0];
+					each_value = /*entries*/ ctx[0];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$1, each_1_anchor, get_each_context$1);
 					check_outros();
@@ -7596,7 +7769,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/misc/Tabs.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/misc/Tabs.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$2(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -7652,7 +7825,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*list*/ 1) {
-					const each_value_1 = /*listItem*/ ctx[4].items;
+					each_value_1 = /*listItem*/ ctx[4].items;
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_1, each_1_lookup, div, outro_and_destroy_block, create_each_block_1, t, get_each_context_1);
 					check_outros();
@@ -7876,7 +8049,9 @@
 				insert(target, if_block_anchor, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
+
 				if (!/*listItem*/ ctx[4].empty) {
 					if (if_block) {
 						if_block.p(ctx, dirty);
@@ -7952,7 +8127,7 @@
 			},
 			p(ctx, [dirty]) {
 				if (dirty & /*baseClass, list*/ 1) {
-					const each_value = /*list*/ ctx[0];
+					each_value = /*list*/ ctx[0];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$2, null, get_each_context$2);
 					check_outros();
@@ -8064,7 +8239,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/forms/AddForm.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/forms/AddForm.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block_3(ctx) {
 		let div;
@@ -8529,7 +8704,7 @@
 	    });
 	}
 
-	/* src/icon-finder/components/blocks/Providers.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/Providers.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block$5(ctx) {
 		let addform;
@@ -8805,7 +8980,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/views/Error.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/views/Error.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$3(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -8952,7 +9127,8 @@
 				mount_component(block, target, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				const block_changes = {};
 				if (dirty & /*error*/ 1) block_changes.extra = "error--" + /*type*/ ctx[7];
 
@@ -9010,7 +9186,7 @@
 			},
 			p(ctx, [dirty]) {
 				if (dirty & /*error, handleReturn, errorPhrases, canReturn, text*/ 31) {
-					const each_value = [/*error*/ ctx[0]];
+					each_value = [/*error*/ ctx[0]];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$3, each_1_anchor, get_each_context$3);
 					check_outros();
@@ -9106,7 +9282,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/filters/Filter.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/filters/Filter.svelte generated by Svelte v3.31.2 */
 
 	function create_else_block$1(ctx) {
 		let button;
@@ -9293,7 +9469,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/Filters.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/Filters.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$4(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -9503,7 +9679,7 @@
 				}
 
 				if (dirty & /*Object, block, link, phrases, handleClick*/ 70) {
-					const each_value = Object.entries(/*block*/ ctx[1].filters);
+					each_value = Object.entries(/*block*/ ctx[1].filters);
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$4, null, get_each_context$4);
 					check_outros();
@@ -9706,7 +9882,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/CollectionsFilter.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/CollectionsFilter.svelte generated by Svelte v3.31.2 */
 
 	function create_default_slot$5(ctx) {
 		let input;
@@ -9858,7 +10034,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/collections-list/Height.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/collections-list/Height.svelte generated by Svelte v3.31.2 */
 
 	function create_fragment$e(ctx) {
 		let html_tag;
@@ -10057,7 +10233,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/collections-list/Item.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/collections-list/Item.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$5(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -10177,7 +10353,6 @@
 	// (102:2) {#if samples.length > 0}
 	function create_if_block_1$4(ctx) {
 		let div;
-		let div_class_value;
 		let each_value = /*samples*/ ctx[7];
 		let each_blocks = [];
 
@@ -10193,7 +10368,7 @@
 					each_blocks[i].c();
 				}
 
-				attr(div, "class", div_class_value = "iif-collection-samples" + (/*samplesHeight*/ ctx[8]
+				attr(div, "class", "iif-collection-samples" + (/*samplesHeight*/ ctx[8]
 				? " iif-collection-samples--" + /*samplesHeight*/ ctx[8]
 				: ""));
 			},
@@ -10570,7 +10745,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/collections-list/Category.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/collections-list/Category.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$6(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -10632,7 +10807,8 @@
 				mount_component(item, target, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				const item_changes = {};
 				if (dirty & /*provider*/ 8) item_changes.provider = /*provider*/ ctx[3];
 				if (dirty & /*items*/ 4) item_changes.prefix = /*prefix*/ ctx[5];
@@ -10714,7 +10890,7 @@
 				}
 
 				if (dirty & /*provider, Object, items, onClick*/ 28) {
-					const each_value = Object.entries(/*items*/ ctx[2]);
+					each_value = Object.entries(/*items*/ ctx[2]);
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$6, null, get_each_context$6);
 					check_outros();
@@ -10780,7 +10956,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/errors/ContentError.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/errors/ContentError.svelte generated by Svelte v3.31.2 */
 
 	function create_fragment$h(ctx) {
 		let div;
@@ -10824,7 +11000,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/CollectionsList.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/CollectionsList.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$7(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -10896,7 +11072,8 @@
 				mount_component(category, target, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				const category_changes = {};
 				if (dirty & /*block*/ 1) category_changes.showCategories = /*block*/ ctx[0].showCategories;
 				if (dirty & /*block*/ 1) category_changes.category = /*category*/ ctx[5];
@@ -10968,7 +11145,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*onClick, block, Object, provider, phrases*/ 7) {
-					const each_value = Object.entries(/*block*/ ctx[0].collections);
+					each_value = Object.entries(/*block*/ ctx[0].collections);
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$7, each_1_anchor, get_each_context$7);
 					check_outros();
@@ -11093,7 +11270,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/views/Collections.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/views/Collections.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block$b(ctx) {
 		let filtersblock;
@@ -11255,7 +11432,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/CollectionInfo.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/CollectionInfo.svelte generated by Svelte v3.31.2 */
 
 	function create_fragment$k(ctx) {
 		let if_block_anchor;
@@ -11337,94 +11514,7 @@
 		}
 	}
 
-	/**
-	 * Add icon to selection
-	 */
-	function addToSelection(icons, icon) {
-	    if (icons[icon.provider] === void 0) {
-	        icons[icon.provider] = Object.create(null);
-	    }
-	    const providerIcons = icons[icon.provider];
-	    if (providerIcons[icon.prefix] === void 0) {
-	        providerIcons[icon.prefix] = [];
-	    }
-	    const list = providerIcons[icon.prefix];
-	    if (list.indexOf(icon.name) === -1) {
-	        list.push(icon.name);
-	        return true;
-	    }
-	    return false;
-	}
-	/**
-	 * Remove icon from selection
-	 */
-	function removeFromSelection(icons, icon) {
-	    if (icons[icon.provider] === void 0 ||
-	        icons[icon.provider][icon.prefix] === void 0) {
-	        return false;
-	    }
-	    const providerIcons = icons[icon.provider];
-	    let oldCount = providerIcons[icon.prefix].length;
-	    const matches = icon.aliases
-	        ? icon.aliases.concat([icon.name])
-	        : [icon.name];
-	    providerIcons[icon.prefix] = providerIcons[icon.prefix].filter((name) => matches.indexOf(name) === -1);
-	    const found = oldCount !== providerIcons[icon.prefix].length;
-	    if (!providerIcons[icon.prefix].length) {
-	        // Clean up
-	        delete providerIcons[icon.prefix];
-	        if (!Object.keys(providerIcons).length) {
-	            delete icons[icon.provider];
-	        }
-	    }
-	    return found;
-	}
-	/**
-	 * Check if icon is selected
-	 */
-	function isIconSelected(icons, icon) {
-	    // Check if provider and prefix exist
-	    if (icons[icon.provider] === void 0) {
-	        return false;
-	    }
-	    const provider = icons[icon.provider];
-	    if (provider[icon.prefix] === void 0) {
-	        return false;
-	    }
-	    // Check name and aliases
-	    const list = provider[icon.prefix];
-	    if (list.indexOf(icon.name) !== -1) {
-	        return true;
-	    }
-	    if (icon.aliases) {
-	        for (let i = 0; i < icon.aliases.length; i++) {
-	            if (list.indexOf(icon.aliases[i]) !== -1) {
-	                return true;
-	            }
-	        }
-	    }
-	    return false;
-	}
-	/**
-	 * Convert selection to array
-	 */
-	function selectionToArray(icons) {
-	    const result = [];
-	    Object.keys(icons).forEach((provider) => {
-	        Object.keys(icons[provider]).forEach((prefix) => {
-	            icons[provider][prefix].forEach((name) => {
-	                result.push({
-	                    provider,
-	                    prefix,
-	                    name,
-	                });
-	            });
-	        });
-	    });
-	    return result;
-	}
-
-	/* src/icon-finder/components/blocks/icons/IconList.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/icons/IconList.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$8(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -12015,7 +12105,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/icons/IconGrid.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/icons/IconGrid.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block$d(ctx) {
 		let html_tag;
@@ -12310,7 +12400,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/icons/Container.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/icons/Container.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$9(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -12458,7 +12548,8 @@
 				insert(target, if_block_anchor, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				let previous_block_index = current_block_type_index;
 				current_block_type_index = select_block_type(ctx);
 
@@ -12543,7 +12634,7 @@
 			},
 			p(ctx, [dirty]) {
 				if (dirty & /*parsedIcons, onClick, isSelecting, isList*/ 15) {
-					const each_value = /*parsedIcons*/ ctx[2];
+					each_value = /*parsedIcons*/ ctx[2];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$9, null, get_each_context$9);
 					check_outros();
@@ -12859,7 +12950,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/forms/IconButton.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/forms/IconButton.svelte generated by Svelte v3.31.2 */
 
 	function create_fragment$o(ctx) {
 		let button;
@@ -12938,7 +13029,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/icons/Header.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/icons/Header.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$a(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -13110,7 +13201,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*mode, changeLayout, text*/ 164) {
-					const each_value = [/*mode*/ ctx[5]];
+					each_value = [/*mode*/ ctx[5]];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$a, each_1_anchor, get_each_context$a);
 					check_outros();
@@ -13169,7 +13260,8 @@
 				mount_component(iconbutton, target, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				const iconbutton_changes = {};
 				if (dirty & /*mode*/ 32) iconbutton_changes.icon = /*icon*/ ctx[10];
 				if (dirty & /*changeLayout*/ 4) iconbutton_changes.onClick = /*changeLayout*/ ctx[2];
@@ -13333,7 +13425,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/Pagination.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/Pagination.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$b(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -13420,7 +13512,7 @@
 				}
 
 				if (dirty & /*pages*/ 2) {
-					const each_value = /*pages*/ ctx[1];
+					each_value = /*pages*/ ctx[1];
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, destroy_block, create_each_block$b, t1, get_each_context$b);
 				}
 
@@ -13489,7 +13581,6 @@
 	function create_if_block_4(ctx) {
 		let a;
 		let uiicon;
-		let a_class_value;
 		let current;
 		let mounted;
 		let dispose;
@@ -13500,7 +13591,7 @@
 				a = element("a");
 				create_component(uiicon.$$.fragment);
 				attr(a, "href", "# ");
-				attr(a, "class", a_class_value = /*arrowClass*/ ctx[4] + "prev");
+				attr(a, "class", ctx[4] + "prev");
 			},
 			m(target, anchor) {
 				insert(target, a, anchor);
@@ -13662,7 +13753,6 @@
 	function create_if_block_1$8(ctx) {
 		let a;
 		let uiicon;
-		let a_class_value;
 		let current;
 		let mounted;
 		let dispose;
@@ -13673,7 +13763,7 @@
 				a = element("a");
 				create_component(uiicon.$$.fragment);
 				attr(a, "href", "# ");
-				attr(a, "class", a_class_value = /*arrowClass*/ ctx[4] + "next");
+				attr(a, "class", ctx[4] + "next");
 			},
 			m(target, anchor) {
 				insert(target, a, anchor);
@@ -13855,7 +13945,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/IconsWithPages.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/IconsWithPages.svelte generated by Svelte v3.31.2 */
 
 	function create_else_block$5(ctx) {
 		let block;
@@ -14209,7 +14299,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/blocks/Search.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/blocks/Search.svelte generated by Svelte v3.31.2 */
 
 	function create_default_slot$8(ctx) {
 		let input;
@@ -14361,7 +14451,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/views/Collection.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/views/Collection.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$c(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -14501,7 +14591,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*filterBlocks*/ 128) {
-					const each_value = /*filterBlocks*/ ctx[7];
+					each_value = /*filterBlocks*/ ctx[7];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$c, null, get_each_context$c);
 					check_outros();
@@ -14559,7 +14649,8 @@
 				mount_component(filters, target, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				const filters_changes = {};
 				if (dirty & /*filterBlocks*/ 128) filters_changes.name = /*item*/ ctx[9].key;
 				if (dirty & /*filterBlocks*/ 128) filters_changes.block = /*item*/ ctx[9].item;
@@ -14839,7 +14930,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/views/Search.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/views/Search.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block$j(ctx) {
 		let filtersblock;
@@ -15008,7 +15099,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/views/Custom.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/views/Custom.svelte generated by Svelte v3.31.2 */
 
 	function create_fragment$v(ctx) {
 		let div;
@@ -15106,7 +15197,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/main/Content.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/main/Content.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block_8(ctx) {
 		let providersblock;
@@ -15823,7 +15914,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/footer/misc/Block.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/misc/Block.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block_1$b(ctx) {
 		let p;
@@ -16164,134 +16255,6 @@
 		constructor(options) {
 			super();
 			init(this, options, instance$x, create_fragment$x, safe_not_equal, { name: 5, title: 0 });
-		}
-	}
-
-	function shortenIconName(route, icon, fullName) {
-	    if (!route) {
-	        return fullName;
-	    }
-	    switch (route.type) {
-	        case 'collections':
-	        case 'search':
-	        case 'collection':
-	            break;
-	        default:
-	            return fullName;
-	    }
-	    const params = route.params;
-	    // Get and check provider
-	    const provider = params && typeof params.provider === 'string' ? params.provider : '';
-	    if (icon.provider !== provider) {
-	        return fullName;
-	    }
-	    // Check if icon has same prefix (only for collection)
-	    if (route.type === 'collection' && icon.prefix === route.params.prefix) {
-	        return icon.name;
-	    }
-	    // Remove only provider
-	    return icon.prefix + ':' + icon.name;
-	}
-
-	/* src/icon-finder/components/footer/parts/name/Simple.svelte generated by Svelte v3.31.0 */
-
-	function create_fragment$y(ctx) {
-		let div1;
-		let dl;
-		let dt;
-		let dd;
-		let uiicon;
-		let t1;
-		let div0;
-		let span;
-		let t2;
-		let current;
-		uiicon = new Icon({ props: { icon: /*iconName*/ ctx[0] } });
-
-		return {
-			c() {
-				div1 = element("div");
-				dl = element("dl");
-				dt = element("dt");
-				dt.textContent = `${phrases.footer.iconName}`;
-				dd = element("dd");
-				create_component(uiicon.$$.fragment);
-				t1 = space();
-				div0 = element("div");
-				span = element("span");
-				t2 = text(/*text*/ ctx[1]);
-				attr(div0, "class", "iif-footer-icon-name-input");
-				attr(div1, "class", "iif-footer-icon-name iif-footer-icon-name--simple");
-			},
-			m(target, anchor) {
-				insert(target, div1, anchor);
-				append(div1, dl);
-				append(dl, dt);
-				append(dl, dd);
-				mount_component(uiicon, dd, null);
-				append(dd, t1);
-				append(dd, div0);
-				append(div0, span);
-				append(span, t2);
-				current = true;
-			},
-			p(ctx, [dirty]) {
-				const uiicon_changes = {};
-				if (dirty & /*iconName*/ 1) uiicon_changes.icon = /*iconName*/ ctx[0];
-				uiicon.$set(uiicon_changes);
-				if (!current || dirty & /*text*/ 2) set_data(t2, /*text*/ ctx[1]);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(uiicon.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(uiicon.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				if (detaching) detach(div1);
-				destroy_component(uiicon);
-			}
-		};
-	}
-
-	function instance$y($$self, $$props, $$invalidate) {
-		
-		let { icon } = $$props;
-		let { route } = $$props;
-
-		// Get icon name
-		let iconName;
-
-		let text;
-
-		$$self.$$set = $$props => {
-			if ("icon" in $$props) $$invalidate(2, icon = $$props.icon);
-			if ("route" in $$props) $$invalidate(3, route = $$props.route);
-		};
-
-		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*icon, route, iconName*/ 13) {
-				 {
-					// Full name
-					$$invalidate(0, iconName = lib.iconToString(icon));
-
-					// Do not show prefix if viewing collection
-					$$invalidate(1, text =  shortenIconName(route, icon, iconName)
-					);
-				}
-			}
-		};
-
-		return [iconName, text, icon, route];
-	}
-
-	class Simple extends SvelteComponent {
-		constructor(options) {
-			super();
-			init(this, options, instance$y, create_fragment$y, safe_not_equal, { icon: 2, route: 3 });
 		}
 	}
 
@@ -16823,9 +16786,9 @@
 
 	});
 
-	/* src/icon-finder/components/footer/parts/props/Block.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/props/Block.svelte generated by Svelte v3.31.2 */
 
-	function create_fragment$z(ctx) {
+	function create_fragment$y(ctx) {
 		let div1;
 		let p;
 		let t0;
@@ -16890,7 +16853,7 @@
 
 	const baseClass$c = "iif-footer-options-block";
 
-	function instance$z($$self, $$props, $$invalidate) {
+	function instance$y($$self, $$props, $$invalidate) {
 		let { $$slots: slots = {}, $$scope } = $$props;
 		let { type } = $$props;
 
@@ -16920,11 +16883,11 @@
 	class Block$2 extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$z, create_fragment$z, safe_not_equal, { type: 0 });
+			init(this, options, instance$y, create_fragment$y, safe_not_equal, { type: 0 });
 		}
 	}
 
-	/* src/icon-finder/components/footer/parts/props/color/Color.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/props/color/Color.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block$m(ctx) {
 		let block;
@@ -17024,7 +16987,7 @@
 		};
 	}
 
-	function create_fragment$A(ctx) {
+	function create_fragment$z(ctx) {
 		let if_block_anchor;
 		let current;
 		let if_block = /*hasColor*/ ctx[1] && create_if_block$m(ctx);
@@ -17079,7 +17042,7 @@
 		};
 	}
 
-	function instance$A($$self, $$props, $$invalidate) {
+	function instance$z($$self, $$props, $$invalidate) {
 		
 		
 		let { icons } = $$props;
@@ -17180,13 +17143,13 @@
 	class Color extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$A, create_fragment$A, safe_not_equal, { icons: 6, value: 0, customise: 7 });
+			init(this, options, instance$z, create_fragment$z, safe_not_equal, { icons: 6, value: 0, customise: 7 });
 		}
 	}
 
-	/* src/icon-finder/components/footer/parts/props/size/SizeInput.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/props/size/SizeInput.svelte generated by Svelte v3.31.2 */
 
-	function create_fragment$B(ctx) {
+	function create_fragment$A(ctx) {
 		let input;
 		let current;
 
@@ -17233,7 +17196,7 @@
 		};
 	}
 
-	function instance$B($$self, $$props, $$invalidate) {
+	function instance$A($$self, $$props, $$invalidate) {
 		
 		let { prop } = $$props;
 		let { value } = $$props;
@@ -17312,7 +17275,7 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$B, create_fragment$B, safe_not_equal, {
+			init(this, options, instance$A, create_fragment$A, safe_not_equal, {
 				prop: 0,
 				value: 6,
 				placeholder: 1,
@@ -17321,7 +17284,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/footer/parts/props/size/Size.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/props/size/Size.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$d(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -17358,7 +17321,8 @@
 				mount_component(sizeinput, target, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				const sizeinput_changes = {};
 				if (dirty & /*customisations*/ 1) sizeinput_changes.value = /*customisations*/ ctx[0][/*prop*/ ctx[8]] + "";
 				if (dirty & /*placeholders*/ 4) sizeinput_changes.placeholder = /*placeholders*/ ctx[2][/*prop*/ ctx[8]];
@@ -17414,7 +17378,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*props, customisations, placeholders, customise*/ 23) {
-					const each_value = /*props*/ ctx[4];
+					each_value = /*props*/ ctx[4];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$d, each_1_anchor, get_each_context$d);
 					check_outros();
@@ -17446,7 +17410,7 @@
 		};
 	}
 
-	function create_fragment$C(ctx) {
+	function create_fragment$B(ctx) {
 		let block;
 		let current;
 
@@ -17490,7 +17454,7 @@
 		};
 	}
 
-	function instance$C($$self, $$props, $$invalidate) {
+	function instance$B($$self, $$props, $$invalidate) {
 		
 		
 		let { icons } = $$props;
@@ -17633,7 +17597,7 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$C, create_fragment$C, safe_not_equal, {
+			init(this, options, instance$B, create_fragment$B, safe_not_equal, {
 				icons: 5,
 				customisations: 0,
 				customise: 1
@@ -17641,7 +17605,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/forms/OptionButton.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/forms/OptionButton.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block$n(ctx) {
 		let uiicon;
@@ -17682,7 +17646,7 @@
 		};
 	}
 
-	function create_fragment$D(ctx) {
+	function create_fragment$C(ctx) {
 		let button;
 		let t0;
 		let span;
@@ -17775,7 +17739,7 @@
 
 	const baseClass$d = "iif-option-button";
 
-	function instance$D($$self, $$props, $$invalidate) {
+	function instance$C($$self, $$props, $$invalidate) {
 		let { icon = "" } = $$props;
 		let { onClick } = $$props;
 		let { title } = $$props;
@@ -17828,7 +17792,7 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$D, create_fragment$D, safe_not_equal, {
+			init(this, options, instance$C, create_fragment$C, safe_not_equal, {
 				icon: 0,
 				onClick: 1,
 				title: 2,
@@ -17839,7 +17803,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/footer/parts/props/rotate/Rotate.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/props/rotate/Rotate.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$e(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -17947,7 +17911,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*list, buttonPhrases, value, rotateClicked*/ 15) {
-					const each_value = /*list*/ ctx[1];
+					each_value = /*list*/ ctx[1];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$e, each_1_anchor, get_each_context$e);
 					check_outros();
@@ -17979,7 +17943,7 @@
 		};
 	}
 
-	function create_fragment$E(ctx) {
+	function create_fragment$D(ctx) {
 		let block;
 		let current;
 
@@ -18032,7 +17996,7 @@
 		};
 	}
 
-	function instance$E($$self, $$props, $$invalidate) {
+	function instance$D($$self, $$props, $$invalidate) {
 		
 		let { value } = $$props;
 		let { customise } = $$props;
@@ -18086,11 +18050,11 @@
 	class Rotate extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$E, create_fragment$E, safe_not_equal, { value: 0, customise: 4 });
+			init(this, options, instance$D, create_fragment$D, safe_not_equal, { value: 0, customise: 4 });
 		}
 	}
 
-	/* src/icon-finder/components/footer/parts/props/flip/Flip.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/props/flip/Flip.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$f(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -18195,7 +18159,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*list, customisations, flipClicked*/ 7) {
-					const each_value = /*list*/ ctx[1];
+					each_value = /*list*/ ctx[1];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$f, each_1_anchor, get_each_context$f);
 					check_outros();
@@ -18227,7 +18191,7 @@
 		};
 	}
 
-	function create_fragment$F(ctx) {
+	function create_fragment$E(ctx) {
 		let block;
 		let current;
 
@@ -18271,7 +18235,7 @@
 		};
 	}
 
-	function instance$F($$self, $$props, $$invalidate) {
+	function instance$E($$self, $$props, $$invalidate) {
 		
 		let { customisations } = $$props;
 		let { customise } = $$props;
@@ -18314,11 +18278,11 @@
 	class Flip extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$F, create_fragment$F, safe_not_equal, { customisations: 0, customise: 3 });
+			init(this, options, instance$E, create_fragment$E, safe_not_equal, { customisations: 0, customise: 3 });
 		}
 	}
 
-	/* src/icon-finder/components/footer/parts/props/inline/Inline.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/props/inline/Inline.svelte generated by Svelte v3.31.2 */
 
 	function get_each_context$g(ctx, list, i) {
 		const child_ctx = ctx.slice();
@@ -18361,7 +18325,8 @@
 				mount_component(button, target, anchor);
 				current = true;
 			},
-			p(ctx, dirty) {
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
 				const button_changes = {};
 				if (dirty & /*list*/ 2) button_changes.icon = "mode-" + /*mode*/ ctx[5];
 				if (dirty & /*list*/ 2) button_changes.text = /*buttonPhrases*/ ctx[2][/*mode*/ ctx[5]];
@@ -18422,7 +18387,7 @@
 			},
 			p(ctx, dirty) {
 				if (dirty & /*list, buttonPhrases, value, inlineClicked*/ 15) {
-					const each_value = /*list*/ ctx[1];
+					each_value = /*list*/ ctx[1];
 					group_outros();
 					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$g, each_1_anchor, get_each_context$g);
 					check_outros();
@@ -18454,7 +18419,7 @@
 		};
 	}
 
-	function create_fragment$G(ctx) {
+	function create_fragment$F(ctx) {
 		let block;
 		let current;
 
@@ -18510,7 +18475,7 @@
 		};
 	}
 
-	function instance$G($$self, $$props, $$invalidate) {
+	function instance$F($$self, $$props, $$invalidate) {
 		
 		let { value } = $$props;
 		let { customise } = $$props;
@@ -18560,7 +18525,1372 @@
 	class Inline extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$G, create_fragment$G, safe_not_equal, { value: 0, customise: 4 });
+			init(this, options, instance$F, create_fragment$F, safe_not_equal, { value: 0, customise: 4 });
+		}
+	}
+
+	/* src/icon-finder/components/footer/parts/Properties.svelte generated by Svelte v3.31.2 */
+
+	function create_if_block_4$2(ctx) {
+		let colorblock;
+		let current;
+
+		colorblock = new Color({
+				props: {
+					icons: /*icons*/ ctx[0],
+					value: /*customisations*/ ctx[1].color,
+					customise: /*customise*/ ctx[2]
+				}
+			});
+
+		return {
+			c() {
+				create_component(colorblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(colorblock, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const colorblock_changes = {};
+				if (dirty & /*icons*/ 1) colorblock_changes.icons = /*icons*/ ctx[0];
+				if (dirty & /*customisations*/ 2) colorblock_changes.value = /*customisations*/ ctx[1].color;
+				if (dirty & /*customise*/ 4) colorblock_changes.customise = /*customise*/ ctx[2];
+				colorblock.$set(colorblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(colorblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(colorblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(colorblock, detaching);
+			}
+		};
+	}
+
+	// (31:2) {#if customiseWidth || customiseHeight}
+	function create_if_block_3$6(ctx) {
+		let sizeblock;
+		let current;
+
+		sizeblock = new Size({
+				props: {
+					icons: /*icons*/ ctx[0],
+					customisations: /*customisations*/ ctx[1],
+					customise: /*customise*/ ctx[2]
+				}
+			});
+
+		return {
+			c() {
+				create_component(sizeblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(sizeblock, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const sizeblock_changes = {};
+				if (dirty & /*icons*/ 1) sizeblock_changes.icons = /*icons*/ ctx[0];
+				if (dirty & /*customisations*/ 2) sizeblock_changes.customisations = /*customisations*/ ctx[1];
+				if (dirty & /*customise*/ 4) sizeblock_changes.customise = /*customise*/ ctx[2];
+				sizeblock.$set(sizeblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(sizeblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(sizeblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(sizeblock, detaching);
+			}
+		};
+	}
+
+	// (34:2) {#if customiseFlip}
+	function create_if_block_2$a(ctx) {
+		let flipblock;
+		let current;
+
+		flipblock = new Flip({
+				props: {
+					customisations: /*customisations*/ ctx[1],
+					customise: /*customise*/ ctx[2]
+				}
+			});
+
+		return {
+			c() {
+				create_component(flipblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(flipblock, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const flipblock_changes = {};
+				if (dirty & /*customisations*/ 2) flipblock_changes.customisations = /*customisations*/ ctx[1];
+				if (dirty & /*customise*/ 4) flipblock_changes.customise = /*customise*/ ctx[2];
+				flipblock.$set(flipblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(flipblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(flipblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(flipblock, detaching);
+			}
+		};
+	}
+
+	// (37:2) {#if customiseRotate}
+	function create_if_block_1$c(ctx) {
+		let rotateblock;
+		let current;
+
+		rotateblock = new Rotate({
+				props: {
+					value: /*customisations*/ ctx[1].rotate,
+					customise: /*customise*/ ctx[2]
+				}
+			});
+
+		return {
+			c() {
+				create_component(rotateblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(rotateblock, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const rotateblock_changes = {};
+				if (dirty & /*customisations*/ 2) rotateblock_changes.value = /*customisations*/ ctx[1].rotate;
+				if (dirty & /*customise*/ 4) rotateblock_changes.customise = /*customise*/ ctx[2];
+				rotateblock.$set(rotateblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(rotateblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(rotateblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(rotateblock, detaching);
+			}
+		};
+	}
+
+	// (40:2) {#if customiseInline && icons.length === 1}
+	function create_if_block$o(ctx) {
+		let inlineblock;
+		let current;
+
+		inlineblock = new Inline({
+				props: {
+					value: /*customisations*/ ctx[1].inline,
+					customise: /*customise*/ ctx[2]
+				}
+			});
+
+		return {
+			c() {
+				create_component(inlineblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(inlineblock, target, anchor);
+				current = true;
+			},
+			p(ctx, dirty) {
+				const inlineblock_changes = {};
+				if (dirty & /*customisations*/ 2) inlineblock_changes.value = /*customisations*/ ctx[1].inline;
+				if (dirty & /*customise*/ 4) inlineblock_changes.customise = /*customise*/ ctx[2];
+				inlineblock.$set(inlineblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(inlineblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(inlineblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(inlineblock, detaching);
+			}
+		};
+	}
+
+	// (26:0) <FooterBlock name="props" {title}>
+	function create_default_slot$e(ctx) {
+		let div;
+		let t0;
+		let t1;
+		let t2;
+		let t3;
+		let current;
+		let if_block0 =  create_if_block_4$2(ctx);
+		let if_block1 =  create_if_block_3$6(ctx);
+		let if_block2 =  create_if_block_2$a(ctx);
+		let if_block3 =  create_if_block_1$c(ctx);
+		let if_block4 =  /*icons*/ ctx[0].length === 1 && create_if_block$o(ctx);
+
+		return {
+			c() {
+				div = element("div");
+				if (if_block0) if_block0.c();
+				t0 = space();
+				if (if_block1) if_block1.c();
+				t1 = space();
+				if (if_block2) if_block2.c();
+				t2 = space();
+				if (if_block3) if_block3.c();
+				t3 = space();
+				if (if_block4) if_block4.c();
+			},
+			m(target, anchor) {
+				insert(target, div, anchor);
+				if (if_block0) if_block0.m(div, null);
+				append(div, t0);
+				if (if_block1) if_block1.m(div, null);
+				append(div, t1);
+				if (if_block2) if_block2.m(div, null);
+				append(div, t2);
+				if (if_block3) if_block3.m(div, null);
+				append(div, t3);
+				if (if_block4) if_block4.m(div, null);
+				current = true;
+			},
+			p(ctx, dirty) {
+				if_block0.p(ctx, dirty);
+				if_block1.p(ctx, dirty);
+				if_block2.p(ctx, dirty);
+				if_block3.p(ctx, dirty);
+
+				if ( /*icons*/ ctx[0].length === 1) {
+					if (if_block4) {
+						if_block4.p(ctx, dirty);
+
+						if (dirty & /*icons*/ 1) {
+							transition_in(if_block4, 1);
+						}
+					} else {
+						if_block4 = create_if_block$o(ctx);
+						if_block4.c();
+						transition_in(if_block4, 1);
+						if_block4.m(div, null);
+					}
+				} else if (if_block4) {
+					group_outros();
+
+					transition_out(if_block4, 1, 1, () => {
+						if_block4 = null;
+					});
+
+					check_outros();
+				}
+			},
+			i(local) {
+				if (current) return;
+				transition_in(if_block0);
+				transition_in(if_block1);
+				transition_in(if_block2);
+				transition_in(if_block3);
+				transition_in(if_block4);
+				current = true;
+			},
+			o(local) {
+				transition_out(if_block0);
+				transition_out(if_block1);
+				transition_out(if_block2);
+				transition_out(if_block3);
+				transition_out(if_block4);
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(div);
+				if (if_block0) if_block0.d();
+				if (if_block1) if_block1.d();
+				if (if_block2) if_block2.d();
+				if (if_block3) if_block3.d();
+				if (if_block4) if_block4.d();
+			}
+		};
+	}
+
+	function create_fragment$G(ctx) {
+		let footerblock;
+		let current;
+
+		footerblock = new Block$1({
+				props: {
+					name: "props",
+					title: /*title*/ ctx[3],
+					$$slots: { default: [create_default_slot$e] },
+					$$scope: { ctx }
+				}
+			});
+
+		return {
+			c() {
+				create_component(footerblock.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(footerblock, target, anchor);
+				current = true;
+			},
+			p(ctx, [dirty]) {
+				const footerblock_changes = {};
+				if (dirty & /*title*/ 8) footerblock_changes.title = /*title*/ ctx[3];
+
+				if (dirty & /*$$scope, customisations, customise, icons*/ 23) {
+					footerblock_changes.$$scope = { dirty, ctx };
+				}
+
+				footerblock.$set(footerblock_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(footerblock.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(footerblock.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(footerblock, detaching);
+			}
+		};
+	}
+
+	function instance$G($$self, $$props, $$invalidate) {
+		
+		
+		let { icons } = $$props;
+		let { customisations } = $$props;
+		let { customise } = $$props;
+
+		// Title
+		let title;
+
+		$$self.$$set = $$props => {
+			if ("icons" in $$props) $$invalidate(0, icons = $$props.icons);
+			if ("customisations" in $$props) $$invalidate(1, customisations = $$props.customisations);
+			if ("customise" in $$props) $$invalidate(2, customise = $$props.customise);
+		};
+
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*icons*/ 1) {
+				 {
+					$$invalidate(3, title =  "");
+				}
+			}
+		};
+
+		return [icons, customisations, customise, title];
+	}
+
+	class Properties extends SvelteComponent {
+		constructor(options) {
+			super();
+
+			init(this, options, instance$G, create_fragment$G, safe_not_equal, {
+				icons: 0,
+				customisations: 1,
+				customise: 2
+			});
+		}
+	}
+
+	/**
+	 * Calculate both dimensions
+	 */
+	function getDimensions(width, height, ratio, rotated) {
+	    if (width && height) {
+	        return {
+	            width: rotated ? height : width,
+	            height: rotated ? width : height,
+	        };
+	    }
+	    if (!height) {
+	        height = Iconify__default['default'].calculateSize(width, rotated ? ratio : 1 / ratio);
+	    }
+	    else {
+	        width = Iconify__default['default'].calculateSize(height, rotated ? 1 / ratio : ratio);
+	    }
+	    return {
+	        width,
+	        height,
+	    };
+	}
+
+	/* src/icon-finder/components/footer/parts/samples/Full.svelte generated by Svelte v3.31.2 */
+
+	function create_fragment$H(ctx) {
+		let div;
+		let uiicon;
+		let current;
+
+		uiicon = new Icon({
+				props: {
+					icon: /*data*/ ctx[0].name,
+					props: /*props*/ ctx[2]
+				}
+			});
+
+		return {
+			c() {
+				div = element("div");
+				create_component(uiicon.$$.fragment);
+				attr(div, "class", "iif-footer-sample iif-footer-sample--block iif-footer-sample--loaded");
+				attr(div, "style", /*style*/ ctx[1]);
+			},
+			m(target, anchor) {
+				insert(target, div, anchor);
+				mount_component(uiicon, div, null);
+				current = true;
+			},
+			p(ctx, [dirty]) {
+				const uiicon_changes = {};
+				if (dirty & /*data*/ 1) uiicon_changes.icon = /*data*/ ctx[0].name;
+				if (dirty & /*props*/ 4) uiicon_changes.props = /*props*/ ctx[2];
+				uiicon.$set(uiicon_changes);
+
+				if (!current || dirty & /*style*/ 2) {
+					attr(div, "style", /*style*/ ctx[1]);
+				}
+			},
+			i(local) {
+				if (current) return;
+				transition_in(uiicon.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(uiicon.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(div);
+				destroy_component(uiicon);
+			}
+		};
+	}
+
+	function instance$H($$self, $$props, $$invalidate) {
+		
+		
+		
+		let { icon } = $$props;
+		let { customisations } = $$props;
+		const divisions = [2.5, 3, 3.5];
+
+		// Get maximum width/height from options
+		const maxWidth = iconSampleSize.width;
+
+		const maxHeight = iconSampleSize.height;
+		const minWidth = Math.floor(maxWidth / 2);
+		const minHeight = Math.floor(maxHeight / 2);
+
+		function scaleSample(size, canScaleUp) {
+			// Scale
+			while (size.width > maxWidth || size.height > maxHeight) {
+				// Attempt to divide by 2
+				let newWidth = size.width / 2;
+
+				let newHeight = size.height / 2;
+
+				if (Math.round(newWidth) !== newWidth || Math.round(newHeight) !== newHeight) {
+					// Try to divide by a different number
+					for (let i = 0; i < divisions.length; i++) {
+						let div = divisions[i];
+						let newWidth2 = size.width / div;
+						let newHeight2 = size.height / div;
+
+						if (Math.round(newWidth2) === newWidth2 && Math.round(newHeight2) === newHeight2) {
+							newWidth = newWidth2;
+							newHeight = newHeight2;
+							break;
+						}
+					}
+				}
+
+				size.width = newWidth;
+				size.height = newHeight;
+			}
+
+			if (canScaleUp) {
+				while (size.width < minWidth && size.height < minHeight) {
+					size.width *= 2;
+					size.height *= 2;
+				}
+			}
+		}
+
+		let data;
+
+		// Calculate style
+		let style;
+
+		// Scale sample
+		let props;
+
+		$$self.$$set = $$props => {
+			if ("icon" in $$props) $$invalidate(3, icon = $$props.icon);
+			if ("customisations" in $$props) $$invalidate(4, customisations = $$props.customisations);
+		};
+
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*icon, customisations*/ 24) {
+				 {
+					// Get name
+					const name = lib.iconToString(icon);
+
+					// Get data
+					const iconData = Iconify__default['default'].getIcon(name);
+
+					// Check if icon is rotated (for width/height calculations)
+					const rotated = !!(iconData.width !== iconData.height && customisations.rotate && customisations.rotate % 2 === 1);
+
+					// Width / height ratio
+					const ratio = iconData.width / iconData.height;
+
+					$$invalidate(0, data = { name, data: iconData, rotated, ratio });
+				}
+			}
+
+			if ($$self.$$.dirty & /*customisations, style, data*/ 19) {
+				 {
+					$$invalidate(1, style = "");
+
+					// Add color
+					if (customisations.color) {
+						$$invalidate(1, style += "color: " + customisations.color + ";");
+					} else {
+						$$invalidate(1, style += "color: " + defaultColor + ";");
+					}
+
+					// Set dimensions
+					if (!customisations.width && !customisations.height) {
+						// Calculate size
+						let size;
+
+						{
+							size = getDimensions(data.data.width, data.data.height, data.ratio, data.rotated);
+						}
+
+						// Scale
+						scaleSample(size, true);
+
+						$$invalidate(1, style += "font-size: " + size.height + "px;");
+					}
+				}
+			}
+
+			if ($$self.$$.dirty & /*customisations, data*/ 17) {
+				 {
+					$$invalidate(2, props = {});
+
+					["hFlip", "vFlip", "rotate"].forEach(key => {
+						const prop = key;
+
+						if (customisations[prop]) {
+							$$invalidate(2, props[prop] = customisations[prop], props);
+						}
+					});
+
+					let size;
+
+					if (customisations.width || customisations.height) {
+						size = getDimensions(customisations.width, customisations.height, data.ratio, data.rotated);
+					}
+
+					if (size !== void 0) {
+						scaleSample(size, false);
+						$$invalidate(2, props.width = size.width + "", props);
+						$$invalidate(2, props.height = size.height + "", props);
+					}
+				}
+			}
+		};
+
+		return [data, style, props, icon, customisations];
+	}
+
+	class Full extends SvelteComponent {
+		constructor(options) {
+			super();
+			init(this, options, instance$H, create_fragment$H, safe_not_equal, { icon: 3, customisations: 4 });
+		}
+	}
+
+	/* src/icon-finder/components/footer/parts/samples/Inline.svelte generated by Svelte v3.31.2 */
+
+	function create_fragment$I(ctx) {
+		let div;
+		let p;
+		let t0_value = /*samplePhrases*/ ctx[2].before + "";
+		let t0;
+		let t1;
+		let span;
+		let t2;
+		let t3_value = /*samplePhrases*/ ctx[2].after + "";
+		let t3;
+
+		return {
+			c() {
+				div = element("div");
+				p = element("p");
+				t0 = text(t0_value);
+				t1 = space();
+				span = element("span");
+				t2 = space();
+				t3 = text(t3_value);
+				attr(span, "style", /*style*/ ctx[1]);
+				attr(div, "class", "iif-footer-sample iif-footer-sample--inline iif-footer-sample--loaded");
+			},
+			m(target, anchor) {
+				insert(target, div, anchor);
+				append(div, p);
+				append(p, t0);
+				append(p, t1);
+				append(p, span);
+				span.innerHTML = /*html*/ ctx[0];
+				append(p, t2);
+				append(p, t3);
+			},
+			p(ctx, [dirty]) {
+				if (dirty & /*html*/ 1) span.innerHTML = /*html*/ ctx[0];
+				if (dirty & /*style*/ 2) {
+					attr(span, "style", /*style*/ ctx[1]);
+				}
+			},
+			i: noop,
+			o: noop,
+			d(detaching) {
+				if (detaching) detach(div);
+			}
+		};
+	}
+
+	function instance$I($$self, $$props, $$invalidate) {
+		
+		
+		let { icon } = $$props;
+		let { customisations } = $$props;
+		const samplePhrases = phrases.footer.inlineSample;
+
+		// Get maximum width/height from options
+		const maxWidth = iconSampleSize.width;
+
+		const maxHeight = iconSampleSize.height;
+
+		// Get HTML
+		let html;
+
+		let style;
+
+		$$self.$$set = $$props => {
+			if ("icon" in $$props) $$invalidate(3, icon = $$props.icon);
+			if ("customisations" in $$props) $$invalidate(4, customisations = $$props.customisations);
+		};
+
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*icon, customisations*/ 24) {
+				 {
+					const iconName = lib.iconToString(icon);
+					const props = {};
+					$$invalidate(1, style = "");
+
+					Object.keys(customisations).forEach(key => {
+						const attr = key;
+						const value = customisations[attr];
+
+						if (value !== "" && value !== 0 && value !== false) {
+							if (attr === "color") {
+								$$invalidate(1, style = "color: " + value);
+							} else {
+								props[attr] = value;
+							}
+						}
+					});
+
+					// Adjust width and height
+					if (props.width || props.height) {
+						const rotated = !!(customisations.rotate % 2);
+
+						// Check maxWidth
+						let key = rotated ? "height" : "width";
+
+						if (props[key] && props[key] > maxWidth) {
+							props[key] = maxWidth;
+						}
+
+						// Check maxHeight
+						key = !rotated ? "height" : "width";
+
+						if (props[key] && props[key] > maxHeight) {
+							props[key] = maxHeight;
+						}
+					}
+
+					$$invalidate(0, html = Iconify__default['default'].renderHTML(iconName, props));
+				}
+			}
+		};
+
+		return [html, style, samplePhrases, icon, customisations];
+	}
+
+	class Inline$1 extends SvelteComponent {
+		constructor(options) {
+			super();
+			init(this, options, instance$I, create_fragment$I, safe_not_equal, { icon: 3, customisations: 4 });
+		}
+	}
+
+	function shortenIconName(route, icon, fullName) {
+	    if (!route) {
+	        return fullName;
+	    }
+	    switch (route.type) {
+	        case 'collections':
+	        case 'search':
+	        case 'collection':
+	            break;
+	        default:
+	            return fullName;
+	    }
+	    const params = route.params;
+	    // Get and check provider
+	    const provider = params && typeof params.provider === 'string' ? params.provider : '';
+	    if (icon.provider !== provider) {
+	        return fullName;
+	    }
+	    // Check if icon has same prefix (only for collection)
+	    if (route.type === 'collection' && icon.prefix === route.params.prefix) {
+	        return icon.name;
+	    }
+	    // Remove only provider
+	    return icon.prefix + ':' + icon.name;
+	}
+
+	/* src/icon-finder/components/footer/parts/Icons.svelte generated by Svelte v3.31.2 */
+
+	function get_each_context$h(ctx, list, i) {
+		const child_ctx = ctx.slice();
+		child_ctx[13] = list[i];
+		child_ctx[15] = i;
+		return child_ctx;
+	}
+
+	// (107:5) {#if !onSelect}
+	function create_if_block_1$d(ctx) {
+		let span;
+		let uiicon;
+		let current;
+		uiicon = new Icon({ props: { icon: "reset" } });
+
+		return {
+			c() {
+				span = element("span");
+				create_component(uiicon.$$.fragment);
+				attr(span, "class", "iif-footer-icons-reset");
+			},
+			m(target, anchor) {
+				insert(target, span, anchor);
+				mount_component(uiicon, span, null);
+				current = true;
+			},
+			i(local) {
+				if (current) return;
+				transition_in(uiicon.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(uiicon.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(span);
+				destroy_component(uiicon);
+			}
+		};
+	}
+
+	// (113:4) {#if onSelect}
+	function create_if_block$p(ctx) {
+		let a;
+		let uiicon;
+		let a_title_value;
+		let current;
+		let mounted;
+		let dispose;
+		uiicon = new Icon({ props: { icon: "reset" } });
+
+		function click_handler_1() {
+			return /*click_handler_1*/ ctx[10](/*item*/ ctx[13]);
+		}
+
+		return {
+			c() {
+				a = element("a");
+				create_component(uiicon.$$.fragment);
+				attr(a, "href", "# ");
+				attr(a, "class", "iif-footer-icons-reset");
+				attr(a, "title", a_title_value = /*item*/ ctx[13].removeTitle);
+			},
+			m(target, anchor) {
+				insert(target, a, anchor);
+				mount_component(uiicon, a, null);
+				current = true;
+
+				if (!mounted) {
+					dispose = listen(a, "click", prevent_default(click_handler_1));
+					mounted = true;
+				}
+			},
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
+
+				if (!current || dirty & /*items*/ 2 && a_title_value !== (a_title_value = /*item*/ ctx[13].removeTitle)) {
+					attr(a, "title", a_title_value);
+				}
+			},
+			i(local) {
+				if (current) return;
+				transition_in(uiicon.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(uiicon.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(a);
+				destroy_component(uiicon);
+				mounted = false;
+				dispose();
+			}
+		};
+	}
+
+	// (98:2) {#each items as item, i (item.name)}
+	function create_each_block$h(key_1, ctx) {
+		let li;
+		let a;
+		let uiicon;
+		let t0;
+		let a_title_value;
+		let t1;
+		let t2;
+		let current;
+		let mounted;
+		let dispose;
+
+		uiicon = new Icon({
+				props: {
+					icon: /*item*/ ctx[13].name,
+					props: /*props*/ ctx[2]
+				}
+			});
+
+		let if_block0 = !/*onSelect*/ ctx[0] && create_if_block_1$d();
+
+		function click_handler() {
+			return /*click_handler*/ ctx[9](/*item*/ ctx[13]);
+		}
+
+		let if_block1 = /*onSelect*/ ctx[0] && create_if_block$p(ctx);
+
+		return {
+			key: key_1,
+			first: null,
+			c() {
+				li = element("li");
+				a = element("a");
+				create_component(uiicon.$$.fragment);
+				t0 = space();
+				if (if_block0) if_block0.c();
+				t1 = space();
+				if (if_block1) if_block1.c();
+				t2 = space();
+				attr(a, "href", "# ");
+				attr(a, "title", a_title_value = /*item*/ ctx[13].selectTitle);
+				this.first = li;
+			},
+			m(target, anchor) {
+				insert(target, li, anchor);
+				append(li, a);
+				mount_component(uiicon, a, null);
+				append(a, t0);
+				if (if_block0) if_block0.m(a, null);
+				append(li, t1);
+				if (if_block1) if_block1.m(li, null);
+				append(li, t2);
+				current = true;
+
+				if (!mounted) {
+					dispose = listen(a, "click", prevent_default(click_handler));
+					mounted = true;
+				}
+			},
+			p(new_ctx, dirty) {
+				ctx = new_ctx;
+				const uiicon_changes = {};
+				if (dirty & /*items*/ 2) uiicon_changes.icon = /*item*/ ctx[13].name;
+				if (dirty & /*props*/ 4) uiicon_changes.props = /*props*/ ctx[2];
+				uiicon.$set(uiicon_changes);
+
+				if (!/*onSelect*/ ctx[0]) {
+					if (if_block0) {
+						if (dirty & /*onSelect*/ 1) {
+							transition_in(if_block0, 1);
+						}
+					} else {
+						if_block0 = create_if_block_1$d();
+						if_block0.c();
+						transition_in(if_block0, 1);
+						if_block0.m(a, null);
+					}
+				} else if (if_block0) {
+					group_outros();
+
+					transition_out(if_block0, 1, 1, () => {
+						if_block0 = null;
+					});
+
+					check_outros();
+				}
+
+				if (!current || dirty & /*items*/ 2 && a_title_value !== (a_title_value = /*item*/ ctx[13].selectTitle)) {
+					attr(a, "title", a_title_value);
+				}
+
+				if (/*onSelect*/ ctx[0]) {
+					if (if_block1) {
+						if_block1.p(ctx, dirty);
+
+						if (dirty & /*onSelect*/ 1) {
+							transition_in(if_block1, 1);
+						}
+					} else {
+						if_block1 = create_if_block$p(ctx);
+						if_block1.c();
+						transition_in(if_block1, 1);
+						if_block1.m(li, t2);
+					}
+				} else if (if_block1) {
+					group_outros();
+
+					transition_out(if_block1, 1, 1, () => {
+						if_block1 = null;
+					});
+
+					check_outros();
+				}
+			},
+			i(local) {
+				if (current) return;
+				transition_in(uiicon.$$.fragment, local);
+				transition_in(if_block0);
+				transition_in(if_block1);
+				current = true;
+			},
+			o(local) {
+				transition_out(uiicon.$$.fragment, local);
+				transition_out(if_block0);
+				transition_out(if_block1);
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(li);
+				destroy_component(uiicon);
+				if (if_block0) if_block0.d();
+				if (if_block1) if_block1.d();
+				mounted = false;
+				dispose();
+			}
+		};
+	}
+
+	// (96:0) <Block type="icons">
+	function create_default_slot$f(ctx) {
+		let ul;
+		let each_blocks = [];
+		let each_1_lookup = new Map();
+		let current;
+		let each_value = /*items*/ ctx[1];
+		const get_key = ctx => /*item*/ ctx[13].name;
+
+		for (let i = 0; i < each_value.length; i += 1) {
+			let child_ctx = get_each_context$h(ctx, each_value, i);
+			let key = get_key(child_ctx);
+			each_1_lookup.set(key, each_blocks[i] = create_each_block$h(key, child_ctx));
+		}
+
+		return {
+			c() {
+				ul = element("ul");
+
+				for (let i = 0; i < each_blocks.length; i += 1) {
+					each_blocks[i].c();
+				}
+
+				attr(ul, "class", "iif-footer-icons");
+				attr(ul, "style", /*style*/ ctx[3]);
+			},
+			m(target, anchor) {
+				insert(target, ul, anchor);
+
+				for (let i = 0; i < each_blocks.length; i += 1) {
+					each_blocks[i].m(ul, null);
+				}
+
+				current = true;
+			},
+			p(ctx, dirty) {
+				if (dirty & /*items, onClick, onSelect, props*/ 23) {
+					each_value = /*items*/ ctx[1];
+					group_outros();
+					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$h, null, get_each_context$h);
+					check_outros();
+				}
+
+				if (!current || dirty & /*style*/ 8) {
+					attr(ul, "style", /*style*/ ctx[3]);
+				}
+			},
+			i(local) {
+				if (current) return;
+
+				for (let i = 0; i < each_value.length; i += 1) {
+					transition_in(each_blocks[i]);
+				}
+
+				current = true;
+			},
+			o(local) {
+				for (let i = 0; i < each_blocks.length; i += 1) {
+					transition_out(each_blocks[i]);
+				}
+
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(ul);
+
+				for (let i = 0; i < each_blocks.length; i += 1) {
+					each_blocks[i].d();
+				}
+			}
+		};
+	}
+
+	function create_fragment$J(ctx) {
+		let block;
+		let current;
+
+		block = new Block$2({
+				props: {
+					type: "icons",
+					$$slots: { default: [create_default_slot$f] },
+					$$scope: { ctx }
+				}
+			});
+
+		return {
+			c() {
+				create_component(block.$$.fragment);
+			},
+			m(target, anchor) {
+				mount_component(block, target, anchor);
+				current = true;
+			},
+			p(ctx, [dirty]) {
+				const block_changes = {};
+
+				if (dirty & /*$$scope, style, items, onSelect, props*/ 65551) {
+					block_changes.$$scope = { dirty, ctx };
+				}
+
+				block.$set(block_changes);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(block.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(block.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				destroy_component(block, detaching);
+			}
+		};
+	}
+
+	function instance$J($$self, $$props, $$invalidate) {
+		
+		
+		
+		
+		let { icons } = $$props;
+		let { customisations } = $$props;
+		let { route } = $$props;
+		let { selected = "" } = $$props;
+		let { onSelect = null } = $$props;
+
+		// Registry
+		const registry = getContext("registry");
+
+		let items;
+
+		// Copy customisations
+		const transformations = ["rotate", "hFlip", "vFlip"];
+
+		let props;
+		let style;
+
+		// Toggle icon
+		function onClick(select, icon) {
+			if (select && onSelect) {
+				onSelect(icon);
+				return;
+			}
+
+			registry.callback({ type: "selection", icon, selected: false });
+		}
+
+		const click_handler = item => {
+			onClick(true, item.icon);
+		};
+
+		const click_handler_1 = item => {
+			onClick(false, item.icon);
+		};
+
+		$$self.$$set = $$props => {
+			if ("icons" in $$props) $$invalidate(5, icons = $$props.icons);
+			if ("customisations" in $$props) $$invalidate(6, customisations = $$props.customisations);
+			if ("route" in $$props) $$invalidate(7, route = $$props.route);
+			if ("selected" in $$props) $$invalidate(8, selected = $$props.selected);
+			if ("onSelect" in $$props) $$invalidate(0, onSelect = $$props.onSelect);
+		};
+
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*icons, route, onSelect, selected, items*/ 419) {
+				 {
+					$$invalidate(1, items = []);
+
+					icons.forEach(icon => {
+						// Full name
+						const name = lib.iconToString(icon);
+
+						// Do not show prefix if viewing collection
+						const text =  shortenIconName(route, icon, name)
+						;
+
+						// Hint
+						const removeTitle = phrases.footer.remove.replace("{name}", text);
+
+						const selectTitle = onSelect
+						? phrases.footer.select.replace("{name}", text)
+						: removeTitle;
+
+						// Item
+						const item = {
+							icon,
+							name,
+							text,
+							removeTitle,
+							selectTitle,
+							selected: name === selected
+						};
+
+						items.push(item);
+					});
+				}
+			}
+
+			if ($$self.$$.dirty & /*customisations*/ 64) {
+				 {
+					$$invalidate(2, props = {});
+
+					// Transformations
+					transformations.forEach(key => {
+						if (customisations[key]) {
+							$$invalidate(2, props[key] = customisations[key], props);
+						}
+					});
+
+					// Height
+					if (typeof customisations.height === "number" && customisations.height < 32) {
+						$$invalidate(2, props.height = customisations.height, props);
+
+						// Width, but only if height is set
+						if (customisations.width) {
+							$$invalidate(2, props.width = customisations.width, props);
+						}
+					}
+
+					// Color
+					$$invalidate(3, style = "");
+
+					if (customisations.color !== "") {
+						$$invalidate(3, style = "color: " + customisations.color + ";");
+					}
+				}
+			}
+		};
+
+		return [
+			onSelect,
+			items,
+			props,
+			style,
+			onClick,
+			icons,
+			customisations,
+			route,
+			selected,
+			click_handler,
+			click_handler_1
+		];
+	}
+
+	class Icons extends SvelteComponent {
+		constructor(options) {
+			super();
+
+			init(this, options, instance$J, create_fragment$J, safe_not_equal, {
+				icons: 5,
+				customisations: 6,
+				route: 7,
+				selected: 8,
+				onSelect: 0
+			});
+		}
+	}
+
+	/* src/icon-finder/components/footer/parts/name/Simple.svelte generated by Svelte v3.31.2 */
+
+	function create_fragment$K(ctx) {
+		let div1;
+		let dl;
+		let dt;
+		let dd;
+		let uiicon;
+		let t1;
+		let div0;
+		let span;
+		let t2;
+		let current;
+		uiicon = new Icon({ props: { icon: /*iconName*/ ctx[0] } });
+
+		return {
+			c() {
+				div1 = element("div");
+				dl = element("dl");
+				dt = element("dt");
+				dt.textContent = `${phrases.footer.iconName}`;
+				dd = element("dd");
+				create_component(uiicon.$$.fragment);
+				t1 = space();
+				div0 = element("div");
+				span = element("span");
+				t2 = text(/*text*/ ctx[1]);
+				attr(div0, "class", "iif-footer-icon-name-input");
+				attr(div1, "class", "iif-footer-icon-name iif-footer-icon-name--simple");
+			},
+			m(target, anchor) {
+				insert(target, div1, anchor);
+				append(div1, dl);
+				append(dl, dt);
+				append(dl, dd);
+				mount_component(uiicon, dd, null);
+				append(dd, t1);
+				append(dd, div0);
+				append(div0, span);
+				append(span, t2);
+				current = true;
+			},
+			p(ctx, [dirty]) {
+				const uiicon_changes = {};
+				if (dirty & /*iconName*/ 1) uiicon_changes.icon = /*iconName*/ ctx[0];
+				uiicon.$set(uiicon_changes);
+				if (!current || dirty & /*text*/ 2) set_data(t2, /*text*/ ctx[1]);
+			},
+			i(local) {
+				if (current) return;
+				transition_in(uiicon.$$.fragment, local);
+				current = true;
+			},
+			o(local) {
+				transition_out(uiicon.$$.fragment, local);
+				current = false;
+			},
+			d(detaching) {
+				if (detaching) detach(div1);
+				destroy_component(uiicon);
+			}
+		};
+	}
+
+	function instance$K($$self, $$props, $$invalidate) {
+		
+		let { icon } = $$props;
+		let { route } = $$props;
+
+		// Get icon name
+		let iconName;
+
+		let text;
+
+		$$self.$$set = $$props => {
+			if ("icon" in $$props) $$invalidate(2, icon = $$props.icon);
+			if ("route" in $$props) $$invalidate(3, route = $$props.route);
+		};
+
+		$$self.$$.update = () => {
+			if ($$self.$$.dirty & /*icon, route, iconName*/ 13) {
+				 {
+					// Full name
+					$$invalidate(0, iconName = lib.iconToString(icon));
+
+					// Do not show prefix if viewing collection
+					$$invalidate(1, text =  shortenIconName(route, icon, iconName)
+					);
+				}
+			}
+		};
+
+		return [iconName, text, icon, route];
+	}
+
+	class Simple extends SvelteComponent {
+		constructor(options) {
+			super();
+			init(this, options, instance$K, create_fragment$K, safe_not_equal, { icon: 2, route: 3 });
 		}
 	}
 
@@ -19348,15 +20678,14 @@
 
 	});
 
-	/* src/icon-finder/components/footer/parts/code/Sample.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/code/Sample.svelte generated by Svelte v3.31.2 */
 
-	function create_if_block$o(ctx) {
+	function create_if_block$q(ctx) {
 		let div;
 		let uiicon;
 		let t0;
 		let t1_value = /*text*/ ctx[3].copied + "";
 		let t1;
-		let div_class_value;
 		let current;
 		uiicon = new Icon({ props: { icon: "confirm" } });
 
@@ -19366,7 +20695,7 @@
 				create_component(uiicon.$$.fragment);
 				t0 = space();
 				t1 = text(t1_value);
-				attr(div, "class", div_class_value = baseClassName + "-notice");
+				attr(div, "class", baseClassName + "-notice");
 			},
 			m(target, anchor) {
 				insert(target, div, anchor);
@@ -19392,21 +20721,19 @@
 		};
 	}
 
-	function create_fragment$H(ctx) {
+	function create_fragment$L(ctx) {
 		let div1;
 		let div0;
 		let t0;
-		let div0_class_value;
 		let t1;
 		let a;
 		let uiicon;
-		let a_title_value;
 		let t2;
 		let current;
 		let mounted;
 		let dispose;
 		uiicon = new Icon({ props: { icon: "clipboard" } });
-		let if_block = /*notice*/ ctx[1] > 0 && create_if_block$o(ctx);
+		let if_block = /*notice*/ ctx[1] > 0 && create_if_block$q(ctx);
 
 		return {
 			c() {
@@ -19418,8 +20745,8 @@
 				create_component(uiicon.$$.fragment);
 				t2 = space();
 				if (if_block) if_block.c();
-				attr(div0, "class", div0_class_value = baseClassName + "-content");
-				attr(a, "title", a_title_value = /*text*/ ctx[3].copy);
+				attr(div0, "class", baseClassName + "-content");
+				attr(a, "title", ctx[3].copy);
 				attr(a, "href", "# ");
 				attr(div1, "class", /*className*/ ctx[2]);
 			},
@@ -19450,7 +20777,7 @@
 							transition_in(if_block, 1);
 						}
 					} else {
-						if_block = create_if_block$o(ctx);
+						if_block = create_if_block$q(ctx);
 						if_block.c();
 						transition_in(if_block, 1);
 						if_block.m(div1, null);
@@ -19492,7 +20819,7 @@
 
 	const baseClassName = "iif-input-sample";
 
-	function instance$H($$self, $$props, $$invalidate) {
+	function instance$L($$self, $$props, $$invalidate) {
 		let { content } = $$props;
 		const text = phrases.codeSamples;
 
@@ -19579,13 +20906,13 @@
 	class Sample extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$H, create_fragment$H, safe_not_equal, { content: 0 });
+			init(this, options, instance$L, create_fragment$L, safe_not_equal, { content: 0 });
 		}
 	}
 
-	/* src/icon-finder/components/footer/parts/code/Code.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/code/Code.svelte generated by Svelte v3.31.2 */
 
-	function get_each_context$h(ctx, list, i) {
+	function get_each_context$i(ctx, list, i) {
 		const child_ctx = ctx.slice();
 		child_ctx[9] = list[i];
 		return child_ctx;
@@ -19598,7 +20925,7 @@
 	}
 
 	// (69:0) {#if output}
-	function create_if_block$p(ctx) {
+	function create_if_block$r(ctx) {
 		let t0;
 		let t1;
 		let t2;
@@ -19612,8 +20939,8 @@
 		let if_block2 = /*output*/ ctx[2].iconify && create_if_block_8$1(ctx);
 		let if_block3 = /*output*/ ctx[2].raw && create_if_block_7$1(ctx);
 		let if_block4 = /*output*/ ctx[2].component && create_if_block_5$1(ctx);
-		let if_block5 = /*output*/ ctx[2].footer && create_if_block_2$a(ctx);
-		let if_block6 = /*output*/ ctx[2].docs && create_if_block_1$c(ctx);
+		let if_block5 = /*output*/ ctx[2].footer && create_if_block_2$b(ctx);
+		let if_block6 = /*output*/ ctx[2].docs && create_if_block_1$e(ctx);
 
 		return {
 			c() {
@@ -19763,7 +21090,7 @@
 							transition_in(if_block5, 1);
 						}
 					} else {
-						if_block5 = create_if_block_2$a(ctx);
+						if_block5 = create_if_block_2$b(ctx);
 						if_block5.c();
 						transition_in(if_block5, 1);
 						if_block5.m(t5.parentNode, t5);
@@ -19786,7 +21113,7 @@
 							transition_in(if_block6, 1);
 						}
 					} else {
-						if_block6 = create_if_block_1$c(ctx);
+						if_block6 = create_if_block_1$e(ctx);
 						if_block6.c();
 						transition_in(if_block6, 1);
 						if_block6.m(if_block6_anchor.parentNode, if_block6_anchor);
@@ -20212,7 +21539,7 @@
 		let each_blocks = [];
 
 		for (let i = 0; i < each_value.length; i += 1) {
-			each_blocks[i] = create_each_block$h(get_each_context$h(ctx, each_value, i));
+			each_blocks[i] = create_each_block$i(get_each_context$i(ctx, each_value, i));
 		}
 
 		const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -20241,13 +21568,13 @@
 					let i;
 
 					for (i = 0; i < each_value.length; i += 1) {
-						const child_ctx = get_each_context$h(ctx, each_value, i);
+						const child_ctx = get_each_context$i(ctx, each_value, i);
 
 						if (each_blocks[i]) {
 							each_blocks[i].p(child_ctx, dirty);
 							transition_in(each_blocks[i], 1);
 						} else {
-							each_blocks[i] = create_each_block$h(child_ctx);
+							each_blocks[i] = create_each_block$i(child_ctx);
 							each_blocks[i].c();
 							transition_in(each_blocks[i], 1);
 							each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
@@ -20340,7 +21667,7 @@
 	}
 
 	// (98:2) {#each codeOutputComponentKeys as key}
-	function create_each_block$h(ctx) {
+	function create_each_block$i(ctx) {
 		let if_block_anchor;
 		let current;
 		let if_block = /*output*/ ctx[2].component[/*key*/ ctx[9]] && create_if_block_6$1(ctx);
@@ -20396,12 +21723,12 @@
 	}
 
 	// (106:1) {#if output.footer}
-	function create_if_block_2$a(ctx) {
+	function create_if_block_2$b(ctx) {
 		let t;
 		let if_block1_anchor;
 		let current;
-		let if_block0 = /*output*/ ctx[2].footer.text && create_if_block_4$2(ctx);
-		let if_block1 = /*output*/ ctx[2].footer.code && create_if_block_3$6(ctx);
+		let if_block0 = /*output*/ ctx[2].footer.text && create_if_block_4$3(ctx);
+		let if_block1 = /*output*/ ctx[2].footer.code && create_if_block_3$7(ctx);
 
 		return {
 			c() {
@@ -20422,7 +21749,7 @@
 					if (if_block0) {
 						if_block0.p(ctx, dirty);
 					} else {
-						if_block0 = create_if_block_4$2(ctx);
+						if_block0 = create_if_block_4$3(ctx);
 						if_block0.c();
 						if_block0.m(t.parentNode, t);
 					}
@@ -20439,7 +21766,7 @@
 							transition_in(if_block1, 1);
 						}
 					} else {
-						if_block1 = create_if_block_3$6(ctx);
+						if_block1 = create_if_block_3$7(ctx);
 						if_block1.c();
 						transition_in(if_block1, 1);
 						if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
@@ -20473,7 +21800,7 @@
 	}
 
 	// (107:2) {#if output.footer.text}
-	function create_if_block_4$2(ctx) {
+	function create_if_block_4$3(ctx) {
 		let p;
 		let t_value = /*output*/ ctx[2].footer.text + "";
 		let t;
@@ -20497,7 +21824,7 @@
 	}
 
 	// (110:2) {#if output.footer.code}
-	function create_if_block_3$6(ctx) {
+	function create_if_block_3$7(ctx) {
 		let sampleinput;
 		let current;
 
@@ -20534,7 +21861,7 @@
 	}
 
 	// (115:1) {#if output.docs}
-	function create_if_block_1$c(ctx) {
+	function create_if_block_1$e(ctx) {
 		let p;
 		let uiicon0;
 		let t0;
@@ -20605,10 +21932,10 @@
 		};
 	}
 
-	function create_fragment$I(ctx) {
+	function create_fragment$M(ctx) {
 		let if_block_anchor;
 		let current;
-		let if_block = /*output*/ ctx[2] && create_if_block$p(ctx);
+		let if_block = /*output*/ ctx[2] && create_if_block$r(ctx);
 
 		return {
 			c() {
@@ -20629,7 +21956,7 @@
 							transition_in(if_block, 1);
 						}
 					} else {
-						if_block = create_if_block$p(ctx);
+						if_block = create_if_block$r(ctx);
 						if_block.c();
 						transition_in(if_block, 1);
 						if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -20660,7 +21987,7 @@
 		};
 	}
 
-	function instance$I($$self, $$props, $$invalidate) {
+	function instance$M($$self, $$props, $$invalidate) {
 		
 		
 		
@@ -20758,7 +22085,7 @@
 		constructor(options) {
 			super();
 
-			init(this, options, instance$I, create_fragment$I, safe_not_equal, {
+			init(this, options, instance$M, create_fragment$M, safe_not_equal, {
 				icon: 0,
 				customisations: 6,
 				providerConfig: 7,
@@ -20767,9 +22094,9 @@
 		}
 	}
 
-	/* src/icon-finder/components/footer/parts/code/Container.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/parts/code/Container.svelte generated by Svelte v3.31.2 */
 
-	function create_if_block$q(ctx) {
+	function create_if_block$s(ctx) {
 		let footerblock;
 		let current;
 
@@ -20777,7 +22104,7 @@
 				props: {
 					name: "code",
 					title: /*codePhrases*/ ctx[6].heading.replace("{name}", /*icon*/ ctx[0].name),
-					$$slots: { default: [create_default_slot$e] },
+					$$slots: { default: [create_default_slot$g] },
 					$$scope: { ctx }
 				}
 			});
@@ -20816,7 +22143,7 @@
 	}
 
 	// (249:4) {#if parentFilters}
-	function create_if_block_2$b(ctx) {
+	function create_if_block_2$c(ctx) {
 		let filterscomponent;
 		let current;
 
@@ -20857,7 +22184,7 @@
 	}
 
 	// (255:4) {#if childFilters}
-	function create_if_block_1$d(ctx) {
+	function create_if_block_1$f(ctx) {
 		let filterscomponent;
 		let current;
 
@@ -20900,15 +22227,15 @@
 	}
 
 	// (244:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}>
-	function create_default_slot$e(ctx) {
+	function create_default_slot$g(ctx) {
 		let div1;
 		let div0;
 		let t0;
 		let t1;
 		let codecomponent;
 		let current;
-		let if_block0 = /*parentFilters*/ ctx[3] && create_if_block_2$b(ctx);
-		let if_block1 = /*childFilters*/ ctx[4] && create_if_block_1$d(ctx);
+		let if_block0 = /*parentFilters*/ ctx[3] && create_if_block_2$c(ctx);
+		let if_block1 = /*childFilters*/ ctx[4] && create_if_block_1$f(ctx);
 
 		codecomponent = new Code({
 				props: {
@@ -20950,7 +22277,7 @@
 							transition_in(if_block0, 1);
 						}
 					} else {
-						if_block0 = create_if_block_2$b(ctx);
+						if_block0 = create_if_block_2$c(ctx);
 						if_block0.c();
 						transition_in(if_block0, 1);
 						if_block0.m(div0, t0);
@@ -20973,7 +22300,7 @@
 							transition_in(if_block1, 1);
 						}
 					} else {
-						if_block1 = create_if_block_1$d(ctx);
+						if_block1 = create_if_block_1$f(ctx);
 						if_block1.c();
 						transition_in(if_block1, 1);
 						if_block1.m(div0, null);
@@ -21017,10 +22344,10 @@
 		};
 	}
 
-	function create_fragment$J(ctx) {
+	function create_fragment$N(ctx) {
 		let if_block_anchor;
 		let current;
-		let if_block = /*currentTab*/ ctx[2] && create_if_block$q(ctx);
+		let if_block = /*currentTab*/ ctx[2] && create_if_block$s(ctx);
 
 		return {
 			c() {
@@ -21041,7 +22368,7 @@
 							transition_in(if_block, 1);
 						}
 					} else {
-						if_block = create_if_block$q(ctx);
+						if_block = create_if_block$s(ctx);
 						if_block.c();
 						transition_in(if_block, 1);
 						if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -21072,7 +22399,7 @@
 		};
 	}
 
-	function instance$J($$self, $$props, $$invalidate) {
+	function instance$N($$self, $$props, $$invalidate) {
 		
 		
 		
@@ -21361,1248 +22688,11 @@
 	class Container$1 extends SvelteComponent {
 		constructor(options) {
 			super();
-			init(this, options, instance$J, create_fragment$J, safe_not_equal, { icon: 0, customisations: 1 });
+			init(this, options, instance$N, create_fragment$N, safe_not_equal, { icon: 0, customisations: 1 });
 		}
 	}
 
-	/* src/icon-finder/components/footer/parts/Properties.svelte generated by Svelte v3.31.0 */
-
-	function create_if_block_4$3(ctx) {
-		let colorblock;
-		let current;
-
-		colorblock = new Color({
-				props: {
-					icons: /*icons*/ ctx[0],
-					value: /*customisations*/ ctx[1].color,
-					customise: /*customise*/ ctx[2]
-				}
-			});
-
-		return {
-			c() {
-				create_component(colorblock.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(colorblock, target, anchor);
-				current = true;
-			},
-			p(ctx, dirty) {
-				const colorblock_changes = {};
-				if (dirty & /*icons*/ 1) colorblock_changes.icons = /*icons*/ ctx[0];
-				if (dirty & /*customisations*/ 2) colorblock_changes.value = /*customisations*/ ctx[1].color;
-				if (dirty & /*customise*/ 4) colorblock_changes.customise = /*customise*/ ctx[2];
-				colorblock.$set(colorblock_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(colorblock.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(colorblock.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(colorblock, detaching);
-			}
-		};
-	}
-
-	// (27:2) {#if customiseWidth || customiseHeight}
-	function create_if_block_3$7(ctx) {
-		let sizeblock;
-		let current;
-
-		sizeblock = new Size({
-				props: {
-					icons: /*icons*/ ctx[0],
-					customisations: /*customisations*/ ctx[1],
-					customise: /*customise*/ ctx[2]
-				}
-			});
-
-		return {
-			c() {
-				create_component(sizeblock.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(sizeblock, target, anchor);
-				current = true;
-			},
-			p(ctx, dirty) {
-				const sizeblock_changes = {};
-				if (dirty & /*icons*/ 1) sizeblock_changes.icons = /*icons*/ ctx[0];
-				if (dirty & /*customisations*/ 2) sizeblock_changes.customisations = /*customisations*/ ctx[1];
-				if (dirty & /*customise*/ 4) sizeblock_changes.customise = /*customise*/ ctx[2];
-				sizeblock.$set(sizeblock_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(sizeblock.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(sizeblock.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(sizeblock, detaching);
-			}
-		};
-	}
-
-	// (30:2) {#if customiseFlip}
-	function create_if_block_2$c(ctx) {
-		let flipblock;
-		let current;
-
-		flipblock = new Flip({
-				props: {
-					customisations: /*customisations*/ ctx[1],
-					customise: /*customise*/ ctx[2]
-				}
-			});
-
-		return {
-			c() {
-				create_component(flipblock.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(flipblock, target, anchor);
-				current = true;
-			},
-			p(ctx, dirty) {
-				const flipblock_changes = {};
-				if (dirty & /*customisations*/ 2) flipblock_changes.customisations = /*customisations*/ ctx[1];
-				if (dirty & /*customise*/ 4) flipblock_changes.customise = /*customise*/ ctx[2];
-				flipblock.$set(flipblock_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(flipblock.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(flipblock.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(flipblock, detaching);
-			}
-		};
-	}
-
-	// (33:2) {#if customiseRotate}
-	function create_if_block_1$e(ctx) {
-		let rotateblock;
-		let current;
-
-		rotateblock = new Rotate({
-				props: {
-					value: /*customisations*/ ctx[1].rotate,
-					customise: /*customise*/ ctx[2]
-				}
-			});
-
-		return {
-			c() {
-				create_component(rotateblock.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(rotateblock, target, anchor);
-				current = true;
-			},
-			p(ctx, dirty) {
-				const rotateblock_changes = {};
-				if (dirty & /*customisations*/ 2) rotateblock_changes.value = /*customisations*/ ctx[1].rotate;
-				if (dirty & /*customise*/ 4) rotateblock_changes.customise = /*customise*/ ctx[2];
-				rotateblock.$set(rotateblock_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(rotateblock.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(rotateblock.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(rotateblock, detaching);
-			}
-		};
-	}
-
-	// (36:2) {#if customiseInline && icons.length === 1}
-	function create_if_block$r(ctx) {
-		let inlineblock;
-		let current;
-
-		inlineblock = new Inline({
-				props: {
-					value: /*customisations*/ ctx[1].inline,
-					customise: /*customise*/ ctx[2]
-				}
-			});
-
-		return {
-			c() {
-				create_component(inlineblock.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(inlineblock, target, anchor);
-				current = true;
-			},
-			p(ctx, dirty) {
-				const inlineblock_changes = {};
-				if (dirty & /*customisations*/ 2) inlineblock_changes.value = /*customisations*/ ctx[1].inline;
-				if (dirty & /*customise*/ 4) inlineblock_changes.customise = /*customise*/ ctx[2];
-				inlineblock.$set(inlineblock_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(inlineblock.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(inlineblock.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(inlineblock, detaching);
-			}
-		};
-	}
-
-	// (22:0) <FooterBlock name="props" {title}>
-	function create_default_slot$f(ctx) {
-		let div;
-		let t0;
-		let t1;
-		let t2;
-		let t3;
-		let current;
-		let if_block0 =  create_if_block_4$3(ctx);
-		let if_block1 =  create_if_block_3$7(ctx);
-		let if_block2 =  create_if_block_2$c(ctx);
-		let if_block3 =  create_if_block_1$e(ctx);
-		let if_block4 =  /*icons*/ ctx[0].length === 1 && create_if_block$r(ctx);
-
-		return {
-			c() {
-				div = element("div");
-				if (if_block0) if_block0.c();
-				t0 = space();
-				if (if_block1) if_block1.c();
-				t1 = space();
-				if (if_block2) if_block2.c();
-				t2 = space();
-				if (if_block3) if_block3.c();
-				t3 = space();
-				if (if_block4) if_block4.c();
-			},
-			m(target, anchor) {
-				insert(target, div, anchor);
-				if (if_block0) if_block0.m(div, null);
-				append(div, t0);
-				if (if_block1) if_block1.m(div, null);
-				append(div, t1);
-				if (if_block2) if_block2.m(div, null);
-				append(div, t2);
-				if (if_block3) if_block3.m(div, null);
-				append(div, t3);
-				if (if_block4) if_block4.m(div, null);
-				current = true;
-			},
-			p(ctx, dirty) {
-				if_block0.p(ctx, dirty);
-				if_block1.p(ctx, dirty);
-				if_block2.p(ctx, dirty);
-				if_block3.p(ctx, dirty);
-
-				if ( /*icons*/ ctx[0].length === 1) {
-					if (if_block4) {
-						if_block4.p(ctx, dirty);
-
-						if (dirty & /*icons*/ 1) {
-							transition_in(if_block4, 1);
-						}
-					} else {
-						if_block4 = create_if_block$r(ctx);
-						if_block4.c();
-						transition_in(if_block4, 1);
-						if_block4.m(div, null);
-					}
-				} else if (if_block4) {
-					group_outros();
-
-					transition_out(if_block4, 1, 1, () => {
-						if_block4 = null;
-					});
-
-					check_outros();
-				}
-			},
-			i(local) {
-				if (current) return;
-				transition_in(if_block0);
-				transition_in(if_block1);
-				transition_in(if_block2);
-				transition_in(if_block3);
-				transition_in(if_block4);
-				current = true;
-			},
-			o(local) {
-				transition_out(if_block0);
-				transition_out(if_block1);
-				transition_out(if_block2);
-				transition_out(if_block3);
-				transition_out(if_block4);
-				current = false;
-			},
-			d(detaching) {
-				if (detaching) detach(div);
-				if (if_block0) if_block0.d();
-				if (if_block1) if_block1.d();
-				if (if_block2) if_block2.d();
-				if (if_block3) if_block3.d();
-				if (if_block4) if_block4.d();
-			}
-		};
-	}
-
-	function create_fragment$K(ctx) {
-		let footerblock;
-		let current;
-
-		footerblock = new Block$1({
-				props: {
-					name: "props",
-					title: /*title*/ ctx[3],
-					$$slots: { default: [create_default_slot$f] },
-					$$scope: { ctx }
-				}
-			});
-
-		return {
-			c() {
-				create_component(footerblock.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(footerblock, target, anchor);
-				current = true;
-			},
-			p(ctx, [dirty]) {
-				const footerblock_changes = {};
-				if (dirty & /*title*/ 8) footerblock_changes.title = /*title*/ ctx[3];
-
-				if (dirty & /*$$scope, customisations, customise, icons*/ 23) {
-					footerblock_changes.$$scope = { dirty, ctx };
-				}
-
-				footerblock.$set(footerblock_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(footerblock.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(footerblock.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(footerblock, detaching);
-			}
-		};
-	}
-
-	function instance$K($$self, $$props, $$invalidate) {
-		
-		
-		let { icons } = $$props;
-		let { customisations } = $$props;
-		let { customise } = $$props;
-
-		// Title
-		let title;
-
-		$$self.$$set = $$props => {
-			if ("icons" in $$props) $$invalidate(0, icons = $$props.icons);
-			if ("customisations" in $$props) $$invalidate(1, customisations = $$props.customisations);
-			if ("customise" in $$props) $$invalidate(2, customise = $$props.customise);
-		};
-
-		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*icons*/ 1) {
-				 {
-					$$invalidate(3, title =  "");
-				}
-			}
-		};
-
-		return [icons, customisations, customise, title];
-	}
-
-	class Properties extends SvelteComponent {
-		constructor(options) {
-			super();
-
-			init(this, options, instance$K, create_fragment$K, safe_not_equal, {
-				icons: 0,
-				customisations: 1,
-				customise: 2
-			});
-		}
-	}
-
-	/**
-	 * Calculate both dimensions
-	 */
-	function getDimensions(width, height, ratio, rotated) {
-	    if (width && height) {
-	        return {
-	            width: rotated ? height : width,
-	            height: rotated ? width : height,
-	        };
-	    }
-	    if (!height) {
-	        height = Iconify__default['default'].calculateSize(width, rotated ? ratio : 1 / ratio);
-	    }
-	    else {
-	        width = Iconify__default['default'].calculateSize(height, rotated ? 1 / ratio : ratio);
-	    }
-	    return {
-	        width,
-	        height,
-	    };
-	}
-
-	/* src/icon-finder/components/footer/parts/samples/Full.svelte generated by Svelte v3.31.0 */
-
-	function create_fragment$L(ctx) {
-		let div;
-		let uiicon;
-		let current;
-
-		uiicon = new Icon({
-				props: {
-					icon: /*data*/ ctx[0].name,
-					props: /*props*/ ctx[2]
-				}
-			});
-
-		return {
-			c() {
-				div = element("div");
-				create_component(uiicon.$$.fragment);
-				attr(div, "class", "iif-footer-sample iif-footer-sample--block iif-footer-sample--loaded");
-				attr(div, "style", /*style*/ ctx[1]);
-			},
-			m(target, anchor) {
-				insert(target, div, anchor);
-				mount_component(uiicon, div, null);
-				current = true;
-			},
-			p(ctx, [dirty]) {
-				const uiicon_changes = {};
-				if (dirty & /*data*/ 1) uiicon_changes.icon = /*data*/ ctx[0].name;
-				if (dirty & /*props*/ 4) uiicon_changes.props = /*props*/ ctx[2];
-				uiicon.$set(uiicon_changes);
-
-				if (!current || dirty & /*style*/ 2) {
-					attr(div, "style", /*style*/ ctx[1]);
-				}
-			},
-			i(local) {
-				if (current) return;
-				transition_in(uiicon.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(uiicon.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				if (detaching) detach(div);
-				destroy_component(uiicon);
-			}
-		};
-	}
-
-	function instance$L($$self, $$props, $$invalidate) {
-		
-		
-		
-		let { icon } = $$props;
-		let { customisations } = $$props;
-		const divisions = [2.5, 3, 3.5];
-
-		// Get maximum width/height from options
-		const maxWidth = iconSampleSize.width;
-
-		const maxHeight = iconSampleSize.height;
-		const minWidth = Math.floor(maxWidth / 2);
-		const minHeight = Math.floor(maxHeight / 2);
-
-		function scaleSample(size, canScaleUp) {
-			// Scale
-			while (size.width > maxWidth || size.height > maxHeight) {
-				// Attempt to divide by 2
-				let newWidth = size.width / 2;
-
-				let newHeight = size.height / 2;
-
-				if (Math.round(newWidth) !== newWidth || Math.round(newHeight) !== newHeight) {
-					// Try to divide by a different number
-					for (let i = 0; i < divisions.length; i++) {
-						let div = divisions[i];
-						let newWidth2 = size.width / div;
-						let newHeight2 = size.height / div;
-
-						if (Math.round(newWidth2) === newWidth2 && Math.round(newHeight2) === newHeight2) {
-							newWidth = newWidth2;
-							newHeight = newHeight2;
-							break;
-						}
-					}
-				}
-
-				size.width = newWidth;
-				size.height = newHeight;
-			}
-
-			if (canScaleUp) {
-				while (size.width < minWidth && size.height < minHeight) {
-					size.width *= 2;
-					size.height *= 2;
-				}
-			}
-		}
-
-		let data;
-
-		// Calculate style
-		let style;
-
-		// Scale sample
-		let props;
-
-		$$self.$$set = $$props => {
-			if ("icon" in $$props) $$invalidate(3, icon = $$props.icon);
-			if ("customisations" in $$props) $$invalidate(4, customisations = $$props.customisations);
-		};
-
-		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*icon, customisations*/ 24) {
-				 {
-					// Get name
-					const name = lib.iconToString(icon);
-
-					// Get data
-					const iconData = Iconify__default['default'].getIcon(name);
-
-					// Check if icon is rotated (for width/height calculations)
-					const rotated = !!(iconData.width !== iconData.height && customisations.rotate && customisations.rotate % 2 === 1);
-
-					// Width / height ratio
-					const ratio = iconData.width / iconData.height;
-
-					$$invalidate(0, data = { name, data: iconData, rotated, ratio });
-				}
-			}
-
-			if ($$self.$$.dirty & /*customisations, style, data*/ 19) {
-				 {
-					$$invalidate(1, style = "");
-
-					// Add color
-					if (customisations.color) {
-						$$invalidate(1, style += "color: " + customisations.color + ";");
-					} else {
-						$$invalidate(1, style += "color: " + defaultColor + ";");
-					}
-
-					// Set dimensions
-					if (!customisations.width && !customisations.height) {
-						// Calculate size
-						let size;
-
-						{
-							size = getDimensions(data.data.width, data.data.height, data.ratio, data.rotated);
-						}
-
-						// Scale
-						scaleSample(size, true);
-
-						$$invalidate(1, style += "font-size: " + size.height + "px;");
-					}
-				}
-			}
-
-			if ($$self.$$.dirty & /*customisations, data*/ 17) {
-				 {
-					$$invalidate(2, props = {});
-
-					["hFlip", "vFlip", "rotate"].forEach(key => {
-						const prop = key;
-
-						if (customisations[prop]) {
-							$$invalidate(2, props[prop] = customisations[prop], props);
-						}
-					});
-
-					let size;
-
-					if (customisations.width || customisations.height) {
-						size = getDimensions(customisations.width, customisations.height, data.ratio, data.rotated);
-					}
-
-					if (size !== void 0) {
-						scaleSample(size, false);
-						$$invalidate(2, props.width = size.width + "", props);
-						$$invalidate(2, props.height = size.height + "", props);
-					}
-				}
-			}
-		};
-
-		return [data, style, props, icon, customisations];
-	}
-
-	class Full extends SvelteComponent {
-		constructor(options) {
-			super();
-			init(this, options, instance$L, create_fragment$L, safe_not_equal, { icon: 3, customisations: 4 });
-		}
-	}
-
-	/* src/icon-finder/components/footer/parts/samples/Inline.svelte generated by Svelte v3.31.0 */
-
-	function create_fragment$M(ctx) {
-		let div;
-		let p;
-		let t0_value = /*samplePhrases*/ ctx[2].before + "";
-		let t0;
-		let t1;
-		let span;
-		let t2;
-		let t3_value = /*samplePhrases*/ ctx[2].after + "";
-		let t3;
-
-		return {
-			c() {
-				div = element("div");
-				p = element("p");
-				t0 = text(t0_value);
-				t1 = space();
-				span = element("span");
-				t2 = space();
-				t3 = text(t3_value);
-				attr(span, "style", /*style*/ ctx[1]);
-				attr(div, "class", "iif-footer-sample iif-footer-sample--inline iif-footer-sample--loaded");
-			},
-			m(target, anchor) {
-				insert(target, div, anchor);
-				append(div, p);
-				append(p, t0);
-				append(p, t1);
-				append(p, span);
-				span.innerHTML = /*html*/ ctx[0];
-				append(p, t2);
-				append(p, t3);
-			},
-			p(ctx, [dirty]) {
-				if (dirty & /*html*/ 1) span.innerHTML = /*html*/ ctx[0];
-				if (dirty & /*style*/ 2) {
-					attr(span, "style", /*style*/ ctx[1]);
-				}
-			},
-			i: noop,
-			o: noop,
-			d(detaching) {
-				if (detaching) detach(div);
-			}
-		};
-	}
-
-	function instance$M($$self, $$props, $$invalidate) {
-		
-		
-		let { icon } = $$props;
-		let { customisations } = $$props;
-		const samplePhrases = phrases.footer.inlineSample;
-
-		// Get maximum width/height from options
-		const maxWidth = iconSampleSize.width;
-
-		const maxHeight = iconSampleSize.height;
-
-		// Get HTML
-		let html;
-
-		let style;
-
-		$$self.$$set = $$props => {
-			if ("icon" in $$props) $$invalidate(3, icon = $$props.icon);
-			if ("customisations" in $$props) $$invalidate(4, customisations = $$props.customisations);
-		};
-
-		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*icon, customisations*/ 24) {
-				 {
-					const iconName = lib.iconToString(icon);
-					const props = {};
-					$$invalidate(1, style = "");
-
-					Object.keys(customisations).forEach(key => {
-						const attr = key;
-						const value = customisations[attr];
-
-						if (value !== "" && value !== 0 && value !== false) {
-							if (attr === "color") {
-								$$invalidate(1, style = "color: " + value);
-							} else {
-								props[attr] = value;
-							}
-						}
-					});
-
-					// Adjust width and height
-					if (props.width || props.height) {
-						const rotated = !!(customisations.rotate % 2);
-
-						// Check maxWidth
-						let key = rotated ? "height" : "width";
-
-						if (props[key] && props[key] > maxWidth) {
-							props[key] = maxWidth;
-						}
-
-						// Check maxHeight
-						key = !rotated ? "height" : "width";
-
-						if (props[key] && props[key] > maxHeight) {
-							props[key] = maxHeight;
-						}
-					}
-
-					$$invalidate(0, html = Iconify__default['default'].renderHTML(iconName, props));
-				}
-			}
-		};
-
-		return [html, style, samplePhrases, icon, customisations];
-	}
-
-	class Inline$1 extends SvelteComponent {
-		constructor(options) {
-			super();
-			init(this, options, instance$M, create_fragment$M, safe_not_equal, { icon: 3, customisations: 4 });
-		}
-	}
-
-	/* src/icon-finder/components/footer/parts/Icons.svelte generated by Svelte v3.31.0 */
-
-	function get_each_context$i(ctx, list, i) {
-		const child_ctx = ctx.slice();
-		child_ctx[13] = list[i];
-		child_ctx[15] = i;
-		return child_ctx;
-	}
-
-	// (107:5) {#if !onSelect}
-	function create_if_block_1$f(ctx) {
-		let span;
-		let uiicon;
-		let current;
-		uiicon = new Icon({ props: { icon: "reset" } });
-
-		return {
-			c() {
-				span = element("span");
-				create_component(uiicon.$$.fragment);
-				attr(span, "class", "iif-footer-icons-reset");
-			},
-			m(target, anchor) {
-				insert(target, span, anchor);
-				mount_component(uiicon, span, null);
-				current = true;
-			},
-			i(local) {
-				if (current) return;
-				transition_in(uiicon.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(uiicon.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				if (detaching) detach(span);
-				destroy_component(uiicon);
-			}
-		};
-	}
-
-	// (113:4) {#if onSelect}
-	function create_if_block$s(ctx) {
-		let a;
-		let uiicon;
-		let a_title_value;
-		let current;
-		let mounted;
-		let dispose;
-		uiicon = new Icon({ props: { icon: "reset" } });
-
-		function click_handler_1() {
-			return /*click_handler_1*/ ctx[10](/*item*/ ctx[13]);
-		}
-
-		return {
-			c() {
-				a = element("a");
-				create_component(uiicon.$$.fragment);
-				attr(a, "href", "# ");
-				attr(a, "class", "iif-footer-icons-reset");
-				attr(a, "title", a_title_value = /*item*/ ctx[13].removeTitle);
-			},
-			m(target, anchor) {
-				insert(target, a, anchor);
-				mount_component(uiicon, a, null);
-				current = true;
-
-				if (!mounted) {
-					dispose = listen(a, "click", prevent_default(click_handler_1));
-					mounted = true;
-				}
-			},
-			p(new_ctx, dirty) {
-				ctx = new_ctx;
-
-				if (!current || dirty & /*items*/ 2 && a_title_value !== (a_title_value = /*item*/ ctx[13].removeTitle)) {
-					attr(a, "title", a_title_value);
-				}
-			},
-			i(local) {
-				if (current) return;
-				transition_in(uiicon.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(uiicon.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				if (detaching) detach(a);
-				destroy_component(uiicon);
-				mounted = false;
-				dispose();
-			}
-		};
-	}
-
-	// (98:2) {#each items as item, i (item.name)}
-	function create_each_block$i(key_1, ctx) {
-		let li;
-		let a;
-		let uiicon;
-		let t0;
-		let a_title_value;
-		let t1;
-		let t2;
-		let current;
-		let mounted;
-		let dispose;
-
-		uiicon = new Icon({
-				props: {
-					icon: /*item*/ ctx[13].name,
-					props: /*props*/ ctx[2]
-				}
-			});
-
-		let if_block0 = !/*onSelect*/ ctx[0] && create_if_block_1$f();
-
-		function click_handler() {
-			return /*click_handler*/ ctx[9](/*item*/ ctx[13]);
-		}
-
-		let if_block1 = /*onSelect*/ ctx[0] && create_if_block$s(ctx);
-
-		return {
-			key: key_1,
-			first: null,
-			c() {
-				li = element("li");
-				a = element("a");
-				create_component(uiicon.$$.fragment);
-				t0 = space();
-				if (if_block0) if_block0.c();
-				t1 = space();
-				if (if_block1) if_block1.c();
-				t2 = space();
-				attr(a, "href", "# ");
-				attr(a, "title", a_title_value = /*item*/ ctx[13].selectTitle);
-				this.first = li;
-			},
-			m(target, anchor) {
-				insert(target, li, anchor);
-				append(li, a);
-				mount_component(uiicon, a, null);
-				append(a, t0);
-				if (if_block0) if_block0.m(a, null);
-				append(li, t1);
-				if (if_block1) if_block1.m(li, null);
-				append(li, t2);
-				current = true;
-
-				if (!mounted) {
-					dispose = listen(a, "click", prevent_default(click_handler));
-					mounted = true;
-				}
-			},
-			p(new_ctx, dirty) {
-				ctx = new_ctx;
-				const uiicon_changes = {};
-				if (dirty & /*items*/ 2) uiicon_changes.icon = /*item*/ ctx[13].name;
-				if (dirty & /*props*/ 4) uiicon_changes.props = /*props*/ ctx[2];
-				uiicon.$set(uiicon_changes);
-
-				if (!/*onSelect*/ ctx[0]) {
-					if (if_block0) {
-						if (dirty & /*onSelect*/ 1) {
-							transition_in(if_block0, 1);
-						}
-					} else {
-						if_block0 = create_if_block_1$f();
-						if_block0.c();
-						transition_in(if_block0, 1);
-						if_block0.m(a, null);
-					}
-				} else if (if_block0) {
-					group_outros();
-
-					transition_out(if_block0, 1, 1, () => {
-						if_block0 = null;
-					});
-
-					check_outros();
-				}
-
-				if (!current || dirty & /*items*/ 2 && a_title_value !== (a_title_value = /*item*/ ctx[13].selectTitle)) {
-					attr(a, "title", a_title_value);
-				}
-
-				if (/*onSelect*/ ctx[0]) {
-					if (if_block1) {
-						if_block1.p(ctx, dirty);
-
-						if (dirty & /*onSelect*/ 1) {
-							transition_in(if_block1, 1);
-						}
-					} else {
-						if_block1 = create_if_block$s(ctx);
-						if_block1.c();
-						transition_in(if_block1, 1);
-						if_block1.m(li, t2);
-					}
-				} else if (if_block1) {
-					group_outros();
-
-					transition_out(if_block1, 1, 1, () => {
-						if_block1 = null;
-					});
-
-					check_outros();
-				}
-			},
-			i(local) {
-				if (current) return;
-				transition_in(uiicon.$$.fragment, local);
-				transition_in(if_block0);
-				transition_in(if_block1);
-				current = true;
-			},
-			o(local) {
-				transition_out(uiicon.$$.fragment, local);
-				transition_out(if_block0);
-				transition_out(if_block1);
-				current = false;
-			},
-			d(detaching) {
-				if (detaching) detach(li);
-				destroy_component(uiicon);
-				if (if_block0) if_block0.d();
-				if (if_block1) if_block1.d();
-				mounted = false;
-				dispose();
-			}
-		};
-	}
-
-	// (96:0) <Block type="icons">
-	function create_default_slot$g(ctx) {
-		let ul;
-		let each_blocks = [];
-		let each_1_lookup = new Map();
-		let current;
-		let each_value = /*items*/ ctx[1];
-		const get_key = ctx => /*item*/ ctx[13].name;
-
-		for (let i = 0; i < each_value.length; i += 1) {
-			let child_ctx = get_each_context$i(ctx, each_value, i);
-			let key = get_key(child_ctx);
-			each_1_lookup.set(key, each_blocks[i] = create_each_block$i(key, child_ctx));
-		}
-
-		return {
-			c() {
-				ul = element("ul");
-
-				for (let i = 0; i < each_blocks.length; i += 1) {
-					each_blocks[i].c();
-				}
-
-				attr(ul, "class", "iif-footer-icons");
-				attr(ul, "style", /*style*/ ctx[3]);
-			},
-			m(target, anchor) {
-				insert(target, ul, anchor);
-
-				for (let i = 0; i < each_blocks.length; i += 1) {
-					each_blocks[i].m(ul, null);
-				}
-
-				current = true;
-			},
-			p(ctx, dirty) {
-				if (dirty & /*items, onClick, onSelect, props*/ 23) {
-					const each_value = /*items*/ ctx[1];
-					group_outros();
-					each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$i, null, get_each_context$i);
-					check_outros();
-				}
-
-				if (!current || dirty & /*style*/ 8) {
-					attr(ul, "style", /*style*/ ctx[3]);
-				}
-			},
-			i(local) {
-				if (current) return;
-
-				for (let i = 0; i < each_value.length; i += 1) {
-					transition_in(each_blocks[i]);
-				}
-
-				current = true;
-			},
-			o(local) {
-				for (let i = 0; i < each_blocks.length; i += 1) {
-					transition_out(each_blocks[i]);
-				}
-
-				current = false;
-			},
-			d(detaching) {
-				if (detaching) detach(ul);
-
-				for (let i = 0; i < each_blocks.length; i += 1) {
-					each_blocks[i].d();
-				}
-			}
-		};
-	}
-
-	function create_fragment$N(ctx) {
-		let block;
-		let current;
-
-		block = new Block$2({
-				props: {
-					type: "icons",
-					$$slots: { default: [create_default_slot$g] },
-					$$scope: { ctx }
-				}
-			});
-
-		return {
-			c() {
-				create_component(block.$$.fragment);
-			},
-			m(target, anchor) {
-				mount_component(block, target, anchor);
-				current = true;
-			},
-			p(ctx, [dirty]) {
-				const block_changes = {};
-
-				if (dirty & /*$$scope, style, items, onSelect, props*/ 65551) {
-					block_changes.$$scope = { dirty, ctx };
-				}
-
-				block.$set(block_changes);
-			},
-			i(local) {
-				if (current) return;
-				transition_in(block.$$.fragment, local);
-				current = true;
-			},
-			o(local) {
-				transition_out(block.$$.fragment, local);
-				current = false;
-			},
-			d(detaching) {
-				destroy_component(block, detaching);
-			}
-		};
-	}
-
-	function instance$N($$self, $$props, $$invalidate) {
-		
-		
-		
-		
-		let { icons } = $$props;
-		let { customisations } = $$props;
-		let { route } = $$props;
-		let { selected = "" } = $$props;
-		let { onSelect = null } = $$props;
-
-		// Registry
-		const registry = getContext("registry");
-
-		let items;
-
-		// Copy customisations
-		const transformations = ["rotate", "hFlip", "vFlip"];
-
-		let props;
-		let style;
-
-		// Toggle icon
-		function onClick(select, icon) {
-			if (select && onSelect) {
-				onSelect(icon);
-				return;
-			}
-
-			registry.callback({ type: "selection", icon, selected: false });
-		}
-
-		const click_handler = item => {
-			onClick(true, item.icon);
-		};
-
-		const click_handler_1 = item => {
-			onClick(false, item.icon);
-		};
-
-		$$self.$$set = $$props => {
-			if ("icons" in $$props) $$invalidate(5, icons = $$props.icons);
-			if ("customisations" in $$props) $$invalidate(6, customisations = $$props.customisations);
-			if ("route" in $$props) $$invalidate(7, route = $$props.route);
-			if ("selected" in $$props) $$invalidate(8, selected = $$props.selected);
-			if ("onSelect" in $$props) $$invalidate(0, onSelect = $$props.onSelect);
-		};
-
-		$$self.$$.update = () => {
-			if ($$self.$$.dirty & /*icons, route, onSelect, selected, items*/ 419) {
-				 {
-					$$invalidate(1, items = []);
-
-					icons.forEach(icon => {
-						// Full name
-						const name = lib.iconToString(icon);
-
-						// Do not show prefix if viewing collection
-						const text =  shortenIconName(route, icon, name)
-						;
-
-						// Hint
-						const removeTitle = phrases.footer.remove.replace("{name}", text);
-
-						const selectTitle = onSelect
-						? phrases.footer.select.replace("{name}", text)
-						: removeTitle;
-
-						// Item
-						const item = {
-							icon,
-							name,
-							text,
-							removeTitle,
-							selectTitle,
-							selected: name === selected
-						};
-
-						items.push(item);
-					});
-				}
-			}
-
-			if ($$self.$$.dirty & /*customisations*/ 64) {
-				 {
-					$$invalidate(2, props = {});
-
-					// Transformations
-					transformations.forEach(key => {
-						if (customisations[key]) {
-							$$invalidate(2, props[key] = customisations[key], props);
-						}
-					});
-
-					// Height
-					if (typeof customisations.height === "number" && customisations.height < 32) {
-						$$invalidate(2, props.height = customisations.height, props);
-
-						// Width, but only if height is set
-						if (customisations.width) {
-							$$invalidate(2, props.width = customisations.width, props);
-						}
-					}
-
-					// Color
-					$$invalidate(3, style = "");
-
-					if (customisations.color !== "") {
-						$$invalidate(3, style = "color: " + customisations.color + ";");
-					}
-				}
-			}
-		};
-
-		return [
-			onSelect,
-			items,
-			props,
-			style,
-			onClick,
-			icons,
-			customisations,
-			route,
-			selected,
-			click_handler,
-			click_handler_1
-		];
-	}
-
-	class Icons extends SvelteComponent {
-		constructor(options) {
-			super();
-
-			init(this, options, instance$N, create_fragment$N, safe_not_equal, {
-				icons: 5,
-				customisations: 6,
-				route: 7,
-				selected: 8,
-				onSelect: 0
-			});
-		}
-	}
-
-	/* src/icon-finder/components/footer/Full.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/footer/Full.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block$t(ctx) {
 		let block;
@@ -22648,7 +22738,7 @@
 		};
 	}
 
-	// (101:3) {#if icon}
+	// (103:3) {#if icon}
 	function create_if_block_7$2(ctx) {
 		let current_block_type_index;
 		let if_block;
@@ -22718,7 +22808,7 @@
 		};
 	}
 
-	// (104:4) {:else}
+	// (106:4) {:else}
 	function create_else_block$8(ctx) {
 		let sample;
 		let current;
@@ -22759,7 +22849,7 @@
 		};
 	}
 
-	// (102:4) {#if customiseInline && customisations.inline}
+	// (104:4) {#if customiseInline && customisations.inline}
 	function create_if_block_8$2(ctx) {
 		let inlinesample;
 		let current;
@@ -22800,7 +22890,7 @@
 		};
 	}
 
-	// (111:23) 
+	// (113:23) 
 	function create_if_block_6$2(ctx) {
 		let iconslist;
 		let current;
@@ -22843,7 +22933,7 @@
 		};
 	}
 
-	// (109:4) {#if icon}
+	// (111:4) {#if icon}
 	function create_if_block_5$2(ctx) {
 		let iconname;
 		let current;
@@ -22884,7 +22974,7 @@
 		};
 	}
 
-	// (114:4) {#if infoBlock}
+	// (116:4) {#if infoBlock}
 	function create_if_block_4$4(ctx) {
 		let footerblock;
 		let current;
@@ -22931,7 +23021,7 @@
 		};
 	}
 
-	// (115:5) <FooterBlock name="info" title={infoBlockTitle}>
+	// (117:5) <FooterBlock name="info" title={infoBlockTitle}>
 	function create_default_slot_1(ctx) {
 		let infoblock;
 		let current;
@@ -22973,7 +23063,7 @@
 		};
 	}
 
-	// (123:4) {#if showCustomisatons && hasIcons}
+	// (125:4) {#if showCustomisatons && hasIcons}
 	function create_if_block_3$8(ctx) {
 		let propertiescontainer;
 		let current;
@@ -23016,7 +23106,7 @@
 		};
 	}
 
-	// (126:4) {#if showCode && icon}
+	// (128:4) {#if showCode && icon}
 	function create_if_block_2$d(ctx) {
 		let codeblock;
 		let current;
@@ -23057,7 +23147,7 @@
 		};
 	}
 
-	// (99:1) <Block type="footer">
+	// (101:1) <Block type="footer">
 	function create_default_slot$h(ctx) {
 		let div1;
 		let t0;
@@ -23452,7 +23542,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/main/Footer.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/main/Footer.svelte generated by Svelte v3.31.2 */
 
 	function create_fragment$P(ctx) {
 		let footer;
@@ -23630,7 +23720,7 @@
 		}
 	}
 
-	/* src/icon-finder/components/Container.svelte generated by Svelte v3.31.0 */
+	/* src/icon-finder/components/Container.svelte generated by Svelte v3.31.2 */
 
 	function create_if_block$u(ctx) {
 		let wrapper;
@@ -23861,57 +23951,6 @@
 				blocks: 7
 			});
 		}
-	}
-
-	/**
-	 * Default values
-	 */
-	const defaultComponentsConfig = {
-	    // Icons list mode.
-	    list: false,
-	    // True if icons list mode can be changed.
-	    toggleList: true,
-	    // Active code tab
-	    codeTab: '',
-	    // Can select multiple icons
-	    multiSelect: false,
-	    // Toggle footer blocks
-	    propsVisible: true,
-	    infoVisible: false,
-	    codeVisible: false,
-	};
-
-	/**
-	 * List of custom API providers
-	 *
-	 * Each array item must have:
-	 *  provider: unique provider key, similar to icon set prefix
-	 *  title: title to show in API providers tabs (used if showProviders is enabled in ./components.ts)
-	 *  api: host name(s) as string or array of strings
-	 */
-	const customProviders = [
-	/*
-	{
-	    provider: 'local',
-	    title: 'Local Test',
-	    api: 'http://localhost:3100',
-	},
-	*/
-	];
-	/**
-	 * Add custom API providers
-	 */
-	function addCustomAPIProviders(registry) {
-	    if (customProviders.length) {
-	        customProviders.forEach((item) => {
-	            const converted = lib.convertProviderData('', item);
-	            if (converted) {
-	                lib.addProvider(item.provider, converted);
-	            }
-	        });
-	        // Set default API provider in router
-	        // registry.router.defaultProvider = customProviders[0].provider;
-	    }
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental, @typescript-eslint/no-empty-function

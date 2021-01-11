@@ -1,6 +1,6 @@
 <script lang="typescript">
 	import type { Icon } from '@iconify/search-core';
-	import type { IconCustomisations } from '../../../customisations/types';
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import { phrases } from '../../../config/phrases';
 	import FooterBlock from '../misc/Block.svelte';
 	import {
@@ -12,13 +12,11 @@
 		customiseFlip,
 		customiseInline,
 	} from '../../../config/components';
-	import {
-		ColorBlock,
-		SizeBlock,
-		RotateBlock,
-		FlipBlock,
-		InlineBlock,
-	} from '../../../config/footer-components';
+	import ColorBlock from './props/color/Color.svelte';
+	import SizeBlock from './props/size/Size.svelte';
+	import RotateBlock from './props/rotate/Rotate.svelte';
+	import FlipBlock from './props/flip/Flip.svelte';
+	import InlineBlock from './props/inline/Inline.svelte';
 
 	// Selected icons
 	export let icons: Icon[];

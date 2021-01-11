@@ -9,7 +9,24 @@
 	import { selectionToArray } from '../../wrapper/icons';
 	import type { FullRoute } from '@iconify/search-core';
 	import type { WrappedRegistry } from '../../wrapper/registry';
-	import { Footer } from '../../config/footer';
+
+	/**
+	 * Various footer components
+	 *
+	 * Select component you need by changing comments
+	 */
+	// Full footer
+	import Footer from '../footer/Full.svelte';
+
+	// Similar to full, but selected icon (or icons list) is above footer, making it look nicer with small width
+	// Also when multiple icons are selected, it allows selecting icon from selected icons and shows code/customisations for it
+	// import Footer from '../footer/Compact.svelte';
+
+	// Simple footer: no big sample
+	// import Footer from '../footer/Simple.svelte';
+
+	// Empty footer: only buttons
+	// import Footer from '../footer/Empty.svelte';
 
 	/**
 	 * Global exports

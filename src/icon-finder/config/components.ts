@@ -100,5 +100,5 @@ export const footerButtons: Record<string, FooterButton> = {
 /**
  * Sample code
  */
-// To disable code block, also change link for CodeBlock to Empty.svelte in ./components.ts (it will remove component from bundle)
+// To disable code block, also change link for CodeBlock to Empty.svelte in ../components/footer/*.svelte (it will remove component from bundle)
 export const showCode = true;

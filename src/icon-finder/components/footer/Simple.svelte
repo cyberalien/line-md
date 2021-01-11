@@ -22,7 +22,15 @@
 	import IconsList from './parts/Icons.svelte';
 	import FooterBlock from './misc/Block.svelte';
 	import InfoBlock from '../blocks/CollectionInfo.svelte';
-	import { IconName, CodeBlock } from '../../config/footer-components';
+
+	/* Various components for icon name. Uncomment one you want to use */
+	import IconName from '../footer/parts/name/Simple.svelte';
+	// import IconName from '../footer/parts/name/SimpleEditable.svelte';
+	// import IconName from '../footer/parts/name/Block.svelte';
+
+	/* Switch to Empty.svelte if you do not want to show code samples block. Also see ../../config/components.ts */
+	import CodeBlock from '../footer/parts/code/Container.svelte';
+	// import CodeBlock from '../Empty.svelte';
 
 	// Selected icons
 	export let icons: Icon[];
