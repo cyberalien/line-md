@@ -1,9 +1,9 @@
 <script lang="typescript">
 	import { setContext } from 'svelte';
 	import type { FullRoute, ViewBlocks } from '@iconify/search-core';
+	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import type { SelectedIcons } from '../wrapper/icons';
 	import type { WrappedRegistry } from '../wrapper/registry';
-	import type { IconCustomisations } from '../customisations/types';
 	import Wrapper from './main/Wrapper.svelte';
 	// import Navigation from './main/Navigation.svelte';
 	import Content from './main/Content.svelte';
