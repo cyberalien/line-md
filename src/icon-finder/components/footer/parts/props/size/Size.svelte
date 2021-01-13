@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import Iconify from '@iconify/iconify';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
@@ -63,7 +63,7 @@
 				return;
 			}
 			const name = iconToString(icon);
-			const data = Iconify.getIcon(name);
+			const data = Iconify.getIcon!(name);
 			if (!data) {
 				return;
 			}
@@ -139,10 +139,10 @@
 
 				// Scale placeholder using size ratio
 				// console.log(`Size for ${key} is ${size}`);
-				if (size !== '') {
+				if (Iconify.calculateSize && size !== '') {
 					placeholders[placeholderKey] =
 						(scale
-							? Iconify._internal.calculateSize(
+							? Iconify.calculateSize(
 									size,
 									key === 'width'
 										? data.ratio

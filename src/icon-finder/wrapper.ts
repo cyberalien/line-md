@@ -49,12 +49,16 @@ import { addCustomAPIProviders } from './config/api';
 
 // Change import to change container component
 import Container from './components/Container.svelte';
+import { importThemeIcons } from './config/theme';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental, @typescript-eslint/no-empty-function
 function assertNever(s: never) {}
 
 // Set SVG framework
 setIconify(Iconify);
+
+// Import theme icons
+importThemeIcons();
 
 // Add components configuration to config object
 setComponentsConfig(defaultComponentsConfig);

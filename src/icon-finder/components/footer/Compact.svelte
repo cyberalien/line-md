@@ -1,5 +1,6 @@
 <script lang="typescript">
 	import { getContext } from 'svelte';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type {
 		Icon,
 		FullRoute,
@@ -57,27 +58,33 @@
 	let icon: Icon | null;
 	let hasIcons: boolean;
 	$: {
-		hasIcons = icons.length > 0;
-		switch (icons.length) {
-			case 0:
-				icon = null;
-				break;
+		// Show icon data only if Iconify.getIcon exists
+		if (Iconify.getIcon) {
+			hasIcons = icons.length > 0;
+			switch (icons.length) {
+				case 0:
+					icon = null;
+					break;
 
-			case 1:
-				icon = icons[0];
-				break;
+				case 1:
+					icon = icons[0];
+					break;
 
-			default:
-				icon = null;
-				if (selected !== '') {
-					// Find selected icon
-					for (let i = 0; i < icons.length; i++) {
-						if (iconToString(icons[i]) === selected) {
-							icon = icons[i];
-							break;
+				default:
+					icon = null;
+					if (selected !== '') {
+						// Find selected icon
+						for (let i = 0; i < icons.length; i++) {
+							if (iconToString(icons[i]) === selected) {
+								icon = icons[i];
+								break;
+							}
 						}
 					}
-				}
+			}
+		} else {
+			hasIcons = false;
+			icon = null;
 		}
 	}
 
@@ -86,7 +93,9 @@
 	let selected: string = '';
 	function onSelect(selection: Icon): void {
 		selected = iconToString(selection);
-		icon = selection;
+		if (Iconify.getIcon) {
+			icon = selection;
+		}
 	}
 
 	// Check if info block should be shown

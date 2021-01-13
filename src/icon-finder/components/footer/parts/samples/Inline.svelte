@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import Iconify from '@iconify/iconify';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
@@ -24,6 +24,9 @@
 	$: {
 		const iconName = iconToString(icon);
 		const props: Record<string, unknown> = {};
+
+		// Show placeholder if renderPlaceholder() exists
+		const isPlaceholder = Iconify.renderPlaceholder;
 		style = '';
 		Object.keys(customisations).forEach((key) => {
 			const attr = key as keyof IconCustomisations;
@@ -54,7 +57,12 @@
 			}
 		}
 
-		html = Iconify.renderHTML(iconName, props)!;
+		const code = Iconify.renderPlaceholder
+			? Iconify.renderPlaceholder(iconName, props)
+			: Iconify.renderHTML
+			? Iconify.renderHTML(iconName, props)
+			: null;
+		html = code === null ? '' : code;
 	}
 </script>
 

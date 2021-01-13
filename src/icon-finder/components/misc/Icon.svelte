@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import Iconify from '@iconify/iconify';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { IconifyIconCustomisations } from '@iconify/iconify';
 	import { onDestroy } from 'svelte';
 	import { icons, iconsClass } from '../../config/theme';
@@ -18,7 +18,7 @@
 	// Icon name
 	let name: string | null = null;
 	// Status
-	let loaded: boolean = false;
+	let loaded: boolean = !!Iconify.renderPlaceholder;
 	// SVG
 	let svg = '';
 	// Dummy variable to trigger re-calculation of other variables when icon has been loaded
@@ -26,10 +26,12 @@
 	// Callback for loading, used to cancel loading when component is destroyed
 	let abortLoader: (() => void) | null = null;
 
-	// Preload icons in component to avoid preloading if component is never used
-	Iconify.loadIcons(
-		Object.values(icons).filter((name) => !!name) as string[]
-	);
+	// Preload icons in component to avoid loading icons one by one. Do not preload for SSR
+	if (Iconify.loadIcons && !Iconify.renderPlaceholder) {
+		Iconify.loadIcons(
+			Object.values(icons).filter((name) => !!name) as string[]
+		);
+	}
 
 	// Resolve icon name
 	$: {
@@ -49,7 +51,12 @@
 
 	// Event listener
 	const loadingEvent = () => {
-		if (name !== null && Iconify.iconExists(name) && !loaded) {
+		if (
+			name !== null &&
+			Iconify.iconExists &&
+			Iconify.iconExists(name) &&
+			!loaded
+		) {
 			// Force update
 			updateCounter++;
 		}
@@ -61,39 +68,110 @@
 		updateCounter;
 
 		if (name !== null) {
-			if (loaded !== Iconify.iconExists(name)) {
-				// Update variable only if it needs to be updated
-				loaded = !loaded;
-				if (loaded && typeof onLoad === 'function') {
-					onLoad();
-				}
-			}
-
-			if (!loaded) {
-				// Icon is not loaded
-				if (abortLoader !== null) {
-					abortLoader();
-				}
-				abortLoader = Iconify.loadIcons([name], loadingEvent);
-			} else {
-				// Icon is loaded - generate SVG
-				const iconProps = Object.assign(
-					{
-						inline: false,
-					},
+			// Generate placeholder
+			if (Iconify.renderPlaceholder) {
+				let code = Iconify.renderPlaceholder(
+					name,
 					typeof props === 'object' ? props : {}
 				);
-				let newSVG = Iconify.renderHTML(name, iconProps)!;
-				if (iconsClass !== '') {
-					newSVG = newSVG.replace(
-						' class="iconify ',
-						' class="iconify ' + iconsClass + ' '
-					);
+				if (typeof code === 'string') {
+					if (iconsClass !== '') {
+						code = code.replace(
+							' class="',
+							' class="' + iconsClass + ' '
+						);
+					}
+					svg = code;
+				}
+			} else {
+				// Generate full icon
+				if (
+					loaded !== (Iconify.iconExists && Iconify.iconExists(name))
+				) {
+					// Update variable only if it needs to be updated
+					loaded = !loaded;
+					if (loaded && typeof onLoad === 'function') {
+						onLoad();
+					}
 				}
 
-				// Compare SVG with previous entry to avoid marking 'svg' variable as dirty and causing re-render
-				if (newSVG !== svg) {
-					svg = newSVG;
+				if (!loaded && Iconify.loadIcons) {
+					// Icon is not loaded
+					if (abortLoader !== null) {
+						abortLoader();
+					}
+					abortLoader = Iconify.loadIcons([name], loadingEvent);
+				} else {
+					// Icon is loaded - generate SVG
+					const iconProps = Object.assign(
+						{
+							inline: false,
+						},
+						typeof props === 'object' ? props : {}
+					);
+					let newSVG =
+						loaded && Iconify.renderHTML
+							? Iconify.renderHTML(name, iconProps)!
+							: (() => {
+									// Fake renderHTML that renders placeholder
+									let html =
+										'<span class="iconify " data-icon="' +
+										name +
+										'"';
+									if (props) {
+										let key: keyof typeof props;
+										for (key in props) {
+											const value = (props as Record<
+												string,
+												unknown
+											>)[key];
+											if (value === false) {
+												continue;
+											}
+											switch (key) {
+												case 'hFlip':
+													if (props.vFlip) {
+														html +=
+															' data-flip="horizontal,vertical"';
+													} else {
+														html +=
+															' data-flip="horizontal"';
+													}
+													break;
+
+												case 'vFlip':
+													if (!props.hFlip) {
+														html +=
+															' data-flip="vertical"';
+													}
+													break;
+
+												default:
+													html +=
+														' data-' +
+														key +
+														'="' +
+														(value === true
+															? 'true'
+															: value) +
+														'"';
+											}
+										}
+									}
+									html += '></span>';
+									return html;
+							  })();
+					if (iconsClass !== '') {
+						newSVG = newSVG.replace(
+							' class="',
+							' class="' + iconsClass + ' '
+						);
+					}
+
+					// Compare SVG with previous entry to avoid marking 'svg' variable as dirty and causing re-render
+					if (newSVG !== svg) {
+						svg = newSVG;
+					}
 				}
 			}
 		} else if (loaded) {

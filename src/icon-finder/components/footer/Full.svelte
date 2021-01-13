@@ -1,5 +1,6 @@
 <script lang="typescript">
 	import { getContext } from 'svelte';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type {
 		Icon,
 		FullRoute,
@@ -58,7 +59,8 @@
 	let hasIcons: boolean;
 	$: {
 		hasIcons = icons.length > 0;
-		icon = icons.length === 1 ? icons[0] : null;
+		// Show icon data only if Iconify.getIcon exists
+		icon = Iconify.getIcon && icons.length === 1 ? icons[0] : null;
 	}
 
 	// Check if info block should be shown
