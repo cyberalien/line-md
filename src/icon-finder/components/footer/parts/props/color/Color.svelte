@@ -1,6 +1,6 @@
 <script lang="typescript">
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
-	import Iconify from '@iconify/iconify';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import {
@@ -28,11 +28,13 @@
 	let hasColor: boolean;
 	$: {
 		hasColor = false;
-		for (let i = 0; i < icons.length; i++) {
-			const data = Iconify.getIcon(iconToString(icons[i]));
-			if (data && data.body.indexOf('currentColor') !== -1) {
-				hasColor = true;
-				break;
+		if (Iconify.getIcon) {
+			for (let i = 0; i < icons.length; i++) {
+				const data = Iconify.getIcon(iconToString(icons[i]));
+				if (data && data.body.indexOf('currentColor') !== -1) {
+					hasColor = true;
+					break;
+				}
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 <script lang="typescript">
 	import { getContext } from 'svelte';
-	import Iconify from '@iconify/iconify';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { FullRoute, Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import { onDestroy } from 'svelte';
@@ -35,6 +35,7 @@
 		if (
 			value !== lastIconName &&
 			value !== '' &&
+			Iconify.iconExists &&
 			Iconify.iconExists(value)
 		) {
 			// UISelectionEvent
@@ -50,6 +51,7 @@
 	let abortLoader: (() => void) | null = null;
 	const loadingEvent = () => {
 		if (
+			Iconify.iconExists &&
 			lastIconName !== loadingIconName &&
 			lastIconName !== value &&
 			Iconify.iconExists(loadingIconName)
@@ -71,7 +73,7 @@
 		}
 
 		// Check if icon already exists
-		if (Iconify.iconExists(value)) {
+		if (Iconify.iconExists && Iconify.iconExists(value)) {
 			// UISelectionEvent
 			registry.callback({
 				type: 'selection',
@@ -82,10 +84,12 @@
 
 		// Attempt to load icon from API
 		loadingIconName = value;
-		if (abortLoader !== null) {
-			abortLoader();
+		if (Iconify.loadIcons) {
+			if (abortLoader !== null) {
+				abortLoader();
+			}
+			abortLoader = Iconify.loadIcons([loadingIconName], loadingEvent);
 		}
-		abortLoader = Iconify.loadIcons([loadingIconName], loadingEvent);
 	}
 
 	// Remove event listener

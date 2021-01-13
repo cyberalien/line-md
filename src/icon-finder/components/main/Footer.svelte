@@ -1,6 +1,6 @@
 <script lang="typescript">
 	import { getContext, onDestroy } from 'svelte';
-	import Iconify from '@iconify/iconify';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
@@ -86,7 +86,7 @@
 		const list = selectionLength ? selectionToArray(selection) : [];
 		list.forEach((icon) => {
 			const name = iconToString(icon);
-			if (Iconify.iconExists(name)) {
+			if (Iconify.iconExists && Iconify.iconExists(name)) {
 				icons.push(icon);
 				return;
 			}
@@ -105,7 +105,7 @@
 
 		// Update pending list
 		pending = newPending;
-		if (toLoad.length) {
+		if (toLoad.length && Iconify.loadIcons) {
 			// Load new icons
 			if (abortLoader !== null) {
 				abortLoader();

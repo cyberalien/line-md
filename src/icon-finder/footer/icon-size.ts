@@ -1,4 +1,4 @@
-import Iconify from '@iconify/iconify';
+import { Iconify } from '@iconify/search-core/lib/iconify';
 
 export interface IconDimensions {
 	width: number | string;
@@ -18,6 +18,15 @@ export function getDimensions(
 		return {
 			width: rotated ? height : width,
 			height: rotated ? width : height,
+		};
+	}
+
+	if (!Iconify.calculateSize) {
+		// calculateSize is not available: assume ratio of 1
+		const value = width ? width : height;
+		return {
+			width: value,
+			height: value,
 		};
 	}
 

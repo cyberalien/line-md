@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import Iconify from '@iconify/iconify';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { Icon } from '@iconify/search-core';
 	import type { IconifyIcon } from '@iconify/types';
 	import { phrases } from '../../../config/phrases';
@@ -45,7 +45,7 @@
 			baseClass +
 			' ' +
 			baseClass +
-			(exists ? '--loaded' : '--loading') +
+			(exists || Iconify.renderPlaceholder ? '--loaded' : '--loading') +
 			(selected ? ' ' + baseClass + '--selected' : '');
 		if (newClassName !== className) {
 			// Trigger re-render only if value was changed
@@ -54,15 +54,18 @@
 	}
 
 	// Get SVG
-	let svg: string | boolean = false;
+	const iconParams = {
+		width: '1em',
+		height: '1em',
+		inline: false,
+	};
+	let svg: string | null;
 	$: {
-		const newSVG: string | boolean = exists
-			? Iconify.renderHTML(name, {
-					width: '1em',
-					height: '1em',
-					inline: false,
-			  })!
-			: false;
+		const newSVG: string | null = Iconify.renderPlaceholder
+			? Iconify.renderPlaceholder(name, iconParams)
+			: exists && Iconify.renderHTML
+			? Iconify.renderHTML(name, iconParams)!
+			: null;
 		if (newSVG !== svg) {
 			// Trigger re-render only if SVG was changed
 			svg = newSVG;
@@ -72,7 +75,8 @@
 	// Get size
 	let size: IconifyIcon | null = null;
 	$: {
-		const newSize = exists ? Iconify.getIcon(name) : null;
+		const newSize =
+			exists && Iconify.getIcon ? Iconify.getIcon(name) : null;
 		if (newSize !== size) {
 			size = newSize;
 		}
@@ -94,7 +98,7 @@
 			target="_blank"
 			title={tooltip}
 			on:click|preventDefault={handleClick}>
-			{#if svg !== false}
+			{#if svg !== null}
 				{@html svg}
 				{#if isSelecting}
 					<UIIcon

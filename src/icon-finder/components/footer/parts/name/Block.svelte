@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import Iconify from '@iconify/iconify';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { FullRoute, Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import { canShortenIconName } from '../../../../config/components';
@@ -29,7 +29,7 @@
 	// Get grid
 	let grid: number;
 	$: {
-		const iconData = Iconify.getIcon(iconName);
+		const iconData = Iconify.getIcon ? Iconify.getIcon(iconName) : null;
 		if (!iconData || !iconData.height) {
 			grid = 0;
 		} else {
