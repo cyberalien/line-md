@@ -6213,19 +6213,23 @@
 	 * Import custom icons
 	 */
 	const customIconsPrefix = 'icon-finder-theme';
-	Iconify__default['default'].addCollection({
-	    prefix: customIconsPrefix,
-	    icons: {
-	        'error-loading': {
-	            body: '<g clip-path="url(#clip0)"><path d="M9.9.2l-.2 1C12.7 2 15 4.7 15 8c0 3.9-3.1 7-7 7s-7-3.1-7-7c0-3.3 2.3-6 5.3-6.8l-.2-1C2.6 1.1 0 4.3 0 8c0 4.4 3.6 8 8 8s8-3.6 8-8c0-3.7-2.6-6.9-6.1-7.8z" fill="currentColor"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs>',
-	        },
-	        'empty': {
-	            body: '',
-	        },
-	    },
-	    width: 16,
-	    height: 16,
-	});
+	function importThemeIcons() {
+	    if (iconify.Iconify.addCollection) {
+	        iconify.Iconify.addCollection({
+	            prefix: customIconsPrefix,
+	            icons: {
+	                'error-loading': {
+	                    body: '<g clip-path="url(#clip0)"><path d="M9.9.2l-.2 1C12.7 2 15 4.7 15 8c0 3.9-3.1 7-7 7s-7-3.1-7-7c0-3.3 2.3-6 5.3-6.8l-.2-1C2.6 1.1 0 4.3 0 8c0 4.4 3.6 8 8 8s8-3.6 8-8c0-3.7-2.6-6.9-6.1-7.8z" fill="currentColor"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs>',
+	                },
+	                'empty': {
+	                    body: '',
+	                },
+	            },
+	            width: 16,
+	            height: 16,
+	        });
+	    }
+	}
 	/**
 	 * Icons used by UI
 	 */
@@ -6303,7 +6307,7 @@
 		};
 	}
 
-	// (93:0) {#if loaded}
+	// (156:0) {#if loaded}
 	function create_if_block(ctx) {
 		let html_tag;
 		let html_anchor;
@@ -6410,7 +6414,7 @@
 		let name = null;
 
 		// Status
-		let loaded = false;
+		let loaded = !!iconify.Iconify.renderPlaceholder;
 
 		// SVG
 		let svg = "";
@@ -6421,12 +6425,14 @@
 		// Callback for loading, used to cancel loading when component is destroyed
 		let abortLoader = null;
 
-		// Preload icons in component to avoid preloading if component is never used
-		Iconify__default['default'].loadIcons(Object.values(icons).filter(name => !!name));
+		// Preload icons in component to avoid loading icons one by one. Do not preload for SSR
+		if (iconify.Iconify.loadIcons && !iconify.Iconify.renderPlaceholder) {
+			iconify.Iconify.loadIcons(Object.values(icons).filter(name => !!name));
+		}
 
 		// Event listener
 		const loadingEvent = () => {
-			if (name !== null && Iconify__default['default'].iconExists(name) && !loaded) {
+			if (name !== null && iconify.Iconify.iconExists && iconify.Iconify.iconExists(name) && !loaded) {
 				// Force update
 				$$invalidate(6, updateCounter++, updateCounter);
 			}
@@ -6463,36 +6469,84 @@
 				}
 			}
 
-			if ($$self.$$.dirty & /*updateCounter, name, loaded, onLoad, abortLoader, props, svg*/ 251) {
+			if ($$self.$$.dirty & /*updateCounter, name, props, loaded, onLoad, abortLoader, svg*/ 251) {
 				// Check if icon has been loaded
 				 {
 
 					if (name !== null) {
-						if (loaded !== Iconify__default['default'].iconExists(name)) {
-							// Update variable only if it needs to be updated
-							$$invalidate(0, loaded = !loaded);
+						// Generate placeholder
+						if (iconify.Iconify.renderPlaceholder) {
+							let code = iconify.Iconify.renderPlaceholder(name, typeof props === "object" ? props : {});
 
-							if (loaded && typeof onLoad === "function") {
-								onLoad();
+							if (typeof code === "string") {
+
+								$$invalidate(1, svg = code);
 							}
-						}
-
-						if (!loaded) {
-							// Icon is not loaded
-							if (abortLoader !== null) {
-								abortLoader();
-							}
-
-							$$invalidate(7, abortLoader = Iconify__default['default'].loadIcons([name], loadingEvent));
 						} else {
-							// Icon is loaded - generate SVG
-							const iconProps = Object.assign({ inline: false }, typeof props === "object" ? props : {});
+							// Generate full icon
+							if (loaded !== (iconify.Iconify.iconExists && iconify.Iconify.iconExists(name))) {
+								// Update variable only if it needs to be updated
+								$$invalidate(0, loaded = !loaded);
 
-							let newSVG = Iconify__default['default'].renderHTML(name, iconProps);
+								if (loaded && typeof onLoad === "function") {
+									onLoad();
+								}
+							}
 
-							// Compare SVG with previous entry to avoid marking 'svg' variable as dirty and causing re-render
-							if (newSVG !== svg) {
-								$$invalidate(1, svg = newSVG);
+							if (!loaded && iconify.Iconify.loadIcons) {
+								// Icon is not loaded
+								if (abortLoader !== null) {
+									abortLoader();
+								}
+
+								$$invalidate(7, abortLoader = iconify.Iconify.loadIcons([name], loadingEvent));
+							} else {
+								// Icon is loaded - generate SVG
+								const iconProps = Object.assign({ inline: false }, typeof props === "object" ? props : {});
+
+								let newSVG = loaded && iconify.Iconify.renderHTML
+								? iconify.Iconify.renderHTML(name, iconProps)
+								: (() => {
+										// Fake renderHTML that renders placeholder
+										let html = "<span class=\"iconify \" data-icon=\"" + name + "\"";
+
+										if (props) {
+											let key;
+
+											for (key in props) {
+												const value = props[key];
+
+												if (value === false) {
+													continue;
+												}
+
+												switch (key) {
+													case "hFlip":
+														if (props.vFlip) {
+															html += " data-flip=\"horizontal,vertical\"";
+														} else {
+															html += " data-flip=\"horizontal\"";
+														}
+														break;
+													case "vFlip":
+														if (!props.hFlip) {
+															html += " data-flip=\"vertical\"";
+														}
+														break;
+													default:
+														html += " data-" + key + "=\"" + (value === true ? "true" : value) + "\"";
+												}
+											}
+										}
+
+										html += "></span>";
+										return html;
+									})();
+
+								// Compare SVG with previous entry to avoid marking 'svg' variable as dirty and causing re-render
+								if (newSVG !== svg) {
+									$$invalidate(1, svg = newSVG);
+								}
 							}
 						}
 					} else if (loaded) {
@@ -11518,11 +11572,11 @@
 
 	function get_each_context$8(ctx, list, i) {
 		const child_ctx = ctx.slice();
-		child_ctx[15] = list[i];
+		child_ctx[16] = list[i];
 		return child_ctx;
 	}
 
-	// (78:3) {#if svg !== false}
+	// (81:3) {#if svg !== null}
 	function create_if_block_2$4(ctx) {
 		let html_tag;
 		let t;
@@ -11588,7 +11642,7 @@
 		};
 	}
 
-	// (80:4) {#if isSelecting}
+	// (83:4) {#if isSelecting}
 	function create_if_block_3$2(ctx) {
 		let uiicon;
 		let current;
@@ -11633,7 +11687,7 @@
 		};
 	}
 
-	// (96:2) {#if size}
+	// (99:2) {#if size}
 	function create_if_block_1$5(ctx) {
 		let div;
 		let t0_value = /*size*/ ctx[9].width + "";
@@ -11666,7 +11720,7 @@
 		};
 	}
 
-	// (99:2) {#if filters}
+	// (102:2) {#if filters}
 	function create_if_block$c(ctx) {
 		let each_1_anchor;
 		let current;
@@ -11750,21 +11804,21 @@
 		};
 	}
 
-	// (100:3) {#each filters as filter}
+	// (103:3) {#each filters as filter}
 	function create_each_block$8(ctx) {
 		let filter;
 		let current;
 
 		function func() {
-			return /*func*/ ctx[14](/*filter*/ ctx[15]);
+			return /*func*/ ctx[14](/*filter*/ ctx[16]);
 		}
 
 		filter = new Filter({
 				props: {
-					filter: /*filter*/ ctx[15].item,
-					title: /*filter*/ ctx[15].item.title === ""
+					filter: /*filter*/ ctx[16].item,
+					title: /*filter*/ ctx[16].item.title === ""
 					? phrases.filters.uncategorised
-					: /*filter*/ ctx[15].item.title,
+					: /*filter*/ ctx[16].item.title,
 					onClick: func
 				}
 			});
@@ -11780,11 +11834,11 @@
 			p(new_ctx, dirty) {
 				ctx = new_ctx;
 				const filter_changes = {};
-				if (dirty & /*filters*/ 64) filter_changes.filter = /*filter*/ ctx[15].item;
+				if (dirty & /*filters*/ 64) filter_changes.filter = /*filter*/ ctx[16].item;
 
-				if (dirty & /*filters*/ 64) filter_changes.title = /*filter*/ ctx[15].item.title === ""
+				if (dirty & /*filters*/ 64) filter_changes.title = /*filter*/ ctx[16].item.title === ""
 				? phrases.filters.uncategorised
-				: /*filter*/ ctx[15].item.title;
+				: /*filter*/ ctx[16].item.title;
 
 				if (dirty & /*onClick, filters*/ 80) filter_changes.onClick = func;
 				filter.$set(filter_changes);
@@ -11818,7 +11872,7 @@
 		let current;
 		let mounted;
 		let dispose;
-		let if_block0 = /*svg*/ ctx[8] !== false && create_if_block_2$4(ctx);
+		let if_block0 = /*svg*/ ctx[8] !== null && create_if_block_2$4(ctx);
 		let if_block1 = /*size*/ ctx[9] && create_if_block_1$5(ctx);
 		let if_block2 = /*filters*/ ctx[6] && create_if_block$c(ctx);
 
@@ -11871,7 +11925,7 @@
 				}
 			},
 			p(ctx, [dirty]) {
-				if (/*svg*/ ctx[8] !== false) {
+				if (/*svg*/ ctx[8] !== null) {
 					if (if_block0) {
 						if_block0.p(ctx, dirty);
 
@@ -11997,7 +12051,13 @@
 		let className = "";
 
 		// Get SVG
-		let svg = false;
+		const iconParams = {
+			width: "1em",
+			height: "1em",
+			inline: false
+		};
+
+		let svg;
 
 		// Get size
 		let size = null;
@@ -12030,7 +12090,9 @@
 		$$self.$$.update = () => {
 			if ($$self.$$.dirty & /*exists, selected, className*/ 8324) {
 				 {
-					const newClassName = baseClass$5 + " " + baseClass$5 + (exists ? "--loaded" : "--loading") + (selected ? " " + baseClass$5 + "--selected" : "");
+					const newClassName = baseClass$5 + " " + baseClass$5 + (exists || iconify.Iconify.renderPlaceholder
+					? "--loaded"
+					: "--loading") + (selected ? " " + baseClass$5 + "--selected" : "");
 
 					if (newClassName !== className) {
 						// Trigger re-render only if value was changed
@@ -12039,15 +12101,13 @@
 				}
 			}
 
-			if ($$self.$$.dirty & /*exists, name, svg*/ 10496) {
+			if ($$self.$$.dirty & /*name, exists, svg*/ 10496) {
 				 {
-					const newSVG = exists
-					? Iconify__default['default'].renderHTML(name, {
-							width: "1em",
-							height: "1em",
-							inline: false
-						})
-					: false;
+					const newSVG = iconify.Iconify.renderPlaceholder
+					? iconify.Iconify.renderPlaceholder(name, iconParams)
+					: exists && iconify.Iconify.renderHTML
+						? iconify.Iconify.renderHTML(name, iconParams)
+						: null;
 
 					if (newSVG !== svg) {
 						// Trigger re-render only if SVG was changed
@@ -12058,7 +12118,7 @@
 
 			if ($$self.$$.dirty & /*exists, name, size*/ 10752) {
 				 {
-					const newSize = exists ? Iconify__default['default'].getIcon(name) : null;
+					const newSize = exists && iconify.Iconify.getIcon ? iconify.Iconify.getIcon(name) : null;
 
 					if (newSize !== size) {
 						$$invalidate(9, size = newSize);
@@ -12172,7 +12232,7 @@
 		};
 	}
 
-	// (65:3) {#if isSelecting}
+	// (68:3) {#if isSelecting}
 	function create_if_block_1$6(ctx) {
 		let uiicon;
 		let current;
@@ -12223,7 +12283,7 @@
 		let current;
 		let mounted;
 		let dispose;
-		let if_block = /*svg*/ ctx[5] !== false && create_if_block$d(ctx);
+		let if_block = /*svg*/ ctx[5] !== null && create_if_block$d(ctx);
 
 		return {
 			c() {
@@ -12247,7 +12307,7 @@
 				}
 			},
 			p(ctx, [dirty]) {
-				if (/*svg*/ ctx[5] !== false) {
+				if (/*svg*/ ctx[5] !== null) {
 					if (if_block) {
 						if_block.p(ctx, dirty);
 
@@ -12315,7 +12375,13 @@
 		let className = "";
 
 		// Get SVG
-		let svg = false;
+		const iconParams = {
+			width: "1em",
+			height: "1em",
+			inline: false
+		};
+
+		let svg;
 
 		// Select icon
 		function handleClick() {
@@ -12341,7 +12407,9 @@
 		$$self.$$.update = () => {
 			if ($$self.$$.dirty & /*exists, selected, className*/ 530) {
 				 {
-					const newClassName = baseClass$6 + " " + baseClass$6 + (exists ? "--loaded" : "--loading") + (selected ? " " + baseClass$6 + "--selected" : "");
+					const newClassName = baseClass$6 + " " + baseClass$6 + (exists || iconify.Iconify.renderPlaceholder
+					? "--loaded"
+					: "--loading") + (selected ? " " + baseClass$6 + "--selected" : "");
 
 					if (newClassName !== className) {
 						// Trigger re-render only if value was changed
@@ -12350,15 +12418,13 @@
 				}
 			}
 
-			if ($$self.$$.dirty & /*exists, name, svg*/ 672) {
+			if ($$self.$$.dirty & /*name, exists, svg*/ 672) {
 				 {
-					const newSVG = exists
-					? Iconify__default['default'].renderHTML(name, {
-							width: "1em",
-							height: "1em",
-							inline: false
-						})
-					: false;
+					const newSVG = iconify.Iconify.renderPlaceholder
+					? iconify.Iconify.renderPlaceholder(name, iconParams)
+					: exists && iconify.Iconify.renderHTML
+						? iconify.Iconify.renderHTML(name, iconParams)
+						: null;
 
 					if (newSVG !== svg) {
 						// Trigger re-render only if SVG was changed
@@ -12409,7 +12475,7 @@
 		return child_ctx;
 	}
 
-	// (222:3) {:else}
+	// (224:3) {:else}
 	function create_else_block$4(ctx) {
 		let icongrid;
 		let current;
@@ -12462,7 +12528,7 @@
 		};
 	}
 
-	// (220:3) {#if isList}
+	// (222:3) {#if isList}
 	function create_if_block$e(ctx) {
 		let iconlist;
 		let current;
@@ -12515,7 +12581,7 @@
 		};
 	}
 
-	// (219:2) {#each parsedIcons as item, i (item.name)}
+	// (221:2) {#each parsedIcons as item, i (item.name)}
 	function create_each_block$9(key_1, ctx) {
 		let first;
 		let current_block_type_index;
@@ -12831,7 +12897,7 @@
 
 					blocks.icons.icons.forEach(icon => {
 						const name = lib.iconToString(icon);
-						const data = Iconify__default['default'].getIcon(name);
+						const data = iconify.Iconify.getIcon ? iconify.Iconify.getIcon(name) : null;
 						const exists = data !== null;
 
 						// Icon name, used in list view and tooltip
@@ -12905,12 +12971,14 @@
 					});
 
 					// Load pending images
-					if (pending.length) {
-						if (abortLoader !== null) {
-							abortLoader();
-						}
+					if (iconify.Iconify.loadIcons) {
+						if (pending.length) {
+							if (abortLoader !== null) {
+								abortLoader();
+							}
 
-						$$invalidate(8, abortLoader = Iconify__default['default'].loadIcons(pending, loadingEvent));
+							$$invalidate(8, abortLoader = iconify.Iconify.loadIcons(pending, loadingEvent));
+						}
 					}
 
 					// Overwrite parseIcons variable only if something was updated, triggering component re-render
@@ -16933,7 +17001,7 @@
 		};
 	}
 
-	// (70:1) <Block type="color">
+	// (72:1) <Block type="color">
 	function create_default_slot$9(ctx) {
 		let input;
 		let current;
@@ -17105,12 +17173,14 @@
 				 {
 					$$invalidate(1, hasColor = false);
 
-					for (let i = 0; i < icons.length; i++) {
-						const data = Iconify__default['default'].getIcon(lib.iconToString(icons[i]));
+					if (iconify.Iconify.getIcon) {
+						for (let i = 0; i < icons.length; i++) {
+							const data = iconify.Iconify.getIcon(lib.iconToString(icons[i]));
 
-						if (data && data.body.indexOf("currentColor") !== -1) {
-							$$invalidate(1, hasColor = true);
-							break;
+							if (data && data.body.indexOf("currentColor") !== -1) {
+								$$invalidate(1, hasColor = true);
+								break;
+							}
 						}
 					}
 				}
@@ -17500,7 +17570,7 @@
 						}
 
 						const name = lib.iconToString(icon);
-						const data = Iconify__default['default'].getIcon(name);
+						const data = iconify.Iconify.getIcon(name);
 
 						if (!data) {
 							return;
@@ -17575,11 +17645,11 @@
 
 							// Scale placeholder using size ratio
 							// console.log(`Size for ${key} is ${size}`);
-							if (size !== "") {
+							if (iconify.Iconify.calculateSize && size !== "") {
 								$$invalidate(
 									2,
 									placeholders[placeholderKey] = (scale
-									? Iconify__default['default']._internal.calculateSize(size, key === "width" ? data.ratio : 1 / data.ratio)
+									? iconify.Iconify.calculateSize(size, key === "width" ? data.ratio : 1 / data.ratio)
 									: size) + "",
 									placeholders
 								);
@@ -18931,11 +19001,19 @@
 	            height: rotated ? width : height,
 	        };
 	    }
+	    if (!iconify.Iconify.calculateSize) {
+	        // calculateSize is not available: assume ratio of 1
+	        const value = width ? width : height;
+	        return {
+	            width: value,
+	            height: value,
+	        };
+	    }
 	    if (!height) {
-	        height = Iconify__default['default'].calculateSize(width, rotated ? ratio : 1 / ratio);
+	        height = iconify.Iconify.calculateSize(width, rotated ? ratio : 1 / ratio);
 	    }
 	    else {
-	        width = Iconify__default['default'].calculateSize(height, rotated ? 1 / ratio : ratio);
+	        width = iconify.Iconify.calculateSize(height, rotated ? 1 / ratio : ratio);
 	    }
 	    return {
 	        width,
@@ -19065,7 +19143,7 @@
 					const name = lib.iconToString(icon);
 
 					// Get data
-					const iconData = Iconify__default['default'].getIcon(name);
+					const iconData = iconify.Iconify.getIcon(name);
 
 					// Check if icon is rotated (for width/height calculations)
 					const rotated = !!(iconData.width !== iconData.height && customisations.rotate && customisations.rotate % 2 === 1);
@@ -19218,6 +19296,10 @@
 				 {
 					const iconName = lib.iconToString(icon);
 					const props = {};
+
+					// Show placeholder if renderPlaceholder() exists
+					const isPlaceholder = iconify.Iconify.renderPlaceholder;
+
 					$$invalidate(1, style = "");
 
 					Object.keys(customisations).forEach(key => {
@@ -19252,7 +19334,13 @@
 						}
 					}
 
-					$$invalidate(0, html = Iconify__default['default'].renderHTML(iconName, props));
+					const code = iconify.Iconify.renderPlaceholder
+					? iconify.Iconify.renderPlaceholder(iconName, props)
+					: iconify.Iconify.renderHTML
+						? iconify.Iconify.renderHTML(iconName, props)
+						: null;
+
+					$$invalidate(0, html = code === null ? "" : code);
 				}
 			}
 		};
@@ -20187,7 +20275,7 @@
 	     * Add attributes to parsed attributes
 	     */
 	    function addRawAttr(list, key, value) {
-	        list[key] = toString(value);
+	        list[key] = value;
 	    }
 	    function addAttr(list, key, value) {
 	        list[key] = {
@@ -22738,7 +22826,7 @@
 		};
 	}
 
-	// (103:3) {#if icon}
+	// (105:3) {#if icon}
 	function create_if_block_7$2(ctx) {
 		let current_block_type_index;
 		let if_block;
@@ -22808,7 +22896,7 @@
 		};
 	}
 
-	// (106:4) {:else}
+	// (108:4) {:else}
 	function create_else_block$8(ctx) {
 		let sample;
 		let current;
@@ -22849,7 +22937,7 @@
 		};
 	}
 
-	// (104:4) {#if customiseInline && customisations.inline}
+	// (106:4) {#if customiseInline && customisations.inline}
 	function create_if_block_8$2(ctx) {
 		let inlinesample;
 		let current;
@@ -22890,7 +22978,7 @@
 		};
 	}
 
-	// (113:23) 
+	// (115:23) 
 	function create_if_block_6$2(ctx) {
 		let iconslist;
 		let current;
@@ -22933,7 +23021,7 @@
 		};
 	}
 
-	// (111:4) {#if icon}
+	// (113:4) {#if icon}
 	function create_if_block_5$2(ctx) {
 		let iconname;
 		let current;
@@ -22974,7 +23062,7 @@
 		};
 	}
 
-	// (116:4) {#if infoBlock}
+	// (118:4) {#if infoBlock}
 	function create_if_block_4$4(ctx) {
 		let footerblock;
 		let current;
@@ -23021,7 +23109,7 @@
 		};
 	}
 
-	// (117:5) <FooterBlock name="info" title={infoBlockTitle}>
+	// (119:5) <FooterBlock name="info" title={infoBlockTitle}>
 	function create_default_slot_1(ctx) {
 		let infoblock;
 		let current;
@@ -23063,7 +23151,7 @@
 		};
 	}
 
-	// (125:4) {#if showCustomisatons && hasIcons}
+	// (127:4) {#if showCustomisatons && hasIcons}
 	function create_if_block_3$8(ctx) {
 		let propertiescontainer;
 		let current;
@@ -23106,7 +23194,7 @@
 		};
 	}
 
-	// (128:4) {#if showCode && icon}
+	// (130:4) {#if showCode && icon}
 	function create_if_block_2$d(ctx) {
 		let codeblock;
 		let current;
@@ -23147,7 +23235,7 @@
 		};
 	}
 
-	// (101:1) <Block type="footer">
+	// (103:1) <Block type="footer">
 	function create_default_slot$h(ctx) {
 		let div1;
 		let t0;
@@ -23474,7 +23562,9 @@
 			if ($$self.$$.dirty & /*icons*/ 1) {
 				 {
 					$$invalidate(5, hasIcons = icons.length > 0);
-					$$invalidate(4, icon = icons.length === 1 ? icons[0] : null);
+
+					// Show icon data only if Iconify.getIcon exists
+					$$invalidate(4, icon = iconify.Iconify.getIcon && icons.length === 1 ? icons[0] : null);
 				}
 			}
 
@@ -23660,7 +23750,7 @@
 					list.forEach(icon => {
 						const name = lib.iconToString(icon);
 
-						if (Iconify__default['default'].iconExists(name)) {
+						if (iconify.Iconify.iconExists && iconify.Iconify.iconExists(name)) {
 							icons.push(icon);
 							return;
 						}
@@ -23682,13 +23772,13 @@
 					// Update pending list
 					$$invalidate(8, pending = newPending);
 
-					if (toLoad.length) {
+					if (toLoad.length && iconify.Iconify.loadIcons) {
 						// Load new icons
 						if (abortLoader !== null) {
 							abortLoader();
 						}
 
-						$$invalidate(7, abortLoader = Iconify__default['default'].loadIcons(toLoad, loadingEvent));
+						$$invalidate(7, abortLoader = iconify.Iconify.loadIcons(toLoad, loadingEvent));
 					}
 				}
 			}
@@ -23957,6 +24047,8 @@
 	function assertNever(s) { }
 	// Set SVG framework
 	lib.setIconify(Iconify__default['default']);
+	// Import theme icons
+	importThemeIcons();
 	// Add components configuration to config object
 	lib.setComponentsConfig(defaultComponentsConfig);
 	/**
