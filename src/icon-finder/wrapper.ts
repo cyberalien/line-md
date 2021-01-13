@@ -46,10 +46,10 @@ import {
 	selectionToArray,
 } from './wrapper/icons';
 import { addCustomAPIProviders } from './config/api';
+import { importThemeIcons } from './config/theme';
 
 // Change import to change container component
 import Container from './components/Container.svelte';
-import { importThemeIcons } from './config/theme';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental, @typescript-eslint/no-empty-function
 function assertNever(s: never) {}
