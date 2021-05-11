@@ -1,4 +1,4 @@
-import { Iconify } from '@iconify/search-core/lib/iconify';
+import { addCollection } from '@iconify/svelte';
 
 /**
  * Maximum color index (number of colors in rotation - 1)
@@ -21,22 +21,20 @@ export const collectionClickable = false;
  */
 const customIconsPrefix = 'icon-finder-theme';
 export function importThemeIcons() {
-	if (Iconify.addCollection) {
-		Iconify.addCollection({
-			prefix: customIconsPrefix,
-			icons: {
-				'error-loading': {
-					body:
-						'<g clip-path="url(#clip0)"><path d="M9.9.2l-.2 1C12.7 2 15 4.7 15 8c0 3.9-3.1 7-7 7s-7-3.1-7-7c0-3.3 2.3-6 5.3-6.8l-.2-1C2.6 1.1 0 4.3 0 8c0 4.4 3.6 8 8 8s8-3.6 8-8c0-3.7-2.6-6.9-6.1-7.8z" fill="currentColor"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs>',
-				},
-				'empty': {
-					body: '',
-				},
+	addCollection({
+		prefix: customIconsPrefix,
+		icons: {
+			'error-loading': {
+				body:
+					'<g clip-path="url(#clip0)"><path d="M9.9.2l-.2 1C12.7 2 15 4.7 15 8c0 3.9-3.1 7-7 7s-7-3.1-7-7c0-3.3 2.3-6 5.3-6.8l-.2-1C2.6 1.1 0 4.3 0 8c0 4.4 3.6 8 8 8s8-3.6 8-8c0-3.7-2.6-6.9-6.1-7.8z" fill="currentColor"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs>',
 			},
-			width: 16,
-			height: 16,
-		});
-	}
+			'empty': {
+				body: '',
+			},
+		},
+		width: 16,
+		height: 16,
+	});
 }
 
 /**
@@ -79,4 +77,4 @@ export const icons: Record<string, string | null> = {
 /**
  * Class to add to icons
  */
-export const iconsClass: string = '';
+export const iconsClass: string = 'iconify--line-md';
