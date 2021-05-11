@@ -16,11 +16,7 @@ export default [
 			sourcemap: true,
 			format: 'iife',
 			file: outputFile,
-			globals: {
-				'@iconify/iconify': 'Iconify',
-			},
 		},
-		external: ['@iconify/iconify'],
 		plugins: [
 			resolve({
 				browser: true,
@@ -46,11 +42,7 @@ export default [
 			sourcemap: false,
 			format: 'iife',
 			file: outputFile.replace(/.js$/, '.min.js'),
-			globals: {
-				'@iconify/iconify': 'Iconify',
-			},
 		},
-		external: ['@iconify/iconify'],
 		plugins: [terser()],
 	},
 ];

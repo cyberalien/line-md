@@ -1,4 +1,11 @@
-import Iconify from '@iconify/iconify';
+import {
+	buildIcon,
+	getIcon,
+	addCollection,
+	_api,
+	addAPIProvider,
+	disableCache,
+} from '@iconify/svelte';
 import type { SvelteComponent } from 'svelte';
 import {
 	setIconify,
@@ -15,6 +22,7 @@ import type {
 	PartialRoute,
 	IconFinderCoreParams,
 	RouterEvent,
+	CoreIconifyFunctions,
 } from '@iconify/search-core';
 import type {
 	IconCustomisations,
@@ -25,6 +33,7 @@ import {
 	filterCustomisations,
 	mergeCustomisations,
 } from '@iconify/search-core/lib/misc/customisations';
+import { renderHTML } from '@iconify/search-core/lib/iconify/html';
 import type { IconFinderWrapperParams } from './wrapper/params';
 import type { IconFinderState } from './wrapper/state';
 import type { WrapperStatus } from './wrapper/status';
@@ -46,16 +55,30 @@ import {
 	selectionToArray,
 } from './wrapper/icons';
 import { addCustomAPIProviders } from './config/api';
+import { importThemeIcons } from './config/theme';
 
 // Change import to change container component
 import Container from './components/Container.svelte';
-import { importThemeIcons } from './config/theme';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental, @typescript-eslint/no-empty-function
 function assertNever(s: never) {}
 
 // Set SVG framework
-setIconify(Iconify);
+// getVersion() will will use hardcoded version number generated when building core
+const functions: Omit<Required<CoreIconifyFunctions>, 'getVersion'> = {
+	getIcon,
+	addCollection,
+	getAPI: _api.getAPI,
+	addAPIProvider,
+	// Emulate renderHTML from SVG framework
+	renderHTML: (name, customisations) => {
+		return renderHTML(name, customisations, (name, customisations) => {
+			const data = getIcon(name);
+			return data ? buildIcon(data, customisations) : null;
+		});
+	},
+};
+setIconify(functions);
 
 // Import theme icons
 importThemeIcons();
@@ -118,7 +141,7 @@ export class Wrapper {
 		}
 
 		// Disable Iconify cache
-		Iconify.disableCache('all');
+		disableCache('all');
 
 		// Init core
 		const core = (this._core = new IconFinderCore(coreParams));

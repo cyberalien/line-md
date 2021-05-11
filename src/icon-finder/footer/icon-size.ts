@@ -1,4 +1,4 @@
-import { Iconify } from '@iconify/search-core/lib/iconify';
+import { calculateSize } from '@iconify/svelte';
 
 export interface IconDimensions {
 	width: number | string;
@@ -21,21 +21,12 @@ export function getDimensions(
 		};
 	}
 
-	if (!Iconify.calculateSize) {
-		// calculateSize is not available: assume ratio of 1
-		const value = width ? width : height;
-		return {
-			width: value,
-			height: value,
-		};
-	}
-
 	if (!height) {
-		height = Iconify.calculateSize(width, rotated ? ratio : 1 / ratio) as
+		height = calculateSize(width, rotated ? ratio : 1 / ratio) as
 			| number
 			| string;
 	} else {
-		width = Iconify.calculateSize(height, rotated ? 1 / ratio : ratio) as
+		width = calculateSize(height, rotated ? 1 / ratio : ratio) as
 			| number
 			| string;
 	}
