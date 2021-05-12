@@ -167,9 +167,12 @@ function buildStylesheet() {
  */
 function copyModules() {
 	// Copy Iconify
+	// No longer used: switched to Svelte component
+	/*
 	const iconify = require.resolve('@iconify/iconify');
 	const data = fs.readFileSync(iconify);
 	fs.writeFileSync(dirname(__dirname) + '/assets/iconify.min.js', data);
+	*/
 }
 
 function build() {
