@@ -3,7 +3,7 @@
 </script>
 
 <script lang="typescript">
-	import { Icon, loadIcons } from '@iconify/svelte';
+	import Icon, { loadIcons } from '@iconify/svelte';
 	import { onMount } from 'svelte';
 	import { icons, iconsClass } from '../../config/theme';
 

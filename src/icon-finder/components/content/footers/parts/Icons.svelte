@@ -1,7 +1,7 @@
 <script lang="typescript">
 	import { getContext } from 'svelte';
 	import type { IconifyIconCustomisations } from '@iconify/svelte';
-	import { Icon as IconComponent } from '@iconify/svelte';
+	import IconComponent from '@iconify/svelte';
 	import type { Icon, FullRoute } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
