@@ -137,7 +137,7 @@
 				class="iif-input-reset"
 				href="# "
 				on:click|preventDefault={resetValue}>
-				<UIIcon icon="reset" />
+				<UIIcon icon="reset">x</UIIcon>
 			</a>
 		{/if}
 	</div>

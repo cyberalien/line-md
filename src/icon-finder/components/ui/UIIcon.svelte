@@ -13,6 +13,16 @@
 	// Optional event to trigger when icon has loaded
 	export let onLoad: (() => void) | null = null;
 
+	// Loaded status
+	let loaded = false;
+
+	function loadCallback() {
+		loaded = true;
+		if (onLoad) {
+			onLoad();
+		}
+	}
+
 	// Preload icons only after mount, which is not used in SSR
 	onMount(() => {
 		if (firstMount) {
@@ -36,5 +46,12 @@
 </script>
 
 {#if iconName !== null}
-	<Icon icon={iconName} class={iconsClass} {onLoad} />
+	<Icon
+		icon={iconName}
+		class={iconsClass}
+		onLoad={loadCallback} />{#if !loaded}
+		<slot />
+	{/if}
+{:else}
+	<slot />
 {/if}

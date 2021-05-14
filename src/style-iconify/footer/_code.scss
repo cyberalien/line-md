@@ -22,22 +22,26 @@
 		line-height: $iif-icon-size;
 		position: relative;
 		padding: 0 ($iif-icon-size + 4px);
-		.iconify {
+		svg,
+		span {
 			font-size: $iif-icon-size;
 			position: absolute;
 			left: 0;
 			top: 0;
 		}
-		> .iconify {
+		> svg,
+		> span {
 			color: $iif-input-placeholder-icon-color;
 		}
 
 		// Swap icons on hover
 		&:hover {
-			a .iconify {
+			a svg,
+			a span {
 				display: inline-block;
 			}
-			> .iconify {
+			> svg,
+			> span {
 				display: none;
 			}
 		}

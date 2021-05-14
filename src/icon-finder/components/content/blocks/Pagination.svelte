@@ -81,7 +81,7 @@
 				href="# "
 				class={arrowClass + 'prev'}
 				on:click|preventDefault={() => setPage(prevPage)}>
-				<UIIcon icon="left" />
+				<UIIcon icon="left">&lt;</UIIcon>
 			</a>
 		{/if}
 		{#each pages as page, i (page.page)}
@@ -106,7 +106,7 @@
 				href="# "
 				class={arrowClass + 'next'}
 				on:click|preventDefault={() => setPage(nextPage)}>
-				<UIIcon icon="right" />
+				<UIIcon icon="right">&gt;</UIIcon>
 			</a>
 		{/if}
 	</div>

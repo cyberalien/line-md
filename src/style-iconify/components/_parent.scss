@@ -22,7 +22,8 @@
 			padding-left: $iif-parent-icon-spacing;
 		}
 
-		svg {
+		> svg,
+		> span {
 			font-size: $iif-icon-size;
 			line-height: 1em;
 			color: $iif-parent-icon-color;
@@ -62,7 +63,8 @@
 	.iif-parent-link {
 		&:hover,
 		&:focus {
-			svg {
+			> svg,
+			> span {
 				left: 0;
 			}
 		}
