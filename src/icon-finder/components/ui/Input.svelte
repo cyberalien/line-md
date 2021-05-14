@@ -103,7 +103,9 @@
 
 	// Focus
 	let inputRef: HTMLElement;
+	let mounted = false;
 	onMount(() => {
+		mounted = true;
 		if (autofocus) {
 			inputRef.focus();
 		}
@@ -112,7 +114,7 @@
 
 <div class={wrapperClassName}>
 	<div class={className}>
-		{#if icon !== ''}
+		{#if mounted && icon !== ''}
 			<div class="iif-input-icon" style={iconStyle}>
 				<UIIcon {icon} onLoad={iconLoaded} />
 			</div>
@@ -132,7 +134,7 @@
 		{#if value === '' && placeholder !== ''}
 			<div class="iif-input-placeholder">{placeholder}</div>
 		{/if}
-		{#if value !== ''}
+		{#if mounted && value !== ''}
 			<a
 				class="iif-input-reset"
 				href="# "

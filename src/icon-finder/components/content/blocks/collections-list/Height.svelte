@@ -1,6 +1,14 @@
 <script lang="typescript">
+	import { onMount } from 'svelte';
+
 	// Text to display
 	export let text: string;
+
+	// Display icon only after mounting component to avoid rendering it on SSR
+	let mounted = false;
+	onMount(() => {
+		mounted = true;
+	});
 
 	// Paths for characters and scaling
 	const unit = 8;
@@ -206,4 +214,6 @@
 	}
 </script>
 
-{@html html}
+{#if mounted}
+	{@html html}
+{/if}
