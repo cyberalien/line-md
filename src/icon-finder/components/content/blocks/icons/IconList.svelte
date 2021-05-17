@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import { Icon as IconComponent, getIcon } from '@iconify/svelte';
+	import IconComponent, { getIcon } from '@iconify/svelte';
 	import type { Icon } from '@iconify/search-core';
 	import type { IconifyIcon } from '@iconify/types';
 	import { phrases } from '../../../../config/phrases';

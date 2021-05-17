@@ -12,6 +12,6 @@
 </script>
 
 <div class="iif-parent-link">
-	<UIIcon icon="parent" />
+	<UIIcon icon="parent"><span>&lt;</span></UIIcon>
 	<a href="# " on:click|preventDefault={onClick}>{text}</a>
 </div>

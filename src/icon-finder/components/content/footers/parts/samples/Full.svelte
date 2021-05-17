@@ -1,6 +1,6 @@
 <script lang="typescript">
 	import type { IconifyIcon } from '@iconify/svelte';
-	import { Icon as IconComponent, getIcon } from '@iconify/svelte';
+	import IconComponent, { getIcon } from '@iconify/svelte';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';

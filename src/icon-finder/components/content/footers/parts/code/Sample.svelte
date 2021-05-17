@@ -80,10 +80,12 @@
 <div class={className}>
 	<div class={baseClassName + '-content'}>{content}</div>
 	<a title={text.copy} href="# " on:click|preventDefault={copy}><UIIcon
-			icon="clipboard" /></a>
+			icon="clipboard">
+			📋
+		</UIIcon></a>
 	{#if notice > 0}
 		<div class={baseClassName + '-notice'}>
-			<UIIcon icon="confirm" />
+			<UIIcon icon="confirm">✓</UIIcon>
 			{text.copied}
 		</div>
 	{/if}

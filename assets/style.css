@@ -2002,7 +2002,8 @@ a.iif-filter--selected:focus:not(:hover) {
 	padding-left: 24px;
 }
 
-.iif-block--parent .iif-parent-link svg {
+.iif-block--parent .iif-parent-link > svg,
+.iif-block--parent .iif-parent-link > span {
 	font-size: 24px;
 	line-height: 1em;
 	color: #959595;
@@ -2019,7 +2020,9 @@ a.iif-filter--selected:focus:not(:hover) {
 	outline: none;
 }
 
-.iif-block--parent .iif-parent-link:hover svg, .iif-block--parent .iif-parent-link:focus svg {
+.iif-block--parent .iif-parent-link:hover > svg,
+.iif-block--parent .iif-parent-link:hover > span, .iif-block--parent .iif-parent-link:focus > svg,
+.iif-block--parent .iif-parent-link:focus > span {
 	left: 0;
 }
 
@@ -2624,22 +2627,26 @@ a.iif-filter--selected:focus:not(:hover) {
 	padding: 0 28px;
 }
 
-.iif-code-docs .iconify {
+.iif-code-docs svg,
+.iif-code-docs span {
 	font-size: 24px;
 	position: absolute;
 	left: 0;
 	top: 0;
 }
 
-.iif-code-docs > .iconify {
+.iif-code-docs > svg,
+.iif-code-docs > span {
 	color: #afafaf;
 }
 
-.iif-code-docs:hover a .iconify {
+.iif-code-docs:hover a svg,
+.iif-code-docs:hover a span {
 	display: inline-block;
 }
 
-.iif-code-docs:hover > .iconify {
+.iif-code-docs:hover > svg,
+.iif-code-docs:hover > span {
 	display: none;
 }
 

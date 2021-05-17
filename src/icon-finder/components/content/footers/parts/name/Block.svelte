@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import { Icon as IconComponent, getIcon } from '@iconify/svelte';
+	import IconComponent, { getIcon } from '@iconify/svelte';
 	import type { FullRoute, Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
 	import { canShortenIconName } from '../../../../../config/components';

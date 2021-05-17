@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { onMount } from 'svelte';
 	import { phrases } from '../../../../config/phrases';
 	import type { IconsListMode } from '../../../types';
 	import IconButton from '../../../ui/IconButton.svelte';
@@ -24,6 +25,12 @@
 	// Callback
 	export let toggleSelection: () => void;
 
+	// Show buttons only when mounted to avoid rendering buttons for SSR
+	let mounted = false;
+	onMount(() => {
+		mounted = true;
+	});
+
 	// Text
 	const text = phrases.icons.header;
 
@@ -42,7 +49,7 @@
 
 <div class="iif-icons-header">
 	<div class="iif-icons-header-text">{headerText}</div>
-	{#if canChangeLayout || canSelectMultiple}
+	{#if mounted && (canChangeLayout || canSelectMultiple)}
 		<div class="iif-icons-header-modes">
 			{#if canSelectMultiple}
 				<IconButton
