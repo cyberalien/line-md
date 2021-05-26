@@ -41,25 +41,27 @@
 
 	// Change icon customisation value
 	function customise(prop: keyof IconCustomisations, value: unknown) {
-		if (
-			customisations[prop] !== void 0 &&
-			customisations[prop] !== value &&
-			typeof customisations[prop] === typeof value
-		) {
+		// Convert empty width/height to null
+		switch (prop) {
+			case 'width':
+			case 'height':
+				if (value === '' || value === 0) {
+					value = null;
+				}
+				break;
+		}
+
+		if (customisations[prop] !== void 0 && customisations[prop] !== value) {
 			// Change value then change object to force Svelte update components
 			const changed = {
 				[prop]: value,
 			};
-			const newCustomisations = mergeCustomisations(
-				customisations,
-				changed
-			);
 
 			// Send event: UICustomisationEvent
 			registry.callback({
 				type: 'customisation',
 				changed,
-				customisations: newCustomisations,
+				customisations: { ...customisations, ...changed },
 			});
 		}
 	}

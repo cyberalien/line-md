@@ -33,7 +33,6 @@ import {
 	filterCustomisations,
 	mergeCustomisations,
 } from '@iconify/search-core/lib/misc/customisations';
-import { renderHTML } from '@iconify/search-core/lib/iconify/html';
 import type { IconFinderWrapperParams } from './wrapper/params';
 import type { IconFinderState } from './wrapper/state';
 import type { WrapperStatus } from './wrapper/status';
@@ -70,13 +69,6 @@ const functions: Omit<Required<CoreIconifyFunctions>, 'getVersion'> = {
 	addCollection,
 	getAPI: _api.getAPI,
 	addAPIProvider,
-	// Emulate renderHTML from SVG framework
-	renderHTML: (name, customisations) => {
-		return renderHTML(name, customisations, (name, customisations) => {
-			const data = getIcon(name);
-			return data ? buildIcon(data, customisations) : null;
-		});
-	},
 };
 setIconify(functions);
 
