@@ -1,8 +1,8 @@
 <script lang="typescript">
-	import { getIcon } from '@iconify/svelte';
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import {
 		stringToColor,
 		colorToString,
@@ -29,7 +29,7 @@
 	$: {
 		hasColor = false;
 		for (let i = 0; i < icons.length; i++) {
-			const data = getIcon(iconToString(icons[i]));
+			const data = Iconify.getIcon?.(iconToString(icons[i]));
 			if (data && data.body.indexOf('currentColor') !== -1) {
 				hasColor = true;
 				break;

@@ -1,8 +1,9 @@
 <script lang="typescript">
 	import { onMount, getContext, onDestroy } from 'svelte';
-	import { iconExists, loadIcons } from '@iconify/svelte';
+	import { loadIcons } from '@iconify/svelte';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import { mergeCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import type { SelectedIcons } from '../../wrapper/icons';
@@ -93,7 +94,7 @@
 		const list = selectionLength ? selectionToArray(selection) : [];
 		list.forEach((icon) => {
 			const name = iconToString(icon);
-			if (iconExists(name)) {
+			if (Iconify.getIcon?.(name)) {
 				icons.push(icon);
 				return;
 			}
