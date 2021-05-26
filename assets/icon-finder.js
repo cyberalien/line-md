@@ -319,7 +319,7 @@
     	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
     }
 
-    var name = createCommonjsModule$1(function (module, exports) {
+    var name$1 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.validateIcon = exports.stringToIcon = void 0;
     /**
@@ -425,7 +425,7 @@
     exports.merge = merge;
     });
 
-    var icon$1 = createCommonjsModule$1(function (module, exports) {
+    var icon$2 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.fullIcon = exports.iconDefaults = void 0;
 
@@ -458,7 +458,7 @@
     /**
      * Icon keys
      */
-    const iconKeys = Object.keys(icon$1.iconDefaults);
+    const iconKeys = Object.keys(icon$2.iconDefaults);
     /**
      * Merge two icons
      *
@@ -504,7 +504,7 @@
     /**
      * Get list of defaults keys
      */
-    const defaultsKeys = Object.keys(icon$1.iconDefaults);
+    const defaultsKeys = Object.keys(icon$2.iconDefaults);
     /**
      * Resolve alias
      */
@@ -557,22 +557,22 @@
         // Get icons
         const icons = data.icons;
         Object.keys(icons).forEach((name) => {
-            const icon$1$1 = icons[name];
-            if (typeof icon$1$1.body !== 'string') {
+            const icon$1 = icons[name];
+            if (typeof icon$1.body !== 'string') {
                 return;
             }
             // Freeze icon to make sure it will not be modified
-            callback(name, Object.freeze(merge_1.merge(icon$1.iconDefaults, defaults, icon$1$1)));
+            callback(name, Object.freeze(merge_1.merge(icon$2.iconDefaults, defaults, icon$1)));
             added.push(name);
         });
         // Get aliases
         if (typeof data.aliases === 'object') {
             const aliases = data.aliases;
             Object.keys(aliases).forEach((name) => {
-                const icon$1$1 = resolveAlias(aliases[name], icons, aliases, 1);
-                if (icon$1$1) {
+                const icon$1 = resolveAlias(aliases[name], icons, aliases, 1);
+                if (icon$1) {
                     // Freeze icon to make sure it will not be modified
-                    callback(name, Object.freeze(merge_1.merge(icon$1.iconDefaults, defaults, icon$1$1)));
+                    callback(name, Object.freeze(merge_1.merge(icon$2.iconDefaults, defaults, icon$1)));
                     added.push(name);
                 }
             });
@@ -637,11 +637,11 @@
     /**
      * Add icon to storage
      */
-    function addIcon(storage, name, icon$1$1) {
+    function addIcon(storage, name, icon$1) {
         try {
-            if (typeof icon$1$1.body === 'string') {
+            if (typeof icon$1.body === 'string') {
                 // Freeze icon to make sure it will not be modified
-                storage.icons[name] = Object.freeze(icon$1.fullIcon(icon$1$1));
+                storage.icons[name] = Object.freeze(icon$2.fullIcon(icon$1));
                 return true;
             }
         }
@@ -726,8 +726,8 @@
     /**
      * Get icon data
      */
-    function getIconData(name$1) {
-        const icon = typeof name$1 === 'string' ? name.stringToIcon(name$1, true, simpleNames) : name$1;
+    function getIconData(name$1$1) {
+        const icon = typeof name$1$1 === 'string' ? name$1.stringToIcon(name$1$1, true, simpleNames) : name$1$1;
         return icon
             ? storage_1.getIcon(storage_1.getStorage(icon.provider, icon.prefix), icon.name)
             : null;
@@ -736,8 +736,8 @@
     /**
      * Add one icon
      */
-    function addIcon(name$1, data) {
-        const icon = name.stringToIcon(name$1, true, simpleNames);
+    function addIcon(name$1$1, data) {
+        const icon = name$1.stringToIcon(name$1$1, true, simpleNames);
         if (!icon) {
             return false;
         }
@@ -771,7 +771,7 @@
         }
         // Validate provider and prefix
         if (typeof data.prefix !== 'string' ||
-            !name.validateIcon({
+            !name$1.validateIcon({
                 provider,
                 prefix: data.prefix,
                 name: 'a',
@@ -923,7 +923,7 @@
     exports.calculateSize = calculateSize;
     });
 
-    var customisations$1 = createCommonjsModule$1(function (module, exports) {
+    var customisations$2 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.mergeCustomisations = exports.defaults = void 0;
     /**
@@ -1198,8 +1198,8 @@
     exports.builderFunctions = {
         replaceIDs: ids.replaceIDs,
         calculateSize: calcSize.calculateSize,
-        buildIcon: (icon$1$1, customisations$1$1) => {
-            return builder.iconToSVG(icon$1.fullIcon(icon$1$1), customisations$1.mergeCustomisations(customisations$1.defaults, customisations$1$1));
+        buildIcon: (icon$1, customisations$1) => {
+            return builder.iconToSVG(icon$2.fullIcon(icon$1), customisations$2.mergeCustomisations(customisations$2.defaults, customisations$1));
         },
     };
     });
@@ -1899,9 +1899,9 @@
         const result = [];
         list.forEach((item) => {
             const icon = typeof item === 'string'
-                ? name.stringToIcon(item, false, simpleNames)
+                ? name$1.stringToIcon(item, false, simpleNames)
                 : item;
-            if (!validate || name.validateIcon(icon, simpleNames)) {
+            if (!validate || name$1.validateIcon(icon, simpleNames)) {
                 result.push({
                     provider: icon.provider,
                     prefix: icon.prefix,
@@ -2959,7 +2959,7 @@
     icon, 
     // Properties
     props) {
-        const customisations$1$1 = customisations$1.mergeCustomisations(customisations$1.defaults, props);
+        const customisations$1 = customisations$2.mergeCustomisations(customisations$2.defaults, props);
         const componentProps = merge_1.merge(svgDefaults);
         // Create style if missing
         let style = typeof props.style === 'string' ? props.style : '';
@@ -2979,19 +2979,19 @@
                 case 'inline':
                 case 'hFlip':
                 case 'vFlip':
-                    customisations$1$1[key] =
+                    customisations$1[key] =
                         value === true || value === 'true' || value === 1;
                     break;
                 // Flip as string: 'horizontal,vertical'
                 case 'flip':
                     if (typeof value === 'string') {
-                        shorthand.flipFromString(customisations$1$1, value);
+                        shorthand.flipFromString(customisations$1, value);
                     }
                     break;
                 // Alignment as string
                 case 'align':
                     if (typeof value === 'string') {
-                        shorthand.alignmentFromString(customisations$1$1, value);
+                        shorthand.alignmentFromString(customisations$1, value);
                     }
                     break;
                 // Color: copy to style, add extra ';' in case style is missing it
@@ -3008,10 +3008,10 @@
                 // Rotation as string
                 case 'rotate':
                     if (typeof value === 'string') {
-                        customisations$1$1[key] = rotate.rotateFromString(value);
+                        customisations$1[key] = rotate.rotateFromString(value);
                     }
                     else if (typeof value === 'number') {
-                        customisations$1$1[key] = value;
+                        customisations$1[key] = value;
                     }
                     break;
                 // Remove aria-hidden
@@ -3023,13 +3023,13 @@
                     break;
                 // Copy missing property if it does not exist in customisations
                 default:
-                    if (customisations$1.defaults[key] === void 0) {
+                    if (customisations$2.defaults[key] === void 0) {
                         componentProps[key] = value;
                     }
             }
         }
         // Generate icon
-        const item = builder.iconToSVG(icon, customisations$1$1);
+        const item = builder.iconToSVG(icon, customisations$1);
         // Add icon stuff
         for (let key in item.attributes) {
             componentProps[key] =
@@ -3086,7 +3086,7 @@
     /**
      * Build SVG
      */
-    const buildIcon = functions$1$1.builderFunctions.buildIcon;
+    functions$1$1.builderFunctions.buildIcon;
     /* API functions */
     /**
      * Load icons
@@ -3193,7 +3193,7 @@
     /**
      * Check if component needs to be updated
      */
-    function checkIconState(icon$1$1, state, mounted, callback, onload) {
+    function checkIconState(icon$1, state, mounted, callback, onload) {
         // Abort loading icon
         function abortLoading() {
             if (state.loading) {
@@ -3202,18 +3202,18 @@
             }
         }
         // Icon is an object
-        if (typeof icon$1$1 === 'object' &&
-            icon$1$1 !== null &&
-            typeof icon$1$1.body === 'string') {
+        if (typeof icon$1 === 'object' &&
+            icon$1 !== null &&
+            typeof icon$1.body === 'string') {
             // Stop loading
             state.name = '';
             abortLoading();
-            return { data: icon$1.fullIcon(icon$1$1) };
+            return { data: icon$2.fullIcon(icon$1) };
         }
         // Invalid icon?
         let iconName;
-        if (typeof icon$1$1 !== 'string' ||
-            (iconName = name.stringToIcon(icon$1$1, false, true)) === null) {
+        if (typeof icon$1 !== 'string' ||
+            (iconName = name$1.stringToIcon(icon$1, false, true)) === null) {
             abortLoading();
             return null;
         }
@@ -3222,12 +3222,12 @@
         if (data === null) {
             // Icon needs to be loaded
             // Do not load icon until component is mounted
-            if (mounted && (!state.loading || state.loading.name !== icon$1$1)) {
+            if (mounted && (!state.loading || state.loading.name !== icon$1)) {
                 // New icon to load
                 abortLoading();
                 state.name = '';
                 state.loading = {
-                    name: icon$1$1,
+                    name: icon$1,
                     abort: api.API.loadIcons([iconName], callback),
                 };
             }
@@ -3235,10 +3235,10 @@
         }
         // Icon data is available
         abortLoading();
-        if (state.name !== icon$1$1) {
-            state.name = icon$1$1;
+        if (state.name !== icon$1) {
+            state.name = icon$1;
             if (onload && !state.destroyed) {
-                onload(icon$1$1);
+                onload(icon$1);
             }
         }
         // Add classes
@@ -3771,92 +3771,45 @@
     //# sourceMappingURL=index.js.map
     });
 
-    var icon = createCommonjsModule(function (module, exports) {
+    var icon$1 = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.iconToString = exports.compareIcons = exports.validateIcon = exports.stringToIcon = exports.match = void 0;
+    exports.fullIcon = exports.iconDefaults = exports.minifyProps = exports.matchName = void 0;
     /**
      * Expression to test part of icon name.
      */
-    exports.match = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+    exports.matchName = /^[a-z0-9]+(-[a-z0-9]+)*$/;
     /**
-     * Convert string to Icon object.
-     */
-    const stringToIcon = (value, provider = '') => {
-        const colonSeparated = value.split(':');
-        // Check for provider with correct '@' at start
-        if (value.slice(0, 1) === '@') {
-            // First part is provider
-            if (colonSeparated.length < 2 || colonSeparated.length > 3) {
-                // "@provider:prefix:name" or "@provider:prefix-name"
-                return null;
-            }
-            provider = colonSeparated.shift().slice(1);
-        }
-        // Check split by colon: "prefix:name", "provider:prefix:name"
-        if (colonSeparated.length > 3 || !colonSeparated.length) {
-            return null;
-        }
-        if (colonSeparated.length > 1) {
-            // "prefix:name"
-            const name = colonSeparated.pop();
-            const prefix = colonSeparated.pop();
-            return {
-                // Allow provider without '@': "provider:prefix:name"
-                provider: colonSeparated.length > 0 ? colonSeparated[0] : provider,
-                prefix,
-                name,
-            };
-        }
-        // Attempt to split by dash: "prefix-name"
-        const dashSeparated = colonSeparated[0].split('-');
-        if (dashSeparated.length > 1) {
-            return {
-                provider: provider,
-                prefix: dashSeparated.shift(),
-                name: dashSeparated.join('-'),
-            };
-        }
-        return null;
-    };
-    exports.stringToIcon = stringToIcon;
-    /**
-     * Check if icon is valid.
+     * Properties that can be minified
      *
-     * This function is not part of stringToIcon because validation is not needed for most code.
+     * Values of all these properties are awalys numbers
      */
-    const validateIcon = (icon) => {
-        if (!icon) {
-            return false;
-        }
-        return !!((icon.provider === '' || icon.provider.match(exports.match)) &&
-            icon.prefix.match(exports.match) &&
-            icon.name.match(exports.match));
-    };
-    exports.validateIcon = validateIcon;
+    exports.minifyProps = [
+        // All IconifyDimenisons properties
+        'width',
+        'height',
+        'top',
+        'left',
+    ];
     /**
-     * Compare Icon objects.
-     *
-     * Note: null means icon is invalid, so null to null comparison = false.
+     * Default values for all optional IconifyIcon properties
      */
-    const compareIcons = (icon1, icon2) => {
-        return (icon1 !== null &&
-            icon2 !== null &&
-            icon1.provider === icon2.provider &&
-            icon1.name === icon2.name &&
-            icon1.prefix === icon2.prefix);
-    };
-    exports.compareIcons = compareIcons;
+    exports.iconDefaults = Object.freeze({
+        left: 0,
+        top: 0,
+        width: 16,
+        height: 16,
+        rotate: 0,
+        vFlip: false,
+        hFlip: false,
+    });
     /**
-     * Convert icon to string.
+     * Add optional properties to icon
      */
-    const iconToString = (icon) => {
-        return ((icon.provider === '' ? '' : '@' + icon.provider + ':') +
-            icon.prefix +
-            ':' +
-            icon.name);
-    };
-    exports.iconToString = iconToString;
-    //# sourceMappingURL=icon.js.map
+    function fullIcon(data) {
+        return { ...exports.iconDefaults, ...data };
+    }
+    exports.fullIcon = fullIcon;
+    //# sourceMappingURL=index.js.map
     });
 
     var providers = createCommonjsModule(function (module, exports) {
@@ -3920,7 +3873,7 @@
         const provider = raw.provider;
         if (typeof provider !== 'string' ||
             // Allow empty string
-            (provider !== '' && !provider.match(icon.match))) {
+            (provider !== '' && !provider.match(icon$1.matchName))) {
             return null;
         }
         // Clean up raw data
@@ -7203,6 +7156,125 @@
     //# sourceMappingURL=collection.js.map
     });
 
+    var name = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.validateIcon = exports.stringToIcon = void 0;
+
+    /**
+     * Convert string to Icon object.
+     */
+    const stringToIcon = (value, validate, allowSimpleName, provider = '') => {
+        const colonSeparated = value.split(':');
+        // Check for provider with correct '@' at start
+        if (value.slice(0, 1) === '@') {
+            // First part is provider
+            if (colonSeparated.length < 2 || colonSeparated.length > 3) {
+                // "@provider:prefix:name" or "@provider:prefix-name"
+                return null;
+            }
+            provider = colonSeparated.shift().slice(1);
+        }
+        // Check split by colon: "prefix:name", "provider:prefix:name"
+        if (colonSeparated.length > 3 || !colonSeparated.length) {
+            return null;
+        }
+        if (colonSeparated.length > 1) {
+            // "prefix:name"
+            const name = colonSeparated.pop();
+            const prefix = colonSeparated.pop();
+            const result = {
+                // Allow provider without '@': "provider:prefix:name"
+                provider: colonSeparated.length > 0 ? colonSeparated[0] : provider,
+                prefix,
+                name,
+            };
+            return validate && !exports.validateIcon(result) ? null : result;
+        }
+        // Attempt to split by dash: "prefix-name"
+        const name = colonSeparated[0];
+        const dashSeparated = name.split('-');
+        if (dashSeparated.length > 1) {
+            const result = {
+                provider: provider,
+                prefix: dashSeparated.shift(),
+                name: dashSeparated.join('-'),
+            };
+            return validate && !exports.validateIcon(result) ? null : result;
+        }
+        // If allowEmpty is set, allow empty provider and prefix, allowing names like "home"
+        if (allowSimpleName && provider === '') {
+            const result = {
+                provider: provider,
+                prefix: '',
+                name,
+            };
+            return validate && !exports.validateIcon(result, allowSimpleName)
+                ? null
+                : result;
+        }
+        return null;
+    };
+    exports.stringToIcon = stringToIcon;
+    /**
+     * Check if icon is valid.
+     *
+     * This function is not part of stringToIcon because validation is not needed for most code.
+     */
+    const validateIcon = (icon, allowSimpleName) => {
+        if (!icon) {
+            return false;
+        }
+        return !!((icon.provider === '' || icon.provider.match(icon$1.matchName)) &&
+            ((allowSimpleName && icon.prefix === '') ||
+                icon.prefix.match(icon$1.matchName)) &&
+            icon.name.match(icon$1.matchName));
+    };
+    exports.validateIcon = validateIcon;
+    //# sourceMappingURL=name.js.map
+    });
+
+    var icon = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.iconToString = exports.compareIcons = exports.validateIcon = exports.stringToIcon = exports.match = void 0;
+
+    Object.defineProperty(exports, "validateIcon", { enumerable: true, get: function () { return name.validateIcon; } });
+    /**
+     * Expression to test part of icon name.
+     */
+    exports.match = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+    /**
+     * Convert string to Icon object.
+     */
+    const stringToIcon = (value, validate = false, provider = '') => {
+        return name.stringToIcon(value, validate, false, provider);
+    };
+    exports.stringToIcon = stringToIcon;
+    /**
+     * Compare Icon objects.
+     *
+     * Note: null means icon is invalid, so null to null comparison = false.
+     */
+    const compareIcons = (icon1, icon2) => {
+        return (icon1 !== null &&
+            icon2 !== null &&
+            icon1.provider === icon2.provider &&
+            icon1.name === icon2.name &&
+            icon1.prefix === icon2.prefix);
+    };
+    exports.compareIcons = compareIcons;
+    /**
+     * Convert icon to string.
+     */
+    const iconToString = (icon) => {
+        return ((icon.provider === '' ? '' : '@' + icon.provider + ':') +
+            icon.prefix +
+            ':' +
+            icon.name);
+    };
+    exports.iconToString = iconToString;
+    //# sourceMappingURL=icon.js.map
+    });
+
     var search$1 = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.dataToSearchResults = void 0;
@@ -7243,8 +7315,8 @@
         const sourceCollections = source.collections;
         try {
             sourceIcons.forEach((item) => {
-                const icon$1 = icon.stringToIcon(item, provider);
-                if (!icon.validateIcon(icon$1)) {
+                const icon$1 = icon.stringToIcon(item, true, provider);
+                if (icon$1 === null) {
                     throw new Error('Invalid icon');
                 }
                 result.icons.push(icon$1);
@@ -8615,46 +8687,123 @@
     //# sourceMappingURL=index.js.map
     });
 
+    var customisations$1 = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.mergeCustomisations = exports.defaults = void 0;
+    /**
+     * Default icon customisations values
+     */
+    exports.defaults = Object.freeze({
+        // Display mode
+        inline: false,
+        // Dimensions
+        width: null,
+        height: null,
+        // Alignment
+        hAlign: 'center',
+        vAlign: 'middle',
+        slice: false,
+        // Transformations
+        hFlip: false,
+        vFlip: false,
+        rotate: 0,
+    });
+    /**
+     * Convert IconifyIconCustomisations to FullIconCustomisations
+     */
+    function mergeCustomisations(defaults, item) {
+        const result = {};
+        for (const key in defaults) {
+            const attr = key;
+            // Copy old value
+            result[attr] = defaults[attr];
+            if (item[attr] === void 0) {
+                continue;
+            }
+            // Validate new value
+            const value = item[attr];
+            switch (attr) {
+                // Boolean attributes that override old value
+                case 'inline':
+                case 'slice':
+                    if (typeof value === 'boolean') {
+                        result[attr] = value;
+                    }
+                    break;
+                // Boolean attributes that are merged
+                case 'hFlip':
+                case 'vFlip':
+                    if (value === true) {
+                        result[attr] = !result[attr];
+                    }
+                    break;
+                // Non-empty string
+                case 'hAlign':
+                case 'vAlign':
+                    if (typeof value === 'string' && value !== '') {
+                        result[attr] = value;
+                    }
+                    break;
+                // Non-empty string / non-zero number / null
+                case 'width':
+                case 'height':
+                    if ((typeof value === 'string' && value !== '') ||
+                        (typeof value === 'number' && value) ||
+                        value === null) {
+                        result[attr] = value;
+                    }
+                    break;
+                // Rotation
+                case 'rotate':
+                    if (typeof value === 'number') {
+                        result[attr] += value;
+                    }
+                    break;
+            }
+        }
+        return result;
+    }
+    exports.mergeCustomisations = mergeCustomisations;
+    //# sourceMappingURL=index.js.map
+    });
+
     var customisations = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.filterCustomisations = exports.mergeCustomisations = exports.defaultCustomisations = exports.emptyCustomisations = void 0;
+
+    /**
+     * Custom values
+     */
+    const emptyCustomValues = {
+        color: '',
+    };
     /**
      * Empty values
      */
     exports.emptyCustomisations = {
-        hFlip: false,
-        vFlip: false,
-        rotate: 0,
-        color: '',
-        width: '',
-        height: '',
-        inline: false,
+        ...customisations$1.defaults,
+        ...emptyCustomValues,
     };
     /**
      * Default values
      */
     exports.defaultCustomisations = {
-        hFlip: false,
-        vFlip: false,
-        rotate: 0,
-        color: '',
-        width: '',
-        height: '',
-        inline: false,
+        ...exports.emptyCustomisations,
     };
     /**
      * Add missing values to customisations, creating new object. Function does type checking
      */
     function mergeCustomisations(defaults, values) {
-        const result = {};
-        for (const key in defaults) {
+        // Merge default properties
+        const result = customisations$1.mergeCustomisations(defaults, values);
+        // Merge custom properties
+        for (const key in emptyCustomValues) {
             const attr = key;
-            if (values && typeof values[attr] === typeof defaults[attr]) {
-                result[attr] = values[attr];
-            }
-            else {
-                result[attr] = defaults[attr];
-            }
+            // Match type
+            result[attr] =
+                values && typeof values[attr] === typeof defaults[attr]
+                    ? values[attr]
+                    : defaults[attr];
         }
         return result;
     }
@@ -8663,6 +8812,7 @@
      * Export only customised attributes
      */
     function filterCustomisations(values) {
+        // Function can handle any properties, just needs some type hinting
         const result = {};
         for (const key in exports.defaultCustomisations) {
             const attr = key;
@@ -8675,54 +8825,6 @@
     }
     exports.filterCustomisations = filterCustomisations;
     //# sourceMappingURL=customisations.js.map
-    });
-
-    var html = createCommonjsModule(function (module, exports) {
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.renderHTML = void 0;
-
-    /**
-     * Generate HTML for SVG framework
-     */
-    function renderHTML(icon$1, customisations, callback) {
-        const name = typeof icon$1 === 'string' ? icon$1 : icon.iconToString(icon$1);
-        const data = callback(name, customisations);
-        if (!data) {
-            return '';
-        }
-        // Generate class name
-        const iconItem = typeof icon$1 === 'string' ? icon.stringToIcon(icon$1) : icon$1;
-        const className = ['iconify'];
-        if (iconItem && iconItem.provider !== '') {
-            className.push('iconify--' + iconItem.provider);
-        }
-        if (iconItem && iconItem.prefix !== '') {
-            className.push('iconify--' + iconItem.prefix);
-        }
-        if (data.inline) {
-            className.push('iconify-inline');
-        }
-        // Generate HTML
-        const attributes = data.attributes;
-        let html = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="' +
-            className.join(' ') +
-            '"';
-        for (const key in attributes) {
-            html +=
-                ' ' + key + '="' + attributes[key] + '"';
-        }
-        html +=
-            ' data-icon="' +
-                name +
-                '"' +
-                (data.inline ? ' style="vertical-align: -0.125em;"' : '') +
-                '>' +
-                data.body +
-                '</svg>';
-        return html;
-    }
-    exports.renderHTML = renderHTML;
-    //# sourceMappingURL=html.js.map
     });
 
     /**
@@ -9714,7 +9816,7 @@
                 install1: 'Install component:',
                 import: 'Import component and icon data:',
                 import1: 'Import component:',
-                vue: 'Add icon and component to your component:',
+                vue: 'Add icon data and icon component to your component:',
                 use: 'Use it in your code:',
             },
             iconify: {
@@ -9727,7 +9829,7 @@
 
     /* src/icon-finder/components/ui/UIIcon.svelte generated by Svelte v3.38.2 */
 
-    function create_else_block$8(ctx) {
+    function create_else_block$9(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[6].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[5], null);
@@ -9884,7 +9986,7 @@
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$v, create_else_block$8];
+    	const if_block_creators = [create_if_block$v, create_else_block$9];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -12528,7 +12630,7 @@
 
     /* src/icon-finder/components/ui/Filter.svelte generated by Svelte v3.38.2 */
 
-    function create_else_block$7(ctx) {
+    function create_else_block$8(ctx) {
     	let button;
     	let t;
     	let button_disabled_value;
@@ -12625,7 +12727,7 @@
 
     	function select_block_type(ctx, dirty) {
     		if (/*link*/ ctx[3]) return create_if_block$p;
-    		return create_else_block$7;
+    		return create_else_block$8;
     	}
 
     	let current_block_type = select_block_type(ctx);
@@ -13535,7 +13637,7 @@
 
     	function select_block_type(ctx, dirty) {
     		if (/*info*/ ctx[2].author.url) return create_if_block_3$7;
-    		return create_else_block$6;
+    		return create_else_block$7;
     	}
 
     	let current_block_type = select_block_type(ctx);
@@ -13575,7 +13677,7 @@
     }
 
     // (98:4) {:else}
-    function create_else_block$6(ctx) {
+    function create_else_block$7(ctx) {
     	let t_value = /*info*/ ctx[2].author.name + "";
     	let t;
 
@@ -14341,7 +14443,7 @@
     }
 
     // (30:1) {:else}
-    function create_else_block$5(ctx) {
+    function create_else_block$6(ctx) {
     	let error;
     	let current;
 
@@ -14445,7 +14547,7 @@
     	let each_1_else = null;
 
     	if (!each_value.length) {
-    		each_1_else = create_else_block$5();
+    		each_1_else = create_else_block$6();
     	}
 
     	return {
@@ -14483,7 +14585,7 @@
     				if (!each_value.length && each_1_else) {
     					each_1_else.p(ctx, dirty);
     				} else if (!each_value.length) {
-    					each_1_else = create_else_block$5();
+    					each_1_else = create_else_block$6();
     					each_1_else.c();
     					transition_in(each_1_else, 1);
     					each_1_else.m(each_1_anchor.parentNode, each_1_anchor);
@@ -15424,6 +15526,33 @@
 
     /* src/icon-finder/components/content/blocks/icons/IconGrid.svelte generated by Svelte v3.38.2 */
 
+    function create_else_block$5(ctx) {
+    	let span;
+    	let t_value = /*icon*/ ctx[2].name + "";
+    	let t;
+
+    	return {
+    		c() {
+    			span = element("span");
+    			t = text(t_value);
+    			attr(span, "class", "iif-icon-loading");
+    		},
+    		m(target, anchor) {
+    			insert(target, span, anchor);
+    			append(span, t);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty & /*icon*/ 4 && t_value !== (t_value = /*icon*/ ctx[2].name + "")) set_data(t, t_value);
+    		},
+    		i: noop,
+    		o: noop,
+    		d(detaching) {
+    			if (detaching) detach(span);
+    		}
+    	};
+    }
+
+    // (45:2) {#if exists}
     function create_if_block$i(ctx) {
     	let iconcomponent;
     	let t;
@@ -15438,7 +15567,7 @@
     			}
     		});
 
-    	let if_block = /*isSelecting*/ ctx[5] && create_if_block_1$9(ctx);
+    	let if_block = /*isSelecting*/ ctx[6] && create_if_block_1$9(ctx);
 
     	return {
     		c() {
@@ -15459,11 +15588,11 @@
     			if (dirty & /*name*/ 1) iconcomponent_changes.icon = /*name*/ ctx[0];
     			iconcomponent.$set(iconcomponent_changes);
 
-    			if (/*isSelecting*/ ctx[5]) {
+    			if (/*isSelecting*/ ctx[6]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty & /*isSelecting*/ 32) {
+    					if (dirty & /*isSelecting*/ 64) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -15509,7 +15638,7 @@
 
     	uiicon = new UIIcon({
     			props: {
-    				icon: /*selected*/ ctx[3]
+    				icon: /*selected*/ ctx[4]
     				? "selecting-selected"
     				: "selecting-unselected"
     			}
@@ -15526,7 +15655,7 @@
     		p(ctx, dirty) {
     			const uiicon_changes = {};
 
-    			if (dirty & /*selected*/ 8) uiicon_changes.icon = /*selected*/ ctx[3]
+    			if (dirty & /*selected*/ 16) uiicon_changes.icon = /*selected*/ ctx[4]
     			? "selecting-selected"
     			: "selecting-unselected";
 
@@ -15550,66 +15679,80 @@
     function create_fragment$v(ctx) {
     	let li;
     	let a;
+    	let current_block_type_index;
+    	let if_block;
     	let current;
     	let mounted;
     	let dispose;
-    	let if_block = /*exists*/ ctx[2] && create_if_block$i(ctx);
+    	const if_block_creators = [create_if_block$i, create_else_block$5];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*exists*/ ctx[3]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
 
     	return {
     		c() {
     			li = element("li");
     			a = element("a");
-    			if (if_block) if_block.c();
-    			attr(a, "href", /*link*/ ctx[4]);
+    			if_block.c();
+    			attr(a, "href", /*link*/ ctx[5]);
     			attr(a, "target", "_blank");
     			attr(a, "title", /*tooltip*/ ctx[1]);
-    			attr(li, "class", /*className*/ ctx[6]);
+    			attr(li, "class", /*className*/ ctx[7]);
     		},
     		m(target, anchor) {
     			insert(target, li, anchor);
     			append(li, a);
-    			if (if_block) if_block.m(a, null);
+    			if_blocks[current_block_type_index].m(a, null);
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen(a, "click", prevent_default(/*handleClick*/ ctx[7]));
+    				dispose = listen(a, "click", prevent_default(/*handleClick*/ ctx[8]));
     				mounted = true;
     			}
     		},
     		p(ctx, [dirty]) {
-    			if (/*exists*/ ctx[2]) {
-    				if (if_block) {
-    					if_block.p(ctx, dirty);
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
 
-    					if (dirty & /*exists*/ 4) {
-    						transition_in(if_block, 1);
-    					}
-    				} else {
-    					if_block = create_if_block$i(ctx);
-    					if_block.c();
-    					transition_in(if_block, 1);
-    					if_block.m(a, null);
-    				}
-    			} else if (if_block) {
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
     				group_outros();
 
-    				transition_out(if_block, 1, 1, () => {
-    					if_block = null;
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
     				});
 
     				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(a, null);
     			}
 
-    			if (!current || dirty & /*link*/ 16) {
-    				attr(a, "href", /*link*/ ctx[4]);
+    			if (!current || dirty & /*link*/ 32) {
+    				attr(a, "href", /*link*/ ctx[5]);
     			}
 
     			if (!current || dirty & /*tooltip*/ 2) {
     				attr(a, "title", /*tooltip*/ ctx[1]);
     			}
 
-    			if (!current || dirty & /*className*/ 64) {
-    				attr(li, "class", /*className*/ ctx[6]);
+    			if (!current || dirty & /*className*/ 128) {
+    				attr(li, "class", /*className*/ ctx[7]);
     			}
     		},
     		i(local) {
@@ -15623,7 +15766,7 @@
     		},
     		d(detaching) {
     			if (detaching) detach(li);
-    			if (if_block) if_block.d();
+    			if_blocks[current_block_type_index].d();
     			mounted = false;
     			dispose();
     		}
@@ -15657,18 +15800,18 @@
     	$$self.$$set = $$props => {
     		if ("name" in $$props) $$invalidate(0, name = $$props.name);
     		if ("tooltip" in $$props) $$invalidate(1, tooltip = $$props.tooltip);
-    		if ("icon" in $$props) $$invalidate(8, icon = $$props.icon);
-    		if ("exists" in $$props) $$invalidate(2, exists = $$props.exists);
-    		if ("selected" in $$props) $$invalidate(3, selected = $$props.selected);
-    		if ("link" in $$props) $$invalidate(4, link = $$props.link);
+    		if ("icon" in $$props) $$invalidate(2, icon = $$props.icon);
+    		if ("exists" in $$props) $$invalidate(3, exists = $$props.exists);
+    		if ("selected" in $$props) $$invalidate(4, selected = $$props.selected);
+    		if ("link" in $$props) $$invalidate(5, link = $$props.link);
     		if ("onClick" in $$props) $$invalidate(9, onClick = $$props.onClick);
-    		if ("isSelecting" in $$props) $$invalidate(5, isSelecting = $$props.isSelecting);
+    		if ("isSelecting" in $$props) $$invalidate(6, isSelecting = $$props.isSelecting);
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*exists, selected*/ 12) {
+    		if ($$self.$$.dirty & /*exists, selected*/ 24) {
     			{
-    				$$invalidate(6, className = baseClass$7 + " " + baseClass$7 + (exists ? "--loaded" : "--loading") + (selected ? " " + baseClass$7 + "--selected" : ""));
+    				$$invalidate(7, className = baseClass$7 + " " + baseClass$7 + (exists ? "--loaded" : "--loading") + (selected ? " " + baseClass$7 + "--selected" : ""));
     			}
     		}
     	};
@@ -15676,13 +15819,13 @@
     	return [
     		name,
     		tooltip,
+    		icon,
     		exists,
     		selected,
     		link,
     		isSelecting,
     		className,
     		handleClick,
-    		icon,
     		onClick
     	];
     }
@@ -15694,12 +15837,12 @@
     		init(this, options, instance$v, create_fragment$v, safe_not_equal, {
     			name: 0,
     			tooltip: 1,
-    			icon: 8,
-    			exists: 2,
-    			selected: 3,
-    			link: 4,
+    			icon: 2,
+    			exists: 3,
+    			selected: 4,
+    			link: 5,
     			onClick: 9,
-    			isSelecting: 5
+    			isSelecting: 6
     		});
     	}
     }
@@ -20977,7 +21120,7 @@
     	return child_ctx;
     }
 
-    // (121:1) {#each props as prop, i (prop)}
+    // (122:1) {#each props as prop, i (prop)}
     function create_each_block$5(key_1, ctx) {
     	let first;
     	let sizeinput;
@@ -20986,7 +21129,9 @@
     	sizeinput = new SizeInput({
     			props: {
     				prop: /*prop*/ ctx[8],
-    				value: /*customisations*/ ctx[0][/*prop*/ ctx[8]] + "",
+    				value: /*customisations*/ ctx[0][/*prop*/ ctx[8]] === null
+    				? ""
+    				: /*customisations*/ ctx[0][/*prop*/ ctx[8]] + "",
     				placeholder: /*placeholders*/ ctx[2][/*prop*/ ctx[8]],
     				customise: /*customise*/ ctx[1]
     			}
@@ -21008,7 +21153,11 @@
     		p(new_ctx, dirty) {
     			ctx = new_ctx;
     			const sizeinput_changes = {};
-    			if (dirty & /*customisations*/ 1) sizeinput_changes.value = /*customisations*/ ctx[0][/*prop*/ ctx[8]] + "";
+
+    			if (dirty & /*customisations*/ 1) sizeinput_changes.value = /*customisations*/ ctx[0][/*prop*/ ctx[8]] === null
+    			? ""
+    			: /*customisations*/ ctx[0][/*prop*/ ctx[8]] + "";
+
     			if (dirty & /*placeholders*/ 4) sizeinput_changes.placeholder = /*placeholders*/ ctx[2][/*prop*/ ctx[8]];
     			if (dirty & /*customise*/ 2) sizeinput_changes.customise = /*customise*/ ctx[1];
     			sizeinput.$set(sizeinput_changes);
@@ -21029,7 +21178,7 @@
     	};
     }
 
-    // (120:0) <OptionsBlock {type}>
+    // (121:0) <OptionsBlock {type}>
     function create_default_slot$a(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
@@ -21238,10 +21387,11 @@
     						const placeholderKey = rotated ? altKey : key;
     						let size = "";
     						let scale = false;
+    						const customised2 = customisations[rotated ? key : altKey];
 
-    						if (customisations[rotated ? key : altKey]) {
+    						if (customised2) {
     							// Another property is customised, use it for ratio
-    							size = customisations[rotated ? key : altKey];
+    							size = customised2;
 
     							scale = true;
     						} else if (defaultSize[key] !== "") {
@@ -22222,7 +22372,9 @@
     	colorblock = new Color({
     			props: {
     				icons: /*icons*/ ctx[0],
-    				value: /*customisations*/ ctx[1].color,
+    				value: typeof /*customisations*/ ctx[1].color === "string"
+    				? /*customisations*/ ctx[1].color
+    				: "",
     				customise: /*customise*/ ctx[2]
     			}
     		});
@@ -22238,7 +22390,11 @@
     		p(ctx, dirty) {
     			const colorblock_changes = {};
     			if (dirty & /*icons*/ 1) colorblock_changes.icons = /*icons*/ ctx[0];
-    			if (dirty & /*customisations*/ 2) colorblock_changes.value = /*customisations*/ ctx[1].color;
+
+    			if (dirty & /*customisations*/ 2) colorblock_changes.value = typeof /*customisations*/ ctx[1].color === "string"
+    			? /*customisations*/ ctx[1].color
+    			: "";
+
     			if (dirty & /*customise*/ 4) colorblock_changes.customise = /*customise*/ ctx[2];
     			colorblock.$set(colorblock_changes);
     		},
@@ -22257,7 +22413,7 @@
     	};
     }
 
-    // (31:2) {#if customiseWidth || customiseHeight}
+    // (34:2) {#if customiseWidth || customiseHeight}
     function create_if_block_3$2(ctx) {
     	let sizeblock;
     	let current;
@@ -22300,7 +22456,7 @@
     	};
     }
 
-    // (34:2) {#if customiseFlip}
+    // (37:2) {#if customiseFlip}
     function create_if_block_2$3(ctx) {
     	let flipblock;
     	let current;
@@ -22341,7 +22497,7 @@
     	};
     }
 
-    // (37:2) {#if customiseRotate}
+    // (40:2) {#if customiseRotate}
     function create_if_block_1$3(ctx) {
     	let rotateblock;
     	let current;
@@ -22382,7 +22538,7 @@
     	};
     }
 
-    // (40:2) {#if customiseInline && icons.length === 1}
+    // (43:2) {#if customiseInline && icons.length === 1}
     function create_if_block$6(ctx) {
     	let inlineblock;
     	let current;
@@ -23704,7 +23860,7 @@
                 case 'svg-box':
                 case 'svg-raw':
                 case 'svg-uri':
-                    if (!iconify.Iconify.renderHTML) {
+                    if (!iconify.Iconify.getIcon) {
                         return false;
                     }
             }
@@ -23881,6 +24037,9 @@
         'rotate',
         'hFlip',
         'vFlip',
+        'hAlign',
+        'vAlign',
+        'slice',
     ];
     function getCustomisationAttributes(color, inline) {
         const results = baseCustomisationAttributes.slice(0);
@@ -23993,21 +24152,20 @@
          * Get Vue parser
          */
         function vueParser(vue3) {
-            const vue2Usage = '<template>\n\t<IconifyIcon {attr} />\n</template>';
-            const vue2Template = 'export default {\n\tcomponents: {\n\t\tIconifyIcon,\n\t},\n\tdata() {\n\t\treturn {\n\t\t\ticons: {\n\t\t\t\t{varName},\n\t\t\t},\n\t\t};\n\t},\n});';
+            const vue2Usage = '<template>\n\t<Icon {attr} />\n</template>';
+            const vue2Template = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n\tdata() {\n\t\treturn {\n\t\t\ticons: {\n\t\t\t\t{varName},\n\t\t\t},\n\t\t};\n\t},\n});';
             const parser = {
                 iconParser: (list, valueStr, valueIcon) => addVueAttr(list, 'icon', 'icons.' + varName(valueIcon.name)),
                 parsers: {
                     hFlip: (list, value) => addVueAttr(list, 'horizontalFlip', value),
                     vFlip: (list, value) => addVueAttr(list, 'verticalFlip', value),
+                    hAlign: (list, value) => addVueAttr(list, 'horizontalAlign', value),
+                    vAlign: (list, value) => addVueAttr(list, 'verticalAlign', value),
+                    inline: (list, value) => addVueAttr(list, 'inline', value),
                 },
                 merge: mergeAttributes,
-                template: (attr, customisations) => (vue3
-                    ? vue2Usage.replace(/IconifyIcon/g, customisations.inline ? 'InlineIcon' : 'Icon')
-                    : vue2Usage).replace('{attr}', attr),
-                vueTemplate: (attr, customisations) => (vue3
-                    ? vue2Template.replace(/IconifyIcon/g, customisations.inline ? 'InlineIcon' : 'Icon')
-                    : vue2Template).replace('{attr}', attr),
+                template: (attr, customisations) => vue2Usage.replace('{attr}', attr),
+                vueTemplate: (attr, customisations) => vue2Template.replace('{attr}', attr),
                 docs: {
                     type: 'vue',
                     href: docsBase + (vue3 ? 'vue/' : 'vue2/'),
@@ -24015,21 +24173,14 @@
                 npm: vue3
                     ? {
                         install: '@iconify/vue@beta',
-                        import: (attr, customisations) => 'import { ' +
-                            (customisations.inline ? 'InlineIcon' : 'Icon') +
-                            " } from '@iconify/vue';",
+                        import: (attr, customisations) => "import { Icon } from '@iconify/vue';",
                     }
                     : {
                         install: '@iconify/vue@^1',
-                        import: "import IconifyIcon from '@iconify/vue';",
+                        import: "import Icon from '@iconify/vue';",
                     },
             };
             addMultipleAttributeParsers(parser, getCustomisationAttributes(true, false), addVueAttr);
-            if (!vue3) {
-                // Add inline attribute for vue2
-                // Vue3 uses different component imports
-                parser.parsers.inline = (list, value) => addVueAttr(list, 'inline', value);
-            }
             return parser;
         }
         /**
@@ -24060,6 +24211,9 @@
                         rotate: (list, value) => addAttr(list, 'data-rotate', degrees(value)),
                         hFlip: (list) => mergeAttr(list, 'data-flip', 'horizontal', ','),
                         vFlip: (list) => mergeAttr(list, 'data-flip', 'vertical', ','),
+                        hAlign: (list, value) => mergeAttr(list, 'data-align', value, ','),
+                        vAlign: (list, value) => mergeAttr(list, 'data-align', value, ','),
+                        slice: (list) => mergeAttr(list, 'data-align', 'slice', ','),
                     },
                     merge: mergeAttributes,
                     template: '<span {attr}></span>',
@@ -24083,46 +24237,34 @@
                     iconParser: (list, valueStr, valueIcon) => addReactAttr(list, 'icon', varName(valueIcon.name)),
                     parsers: {},
                     merge: mergeAttributes,
-                    template: (attr, customisations) => '<' +
-                        (customisations.inline ? 'InlineIcon' : 'Icon') +
-                        ' ' +
-                        attr +
-                        ' />',
+                    template: (attr, customisations) => '<Icon ' + attr + ' />',
                     docs: {
                         type: 'react',
                         href: docsBase + 'react/',
                     },
                     npm: {
                         install: '@iconify/react@beta',
-                        import: (attr, customisations) => 'import { ' +
-                            (customisations.inline ? 'InlineIcon' : 'Icon') +
-                            " } from '@iconify/react';",
+                        import: (attr, customisations) => "import { Icon } from '@iconify/react';",
                     },
                 };
-                addMultipleAttributeParsers(parser, getCustomisationAttributes(true, false), addReactAttr);
+                addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
                 return parser;
             case 'react-api':
                 parser = {
                     iconParser: (list, valueStr, valueIcon) => addAttr(list, 'icon', valueStr),
                     parsers: {},
                     merge: mergeAttributes,
-                    template: (attr, customisations) => '<' +
-                        (customisations.inline ? 'InlineIcon' : 'Icon') +
-                        ' ' +
-                        attr +
-                        ' />',
+                    template: (attr, customisations) => '<Icon ' + attr + ' />',
                     docs: {
                         type: 'react',
-                        href: docsBase + 'react-with-api/',
+                        href: docsBase + 'react/',
                     },
                     npm: {
-                        install: '@iconify/react-with-api',
-                        import: (attr, customisations) => 'import { ' +
-                            (customisations.inline ? 'InlineIcon' : 'Icon') +
-                            " } from '@iconify/react-with-api';",
+                        install: '@iconify/react@alpha',
+                        import: (attr, customisations) => "import { Icon } from '@iconify/react';",
                     },
                 };
-                addMultipleAttributeParsers(parser, getCustomisationAttributes(true, false), addReactAttr);
+                addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
                 return parser;
             // Vue
             case 'vue2':
@@ -24135,14 +24277,14 @@
                     iconParser: (list, valueStr, valueIcon) => addReactAttr(list, 'icon', varName(valueIcon.name)),
                     parsers: {},
                     merge: mergeAttributes,
-                    template: '<IconifyIcon {attr} />',
+                    template: '<Icon {attr} />',
                     docs: {
                         type: 'svelte',
                         href: docsBase + 'svelte/',
                     },
                     npm: {
                         install: '@iconify/svelte',
-                        import: "import IconifyIcon from '@iconify/svelte';",
+                        import: "import Icon from '@iconify/svelte';",
                     },
                 };
                 addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
@@ -24166,14 +24308,318 @@
     //# sourceMappingURL=code-parsers.js.map
     });
 
+    var size = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.calculateSize = void 0;
+    /**
+     * Regular expressions for calculating dimensions
+     */
+    const unitsSplit = /(-?[0-9.]*[0-9]+[0-9.]*)/g;
+    const unitsTest = /^-?[0-9.]*[0-9]+[0-9.]*$/g;
+    /**
+     * Calculate second dimension when only 1 dimension is set
+     *
+     * @param {string|number} size One dimension (such as width)
+     * @param {number} ratio Width/height ratio.
+     *      If size is width, ratio = height/width
+     *      If size is height, ratio = width/height
+     * @param {number} [precision] Floating number precision in result to minimize output. Default = 2
+     * @return {string|number} Another dimension
+     */
+    function calculateSize(size, ratio, precision) {
+        if (ratio === 1) {
+            return size;
+        }
+        precision = precision === void 0 ? 100 : precision;
+        if (typeof size === 'number') {
+            return Math.ceil(size * ratio * precision) / precision;
+        }
+        if (typeof size !== 'string') {
+            return size;
+        }
+        // Split code into sets of strings and numbers
+        const oldParts = size.split(unitsSplit);
+        if (oldParts === null || !oldParts.length) {
+            return size;
+        }
+        const newParts = [];
+        let code = oldParts.shift();
+        let isNumber = unitsTest.test(code);
+        // eslint-disable-next-line no-constant-condition
+        while (true) {
+            if (isNumber) {
+                const num = parseFloat(code);
+                if (isNaN(num)) {
+                    newParts.push(code);
+                }
+                else {
+                    newParts.push(Math.ceil(num * ratio * precision) / precision);
+                }
+            }
+            else {
+                newParts.push(code);
+            }
+            // next
+            code = oldParts.shift();
+            if (code === void 0) {
+                return newParts.join('');
+            }
+            isNumber = !isNumber;
+        }
+    }
+    exports.calculateSize = calculateSize;
+    //# sourceMappingURL=size.js.map
+    });
+
+    var build = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.iconToSVG = void 0;
+
+    /**
+     * Get preserveAspectRatio value
+     */
+    function preserveAspectRatio(props) {
+        let result = '';
+        switch (props.hAlign) {
+            case 'left':
+                result += 'xMin';
+                break;
+            case 'right':
+                result += 'xMax';
+                break;
+            default:
+                result += 'xMid';
+        }
+        switch (props.vAlign) {
+            case 'top':
+                result += 'YMin';
+                break;
+            case 'bottom':
+                result += 'YMax';
+                break;
+            default:
+                result += 'YMid';
+        }
+        result += props.slice ? ' slice' : ' meet';
+        return result;
+    }
+    /**
+     * Get SVG attributes and content from icon + customisations
+     *
+     * Does not generate style to make it compatible with frameworks that use objects for style, such as React.
+     * Instead, it generates 'inline' value. If true, rendering engine should add verticalAlign: -0.125em to icon.
+     *
+     * Customisations should be normalised by platform specific parser.
+     * Result should be converted to <svg> by platform specific parser.
+     * Use replaceIDs to generate unique IDs for body.
+     */
+    function iconToSVG(icon, customisations) {
+        // viewBox
+        const box = {
+            left: icon.left,
+            top: icon.top,
+            width: icon.width,
+            height: icon.height,
+        };
+        // Body
+        let body = icon.body;
+        // Apply transformations
+        [icon, customisations].forEach((props) => {
+            const transformations = [];
+            const hFlip = props.hFlip;
+            const vFlip = props.vFlip;
+            let rotation = props.rotate;
+            // Icon is flipped first, then rotated
+            if (hFlip) {
+                if (vFlip) {
+                    rotation += 2;
+                }
+                else {
+                    // Horizontal flip
+                    transformations.push('translate(' +
+                        (box.width + box.left) +
+                        ' ' +
+                        (0 - box.top) +
+                        ')');
+                    transformations.push('scale(-1 1)');
+                    box.top = box.left = 0;
+                }
+            }
+            else if (vFlip) {
+                // Vertical flip
+                transformations.push('translate(' +
+                    (0 - box.left) +
+                    ' ' +
+                    (box.height + box.top) +
+                    ')');
+                transformations.push('scale(1 -1)');
+                box.top = box.left = 0;
+            }
+            let tempValue;
+            if (rotation < 0) {
+                rotation -= Math.floor(rotation / 4) * 4;
+            }
+            rotation = rotation % 4;
+            switch (rotation) {
+                case 1:
+                    // 90deg
+                    tempValue = box.height / 2 + box.top;
+                    transformations.unshift('rotate(90 ' + tempValue + ' ' + tempValue + ')');
+                    break;
+                case 2:
+                    // 180deg
+                    transformations.unshift('rotate(180 ' +
+                        (box.width / 2 + box.left) +
+                        ' ' +
+                        (box.height / 2 + box.top) +
+                        ')');
+                    break;
+                case 3:
+                    // 270deg
+                    tempValue = box.width / 2 + box.left;
+                    transformations.unshift('rotate(-90 ' + tempValue + ' ' + tempValue + ')');
+                    break;
+            }
+            if (rotation % 2 === 1) {
+                // Swap width/height and x/y for 90deg or 270deg rotation
+                if (box.left !== 0 || box.top !== 0) {
+                    tempValue = box.left;
+                    box.left = box.top;
+                    box.top = tempValue;
+                }
+                if (box.width !== box.height) {
+                    tempValue = box.width;
+                    box.width = box.height;
+                    box.height = tempValue;
+                }
+            }
+            if (transformations.length) {
+                body =
+                    '<g transform="' +
+                        transformations.join(' ') +
+                        '">' +
+                        body +
+                        '</g>';
+            }
+        });
+        // Calculate dimensions
+        let width, height;
+        if (customisations.width === null && customisations.height === null) {
+            // Set height to '1em', calculate width
+            height = '1em';
+            width = size.calculateSize(height, box.width / box.height);
+        }
+        else if (customisations.width !== null &&
+            customisations.height !== null) {
+            // Values are set
+            width = customisations.width;
+            height = customisations.height;
+        }
+        else if (customisations.height !== null) {
+            // Height is set
+            height = customisations.height;
+            width = size.calculateSize(height, box.width / box.height);
+        }
+        else {
+            // Width is set
+            width = customisations.width;
+            height = size.calculateSize(width, box.height / box.width);
+        }
+        // Check for 'auto'
+        if (width === 'auto') {
+            width = box.width;
+        }
+        if (height === 'auto') {
+            height = box.height;
+        }
+        // Convert to string
+        width = typeof width === 'string' ? width : width + '';
+        height = typeof height === 'string' ? height : height + '';
+        // Result
+        const result = {
+            attributes: {
+                width,
+                height,
+                preserveAspectRatio: preserveAspectRatio(customisations),
+                viewBox: box.left + ' ' + box.top + ' ' + box.width + ' ' + box.height,
+            },
+            body,
+        };
+        if (customisations.inline) {
+            result.inline = true;
+        }
+        return result;
+    }
+    exports.iconToSVG = iconToSVG;
+    //# sourceMappingURL=build.js.map
+    });
+
+    var html = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.renderHTML = void 0;
+
+    function renderHTML(icon, customisations, className) {
+        const buildResult = build.iconToSVG(icon, customisations);
+        // Style
+        const style = [];
+        if (customisations.inline) {
+            style.push('vertical-align: -0.125em');
+        }
+        /*
+        if (customisations.color !== '') {
+            style.push('color: ' + customisations.color);
+        }
+        */
+        const customAttributes = {};
+        if (typeof className === 'string' && className !== '') {
+            customAttributes['class'] = className;
+        }
+        if (style.length) {
+            customAttributes['style'] = style.join('; ') + ';';
+        }
+        // Generate SVG attributes
+        const attributes = {
+            // Default SVG stuff
+            'xmlns': 'http://www.w3.org/2000/svg',
+            'xmlns:xlink': 'http://www.w3.org/1999/xlink',
+            'aria-hidden': 'true',
+            'role': 'img',
+            // Custom attributes
+            ...customAttributes,
+            // Attributes from build result
+            ...buildResult.attributes,
+        };
+        // Replace color inside SVG
+        let body = buildResult.body;
+        if (customisations.color !== '') {
+            body = body.replace(/currentColor/g, customisations.color);
+        }
+        // Generate HTML
+        return ('<svg ' +
+            Object.keys(attributes)
+                .map((key) => {
+                // There should be no quotes in content, so nothing to encode
+                return key + '="' + attributes[key] + '"';
+            })
+                .join(' ') +
+            '>' +
+            body +
+            '</svg>');
+    }
+    exports.renderHTML = renderHTML;
+    //# sourceMappingURL=html.js.map
+    });
+
     var code = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getIconCode = exports.codeOutputComponentKeys = void 0;
 
 
 
+
+
     // Iconify version (replaced during build!)
-    const iconifyVersion = '2.0.0';
+    const iconifyVersion = '2.0.1';
     exports.codeOutputComponentKeys = [
         'install',
         'install1',
@@ -24193,7 +24639,8 @@
     /**
      * Get code for icon
      */
-    function getIconCode(lang, icon$1, customisations, providerConfig) {
+    function getIconCode(lang, icon$1, customisations$1, providerConfig) {
+        var _a;
         function npmIconImport(preferES) {
             const name = codeParsers.varName(icon$1.name);
             const npm = preferES
@@ -24235,60 +24682,66 @@
         // Icon as string
         const iconName = icon.iconToString(icon$1);
         // Init parser
-        const attr = parser.init ? parser.init(customisations) : {};
+        const attr = parser.init ? parser.init(customisations$1) : {};
         const attrParsers = parser.parsers;
         // Add icon name
         if (parser.iconParser) {
             parser.iconParser(attr, iconName, icon$1);
         }
         // Add color
-        if (customisations.color !== '' && attrParsers.color) {
-            attrParsers.color(attr, customisations.color);
+        if (customisations$1.color !== '' && attrParsers.color) {
+            attrParsers.color(attr, customisations$1.color);
         }
         // Add dimensions
-        if (customisations.width === '' &&
-            customisations.height !== '' &&
+        if (customisations$1.width === '' &&
+            customisations$1.height !== '' &&
             attrParsers.onlyHeight) {
-            attrParsers.onlyHeight(attr, customisations.height);
+            attrParsers.onlyHeight(attr, customisations$1.height);
         }
         else {
             ['width', 'height'].forEach((prop) => {
                 const key = prop;
-                if (customisations[key] !== '' && attrParsers[key]) {
+                const value = customisations$1[key];
+                if (value !== null && value !== '' && attrParsers[key]) {
                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                    attrParsers[key](attr, customisations[key]);
+                    attrParsers[key](attr, value);
                 }
             });
         }
-        // Transformations
-        ['rotate', 'vFlip', 'hFlip'].forEach((prop) => {
+        // Transformations and alignment
+        ['rotate', 'hFlip', 'vFlip', 'hAlign', 'vAlign', 'slice'].forEach((prop) => {
             const key = prop;
-            if (customisations[key] && attrParsers[key]) {
+            const value = customisations$1[key];
+            if (value !== void 0 &&
+                value !== customisations.emptyCustomisations[key] &&
+                attrParsers[key]) {
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                attrParsers[key](attr, customisations[key]);
+                attrParsers[key](attr, value);
             }
         });
         // Inline
-        if (customisations.inline && attrParsers.inline) {
+        if (customisations$1.inline && attrParsers.inline) {
             attrParsers.inline(attr, true);
         }
         // Merge attributes
         const merged = parser.merge ? parser.merge(attr) : '';
         // Use template
-        const html = parser.template
-            ? resolveTemplate(parser.template, merged, customisations)
+        const html$1 = parser.template
+            ? resolveTemplate(parser.template, merged, customisations$1)
             : '';
         // Generate output
         const output = {
             docs: parser.docs,
         };
         // Add language specific stuff
-        let str;
-        let data;
-        let npm;
+        // let str: string | null;
+        // let data: IconifyIcon | null;
+        // let npm: NPMImport | null;
         switch (lang) {
-            case 'iconify':
-                str = iconify.Iconify.getVersion ? iconify.Iconify.getVersion() : iconifyVersion;
+            case 'iconify': {
+                const str = iconify.Iconify.getVersion
+                    ? iconify.Iconify.getVersion()
+                    : iconifyVersion;
                 output.iconify = {
                     head: '<script src="https://code.iconify.design/' +
                         str.split('.').shift() +
@@ -24296,25 +24749,21 @@
                         str +
                         '/iconify.min.js"><' +
                         '/script>',
-                    html,
+                    html: html$1,
                 };
                 return output;
+            }
             case 'svg-raw':
             case 'svg-box':
-            case 'svg-uri':
-                str = iconify.Iconify.renderHTML
-                    ? iconify.Iconify.renderHTML(iconName, attr)
-                    : null;
-                if (str === null) {
+            case 'svg-uri': {
+                const data = (_a = iconify.Iconify.getIcon) === null || _a === void 0 ? void 0 : _a.call(iconify.Iconify, iconName);
+                if (!data) {
                     return null;
                 }
-                if (customisations.color !== '') {
-                    str = str.replace(/currentColor/g, customisations.color);
-                }
+                let str = html.renderHTML(data, customisations$1);
                 if (lang === 'svg-box') {
                     // Add empty rectangle before shapes
                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                    data = iconify.Iconify.getIcon ? iconify.Iconify.getIcon(iconName) : null;
                     if (data) {
                         str = str.replace('>', '><rect x="' +
                             data.left +
@@ -24346,15 +24795,16 @@
                 }
                 output.raw = [str];
                 return output;
+            }
             case 'react-npm':
             case 'svelte':
             case 'vue2':
-            case 'vue3':
+            case 'vue3': {
                 if (!parser.npm ||
                     (!providerConfig.npmCJS && !providerConfig.npmES)) {
                     return null;
                 }
-                npm = npmIconImport(lang === 'vue3');
+                const npm = npmIconImport(lang === 'vue3');
                 if (!npm) {
                     return null;
                 }
@@ -24363,33 +24813,40 @@
                         parser.npm.install +
                         ' ' +
                         npm.package,
-                    import: resolveTemplate(parser.npm.import, merged, customisations) +
+                    import: resolveTemplate(parser.npm.import, merged, customisations$1) +
                         '\nimport ' +
                         npm.name +
                         " from '" +
                         npm.package +
                         npm.file +
                         "';",
-                    use: html
+                    use: html$1
                         .replace(/{varName}/g, npm.name)
                         .replace('{iconPackage}', npm.package + npm.file),
                 };
-                if (typeof parser.vueTemplate === 'string') {
-                    output.component.vue = parser.vueTemplate
-                        .replace(/{varName}/g, npm.name)
-                        .replace('{iconPackage}', npm.package + npm.file);
+                if (parser.vueTemplate !== void 0) {
+                    const html = typeof parser.vueTemplate === 'function'
+                        ? resolveTemplate(parser.vueTemplate, merged, customisations$1)
+                        : parser.vueTemplate;
+                    if (typeof html === 'string') {
+                        output.component.vue = html
+                            .replace(/{varName}/g, npm.name)
+                            .replace('{iconPackage}', npm.package + npm.file);
+                    }
                 }
                 return output;
-            case 'react-api':
+            }
+            case 'react-api': {
                 if (!parser.npm) {
                     return null;
                 }
                 output.component = {
                     install1: 'npm install --save-dev ' + parser.npm.install,
-                    import1: resolveTemplate(parser.npm.import, merged, customisations),
-                    use: html,
+                    import1: resolveTemplate(parser.npm.import, merged, customisations$1),
+                    use: html$1,
                 };
                 return output;
+            }
         }
     }
     exports.getIconCode = getIconCode;
@@ -27441,7 +27898,7 @@
     	
     	let { selection } = $$props;
     	let { selectionLength } = $$props;
-    	let { customisations: customisations$1 } = $$props;
+    	let { customisations } = $$props;
     	let { route } = $$props;
 
     	// Registry
@@ -27449,17 +27906,25 @@
 
     	// Change icon customisation value
     	function customise(prop, value) {
-    		if (customisations$1[prop] !== void 0 && customisations$1[prop] !== value && typeof customisations$1[prop] === typeof value) {
+    		// Convert empty width/height to null
+    		switch (prop) {
+    			case "width":
+    			case "height":
+    				if (value === "" || value === 0) {
+    					value = null;
+    				}
+    				break;
+    		}
+
+    		if (customisations[prop] !== void 0 && customisations[prop] !== value) {
     			// Change value then change object to force Svelte update components
     			const changed = { [prop]: value };
-
-    			const newCustomisations = customisations.mergeCustomisations(customisations$1, changed);
 
     			// Send event: UICustomisationEvent
     			registry.callback({
     				type: "customisation",
     				changed,
-    				customisations: newCustomisations
+    				customisations: Object.assign(Object.assign({}, customisations), changed)
     			});
     		}
     	}
@@ -27493,7 +27958,7 @@
     	$$self.$$set = $$props => {
     		if ("selection" in $$props) $$invalidate(4, selection = $$props.selection);
     		if ("selectionLength" in $$props) $$invalidate(5, selectionLength = $$props.selectionLength);
-    		if ("customisations" in $$props) $$invalidate(0, customisations$1 = $$props.customisations);
+    		if ("customisations" in $$props) $$invalidate(0, customisations = $$props.customisations);
     		if ("route" in $$props) $$invalidate(1, route = $$props.route);
     	};
 
@@ -27546,7 +28011,7 @@
     	};
 
     	return [
-    		customisations$1,
+    		customisations,
     		route,
     		icons,
     		customise,
@@ -27814,13 +28279,6 @@
         addCollection,
         getAPI: _api.getAPI,
         addAPIProvider,
-        // Emulate renderHTML from SVG framework
-        renderHTML: (name, customisations) => {
-            return html.renderHTML(name, customisations, (name, customisations) => {
-                const data = getIcon(name);
-                return data ? buildIcon(data, customisations) : null;
-            });
-        },
     };
     lib.setIconify(functions);
     // Import theme icons

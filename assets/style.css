@@ -1571,6 +1571,16 @@ a.iif-filter--selected:focus:not(:hover) {
 	text-decoration: none;
 }
 
+.iif-icons--grid .iif-icon-grid .iif-icon-loading {
+	display: block;
+	font-size: 12px;
+	line-height: 1em;
+	letter-spacing: -0.3px;
+	word-break: break-word;
+	opacity: 0.5;
+	overflow: hidden;
+}
+
 .iif-icons--selecting .iif-icon-grid a {
 	border-style: dashed;
 	border-color: #d7d7d7;

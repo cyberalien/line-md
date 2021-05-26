@@ -168,7 +168,7 @@ export const phrases: UITranslation = {
 			install1: 'Install component:',
 			import: 'Import component and icon data:',
 			import1: 'Import component:',
-			vue: 'Add icon and component to your component:',
+			vue: 'Add icon data and icon component to your component:',
 			use: 'Use it in your code:',
 		},
 		iconify: {

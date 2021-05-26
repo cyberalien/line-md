@@ -42,7 +42,10 @@
 <FooterBlock name="props" {title}>
 	<div>
 		{#if customiseColor}
-			<ColorBlock {icons} value={customisations.color} {customise} />
+			<ColorBlock
+				{icons}
+				value={typeof customisations.color === 'string' ? customisations.color : ''}
+				{customise} />
 		{/if}
 		{#if customiseWidth || customiseHeight}
 			<SizeBlock {icons} {customisations} {customise} />

@@ -121,9 +121,10 @@
 
 				let size: number | string = '';
 				let scale = false;
-				if (customisations[rotated ? key : altKey]) {
+				const customised2 = customisations[rotated ? key : altKey];
+				if (customised2) {
 					// Another property is customised, use it for ratio
-					size = customisations[rotated ? key : altKey];
+					size = customised2;
 					scale = true;
 				} else if (defaultSize[key] !== '') {
 					// Use default size, do not scale
@@ -160,7 +161,7 @@
 	{#each props as prop, i (prop)}
 		<SizeInput
 			{prop}
-			value={customisations[prop] + ''}
+			value={customisations[prop] === null ? '' : customisations[prop] + ''}
 			placeholder={placeholders[prop]}
 			{customise} />
 	{/each}
