@@ -19,12 +19,6 @@
 	// Status to add to class
 	export let status: string = '';
 
-	// Icon status
-	let hasIcon: boolean = false;
-	function iconLoaded() {
-		hasIcon = true;
-	}
-
 	// Get class name
 	const baseClass = 'iif-option-button';
 	let className: string;
@@ -33,10 +27,10 @@
 			baseClass +
 			' ' +
 			baseClass +
-			(hasIcon ? '--with-icon' : '--without-icon') +
+			(icon ? '--with-icon' : '--without-icon') +
 			' ' +
 			baseClass +
-			((text && !textOptional) || !hasIcon
+			((text && !textOptional) || !icon
 				? '--with-text'
 				: '--without-text') +
 			(status === '' ? '' : ' ' + baseClass + '--' + status);
@@ -45,7 +39,7 @@
 
 <button class={className} {title} on:click={onClick}>
 	{#if icon}
-		<UIIcon {icon} onLoad={iconLoaded} />
+		<UIIcon {icon} />
 	{/if}
 	<span>{text ? text : title}</span>
 </button>
