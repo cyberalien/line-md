@@ -131,7 +131,7 @@
 			autocapitalize="off"
 			{disabled}
 			bind:this={inputRef} />
-		{#if value === '' && placeholder !== ''}
+		{#if mounted && value === '' && placeholder !== ''}
 			<div class="iif-input-placeholder">{placeholder}</div>
 		{/if}
 		{#if mounted && value !== ''}
