@@ -116,13 +116,13 @@
 
 	{#if output.docs}
 		<p class="iif-code-docs">
-			<UIIcon icon="docs"><span>&raquo;</span></UIIcon>
+			<UIIcon icon="docs" />
 			<a
 				href={output.docs.href}
 				on:click={onExternalClick}
 				target="_blank">
 				{docsText}
-				<UIIcon icon="link"><span>&raquo;</span></UIIcon>
+				<UIIcon icon="link" />
 			</a>
 		</p>
 	{/if}

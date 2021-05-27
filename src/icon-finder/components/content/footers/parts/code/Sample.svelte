@@ -1,4 +1,5 @@
 <script lang="typescript">
+	import { onMount } from 'svelte';
 	import { phrases } from '../../../../../config/phrases';
 	import UIIcon from '../../../../ui/UIIcon.svelte';
 
@@ -75,17 +76,23 @@
 			}, 2000);
 		}
 	}
+
+	// SSR render
+	let mounted = false;
+	onMount(() => {
+		mounted = true;
+	});
 </script>
 
 <div class={className}>
 	<div class={baseClassName + '-content'}>{content}</div>
-	<a title={text.copy} href="# " on:click|preventDefault={copy}><UIIcon
-			icon="clipboard">
-			📋
-		</UIIcon></a>
-	{#if notice > 0}
+	{#if mounted}
+		<a title={text.copy} href="# " on:click|preventDefault={copy}><UIIcon
+				icon="clipboard" /></a>
+	{/if}
+	{#if mounted && notice > 0}
 		<div class={baseClassName + '-notice'}>
-			<UIIcon icon="confirm">✓</UIIcon>
+			<UIIcon icon="confirm" />
 			{text.copied}
 		</div>
 	{/if}

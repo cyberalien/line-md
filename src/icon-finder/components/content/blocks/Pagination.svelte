@@ -80,6 +80,7 @@
 			<a
 				href="# "
 				class={arrowClass + 'prev'}
+				title={phrases.pagination.prev}
 				on:click|preventDefault={() => setPage(prevPage)}>
 				<UIIcon icon="left">&lt;</UIIcon>
 			</a>
@@ -105,6 +106,7 @@
 			<a
 				href="# "
 				class={arrowClass + 'next'}
+				title={phrases.pagination.next}
 				on:click|preventDefault={() => setPage(nextPage)}>
 				<UIIcon icon="right">&gt;</UIIcon>
 			</a>

@@ -54,6 +54,10 @@ export const phrases: UITranslation = {
 		more: 'Find more icons', // '3 ...',
 		moreAsNumber: false, // True if text above refers to third page, false if text above shows "Find more icons" or similar text
 	},
+	pagination: {
+		prev: 'Previous page',
+		next: 'Next page',
+	},
 	filters: {
 		'uncategorised': 'Uncategorised',
 		'collections': 'Filter search results by icon set:',
