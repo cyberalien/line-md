@@ -22,7 +22,7 @@
 		"@rollup/plugin-node-resolve": "^11.0.1",
 		"@rollup/plugin-typescript": "^8.1.0",
 		"@tsconfig/svelte": "^1.0.10",
-		"node-sass": "^5.0.0",
+		"node-sass": "^6.0.0",
 		"nodemon": "^2.0.6",
 		"rollup": "^2.35.1",
 		"rollup-plugin-livereload": "^2.0.0",
