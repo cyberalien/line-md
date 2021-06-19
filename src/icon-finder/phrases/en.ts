@@ -168,12 +168,14 @@ export const phrases: UITranslation = {
 				'You can use this as background image or as content for pseudo element in stylesheet.',
 		},
 		component: {
-			install: 'Install component and icon set:',
-			install1: 'Install component:',
-			import: 'Import component and icon data:',
-			import1: 'Import component:',
-			vue: 'Add icon data and icon component to your component:',
-			use: 'Use it in your code:',
+			'install-offline': 'Install component and icon set:',
+			'install-simple': 'Install component:',
+			'import-offline': 'Import component and icon data:',
+			'import-simple': 'Import component:',
+			'vue-offline':
+				'Add icon data and icon component to your component:',
+			'vue-simple': 'Add icon component to your component:',
+			'use': 'Use it in your code:',
 		},
 		iconify: {
 			intro1:
