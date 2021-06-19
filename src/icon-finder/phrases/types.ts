@@ -45,6 +45,10 @@ export interface UITranslation {
 		more: string;
 		moreAsNumber: boolean;
 	};
+	pagination: {
+		prev: string;
+		next: string;
+	};
 	filters: Record<string, string>;
 	collectionInfo: {
 		total: string;

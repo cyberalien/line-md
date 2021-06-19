@@ -1,8 +1,9 @@
 <script lang="typescript">
 	import type { IconifyIcon } from '@iconify/svelte';
-	import IconComponent, { getIcon } from '@iconify/svelte';
+	import IconComponent from '@iconify/svelte';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import { getDimensions } from '../../../../../footer/icon-size';
 	import {
@@ -85,8 +86,8 @@
 		// Get name
 		const name = iconToString(icon);
 
-		// Get data
-		const iconData = getIcon(name)!;
+		// Get data (both getIcon and icon data are available: check is done in footer)
+		const iconData = Iconify.getIcon(name)!;
 
 		// Check if icon is rotated (for width/height calculations)
 		const rotated = !!(
@@ -155,11 +156,14 @@
 				(props as Record<string, unknown>)[prop] = customisations[prop];
 			}
 		});
+
 		let size: NumericIconDimensions | undefined;
-		if (customisations.width || customisations.height) {
+		const customisedWidth = customisations.width;
+		const customisedHeight = customisations.height;
+		if (customisedWidth || customisedHeight) {
 			size = getDimensions(
-				customisations.width,
-				customisations.height,
+				customisedWidth ? customisedWidth : '',
+				customisedHeight ? customisedHeight : '',
 				data.ratio,
 				data.rotated
 			) as NumericIconDimensions;
@@ -171,6 +175,7 @@
 				data.rotated
 			) as NumericIconDimensions;
 		}
+
 		if (size !== void 0) {
 			scaleSample(size, false);
 			props.width = size.width + '';

@@ -11,7 +11,7 @@
 		getIconCode,
 		codeOutputComponentKeys,
 	} from '@iconify/search-core/lib/code-samples/code';
-	import { capitalize } from '@iconify/search-core/lib/misc/capitalize';
+	import { capitalizeCodeSampleTitle } from '@iconify/search-core/lib/code-samples/phrases';
 	import { phrases } from '../../../../../config/phrases';
 	import type { WrappedRegistry } from '../../../../../wrapper/registry';
 	import UIIcon from '../../../../ui/UIIcon.svelte';
@@ -60,7 +60,7 @@
 				? codePhrases.docs[docsType]!
 				: codePhrases.docsDefault.replace(
 						'{title}',
-						capitalize(docsType)
+						capitalizeCodeSampleTitle(docsType)
 				  );
 		} else {
 			docsText = '';
@@ -147,13 +147,13 @@
 
 	{#if output.docs}
 		<p class="iif-code-docs">
-			<UIIcon icon="docs"><span>&raquo;</span></UIIcon>
+			<UIIcon icon="docs" />
 			<a
 				href={output.docs.href}
 				on:click={onExternalClick}
 				target="_blank">
 				{docsText}
-				<UIIcon icon="link"><span>&raquo;</span></UIIcon>
+				<UIIcon icon="link" />
 			</a>
 		</p>
 	{/if}

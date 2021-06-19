@@ -1,7 +1,8 @@
 <script lang="typescript">
-	import { getIcon, calculateSize } from '@iconify/svelte';
+	import { calculateSize } from '@iconify/svelte';
 	import type { Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import type { IconCustomisations } from '@iconify/search-core/lib/misc/customisations';
 	import {
 		customiseWidth,
@@ -63,7 +64,7 @@
 				return;
 			}
 			const name = iconToString(icon);
-			const data = getIcon(name);
+			const data = Iconify.getIcon?.(name);
 			if (!data) {
 				return;
 			}

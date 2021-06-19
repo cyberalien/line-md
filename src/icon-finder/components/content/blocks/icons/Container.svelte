@@ -60,7 +60,8 @@
 	}
 
 	// Event listener for loading icons, which should be loaded only when component is mounted
-	let mounted = false;
+	// 0 = not mounted, 1 = just mounted, 2 = has been mounted
+	let mounted = 0;
 	let abortLoader: (() => void) | null = null;
 	let updateCounter: number = 0;
 
@@ -69,7 +70,7 @@
 	};
 
 	onMount(() => {
-		mounted = true;
+		mounted = 1;
 	});
 
 	// Get filters to list view
@@ -155,11 +156,16 @@
 		// Parse icons
 		let pending: string[] = [];
 
-		// Map old icons
+		// Map old icons, but only if this code has already been ran
 		const oldKeys = Object.create(null);
-		parsedIcons.forEach((icon) => {
-			oldKeys[icon.name] = icon;
-		});
+		if (mounted === 2) {
+			parsedIcons.forEach((icon) => {
+				oldKeys[icon.name] = icon;
+			});
+		} else if (mounted === 1) {
+			// Mark as mounted + code ran once
+			mounted = 2;
+		}
 
 		let updated = false;
 		(blocks as CollectionViewBlocks).icons.icons.forEach((icon) => {
@@ -244,7 +250,7 @@
 		});
 
 		// Load pending images, but only after component has been mounted
-		if (mounted && pending.length) {
+		if (mounted > 0 && pending.length) {
 			if (abortLoader !== null) {
 				abortLoader();
 			}
@@ -253,10 +259,7 @@
 
 		// Overwrite parseIcons variable only if something was updated, triggering component re-render
 		// Also compare length in case if new set is subset of old set
-		if (
-			mounted &&
-			(updated || parsedIcons.length !== newParsedIcons.length)
-		) {
+		if (updated || parsedIcons.length !== newParsedIcons.length) {
 			parsedIcons = newParsedIcons;
 		}
 	}

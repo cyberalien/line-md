@@ -1,7 +1,8 @@
 <script lang="typescript">
-	import IconComponent, { getIcon } from '@iconify/svelte';
+	import IconComponent from '@iconify/svelte';
 	import type { FullRoute, Icon } from '@iconify/search-core';
 	import { iconToString } from '@iconify/search-core';
+	import { Iconify } from '@iconify/search-core/lib/iconify';
 	import { canShortenIconName } from '../../../../../config/components';
 	import { getIconGrid } from '../../../../../footer/scale-icon';
 	import { shortenIconName } from '../../../../../footer/shorten-icon-name';
@@ -28,7 +29,7 @@
 	// Get grid
 	let grid: number;
 	$: {
-		const iconData = getIcon(iconName);
+		const iconData = Iconify.getIcon?.(iconName);
 		if (!iconData || !iconData.height) {
 			grid = 0;
 		} else {
