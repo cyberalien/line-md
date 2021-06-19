@@ -3057,7 +3057,7 @@
     /**
      * Check if icon exists
      */
-    const iconExists = functions$1.storageFunctions.iconExists;
+    functions$1.storageFunctions.iconExists;
     /**
      * Get icon data
      */
@@ -5530,16 +5530,16 @@
                 });
             });
             // Add result
-            const titles = [];
+            const titles = Object.create(null);
             Object.keys(dataItem.titles).forEach((match) => {
                 if (dataItem.found[match]) {
-                    titles.push(dataItem.titles[match]);
+                    titles[match] = dataItem.titles[match];
                 }
             });
             if (dataItem.hasUncategorized) {
-                titles.push('');
+                titles[''] = '';
             }
-            switch (titles.length) {
+            switch (Object.keys(titles).length) {
                 case 0:
                     // Nothing to do
                     break;
@@ -6558,7 +6558,6 @@
             });
         });
         block.icons = icons;
-        return block;
     }
     exports.applyIconFilters = applyIconFilters;
     //# sourceMappingURL=icons-list.js.map
@@ -6801,7 +6800,7 @@
                     this.blocksRequireUpdate = true;
                     break;
                 // Change reference icon
-                case 'icons-nav':
+                case 'icon':
                     if (value === '' || value === null) {
                         // Reset
                         this.route.params.icon = '';
@@ -6918,64 +6917,29 @@
             if (blocks.themeSuffixes !== null) {
                 blocks.themeSuffixes.active = this.route.params.themeSuffix;
             }
-            // Find reference icon
-            let iconsList$1 = blocks.icons.icons;
-            const icon = this.route.params.icon;
-            let iconIndex = icon === '' ? false : this._getIconIndex(iconsList$1, icon);
-            if (iconIndex !== false) {
-                // Get previous/next icons
-                const max = iconsList$1.length - 1;
-                blocks['icons-nav'] = {
-                    type: 'icons-nav',
-                    first: iconsList$1[0],
-                    last: iconsList$1[max],
-                    reference: iconsList$1[iconIndex],
-                    prev: iconIndex > 0 ? iconsList$1[iconIndex - 1] : void 0,
-                    next: iconIndex < max ? iconsList$1[iconIndex + 1] : void 0,
-                };
-            }
-            else if (icon !== '' &&
-                this._data.hidden &&
-                this._data.hidden.indexOf(icon) !== -1) {
-                // Icon exists, but it is hidden. Show first and last icons, indicating that reference icon exists
-                blocks['icons-nav'] = {
-                    type: 'icons-nav',
-                    first: iconsList$1[0],
-                    last: iconsList$1[iconsList$1.length - 1],
-                    reference: {
-                        provider: this.provider,
-                        prefix: this.prefix,
-                        name: icon,
-                    },
-                };
-            }
-            else {
-                blocks['icons-nav'] = null;
-            }
             // Apply search
-            blocks.icons = iconsList.applyIconFilters(blocks.icons, blocks.filter, filterKeys
+            iconsList.applyIconFilters(blocks.icons, blocks.filter, filterKeys
                 .filter((key) => blocks[key] !== null)
                 .map((key) => blocks[key]));
-            iconsList$1 = blocks.icons.icons;
+            const iconsBlock = blocks.icons;
+            const iconsList$1 = iconsBlock.icons;
             // Get current page
             const perPage = blocks.pagination.perPage;
+            const referenceIcon = this.route.params.icon;
             let page;
             if (this.route.params.page !== null) {
                 page = this.route.params.page;
             }
-            else if (icon === '') {
+            else if (referenceIcon === '') {
                 page = 0;
             }
             else {
-                if (iconsList$1.length !== this._data.icons.length) {
-                    // Update iconIndex
-                    iconIndex = this._getIconIndex(iconsList$1, icon);
-                }
+                const iconIndex = this._getIconIndex(iconsList$1, referenceIcon);
                 page =
                     iconIndex === false ? 0 : pagination.getPageForIndex(perPage, iconIndex);
             }
             // Check pagination
-            blocks.pagination.length = blocks.icons.icons.length;
+            blocks.pagination.length = iconsBlock.icons.length;
             blocks.pagination.page = page;
             const maximumPage = pagination.maxPage(blocks.pagination);
             if (maximumPage < blocks.pagination.page) {
@@ -6983,7 +6947,28 @@
             }
             // Apply pagination
             const startIndex = blocks.pagination.page * perPage;
-            blocks.icons.icons = iconsList$1.slice(startIndex, startIndex + perPage);
+            const nextIndex = Math.min(startIndex + perPage, iconsList$1.length + 1);
+            iconsBlock.icons = iconsList$1.slice(startIndex, nextIndex);
+            // Navigation
+            if (iconsList$1.length > 1) {
+                // Add first/last icon
+                iconsBlock.first = iconsList$1[0];
+                iconsBlock.last = iconsList$1[iconsList$1.length - 1];
+                // Add previous/next icon
+                iconsBlock.prev =
+                    startIndex > 0 ? iconsList$1[startIndex - 1] : iconsBlock.last;
+                iconsBlock.next =
+                    iconsList$1[nextIndex] === void 0
+                        ? iconsBlock.first
+                        : iconsList$1[nextIndex];
+            }
+            else {
+                // Nothing to navigate
+                delete iconsBlock.first;
+                delete iconsBlock.last;
+                delete iconsBlock.prev;
+                delete iconsBlock.next;
+            }
             return this._blocks;
         }
         /**
@@ -7002,22 +6987,21 @@
             // Create empty blocks
             this._blocks = {
                 // Info
-                'info': collectionInfo.defaultCollectionInfoBlock(),
+                info: collectionInfo.defaultCollectionInfoBlock(),
                 // Search
-                'filter': Object.assign(search$2.defaultSearchBlock(), {
+                filter: Object.assign(search$2.defaultSearchBlock(), {
                     keyword: this.route.params.filter,
                     searchType: 'collection',
                     title: this.prefix,
                 }),
                 // Filters
-                'collections': null,
-                'tags': null,
-                'themePrefixes': null,
-                'themeSuffixes': null,
+                collections: null,
+                tags: null,
+                themePrefixes: null,
+                themeSuffixes: null,
                 // Icons and pagination
-                'icons': iconsList.defaultIconsListBlock(),
-                'pagination': pagination.defaultPaginationBlock(),
-                'icons-nav': null,
+                icons: iconsList.defaultIconsListBlock(),
+                pagination: pagination.defaultPaginationBlock(),
             };
             const initialisedBlocks = this._blocks;
             // Check if data was valid
@@ -7061,6 +7045,8 @@
                 const page = this.route.params.page;
                 pagination$1.page =
                     page === null ? 0 : Math.min(page, pagination.maxPage(pagination$1));
+                // Copy full icons list for possible use in UI
+                this._blocks.icons.allIcons = parsedData.icons;
                 // Copy collections filter from parent view
                 if (this.parent && !this.parent.loading) {
                     if (this.parent.type === 'search') {
@@ -7083,15 +7069,26 @@
                 filterKeys.forEach((key) => {
                     const dataKey = key;
                     if (parsedData[dataKey] !== void 0) {
-                        const list = parsedData[dataKey];
+                        const item = parsedData[dataKey];
+                        const isArray = item instanceof Array;
+                        const list = (isArray
+                            ? item
+                            : Object.values(item));
+                        const listKeys = isArray
+                            ? []
+                            : Object.keys(item);
                         if (list instanceof Array && list.length > 1) {
                             // Create empty filters block
                             const filter = filters.defaultFiltersBlock();
                             filter.filterType = key;
                             initialisedBlocks[key] = filter;
                             // Copy all filters
-                            list.forEach((tag) => {
-                                filter.filters[tag] = filters.defaultFilter(tag);
+                            list.forEach((tag, index) => {
+                                const item = filters.defaultFilter(tag);
+                                if (!isArray) {
+                                    item.match = listKeys[index];
+                                }
+                                filter.filters[tag] = item;
                             });
                             // Apply index
                             startIndex = filters.autoIndexFilters(filter, startIndex);
@@ -7764,7 +7761,7 @@
             blocks.icons.icons = this._data.slice(0);
             // Search icons
             blocks.filter.keyword = this.route.params.filter;
-            blocks.icons = iconsList.applyIconFilters(blocks.icons, blocks.filter, [], true);
+            iconsList.applyIconFilters(blocks.icons, blocks.filter, [], true);
             // Get items per page
             const registry = storage.getRegistry(this._instance);
             const config = registry.config;
@@ -7865,6 +7862,8 @@
                 pagination$1.perPage = config.ui.itemsPerPage;
                 pagination$1.fullLength = pagination$1.length = parsedData.length;
                 pagination$1.page = Math.min(this.route.params.page, pagination.maxPage(pagination$1));
+                // Copy full icons list for possible use in UI
+                this._blocks.icons.allIcons = parsedData;
             }
             // Send event
             this._triggerLoaded();
@@ -8548,9 +8547,6 @@
                 return pagination.isPaginationEmpty(block);
             case 'search':
                 return search$2.isSearchBlockEmpty(block);
-            case 'icons-nav':
-                // Cannot be empty if it exists
-                return false;
             default:
                 return true;
         }
@@ -9708,6 +9704,10 @@
             more: 'Find more icons',
             moreAsNumber: false, // True if text above refers to third page, false if text above shows "Find more icons" or similar text
         },
+        pagination: {
+            prev: 'Previous page',
+            next: 'Next page',
+        },
         filters: {
             'uncategorised': 'Uncategorised',
             'collections': 'Filter search results by icon set:',
@@ -9812,12 +9812,13 @@
                 'svg-uri': 'You can use this as background image or as content for pseudo element in stylesheet.',
             },
             component: {
-                install: 'Install component and icon set:',
-                install1: 'Install component:',
-                import: 'Import component and icon data:',
-                import1: 'Import component:',
-                vue: 'Add icon data and icon component to your component:',
-                use: 'Use it in your code:',
+                'install-offline': 'Install component and icon set:',
+                'install-simple': 'Install component:',
+                'import-offline': 'Import component and icon data:',
+                'import-simple': 'Import component:',
+                'vue-offline': 'Add icon data and icon component to your component:',
+                'vue-simple': 'Add icon component to your component:',
+                'use': 'Use it in your code:',
             },
             iconify: {
                 intro1: 'Iconify SVG framework makes using icons as easy as icon fonts. To use "{name}" in HTML, add this code to the document:',
@@ -9881,7 +9882,7 @@
     			}
     		});
 
-    	let if_block = !/*loaded*/ ctx[0] && create_if_block_1$g(ctx);
+    	let if_block = !/*loaded*/ ctx[0] && create_if_block_1$h(ctx);
 
     	return {
     		c() {
@@ -9908,7 +9909,7 @@
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_1$g(ctx);
+    					if_block = create_if_block_1$h(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -9943,7 +9944,7 @@
     }
 
     // (43:26) {#if !loaded}
-    function create_if_block_1$g(ctx) {
+    function create_if_block_1$h(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[6].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[5], null);
@@ -10155,8 +10156,8 @@
     	};
     }
 
-    // (115:2) {#if value === '' && placeholder !== ''}
-    function create_if_block_1$f(ctx) {
+    // (115:2) {#if mounted && value === '' && placeholder !== ''}
+    function create_if_block_1$g(ctx) {
     	let div;
     	let t;
 
@@ -10190,7 +10191,7 @@
     	uiicon = new UIIcon({
     			props: {
     				icon: "reset",
-    				$$slots: { default: [create_default_slot$n] },
+    				$$slots: { default: [create_default_slot$k] },
     				$$scope: { ctx }
     			}
     		});
@@ -10240,7 +10241,7 @@
     }
 
     // (123:4) <UIIcon icon="reset">
-    function create_default_slot$n(ctx) {
+    function create_default_slot$k(ctx) {
     	let t;
 
     	return {
@@ -10268,7 +10269,7 @@
     	let mounted;
     	let dispose;
     	let if_block0 = /*mounted*/ ctx[9] && /*icon*/ ctx[4] !== "" && create_if_block_2$d(ctx);
-    	let if_block1 = /*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "" && create_if_block_1$f(ctx);
+    	let if_block1 = /*mounted*/ ctx[9] && /*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "" && create_if_block_1$g(ctx);
     	let if_block2 = /*mounted*/ ctx[9] && /*value*/ ctx[0] !== "" && create_if_block$u(ctx);
 
     	return {
@@ -10358,11 +10359,11 @@
     				set_input_value(input, /*value*/ ctx[0]);
     			}
 
-    			if (/*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "") {
+    			if (/*mounted*/ ctx[9] && /*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "") {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block_1$f(ctx);
+    					if_block1 = create_if_block_1$g(ctx);
     					if_block1.c();
     					if_block1.m(div0, t2);
     				}
@@ -10765,7 +10766,7 @@
     }
 
     // (71:0) <Block type="search" name="global">
-    function create_default_slot$m(ctx) {
+    function create_default_slot$j(ctx) {
     	let form;
     	let each_blocks = [];
     	let each_1_lookup = new Map();
@@ -10859,7 +10860,7 @@
     			props: {
     				type: "search",
     				name: "global",
-    				$$slots: { default: [create_default_slot$m] },
+    				$$slots: { default: [create_default_slot$j] },
     				$$scope: { ctx }
     			}
     		});
@@ -10995,23 +10996,6 @@
 
     /* src/icon-finder/components/content/blocks/parent/Link.svelte generated by Svelte v3.38.2 */
 
-    function create_default_slot$l(ctx) {
-    	let span;
-
-    	return {
-    		c() {
-    			span = element("span");
-    			span.textContent = "<";
-    		},
-    		m(target, anchor) {
-    			insert(target, span, anchor);
-    		},
-    		d(detaching) {
-    			if (detaching) detach(span);
-    		}
-    	};
-    }
-
     function create_fragment$L(ctx) {
     	let div;
     	let uiicon;
@@ -11021,14 +11005,7 @@
     	let current;
     	let mounted;
     	let dispose;
-
-    	uiicon = new UIIcon({
-    			props: {
-    				icon: "parent",
-    				$$slots: { default: [create_default_slot$l] },
-    				$$scope: { ctx }
-    			}
-    		});
+    	uiicon = new UIIcon({ props: { icon: "parent" } });
 
     	return {
     		c() {
@@ -11058,13 +11035,6 @@
     		},
     		p(new_ctx, [dirty]) {
     			ctx = new_ctx;
-    			const uiicon_changes = {};
-
-    			if (dirty & /*$$scope*/ 4) {
-    				uiicon_changes.$$scope = { dirty, ctx };
-    			}
-
-    			uiicon.$set(uiicon_changes);
     			if (!current || dirty & /*text*/ 1) set_data(t1, /*text*/ ctx[0]);
     		},
     		i(local) {
@@ -11121,7 +11091,7 @@
     	block = new Block({
     			props: {
     				type: "parent",
-    				$$slots: { default: [create_default_slot$k] },
+    				$$slots: { default: [create_default_slot$i] },
     				$$scope: { ctx }
     			}
     		});
@@ -11212,7 +11182,7 @@
     }
 
     // (72:1) <Block type="parent">
-    function create_default_slot$k(ctx) {
+    function create_default_slot$i(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let each_1_anchor;
@@ -11544,7 +11514,7 @@
     }
 
     // (71:6) {#if tab.title !== ''}
-    function create_if_block_1$e(ctx) {
+    function create_if_block_1$f(ctx) {
     	let t_value = /*tab*/ ctx[7].title + "";
     	let t;
 
@@ -11575,7 +11545,7 @@
     	let mounted;
     	let dispose;
     	let if_block0 = /*tab*/ ctx[7].icon && create_if_block_2$c(ctx);
-    	let if_block1 = /*tab*/ ctx[7].title !== "" && create_if_block_1$e(ctx);
+    	let if_block1 = /*tab*/ ctx[7].title !== "" && create_if_block_1$f(ctx);
 
     	return {
     		key: key_1,
@@ -11635,7 +11605,7 @@
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block_1$e(ctx);
+    					if_block1 = create_if_block_1$f(ctx);
     					if_block1.c();
     					if_block1.m(a, null);
     				}
@@ -11943,7 +11913,7 @@
     }
 
     // (66:1) {#if status}
-    function create_if_block_1$d(ctx) {
+    function create_if_block_1$e(ctx) {
     	let div;
     	let t;
 
@@ -12026,7 +11996,7 @@
     	input = new Input({ props: input_props });
     	binding_callbacks.push(() => bind(input, "value", input_value_binding));
     	let if_block1 = /*buttonIcon*/ ctx[2] && create_if_block_2$b();
-    	let if_block2 = /*status*/ ctx[4] && create_if_block_1$d(ctx);
+    	let if_block2 = /*status*/ ctx[4] && create_if_block_1$e(ctx);
     	let if_block3 = !/*valid*/ ctx[5] && /*phrases*/ ctx[1].invalid && create_if_block$r(ctx);
 
     	return {
@@ -12129,7 +12099,7 @@
     				if (if_block2) {
     					if_block2.p(ctx, dirty);
     				} else {
-    					if_block2 = create_if_block_1$d(ctx);
+    					if_block2 = create_if_block_1$e(ctx);
     					if_block2.c();
     					if_block2.m(div, t5);
     				}
@@ -12399,7 +12369,7 @@
     }
 
     // (96:0) <Block type="providers">
-    function create_default_slot$j(ctx) {
+    function create_default_slot$h(ctx) {
     	let tabs;
     	let t;
     	let if_block_anchor;
@@ -12485,7 +12455,7 @@
     	block = new Block({
     			props: {
     				type: "providers",
-    				$$slots: { default: [create_default_slot$j] },
+    				$$slots: { default: [create_default_slot$h] },
     				$$scope: { ctx }
     			}
     		});
@@ -12835,7 +12805,7 @@
     				type: "filters",
     				name: /*name*/ ctx[0],
     				extra: /*extra*/ ctx[5],
-    				$$slots: { default: [create_default_slot$i] },
+    				$$slots: { default: [create_default_slot$g] },
     				$$scope: { ctx }
     			}
     		});
@@ -12875,7 +12845,7 @@
     }
 
     // (67:2) {#if header !== ''}
-    function create_if_block_1$c(ctx) {
+    function create_if_block_1$d(ctx) {
     	let div;
     	let t;
 
@@ -12971,13 +12941,13 @@
     }
 
     // (66:1) <Block type="filters" {name} {extra}>
-    function create_default_slot$i(ctx) {
+    function create_default_slot$g(ctx) {
     	let t;
     	let div;
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let current;
-    	let if_block = /*header*/ ctx[3] !== "" && create_if_block_1$c(ctx);
+    	let if_block = /*header*/ ctx[3] !== "" && create_if_block_1$d(ctx);
     	let each_value = Object.entries(/*block*/ ctx[1].filters);
     	const get_key = ctx => /*key*/ ctx[13];
 
@@ -13015,7 +12985,7 @@
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block_1$c(ctx);
+    					if_block = create_if_block_1$d(ctx);
     					if_block.c();
     					if_block.m(t.parentNode, t);
     				}
@@ -13230,7 +13200,7 @@
 
     /* src/icon-finder/components/content/blocks/CollectionsFilter.svelte generated by Svelte v3.38.2 */
 
-    function create_default_slot$h(ctx) {
+    function create_default_slot$f(ctx) {
     	let input;
     	let updating_value;
     	let current;
@@ -13293,7 +13263,7 @@
     	block_1 = new Block({
     			props: {
     				type: "filter",
-    				$$slots: { default: [create_default_slot$h] },
+    				$$slots: { default: [create_default_slot$f] },
     				$$scope: { ctx }
     			}
     		});
@@ -13738,7 +13708,7 @@
     }
 
     // (103:2) {#if samples.length > 0}
-    function create_if_block_1$b(ctx) {
+    function create_if_block_1$c(ctx) {
     	let div;
     	let current;
     	let each_value = /*samples*/ ctx[7];
@@ -13924,7 +13894,7 @@
     	let mounted;
     	let dispose;
     	let if_block0 = /*info*/ ctx[2].author && create_if_block_2$a(ctx);
-    	let if_block1 = /*samples*/ ctx[7].length > 0 && create_if_block_1$b(ctx);
+    	let if_block1 = /*samples*/ ctx[7].length > 0 && create_if_block_1$c(ctx);
     	let if_block2 = /*info*/ ctx[2].height && create_if_block$m(ctx);
 
     	height_1 = new Height({
@@ -14530,7 +14500,7 @@
     }
 
     // (22:0) <Block type="collections">
-    function create_default_slot$g(ctx) {
+    function create_default_slot$e(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let each_1_anchor;
@@ -14634,7 +14604,7 @@
     	block_1 = new Block({
     			props: {
     				type: "collections",
-    				$$slots: { default: [create_default_slot$g] },
+    				$$slots: { default: [create_default_slot$e] },
     				$$scope: { ctx }
     			}
     		});
@@ -15079,7 +15049,7 @@
     }
 
     // (78:2) {#if size}
-    function create_if_block_1$a(ctx) {
+    function create_if_block_1$b(ctx) {
     	let div;
     	let t0_value = /*size*/ ctx[9].width + "";
     	let t0;
@@ -15264,7 +15234,7 @@
     	let mounted;
     	let dispose;
     	let if_block0 = /*exists*/ ctx[3] && create_if_block_2$9(ctx);
-    	let if_block1 = /*size*/ ctx[9] && create_if_block_1$a(ctx);
+    	let if_block1 = /*size*/ ctx[9] && create_if_block_1$b(ctx);
     	let if_block2 = /*filters*/ ctx[8] && create_if_block$j(ctx);
 
     	return {
@@ -15361,7 +15331,7 @@
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block_1$a(ctx);
+    					if_block1 = create_if_block_1$b(ctx);
     					if_block1.c();
     					if_block1.m(div1, t3);
     				}
@@ -15567,7 +15537,7 @@
     			}
     		});
 
-    	let if_block = /*isSelecting*/ ctx[6] && create_if_block_1$9(ctx);
+    	let if_block = /*isSelecting*/ ctx[6] && create_if_block_1$a(ctx);
 
     	return {
     		c() {
@@ -15596,7 +15566,7 @@
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_1$9(ctx);
+    					if_block = create_if_block_1$a(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -15632,7 +15602,7 @@
     }
 
     // (47:3) {#if isSelecting}
-    function create_if_block_1$9(ctx) {
+    function create_if_block_1$a(ctx) {
     	let uiicon;
     	let current;
 
@@ -15856,7 +15826,7 @@
     	return child_ctx;
     }
 
-    // (227:3) {:else}
+    // (233:3) {:else}
     function create_else_block$4(ctx) {
     	let icongrid;
     	let current;
@@ -15909,7 +15879,7 @@
     	};
     }
 
-    // (225:3) {#if isList}
+    // (231:3) {#if isList}
     function create_if_block$h(ctx) {
     	let iconlist;
     	let current;
@@ -15962,7 +15932,7 @@
     	};
     }
 
-    // (224:2) {#each parsedIcons as item, i (item.name)}
+    // (230:2) {#each parsedIcons as item, i (item.name)}
     function create_each_block$a(key_1, ctx) {
     	let first;
     	let current_block_type_index;
@@ -16144,7 +16114,8 @@
     	let showPrefix;
 
     	// Event listener for loading icons, which should be loaded only when component is mounted
-    	let mounted = false;
+    	// 0 = not mounted, 1 = just mounted, 2 = has been mounted
+    	let mounted = 0;
 
     	let abortLoader = null;
     	let updateCounter = 0;
@@ -16154,7 +16125,7 @@
     	};
 
     	onMount(() => {
-    		$$invalidate(8, mounted = true);
+    		$$invalidate(8, mounted = 1);
     	});
 
     	function getFilters(item) {
@@ -16263,7 +16234,7 @@
     			}
     		}
 
-    		if ($$self.$$.dirty & /*updateCounter, parsedIcons, blocks, showPrefix, selection, isList, mounted, abortLoader*/ 2021) {
+    		if ($$self.$$.dirty & /*updateCounter, mounted, parsedIcons, blocks, showPrefix, selection, isList, abortLoader*/ 2021) {
     			{
 
     				// Reset icons list
@@ -16272,12 +16243,17 @@
     				// Parse icons
     				let pending = [];
 
-    				// Map old icons
+    				// Map old icons, but only if this code has already been ran
     				const oldKeys = Object.create(null);
 
-    				parsedIcons.forEach(icon => {
-    					oldKeys[icon.name] = icon;
-    				});
+    				if (mounted === 2) {
+    					parsedIcons.forEach(icon => {
+    						oldKeys[icon.name] = icon;
+    					});
+    				} else if (mounted === 1) {
+    					// Mark as mounted + code ran once
+    					$$invalidate(8, mounted = 2);
+    				}
 
     				let updated = false;
 
@@ -16357,7 +16333,7 @@
     				});
 
     				// Load pending images, but only after component has been mounted
-    				if (mounted && pending.length) {
+    				if (mounted > 0 && pending.length) {
     					if (abortLoader !== null) {
     						abortLoader();
     					}
@@ -16367,7 +16343,7 @@
 
     				// Overwrite parseIcons variable only if something was updated, triggering component re-render
     				// Also compare length in case if new set is subset of old set
-    				if (mounted && (updated || parsedIcons.length !== newParsedIcons.length)) {
+    				if (updated || parsedIcons.length !== newParsedIcons.length) {
     					$$invalidate(2, parsedIcons = newParsedIcons);
     				}
     			}
@@ -16496,7 +16472,7 @@
     	let t;
     	let current;
     	let if_block0 = /*canSelectMultiple*/ ctx[3] && create_if_block_2$8(ctx);
-    	let if_block1 = /*canChangeLayout*/ ctx[1] && create_if_block_1$8(ctx);
+    	let if_block1 = /*canChangeLayout*/ ctx[1] && create_if_block_1$9(ctx);
 
     	return {
     		c() {
@@ -16545,7 +16521,7 @@
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block_1$8(ctx);
+    					if_block1 = create_if_block_1$9(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(div, null);
@@ -16622,7 +16598,7 @@
     }
 
     // (48:3) {#if canChangeLayout}
-    function create_if_block_1$8(ctx) {
+    function create_if_block_1$9(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let each_1_anchor;
@@ -16915,7 +16891,7 @@
     	}
 
     	let if_block1 = /*block*/ ctx[0].more && create_if_block_2$7(ctx);
-    	let if_block2 = /*nextPage*/ ctx[3] !== -1 && create_if_block_1$7(ctx);
+    	let if_block2 = /*nextPage*/ ctx[3] !== -1 && create_if_block_1$8(ctx);
 
     	return {
     		c() {
@@ -16998,7 +16974,7 @@
     						transition_in(if_block2, 1);
     					}
     				} else {
-    					if_block2 = create_if_block_1$7(ctx);
+    					if_block2 = create_if_block_1$8(ctx);
     					if_block2.c();
     					transition_in(if_block2, 1);
     					if_block2.m(div, null);
@@ -17049,7 +17025,7 @@
     	uiicon = new UIIcon({
     			props: {
     				icon: "left",
-    				$$slots: { default: [create_default_slot_1$3] },
+    				$$slots: { default: [create_default_slot_1$1] },
     				$$scope: { ctx }
     			}
     		});
@@ -17060,6 +17036,7 @@
     			create_component(uiicon.$$.fragment);
     			attr(a, "href", "# ");
     			attr(a, "class", /*arrowClass*/ ctx[4] + "prev");
+    			attr(a, "title", phrases$1.pagination.prev);
     		},
     		m(target, anchor) {
     			insert(target, a, anchor);
@@ -17098,8 +17075,8 @@
     	};
     }
 
-    // (66:4) <UIIcon icon="left">
-    function create_default_slot_1$3(ctx) {
+    // (67:4) <UIIcon icon="left">
+    function create_default_slot_1$1(ctx) {
     	let t;
 
     	return {
@@ -17115,7 +17092,7 @@
     	};
     }
 
-    // (70:3) {#if page.dot}
+    // (71:3) {#if page.dot}
     function create_if_block_3$5(ctx) {
     	let span;
 
@@ -17133,7 +17110,7 @@
     	};
     }
 
-    // (69:2) {#each pages as page, i (page.page)}
+    // (70:2) {#each pages as page, i (page.page)}
     function create_each_block$8(key_1, ctx) {
     	let first;
     	let t0;
@@ -17209,7 +17186,7 @@
     	};
     }
 
-    // (78:2) {#if block.more}
+    // (79:2) {#if block.more}
     function create_if_block_2$7(ctx) {
     	let a;
     	let t_value = phrases$1.icons.more + "";
@@ -17242,8 +17219,8 @@
     	};
     }
 
-    // (86:2) {#if nextPage !== -1}
-    function create_if_block_1$7(ctx) {
+    // (87:2) {#if nextPage !== -1}
+    function create_if_block_1$8(ctx) {
     	let a;
     	let uiicon;
     	let current;
@@ -17253,7 +17230,7 @@
     	uiicon = new UIIcon({
     			props: {
     				icon: "right",
-    				$$slots: { default: [create_default_slot$f] },
+    				$$slots: { default: [create_default_slot$d] },
     				$$scope: { ctx }
     			}
     		});
@@ -17264,6 +17241,7 @@
     			create_component(uiicon.$$.fragment);
     			attr(a, "href", "# ");
     			attr(a, "class", /*arrowClass*/ ctx[4] + "next");
+    			attr(a, "title", phrases$1.pagination.next);
     		},
     		m(target, anchor) {
     			insert(target, a, anchor);
@@ -17302,8 +17280,8 @@
     	};
     }
 
-    // (91:4) <UIIcon icon="right">
-    function create_default_slot$f(ctx) {
+    // (93:4) <UIIcon icon="right">
+    function create_default_slot$d(ctx) {
     	let t;
 
     	return {
@@ -17479,7 +17457,7 @@
     	block = new Block({
     			props: {
     				type: "icons",
-    				$$slots: { default: [create_default_slot$e] },
+    				$$slots: { default: [create_default_slot$c] },
     				$$scope: { ctx }
     			}
     		});
@@ -17550,7 +17528,7 @@
     }
 
     // (77:1) <Block type="icons">
-    function create_default_slot$e(ctx) {
+    function create_default_slot$c(ctx) {
     	let iconsheader;
     	let t0;
     	let iconscontainer;
@@ -17826,7 +17804,7 @@
 
     /* src/icon-finder/components/content/blocks/Search.svelte generated by Svelte v3.38.2 */
 
-    function create_default_slot$d(ctx) {
+    function create_default_slot$b(ctx) {
     	let input;
     	let current;
 
@@ -17879,7 +17857,7 @@
     				type: "search",
     				name: /*name*/ ctx[0],
     				extra: "search-form",
-    				$$slots: { default: [create_default_slot$d] },
+    				$$slots: { default: [create_default_slot$b] },
     				$$scope: { ctx }
     			}
     		});
@@ -18041,7 +18019,7 @@
     }
 
     // (71:1) {#if showCollectionInfoBlock && info !== null}
-    function create_if_block_1$6(ctx) {
+    function create_if_block_1$7(ctx) {
     	let collectioninfoblock;
     	let current;
 
@@ -18208,7 +18186,7 @@
     	let div_class_value;
     	let current;
     	let if_block0 = /*blocks*/ ctx[1].collections && create_if_block_2$6(ctx);
-    	let if_block1 = /*info*/ ctx[5] !== null && create_if_block_1$6(ctx);
+    	let if_block1 = /*info*/ ctx[5] !== null && create_if_block_1$7(ctx);
 
     	searchblock = new Search$1({
     			props: {
@@ -18290,7 +18268,7 @@
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block_1$6(ctx);
+    					if_block1 = create_if_block_1$7(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(div, t1);
@@ -18768,7 +18746,7 @@
     }
 
     // (51:1) <Block type="error" extra={'error--' + type}>
-    function create_default_slot$c(ctx) {
+    function create_default_slot$a(ctx) {
     	let uiicon;
     	let t0;
     	let p;
@@ -18851,7 +18829,7 @@
     			props: {
     				type: "error",
     				extra: "error--" + /*type*/ ctx[7],
-    				$$slots: { default: [create_default_slot$c] },
+    				$$slots: { default: [create_default_slot$a] },
     				$$scope: { ctx }
     			}
     		});
@@ -19149,7 +19127,7 @@
     	let current;
 
     	const if_block_creators = [
-    		create_if_block_1$5,
+    		create_if_block_1$6,
     		create_if_block_2$5,
     		create_if_block_3$4,
     		create_if_block_4$3,
@@ -19435,7 +19413,7 @@
     }
 
     // (141:2) {#if error !== '' || !route}
-    function create_if_block_1$5(ctx) {
+    function create_if_block_1$6(ctx) {
     	let viewerror;
     	let current;
 
@@ -19743,7 +19721,7 @@
 
     /* src/icon-finder/components/content/footers/parts/FooterBlock.svelte generated by Svelte v3.38.2 */
 
-    function create_if_block_1$4(ctx) {
+    function create_if_block_1$5(ctx) {
     	let p;
     	let t;
     	let current;
@@ -19940,7 +19918,7 @@
     	let div;
     	let t;
     	let current;
-    	let if_block0 = /*title*/ ctx[0] !== "" && create_if_block_1$4(ctx);
+    	let if_block0 = /*title*/ ctx[0] !== "" && create_if_block_1$5(ctx);
     	let if_block1 = /*expanded*/ ctx[1] && create_if_block$9(ctx);
 
     	return {
@@ -19967,7 +19945,7 @@
     						transition_in(if_block0, 1);
     					}
     				} else {
-    					if_block0 = create_if_block_1$4(ctx);
+    					if_block0 = create_if_block_1$5(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
     					if_block0.m(div, t);
@@ -20723,7 +20701,7 @@
     	optionsblock = new OptionsBlock({
     			props: {
     				type: "color",
-    				$$slots: { default: [create_default_slot$b] },
+    				$$slots: { default: [create_default_slot$9] },
     				$$scope: { ctx }
     			}
     		});
@@ -20739,7 +20717,7 @@
     		p(ctx, dirty) {
     			const optionsblock_changes = {};
 
-    			if (dirty & /*$$scope, inputValue, value*/ 1029) {
+    			if (dirty & /*$$scope, inputValue, value*/ 2053) {
     				optionsblock_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20760,8 +20738,8 @@
     	};
     }
 
-    // (70:1) <OptionsBlock type="color">
-    function create_default_slot$b(ctx) {
+    // (71:1) <OptionsBlock type="color">
+    function create_default_slot$9(ctx) {
     	let input;
     	let current;
 
@@ -20870,6 +20848,7 @@
     }
 
     function instance$h($$self, $$props, $$invalidate) {
+    	var _a;
     	
     	
     	let { icons } = $$props;
@@ -20909,7 +20888,7 @@
 
     		if (validatedValue !== null) {
     			// Change lastValue to avoid triggering component refresh
-    			$$invalidate(8, lastValue = $$invalidate(0, value = validatedValue));
+    			$$invalidate(9, lastValue = $$invalidate(0, value = validatedValue));
 
     			customise("color", validatedValue);
     		}
@@ -20928,12 +20907,14 @@
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*icons*/ 64) {
+    		if ($$self.$$.dirty & /*icons, _a*/ 320) {
     			{
     				$$invalidate(1, hasColor = false);
 
     				for (let i = 0; i < icons.length; i++) {
-    					const data = getIcon(lib.iconToString(icons[i]));
+    					const data = $$invalidate(8, _a = iconify.Iconify.getIcon) === null || _a === void 0
+    					? void 0
+    					: _a.call(iconify.Iconify, lib.iconToString(icons[i]));
 
     					if (data && data.body.indexOf("currentColor") !== -1) {
     						$$invalidate(1, hasColor = true);
@@ -20943,11 +20924,11 @@
     			}
     		}
 
-    		if ($$self.$$.dirty & /*lastValue, value*/ 257) {
+    		if ($$self.$$.dirty & /*lastValue, value*/ 513) {
     			{
     				// Change inputValue when value changes
     				if (lastValue !== value) {
-    					$$invalidate(8, lastValue = value);
+    					$$invalidate(9, lastValue = value);
     					$$invalidate(2, inputValue = value);
     				}
     			}
@@ -20963,6 +20944,7 @@
     		onBlur,
     		icons,
     		customise,
+    		_a,
     		lastValue
     	];
     }
@@ -21120,7 +21102,7 @@
     	return child_ctx;
     }
 
-    // (122:1) {#each props as prop, i (prop)}
+    // (124:1) {#each props as prop, i (prop)}
     function create_each_block$5(key_1, ctx) {
     	let first;
     	let sizeinput;
@@ -21178,8 +21160,8 @@
     	};
     }
 
-    // (121:0) <OptionsBlock {type}>
-    function create_default_slot$a(ctx) {
+    // (123:0) <OptionsBlock {type}>
+    function create_default_slot$8(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let each_1_anchor;
@@ -21250,7 +21232,7 @@
     	optionsblock = new OptionsBlock({
     			props: {
     				type: /*type*/ ctx[3],
-    				$$slots: { default: [create_default_slot$a] },
+    				$$slots: { default: [create_default_slot$8] },
     				$$scope: { ctx }
     			}
     		});
@@ -21328,12 +21310,17 @@
     				let hasRatio = true;
 
     				icons.forEach(icon => {
+    					var _a;
+
     					if (!hasWidth && !hasHeight) {
     						return;
     					}
 
     					const name = lib.iconToString(icon);
-    					const data = getIcon(name);
+
+    					const data = (_a = iconify.Iconify.getIcon) === null || _a === void 0
+    					? void 0
+    					: _a.call(iconify.Iconify, name);
 
     					if (!data) {
     						return;
@@ -21444,13 +21431,7 @@
     function create_if_block$7(ctx) {
     	let uiicon;
     	let current;
-
-    	uiicon = new UIIcon({
-    			props: {
-    				icon: /*icon*/ ctx[0],
-    				onLoad: /*iconLoaded*/ ctx[5]
-    			}
-    		});
+    	uiicon = new UIIcon({ props: { icon: /*icon*/ ctx[0] } });
 
     	return {
     		c() {
@@ -21580,14 +21561,6 @@
     	let { text = null } = $$props;
     	let { textOptional = false } = $$props;
     	let { status = "" } = $$props;
-
-    	// Icon status
-    	let hasIcon = false;
-
-    	function iconLoaded() {
-    		$$invalidate(8, hasIcon = true);
-    	}
-
     	let className;
 
     	$$self.$$set = $$props => {
@@ -21595,31 +21568,21 @@
     		if ("onClick" in $$props) $$invalidate(1, onClick = $$props.onClick);
     		if ("title" in $$props) $$invalidate(2, title = $$props.title);
     		if ("text" in $$props) $$invalidate(3, text = $$props.text);
-    		if ("textOptional" in $$props) $$invalidate(6, textOptional = $$props.textOptional);
-    		if ("status" in $$props) $$invalidate(7, status = $$props.status);
+    		if ("textOptional" in $$props) $$invalidate(5, textOptional = $$props.textOptional);
+    		if ("status" in $$props) $$invalidate(6, status = $$props.status);
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*hasIcon, text, textOptional, status*/ 456) {
+    		if ($$self.$$.dirty & /*icon, text, textOptional, status*/ 105) {
     			{
-    				$$invalidate(4, className = baseClass + " " + baseClass + (hasIcon ? "--with-icon" : "--without-icon") + " " + baseClass + (text && !textOptional || !hasIcon
+    				$$invalidate(4, className = baseClass + " " + baseClass + (icon ? "--with-icon" : "--without-icon") + " " + baseClass + (text && !textOptional || !icon
     				? "--with-text"
     				: "--without-text") + (status === "" ? "" : " " + baseClass + "--" + status));
     			}
     		}
     	};
 
-    	return [
-    		icon,
-    		onClick,
-    		title,
-    		text,
-    		className,
-    		iconLoaded,
-    		textOptional,
-    		status,
-    		hasIcon
-    	];
+    	return [icon, onClick, title, text, className, textOptional, status];
     }
 
     class OptionButton extends SvelteComponent {
@@ -21631,8 +21594,8 @@
     			onClick: 1,
     			title: 2,
     			text: 3,
-    			textOptional: 6,
-    			status: 7
+    			textOptional: 5,
+    			status: 6
     		});
     	}
     }
@@ -21713,7 +21676,7 @@
     }
 
     // (44:0) <OptionsBlock type="rotate">
-    function create_default_slot$9(ctx) {
+    function create_default_slot$7(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let each_1_anchor;
@@ -21784,7 +21747,7 @@
     	optionsblock = new OptionsBlock({
     			props: {
     				type: "rotate",
-    				$$slots: { default: [create_default_slot$9] },
+    				$$slots: { default: [create_default_slot$7] },
     				$$scope: { ctx }
     			}
     		});
@@ -21961,7 +21924,7 @@
     }
 
     // (31:0) <OptionsBlock type="flip">
-    function create_default_slot$8(ctx) {
+    function create_default_slot$6(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let each_1_anchor;
@@ -22032,7 +21995,7 @@
     	optionsblock = new OptionsBlock({
     			props: {
     				type: "flip",
-    				$$slots: { default: [create_default_slot$8] },
+    				$$slots: { default: [create_default_slot$6] },
     				$$scope: { ctx }
     			}
     		});
@@ -22189,7 +22152,7 @@
     }
 
     // (44:0) <OptionsBlock type="mode">
-    function create_default_slot$7(ctx) {
+    function create_default_slot$5(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let each_1_anchor;
@@ -22260,7 +22223,7 @@
     	optionsblock = new OptionsBlock({
     			props: {
     				type: "mode",
-    				$$slots: { default: [create_default_slot$7] },
+    				$$slots: { default: [create_default_slot$5] },
     				$$scope: { ctx }
     			}
     		});
@@ -22498,7 +22461,7 @@
     }
 
     // (40:2) {#if customiseRotate}
-    function create_if_block_1$3(ctx) {
+    function create_if_block_1$4(ctx) {
     	let rotateblock;
     	let current;
 
@@ -22580,7 +22543,7 @@
     }
 
     // (26:0) <FooterBlock name="props" {title}>
-    function create_default_slot$6(ctx) {
+    function create_default_slot$4(ctx) {
     	let div;
     	let t0;
     	let t1;
@@ -22590,7 +22553,7 @@
     	let if_block0 = create_if_block_4$2(ctx);
     	let if_block1 = create_if_block_3$2(ctx);
     	let if_block2 = create_if_block_2$3(ctx);
-    	let if_block3 = create_if_block_1$3(ctx);
+    	let if_block3 = create_if_block_1$4(ctx);
     	let if_block4 = /*icons*/ ctx[0].length === 1 && create_if_block$6(ctx);
 
     	return {
@@ -22684,7 +22647,7 @@
     			props: {
     				name: "props",
     				title: /*title*/ ctx[3],
-    				$$slots: { default: [create_default_slot$6] },
+    				$$slots: { default: [create_default_slot$4] },
     				$$scope: { ctx }
     			}
     		});
@@ -22909,8 +22872,8 @@
     				// Get name
     				const name = lib.iconToString(icon);
 
-    				// Get data
-    				const iconData = getIcon(name);
+    				// Get data (both getIcon and icon data are available: check is done in footer)
+    				const iconData = iconify.Iconify.getIcon(name);
 
     				// Check if icon is rotated (for width/height calculations)
     				const rotated = !!(iconData.width !== iconData.height && customisations.rotate && customisations.rotate % 2 === 1);
@@ -22963,9 +22926,11 @@
     				});
 
     				let size;
+    				const customisedWidth = customisations.width;
+    				const customisedHeight = customisations.height;
 
-    				if (customisations.width || customisations.height) {
-    					size = getDimensions(customisations.width, customisations.height, data.ratio, data.rotated);
+    				if (customisedWidth || customisedHeight) {
+    					size = getDimensions(customisedWidth ? customisedWidth : "", customisedHeight ? customisedHeight : "", data.ratio, data.rotated);
     				}
 
     				if (size !== void 0) {
@@ -23172,7 +23137,7 @@
     }
 
     // (108:5) {#if !onSelect}
-    function create_if_block_1$2(ctx) {
+    function create_if_block_1$3(ctx) {
     	let span;
     	let uiicon;
     	let current;
@@ -23282,7 +23247,7 @@
     	}
 
     	iconcomponent = new Icon({ props: iconcomponent_props });
-    	let if_block0 = !/*onSelect*/ ctx[0] && create_if_block_1$2();
+    	let if_block0 = !/*onSelect*/ ctx[0] && create_if_block_1$3();
 
     	function click_handler() {
     		return /*click_handler*/ ctx[9](/*item*/ ctx[13]);
@@ -23340,7 +23305,7 @@
     						transition_in(if_block0, 1);
     					}
     				} else {
-    					if_block0 = create_if_block_1$2();
+    					if_block0 = create_if_block_1$3();
     					if_block0.c();
     					transition_in(if_block0, 1);
     					if_block0.m(a, null);
@@ -23407,7 +23372,7 @@
     }
 
     // (97:0) <OptionsBlock type="icons">
-    function create_default_slot$5(ctx) {
+    function create_default_slot$3(ctx) {
     	let ul;
     	let each_blocks = [];
     	let each_1_lookup = new Map();
@@ -23486,7 +23451,7 @@
     	optionsblock = new OptionsBlock({
     			props: {
     				type: "icons",
-    				$$slots: { default: [create_default_slot$5] },
+    				$$slots: { default: [create_default_slot$3] },
     				$$scope: { ctx }
     			}
     		});
@@ -23794,12 +23759,13 @@
 
     var phrases = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.translateCodeSampleTitles = exports.codeSampleTitles = void 0;
+    exports.translateCodeSampleTitles = exports.capitalizeCodeSampleTitle = exports.codeSampleTitles = void 0;
+
     /**
      * Code sample tab and mode titles
      *
      * This list contains only items that require custom text.
-     * Everything else will be capitalized using capitalize() function, such as 'vue2' changed to 'Vue 2'
+     * Everything else will be capitalized using capitalizeCodeSampleTitle() function, such as 'vue2' changed to 'Vue 2'
      */
     exports.codeSampleTitles = {
         'iconify': 'SVG Framework',
@@ -23807,9 +23773,38 @@
         'svg-raw': 'SVG',
         'svg-box': 'SVG with viewBox rectangle',
         'svg-uri': 'SVG as data: URI',
-        'react-npm': 'React',
-        'react-api': 'React with Iconify API',
+        'react-offline': 'React (offline)',
+        'react-api': 'React',
+        'vue2-offline': 'Vue 2 (offline)',
+        'vue2-api': 'Vue 2',
+        'offline': '(offline)',
     };
+    /**
+     * Capitalize code sample title
+     */
+    function capitalizeCodeSampleTitle(key) {
+        const customValue = exports.codeSampleTitles[key];
+        if (customValue !== void 0) {
+            return customValue;
+        }
+        // Check for '-offline' and '-api'
+        const parts = key.split('-');
+        if (parts.length > 1) {
+            const lastPart = parts.pop();
+            const testKey = parts.join('-');
+            switch (lastPart) {
+                case 'offline':
+                    return (capitalizeCodeSampleTitle(testKey) +
+                        ' ' +
+                        exports.codeSampleTitles.offline);
+                case 'api':
+                    return capitalizeCodeSampleTitle(testKey);
+            }
+        }
+        // Return capitalised value
+        return capitalize_1.capitalize(key);
+    }
+    exports.capitalizeCodeSampleTitle = capitalizeCodeSampleTitle;
     /**
      * Add / replace custom sample titles
      */
@@ -23828,18 +23823,22 @@
     exports.getCodeSamplesTree = void 0;
 
 
-
     const rawCodeTabs = {
         iconify: 'api',
         react: {
-            'react-npm': 'npm',
             'react-api': 'api',
+            'react-offline': 'offline',
         },
         vue: {
-            vue3: 'npm',
-            vue2: 'npm',
+            'vue3-api': 'api',
+            'vue2-api': 'api',
+            'vue3-offline': 'offline',
+            'vue2-offline': 'offline',
         },
-        svelte: 'npm',
+        svelte: {
+            'svelte-api': 'api',
+            'svelte-offline': 'offline',
+        },
         svg: {
             'svg-raw': 'raw',
             'svg-box': 'raw',
@@ -23870,7 +23869,7 @@
                     return config[type];
                 case 'api':
                     return config.api !== void 0;
-                case 'npm':
+                case 'offline':
                     return config.npmES !== void 0 || config.npmCJS !== void 0;
             }
         }
@@ -23882,7 +23881,7 @@
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 return phrases.codeSampleTitles[mode];
             }
-            return capitalize_1.capitalize(mode);
+            return phrases.capitalizeCodeSampleTitle(mode);
         }
         for (const key in rawCodeTabs) {
             // Using weird type casting because TypeScript can't property resolve it
@@ -23976,9 +23975,47 @@
         raw: true,
     };
 
+    var versions = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.getComponentImport = exports.componentPackages = exports.iconifyVersion = void 0;
+    // Iconify version (replaced during build!)
+    exports.iconifyVersion = '2.0.2';
+    exports.componentPackages = {
+        react: {
+            name: '@iconify/react',
+            version: '@alpha',
+        },
+        vue2: {
+            name: '@iconify/vue2',
+        },
+        vue3: {
+            name: '@iconify/vue',
+            version: '@alpha',
+        },
+        svelte: {
+            name: '@iconify/svelte',
+            version: '@alpha',
+        },
+    };
+    /**
+     * Get import value for package
+     */
+    function getComponentImport(key) {
+        const item = exports.componentPackages[key];
+        let result = item.name;
+        if (item.version !== void 0) {
+            result += item.version;
+        }
+        return result;
+    }
+    exports.getComponentImport = getComponentImport;
+    //# sourceMappingURL=versions.js.map
+    });
+
     var codeParsers = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.codeParser = exports.getCustomisationAttributes = exports.varName = void 0;
+
     /**
      * Convert icon name to variable
      */
@@ -24055,7 +24092,7 @@
     /**
      * Documentation
      */
-    const docsBase = 'https://docs.iconify.design/implementations/';
+    const docsBase = 'https://docs.iconify.design/icon-components/';
     /**
      * Generate parsers
      */
@@ -24149,13 +24186,15 @@
                 .join(' ');
         }
         /**
-         * Get Vue parser
+         * Get Vue offline parser
          */
-        function vueParser(vue3) {
-            const vue2Usage = '<template>\n\t<Icon {attr} />\n</template>';
-            const vue2Template = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n\tdata() {\n\t\treturn {\n\t\t\ticons: {\n\t\t\t\t{varName},\n\t\t\t},\n\t\t};\n\t},\n});';
+        function vueParser(offline, vue3) {
+            const templateCode = '<template>\n\t<Icon {attr} />\n</template>';
+            const scriptOfflineCode = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n\tdata() {\n\t\treturn {\n\t\t\ticons: {\n\t\t\t\t{varName},\n\t\t\t},\n\t\t};\n\t},\n});';
+            const scriptOnlineCode = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n});';
+            const scriptCode = offline ? scriptOfflineCode : scriptOnlineCode;
             const parser = {
-                iconParser: (list, valueStr, valueIcon) => addVueAttr(list, 'icon', 'icons.' + varName(valueIcon.name)),
+                iconParser: (list, valueStr, valueIcon) => (offline ? addVueAttr : addAttr)(list, 'icon', offline ? 'icons.' + varName(valueIcon.name) : valueStr),
                 parsers: {
                     hFlip: (list, value) => addVueAttr(list, 'horizontalFlip', value),
                     vFlip: (list, value) => addVueAttr(list, 'verticalFlip', value),
@@ -24164,23 +24203,58 @@
                     inline: (list, value) => addVueAttr(list, 'inline', value),
                 },
                 merge: mergeAttributes,
-                template: (attr, customisations) => vue2Usage.replace('{attr}', attr),
-                vueTemplate: (attr, customisations) => vue2Template.replace('{attr}', attr),
+                template: (attr, customisations) => templateCode.replace('{attr}', attr),
+                vueTemplate: (attr, customisations) => scriptCode.replace('{attr}', attr),
                 docs: {
                     type: 'vue',
                     href: docsBase + (vue3 ? 'vue/' : 'vue2/'),
                 },
-                npm: vue3
-                    ? {
-                        install: '@iconify/vue@beta',
-                        import: (attr, customisations) => "import { Icon } from '@iconify/vue';",
-                    }
-                    : {
-                        install: '@iconify/vue@^1',
-                        import: "import Icon from '@iconify/vue';",
-                    },
+                npm: {
+                    install: versions.getComponentImport(vue3 ? 'vue3' : 'vue2'),
+                    import: (attr, customisations) => "import { Icon } from '" +
+                        versions.componentPackages[vue3 ? 'vue3' : 'vue2'].name +
+                        "';",
+                },
             };
             addMultipleAttributeParsers(parser, getCustomisationAttributes(true, false), addVueAttr);
+            return parser;
+        }
+        function svelteParser(offline) {
+            const parser = {
+                iconParser: (list, valueStr, valueIcon) => (offline ? addReactAttr : addAttr)(list, 'icon', offline ? varName(valueIcon.name) : valueStr),
+                parsers: {},
+                merge: mergeAttributes,
+                template: '<Icon {attr} />',
+                docs: {
+                    type: 'svelte',
+                    href: docsBase + 'svelte/',
+                },
+                npm: {
+                    install: versions.getComponentImport('svelte'),
+                    import: "import Icon from '" + versions.componentPackages.svelte.name + "';",
+                },
+            };
+            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
+            return parser;
+        }
+        function reactParser(offline) {
+            const parser = {
+                iconParser: (list, valueStr, valueIcon) => (offline ? addReactAttr : addAttr)(list, 'icon', offline ? varName(valueIcon.name) : valueStr),
+                parsers: {},
+                merge: mergeAttributes,
+                template: (attr, customisations) => '<Icon ' + attr + ' />',
+                docs: {
+                    type: 'react',
+                    href: docsBase + 'react/',
+                },
+                npm: {
+                    install: versions.getComponentImport('react'),
+                    import: (attr, customisations) => "import { Icon } from '" +
+                        versions.componentPackages.react.name +
+                        "';",
+                },
+            };
+            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
             return parser;
         }
         /**
@@ -24232,63 +24306,24 @@
                 addMultipleAttributeParsers(parser, getCustomisationAttributes(false, true), addRawAttr);
                 return parser;
             // React components
-            case 'react-npm':
-                parser = {
-                    iconParser: (list, valueStr, valueIcon) => addReactAttr(list, 'icon', varName(valueIcon.name)),
-                    parsers: {},
-                    merge: mergeAttributes,
-                    template: (attr, customisations) => '<Icon ' + attr + ' />',
-                    docs: {
-                        type: 'react',
-                        href: docsBase + 'react/',
-                    },
-                    npm: {
-                        install: '@iconify/react@beta',
-                        import: (attr, customisations) => "import { Icon } from '@iconify/react';",
-                    },
-                };
-                addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
-                return parser;
+            case 'react-offline':
+                return reactParser(true);
             case 'react-api':
-                parser = {
-                    iconParser: (list, valueStr, valueIcon) => addAttr(list, 'icon', valueStr),
-                    parsers: {},
-                    merge: mergeAttributes,
-                    template: (attr, customisations) => '<Icon ' + attr + ' />',
-                    docs: {
-                        type: 'react',
-                        href: docsBase + 'react/',
-                    },
-                    npm: {
-                        install: '@iconify/react@alpha',
-                        import: (attr, customisations) => "import { Icon } from '@iconify/react';",
-                    },
-                };
-                addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
-                return parser;
+                return reactParser(false);
             // Vue
-            case 'vue2':
-                return vueParser(false);
-            case 'vue3':
-                return vueParser(true);
+            case 'vue2-offline':
+                return vueParser(true, false);
+            case 'vue2-api':
+                return vueParser(false, false);
+            case 'vue3-offline':
+                return vueParser(true, true);
+            case 'vue3-api':
+                return vueParser(false, true);
             // Svelte
-            case 'svelte':
-                parser = {
-                    iconParser: (list, valueStr, valueIcon) => addReactAttr(list, 'icon', varName(valueIcon.name)),
-                    parsers: {},
-                    merge: mergeAttributes,
-                    template: '<Icon {attr} />',
-                    docs: {
-                        type: 'svelte',
-                        href: docsBase + 'svelte/',
-                    },
-                    npm: {
-                        install: '@iconify/svelte',
-                        import: "import Icon from '@iconify/svelte';",
-                    },
-                };
-                addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
-                return parser;
+            case 'svelte-offline':
+                return svelteParser(true);
+            case 'svelte-api':
+                return svelteParser(false);
         }
     }
     /**
@@ -24618,14 +24653,14 @@
 
 
 
-    // Iconify version (replaced during build!)
-    const iconifyVersion = '2.0.1';
+
     exports.codeOutputComponentKeys = [
-        'install',
-        'install1',
-        'import',
-        'import1',
-        'vue',
+        'install-simple',
+        'install-offline',
+        'import-simple',
+        'import-offline',
+        'vue-simple',
+        'vue-offline',
         'use',
     ];
     /**
@@ -24734,14 +24769,11 @@
             docs: parser.docs,
         };
         // Add language specific stuff
-        // let str: string | null;
-        // let data: IconifyIcon | null;
-        // let npm: NPMImport | null;
         switch (lang) {
             case 'iconify': {
                 const str = iconify.Iconify.getVersion
                     ? iconify.Iconify.getVersion()
-                    : iconifyVersion;
+                    : versions.iconifyVersion;
                 output.iconify = {
                     head: '<script src="https://code.iconify.design/' +
                         str.split('.').shift() +
@@ -24751,6 +24783,7 @@
                         '/script>',
                     html: html$1,
                 };
+                output.isAPI = true;
                 return output;
             }
             case 'svg-raw':
@@ -24794,33 +24827,36 @@
                         "url('data:image/svg+xml," + encodeURIComponent(str) + "')";
                 }
                 output.raw = [str];
+                output.isAPI = false;
                 return output;
             }
-            case 'react-npm':
-            case 'svelte':
-            case 'vue2':
-            case 'vue3': {
+            case 'react-offline':
+            case 'svelte-offline':
+            case 'vue2-offline':
+            case 'vue3-offline': {
                 if (!parser.npm ||
                     (!providerConfig.npmCJS && !providerConfig.npmES)) {
                     return null;
                 }
-                const npm = npmIconImport(lang === 'vue3');
+                const npm = npmIconImport(
+                // Use ES modules for Vue 3 and Svelte, CommonJS for everything else
+                lang === 'vue3-offline' || lang === 'svelte-offline');
                 if (!npm) {
                     return null;
                 }
                 output.component = {
-                    install: 'npm install --save-dev ' +
+                    'install-offline': 'npm install --save-dev ' +
                         parser.npm.install +
                         ' ' +
                         npm.package,
-                    import: resolveTemplate(parser.npm.import, merged, customisations$1) +
+                    'import-offline': resolveTemplate(parser.npm.import, merged, customisations$1) +
                         '\nimport ' +
                         npm.name +
                         " from '" +
                         npm.package +
                         npm.file +
                         "';",
-                    use: html$1
+                    'use': html$1
                         .replace(/{varName}/g, npm.name)
                         .replace('{iconPackage}', npm.package + npm.file),
                 };
@@ -24829,22 +24865,35 @@
                         ? resolveTemplate(parser.vueTemplate, merged, customisations$1)
                         : parser.vueTemplate;
                     if (typeof html === 'string') {
-                        output.component.vue = html
+                        output.component['vue-offline'] = html
                             .replace(/{varName}/g, npm.name)
                             .replace('{iconPackage}', npm.package + npm.file);
                     }
                 }
+                output.isAPI = false;
                 return output;
             }
-            case 'react-api': {
+            case 'react-api':
+            case 'svelte-api':
+            case 'vue2-api':
+            case 'vue3-api': {
                 if (!parser.npm) {
                     return null;
                 }
                 output.component = {
-                    install1: 'npm install --save-dev ' + parser.npm.install,
-                    import1: resolveTemplate(parser.npm.import, merged, customisations$1),
-                    use: html$1,
+                    'install-simple': 'npm install --save-dev ' + parser.npm.install,
+                    'import-simple': resolveTemplate(parser.npm.import, merged, customisations$1),
+                    'use': html$1,
                 };
+                if (parser.vueTemplate !== void 0) {
+                    const html = typeof parser.vueTemplate === 'function'
+                        ? resolveTemplate(parser.vueTemplate, merged, customisations$1)
+                        : parser.vueTemplate;
+                    if (typeof html === 'string') {
+                        output.component['vue-simple'] = html;
+                    }
+                }
+                output.isAPI = true;
                 return output;
             }
         }
@@ -24855,38 +24904,59 @@
 
     /* src/icon-finder/components/content/footers/parts/code/Sample.svelte generated by Svelte v3.38.2 */
 
-    function create_default_slot_1$2(ctx) {
-    	let t;
+    function create_if_block_1$2(ctx) {
+    	let a;
+    	let uiicon;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	uiicon = new UIIcon({ props: { icon: "clipboard" } });
 
     	return {
     		c() {
-    			t = text("📋");
+    			a = element("a");
+    			create_component(uiicon.$$.fragment);
+    			attr(a, "title", /*text*/ ctx[4].copy);
+    			attr(a, "href", "# ");
     		},
     		m(target, anchor) {
-    			insert(target, t, anchor);
+    			insert(target, a, anchor);
+    			mount_component(uiicon, a, null);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen(a, "click", prevent_default(/*copy*/ ctx[5]));
+    				mounted = true;
+    			}
+    		},
+    		p: noop,
+    		i(local) {
+    			if (current) return;
+    			transition_in(uiicon.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(uiicon.$$.fragment, local);
+    			current = false;
     		},
     		d(detaching) {
-    			if (detaching) detach(t);
+    			if (detaching) detach(a);
+    			destroy_component(uiicon);
+    			mounted = false;
+    			dispose();
     		}
     	};
     }
 
-    // (72:1) {#if notice > 0}
+    // (78:1) {#if mounted && notice > 0}
     function create_if_block$4(ctx) {
     	let div;
     	let uiicon;
     	let t0;
-    	let t1_value = /*text*/ ctx[3].copied + "";
+    	let t1_value = /*text*/ ctx[4].copied + "";
     	let t1;
     	let current;
-
-    	uiicon = new UIIcon({
-    			props: {
-    				icon: "confirm",
-    				$$slots: { default: [create_default_slot$4] },
-    				$$scope: { ctx }
-    			}
-    		});
+    	uiicon = new UIIcon({ props: { icon: "confirm" } });
 
     	return {
     		c() {
@@ -24903,15 +24973,7 @@
     			append(div, t1);
     			current = true;
     		},
-    		p(ctx, dirty) {
-    			const uiicon_changes = {};
-
-    			if (dirty & /*$$scope*/ 32) {
-    				uiicon_changes.$$scope = { dirty, ctx };
-    			}
-
-    			uiicon.$set(uiicon_changes);
-    		},
+    		p: noop,
     		i(local) {
     			if (current) return;
     			transition_in(uiicon.$$.fragment, local);
@@ -24928,44 +24990,15 @@
     	};
     }
 
-    // (74:3) <UIIcon icon="confirm">
-    function create_default_slot$4(ctx) {
-    	let t;
-
-    	return {
-    		c() {
-    			t = text("✓");
-    		},
-    		m(target, anchor) {
-    			insert(target, t, anchor);
-    		},
-    		d(detaching) {
-    			if (detaching) detach(t);
-    		}
-    	};
-    }
-
     function create_fragment$5(ctx) {
     	let div1;
     	let div0;
     	let t0;
     	let t1;
-    	let a;
-    	let uiicon;
     	let t2;
     	let current;
-    	let mounted;
-    	let dispose;
-
-    	uiicon = new UIIcon({
-    			props: {
-    				icon: "clipboard",
-    				$$slots: { default: [create_default_slot_1$2] },
-    				$$scope: { ctx }
-    			}
-    		});
-
-    	let if_block = /*notice*/ ctx[1] > 0 && create_if_block$4(ctx);
+    	let if_block0 = /*mounted*/ ctx[3] && create_if_block_1$2(ctx);
+    	let if_block1 = /*mounted*/ ctx[3] && /*notice*/ ctx[1] > 0 && create_if_block$4(ctx);
 
     	return {
     		c() {
@@ -24973,13 +25006,10 @@
     			div0 = element("div");
     			t0 = text(/*content*/ ctx[0]);
     			t1 = space();
-    			a = element("a");
-    			create_component(uiicon.$$.fragment);
+    			if (if_block0) if_block0.c();
     			t2 = space();
-    			if (if_block) if_block.c();
+    			if (if_block1) if_block1.c();
     			attr(div0, "class", baseClassName + "-content");
-    			attr(a, "title", /*text*/ ctx[3].copy);
-    			attr(a, "href", "# ");
     			attr(div1, "class", /*className*/ ctx[2]);
     		},
     		m(target, anchor) {
@@ -24987,45 +25017,55 @@
     			append(div1, div0);
     			append(div0, t0);
     			append(div1, t1);
-    			append(div1, a);
-    			mount_component(uiicon, a, null);
+    			if (if_block0) if_block0.m(div1, null);
     			append(div1, t2);
-    			if (if_block) if_block.m(div1, null);
+    			if (if_block1) if_block1.m(div1, null);
     			current = true;
-
-    			if (!mounted) {
-    				dispose = listen(a, "click", prevent_default(/*copy*/ ctx[4]));
-    				mounted = true;
-    			}
     		},
     		p(ctx, [dirty]) {
     			if (!current || dirty & /*content*/ 1) set_data(t0, /*content*/ ctx[0]);
-    			const uiicon_changes = {};
 
-    			if (dirty & /*$$scope*/ 32) {
-    				uiicon_changes.$$scope = { dirty, ctx };
-    			}
+    			if (/*mounted*/ ctx[3]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
 
-    			uiicon.$set(uiicon_changes);
-
-    			if (/*notice*/ ctx[1] > 0) {
-    				if (if_block) {
-    					if_block.p(ctx, dirty);
-
-    					if (dirty & /*notice*/ 2) {
-    						transition_in(if_block, 1);
+    					if (dirty & /*mounted*/ 8) {
+    						transition_in(if_block0, 1);
     					}
     				} else {
-    					if_block = create_if_block$4(ctx);
-    					if_block.c();
-    					transition_in(if_block, 1);
-    					if_block.m(div1, null);
+    					if_block0 = create_if_block_1$2(ctx);
+    					if_block0.c();
+    					transition_in(if_block0, 1);
+    					if_block0.m(div1, t2);
     				}
-    			} else if (if_block) {
+    			} else if (if_block0) {
     				group_outros();
 
-    				transition_out(if_block, 1, 1, () => {
-    					if_block = null;
+    				transition_out(if_block0, 1, 1, () => {
+    					if_block0 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*mounted*/ ctx[3] && /*notice*/ ctx[1] > 0) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+
+    					if (dirty & /*mounted, notice*/ 10) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
+    					if_block1 = create_if_block$4(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(div1, null);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
     				});
 
     				check_outros();
@@ -25037,21 +25077,19 @@
     		},
     		i(local) {
     			if (current) return;
-    			transition_in(uiicon.$$.fragment, local);
-    			transition_in(if_block);
+    			transition_in(if_block0);
+    			transition_in(if_block1);
     			current = true;
     		},
     		o(local) {
-    			transition_out(uiicon.$$.fragment, local);
-    			transition_out(if_block);
+    			transition_out(if_block0);
+    			transition_out(if_block1);
     			current = false;
     		},
     		d(detaching) {
     			if (detaching) detach(div1);
-    			destroy_component(uiicon);
-    			if (if_block) if_block.d();
-    			mounted = false;
-    			dispose();
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
     		}
     	};
     }
@@ -25127,6 +25165,13 @@
     		}
     	}
 
+    	// SSR render
+    	let mounted = false;
+
+    	onMount(() => {
+    		$$invalidate(3, mounted = true);
+    	});
+
     	$$self.$$set = $$props => {
     		if ("content" in $$props) $$invalidate(0, content = $$props.content);
     	};
@@ -25139,7 +25184,7 @@
     		}
     	};
 
-    	return [content, notice, className, text, copy];
+    	return [content, notice, className, mounted, text, copy];
     }
 
     class Sample extends SvelteComponent {
@@ -26112,22 +26157,8 @@
     	let current;
     	let mounted;
     	let dispose;
-
-    	uiicon0 = new UIIcon({
-    			props: {
-    				icon: "docs",
-    				$$slots: { default: [create_default_slot_1$1] },
-    				$$scope: { ctx }
-    			}
-    		});
-
-    	uiicon1 = new UIIcon({
-    			props: {
-    				icon: "link",
-    				$$slots: { default: [create_default_slot$3] },
-    				$$scope: { ctx }
-    			}
-    		});
+    	uiicon0 = new UIIcon({ props: { icon: "docs" } });
+    	uiicon1 = new UIIcon({ props: { icon: "link" } });
 
     	return {
     		c() {
@@ -26158,21 +26189,7 @@
     			}
     		},
     		p(ctx, dirty) {
-    			const uiicon0_changes = {};
-
-    			if (dirty & /*$$scope*/ 32768) {
-    				uiicon0_changes.$$scope = { dirty, ctx };
-    			}
-
-    			uiicon0.$set(uiicon0_changes);
     			if (!current || dirty & /*docsText*/ 8) set_data(t1, /*docsText*/ ctx[3]);
-    			const uiicon1_changes = {};
-
-    			if (dirty & /*$$scope*/ 32768) {
-    				uiicon1_changes.$$scope = { dirty, ctx };
-    			}
-
-    			uiicon1.$set(uiicon1_changes);
 
     			if (!current || dirty & /*output*/ 4 && a_href_value !== (a_href_value = /*output*/ ctx[2].docs.href)) {
     				attr(a, "href", a_href_value);
@@ -26195,42 +26212,6 @@
     			destroy_component(uiicon1);
     			mounted = false;
     			dispose();
-    		}
-    	};
-    }
-
-    // (117:3) <UIIcon icon="docs">
-    function create_default_slot_1$1(ctx) {
-    	let span;
-
-    	return {
-    		c() {
-    			span = element("span");
-    			span.textContent = "»";
-    		},
-    		m(target, anchor) {
-    			insert(target, span, anchor);
-    		},
-    		d(detaching) {
-    			if (detaching) detach(span);
-    		}
-    	};
-    }
-
-    // (123:4) <UIIcon icon="link">
-    function create_default_slot$3(ctx) {
-    	let span;
-
-    	return {
-    		c() {
-    			span = element("span");
-    			span.textContent = "»";
-    		},
-    		m(target, anchor) {
-    			insert(target, span, anchor);
-    		},
-    		d(detaching) {
-    			if (detaching) detach(span);
     		}
     	};
     }
@@ -26337,7 +26318,7 @@
 
     					$$invalidate(3, docsText = codePhrases.docs[docsType]
     					? codePhrases.docs[docsType]
-    					: codePhrases.docsDefault.replace("{title}", capitalize_1.capitalize(docsType)));
+    					: codePhrases.docsDefault.replace("{title}", phrases.capitalizeCodeSampleTitle(docsType)));
     				} else {
     					$$invalidate(3, docsText = "");
     				}
@@ -27974,9 +27955,12 @@
     				const list = selectionLength ? selectionToArray(selection) : [];
 
     				list.forEach(icon => {
+    					var _a;
     					const name = lib.iconToString(icon);
 
-    					if (iconExists(name)) {
+    					if ((_a = iconify.Iconify.getIcon) === null || _a === void 0
+    					? void 0
+    					: _a.call(iconify.Iconify, name)) {
     						icons.push(icon);
     						return;
     					}
