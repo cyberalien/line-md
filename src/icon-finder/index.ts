@@ -16,6 +16,25 @@ fetch('./line-md.json')
 			container,
 			callback: (event: IconFinderEvent) => {
 				// console.log('Event:', event);
+				switch (event.type) {
+					case 'selection': {
+						if (event.icons.length === 1) {
+							// Scroll to icon
+							setTimeout(() => {
+								try {
+									const footer = container.querySelector(
+										'div.iif-footer-full'
+									);
+									footer?.scrollIntoView({
+										behavior: 'smooth',
+									});
+								} catch (err) {
+									//
+								}
+							});
+						}
+					}
+				}
 			},
 			iconSets: {
 				iconSets: [iconSet],

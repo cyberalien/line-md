@@ -28776,6 +28776,24 @@
             container,
             callback: (event) => {
                 // console.log('Event:', event);
+                switch (event.type) {
+                    case 'selection': {
+                        if (event.icons.length === 1) {
+                            // Scroll to icon
+                            setTimeout(() => {
+                                try {
+                                    const footer = container.querySelector('div.iif-footer-full');
+                                    footer === null || footer === void 0 ? void 0 : footer.scrollIntoView({
+                                        behavior: 'smooth',
+                                    });
+                                }
+                                catch (err) {
+                                    //
+                                }
+                            });
+                        }
+                    }
+                }
             },
             iconSets: {
                 iconSets: [iconSet],
