@@ -1,6 +1,6 @@
 # Iconify icon finder
 
-Iconify icon finder is a package for searching and browsing icons. It uses Iconify API as a source, providing access to over 70,000 icons.
+Iconify icon finder is a package for searching and browsing icons. It uses Iconify API as a source, providing access to over 100,000 icons.
 
 ## This package
 
@@ -29,4 +29,4 @@ Iconify Icon Finder is dual-licensed under Apache 2.0 and GPL 2.0 license. You m
 
 `SPDX-License-Identifier: Apache-2.0 OR GPL-2.0`
 
-© 2020 Iconify OÜ
+© 2020, 2021 Iconify OÜ
