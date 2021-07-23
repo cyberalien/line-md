@@ -30,7 +30,9 @@
 	<dl>
 		<dt>{phrases.footer.iconName}</dt>
 		<dd>
-			<IconComponent icon={iconName} />
+			{#each [iconName] as iconName (iconName)}
+				<IconComponent icon={iconName} />
+			{/each}
 			<div class="iif-footer-icon-name-input"><span>{text}</span></div>
 		</dd>
 	</dl>

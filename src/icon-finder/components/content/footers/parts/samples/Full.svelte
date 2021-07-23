@@ -87,7 +87,7 @@
 		const name = iconToString(icon);
 
 		// Get data (both getIcon and icon data are available: check is done in footer)
-		const iconData = Iconify.getIcon(name)!;
+		const iconData = Iconify.getIcon!(name)!;
 
 		// Check if icon is rotated (for width/height calculations)
 		const rotated = !!(
@@ -185,7 +185,10 @@
 </script>
 
 <div
-	class="iif-footer-sample iif-footer-sample--block iif-footer-sample--loaded"
+	class="iif-foote
+	r-sample iif-footer-sample--block iif-footer-sample--loaded"
 	{style}>
-	<IconComponent icon={data.name} {...props} />
+	{#each [data] as icon (icon.name)}
+		<IconComponent icon={icon.name} {...props} />
+	{/each}
 </div>

@@ -71,7 +71,11 @@
 	class="iif-footer-sample iif-footer-sample--inline iif-footer-sample--loaded">
 	<p>
 		{samplePhrases.before}
-		<span {style}><IconComponent {...props} /></span>
+		<span {style}>
+			{#each [props] as iconProps (iconProps.icon)}
+				<IconComponent {...iconProps} />
+			{/each}
+		</span>
 		{samplePhrases.after}
 	</p>
 </div>
