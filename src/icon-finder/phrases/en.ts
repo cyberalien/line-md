@@ -150,7 +150,7 @@ export const phrases: UITranslation = {
 	codeSamples: {
 		copy: 'Copy to clipboard',
 		copied: 'Copied to clipboard.',
-		heading: 'How to use "{name}" icon',
+		heading: 'Show "{name}" code for developers',
 		childTabTitle: '{key} versions:',
 		childTabTitles: {
 			react: 'React component versions:',
