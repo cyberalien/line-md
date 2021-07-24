@@ -319,7 +319,8 @@
 {#if currentTab}
 	<FooterBlock
 		name="code"
-		title={codePhrases.heading.replace('{name}', icon.name)}>
+		title={codePhrases.heading.replace('{name}', icon.name)}
+		titleHidden={codePhrases.headingHidden.replace('{name}', icon.name)}>
 		<div class="iif-code">
 			<div class="iif-filters">
 				{#if parentFilters}

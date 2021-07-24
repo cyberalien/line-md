@@ -9,6 +9,7 @@
 
 	// Title
 	export let title: string;
+	export let titleHidden: string = '';
 
 	// Config key
 	let key = name + 'Visible';
@@ -64,7 +65,7 @@
 			{#if canExpand}
 				<a
 					href="# "
-					on:click|preventDefault={toggle}>{title + (expanded ? ':' : '')}</a>
+					on:click|preventDefault={toggle}>{(!expanded && titleHidden !== '' ? titleHidden : title) + (expanded ? ':' : '')}</a>
 			{:else}{title + ':'}{/if}
 		</p>
 	{/if}
