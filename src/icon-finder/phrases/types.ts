@@ -97,6 +97,7 @@ export interface UITranslation {
 		copy: string;
 		copied: string;
 		heading: string;
+		headingHidden: string;
 		childTabTitle: string;
 		childTabTitles: Partial<Record<CodeSampleTab, string>>;
 		docsDefault: string;

@@ -99,7 +99,9 @@
 		<dt>{phrases.footer.iconName}</dt>
 		<dd>
 			{#if lastIconName !== ''}
-				<IconComponent icon={lastIconName} />
+				{#each [lastIconName] as iconName (iconName)}
+					<IconComponent icon={iconName} />
+				{/each}
 			{/if}
 			<Input
 				bind:value

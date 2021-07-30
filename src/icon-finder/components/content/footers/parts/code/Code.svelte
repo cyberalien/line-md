@@ -130,7 +130,9 @@
 	{#if output.component}
 		{#each codeOutputComponentKeys as key}
 			{#if output.component[key]}
-				<p>{codePhrases.component[key]}</p>
+				{#if codePhrases.component[key]}
+					<p>{codePhrases.component[key]}</p>
+				{/if}
 				<SampleInput content={output.component[key]} />
 			{/if}
 		{/each}

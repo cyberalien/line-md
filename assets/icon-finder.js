@@ -33,8 +33,120 @@
                 result[k] = props[k];
         return result;
     }
+
+    // Track which nodes are claimed during hydration. Unclaimed nodes can then be removed from the DOM
+    // at the end of hydration without touching the remaining nodes.
+    let is_hydrating = false;
+    function start_hydrating() {
+        is_hydrating = true;
+    }
+    function end_hydrating() {
+        is_hydrating = false;
+    }
+    function upper_bound(low, high, key, value) {
+        // Return first index of value larger than input value in the range [low, high)
+        while (low < high) {
+            const mid = low + ((high - low) >> 1);
+            if (key(mid) <= value) {
+                low = mid + 1;
+            }
+            else {
+                high = mid;
+            }
+        }
+        return low;
+    }
+    function init_hydrate(target) {
+        if (target.hydrate_init)
+            return;
+        target.hydrate_init = true;
+        // We know that all children have claim_order values since the unclaimed have been detached
+        const children = target.childNodes;
+        /*
+        * Reorder claimed children optimally.
+        * We can reorder claimed children optimally by finding the longest subsequence of
+        * nodes that are already claimed in order and only moving the rest. The longest
+        * subsequence subsequence of nodes that are claimed in order can be found by
+        * computing the longest increasing subsequence of .claim_order values.
+        *
+        * This algorithm is optimal in generating the least amount of reorder operations
+        * possible.
+        *
+        * Proof:
+        * We know that, given a set of reordering operations, the nodes that do not move
+        * always form an increasing subsequence, since they do not move among each other
+        * meaning that they must be already ordered among each other. Thus, the maximal
+        * set of nodes that do not move form a longest increasing subsequence.
+        */
+        // Compute longest increasing subsequence
+        // m: subsequence length j => index k of smallest value that ends an increasing subsequence of length j
+        const m = new Int32Array(children.length + 1);
+        // Predecessor indices + 1
+        const p = new Int32Array(children.length);
+        m[0] = -1;
+        let longest = 0;
+        for (let i = 0; i < children.length; i++) {
+            const current = children[i].claim_order;
+            // Find the largest subsequence length such that it ends in a value less than our current value
+            // upper_bound returns first greater value, so we subtract one
+            const seqLen = upper_bound(1, longest + 1, idx => children[m[idx]].claim_order, current) - 1;
+            p[i] = m[seqLen] + 1;
+            const newLen = seqLen + 1;
+            // We can guarantee that current is the smallest value. Otherwise, we would have generated a longer sequence.
+            m[newLen] = i;
+            longest = Math.max(newLen, longest);
+        }
+        // The longest increasing subsequence of nodes (initially reversed)
+        const lis = [];
+        // The rest of the nodes, nodes that will be moved
+        const toMove = [];
+        let last = children.length - 1;
+        for (let cur = m[longest] + 1; cur != 0; cur = p[cur - 1]) {
+            lis.push(children[cur - 1]);
+            for (; last >= cur; last--) {
+                toMove.push(children[last]);
+            }
+            last--;
+        }
+        for (; last >= 0; last--) {
+            toMove.push(children[last]);
+        }
+        lis.reverse();
+        // We sort the nodes being moved to guarantee that their insertion order matches the claim order
+        toMove.sort((a, b) => a.claim_order - b.claim_order);
+        // Finally, we move the nodes
+        for (let i = 0, j = 0; i < toMove.length; i++) {
+            while (j < lis.length && toMove[i].claim_order >= lis[j].claim_order) {
+                j++;
+            }
+            const anchor = j < lis.length ? lis[j] : null;
+            target.insertBefore(toMove[i], anchor);
+        }
+    }
+    function append$1(target, node) {
+        if (is_hydrating) {
+            init_hydrate(target);
+            if ((target.actual_end_child === undefined) || ((target.actual_end_child !== null) && (target.actual_end_child.parentElement !== target))) {
+                target.actual_end_child = target.firstChild;
+            }
+            if (node !== target.actual_end_child) {
+                target.insertBefore(node, target.actual_end_child);
+            }
+            else {
+                target.actual_end_child = node.nextSibling;
+            }
+        }
+        else if (node.parentNode !== target) {
+            target.appendChild(node);
+        }
+    }
     function insert$1(target, node, anchor) {
-        target.insertBefore(node, anchor || null);
+        if (is_hydrating && !anchor) {
+            append$1(target, node);
+        }
+        else if (node.parentNode !== target || (anchor && node.nextSibling !== anchor)) {
+            target.insertBefore(node, anchor || null);
+        }
     }
     function detach$1(node) {
         node.parentNode.removeChild(node);
@@ -183,22 +295,24 @@
         }
         return update;
     }
-    function mount_component$1(component, target, anchor) {
+    function mount_component$1(component, target, anchor, customElement) {
         const { fragment, on_mount, on_destroy, after_update } = component.$$;
         fragment && fragment.m(target, anchor);
-        // onMount happens before the initial afterUpdate
-        add_render_callback$1(() => {
-            const new_on_destroy = on_mount.map(run$1).filter(is_function$1);
-            if (on_destroy) {
-                on_destroy.push(...new_on_destroy);
-            }
-            else {
-                // Edge case - component was destroyed immediately,
-                // most likely as a result of a binding initialising
-                run_all$1(new_on_destroy);
-            }
-            component.$$.on_mount = [];
-        });
+        if (!customElement) {
+            // onMount happens before the initial afterUpdate
+            add_render_callback$1(() => {
+                const new_on_destroy = on_mount.map(run$1).filter(is_function$1);
+                if (on_destroy) {
+                    on_destroy.push(...new_on_destroy);
+                }
+                else {
+                    // Edge case - component was destroyed immediately,
+                    // most likely as a result of a binding initialising
+                    run_all$1(new_on_destroy);
+                }
+                component.$$.on_mount = [];
+            });
+        }
         after_update.forEach(add_render_callback$1);
     }
     function destroy_component$1(component, detaching) {
@@ -223,7 +337,6 @@
     function init$1(component, options, instance, create_fragment, not_equal, props, dirty = [-1]) {
         const parent_component = current_component$1;
         set_current_component$1(component);
-        const prop_values = options.props || {};
         const $$ = component.$$ = {
             fragment: null,
             ctx: null,
@@ -235,9 +348,10 @@
             // lifecycle
             on_mount: [],
             on_destroy: [],
+            on_disconnect: [],
             before_update: [],
             after_update: [],
-            context: new Map(parent_component ? parent_component.$$.context : []),
+            context: new Map(parent_component ? parent_component.$$.context : options.context || []),
             // everything else
             callbacks: blank_object$1(),
             dirty,
@@ -245,7 +359,7 @@
         };
         let ready = false;
         $$.ctx = instance
-            ? instance(component, prop_values, (i, ret, ...rest) => {
+            ? instance(component, options.props || {}, (i, ret, ...rest) => {
                 const value = rest.length ? rest[0] : ret;
                 if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
                     if (!$$.skip_bound && $$.bound[i])
@@ -263,6 +377,7 @@
         $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
         if (options.target) {
             if (options.hydrate) {
+                start_hydrating();
                 const nodes = children$1(options.target);
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 $$.fragment && $$.fragment.l(nodes);
@@ -274,7 +389,8 @@
             }
             if (options.intro)
                 transition_in$1(component.$$.fragment);
-            mount_component$1(component, options.target, options.anchor);
+            mount_component$1(component, options.target, options.anchor, options.customElement);
+            end_hydrating();
             flush$1();
         }
         set_current_component$1(parent_component);
@@ -319,18 +435,54 @@
     	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
     }
 
-    var name$1 = createCommonjsModule$1(function (module, exports) {
+    var icon$2 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.validateIcon = exports.stringToIcon = void 0;
+    exports.fullIcon = exports.iconDefaults = exports.minifyProps = exports.matchName = void 0;
     /**
      * Expression to test part of icon name.
      */
-    const match = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+    exports.matchName = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+    /**
+     * Properties that can be minified
+     *
+     * Values of all these properties are awalys numbers
+     */
+    exports.minifyProps = [
+        // All IconifyDimenisons properties
+        'width',
+        'height',
+        'top',
+        'left',
+    ];
+    /**
+     * Default values for all optional IconifyIcon properties
+     */
+    exports.iconDefaults = Object.freeze({
+        left: 0,
+        top: 0,
+        width: 16,
+        height: 16,
+        rotate: 0,
+        vFlip: false,
+        hFlip: false,
+    });
+    /**
+     * Add optional properties to icon
+     */
+    function fullIcon(data) {
+        return { ...exports.iconDefaults, ...data };
+    }
+    exports.fullIcon = fullIcon;
+    });
+
+    var name$1 = createCommonjsModule$1(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.validateIcon = exports.stringToIcon = void 0;
+
     /**
      * Convert string to Icon object.
      */
-    const stringToIcon = (value, validate, allowSimpleName) => {
-        let provider = '';
+    const stringToIcon = (value, validate, allowSimpleName, provider = '') => {
         const colonSeparated = value.split(':');
         // Check for provider with correct '@' at start
         if (value.slice(0, 1) === '@') {
@@ -387,118 +539,60 @@
      *
      * This function is not part of stringToIcon because validation is not needed for most code.
      */
-    const validateIcon = (icon, allowSimpleName) => {
-        if (!icon) {
+    const validateIcon = (icon$1, allowSimpleName) => {
+        if (!icon$1) {
             return false;
         }
-        return !!((icon.provider === '' || icon.provider.match(match)) &&
-            ((allowSimpleName && icon.prefix === '') || icon.prefix.match(match)) &&
-            icon.name.match(match));
+        return !!((icon$1.provider === '' || icon$1.provider.match(icon$2.matchName)) &&
+            ((allowSimpleName && icon$1.prefix === '') ||
+                icon$1.prefix.match(icon$2.matchName)) &&
+            icon$1.name.match(icon$2.matchName));
     };
     exports.validateIcon = validateIcon;
     });
 
-    var merge_1 = createCommonjsModule$1(function (module, exports) {
+    var merge = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.merge = void 0;
+    exports.mergeIconData = void 0;
+
     /**
-     * Merge two objects
-     *
-     * Replacement for Object.assign() that is not supported by IE, so it cannot be used in production yet.
+     * Merge icon and alias
      */
-    function merge(item1, item2, item3) {
-        const result = Object.create(null);
-        const items = [item1, item2, item3];
-        for (let i = 0; i < 3; i++) {
-            const item = items[i];
-            if (typeof item === 'object' && item) {
-                for (const key in item) {
-                    const value = item[key];
-                    if (value !== void 0) {
-                        result[key] = value;
-                    }
+    function mergeIconData(icon$1, alias) {
+        const result = { ...icon$1 };
+        for (const key in icon$2.iconDefaults) {
+            const prop = key;
+            if (alias[prop] !== void 0) {
+                const value = alias[prop];
+                if (result[prop] === void 0) {
+                    // Missing value
+                    result[prop] = value;
+                    continue;
+                }
+                switch (prop) {
+                    case 'rotate':
+                        result[prop] =
+                            (result[prop] + value) % 4;
+                        break;
+                    case 'hFlip':
+                    case 'vFlip':
+                        result[prop] = value !== result[prop];
+                        break;
+                    default:
+                        // Overwrite value
+                        result[prop] =
+                            value;
                 }
             }
         }
         return result;
     }
-    exports.merge = merge;
+    exports.mergeIconData = mergeIconData;
     });
 
-    var icon$2 = createCommonjsModule$1(function (module, exports) {
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.fullIcon = exports.iconDefaults = void 0;
-
-    /**
-     * Default values for IconifyIcon properties
-     */
-    exports.iconDefaults = Object.freeze({
-        body: '',
-        left: 0,
-        top: 0,
-        width: 16,
-        height: 16,
-        rotate: 0,
-        vFlip: false,
-        hFlip: false,
-    });
-    /**
-     * Create new icon with all properties
-     */
-    function fullIcon(icon) {
-        return merge_1.merge(exports.iconDefaults, icon);
-    }
-    exports.fullIcon = fullIcon;
-    });
-
-    var merge = createCommonjsModule$1(function (module, exports) {
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.mergeIcons = void 0;
-
-    /**
-     * Icon keys
-     */
-    const iconKeys = Object.keys(icon$2.iconDefaults);
-    /**
-     * Merge two icons
-     *
-     * icon2 overrides icon1
-     */
-    function mergeIcons(icon1, icon2) {
-        const icon = Object.create(null);
-        iconKeys.forEach((key) => {
-            if (icon1[key] === void 0) {
-                if (icon2[key] !== void 0) {
-                    icon[key] = icon2[key];
-                }
-                return;
-            }
-            if (icon2[key] === void 0) {
-                icon[key] = icon1[key];
-                return;
-            }
-            switch (key) {
-                case 'rotate':
-                    icon[key] =
-                        (icon1[key] + icon2[key]) % 4;
-                    return;
-                case 'hFlip':
-                case 'vFlip':
-                    icon[key] = icon1[key] !== icon2[key];
-                    return;
-                default:
-                    icon[key] = icon2[key];
-            }
-        });
-        return icon;
-    }
-    exports.mergeIcons = mergeIcons;
-    });
-
-    var iconSet = createCommonjsModule$1(function (module, exports) {
+    var parse = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseIconSet = void 0;
-
 
 
     /**
@@ -511,7 +605,7 @@
     function resolveAlias(alias, icons, aliases, level = 0) {
         const parent = alias.parent;
         if (icons[parent] !== void 0) {
-            return merge.mergeIcons(icons[parent], alias);
+            return merge.mergeIconData(icons[parent], alias);
         }
         if (aliases[parent] !== void 0) {
             if (level > 2) {
@@ -520,7 +614,7 @@
             }
             const icon = resolveAlias(aliases[parent], icons, aliases, level + 1);
             if (icon) {
-                return merge.mergeIcons(icon, alias);
+                return merge.mergeIconData(icon, alias);
             }
         }
         return null;
@@ -562,7 +656,7 @@
                 return;
             }
             // Freeze icon to make sure it will not be modified
-            callback(name, Object.freeze(merge_1.merge(icon$2.iconDefaults, defaults, icon$1)));
+            callback(name, Object.freeze({ ...icon$2.iconDefaults, ...defaults, ...icon$1 }));
             added.push(name);
         });
         // Get aliases
@@ -572,7 +666,7 @@
                 const icon$1 = resolveAlias(aliases[name], icons, aliases, 1);
                 if (icon$1) {
                     // Freeze icon to make sure it will not be modified
-                    callback(name, Object.freeze(merge_1.merge(icon$2.iconDefaults, defaults, icon$1)));
+                    callback(name, Object.freeze({ ...icon$2.iconDefaults, ...defaults, ...icon$1 }));
                     added.push(name);
                 }
             });
@@ -624,7 +718,7 @@
      */
     function addIconSet(storage, data, list = 'none') {
         const t = Date.now();
-        return iconSet.parseIconSet(data, (name, icon) => {
+        return parse.parseIconSet(data, (name, icon) => {
             if (icon === null) {
                 storage.missing[name] = t;
             }
@@ -705,10 +799,9 @@
     exports.listIcons = listIcons;
     });
 
-    var functions$1 = createCommonjsModule$1(function (module, exports) {
+    var functions$3 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.storageFunctions = exports.addCollection = exports.addIcon = exports.getIconData = exports.allowSimpleNames = void 0;
-
 
 
 
@@ -762,7 +855,7 @@
             (typeof data.prefix !== 'string' || data.prefix === '')) {
             // Simple names: add icons one by one
             let added = false;
-            iconSet.parseIconSet(data, (name, icon) => {
+            parse.parseIconSet(data, (name, icon) => {
                 if (icon !== null && addIcon(name, icon)) {
                     added = true;
                 }
@@ -791,7 +884,7 @@
         // Get raw icon data
         getIcon: (name) => {
             const result = getIconData(name);
-            return result ? merge_1.merge(result) : null;
+            return result ? { ...result } : null;
         },
         // List icons
         listIcons: storage_1.listIcons,
@@ -802,13 +895,23 @@
     };
     });
 
-    var ids = createCommonjsModule$1(function (module, exports) {
+    var id = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.replaceIDs = void 0;
     /**
      * Regular expression for finding ids
      */
     const regex = /\sid="(\S+)"/g;
+    /**
+     * Match for allowed characters before and after id in replacement, including () for group
+     */
+    const replaceValue = '([^A-Za-z0-9_-])';
+    /**
+     * Escape value for 'new RegExp()'
+     */
+    function escapeRegExp(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+    }
     /**
      * New random-ish prefix for ids
      */
@@ -821,20 +924,6 @@
      * Counter for ids, increasing with every replacement
      */
     let counter = 0;
-    /**
-     * Replace multiple occurance of same string
-     */
-    function strReplace(search, replace, subject) {
-        let pos = 0;
-        while ((pos = subject.indexOf(search, pos)) !== -1) {
-            subject =
-                subject.slice(0, pos) +
-                    replace +
-                    subject.slice(pos + search.length);
-            pos += replace.length;
-        }
-        return subject;
-    }
     /**
      * Replace IDs in SVG output with unique IDs
      * Fast replacement without parsing XML, assuming commonly used patterns and clean XML (icon should have been cleaned up with Iconify Tools or SVGO).
@@ -850,18 +939,16 @@
             return body;
         }
         // Replace with unique ids
-        ids.forEach(id => {
+        ids.forEach((id) => {
             const newID = typeof prefix === 'function' ? prefix() : prefix + counter++;
-            body = strReplace('="' + id + '"', '="' + newID + '"', body);
-            body = strReplace('="#' + id + '"', '="#' + newID + '"', body);
-            body = strReplace('(#' + id + ')', '(#' + newID + ')', body);
+            body = body.replace(new RegExp(replaceValue + '(' + escapeRegExp(id) + ')' + replaceValue, 'g'), '$1' + newID + '$3');
         });
         return body;
     }
     exports.replaceIDs = replaceIDs;
     });
 
-    var calcSize = createCommonjsModule$1(function (module, exports) {
+    var size$1 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.calculateSize = void 0;
     /**
@@ -1002,7 +1089,7 @@
     exports.mergeCustomisations = mergeCustomisations;
     });
 
-    var builder = createCommonjsModule$1(function (module, exports) {
+    var build$1 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.iconToSVG = void 0;
 
@@ -1138,7 +1225,7 @@
         if (customisations.width === null && customisations.height === null) {
             // Set height to '1em', calculate width
             height = '1em';
-            width = calcSize.calculateSize(height, box.width / box.height);
+            width = size$1.calculateSize(height, box.width / box.height);
         }
         else if (customisations.width !== null &&
             customisations.height !== null) {
@@ -1149,12 +1236,12 @@
         else if (customisations.height !== null) {
             // Height is set
             height = customisations.height;
-            width = calcSize.calculateSize(height, box.width / box.height);
+            width = size$1.calculateSize(height, box.width / box.height);
         }
         else {
             // Width is set
             width = customisations.width;
-            height = calcSize.calculateSize(width, box.height / box.width);
+            height = size$1.calculateSize(width, box.height / box.width);
         }
         // Check for 'auto'
         if (width === 'auto') {
@@ -1184,7 +1271,7 @@
     exports.iconToSVG = iconToSVG;
     });
 
-    var functions$1$1 = createCommonjsModule$1(function (module, exports) {
+    var functions$2 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.builderFunctions = void 0;
 
@@ -1196,15 +1283,15 @@
      * Exported builder functions
      */
     exports.builderFunctions = {
-        replaceIDs: ids.replaceIDs,
-        calculateSize: calcSize.calculateSize,
+        replaceIDs: id.replaceIDs,
+        calculateSize: size$1.calculateSize,
         buildIcon: (icon$1, customisations$1) => {
-            return builder.iconToSVG(icon$2.fullIcon(icon$1), customisations$2.mergeCustomisations(customisations$2.defaults, customisations$1));
+            return build$1.iconToSVG(icon$2.fullIcon(icon$1), customisations$2.mergeCustomisations(customisations$2.defaults, customisations$1));
         },
     };
     });
 
-    var modules = createCommonjsModule$1(function (module, exports) {
+    var modules$1 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.coreModules = void 0;
     exports.coreModules = {};
@@ -1482,18 +1569,18 @@
     /**
      * Set configuration
      */
-    function setConfig(config$1$1) {
-        if (typeof config$1$1 !== 'object' ||
-            typeof config$1$1.resources !== 'object' ||
-            !(config$1$1.resources instanceof Array) ||
-            !config$1$1.resources.length) {
+    function setConfig(config) {
+        if (typeof config !== 'object' ||
+            typeof config.resources !== 'object' ||
+            !(config.resources instanceof Array) ||
+            !config.resources.length) {
             throw new Error('Invalid Reduncancy configuration');
         }
         const newConfig = Object.create(null);
         let key;
         for (key in config$1.defaultConfig) {
-            if (config$1$1[key] !== void 0) {
-                newConfig[key] = config$1$1[key];
+            if (config[key] !== void 0) {
+                newConfig[key] = config[key];
             }
             else {
                 newConfig[key] = config$1.defaultConfig[key];
@@ -1766,7 +1853,7 @@
     exports.storeCallback = storeCallback;
     });
 
-    var modules$1 = createCommonjsModule$1(function (module, exports) {
+    var modules = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getAPIModule = exports.setAPIModule = void 0;
     /**
@@ -1789,7 +1876,7 @@
     exports.getAPIModule = getAPIModule;
     });
 
-    var config$1$1 = createCommonjsModule$1(function (module, exports) {
+    var config$2 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getAPIConfig = exports.setAPIConfig = void 0;
     /**
@@ -1962,14 +2049,14 @@
      */
     function getRedundancyCache(provider) {
         if (redundancyCache[provider] === void 0) {
-            const config = config$1$1.getAPIConfig(provider);
-            if (!config) {
+            const config$1 = config$2.getAPIConfig(provider);
+            if (!config$1) {
                 // No way to load icons because configuration is not set!
                 return;
             }
-            const redundancy$1 = redundancy.initRedundancy(config);
+            const redundancy$1 = redundancy.initRedundancy(config$1);
             const cachedReundancy = {
-                config,
+                config: config$1,
                 redundancy: redundancy$1,
             };
             redundancyCache[provider] = cachedReundancy;
@@ -2043,7 +2130,7 @@
                 const icons = providerIconsToLoad[prefix];
                 delete providerIconsToLoad[prefix];
                 // Get API module
-                const api = modules$1.getAPIModule(provider);
+                const api = modules.getAPIModule(provider);
                 if (!api) {
                     // No way to load icons!
                     err();
@@ -2089,8 +2176,8 @@
                                     delete pending[name];
                                 });
                                 // Cache API response
-                                if (modules.coreModules.cache) {
-                                    modules.coreModules.cache(provider, data);
+                                if (modules$1.coreModules.cache) {
+                                    modules$1.coreModules.cache(provider, data);
                                 }
                             }
                             catch (err) {
@@ -2117,7 +2204,7 @@
      */
     const loadIcons = (icons, callback) => {
         // Clean up and copy icons list
-        const cleanedIcons = list.listToIcons(icons, true, functions$1.allowSimpleNames());
+        const cleanedIcons = list.listToIcons(icons, true, functions$3.allowSimpleNames());
         // Sort icons by missing/loaded/pending
         // Pending means icon is either being requsted or is about to be requested
         const sortedIcons = sort.sortIcons(cleanedIcons);
@@ -2206,7 +2293,7 @@
     };
     });
 
-    var functions$2 = createCommonjsModule$1(function (module, exports) {
+    var functions$1 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.APIInternalFunctions = exports.APIFunctions = void 0;
 
@@ -2214,12 +2301,12 @@
 
     exports.APIFunctions = {
         loadIcons: api.API.loadIcons,
-        addAPIProvider: config$1$1.setAPIConfig,
+        addAPIProvider: config$2.setAPIConfig,
     };
     exports.APIInternalFunctions = {
         getAPI: api.getRedundancyCache,
-        getAPIConfig: config$1$1.getAPIConfig,
-        setAPIModule: modules$1.setAPIModule,
+        getAPIConfig: config$2.getAPIConfig,
+        setAPIModule: modules.setAPIModule,
     };
     });
 
@@ -2826,7 +2913,7 @@
     exports.storeCache = storeCache;
     });
 
-    var functions$3 = createCommonjsModule$1(function (module, exports) {
+    var functions$4 = createCommonjsModule$1(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.toggleBrowserCache = void 0;
 
@@ -2960,7 +3047,7 @@
     // Properties
     props) {
         const customisations$1 = customisations$2.mergeCustomisations(customisations$2.defaults, props);
-        const componentProps = merge_1.merge(svgDefaults);
+        const componentProps = Object.assign({}, svgDefaults);
         // Create style if missing
         let style = typeof props.style === 'string' ? props.style : '';
         // Get element properties
@@ -3029,7 +3116,7 @@
             }
         }
         // Generate icon
-        const item = builder.iconToSVG(icon, customisations$1);
+        const item = build$1.iconToSVG(icon, customisations$1);
         // Add icon stuff
         for (let key in item.attributes) {
             componentProps[key] =
@@ -3045,68 +3132,68 @@
         }
         // Counter for ids based on "id" property to render icons consistently on server and client
         let localCounter = 0;
-        const id = props.id;
+        const id$1 = props.id;
         // Generate HTML
         return {
             attributes: componentProps,
-            body: ids.replaceIDs(item.body, id ? () => id + '-' + localCounter++ : 'iconify-svelte-'),
+            body: id.replaceIDs(item.body, id$1 ? () => id$1 + '-' + localCounter++ : 'iconify-svelte-'),
         };
     }
-    const disableCache = (storage) => functions$3.toggleBrowserCache(storage, false);
+    const disableCache = (storage) => functions$4.toggleBrowserCache(storage, false);
     /* Storage functions */
     /**
      * Check if icon exists
      */
-    functions$1.storageFunctions.iconExists;
+    functions$3.storageFunctions.iconExists;
     /**
      * Get icon data
      */
-    const getIcon = functions$1.storageFunctions.getIcon;
+    const getIcon = functions$3.storageFunctions.getIcon;
     /**
      * List available icons
      */
-    functions$1.storageFunctions.listIcons;
+    functions$3.storageFunctions.listIcons;
     /**
      * Add one icon
      */
-    functions$1.storageFunctions.addIcon;
+    functions$3.storageFunctions.addIcon;
     /**
      * Add icon set
      */
-    const addCollection = functions$1.storageFunctions.addCollection;
+    const addCollection = functions$3.storageFunctions.addCollection;
     /* Builder functions */
     /**
      * Calculate icon size
      */
-    const calculateSize = functions$1$1.builderFunctions.calculateSize;
+    const calculateSize = functions$2.builderFunctions.calculateSize;
     /**
      * Replace unique ids in content
      */
-    functions$1$1.builderFunctions.replaceIDs;
+    functions$2.builderFunctions.replaceIDs;
     /**
      * Build SVG
      */
-    functions$1$1.builderFunctions.buildIcon;
+    functions$2.builderFunctions.buildIcon;
     /* API functions */
     /**
      * Load icons
      */
-    const loadIcons = functions$2.APIFunctions.loadIcons;
+    const loadIcons = functions$1.APIFunctions.loadIcons;
     /**
      * Add API provider
      */
-    const addAPIProvider = functions$2.APIFunctions.addAPIProvider;
+    const addAPIProvider = functions$1.APIFunctions.addAPIProvider;
     /**
      * Export internal functions that can be used by third party implementations
      */
-    const _api = functions$2.APIInternalFunctions;
+    const _api = functions$1.APIInternalFunctions;
     /**
      * Initialise stuff
      */
     // Enable short names
-    functions$1.allowSimpleNames(true);
+    functions$3.allowSimpleNames(true);
     // Set API
-    modules.coreModules.api = api.API;
+    modules$1.coreModules.api = api.API;
     // Use Fetch API by default
     let getAPIModule = fetch_1$1.getAPIModule;
     try {
@@ -3121,7 +3208,7 @@
     catch (err) {
         //
     }
-    modules$1.setAPIModule('', getAPIModule(config$1$1.getAPIConfig));
+    modules.setAPIModule('', getAPIModule(config$2.getAPIConfig));
     /**
      * Function to enable node-fetch for getting icons on server side
      */
@@ -3129,7 +3216,7 @@
         fetch_1$1.setFetch(nodeFetch);
         if (getAPIModule !== fetch_1$1.getAPIModule) {
             getAPIModule = fetch_1$1.getAPIModule;
-            modules$1.setAPIModule('', getAPIModule(config$1$1.getAPIConfig));
+            modules.setAPIModule('', getAPIModule(config$2.getAPIConfig));
         }
     };
     /**
@@ -3137,7 +3224,7 @@
      */
     if (typeof document !== 'undefined' && typeof window !== 'undefined') {
         // Set cache and load existing cache
-        modules.coreModules.cache = browserStorage.storeCache;
+        modules$1.coreModules.cache = browserStorage.storeCache;
         browserStorage.loadCache();
         const _window = window;
         // Load icons from global "IconifyPreload"
@@ -3179,7 +3266,7 @@
                             value.resources === void 0) {
                             continue;
                         }
-                        if (!config$1$1.setAPIConfig(key, value)) {
+                        if (!config$2.setAPIConfig(key, value)) {
                             console.error(err);
                         }
                     }
@@ -3218,7 +3305,7 @@
             return null;
         }
         // Load icon
-        const data = functions$1.getIconData(iconName);
+        const data = functions$3.getIconData(iconName);
         if (data === null) {
             // Icon needs to be loaded
             // Do not load icon until component is mounted
@@ -3258,7 +3345,7 @@
         return icon ? render(icon, props) : null;
     }
 
-    /* src/Icon.svelte generated by Svelte v3.31.0 */
+    /* src/Icon.svelte generated by Svelte v3.38.3 */
 
     function create_if_block$w(ctx) {
     	let svg;
@@ -3368,7 +3455,7 @@
     	};
 
     	$$self.$$.update = () => {
-    		 {
+    		{
     			const iconData = checkIconState($$props.icon, state, mounted, loaded, $$props.onLoad);
     			$$invalidate(0, data = iconData ? generateIcon(iconData.data, $$props) : null);
 
@@ -3843,7 +3930,7 @@
     exports.internalSourceCache = Object.create(null);
     const configuredCache = Object.create(null);
     // Add default provider
-    const iconifyRoot = 'https://iconify.design/icon-sets/';
+    const iconifyRoot = 'http://icon-sets.iconify.design/';
     const iconifyPackage = '@iconify/icons-{prefix}';
     exports.internalSourceCache[''] = {
         config: {},
@@ -3851,7 +3938,7 @@
         links: {
             home: iconifyRoot,
             collection: iconifyRoot + '{prefix}/',
-            icon: iconifyRoot + '{prefix}/{name}.html',
+            icon: iconifyRoot + '{prefix}/{name}/',
         },
         npm: {
             package: iconifyPackage,
@@ -5623,7 +5710,7 @@
             result.name = result.info.name;
         }
         else {
-            return null;
+            result.name = result.prefix;
         }
         // Check for categories
         let tags = typeof source.categories === 'object' && source.categories !== null
@@ -9797,7 +9884,8 @@
         codeSamples: {
             copy: 'Copy to clipboard',
             copied: 'Copied to clipboard.',
-            heading: 'How to use "{name}" icon',
+            headingHidden: 'Show code for "{name}" for developers',
+            heading: 'Code for "{name}" for developers',
             childTabTitle: '{key} versions:',
             childTabTitles: {
                 react: 'React component versions:',
@@ -9814,11 +9902,15 @@
             component: {
                 'install-offline': 'Install component and icon set:',
                 'install-simple': 'Install component:',
+                'install-addon': 'Install addon:',
                 'import-offline': 'Import component and icon data:',
                 'import-simple': 'Import component:',
                 'vue-offline': 'Add icon data and icon component to your component:',
                 'vue-simple': 'Add icon component to your component:',
-                'use': 'Use it in your code:',
+                'use-in-code': 'Use it in your code:',
+                'use-in-html': 'Use it in HTML code:',
+                'use-in-template': 'Use component in template:',
+                'use-generic': '',
             },
             iconify: {
                 intro1: 'Iconify SVG framework makes using icons as easy as icon fonts. To use "{name}" in HTML, add this code to the document:',
@@ -10691,7 +10783,7 @@
 
     /* src/icon-finder/components/content/blocks/GlobalSearch.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$i(ctx, list, i) {
+    function get_each_context$l(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[10] = list[i];
     	child_ctx[12] = i;
@@ -10699,7 +10791,7 @@
     }
 
     // (73:2) {#each [focusInput] as autofocus, i (autofocus)}
-    function create_each_block$i(key_1, ctx) {
+    function create_each_block$l(key_1, ctx) {
     	let first;
     	let input;
     	let updating_value;
@@ -10779,9 +10871,9 @@
     	const get_key = ctx => /*autofocus*/ ctx[10];
 
     	for (let i = 0; i < 1; i += 1) {
-    		let child_ctx = get_each_context$i(ctx, each_value, i);
+    		let child_ctx = get_each_context$l(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$i(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$l(key, child_ctx));
     	}
 
     	return {
@@ -10819,7 +10911,7 @@
     			if (dirty & /*text, focusInput, keyword*/ 7) {
     				each_value = [/*focusInput*/ ctx[1]];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, form, outro_and_destroy_block, create_each_block$i, t0, get_each_context$i);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, form, outro_and_destroy_block, create_each_block$l, t0, get_each_context$l);
     				check_outros();
     			}
     		},
@@ -11076,7 +11168,7 @@
 
     /* src/icon-finder/components/content/blocks/Parent.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$h(ctx, list, i) {
+    function get_each_context$k(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[7] = list[i];
     	child_ctx[9] = i;
@@ -11129,7 +11221,7 @@
     }
 
     // (73:2) {#each entries as item, i (item.key)}
-    function create_each_block$h(key_1, ctx) {
+    function create_each_block$k(key_1, ctx) {
     	let first;
     	let link;
     	let current;
@@ -11191,9 +11283,9 @@
     	const get_key = ctx => /*item*/ ctx[7].key;
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$h(ctx, each_value, i);
+    		let child_ctx = get_each_context$k(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$h(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$k(key, child_ctx));
     	}
 
     	return {
@@ -11216,7 +11308,7 @@
     			if (dirty & /*entries, handleClick*/ 3) {
     				each_value = /*entries*/ ctx[0];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$h, each_1_anchor, get_each_context$h);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$k, each_1_anchor, get_each_context$k);
     				check_outros();
     			}
     		},
@@ -11389,7 +11481,7 @@
 
     /* src/icon-finder/components/ui/Tabs.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$g(ctx, list, i) {
+    function get_each_context$j(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[4] = list[i];
     	child_ctx[6] = i;
@@ -11646,7 +11738,7 @@
     }
 
     // (59:1) {#each list as listItem, i (listItem.side)}
-    function create_each_block$g(key_1, ctx) {
+    function create_each_block$j(key_1, ctx) {
     	let first;
     	let if_block_anchor;
     	let current;
@@ -11719,9 +11811,9 @@
     	const get_key = ctx => /*listItem*/ ctx[4].side;
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$g(ctx, each_value, i);
+    		let child_ctx = get_each_context$j(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$g(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$j(key, child_ctx));
     	}
 
     	return {
@@ -11747,7 +11839,7 @@
     			if (dirty & /*baseClass, list*/ 1) {
     				each_value = /*list*/ ctx[0];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$g, null, get_each_context$g);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$j, null, get_each_context$j);
     				check_outros();
     			}
     		},
@@ -12787,7 +12879,7 @@
 
     /* src/icon-finder/components/content/blocks/Filters.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$f(ctx, list, i) {
+    function get_each_context$i(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[13] = list[i][0];
     	child_ctx[14] = list[i][1];
@@ -12869,7 +12961,7 @@
     }
 
     // (71:3) {#each Object.entries(block.filters) as [key, filter], i (key)}
-    function create_each_block$f(key_1, ctx) {
+    function create_each_block$i(key_1, ctx) {
     	let first;
     	let filter;
     	let current;
@@ -12952,9 +13044,9 @@
     	const get_key = ctx => /*key*/ ctx[13];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$f(ctx, each_value, i);
+    		let child_ctx = get_each_context$i(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$f(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$i(key, child_ctx));
     	}
 
     	return {
@@ -12997,7 +13089,7 @@
     			if (dirty & /*Object, block, link, phrases, handleClick*/ 70) {
     				each_value = Object.entries(/*block*/ ctx[1].filters);
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$f, null, get_each_context$f);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$i, null, get_each_context$i);
     				check_outros();
     			}
     		},
@@ -13592,7 +13684,7 @@
 
     /* src/icon-finder/components/content/blocks/collections-list/Item.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$e(ctx, list, i) {
+    function get_each_context$h(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[15] = list[i];
     	return child_ctx;
@@ -13715,7 +13807,7 @@
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$e(get_each_context$e(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$h(get_each_context$h(ctx, each_value, i));
     	}
 
     	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -13749,13 +13841,13 @@
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$e(ctx, each_value, i);
+    					const child_ctx = get_each_context$h(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     						transition_in(each_blocks[i], 1);
     					} else {
-    						each_blocks[i] = create_each_block$e(child_ctx);
+    						each_blocks[i] = create_each_block$h(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(div, null);
@@ -13797,7 +13889,7 @@
     }
 
     // (106:4) {#each samples as sample}
-    function create_each_block$e(ctx) {
+    function create_each_block$h(ctx) {
     	let icon;
     	let current;
 
@@ -14149,7 +14241,7 @@
 
     /* src/icon-finder/components/content/blocks/collections-list/Category.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$d(ctx, list, i) {
+    function get_each_context$g(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[5] = list[i][0];
     	child_ctx[6] = list[i][1];
@@ -14182,7 +14274,7 @@
     }
 
     // (20:2) {#each Object.entries(items) as [prefix, info], i (prefix)}
-    function create_each_block$d(key_1, ctx) {
+    function create_each_block$g(key_1, ctx) {
     	let first;
     	let item;
     	let current;
@@ -14246,9 +14338,9 @@
     	const get_key = ctx => /*prefix*/ ctx[5];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$d(ctx, each_value, i);
+    		let child_ctx = get_each_context$g(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$d(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$g(key, child_ctx));
     	}
 
     	return {
@@ -14294,7 +14386,7 @@
     			if (dirty & /*provider, Object, items, onClick*/ 28) {
     				each_value = Object.entries(/*items*/ ctx[2]);
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$d, null, get_each_context$d);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$g, null, get_each_context$g);
     				check_outros();
     			}
     		},
@@ -14404,7 +14496,7 @@
 
     /* src/icon-finder/components/content/blocks/CollectionsList.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$c(ctx, list, i) {
+    function get_each_context$f(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[5] = list[i][0];
     	child_ctx[6] = list[i][1];
@@ -14446,7 +14538,7 @@
     }
 
     // (23:1) {#each Object.entries(block.collections) as [category, items], i (category)}
-    function create_each_block$c(key_1, ctx) {
+    function create_each_block$f(key_1, ctx) {
     	let first;
     	let category;
     	let current;
@@ -14509,9 +14601,9 @@
     	const get_key = ctx => /*category*/ ctx[5];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$c(ctx, each_value, i);
+    		let child_ctx = get_each_context$f(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$c(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$f(key, child_ctx));
     	}
 
     	let each_1_else = null;
@@ -14549,7 +14641,7 @@
     			if (dirty & /*onClick, block, Object, provider, phrases*/ 7) {
     				each_value = Object.entries(/*block*/ ctx[0].collections);
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$c, each_1_anchor, get_each_context$c);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$f, each_1_anchor, get_each_context$f);
     				check_outros();
 
     				if (!each_value.length && each_1_else) {
@@ -14918,7 +15010,7 @@
 
     /* src/icon-finder/components/content/blocks/icons/IconList.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$b(ctx, list, i) {
+    function get_each_context$e(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[14] = list[i];
     	return child_ctx;
@@ -15089,7 +15181,7 @@
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$b(get_each_context$b(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$e(get_each_context$e(ctx, each_value, i));
     	}
 
     	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -15118,13 +15210,13 @@
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$b(ctx, each_value, i);
+    					const child_ctx = get_each_context$e(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     						transition_in(each_blocks[i], 1);
     					} else {
-    						each_blocks[i] = create_each_block$b(child_ctx);
+    						each_blocks[i] = create_each_block$e(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
@@ -15166,7 +15258,7 @@
     }
 
     // (82:3) {#each filters as filter}
-    function create_each_block$b(ctx) {
+    function create_each_block$e(ctx) {
     	let filter;
     	let current;
 
@@ -15819,7 +15911,7 @@
 
     /* src/icon-finder/components/content/blocks/icons/Container.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$a(ctx, list, i) {
+    function get_each_context$d(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[16] = list[i];
     	child_ctx[18] = i;
@@ -15933,7 +16025,7 @@
     }
 
     // (230:2) {#each parsedIcons as item, i (item.name)}
-    function create_each_block$a(key_1, ctx) {
+    function create_each_block$d(key_1, ctx) {
     	let first;
     	let current_block_type_index;
     	let if_block;
@@ -16021,9 +16113,9 @@
     	const get_key = ctx => /*item*/ ctx[16].name;
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$a(ctx, each_value, i);
+    		let child_ctx = get_each_context$d(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$a(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$d(key, child_ctx));
     	}
 
     	return {
@@ -16053,7 +16145,7 @@
     			if (dirty & /*parsedIcons, onClick, isSelecting, isList*/ 15) {
     				each_value = /*parsedIcons*/ ctx[2];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$a, null, get_each_context$a);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$d, null, get_each_context$d);
     				check_outros();
     			}
 
@@ -16460,7 +16552,7 @@
 
     /* src/icon-finder/components/content/blocks/icons/Header.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$9(ctx, list, i) {
+    function get_each_context$c(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[11] = list[i];
     	return child_ctx;
@@ -16607,9 +16699,9 @@
     	const get_key = ctx => /*icon*/ ctx[11];
 
     	for (let i = 0; i < 1; i += 1) {
-    		let child_ctx = get_each_context$9(ctx, each_value, i);
+    		let child_ctx = get_each_context$c(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$9(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$c(key, child_ctx));
     	}
 
     	return {
@@ -16632,7 +16724,7 @@
     			if (dirty & /*mode, changeLayout, text*/ 324) {
     				each_value = [/*mode*/ ctx[6]];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$9, each_1_anchor, get_each_context$9);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$c, each_1_anchor, get_each_context$c);
     				check_outros();
     			}
     		},
@@ -16663,7 +16755,7 @@
     }
 
     // (49:4) {#each [mode] as icon (icon)}
-    function create_each_block$9(key_1, ctx) {
+    function create_each_block$c(key_1, ctx) {
     	let first;
     	let iconbutton;
     	let current;
@@ -16864,7 +16956,7 @@
 
     /* src/icon-finder/components/content/blocks/Pagination.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$8(ctx, list, i) {
+    function get_each_context$b(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[13] = list[i];
     	child_ctx[15] = i;
@@ -16885,9 +16977,9 @@
     	const get_key = ctx => /*page*/ ctx[13].page;
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$8(ctx, each_value, i);
+    		let child_ctx = get_each_context$b(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$8(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$b(key, child_ctx));
     	}
 
     	let if_block1 = /*block*/ ctx[0].more && create_if_block_2$7(ctx);
@@ -16950,7 +17042,7 @@
 
     			if (dirty & /*pages*/ 2) {
     				each_value = /*pages*/ ctx[1];
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, destroy_block, create_each_block$8, t1, get_each_context$8);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, destroy_block, create_each_block$b, t1, get_each_context$b);
     			}
 
     			if (/*block*/ ctx[0].more) {
@@ -17111,7 +17203,7 @@
     }
 
     // (70:2) {#each pages as page, i (page.page)}
-    function create_each_block$8(key_1, ctx) {
+    function create_each_block$b(key_1, ctx) {
     	let first;
     	let t0;
     	let a;
@@ -17956,7 +18048,7 @@
 
     /* src/icon-finder/components/content/views/Collection.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$7(ctx, list, i) {
+    function get_each_context$a(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[9] = list[i];
     	child_ctx[11] = i;
@@ -18068,9 +18160,9 @@
     	const get_key = ctx => /*item*/ ctx[9].key;
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$7(ctx, each_value, i);
+    		let child_ctx = get_each_context$a(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$7(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$a(key, child_ctx));
     	}
 
     	return {
@@ -18096,7 +18188,7 @@
     			if (dirty & /*filterBlocks*/ 128) {
     				each_value = /*filterBlocks*/ ctx[7];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$7, null, get_each_context$7);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$a, null, get_each_context$a);
     				check_outros();
     			}
     		},
@@ -18127,7 +18219,7 @@
     }
 
     // (79:3) {#each filterBlocks as item, i (item.key)}
-    function create_each_block$7(key_1, ctx) {
+    function create_each_block$a(key_1, ctx) {
     	let first;
     	let filters;
     	let current;
@@ -18702,7 +18794,7 @@
 
     /* src/icon-finder/components/content/views/Error.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$6(ctx, list, i) {
+    function get_each_context$9(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[7] = list[i];
     	return child_ctx;
@@ -18820,7 +18912,7 @@
     }
 
     // (50:0) {#each [error] as type (type)}
-    function create_each_block$6(key_1, ctx) {
+    function create_each_block$9(key_1, ctx) {
     	let first;
     	let block;
     	let current;
@@ -18883,9 +18975,9 @@
     	const get_key = ctx => /*type*/ ctx[7];
 
     	for (let i = 0; i < 1; i += 1) {
-    		let child_ctx = get_each_context$6(ctx, each_value, i);
+    		let child_ctx = get_each_context$9(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$6(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$9(key, child_ctx));
     	}
 
     	return {
@@ -18908,7 +19000,7 @@
     			if (dirty & /*error, handleReturn, errorPhrases, canReturn, text*/ 31) {
     				each_value = [/*error*/ ctx[0]];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$6, each_1_anchor, get_each_context$6);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$9, each_1_anchor, get_each_context$9);
     				check_outros();
     			}
     		},
@@ -19725,10 +19817,10 @@
     	let p;
     	let t;
     	let current;
-    	let if_block0 = !/*expanded*/ ctx[1] && create_if_block_3$3();
+    	let if_block0 = !/*expanded*/ ctx[2] && create_if_block_3$3();
 
     	function select_block_type(ctx, dirty) {
-    		if (/*canExpand*/ ctx[3]) return create_if_block_2$4;
+    		if (/*canExpand*/ ctx[4]) return create_if_block_2$4;
     		return create_else_block$1;
     	}
 
@@ -19751,9 +19843,9 @@
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (!/*expanded*/ ctx[1]) {
+    			if (!/*expanded*/ ctx[2]) {
     				if (if_block0) {
-    					if (dirty & /*expanded*/ 2) {
+    					if (dirty & /*expanded*/ 4) {
     						transition_in(if_block0, 1);
     					}
     				} else {
@@ -19791,7 +19883,7 @@
     	};
     }
 
-    // (48:3) {#if !expanded}
+    // (49:3) {#if !expanded}
     function create_if_block_3$3(ctx) {
     	let uiicon;
     	let current;
@@ -19820,7 +19912,7 @@
     	};
     }
 
-    // (55:3) {:else}
+    // (56:3) {:else}
     function create_else_block$1(ctx) {
     	let t_value = /*title*/ ctx[0] + ":" + "";
     	let t;
@@ -19841,10 +19933,14 @@
     	};
     }
 
-    // (51:3) {#if canExpand}
+    // (52:3) {#if canExpand}
     function create_if_block_2$4(ctx) {
     	let a;
-    	let t_value = /*title*/ ctx[0] + (/*expanded*/ ctx[1] ? ":" : "") + "";
+
+    	let t_value = (!/*expanded*/ ctx[2] && /*titleHidden*/ ctx[1] !== ""
+    	? /*titleHidden*/ ctx[1]
+    	: /*title*/ ctx[0]) + (/*expanded*/ ctx[2] ? ":" : "") + "";
+
     	let t;
     	let mounted;
     	let dispose;
@@ -19860,12 +19956,14 @@
     			append(a, t);
 
     			if (!mounted) {
-    				dispose = listen(a, "click", prevent_default(/*toggle*/ ctx[4]));
+    				dispose = listen(a, "click", prevent_default(/*toggle*/ ctx[5]));
     				mounted = true;
     			}
     		},
     		p(ctx, dirty) {
-    			if (dirty & /*title, expanded*/ 3 && t_value !== (t_value = /*title*/ ctx[0] + (/*expanded*/ ctx[1] ? ":" : "") + "")) set_data(t, t_value);
+    			if (dirty & /*expanded, titleHidden, title*/ 7 && t_value !== (t_value = (!/*expanded*/ ctx[2] && /*titleHidden*/ ctx[1] !== ""
+    			? /*titleHidden*/ ctx[1]
+    			: /*title*/ ctx[0]) + (/*expanded*/ ctx[2] ? ":" : "") + "")) set_data(t, t_value);
     		},
     		d(detaching) {
     			if (detaching) detach(a);
@@ -19875,11 +19973,11 @@
     	};
     }
 
-    // (58:1) {#if expanded}
+    // (59:1) {#if expanded}
     function create_if_block$9(ctx) {
     	let current;
-    	const default_slot_template = /*#slots*/ ctx[7].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[6], null);
+    	const default_slot_template = /*#slots*/ ctx[8].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[7], null);
 
     	return {
     		c() {
@@ -19894,8 +19992,8 @@
     		},
     		p(ctx, dirty) {
     			if (default_slot) {
-    				if (default_slot.p && (!current || dirty & /*$$scope*/ 64)) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[6], dirty, null, null);
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 128)) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[7], dirty, null, null);
     				}
     			}
     		},
@@ -19919,7 +20017,7 @@
     	let t;
     	let current;
     	let if_block0 = /*title*/ ctx[0] !== "" && create_if_block_1$5(ctx);
-    	let if_block1 = /*expanded*/ ctx[1] && create_if_block$9(ctx);
+    	let if_block1 = /*expanded*/ ctx[2] && create_if_block$9(ctx);
 
     	return {
     		c() {
@@ -19927,7 +20025,7 @@
     			if (if_block0) if_block0.c();
     			t = space();
     			if (if_block1) if_block1.c();
-    			attr(div, "class", /*className*/ ctx[2]);
+    			attr(div, "class", /*className*/ ctx[3]);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -19960,11 +20058,11 @@
     				check_outros();
     			}
 
-    			if (/*expanded*/ ctx[1]) {
+    			if (/*expanded*/ ctx[2]) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
 
-    					if (dirty & /*expanded*/ 2) {
+    					if (dirty & /*expanded*/ 4) {
     						transition_in(if_block1, 1);
     					}
     				} else {
@@ -19983,8 +20081,8 @@
     				check_outros();
     			}
 
-    			if (!current || dirty & /*className*/ 4) {
-    				attr(div, "class", /*className*/ ctx[2]);
+    			if (!current || dirty & /*className*/ 8) {
+    				attr(div, "class", /*className*/ ctx[3]);
     			}
     		},
     		i(local) {
@@ -20013,6 +20111,7 @@
     	
     	let { name } = $$props;
     	let { title } = $$props;
+    	let { titleHidden = "" } = $$props;
 
     	// Config key
     	let key = name + "Visible";
@@ -20035,31 +20134,42 @@
      * Toggle block
      */
     	function toggle() {
-    		$$invalidate(1, expanded = config[key] = !expanded);
+    		$$invalidate(2, expanded = config[key] = !expanded);
     		registry.callback({ type: "config" });
     	}
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(5, name = $$props.name);
+    		if ("name" in $$props) $$invalidate(6, name = $$props.name);
     		if ("title" in $$props) $$invalidate(0, title = $$props.title);
-    		if ("$$scope" in $$props) $$invalidate(6, $$scope = $$props.$$scope);
+    		if ("titleHidden" in $$props) $$invalidate(1, titleHidden = $$props.titleHidden);
+    		if ("$$scope" in $$props) $$invalidate(7, $$scope = $$props.$$scope);
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*name, expanded*/ 34) {
+    		if ($$self.$$.dirty & /*name, expanded*/ 68) {
     			{
-    				$$invalidate(2, className = baseClass$2 + " " + baseClass$2 + "--" + name + " " + baseClass$2 + "--" + (expanded ? "expanded" : "collapsed"));
+    				$$invalidate(3, className = baseClass$2 + " " + baseClass$2 + "--" + name + " " + baseClass$2 + "--" + (expanded ? "expanded" : "collapsed"));
     			}
     		}
     	};
 
-    	return [title, expanded, className, canExpand, toggle, name, $$scope, slots];
+    	return [
+    		title,
+    		titleHidden,
+    		expanded,
+    		className,
+    		canExpand,
+    		toggle,
+    		name,
+    		$$scope,
+    		slots
+    	];
     }
 
     class FooterBlock extends SvelteComponent {
     	constructor(options) {
     		super();
-    		init(this, options, instance$j, create_fragment$j, safe_not_equal, { name: 5, title: 0 });
+    		init(this, options, instance$j, create_fragment$j, safe_not_equal, { name: 6, title: 0, titleHidden: 1 });
     	}
     }
 
@@ -21095,7 +21205,7 @@
 
     /* src/icon-finder/components/content/footers/parts/props/Size.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$5(ctx, list, i) {
+    function get_each_context$8(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[8] = list[i];
     	child_ctx[10] = i;
@@ -21103,7 +21213,7 @@
     }
 
     // (124:1) {#each props as prop, i (prop)}
-    function create_each_block$5(key_1, ctx) {
+    function create_each_block$8(key_1, ctx) {
     	let first;
     	let sizeinput;
     	let current;
@@ -21170,9 +21280,9 @@
     	const get_key = ctx => /*prop*/ ctx[8];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$5(ctx, each_value, i);
+    		let child_ctx = get_each_context$8(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$5(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$8(key, child_ctx));
     	}
 
     	return {
@@ -21195,7 +21305,7 @@
     			if (dirty & /*props, customisations, placeholders, customise*/ 23) {
     				each_value = /*props*/ ctx[4];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$5, each_1_anchor, get_each_context$5);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$8, each_1_anchor, get_each_context$8);
     				check_outros();
     			}
     		},
@@ -21602,7 +21712,7 @@
 
     /* src/icon-finder/components/content/footers/parts/props/Rotate.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$4(ctx, list, i) {
+    function get_each_context$7(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[6] = list[i].count;
     	child_ctx[7] = list[i].key;
@@ -21611,7 +21721,7 @@
     }
 
     // (45:1) {#each list as { count, key }
-    function create_each_block$4(key_1, ctx) {
+    function create_each_block$7(key_1, ctx) {
     	let first;
     	let button;
     	let current;
@@ -21685,9 +21795,9 @@
     	const get_key = ctx => /*key*/ ctx[7];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$4(ctx, each_value, i);
+    		let child_ctx = get_each_context$7(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$4(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$7(key, child_ctx));
     	}
 
     	return {
@@ -21710,7 +21820,7 @@
     			if (dirty & /*list, buttonPhrases, value, rotateClicked*/ 15) {
     				each_value = /*list*/ ctx[1];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$4, each_1_anchor, get_each_context$4);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$7, each_1_anchor, get_each_context$7);
     				check_outros();
     			}
     		},
@@ -21853,7 +21963,7 @@
 
     /* src/icon-finder/components/content/footers/parts/props/Flip.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$3(ctx, list, i) {
+    function get_each_context$6(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[6] = list[i];
     	child_ctx[8] = i;
@@ -21861,7 +21971,7 @@
     }
 
     // (32:1) {#each list as item, i (item.key)}
-    function create_each_block$3(key_1, ctx) {
+    function create_each_block$6(key_1, ctx) {
     	let first;
     	let button;
     	let current;
@@ -21933,9 +22043,9 @@
     	const get_key = ctx => /*item*/ ctx[6].key;
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$3(ctx, each_value, i);
+    		let child_ctx = get_each_context$6(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$3(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$6(key, child_ctx));
     	}
 
     	return {
@@ -21958,7 +22068,7 @@
     			if (dirty & /*list, customisations, flipClicked*/ 7) {
     				each_value = /*list*/ ctx[1];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$3, each_1_anchor, get_each_context$3);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$6, each_1_anchor, get_each_context$6);
     				check_outros();
     			}
     		},
@@ -22081,7 +22191,7 @@
 
     /* src/icon-finder/components/content/footers/parts/props/Inline.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$2(ctx, list, i) {
+    function get_each_context$5(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[5] = list[i].mode;
     	child_ctx[6] = list[i].inline;
@@ -22091,7 +22201,7 @@
     }
 
     // (45:1) {#each list as { mode, inline, key }
-    function create_each_block$2(key_1, ctx) {
+    function create_each_block$5(key_1, ctx) {
     	let first;
     	let button;
     	let current;
@@ -22161,9 +22271,9 @@
     	const get_key = ctx => /*key*/ ctx[7];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$2(ctx, each_value, i);
+    		let child_ctx = get_each_context$5(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$2(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$5(key, child_ctx));
     	}
 
     	return {
@@ -22186,7 +22296,7 @@
     			if (dirty & /*list, buttonPhrases, value, inlineClicked*/ 15) {
     				each_value = /*list*/ ctx[1];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$2, each_1_anchor, get_each_context$2);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$5, each_1_anchor, get_each_context$5);
     				check_outros();
     			}
     		},
@@ -22748,11 +22858,18 @@
 
     /* src/icon-finder/components/content/footers/parts/samples/Full.svelte generated by Svelte v3.38.2 */
 
-    function create_fragment$9(ctx) {
-    	let div;
+    function get_each_context$4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[0] = list[i];
+    	return child_ctx;
+    }
+
+    // (126:1) {#each [data] as icon (icon.name)}
+    function create_each_block$4(key_1, ctx) {
+    	let first;
     	let iconcomponent;
     	let current;
-    	const iconcomponent_spread_levels = [{ icon: /*data*/ ctx[0].name }, /*props*/ ctx[2]];
+    	const iconcomponent_spread_levels = [{ icon: /*icon*/ ctx[0].name }, /*props*/ ctx[3]];
     	let iconcomponent_props = {};
 
     	for (let i = 0; i < iconcomponent_spread_levels.length; i += 1) {
@@ -22762,30 +22879,29 @@
     	iconcomponent = new Icon({ props: iconcomponent_props });
 
     	return {
+    		key: key_1,
+    		first: null,
     		c() {
-    			div = element("div");
+    			first = empty();
     			create_component(iconcomponent.$$.fragment);
-    			attr(div, "class", "iif-footer-sample iif-footer-sample--block iif-footer-sample--loaded");
-    			attr(div, "style", /*style*/ ctx[1]);
+    			this.first = first;
     		},
     		m(target, anchor) {
-    			insert(target, div, anchor);
-    			mount_component(iconcomponent, div, null);
+    			insert(target, first, anchor);
+    			mount_component(iconcomponent, target, anchor);
     			current = true;
     		},
-    		p(ctx, [dirty]) {
-    			const iconcomponent_changes = (dirty & /*data, props*/ 5)
+    		p(new_ctx, dirty) {
+    			ctx = new_ctx;
+
+    			const iconcomponent_changes = (dirty & /*data, props*/ 10)
     			? get_spread_update(iconcomponent_spread_levels, [
-    					dirty & /*data*/ 1 && { icon: /*data*/ ctx[0].name },
-    					dirty & /*props*/ 4 && get_spread_object(/*props*/ ctx[2])
+    					dirty & /*data*/ 2 && { icon: /*icon*/ ctx[0].name },
+    					dirty & /*props*/ 8 && get_spread_object(/*props*/ ctx[3])
     				])
     			: {};
 
     			iconcomponent.$set(iconcomponent_changes);
-
-    			if (!current || dirty & /*style*/ 2) {
-    				attr(div, "style", /*style*/ ctx[1]);
-    			}
     		},
     		i(local) {
     			if (current) return;
@@ -22797,8 +22913,80 @@
     			current = false;
     		},
     		d(detaching) {
+    			if (detaching) detach(first);
+    			destroy_component(iconcomponent, detaching);
+    		}
+    	};
+    }
+
+    function create_fragment$9(ctx) {
+    	let div;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let current;
+    	let each_value = [/*data*/ ctx[1]];
+    	const get_key = ctx => /*icon*/ ctx[0].name;
+
+    	for (let i = 0; i < 1; i += 1) {
+    		let child_ctx = get_each_context$4(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$4(key, child_ctx));
+    	}
+
+    	return {
+    		c() {
+    			div = element("div");
+
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr(div, "class", "iif-foote\n\tr-sample iif-footer-sample--block iif-footer-sample--loaded");
+    			attr(div, "style", /*style*/ ctx[2]);
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].m(div, null);
+    			}
+
+    			current = true;
+    		},
+    		p(ctx, [dirty]) {
+    			if (dirty & /*data, props*/ 10) {
+    				each_value = [/*data*/ ctx[1]];
+    				group_outros();
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div, outro_and_destroy_block, create_each_block$4, null, get_each_context$4);
+    				check_outros();
+    			}
+
+    			if (!current || dirty & /*style*/ 4) {
+    				attr(div, "style", /*style*/ ctx[2]);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < 1; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o(local) {
+    			for (let i = 0; i < 1; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d(detaching) {
     			if (detaching) detach(div);
-    			destroy_component(iconcomponent);
+
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].d();
+    			}
     		}
     	};
     }
@@ -22862,12 +23050,12 @@
     	let props;
 
     	$$self.$$set = $$props => {
-    		if ("icon" in $$props) $$invalidate(3, icon = $$props.icon);
+    		if ("icon" in $$props) $$invalidate(0, icon = $$props.icon);
     		if ("customisations" in $$props) $$invalidate(4, customisations = $$props.customisations);
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*icon, customisations*/ 24) {
+    		if ($$self.$$.dirty & /*icon, customisations*/ 17) {
     			{
     				// Get name
     				const name = lib.iconToString(icon);
@@ -22881,19 +23069,19 @@
     				// Width / height ratio
     				const ratio = iconData.width / iconData.height;
 
-    				$$invalidate(0, data = { name, data: iconData, rotated, ratio });
+    				$$invalidate(1, data = { name, data: iconData, rotated, ratio });
     			}
     		}
 
-    		if ($$self.$$.dirty & /*customisations, style, data*/ 19) {
+    		if ($$self.$$.dirty & /*customisations, style, data*/ 22) {
     			{
-    				$$invalidate(1, style = "");
+    				$$invalidate(2, style = "");
 
     				// Add color
     				if (customisations.color) {
-    					$$invalidate(1, style += "color: " + customisations.color + ";");
+    					$$invalidate(2, style += "color: " + customisations.color + ";");
     				} else {
-    					$$invalidate(1, style += "color: " + defaultColor + ";");
+    					$$invalidate(2, style += "color: " + defaultColor + ";");
     				}
 
     				// Set dimensions
@@ -22908,20 +23096,20 @@
     					// Scale
     					scaleSample(size, true);
 
-    					$$invalidate(1, style += "font-size: " + size.height + "px;");
+    					$$invalidate(2, style += "font-size: " + size.height + "px;");
     				}
     			}
     		}
 
-    		if ($$self.$$.dirty & /*customisations, data*/ 17) {
+    		if ($$self.$$.dirty & /*customisations, data*/ 18) {
     			{
-    				$$invalidate(2, props = {});
+    				$$invalidate(3, props = {});
 
     				["hFlip", "vFlip", "rotate"].forEach(key => {
     					const prop = key;
 
     					if (customisations[prop]) {
-    						$$invalidate(2, props[prop] = customisations[prop], props);
+    						$$invalidate(3, props[prop] = customisations[prop], props);
     					}
     				});
 
@@ -22935,38 +23123,37 @@
 
     				if (size !== void 0) {
     					scaleSample(size, false);
-    					$$invalidate(2, props.width = size.width + "", props);
-    					$$invalidate(2, props.height = size.height + "", props);
+    					$$invalidate(3, props.width = size.width + "", props);
+    					$$invalidate(3, props.height = size.height + "", props);
     				}
     			}
     		}
     	};
 
-    	return [data, style, props, icon, customisations];
+    	return [icon, data, style, props, customisations];
     }
 
     class Full$1 extends SvelteComponent {
     	constructor(options) {
     		super();
-    		init(this, options, instance$9, create_fragment$9, safe_not_equal, { icon: 3, customisations: 4 });
+    		init(this, options, instance$9, create_fragment$9, safe_not_equal, { icon: 0, customisations: 4 });
     	}
     }
 
     /* src/icon-finder/components/content/footers/parts/samples/Inline.svelte generated by Svelte v3.38.2 */
 
-    function create_fragment$8(ctx) {
-    	let div;
-    	let p;
-    	let t0_value = /*samplePhrases*/ ctx[2].before + "";
-    	let t0;
-    	let t1;
-    	let span;
+    function get_each_context$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[7] = list[i];
+    	return child_ctx;
+    }
+
+    // (62:3) {#each [props] as iconProps (iconProps.icon)}
+    function create_each_block$3(key_1, ctx) {
+    	let first;
     	let iconcomponent;
-    	let t2;
-    	let t3_value = /*samplePhrases*/ ctx[2].after + "";
-    	let t3;
     	let current;
-    	const iconcomponent_spread_levels = [/*props*/ ctx[0]];
+    	const iconcomponent_spread_levels = [/*iconProps*/ ctx[7]];
     	let iconcomponent_props = {};
 
     	for (let i = 0; i < iconcomponent_spread_levels.length; i += 1) {
@@ -22976,39 +23163,26 @@
     	iconcomponent = new Icon({ props: iconcomponent_props });
 
     	return {
+    		key: key_1,
+    		first: null,
     		c() {
-    			div = element("div");
-    			p = element("p");
-    			t0 = text(t0_value);
-    			t1 = space();
-    			span = element("span");
+    			first = empty();
     			create_component(iconcomponent.$$.fragment);
-    			t2 = space();
-    			t3 = text(t3_value);
-    			attr(span, "style", /*style*/ ctx[1]);
-    			attr(div, "class", "iif-footer-sample iif-footer-sample--inline iif-footer-sample--loaded");
+    			this.first = first;
     		},
     		m(target, anchor) {
-    			insert(target, div, anchor);
-    			append(div, p);
-    			append(p, t0);
-    			append(p, t1);
-    			append(p, span);
-    			mount_component(iconcomponent, span, null);
-    			append(p, t2);
-    			append(p, t3);
+    			insert(target, first, anchor);
+    			mount_component(iconcomponent, target, anchor);
     			current = true;
     		},
-    		p(ctx, [dirty]) {
+    		p(new_ctx, dirty) {
+    			ctx = new_ctx;
+
     			const iconcomponent_changes = (dirty & /*props*/ 1)
-    			? get_spread_update(iconcomponent_spread_levels, [get_spread_object(/*props*/ ctx[0])])
+    			? get_spread_update(iconcomponent_spread_levels, [get_spread_object(/*iconProps*/ ctx[7])])
     			: {};
 
     			iconcomponent.$set(iconcomponent_changes);
-
-    			if (!current || dirty & /*style*/ 2) {
-    				attr(span, "style", /*style*/ ctx[1]);
-    			}
     		},
     		i(local) {
     			if (current) return;
@@ -23020,8 +23194,100 @@
     			current = false;
     		},
     		d(detaching) {
+    			if (detaching) detach(first);
+    			destroy_component(iconcomponent, detaching);
+    		}
+    	};
+    }
+
+    function create_fragment$8(ctx) {
+    	let div;
+    	let p;
+    	let t0_value = /*samplePhrases*/ ctx[2].before + "";
+    	let t0;
+    	let t1;
+    	let span;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let t2;
+    	let t3_value = /*samplePhrases*/ ctx[2].after + "";
+    	let t3;
+    	let current;
+    	let each_value = [/*props*/ ctx[0]];
+    	const get_key = ctx => /*iconProps*/ ctx[7].icon;
+
+    	for (let i = 0; i < 1; i += 1) {
+    		let child_ctx = get_each_context$3(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$3(key, child_ctx));
+    	}
+
+    	return {
+    		c() {
+    			div = element("div");
+    			p = element("p");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			span = element("span");
+
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t2 = space();
+    			t3 = text(t3_value);
+    			attr(span, "style", /*style*/ ctx[1]);
+    			attr(div, "class", "iif-footer-sample iif-footer-sample--inline iif-footer-sample--loaded");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			append(div, p);
+    			append(p, t0);
+    			append(p, t1);
+    			append(p, span);
+
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].m(span, null);
+    			}
+
+    			append(p, t2);
+    			append(p, t3);
+    			current = true;
+    		},
+    		p(ctx, [dirty]) {
+    			if (dirty & /*props*/ 1) {
+    				each_value = [/*props*/ ctx[0]];
+    				group_outros();
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, span, outro_and_destroy_block, create_each_block$3, null, get_each_context$3);
+    				check_outros();
+    			}
+
+    			if (!current || dirty & /*style*/ 2) {
+    				attr(span, "style", /*style*/ ctx[1]);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < 1; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o(local) {
+    			for (let i = 0; i < 1; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d(detaching) {
     			if (detaching) detach(div);
-    			destroy_component(iconcomponent);
+
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].d();
+    			}
     		}
     	};
     }
@@ -23129,7 +23395,7 @@
 
     /* src/icon-finder/components/content/footers/parts/Icons.svelte generated by Svelte v3.38.2 */
 
-    function get_each_context$1(ctx, list, i) {
+    function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[13] = list[i];
     	child_ctx[15] = i;
@@ -23228,7 +23494,7 @@
     }
 
     // (99:2) {#each items as item, i (item.name)}
-    function create_each_block$1(key_1, ctx) {
+    function create_each_block$2(key_1, ctx) {
     	let li;
     	let a;
     	let iconcomponent;
@@ -23381,9 +23647,9 @@
     	const get_key = ctx => /*item*/ ctx[13].name;
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		let child_ctx = get_each_context$1(ctx, each_value, i);
+    		let child_ctx = get_each_context$2(ctx, each_value, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block$1(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$2(key, child_ctx));
     	}
 
     	return {
@@ -23410,7 +23676,7 @@
     			if (dirty & /*items, onClick, onSelect, props*/ 23) {
     				each_value = /*items*/ ctx[1];
     				group_outros();
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$1, null, get_each_context$1);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, outro_and_destroy_block, create_each_block$2, null, get_each_context$2);
     				check_outros();
     			}
 
@@ -23633,18 +23899,74 @@
 
     /* src/icon-finder/components/content/footers/parts/name/Simple.svelte generated by Svelte v3.38.2 */
 
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[0] = list[i];
+    	return child_ctx;
+    }
+
+    // (28:3) {#each [iconName] as iconName (iconName)}
+    function create_each_block$1(key_1, ctx) {
+    	let first;
+    	let iconcomponent;
+    	let current;
+    	iconcomponent = new Icon({ props: { icon: /*iconName*/ ctx[0] } });
+
+    	return {
+    		key: key_1,
+    		first: null,
+    		c() {
+    			first = empty();
+    			create_component(iconcomponent.$$.fragment);
+    			this.first = first;
+    		},
+    		m(target, anchor) {
+    			insert(target, first, anchor);
+    			mount_component(iconcomponent, target, anchor);
+    			current = true;
+    		},
+    		p(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const iconcomponent_changes = {};
+    			if (dirty & /*iconName*/ 1) iconcomponent_changes.icon = /*iconName*/ ctx[0];
+    			iconcomponent.$set(iconcomponent_changes);
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(iconcomponent.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(iconcomponent.$$.fragment, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(first);
+    			destroy_component(iconcomponent, detaching);
+    		}
+    	};
+    }
+
     function create_fragment$6(ctx) {
     	let div1;
     	let dl;
     	let dt;
     	let dd;
-    	let iconcomponent;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
     	let t1;
     	let div0;
     	let span;
     	let t2;
     	let current;
-    	iconcomponent = new Icon({ props: { icon: /*iconName*/ ctx[0] } });
+    	let each_value = [/*iconName*/ ctx[0]];
+    	const get_key = ctx => /*iconName*/ ctx[0];
+
+    	for (let i = 0; i < 1; i += 1) {
+    		let child_ctx = get_each_context$1(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$1(key, child_ctx));
+    	}
 
     	return {
     		c() {
@@ -23653,7 +23975,11 @@
     			dt = element("dt");
     			dt.textContent = `${phrases$1.footer.iconName}`;
     			dd = element("dd");
-    			create_component(iconcomponent.$$.fragment);
+
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].c();
+    			}
+
     			t1 = space();
     			div0 = element("div");
     			span = element("span");
@@ -23666,7 +23992,11 @@
     			append(div1, dl);
     			append(dl, dt);
     			append(dl, dd);
-    			mount_component(iconcomponent, dd, null);
+
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].m(dd, null);
+    			}
+
     			append(dd, t1);
     			append(dd, div0);
     			append(div0, span);
@@ -23674,23 +24004,37 @@
     			current = true;
     		},
     		p(ctx, [dirty]) {
-    			const iconcomponent_changes = {};
-    			if (dirty & /*iconName*/ 1) iconcomponent_changes.icon = /*iconName*/ ctx[0];
-    			iconcomponent.$set(iconcomponent_changes);
+    			if (dirty & /*iconName*/ 1) {
+    				each_value = [/*iconName*/ ctx[0]];
+    				group_outros();
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, dd, outro_and_destroy_block, create_each_block$1, t1, get_each_context$1);
+    				check_outros();
+    			}
+
     			if (!current || dirty & /*text*/ 2) set_data(t2, /*text*/ ctx[1]);
     		},
     		i(local) {
     			if (current) return;
-    			transition_in(iconcomponent.$$.fragment, local);
+
+    			for (let i = 0; i < 1; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
     			current = true;
     		},
     		o(local) {
-    			transition_out(iconcomponent.$$.fragment, local);
+    			for (let i = 0; i < 1; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
     			current = false;
     		},
     		d(detaching) {
     			if (detaching) detach(div1);
-    			destroy_component(iconcomponent);
+
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].d();
+    			}
     		}
     	};
     }
@@ -23839,6 +24183,7 @@
             'svelte-api': 'api',
             'svelte-offline': 'offline',
         },
+        ember: 'api',
         svg: {
             'svg-raw': 'raw',
             'svg-box': 'raw',
@@ -23979,7 +24324,7 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getComponentImport = exports.componentPackages = exports.iconifyVersion = void 0;
     // Iconify version (replaced during build!)
-    exports.iconifyVersion = '2.0.2';
+    exports.iconifyVersion = '2.0.3';
     exports.componentPackages = {
         react: {
             name: '@iconify/react',
@@ -23995,6 +24340,9 @@
         svelte: {
             name: '@iconify/svelte',
             version: '@alpha',
+        },
+        ember: {
+            name: '@iconify/ember',
         },
     };
     /**
@@ -24143,6 +24491,14 @@
                 addDynamicAttr(list, key, value, ':{var}="{value}"');
             }
         }
+        function addEmberAttr(list, key, value) {
+            if (typeof value === 'string' && key !== 'icon') {
+                addAttr(list, '@' + key, value);
+            }
+            else {
+                addDynamicAttr(list, key, value, '@{var}={{value}}');
+            }
+        }
         /**
          * Merge attribute values
          */
@@ -24189,7 +24545,7 @@
          * Get Vue offline parser
          */
         function vueParser(offline, vue3) {
-            const templateCode = '<template>\n\t<Icon {attr} />\n</template>';
+            const templateCode = '<Icon {attr} />';
             const scriptOfflineCode = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n\tdata() {\n\t\treturn {\n\t\t\ticons: {\n\t\t\t\t{varName},\n\t\t\t},\n\t\t};\n\t},\n});';
             const scriptOnlineCode = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n});';
             const scriptCode = offline ? scriptOfflineCode : scriptOnlineCode;
@@ -24215,6 +24571,7 @@
                         versions.componentPackages[vue3 ? 'vue3' : 'vue2'].name +
                         "';",
                 },
+                useType: 'use-in-template',
             };
             addMultipleAttributeParsers(parser, getCustomisationAttributes(true, false), addVueAttr);
             return parser;
@@ -24233,6 +24590,7 @@
                     install: versions.getComponentImport('svelte'),
                     import: "import Icon from '" + versions.componentPackages.svelte.name + "';",
                 },
+                useType: 'use-in-template',
             };
             addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
             return parser;
@@ -24253,8 +24611,28 @@
                         versions.componentPackages.react.name +
                         "';",
                 },
+                useType: 'use-in-template',
             };
             addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
+            return parser;
+        }
+        function emberParser() {
+            const parser = {
+                iconParser: (list, valueStr, valueIcon) => addAttr(list, 'icon', valueStr),
+                parsers: {},
+                merge: mergeAttributes,
+                template: '<IconifyIcon {attr} />',
+                docs: {
+                    type: 'ember',
+                    href: docsBase + 'ember/',
+                },
+                npm: {
+                    install: versions.getComponentImport('ember'),
+                    isAddon: true,
+                },
+                useType: 'use-in-template',
+            };
+            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addEmberAttr);
             return parser;
         }
         /**
@@ -24295,6 +24673,7 @@
                         type: 'iconify',
                         href: docsBase + 'svg-framework/',
                     },
+                    useType: 'use-in-html',
                 };
             // SVG
             case 'svg-raw':
@@ -24302,6 +24681,7 @@
             case 'svg-box':
                 parser = {
                     parsers: {},
+                    useType: 'use-generic',
                 };
                 addMultipleAttributeParsers(parser, getCustomisationAttributes(false, true), addRawAttr);
                 return parser;
@@ -24324,6 +24704,9 @@
                 return svelteParser(true);
             case 'svelte-api':
                 return svelteParser(false);
+            // Ember
+            case 'ember':
+                return emberParser();
         }
     }
     /**
@@ -24656,12 +25039,17 @@
 
     exports.codeOutputComponentKeys = [
         'install-simple',
+        'install-addon',
         'install-offline',
         'import-simple',
         'import-offline',
         'vue-simple',
         'vue-offline',
-        'use',
+        // Usage
+        'use-in-code',
+        'use-in-template',
+        'use-in-html',
+        'use-generic',
     ];
     /**
      * Convert template to string
@@ -24768,6 +25156,7 @@
         const output = {
             docs: parser.docs,
         };
+        const useKey = parser.useType;
         // Add language specific stuff
         switch (lang) {
             case 'iconify': {
@@ -24849,14 +25238,16 @@
                         parser.npm.install +
                         ' ' +
                         npm.package,
-                    'import-offline': resolveTemplate(parser.npm.import, merged, customisations$1) +
-                        '\nimport ' +
-                        npm.name +
-                        " from '" +
-                        npm.package +
-                        npm.file +
-                        "';",
-                    'use': html$1
+                    'import-offline': parser.npm.import
+                        ? resolveTemplate(parser.npm.import, merged, customisations$1) +
+                            '\nimport ' +
+                            npm.name +
+                            " from '" +
+                            npm.package +
+                            npm.file +
+                            "';"
+                        : void 0,
+                    [useKey]: html$1
                         .replace(/{varName}/g, npm.name)
                         .replace('{iconPackage}', npm.package + npm.file),
                 };
@@ -24876,14 +25267,21 @@
             case 'react-api':
             case 'svelte-api':
             case 'vue2-api':
-            case 'vue3-api': {
+            case 'vue3-api':
+            case 'ember': {
                 if (!parser.npm) {
                     return null;
                 }
+                const parserNPM = parser.npm;
+                const installKey = parserNPM.isAddon
+                    ? 'install-addon'
+                    : 'install-simple';
                 output.component = {
-                    'install-simple': 'npm install --save-dev ' + parser.npm.install,
-                    'import-simple': resolveTemplate(parser.npm.import, merged, customisations$1),
-                    'use': html$1,
+                    [installKey]: 'npm install --save-dev ' + parserNPM.install,
+                    'import-simple': parserNPM.import
+                        ? resolveTemplate(parserNPM.import, merged, customisations$1)
+                        : void 0,
+                    [useKey]: html$1,
                 };
                 if (parser.vueTemplate !== void 0) {
                     const html = typeof parser.vueTemplate === 'function'
@@ -25218,10 +25616,10 @@
     	let t5;
     	let if_block6_anchor;
     	let current;
-    	let if_block0 = /*output*/ ctx[2].header && create_if_block_10(ctx);
-    	let if_block1 = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] && create_if_block_9(ctx);
-    	let if_block2 = /*output*/ ctx[2].iconify && create_if_block_8$1(ctx);
-    	let if_block3 = /*output*/ ctx[2].raw && create_if_block_7$1(ctx);
+    	let if_block0 = /*output*/ ctx[2].header && create_if_block_11(ctx);
+    	let if_block1 = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] && create_if_block_10(ctx);
+    	let if_block2 = /*output*/ ctx[2].iconify && create_if_block_9(ctx);
+    	let if_block3 = /*output*/ ctx[2].raw && create_if_block_8$1(ctx);
     	let if_block4 = /*output*/ ctx[2].component && create_if_block_5$1(ctx);
     	let if_block5 = /*output*/ ctx[2].footer && create_if_block_2$2(ctx);
     	let if_block6 = /*output*/ ctx[2].docs && create_if_block_1$1(ctx);
@@ -25269,7 +25667,7 @@
     						transition_in(if_block0, 1);
     					}
     				} else {
-    					if_block0 = create_if_block_10(ctx);
+    					if_block0 = create_if_block_11(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
     					if_block0.m(t0.parentNode, t0);
@@ -25288,7 +25686,7 @@
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block_9(ctx);
+    					if_block1 = create_if_block_10(ctx);
     					if_block1.c();
     					if_block1.m(t1.parentNode, t1);
     				}
@@ -25305,7 +25703,7 @@
     						transition_in(if_block2, 1);
     					}
     				} else {
-    					if_block2 = create_if_block_8$1(ctx);
+    					if_block2 = create_if_block_9(ctx);
     					if_block2.c();
     					transition_in(if_block2, 1);
     					if_block2.m(t2.parentNode, t2);
@@ -25328,7 +25726,7 @@
     						transition_in(if_block3, 1);
     					}
     				} else {
-    					if_block3 = create_if_block_7$1(ctx);
+    					if_block3 = create_if_block_8$1(ctx);
     					if_block3.c();
     					transition_in(if_block3, 1);
     					if_block3.m(t3.parentNode, t3);
@@ -25451,12 +25849,12 @@
     }
 
     // (70:1) {#if output.header}
-    function create_if_block_10(ctx) {
+    function create_if_block_11(ctx) {
     	let t;
     	let if_block1_anchor;
     	let current;
-    	let if_block0 = /*output*/ ctx[2].header.text && create_if_block_12(ctx);
-    	let if_block1 = /*output*/ ctx[2].header.code && create_if_block_11(ctx);
+    	let if_block0 = /*output*/ ctx[2].header.text && create_if_block_13(ctx);
+    	let if_block1 = /*output*/ ctx[2].header.code && create_if_block_12(ctx);
 
     	return {
     		c() {
@@ -25477,7 +25875,7 @@
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
     				} else {
-    					if_block0 = create_if_block_12(ctx);
+    					if_block0 = create_if_block_13(ctx);
     					if_block0.c();
     					if_block0.m(t.parentNode, t);
     				}
@@ -25494,7 +25892,7 @@
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block_11(ctx);
+    					if_block1 = create_if_block_12(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
@@ -25528,7 +25926,7 @@
     }
 
     // (71:2) {#if output.header.text}
-    function create_if_block_12(ctx) {
+    function create_if_block_13(ctx) {
     	let p;
     	let t_value = /*output*/ ctx[2].header.text + "";
     	let t;
@@ -25552,7 +25950,7 @@
     }
 
     // (74:2) {#if output.header.code}
-    function create_if_block_11(ctx) {
+    function create_if_block_12(ctx) {
     	let sampleinput;
     	let current;
 
@@ -25589,7 +25987,7 @@
     }
 
     // (79:1) {#if codePhrases.intro[mode]}
-    function create_if_block_9(ctx) {
+    function create_if_block_10(ctx) {
     	let p;
     	let t_value = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] + "";
     	let t;
@@ -25613,7 +26011,7 @@
     }
 
     // (83:1) {#if output.iconify}
-    function create_if_block_8$1(ctx) {
+    function create_if_block_9(ctx) {
     	let p0;
     	let t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace("{name}", /*icon*/ ctx[0].name) + "";
     	let t0;
@@ -25698,7 +26096,7 @@
     }
 
     // (91:1) {#if output.raw}
-    function create_if_block_7$1(ctx) {
+    function create_if_block_8$1(ctx) {
     	let each_1_anchor;
     	let current;
     	let each_value_1 = /*output*/ ctx[2].raw;
@@ -25901,12 +26299,10 @@
 
     // (99:3) {#if output.component[key]}
     function create_if_block_6$1(ctx) {
-    	let p;
-    	let t0_value = /*codePhrases*/ ctx[5].component[/*key*/ ctx[9]] + "";
-    	let t0;
-    	let t1;
+    	let t;
     	let sampleinput;
     	let current;
+    	let if_block = /*codePhrases*/ ctx[5].component[/*key*/ ctx[9]] && create_if_block_7$1(ctx);
 
     	sampleinput = new Sample({
     			props: {
@@ -25916,19 +26312,18 @@
 
     	return {
     		c() {
-    			p = element("p");
-    			t0 = text(t0_value);
-    			t1 = space();
+    			if (if_block) if_block.c();
+    			t = space();
     			create_component(sampleinput.$$.fragment);
     		},
     		m(target, anchor) {
-    			insert(target, p, anchor);
-    			append(p, t0);
-    			insert(target, t1, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert(target, t, anchor);
     			mount_component(sampleinput, target, anchor);
     			current = true;
     		},
     		p(ctx, dirty) {
+    			if (/*codePhrases*/ ctx[5].component[/*key*/ ctx[9]]) if_block.p(ctx, dirty);
     			const sampleinput_changes = {};
     			if (dirty & /*output*/ 4) sampleinput_changes.content = /*output*/ ctx[2].component[/*key*/ ctx[9]];
     			sampleinput.$set(sampleinput_changes);
@@ -25943,9 +26338,31 @@
     			current = false;
     		},
     		d(detaching) {
-    			if (detaching) detach(p);
-    			if (detaching) detach(t1);
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach(t);
     			destroy_component(sampleinput, detaching);
+    		}
+    	};
+    }
+
+    // (100:4) {#if codePhrases.component[key]}
+    function create_if_block_7$1(ctx) {
+    	let p;
+    	let t_value = /*codePhrases*/ ctx[5].component[/*key*/ ctx[9]] + "";
+    	let t;
+
+    	return {
+    		c() {
+    			p = element("p");
+    			t = text(t_value);
+    		},
+    		m(target, anchor) {
+    			insert(target, p, anchor);
+    			append(p, t);
+    		},
+    		p: noop,
+    		d(detaching) {
+    			if (detaching) detach(p);
     		}
     	};
     }
@@ -26006,7 +26423,7 @@
     	};
     }
 
-    // (106:1) {#if output.footer}
+    // (108:1) {#if output.footer}
     function create_if_block_2$2(ctx) {
     	let t;
     	let if_block1_anchor;
@@ -26083,7 +26500,7 @@
     	};
     }
 
-    // (107:2) {#if output.footer.text}
+    // (109:2) {#if output.footer.text}
     function create_if_block_4$1(ctx) {
     	let p;
     	let t_value = /*output*/ ctx[2].footer.text + "";
@@ -26107,7 +26524,7 @@
     	};
     }
 
-    // (110:2) {#if output.footer.code}
+    // (112:2) {#if output.footer.code}
     function create_if_block_3$1(ctx) {
     	let sampleinput;
     	let current;
@@ -26144,7 +26561,7 @@
     	};
     }
 
-    // (115:1) {#if output.docs}
+    // (117:1) {#if output.docs}
     function create_if_block_1$1(ctx) {
     	let p;
     	let uiicon0;
@@ -26388,6 +26805,7 @@
     			props: {
     				name: "code",
     				title: /*codePhrases*/ ctx[6].heading.replace("{name}", /*icon*/ ctx[0].name),
+    				titleHidden: /*codePhrases*/ ctx[6].headingHidden.replace("{name}", /*icon*/ ctx[0].name),
     				$$slots: { default: [create_default_slot$2] },
     				$$scope: { ctx }
     			}
@@ -26404,6 +26822,7 @@
     		p(ctx, dirty) {
     			const footerblock_changes = {};
     			if (dirty & /*icon*/ 1) footerblock_changes.title = /*codePhrases*/ ctx[6].heading.replace("{name}", /*icon*/ ctx[0].name);
+    			if (dirty & /*icon*/ 1) footerblock_changes.titleHidden = /*codePhrases*/ ctx[6].headingHidden.replace("{name}", /*icon*/ ctx[0].name);
 
     			if (dirty & /*$$scope, currentTab, icon, customisations, childFilters, childTabsTitle, parentFilters*/ 32831) {
     				footerblock_changes.$$scope = { dirty, ctx };
@@ -26426,7 +26845,7 @@
     	};
     }
 
-    // (249:4) {#if parentFilters}
+    // (250:4) {#if parentFilters}
     function create_if_block_2$1(ctx) {
     	let filterscomponent;
     	let current;
@@ -26467,7 +26886,7 @@
     	};
     }
 
-    // (255:4) {#if childFilters}
+    // (256:4) {#if childFilters}
     function create_if_block_1(ctx) {
     	let filterscomponent;
     	let current;
@@ -26510,7 +26929,7 @@
     	};
     }
 
-    // (244:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}>
+    // (244:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}   titleHidden={codePhrases.headingHidden.replace('{name}', icon.name)}>
     function create_default_slot$2(ctx) {
     	let div1;
     	let div0;

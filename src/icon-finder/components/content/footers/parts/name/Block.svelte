@@ -46,7 +46,9 @@
 
 <div class="iif-footer-icon-name iif-footer-icon-name--block">
 	<div class={className}>
-		<IconComponent icon={iconName} />
+		{#each [iconName] as iconName (iconName)}
+			<IconComponent icon={iconName} />
+		{/each}
 	</div>
 	<span>{text}</span>
 </div>

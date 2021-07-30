@@ -150,7 +150,8 @@ export const phrases: UITranslation = {
 	codeSamples: {
 		copy: 'Copy to clipboard',
 		copied: 'Copied to clipboard.',
-		heading: 'How to use "{name}" icon',
+		headingHidden: 'Show code for "{name}" for developers',
+		heading: 'Code for "{name}" for developers',
 		childTabTitle: '{key} versions:',
 		childTabTitles: {
 			react: 'React component versions:',
@@ -170,12 +171,16 @@ export const phrases: UITranslation = {
 		component: {
 			'install-offline': 'Install component and icon set:',
 			'install-simple': 'Install component:',
+			'install-addon': 'Install addon:',
 			'import-offline': 'Import component and icon data:',
 			'import-simple': 'Import component:',
 			'vue-offline':
 				'Add icon data and icon component to your component:',
 			'vue-simple': 'Add icon component to your component:',
-			'use': 'Use it in your code:',
+			'use-in-code': 'Use it in your code:',
+			'use-in-html': 'Use it in HTML code:',
+			'use-in-template': 'Use component in template:',
+			'use-generic': '',
 		},
 		iconify: {
 			intro1:
