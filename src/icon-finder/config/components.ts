@@ -8,8 +8,25 @@ export const canAddProviders = false;
 
 /**
  * Automatically focus search
+ *
+ * Do not change value to true, comment out code below it. It checks for mobile devices
  */
 export const canFocusSearch = true;
+
+/*
+export const canFocusSearch = (() => {
+	try {
+		return (
+			window.matchMedia('(min-width: 600px) and (min-height: 600px)')
+				.matches &&
+			// Do not focus if touch device is detected
+			!('ontouchstart' in window)
+		);
+	} catch (err) {
+		return false;
+	}
+})();
+*/
 
 /**
  * Show collection information block (author, license, etc...) when browsing collection

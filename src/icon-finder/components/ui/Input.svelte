@@ -129,6 +129,7 @@
 			autocomplete="off"
 			autocorrect="off"
 			autocapitalize="off"
+			inputmode={type === 'number' ? 'decimal' : 'text'}
 			{disabled}
 			bind:this={inputRef} />
 		{#if mounted && value === '' && placeholder !== ''}
