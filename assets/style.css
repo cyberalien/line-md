@@ -2224,6 +2224,15 @@ a.iif-filter--selected:focus:not(:hover) {
 	margin-left: 8px;
 }
 
+@media (max-width: 420px) {
+	.iif-footer-options-block--rotate .iif-option-button--with-text.iif-option-button--with-icon.iif-option-button--unchecked {
+		padding-right: 2px;
+	}
+	.iif-footer-options-block--rotate .iif-option-button--with-text.iif-option-button--with-icon.iif-option-button--unchecked span {
+		display: none;
+	}
+}
+
 @supports (display: flex) {
 	.iif-footer-block--props > div {
 		display: flex;

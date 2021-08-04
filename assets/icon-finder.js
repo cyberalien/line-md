@@ -9714,6 +9714,8 @@
     const canAddProviders = false;
     /**
      * Automatically focus search
+     *
+     * Do not change value to true, comment out code below it. It checks for mobile devices
      */
     const canFocusSearch = true;
     /**
@@ -10207,7 +10209,7 @@
     	uiicon = new UIIcon({
     			props: {
     				icon: /*icon*/ ctx[4],
-    				onLoad: /*iconLoaded*/ ctx[10]
+    				onLoad: /*iconLoaded*/ ctx[11]
     			}
     		});
 
@@ -10216,7 +10218,7 @@
     			div = element("div");
     			create_component(uiicon.$$.fragment);
     			attr(div, "class", "iif-input-icon");
-    			attr(div, "style", /*iconStyle*/ ctx[7]);
+    			attr(div, "style", /*iconStyle*/ ctx[8]);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -10228,8 +10230,8 @@
     			if (dirty & /*icon*/ 16) uiicon_changes.icon = /*icon*/ ctx[4];
     			uiicon.$set(uiicon_changes);
 
-    			if (!current || dirty & /*iconStyle*/ 128) {
-    				attr(div, "style", /*iconStyle*/ ctx[7]);
+    			if (!current || dirty & /*iconStyle*/ 256) {
+    				attr(div, "style", /*iconStyle*/ ctx[8]);
     			}
     		},
     		i(local) {
@@ -10248,7 +10250,7 @@
     	};
     }
 
-    // (115:2) {#if mounted && value === '' && placeholder !== ''}
+    // (116:2) {#if mounted && value === '' && placeholder !== ''}
     function create_if_block_1$g(ctx) {
     	let div;
     	let t;
@@ -10272,7 +10274,7 @@
     	};
     }
 
-    // (118:2) {#if mounted && value !== ''}
+    // (119:2) {#if mounted && value !== ''}
     function create_if_block$u(ctx) {
     	let a;
     	let uiicon;
@@ -10301,7 +10303,7 @@
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen(a, "click", prevent_default(/*resetValue*/ ctx[11]));
+    				dispose = listen(a, "click", prevent_default(/*resetValue*/ ctx[12]));
     				mounted = true;
     			}
     		},
@@ -10332,7 +10334,7 @@
     	};
     }
 
-    // (123:4) <UIIcon icon="reset">
+    // (124:4) <UIIcon icon="reset">
     function create_default_slot$k(ctx) {
     	let t;
 
@@ -10355,14 +10357,15 @@
     	let t0;
     	let input;
     	let input_title_value;
+    	let input_inputmode_value;
     	let t1;
     	let t2;
     	let current;
     	let mounted;
     	let dispose;
-    	let if_block0 = /*mounted*/ ctx[9] && /*icon*/ ctx[4] !== "" && create_if_block_2$d(ctx);
-    	let if_block1 = /*mounted*/ ctx[9] && /*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "" && create_if_block_1$g(ctx);
-    	let if_block2 = /*mounted*/ ctx[9] && /*value*/ ctx[0] !== "" && create_if_block$u(ctx);
+    	let if_block0 = /*mounted*/ ctx[10] && /*icon*/ ctx[4] !== "" && create_if_block_2$d(ctx);
+    	let if_block1 = /*mounted*/ ctx[10] && /*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "" && create_if_block_1$g(ctx);
+    	let if_block2 = /*mounted*/ ctx[10] && /*value*/ ctx[0] !== "" && create_if_block$u(ctx);
 
     	return {
     		c() {
@@ -10385,9 +10388,10 @@
     			attr(input, "autocomplete", "off");
     			attr(input, "autocorrect", "off");
     			attr(input, "autocapitalize", "off");
+    			attr(input, "inputmode", input_inputmode_value = /*type*/ ctx[5] === "number" ? "decimal" : "text");
     			input.disabled = /*disabled*/ ctx[3];
-    			attr(div0, "class", /*className*/ ctx[6]);
-    			attr(div1, "class", /*wrapperClassName*/ ctx[5]);
+    			attr(div0, "class", /*className*/ ctx[7]);
+    			attr(div1, "class", /*wrapperClassName*/ ctx[6]);
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
@@ -10406,19 +10410,19 @@
     			if (!mounted) {
     				dispose = [
     					listen(input, "input", /*input_input_handler*/ ctx[20]),
-    					listen(input, "input", /*handleInput*/ ctx[12]),
-    					listen(input, "blur", /*handleBlur*/ ctx[13])
+    					listen(input, "input", /*handleInput*/ ctx[13]),
+    					listen(input, "blur", /*handleBlur*/ ctx[14])
     				];
 
     				mounted = true;
     			}
     		},
     		p(ctx, [dirty]) {
-    			if (/*mounted*/ ctx[9] && /*icon*/ ctx[4] !== "") {
+    			if (/*mounted*/ ctx[10] && /*icon*/ ctx[4] !== "") {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
 
-    					if (dirty & /*mounted, icon*/ 528) {
+    					if (dirty & /*mounted, icon*/ 1040) {
     						transition_in(if_block0, 1);
     					}
     				} else {
@@ -10443,6 +10447,10 @@
     				attr(input, "title", input_title_value);
     			}
 
+    			if (!current || dirty & /*type*/ 32 && input_inputmode_value !== (input_inputmode_value = /*type*/ ctx[5] === "number" ? "decimal" : "text")) {
+    				attr(input, "inputmode", input_inputmode_value);
+    			}
+
     			if (!current || dirty & /*disabled*/ 8) {
     				input.disabled = /*disabled*/ ctx[3];
     			}
@@ -10451,7 +10459,7 @@
     				set_input_value(input, /*value*/ ctx[0]);
     			}
 
-    			if (/*mounted*/ ctx[9] && /*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "") {
+    			if (/*mounted*/ ctx[10] && /*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "") {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
@@ -10464,11 +10472,11 @@
     				if_block1 = null;
     			}
 
-    			if (/*mounted*/ ctx[9] && /*value*/ ctx[0] !== "") {
+    			if (/*mounted*/ ctx[10] && /*value*/ ctx[0] !== "") {
     				if (if_block2) {
     					if_block2.p(ctx, dirty);
 
-    					if (dirty & /*mounted, value*/ 513) {
+    					if (dirty & /*mounted, value*/ 1025) {
     						transition_in(if_block2, 1);
     					}
     				} else {
@@ -10487,12 +10495,12 @@
     				check_outros();
     			}
 
-    			if (!current || dirty & /*className*/ 64) {
-    				attr(div0, "class", /*className*/ ctx[6]);
+    			if (!current || dirty & /*className*/ 128) {
+    				attr(div0, "class", /*className*/ ctx[7]);
     			}
 
-    			if (!current || dirty & /*wrapperClassName*/ 32) {
-    				attr(div1, "class", /*wrapperClassName*/ ctx[5]);
+    			if (!current || dirty & /*wrapperClassName*/ 64) {
+    				attr(div1, "class", /*wrapperClassName*/ ctx[6]);
     			}
     		},
     		i(local) {
@@ -10574,7 +10582,7 @@
     	let mounted = false;
 
     	onMount(() => {
-    		$$invalidate(9, mounted = true);
+    		$$invalidate(10, mounted = true);
 
     		if (autofocus) {
     			inputRef.focus();
@@ -10589,7 +10597,7 @@
     	function input_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
     			inputRef = $$value;
-    			$$invalidate(8, inputRef);
+    			$$invalidate(9, inputRef);
     		});
     	}
 
@@ -10599,7 +10607,7 @@
     		if ("value" in $$props) $$invalidate(0, value = $$props.value);
     		if ("disabled" in $$props) $$invalidate(3, disabled = $$props.disabled);
     		if ("icon" in $$props) $$invalidate(4, icon = $$props.icon);
-    		if ("type" in $$props) $$invalidate(14, type = $$props.type);
+    		if ("type" in $$props) $$invalidate(5, type = $$props.type);
     		if ("extra" in $$props) $$invalidate(15, extra = $$props.extra);
     		if ("onInput" in $$props) $$invalidate(16, onInput = $$props.onInput);
     		if ("onBlur" in $$props) $$invalidate(17, onBlur = $$props.onBlur);
@@ -10607,20 +10615,20 @@
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*wrapperClassName, value, disabled*/ 41) {
+    		if ($$self.$$.dirty & /*wrapperClassName, value, disabled*/ 73) {
     			{
-    				$$invalidate(5, wrapperClassName = baseClass$d + "-wrapper");
+    				$$invalidate(6, wrapperClassName = baseClass$d + "-wrapper");
 
     				// Add states
-    				$$invalidate(5, wrapperClassName += // Content?
+    				$$invalidate(6, wrapperClassName += // Content?
     				" " + wrapperClassName + (value === "" ? "--empty" : "--has-content") + (// Disabled
     				disabled ? " " + wrapperClassName + "--disabled" : ""));
     			}
     		}
 
-    		if ($$self.$$.dirty & /*placeholder, hasIcon, type, disabled*/ 540682) {
+    		if ($$self.$$.dirty & /*placeholder, hasIcon, type, disabled*/ 524330) {
     			{
-    				$$invalidate(6, className = baseClass$d + // Placeholder
+    				$$invalidate(7, className = baseClass$d + // Placeholder
     				" " + baseClass$d + "--with" + (placeholder === "" ? "out" : "") + "-placeholder" + (// Icon
     				hasIcon ? " " + baseClass$d + "--with-icon" : "") + (// Type
     				type !== "" ? " " + baseClass$d + "--" + type : "") + (// Disabled
@@ -10628,12 +10636,12 @@
     			}
     		}
 
-    		if ($$self.$$.dirty & /*type, extra*/ 49152) {
+    		if ($$self.$$.dirty & /*type, extra*/ 32800) {
     			{
-    				$$invalidate(7, iconStyle = "");
+    				$$invalidate(8, iconStyle = "");
 
     				if (type === "color" && extra !== "") {
-    					$$invalidate(7, iconStyle = "opacity: 1; color: " + extra);
+    					$$invalidate(8, iconStyle = "opacity: 1; color: " + extra);
     				}
     			}
     		}
@@ -10645,6 +10653,7 @@
     		title,
     		disabled,
     		icon,
+    		type,
     		wrapperClassName,
     		className,
     		iconStyle,
@@ -10654,7 +10663,6 @@
     		resetValue,
     		handleInput,
     		handleBlur,
-    		type,
     		extra,
     		onInput,
     		onBlur,
@@ -10675,7 +10683,7 @@
     			value: 0,
     			disabled: 3,
     			icon: 4,
-    			type: 14,
+    			type: 5,
     			extra: 15,
     			onInput: 16,
     			onBlur: 17,
