@@ -112,6 +112,20 @@
 			}
 		}
 	}
+
+	// Rotation: hide text on mobile for unselected items
+	&--rotate {
+		@media (max-width: 420px) {
+			.iif-option-button--with-text.iif-option-button--with-icon.iif-option-button--unchecked {
+				padding-right: (
+					$iff-option-button-with-icon-padding-right - $iif-spacing
+				);
+				span {
+					display: none;
+				}
+			}
+		}
+	}
 }
 
 // Properties container for modern browsers
