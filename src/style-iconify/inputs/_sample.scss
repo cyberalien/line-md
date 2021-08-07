@@ -78,6 +78,10 @@
 		white-space: pre-wrap;
 		word-break: break-all;
 	}
+
+	+ .iif-input-sample {
+		margin-top: $iif-spacing;
+	}
 }
 
 @keyframes iif-show-code-notice {

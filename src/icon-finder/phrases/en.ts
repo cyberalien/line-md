@@ -161,12 +161,15 @@ export const phrases: UITranslation = {
 		docs: {
 			iconify:
 				'Click here for more information about Iconify SVG framework.',
+			css: 'Click here for more code examples.',
 		},
 		intro: {
 			'svg-box':
 				'This SVG contains extra empty rectangle that matches viewBox. It is needed to keep icon dimensions when importing icon in software that ignores viewBox attribute.',
 			'svg-uri':
 				'You can use this as background image or as content for pseudo element in stylesheet.',
+			'css':
+				"Add code below to your stylesheet to use icon as background image or as pseudo element's content:",
 		},
 		component: {
 			'install-offline': 'Install component and icon set:',
