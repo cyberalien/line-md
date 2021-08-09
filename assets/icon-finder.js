@@ -3896,7 +3896,6 @@
         return { ...exports.iconDefaults, ...data };
     }
     exports.fullIcon = fullIcon;
-    //# sourceMappingURL=index.js.map
     });
 
     var providers = createCommonjsModule(function (module, exports) {
@@ -3922,6 +3921,7 @@
         // Optional
         links: defaultAPIDataLinks,
         npm: defaultAPIDataNPM,
+        svg: '',
     };
     /**
      * Local cache
@@ -3930,7 +3930,7 @@
     exports.internalSourceCache = Object.create(null);
     const configuredCache = Object.create(null);
     // Add default provider
-    const iconifyRoot = 'http://icon-sets.iconify.design/';
+    const iconifyRoot = 'https://icon-sets.iconify.design/';
     const iconifyPackage = '@iconify/icons-{prefix}';
     exports.internalSourceCache[''] = {
         config: {},
@@ -3944,6 +3944,7 @@
             package: iconifyPackage,
             icon: iconifyPackage + '/{name}',
         },
+        svg: 'https://api.iconify.design/{prefix}/{name}.svg',
     };
     /**
      * Defaults
@@ -3952,6 +3953,7 @@
         title: '',
         links: defaultAPIDataLinks,
         npm: defaultAPIDataNPM,
+        svg: '',
     };
     /**
      * Convert data returned from API
@@ -3967,9 +3969,6 @@
         const data = {};
         for (const key in defaultAPIData) {
             const attr = key;
-            // Vars for npm/links
-            let defaultValue;
-            let resultValue;
             switch (attr) {
                 case 'title':
                     data.title =
@@ -3994,8 +3993,9 @@
                     }
                     break;
                 case 'npm':
-                case 'links':
-                    defaultValue = defaultAPIData[attr];
+                case 'links': {
+                    const defaultValue = defaultAPIData[attr];
+                    let resultValue;
                     if (typeof raw[attr] !== 'object' || !raw[attr]) {
                         // Copy default value
                         resultValue = defaultValue;
@@ -4016,6 +4016,13 @@
                     }
                     data[attr] = resultValue;
                     break;
+                }
+                case 'svg':
+                    data[attr] =
+                        typeof raw[attr] === 'string'
+                            ? raw[attr]
+                            : defaultAPIData[attr];
+                    break;
             }
         }
         const fullData = data;
@@ -4029,6 +4036,7 @@
             title: fullData.title,
             links: fullData.links,
             npm: fullData.npm,
+            svg: '',
         };
         return result;
     }
@@ -7314,7 +7322,6 @@
             icon.name.match(icon$1.matchName));
     };
     exports.validateIcon = validateIcon;
-    //# sourceMappingURL=name.js.map
     });
 
     var icon = createCommonjsModule(function (module, exports) {
@@ -8847,7 +8854,6 @@
         return result;
     }
     exports.mergeCustomisations = mergeCustomisations;
-    //# sourceMappingURL=index.js.map
     });
 
     var customisations = createCommonjsModule(function (module, exports) {
@@ -9896,10 +9902,12 @@
             docsDefault: 'Click here for more information about {title} component.',
             docs: {
                 iconify: 'Click here for more information about Iconify SVG framework.',
+                css: 'Click here for more code examples.',
             },
             intro: {
                 'svg-box': 'This SVG contains extra empty rectangle that matches viewBox. It is needed to keep icon dimensions when importing icon in software that ignores viewBox attribute.',
                 'svg-uri': 'You can use this as background image or as content for pseudo element in stylesheet.',
+                'css': "Add code below to your stylesheet to use icon as background image or as pseudo element's content:",
             },
             component: {
                 'install-offline': 'Install component and icon set:',
@@ -24121,6 +24129,8 @@
      */
     exports.codeSampleTitles = {
         'iconify': 'SVG Framework',
+        'html': 'HTML',
+        'css': 'CSS',
         'svg': 'SVG',
         'svg-raw': 'SVG',
         'svg-box': 'SVG with viewBox rectangle',
@@ -24176,7 +24186,10 @@
 
 
     const rawCodeTabs = {
-        iconify: 'api',
+        html: {
+            iconify: 'api',
+            css: 'svg',
+        },
         react: {
             'react-api': 'api',
             'react-offline': 'offline',
@@ -24222,6 +24235,8 @@
                     return config[type];
                 case 'api':
                     return config.api !== void 0;
+                case 'svg':
+                    return config.svg !== void 0;
                 case 'offline':
                     return config.npmES !== void 0 || config.npmCJS !== void 0;
             }
@@ -24251,6 +24266,9 @@
                         title: getTitle(attr),
                     };
                     results.push(newItem);
+                }
+                else {
+                    console.error('Cannot use mode:', mode, item);
                 }
                 continue;
             }
@@ -24326,6 +24344,8 @@
         },
         // Allow generating SVG
         raw: true,
+        // Remote SVGs
+        svg: 'https://api.iconify.design/{prefix}/{name}.svg',
     };
 
     var versions = createCommonjsModule(function (module, exports) {
@@ -24336,18 +24356,15 @@
     exports.componentPackages = {
         react: {
             name: '@iconify/react',
-            version: '@alpha',
         },
         vue2: {
             name: '@iconify/vue2',
         },
         vue3: {
             name: '@iconify/vue',
-            version: '@alpha',
         },
         svelte: {
             name: '@iconify/svelte',
-            version: '@alpha',
         },
         ember: {
             name: '@iconify/ember',
@@ -24683,6 +24700,39 @@
                     },
                     useType: 'use-in-html',
                 };
+            // CSS
+            case 'css':
+                return {
+                    parsers: {
+                        color: (list, value) => addAttr(list, 'color', toString(value)),
+                        width: (list, value) => addAttr(list, 'width', toString(value)),
+                        height: (list, value) => addAttr(list, 'height', toString(value)),
+                        rotate: (list, value) => addAttr(list, 'rotate', degrees(value)),
+                        hFlip: (list) => mergeAttr(list, 'flip', 'horizontal', ','),
+                        vFlip: (list) => mergeAttr(list, 'flip', 'vertical', ','),
+                        hAlign: (list, value) => mergeAttr(list, 'align', value, ','),
+                        vAlign: (list, value) => mergeAttr(list, 'align', value, ','),
+                        slice: (list) => mergeAttr(list, 'align', 'slice', ','),
+                    },
+                    merge: (list) => {
+                        return Object.keys(list)
+                            .map((key) => {
+                            const item = list[key];
+                            if (typeof item === 'object') {
+                                return (item.key +
+                                    '=' +
+                                    encodeURIComponent(item.value));
+                            }
+                            return key + '=' + encodeURIComponent(item);
+                        })
+                            .join('&');
+                    },
+                    docs: {
+                        type: 'css',
+                        href: docsBase + 'css.html',
+                    },
+                    useType: 'use-in-html',
+                };
             // SVG
             case 'svg-raw':
             case 'svg-uri':
@@ -24794,7 +24844,6 @@
         }
     }
     exports.calculateSize = calculateSize;
-    //# sourceMappingURL=size.js.map
     });
 
     var build = createCommonjsModule(function (module, exports) {
@@ -24977,7 +25026,6 @@
         return result;
     }
     exports.iconToSVG = iconToSVG;
-    //# sourceMappingURL=build.js.map
     });
 
     var html = createCommonjsModule(function (module, exports) {
@@ -25180,6 +25228,28 @@
                         '/script>',
                     html: html$1,
                 };
+                output.isAPI = true;
+                return output;
+            }
+            case 'css': {
+                const baseURL = providerConfig.svg;
+                if (!baseURL) {
+                    return null;
+                }
+                // Generate URL
+                let url = baseURL
+                    .replace('{prefix}', icon$1.prefix)
+                    .replace('{name}', icon$1.name);
+                if (merged !== '') {
+                    url += '?' + merged;
+                }
+                // Return output
+                output.raw = [
+                    "background: url('" +
+                        url +
+                        "') no-repeat center center / contain;",
+                    "content: url('" + url + "');",
+                ];
                 output.isAPI = true;
                 return output;
             }
@@ -26853,7 +26923,7 @@
     	};
     }
 
-    // (250:4) {#if parentFilters}
+    // (266:4) {#if parentFilters}
     function create_if_block_2$1(ctx) {
     	let filterscomponent;
     	let current;
@@ -26894,7 +26964,7 @@
     	};
     }
 
-    // (256:4) {#if childFilters}
+    // (272:4) {#if childFilters}
     function create_if_block_1(ctx) {
     	let filterscomponent;
     	let current;
@@ -26937,7 +27007,7 @@
     	};
     }
 
-    // (244:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}   titleHidden={codePhrases.headingHidden.replace('{name}', icon.name)}>
+    // (260:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}   titleHidden={codePhrases.headingHidden.replace('{name}', icon.name)}>
     function create_default_slot$2(ctx) {
     	let div1;
     	let div0;
@@ -27153,7 +27223,26 @@
     			? codeConfig.defaultProvider
     			: codeConfig.providers[provider];
 
-    			providerCache[provider] = { config, tree: tree.getCodeSamplesTree(config) };
+    			const tree$1 = tree.getCodeSamplesTree(config);
+
+    			// Disable CSS and SVG as URI
+    			for (let i = 0; i < tree$1.length; i++) {
+    				const tab = tree$1[i];
+
+    				switch (tab.tab) {
+    					case "html":
+    						// Disable CSS: move first child as root
+    						tree$1[i] = tab.children[0];
+    						break;
+    					case "svg":
+    						// Remove SVG as URI
+    						tab.children = tab.children.filter(item => item.mode !== "svg-uri");
+    						break;
+    				}
+    			}
+
+    			// Disable SVG as URI:
+    			providerCache[provider] = { config, tree: tree$1 };
     		}
 
     		return providerCache[provider];

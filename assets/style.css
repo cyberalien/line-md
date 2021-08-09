@@ -899,6 +899,10 @@ template {
 	word-break: break-all;
 }
 
+.iif-input-sample + .iif-input-sample {
+	margin-top: 8px;
+}
+
 @keyframes iif-show-code-notice {
 	0% {
 		opacity: 0;

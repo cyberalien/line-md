@@ -96,9 +96,30 @@
 				codeConfig.providers[provider] === void 0
 					? codeConfig.defaultProvider
 					: codeConfig.providers[provider];
+
+			const tree = getCodeSamplesTree(config);
+
+			// Disable CSS and SVG as URI
+			for (let i = 0; i < tree.length; i++) {
+				const tab = tree[i];
+				switch (tab.tab) {
+					case 'html':
+						// Disable CSS: move first child as root
+						tree[i] = tab.children![0];
+						break;
+
+					case 'svg':
+						// Remove SVG as URI
+						tab.children = tab.children!.filter(
+							(item) => item.mode !== 'svg-uri'
+						);
+						break;
+				}
+			}
+
 			providerCache[provider] = {
 				config,
-				tree: getCodeSamplesTree(config),
+				tree,
 			};
 		}
 		return providerCache[provider];

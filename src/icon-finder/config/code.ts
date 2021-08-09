@@ -27,4 +27,6 @@ codeConfig.providers[''] = {
 	},
 	// Allow generating SVG
 	raw: true,
+	// Remote SVGs
+	svg: 'https://api.iconify.design/{prefix}/{name}.svg',
 };
