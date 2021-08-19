@@ -8,6 +8,7 @@ export const codeConfig: CodeConfig = {
 
 	// Default configuration
 	defaultProvider: {
+		api: true,
 		raw: true,
 	},
 };
@@ -15,7 +16,7 @@ export const codeConfig: CodeConfig = {
 // Add default provider
 codeConfig.providers[''] = {
 	// Show packages that use API
-	api: '',
+	api: true,
 	// NPM packages for React, Vue, Svelte components
 	npmES: {
 		package: '@iconify-icons/{prefix}',

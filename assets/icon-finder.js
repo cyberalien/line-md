@@ -3622,7 +3622,7 @@
         return false;
     }
     exports.match = match;
-    //# sourceMappingURL=objects.js.map
+
     });
 
     var config = createCommonjsModule(function (module, exports) {
@@ -3729,7 +3729,7 @@
         return customised;
     }
     exports.customisedConfig = customisedConfig;
-    //# sourceMappingURL=config.js.map
+
     });
 
     var events = createCommonjsModule(function (module, exports) {
@@ -3829,7 +3829,7 @@
         }
     }
     exports.Events = Events;
-    //# sourceMappingURL=events.js.map
+
     });
 
     var iconify = createCommonjsModule(function (module, exports) {
@@ -3855,7 +3855,7 @@
         });
     }
     exports.setIconify = setIconify;
-    //# sourceMappingURL=index.js.map
+
     });
 
     var icon$1 = createCommonjsModule(function (module, exports) {
@@ -4101,7 +4101,7 @@
         return Object.keys(exports.internalSourceCache).sort();
     }
     exports.listProviders = listProviders;
-    //# sourceMappingURL=providers.js.map
+
     });
 
     var base$1 = createCommonjsModule(function (module, exports) {
@@ -4295,7 +4295,7 @@
         return 'search.' + query + '.' + limit;
     }
     exports.searchCacheKey = searchCacheKey;
-    //# sourceMappingURL=base.js.map
+
     });
 
     var fetch_1 = createCommonjsModule(function (module, exports) {
@@ -4382,7 +4382,7 @@
         }
     }
     exports.API = API;
-    //# sourceMappingURL=fetch.js.map
+
     });
 
     var storage = createCommonjsModule(function (module, exports) {
@@ -4451,7 +4451,7 @@
      */
     const getRegistry = (id) => registry[id];
     exports.getRegistry = getRegistry;
-    //# sourceMappingURL=storage.js.map
+
     });
 
     var defaults = createCommonjsModule(function (module, exports) {
@@ -4501,7 +4501,7 @@
         customType: '',
     };
     exports.emptyRouteMinimum = {};
-    //# sourceMappingURL=defaults.js.map
+
     });
 
     var convert = createCommonjsModule(function (module, exports) {
@@ -4681,7 +4681,7 @@
         };
     };
     exports.objectToRoute = objectToRoute;
-    //# sourceMappingURL=convert.js.map
+
     });
 
     var base = createCommonjsModule(function (module, exports) {
@@ -4906,7 +4906,7 @@
         }
     }
     exports.BaseView = BaseView;
-    //# sourceMappingURL=base.js.map
+
     });
 
     var collectionsFilter = createCommonjsModule(function (module, exports) {
@@ -4929,7 +4929,7 @@
         return block === void 0 || block === null || block.keyword.trim() === '';
     }
     exports.isCollectionsFilterBlockEmpty = isCollectionsFilterBlockEmpty;
-    //# sourceMappingURL=collections-filter.js.map
+
     });
 
     var info = createCommonjsModule(function (module, exports) {
@@ -5101,7 +5101,7 @@
         return result;
     }
     exports.dataToCollectionInfo = dataToCollectionInfo;
-    //# sourceMappingURL=info.js.map
+
     });
 
     var collections$2 = createCommonjsModule(function (module, exports) {
@@ -5199,7 +5199,7 @@
         });
     }
     exports.autoIndexCollections = autoIndexCollections;
-    //# sourceMappingURL=collections.js.map
+
     });
 
     var filters = createCommonjsModule(function (module, exports) {
@@ -5259,7 +5259,7 @@
         return index;
     }
     exports.autoIndexFilters = autoIndexFilters;
-    //# sourceMappingURL=filters.js.map
+
     });
 
     var collectionsList = createCommonjsModule(function (module, exports) {
@@ -5429,7 +5429,7 @@
         }, false);
     }
     exports.applyCollectionsFilter = applyCollectionsFilter;
-    //# sourceMappingURL=collections-list.js.map
+
     });
 
     var collections$1 = createCommonjsModule(function (module, exports) {
@@ -5468,7 +5468,7 @@
         return storage[provider][prefix].name;
     }
     exports.getCollectionTitle = getCollectionTitle;
-    //# sourceMappingURL=collections.js.map
+
     });
 
     var collection$1 = createCommonjsModule(function (module, exports) {
@@ -6048,7 +6048,7 @@
         }
         return a.localeCompare(b);
     }
-    //# sourceMappingURL=collection.js.map
+
     });
 
     var customSets = createCommonjsModule(function (module, exports) {
@@ -6205,7 +6205,7 @@
         return results;
     }
     exports.mergeCollections = mergeCollections;
-    //# sourceMappingURL=custom-sets.js.map
+
     });
 
     var collections = createCommonjsModule(function (module, exports) {
@@ -6484,7 +6484,7 @@
         }
     }
     exports.CollectionsView = CollectionsView;
-    //# sourceMappingURL=collections.js.map
+
     });
 
     var collectionInfo = createCommonjsModule(function (module, exports) {
@@ -6508,7 +6508,7 @@
         return block === void 0 || block === null || block.info === null;
     }
     exports.isCollectionInfoBlockEmpty = isCollectionInfoBlockEmpty;
-    //# sourceMappingURL=collection-info.js.map
+
     });
 
     var iconsList = createCommonjsModule(function (module, exports) {
@@ -6655,7 +6655,7 @@
         block.icons = icons;
     }
     exports.applyIconFilters = applyIconFilters;
-    //# sourceMappingURL=icons-list.js.map
+
     });
 
     var pagination = createCommonjsModule(function (module, exports) {
@@ -6737,7 +6737,7 @@
         return pagination;
     }
     exports.showPagination = showPagination;
-    //# sourceMappingURL=pagination.js.map
+
     });
 
     var search$2 = createCommonjsModule(function (module, exports) {
@@ -6760,7 +6760,7 @@
         return block === void 0 || block === null || block.keyword.trim() === '';
     }
     exports.isSearchBlockEmpty = isSearchBlockEmpty;
-    //# sourceMappingURL=search.js.map
+
     });
 
     var collection = createCommonjsModule(function (module, exports) {
@@ -7245,7 +7245,7 @@
         }
     }
     exports.CollectionView = CollectionView;
-    //# sourceMappingURL=collection.js.map
+
     });
 
     var name = createCommonjsModule(function (module, exports) {
@@ -7363,7 +7363,7 @@
             icon.name);
     };
     exports.iconToString = iconToString;
-    //# sourceMappingURL=icon.js.map
+
     });
 
     var search$1 = createCommonjsModule(function (module, exports) {
@@ -7433,7 +7433,7 @@
         return result;
     }
     exports.dataToSearchResults = dataToSearchResults;
-    //# sourceMappingURL=search.js.map
+
     });
 
     var search = createCommonjsModule(function (module, exports) {
@@ -7742,7 +7742,7 @@
         }
     }
     exports.SearchView = SearchView;
-    //# sourceMappingURL=search.js.map
+
     });
 
     var custom = createCommonjsModule(function (module, exports) {
@@ -7973,7 +7973,7 @@
         }
     }
     exports.CustomView = CustomView;
-    //# sourceMappingURL=custom.js.map
+
     });
 
     var empty$1 = createCommonjsModule(function (module, exports) {
@@ -8024,7 +8024,7 @@
         }
     }
     exports.EmptyView = EmptyView;
-    //# sourceMappingURL=empty.js.map
+
     });
 
     var router = createCommonjsModule(function (module, exports) {
@@ -8445,7 +8445,7 @@
         }
     }
     exports.Router = Router;
-    //# sourceMappingURL=router.js.map
+
     });
 
     var registry = createCommonjsModule(function (module, exports) {
@@ -8612,7 +8612,7 @@
         }
     }
     exports.Registry = Registry;
-    //# sourceMappingURL=index.js.map
+
     });
 
     var types = createCommonjsModule(function (module, exports) {
@@ -8646,7 +8646,7 @@
         }
     }
     exports.isBlockEmpty = isBlockEmpty;
-    //# sourceMappingURL=types.js.map
+
     });
 
     var lib = createCommonjsModule(function (module, exports) {
@@ -8774,7 +8774,7 @@
             : void 0;
     }
     exports.getCoreInstance = getCoreInstance;
-    //# sourceMappingURL=index.js.map
+
     });
 
     var customisations$1 = createCommonjsModule(function (module, exports) {
@@ -8913,7 +8913,7 @@
         return result;
     }
     exports.filterCustomisations = filterCustomisations;
-    //# sourceMappingURL=customisations.js.map
+
     });
 
     /**
@@ -9174,14 +9174,23 @@
         }
         return $$scope.dirty;
     }
-    function update_slot(slot, slot_definition, ctx, $$scope, dirty, get_slot_changes_fn, get_slot_context_fn) {
-        const slot_changes = get_slot_changes(slot_definition, $$scope, dirty, get_slot_changes_fn);
+    function update_slot_base(slot, slot_definition, ctx, $$scope, slot_changes, get_slot_context_fn) {
         if (slot_changes) {
             const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
             slot.p(slot_context, slot_changes);
         }
     }
-
+    function get_all_dirty_from_scope($$scope) {
+        if ($$scope.ctx.length > 32) {
+            const dirty = [];
+            const length = $$scope.ctx.length / 32;
+            for (let i = 0; i < length; i++) {
+                dirty[i] = -1;
+            }
+            return dirty;
+        }
+        return -1;
+    }
     function append(target, node) {
         target.appendChild(node);
     }
@@ -9238,15 +9247,17 @@
         input.value = value == null ? '' : value;
     }
     class HtmlTag {
-        constructor(anchor = null) {
-            this.a = anchor;
+        constructor() {
             this.e = this.n = null;
+        }
+        c(html) {
+            this.h(html);
         }
         m(html, target, anchor = null) {
             if (!this.e) {
                 this.e = element(target.nodeName);
                 this.t = target;
-                this.h(html);
+                this.c(html);
             }
             this.i(anchor);
         }
@@ -9566,7 +9577,7 @@
         }
         component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
     }
-    function init(component, options, instance, create_fragment, not_equal, props, dirty = [-1]) {
+    function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
         const parent_component = current_component;
         set_current_component(component);
         const $$ = component.$$ = {
@@ -9587,8 +9598,10 @@
             // everything else
             callbacks: blank_object(),
             dirty,
-            skip_bound: false
+            skip_bound: false,
+            root: options.target || parent_component.$$.root
         };
+        append_styles && append_styles($$.root);
         let ready = false;
         $$.ctx = instance
             ? instance(component, options.props || {}, (i, ret, ...rest) => {
@@ -9651,7 +9664,7 @@
         }
     }
 
-    /* src/icon-finder/components/Wrapper.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/Wrapper.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$Q(ctx) {
     	let div;
@@ -9677,7 +9690,16 @@
     		p(ctx, [dirty]) {
     			if (default_slot) {
     				if (default_slot.p && (!current || dirty & /*$$scope*/ 1)) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[0], dirty, null, null);
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[0],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[0])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[0], dirty, null),
+    						null
+    					);
     				}
     			}
     		},
@@ -9701,7 +9723,7 @@
     	let { $$slots: slots = {}, $$scope } = $$props;
 
     	$$self.$$set = $$props => {
-    		if ("$$scope" in $$props) $$invalidate(0, $$scope = $$props.$$scope);
+    		if ('$$scope' in $$props) $$invalidate(0, $$scope = $$props.$$scope);
     	};
 
     	return [$$scope, slots];
@@ -9930,7 +9952,7 @@
         },
     };
 
-    /* src/icon-finder/components/ui/UIIcon.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/ui/UIIcon.svelte generated by Svelte v3.42.1 */
 
     function create_else_block$9(ctx) {
     	let current;
@@ -9951,7 +9973,16 @@
     		p(ctx, dirty) {
     			if (default_slot) {
     				if (default_slot.p && (!current || dirty & /*$$scope*/ 32)) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[5], dirty, null, null);
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[5],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[5])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[5], dirty, null),
+    						null
+    					);
     				}
     			}
     		},
@@ -10065,7 +10096,16 @@
     		p(ctx, dirty) {
     			if (default_slot) {
     				if (default_slot.p && (!current || dirty & /*$$scope*/ 32)) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[5], dirty, null, null);
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[5],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[5])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[5], dirty, null),
+    						null
+    					);
     				}
     			}
     		},
@@ -10182,17 +10222,17 @@
     	let iconName;
 
     	$$self.$$set = $$props => {
-    		if ("icon" in $$props) $$invalidate(3, icon = $$props.icon);
-    		if ("onLoad" in $$props) $$invalidate(4, onLoad = $$props.onLoad);
-    		if ("$$scope" in $$props) $$invalidate(5, $$scope = $$props.$$scope);
+    		if ('icon' in $$props) $$invalidate(3, icon = $$props.icon);
+    		if ('onLoad' in $$props) $$invalidate(4, onLoad = $$props.onLoad);
+    		if ('$$scope' in $$props) $$invalidate(5, $$scope = $$props.$$scope);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*icon*/ 8) {
     			{
-    				$$invalidate(1, iconName = typeof icons[icon] === "string"
+    				$$invalidate(1, iconName = typeof icons[icon] === 'string'
     				? icons[icon]
-    				: icon.indexOf(":") === -1 ? null : icon);
+    				: icon.indexOf(':') === -1 ? null : icon);
     			}
     		}
     	};
@@ -10207,7 +10247,7 @@
     	}
     }
 
-    /* src/icon-finder/components/ui/Input.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/ui/Input.svelte generated by Svelte v3.42.1 */
 
     function create_if_block_2$d(ctx) {
     	let div;
@@ -10371,9 +10411,9 @@
     	let current;
     	let mounted;
     	let dispose;
-    	let if_block0 = /*mounted*/ ctx[10] && /*icon*/ ctx[4] !== "" && create_if_block_2$d(ctx);
-    	let if_block1 = /*mounted*/ ctx[10] && /*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "" && create_if_block_1$g(ctx);
-    	let if_block2 = /*mounted*/ ctx[10] && /*value*/ ctx[0] !== "" && create_if_block$u(ctx);
+    	let if_block0 = /*mounted*/ ctx[10] && /*icon*/ ctx[4] !== '' && create_if_block_2$d(ctx);
+    	let if_block1 = /*mounted*/ ctx[10] && /*value*/ ctx[0] === '' && /*placeholder*/ ctx[1] !== '' && create_if_block_1$g(ctx);
+    	let if_block2 = /*mounted*/ ctx[10] && /*value*/ ctx[0] !== '' && create_if_block$u(ctx);
 
     	return {
     		c() {
@@ -10396,7 +10436,7 @@
     			attr(input, "autocomplete", "off");
     			attr(input, "autocorrect", "off");
     			attr(input, "autocapitalize", "off");
-    			attr(input, "inputmode", input_inputmode_value = /*type*/ ctx[5] === "number" ? "decimal" : "text");
+    			attr(input, "inputmode", input_inputmode_value = /*type*/ ctx[5] === 'number' ? 'decimal' : 'text');
     			input.disabled = /*disabled*/ ctx[3];
     			attr(div0, "class", /*className*/ ctx[7]);
     			attr(div1, "class", /*wrapperClassName*/ ctx[6]);
@@ -10426,7 +10466,7 @@
     			}
     		},
     		p(ctx, [dirty]) {
-    			if (/*mounted*/ ctx[10] && /*icon*/ ctx[4] !== "") {
+    			if (/*mounted*/ ctx[10] && /*icon*/ ctx[4] !== '') {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
 
@@ -10455,7 +10495,7 @@
     				attr(input, "title", input_title_value);
     			}
 
-    			if (!current || dirty & /*type*/ 32 && input_inputmode_value !== (input_inputmode_value = /*type*/ ctx[5] === "number" ? "decimal" : "text")) {
+    			if (!current || dirty & /*type*/ 32 && input_inputmode_value !== (input_inputmode_value = /*type*/ ctx[5] === 'number' ? 'decimal' : 'text')) {
     				attr(input, "inputmode", input_inputmode_value);
     			}
 
@@ -10467,7 +10507,7 @@
     				set_input_value(input, /*value*/ ctx[0]);
     			}
 
-    			if (/*mounted*/ ctx[10] && /*value*/ ctx[0] === "" && /*placeholder*/ ctx[1] !== "") {
+    			if (/*mounted*/ ctx[10] && /*value*/ ctx[0] === '' && /*placeholder*/ ctx[1] !== '') {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
@@ -10480,7 +10520,7 @@
     				if_block1 = null;
     			}
 
-    			if (/*mounted*/ ctx[10] && /*value*/ ctx[0] !== "") {
+    			if (/*mounted*/ ctx[10] && /*value*/ ctx[0] !== '') {
     				if (if_block2) {
     					if_block2.p(ctx, dirty);
 
@@ -10534,16 +10574,16 @@
     	};
     }
 
-    const baseClass$d = "iif-input";
+    const baseClass$d = 'iif-input';
 
     function instance$O($$self, $$props, $$invalidate) {
-    	let { placeholder = "" } = $$props;
-    	let { title = "" } = $$props;
-    	let { value = "" } = $$props;
+    	let { placeholder = '' } = $$props;
+    	let { title = '' } = $$props;
+    	let { value = '' } = $$props;
     	let { disabled = false } = $$props;
-    	let { icon = "" } = $$props;
-    	let { type = "" } = $$props;
-    	let { extra = "" } = $$props;
+    	let { icon = '' } = $$props;
+    	let { type = '' } = $$props;
+    	let { extra = '' } = $$props;
     	let { onInput = null } = $$props;
     	let { onBlur = null } = $$props;
     	let { autofocus = false } = $$props;
@@ -10566,7 +10606,7 @@
 
     	// Reset value
     	function resetValue() {
-    		$$invalidate(0, value = "");
+    		$$invalidate(0, value = '');
     		handleInput();
     	}
 
@@ -10603,53 +10643,53 @@
     	}
 
     	function input_binding($$value) {
-    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			inputRef = $$value;
     			$$invalidate(9, inputRef);
     		});
     	}
 
     	$$self.$$set = $$props => {
-    		if ("placeholder" in $$props) $$invalidate(1, placeholder = $$props.placeholder);
-    		if ("title" in $$props) $$invalidate(2, title = $$props.title);
-    		if ("value" in $$props) $$invalidate(0, value = $$props.value);
-    		if ("disabled" in $$props) $$invalidate(3, disabled = $$props.disabled);
-    		if ("icon" in $$props) $$invalidate(4, icon = $$props.icon);
-    		if ("type" in $$props) $$invalidate(5, type = $$props.type);
-    		if ("extra" in $$props) $$invalidate(15, extra = $$props.extra);
-    		if ("onInput" in $$props) $$invalidate(16, onInput = $$props.onInput);
-    		if ("onBlur" in $$props) $$invalidate(17, onBlur = $$props.onBlur);
-    		if ("autofocus" in $$props) $$invalidate(18, autofocus = $$props.autofocus);
+    		if ('placeholder' in $$props) $$invalidate(1, placeholder = $$props.placeholder);
+    		if ('title' in $$props) $$invalidate(2, title = $$props.title);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('disabled' in $$props) $$invalidate(3, disabled = $$props.disabled);
+    		if ('icon' in $$props) $$invalidate(4, icon = $$props.icon);
+    		if ('type' in $$props) $$invalidate(5, type = $$props.type);
+    		if ('extra' in $$props) $$invalidate(15, extra = $$props.extra);
+    		if ('onInput' in $$props) $$invalidate(16, onInput = $$props.onInput);
+    		if ('onBlur' in $$props) $$invalidate(17, onBlur = $$props.onBlur);
+    		if ('autofocus' in $$props) $$invalidate(18, autofocus = $$props.autofocus);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*wrapperClassName, value, disabled*/ 73) {
     			{
-    				$$invalidate(6, wrapperClassName = baseClass$d + "-wrapper");
+    				$$invalidate(6, wrapperClassName = baseClass$d + '-wrapper');
 
     				// Add states
     				$$invalidate(6, wrapperClassName += // Content?
-    				" " + wrapperClassName + (value === "" ? "--empty" : "--has-content") + (// Disabled
-    				disabled ? " " + wrapperClassName + "--disabled" : ""));
+    				' ' + wrapperClassName + (value === '' ? '--empty' : '--has-content') + (// Disabled
+    				disabled ? ' ' + wrapperClassName + '--disabled' : ''));
     			}
     		}
 
     		if ($$self.$$.dirty & /*placeholder, hasIcon, type, disabled*/ 524330) {
     			{
     				$$invalidate(7, className = baseClass$d + // Placeholder
-    				" " + baseClass$d + "--with" + (placeholder === "" ? "out" : "") + "-placeholder" + (// Icon
-    				hasIcon ? " " + baseClass$d + "--with-icon" : "") + (// Type
-    				type !== "" ? " " + baseClass$d + "--" + type : "") + (// Disabled
-    				disabled ? " " + baseClass$d + "--disabled" : ""));
+    				' ' + baseClass$d + '--with' + (placeholder === '' ? 'out' : '') + '-placeholder' + (// Icon
+    				hasIcon ? ' ' + baseClass$d + '--with-icon' : '') + (// Type
+    				type !== '' ? ' ' + baseClass$d + '--' + type : '') + (// Disabled
+    				disabled ? ' ' + baseClass$d + '--disabled' : ''));
     			}
     		}
 
     		if ($$self.$$.dirty & /*type, extra*/ 32800) {
     			{
-    				$$invalidate(8, iconStyle = "");
+    				$$invalidate(8, iconStyle = '');
 
-    				if (type === "color" && extra !== "") {
-    					$$invalidate(8, iconStyle = "opacity: 1; color: " + extra);
+    				if (type === 'color' && extra !== '') {
+    					$$invalidate(8, iconStyle = 'opacity: 1; color: ' + extra);
     				}
     			}
     		}
@@ -10700,7 +10740,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/Block.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/Block.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$N(ctx) {
     	let div;
@@ -10726,7 +10766,16 @@
     		p(ctx, [dirty]) {
     			if (default_slot) {
     				if (default_slot.p && (!current || dirty & /*$$scope*/ 16)) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[4], dirty, null, null);
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[4],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[4])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[4], dirty, null),
+    						null
+    					);
     				}
     			}
 
@@ -10750,20 +10799,20 @@
     	};
     }
 
-    const baseClass$c = "iif-block";
+    const baseClass$c = 'iif-block';
 
     function instance$N($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
-    	let { type = "" } = $$props;
-    	let { name = "" } = $$props;
-    	let { extra = "" } = $$props;
+    	let { type = '' } = $$props;
+    	let { name = '' } = $$props;
+    	let { extra = '' } = $$props;
     	let className;
 
     	$$self.$$set = $$props => {
-    		if ("type" in $$props) $$invalidate(1, type = $$props.type);
-    		if ("name" in $$props) $$invalidate(2, name = $$props.name);
-    		if ("extra" in $$props) $$invalidate(3, extra = $$props.extra);
-    		if ("$$scope" in $$props) $$invalidate(4, $$scope = $$props.$$scope);
+    		if ('type' in $$props) $$invalidate(1, type = $$props.type);
+    		if ('name' in $$props) $$invalidate(2, name = $$props.name);
+    		if ('extra' in $$props) $$invalidate(3, extra = $$props.extra);
+    		if ('$$scope' in $$props) $$invalidate(4, $$scope = $$props.$$scope);
     	};
 
     	$$self.$$.update = () => {
@@ -10771,17 +10820,17 @@
     			{
     				$$invalidate(0, className = baseClass$c);
 
-    				if (type !== "") {
-    					let typeBase = " " + baseClass$c + "--" + type;
+    				if (type !== '') {
+    					let typeBase = ' ' + baseClass$c + '--' + type;
     					$$invalidate(0, className += typeBase);
 
-    					if (name !== "") {
-    						$$invalidate(0, className += typeBase + "--" + name);
+    					if (name !== '') {
+    						$$invalidate(0, className += typeBase + '--' + name);
     					}
     				}
 
-    				if (extra !== "") {
-    					$$invalidate(0, className += " " + baseClass$c + "--" + extra);
+    				if (extra !== '') {
+    					$$invalidate(0, className += ' ' + baseClass$c + '--' + extra);
     				}
     			} // console.log(`Rendering Block at ${Date.now()}: ${className}`);
     		}
@@ -10797,7 +10846,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/GlobalSearch.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/GlobalSearch.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$l(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -10829,7 +10878,7 @@
     	}
 
     	input = new Input({ props: input_props });
-    	binding_callbacks.push(() => bind(input, "value", input_value_binding));
+    	binding_callbacks.push(() => bind(input, 'value', input_value_binding));
 
     	return {
     		key: key_1,
@@ -11012,7 +11061,7 @@
     	let { route } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Phrases
     	const text = phrases$1.search;
@@ -11021,11 +11070,11 @@
     	let keyword;
 
     	// Variable to store last change to avoid changing keyword multiple times to same value
-    	let lastChange = "";
+    	let lastChange = '';
 
     	// Check route for keyword
     	function checkRoute(route) {
-    		if (route && route.type === "search" && route.params && (lastChange === "" || lastChange !== route.params.search)) {
+    		if (route && route.type === 'search' && route.params && (lastChange === '' || lastChange !== route.params.search)) {
     			$$invalidate(0, keyword = route.params.search);
     			lastChange = keyword;
     			return true;
@@ -11036,12 +11085,12 @@
 
     	// Submit form
     	function submitForm() {
-    		if (typeof keyword === "string") {
+    		if (typeof keyword === 'string') {
     			const value = keyword.trim().toLowerCase();
 
-    			if (value !== "") {
+    			if (value !== '') {
     				lastChange = value;
-    				registry.router.action("search", value);
+    				registry.router.action('search', value);
     			}
     		}
     	}
@@ -11055,8 +11104,8 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ("viewChanged" in $$props) $$invalidate(4, viewChanged = $$props.viewChanged);
-    		if ("route" in $$props) $$invalidate(5, route = $$props.route);
+    		if ('viewChanged' in $$props) $$invalidate(4, viewChanged = $$props.viewChanged);
+    		if ('route' in $$props) $$invalidate(5, route = $$props.route);
     	};
 
     	$$self.$$.update = () => {
@@ -11065,7 +11114,7 @@
     			{
     				if (keyword === null) {
     					// First render - get keyword from route
-    					$$invalidate(0, keyword = "");
+    					$$invalidate(0, keyword = '');
 
     					if (route !== null) {
     						// Get keyword from current route or its parent
@@ -11074,7 +11123,7 @@
     						}
     					}
     				} else if (!viewChanged) {
-    					lastChange = "";
+    					lastChange = '';
     				} else {
     					checkRoute(route);
     				}
@@ -11085,7 +11134,7 @@
     			{
     				{
     					$$invalidate(1, focusInput = route
-    					? route.type === "collections" || route.type === "search"
+    					? route.type === 'collections' || route.type === 'search'
     					: false);
     				}
     			}
@@ -11102,7 +11151,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/parent/Link.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/parent/Link.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$L(ctx) {
     	let div;
@@ -11168,8 +11217,8 @@
     	let { onClick } = $$props;
 
     	$$self.$$set = $$props => {
-    		if ("text" in $$props) $$invalidate(0, text = $$props.text);
-    		if ("onClick" in $$props) $$invalidate(1, onClick = $$props.onClick);
+    		if ('text' in $$props) $$invalidate(0, text = $$props.text);
+    		if ('onClick' in $$props) $$invalidate(1, onClick = $$props.onClick);
     	};
 
     	return [text, onClick];
@@ -11182,7 +11231,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/Parent.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/Parent.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$k(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -11416,20 +11465,20 @@
     	let { route } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	const parentPhrases = phrases$1.parent;
     	const collections = registry.collections;
 
     	function handleClick(level) {
-    		registry.router.action("parent", level);
+    		registry.router.action('parent', level);
     	}
 
     	let entries;
     	const func = item => handleClick(item.level);
 
     	$$self.$$set = $$props => {
-    		if ("route" in $$props) $$invalidate(2, route = $$props.route);
+    		if ('route' in $$props) $$invalidate(2, route = $$props.route);
     	};
 
     	$$self.$$.update = () => {
@@ -11441,27 +11490,27 @@
     					// Get text
     					let text = parentPhrases.default;
 
-    					if (route.type === "custom" && parentPhrases[route.params.customType] !== void 0) {
+    					if (route.type === 'custom' && parentPhrases[route.params.customType] !== void 0) {
     						// Text for custom view
     						text = parentPhrases[routeParams.customType];
     					} else if (parentPhrases[route.type] !== void 0) {
     						// Text by view type
     						text = parentPhrases[route.type];
 
-    						if (route.type === "collection") {
+    						if (route.type === 'collection') {
     							// Replace {name} with collection name
-    							text = text.replace("{name}", lib.getCollectionTitle(collections, routeParams.provider, routeParams.prefix));
+    							text = text.replace('{name}', lib.getCollectionTitle(collections, routeParams.provider, routeParams.prefix));
     						}
     					}
 
     					// Generate unique key
-    					let key = route.type + "-" + level + "-";
+    					let key = route.type + '-' + level + '-';
 
     					switch (route.type) {
-    						case "collection":
-    							key += routeParams.provider + ":" + routeParams.prefix;
+    						case 'collection':
+    							key += routeParams.provider + ':' + routeParams.prefix;
     							break;
-    						case "custom":
+    						case 'custom':
     							key += routeParams.customType;
     							break;
     					}
@@ -11495,7 +11544,7 @@
     	}
     }
 
-    /* src/icon-finder/components/ui/Tabs.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/ui/Tabs.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$j(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -11537,7 +11586,7 @@
     			}
 
     			t = space();
-    			attr(div, "class", div_class_value = baseClass$b + "-" + /*listItem*/ ctx[4].side);
+    			attr(div, "class", div_class_value = baseClass$b + '-' + /*listItem*/ ctx[4].side);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -11557,7 +11606,7 @@
     				check_outros();
     			}
 
-    			if (!current || dirty & /*list*/ 1 && div_class_value !== (div_class_value = baseClass$b + "-" + /*listItem*/ ctx[4].side)) {
+    			if (!current || dirty & /*list*/ 1 && div_class_value !== (div_class_value = baseClass$b + '-' + /*listItem*/ ctx[4].side)) {
     				attr(div, "class", div_class_value);
     			}
     		},
@@ -11653,7 +11702,7 @@
     	let mounted;
     	let dispose;
     	let if_block0 = /*tab*/ ctx[7].icon && create_if_block_2$c(ctx);
-    	let if_block1 = /*tab*/ ctx[7].title !== "" && create_if_block_1$f(ctx);
+    	let if_block1 = /*tab*/ ctx[7].title !== '' && create_if_block_1$f(ctx);
 
     	return {
     		key: key_1,
@@ -11709,7 +11758,7 @@
     				check_outros();
     			}
 
-    			if (/*tab*/ ctx[7].title !== "") {
+    			if (/*tab*/ ctx[7].title !== '') {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
@@ -11885,8 +11934,8 @@
     	};
     }
 
-    const baseClass$b = "iif-tabs";
-    const baseItemClass = "iif-tab";
+    const baseClass$b = 'iif-tabs';
+    const baseItemClass = 'iif-tab';
 
     function instance$J($$self, $$props, $$invalidate) {
     	
@@ -11898,9 +11947,9 @@
     	let list = [];
 
     	$$self.$$set = $$props => {
-    		if ("tabs" in $$props) $$invalidate(1, tabs = $$props.tabs);
-    		if ("selected" in $$props) $$invalidate(2, selected = $$props.selected);
-    		if ("onClick" in $$props) $$invalidate(3, onClick = $$props.onClick);
+    		if ('tabs' in $$props) $$invalidate(1, tabs = $$props.tabs);
+    		if ('selected' in $$props) $$invalidate(2, selected = $$props.selected);
+    		if ('onClick' in $$props) $$invalidate(3, onClick = $$props.onClick);
     	};
 
     	$$self.$$.update = () => {
@@ -11914,9 +11963,9 @@
     					const index = (tab.index === void 0 ? list.length : tab.index) % maxIndex;
 
     					// Generate class name
-    					const className = baseItemClass + " " + baseItemClass + "--" + index + (key === selected
-    					? " " + baseItemClass + "--selected"
-    					: "") + (tab.type ? " " + baseItemClass + "--" + tab.type : "");
+    					const className = baseItemClass + ' ' + baseItemClass + '--' + index + (key === selected
+    					? ' ' + baseItemClass + '--selected'
+    					: '') + (tab.type ? ' ' + baseItemClass + '--' + tab.type : '');
 
     					// Generate item
     					const item = {
@@ -11924,7 +11973,7 @@
     						className,
     						title: tab.title,
     						index,
-    						href: tab.href === void 0 ? "# " : tab.href,
+    						href: tab.href === void 0 ? '# ' : tab.href,
     						icon: tab.icon,
     						hint: tab.hint,
     						onClick: tab.onClick === void 0
@@ -11941,12 +11990,12 @@
 
     				$$invalidate(0, list = [
     					{
-    						side: "left",
+    						side: 'left',
     						items: leftList,
     						empty: !leftList.length
     					},
     					{
-    						side: "right",
+    						side: 'right',
     						items: rightList,
     						empty: !rightList.length
     					}
@@ -11965,7 +12014,7 @@
     	}
     }
 
-    /* src/icon-finder/components/ui/AddForm.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/ui/AddForm.svelte generated by Svelte v3.42.1 */
 
     function create_if_block_3$8(ctx) {
     	let div;
@@ -12102,7 +12151,7 @@
     	}
 
     	input = new Input({ props: input_props });
-    	binding_callbacks.push(() => bind(input, "value", input_value_binding));
+    	binding_callbacks.push(() => bind(input, 'value', input_value_binding));
     	let if_block1 = /*buttonIcon*/ ctx[2] && create_if_block_2$b();
     	let if_block2 = /*status*/ ctx[4] && create_if_block_1$e(ctx);
     	let if_block3 = !/*valid*/ ctx[5] && /*phrases*/ ctx[1].invalid && create_if_block$r(ctx);
@@ -12257,11 +12306,11 @@
     	
     	let { phrases } = $$props;
     	let { buttonIcon = false } = $$props;
-    	let { inputIcon = "" } = $$props;
+    	let { inputIcon = '' } = $$props;
     	let { value } = $$props;
     	let { onSubmit } = $$props;
     	let { onValidate = null } = $$props;
-    	let { status = "" } = $$props;
+    	let { status = '' } = $$props;
 
     	// Validate value
     	let valid;
@@ -12273,7 +12322,7 @@
      * Validate current value
      */
     	function validateValue(value) {
-    		if (typeof onValidate === "function") {
+    		if (typeof onValidate === 'function') {
     			return onValidate(value);
     		}
 
@@ -12293,13 +12342,13 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ("phrases" in $$props) $$invalidate(1, phrases = $$props.phrases);
-    		if ("buttonIcon" in $$props) $$invalidate(2, buttonIcon = $$props.buttonIcon);
-    		if ("inputIcon" in $$props) $$invalidate(3, inputIcon = $$props.inputIcon);
-    		if ("value" in $$props) $$invalidate(0, value = $$props.value);
-    		if ("onSubmit" in $$props) $$invalidate(8, onSubmit = $$props.onSubmit);
-    		if ("onValidate" in $$props) $$invalidate(9, onValidate = $$props.onValidate);
-    		if ("status" in $$props) $$invalidate(4, status = $$props.status);
+    		if ('phrases' in $$props) $$invalidate(1, phrases = $$props.phrases);
+    		if ('buttonIcon' in $$props) $$invalidate(2, buttonIcon = $$props.buttonIcon);
+    		if ('inputIcon' in $$props) $$invalidate(3, inputIcon = $$props.inputIcon);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('onSubmit' in $$props) $$invalidate(8, onSubmit = $$props.onSubmit);
+    		if ('onValidate' in $$props) $$invalidate(9, onValidate = $$props.onValidate);
+    		if ('status' in $$props) $$invalidate(4, status = $$props.status);
     	};
 
     	$$self.$$.update = () => {
@@ -12311,7 +12360,7 @@
 
     		if ($$self.$$.dirty & /*buttonIcon*/ 4) {
     			{
-    				$$invalidate(6, buttonClass = "iif-form-button iif-form-button--primary" + (buttonIcon ? " iif-form-button--with-icon" : ""));
+    				$$invalidate(6, buttonClass = 'iif-form-button iif-form-button--primary' + (buttonIcon ? ' iif-form-button--with-icon' : ''));
     			}
     		}
     	};
@@ -12430,7 +12479,7 @@
         });
     }
 
-    /* src/icon-finder/components/content/blocks/Providers.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/Providers.svelte generated by Svelte v3.42.1 */
 
     function create_if_block$q(ctx) {
     	let addform;
@@ -12608,27 +12657,27 @@
     	let { providers } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	const providersPhrases = phrases$1.providers;
     	let formVisible = false;
-    	let status = "";
+    	let status = '';
 
     	/**
      * Select new provider
      */
     	function handleClick(key) {
     		$$invalidate(1, formVisible = false);
-    		registry.router.action("provider", key);
+    		registry.router.action('provider', key);
     	}
 
     	/**
      * Validate possible new provider
      */
     	function validateForm(value) {
-    		if (status !== "") {
+    		if (status !== '') {
     			// Reset status on input change
-    			$$invalidate(3, status = "");
+    			$$invalidate(3, status = '');
     		}
 
     		return validateProvider(value) !== null;
@@ -12644,21 +12693,21 @@
     			return;
     		}
 
-    		$$invalidate(3, status = providersPhrases.status.loading.replace("{host}", host));
+    		$$invalidate(3, status = providersPhrases.status.loading.replace('{host}', host));
 
     		retrieveProvider(registry, host, (host, success, provider) => {
     			if (!success) {
     				const error = provider;
 
     				// Use provider as error message
-    				$$invalidate(3, status = providersPhrases.status[error].replace("{host}", host));
+    				$$invalidate(3, status = providersPhrases.status[error].replace('{host}', host));
 
     				return;
     			}
 
-    			$$invalidate(3, status = "");
+    			$$invalidate(3, status = '');
     			$$invalidate(1, formVisible = false);
-    			registry.router.action("provider", provider);
+    			registry.router.action('provider', provider);
     		});
     	}
 
@@ -12666,8 +12715,8 @@
     	let list;
 
     	$$self.$$set = $$props => {
-    		if ("activeProvider" in $$props) $$invalidate(0, activeProvider = $$props.activeProvider);
-    		if ("providers" in $$props) $$invalidate(8, providers = $$props.providers);
+    		if ('activeProvider' in $$props) $$invalidate(0, activeProvider = $$props.activeProvider);
+    		if ('providers' in $$props) $$invalidate(8, providers = $$props.providers);
     	};
 
     	$$self.$$.update = () => {
@@ -12706,7 +12755,7 @@
     	}
     }
 
-    /* src/icon-finder/components/ui/Filter.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/ui/Filter.svelte generated by Svelte v3.42.1 */
 
     function create_else_block$8(ctx) {
     	let button;
@@ -12842,7 +12891,7 @@
     	};
     }
 
-    const baseClass$a = "iif-filter";
+    const baseClass$a = 'iif-filter';
 
     function instance$G($$self, $$props, $$invalidate) {
     	
@@ -12851,26 +12900,26 @@
     	let { filter } = $$props;
     	let { title } = $$props;
     	let { onClick } = $$props;
-    	let { link = "# " } = $$props;
+    	let { link = '# ' } = $$props;
     	let className;
 
     	$$self.$$set = $$props => {
-    		if ("active" in $$props) $$invalidate(5, active = $$props.active);
-    		if ("hasActive" in $$props) $$invalidate(6, hasActive = $$props.hasActive);
-    		if ("filter" in $$props) $$invalidate(0, filter = $$props.filter);
-    		if ("title" in $$props) $$invalidate(1, title = $$props.title);
-    		if ("onClick" in $$props) $$invalidate(2, onClick = $$props.onClick);
-    		if ("link" in $$props) $$invalidate(3, link = $$props.link);
+    		if ('active' in $$props) $$invalidate(5, active = $$props.active);
+    		if ('hasActive' in $$props) $$invalidate(6, hasActive = $$props.hasActive);
+    		if ('filter' in $$props) $$invalidate(0, filter = $$props.filter);
+    		if ('title' in $$props) $$invalidate(1, title = $$props.title);
+    		if ('onClick' in $$props) $$invalidate(2, onClick = $$props.onClick);
+    		if ('link' in $$props) $$invalidate(3, link = $$props.link);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*active, hasActive, filter*/ 97) {
     			{
     				$$invalidate(4, className = baseClass$a + (active
-    				? " " + baseClass$a + "--selected"
-    				: hasActive ? " " + baseClass$a + "--unselected" : "") + (filter.index
-    				? " " + baseClass$a + "--" + filter.index % maxIndex
-    				: ""));
+    				? ' ' + baseClass$a + '--selected'
+    				: hasActive ? ' ' + baseClass$a + '--unselected' : '') + (filter.index
+    				? ' ' + baseClass$a + '--' + filter.index % maxIndex
+    				: ''));
     			}
     		}
     	};
@@ -12893,7 +12942,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/Filters.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/Filters.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$i(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -12992,9 +13041,9 @@
     				hasActive: /*block*/ ctx[1].active !== null,
     				filter: /*filter*/ ctx[14],
     				link: /*link*/ ctx[2]
-    				? /*link*/ ctx[2].replace("{prefix}", /*key*/ ctx[13])
+    				? /*link*/ ctx[2].replace('{prefix}', /*key*/ ctx[13])
     				: void 0,
-    				title: /*filter*/ ctx[14].title === ""
+    				title: /*filter*/ ctx[14].title === ''
     				? phrases$1.filters.uncategorised
     				: /*filter*/ ctx[14].title,
     				onClick: func
@@ -13022,10 +13071,10 @@
     			if (dirty & /*block*/ 2) filter_changes.filter = /*filter*/ ctx[14];
 
     			if (dirty & /*link, block*/ 6) filter_changes.link = /*link*/ ctx[2]
-    			? /*link*/ ctx[2].replace("{prefix}", /*key*/ ctx[13])
+    			? /*link*/ ctx[2].replace('{prefix}', /*key*/ ctx[13])
     			: void 0;
 
-    			if (dirty & /*block*/ 2) filter_changes.title = /*filter*/ ctx[14].title === ""
+    			if (dirty & /*block*/ 2) filter_changes.title = /*filter*/ ctx[14].title === ''
     			? phrases$1.filters.uncategorised
     			: /*filter*/ ctx[14].title;
 
@@ -13055,7 +13104,7 @@
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let current;
-    	let if_block = /*header*/ ctx[3] !== "" && create_if_block_1$d(ctx);
+    	let if_block = /*header*/ ctx[3] !== '' && create_if_block_1$d(ctx);
     	let each_value = Object.entries(/*block*/ ctx[1].filters);
     	const get_key = ctx => /*key*/ ctx[13];
 
@@ -13089,7 +13138,7 @@
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (/*header*/ ctx[3] !== "") {
+    			if (/*header*/ ctx[3] !== '') {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -13197,18 +13246,18 @@
     	
     	let { name } = $$props;
     	let { block } = $$props;
-    	let { parent = "" } = $$props;
-    	let { link = "" } = $$props;
+    	let { parent = '' } = $$props;
+    	let { link = '' } = $$props;
     	let { onClick = null } = $$props;
     	let { showTitle = false } = $$props;
-    	let { title = "" } = $$props;
+    	let { title = '' } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Handle click
     	function handleClick(key) {
-    		if (typeof onClick === "function") {
+    		if (typeof onClick === 'function') {
     			onClick(key);
     		} else {
     			registry.router.action(name, key === block.active ? null : key);
@@ -13227,33 +13276,33 @@
     	const func = key => handleClick(key);
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
-    		if ("block" in $$props) $$invalidate(1, block = $$props.block);
-    		if ("parent" in $$props) $$invalidate(7, parent = $$props.parent);
-    		if ("link" in $$props) $$invalidate(2, link = $$props.link);
-    		if ("onClick" in $$props) $$invalidate(8, onClick = $$props.onClick);
-    		if ("showTitle" in $$props) $$invalidate(9, showTitle = $$props.showTitle);
-    		if ("title" in $$props) $$invalidate(10, title = $$props.title);
+    		if ('name' in $$props) $$invalidate(0, name = $$props.name);
+    		if ('block' in $$props) $$invalidate(1, block = $$props.block);
+    		if ('parent' in $$props) $$invalidate(7, parent = $$props.parent);
+    		if ('link' in $$props) $$invalidate(2, link = $$props.link);
+    		if ('onClick' in $$props) $$invalidate(8, onClick = $$props.onClick);
+    		if ('showTitle' in $$props) $$invalidate(9, showTitle = $$props.showTitle);
+    		if ('title' in $$props) $$invalidate(10, title = $$props.title);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*showTitle, title, name, parent*/ 1665) {
     			{
     				if (showTitle === false) {
-    					$$invalidate(3, header = "");
-    				} else if (typeof title === "string") {
+    					$$invalidate(3, header = '');
+    				} else if (typeof title === 'string') {
     					$$invalidate(3, header = title);
     				} else {
     					let key = name;
 
-    					if (parent !== "") {
-    						if (phrases$1.filters[name + "-" + parent] !== void 0) {
-    							key = name + "-" + parent;
+    					if (parent !== '') {
+    						if (phrases$1.filters[name + '-' + parent] !== void 0) {
+    							key = name + '-' + parent;
     						}
     					}
 
     					$$invalidate(3, header = phrases$1.filters[key] === void 0
-    					? ""
+    					? ''
     					: phrases$1.filters[key]);
     				}
     			}
@@ -13268,8 +13317,8 @@
     		if ($$self.$$.dirty & /*block*/ 2) {
     			{
     				$$invalidate(5, extra = block === null || block.active === null
-    				? ""
-    				: "filters--active");
+    				? ''
+    				: 'filters--active');
     			}
     		}
     	};
@@ -13306,7 +13355,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/CollectionsFilter.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/CollectionsFilter.svelte generated by Svelte v3.42.1 */
 
     function create_default_slot$f(ctx) {
     	let input;
@@ -13328,7 +13377,7 @@
     	}
 
     	input = new Input({ props: input_props });
-    	binding_callbacks.push(() => bind(input, "value", input_value_binding));
+    	binding_callbacks.push(() => bind(input, 'value', input_value_binding));
 
     	return {
     		c() {
@@ -13415,7 +13464,7 @@
     	let { block } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Set initial input value
     	let value = block.keyword;
@@ -13433,8 +13482,8 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(2, name = $$props.name);
-    		if ("block" in $$props) $$invalidate(3, block = $$props.block);
+    		if ('name' in $$props) $$invalidate(2, name = $$props.name);
+    		if ('block' in $$props) $$invalidate(3, block = $$props.block);
     	};
 
     	$$self.$$.update = () => {
@@ -13458,7 +13507,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/collections-list/Height.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/collections-list/Height.svelte generated by Svelte v3.42.1 */
 
     function create_if_block$n(ctx) {
     	let html_tag;
@@ -13466,8 +13515,9 @@
 
     	return {
     		c() {
+    			html_tag = new HtmlTag();
     			html_anchor = empty();
-    			html_tag = new HtmlTag(html_anchor);
+    			html_tag.a = html_anchor;
     		},
     		m(target, anchor) {
     			html_tag.m(/*html*/ ctx[1], target, anchor);
@@ -13532,75 +13582,75 @@
     	});
 
     	const shapesData = {
-    		"0": {
+    		'0': {
     			paths: [
-    				"M24 68h8c6 0 12 6 12 12v32c0 6-6 12-12 12H16c-6 0-12-6-12-12V80c0-6 5-12 12-12h8z"
+    				'M24 68h8c6 0 12 6 12 12v32c0 6-6 12-12 12H16c-6 0-12-6-12-12V80c0-6 5-12 12-12h8z'
     			],
     			width: 48
     		},
-    		"1": {
-    			paths: ["M4 68c6 0 12 6 12 12v44H4h24"],
+    		'1': {
+    			paths: ['M4 68c6 0 12 6 12 12v44H4h24'],
     			width: 32
     		},
-    		"2": {
+    		'2': {
     			paths: [
-    				"M4 80c0-6 6-12 12-12h16c6 0 12 6 12 12v8c0 6-6 12-12 12H16c-6 0-12 6-12 12v12h40"
+    				'M4 80c0-6 6-12 12-12h16c6 0 12 6 12 12v8c0 6-6 12-12 12H16c-6 0-12 6-12 12v12h40'
     			],
     			width: 48
     		},
-    		"3": {
+    		'3': {
     			paths: [
-    				"M4 80c0-6 6-12 12-12h16c6 0 12 6 12 12v4c0 6-6 12-12 12h-4 4c6 0 12 6 12 12v4c0 6-6 12-12 12H16c-6 0-12-6-12-12"
+    				'M4 80c0-6 6-12 12-12h16c6 0 12 6 12 12v4c0 6-6 12-12 12h-4 4c6 0 12 6 12 12v4c0 6-6 12-12 12H16c-6 0-12-6-12-12'
     			],
     			width: 48
     		},
-    		"4": {
-    			paths: ["M4 68v20c0 6 6 12 12 12h16c6 0 12-6 12-12V68v56"],
+    		'4': {
+    			paths: ['M4 68v20c0 6 6 12 12 12h16c6 0 12-6 12-12V68v56'],
     			width: 48
     		},
-    		"5": {
-    			paths: ["M44 68H4v24h28c6 0 12 6 12 12v8c0 6-6 12-12 12H16c-6 0-12-6-12-12"],
+    		'5': {
+    			paths: ['M44 68H4v24h28c6 0 12 6 12 12v8c0 6-6 12-12 12H16c-6 0-12-6-12-12'],
     			width: 48
     		},
-    		"6": {
+    		'6': {
     			paths: [
-    				"M44 80c0-6-6-12-12-12H16c-6 0-12 6-12 12v32c0 6 6 12 12 12h16c6 0 12-6 12-12v-8c0-6-6-12-12-12H16c-6 0-12 6-12 12"
+    				'M44 80c0-6-6-12-12-12H16c-6 0-12 6-12 12v32c0 6 6 12 12 12h16c6 0 12-6 12-12v-8c0-6-6-12-12-12H16c-6 0-12 6-12 12'
     			],
     			width: 48
     		},
-    		"7": {
-    			paths: ["M4 68h28c6 0 12 6 12 12 0 4-6.667 18.667-20 44"],
+    		'7': {
+    			paths: ['M4 68h28c6 0 12 6 12 12 0 4-6.667 18.667-20 44'],
     			width: 48
     		},
-    		"8": {
+    		'8': {
     			paths: [
-    				"M24 68h8c6 0 12 6 12 12v4c0 6-6 12-12 12 6 0 12 6 12 12v4c0 6-6 12-12 12H16c-6 0-12-6-12-12v-4c0-6 6-12 12-12-6 0-12-6-12-12v-4c0-6 6-12 12-12h8z"
+    				'M24 68h8c6 0 12 6 12 12v4c0 6-6 12-12 12 6 0 12 6 12 12v4c0 6-6 12-12 12H16c-6 0-12-6-12-12v-4c0-6 6-12 12-12-6 0-12-6-12-12v-4c0-6 6-12 12-12h8z'
     			],
     			width: 48
     		},
-    		"9": {
+    		'9': {
     			paths: [
-    				"M44 88c0 6-6 12-12 12H16c-6 0-12-6-12-12v-8c0-6 6-12 12-12h16c6 0 12 6 12 12v32c0 6-6 12-12 12H16c-6 0-12-6-12-12"
+    				'M44 88c0 6-6 12-12 12H16c-6 0-12-6-12-12v-8c0-6 6-12 12-12h16c6 0 12 6 12 12v32c0 6-6 12-12 12H16c-6 0-12-6-12-12'
     			],
     			width: 48
     		},
-    		"|": {
+    		'|': {
     			paths: [
     				// Top arrow
-    				"M4 48l24-24 24 24",
+    				'M4 48l24-24 24 24',
     				// Bottom arrow
-    				"M4 144l24 24 24-24",
+    				'M4 144l24 24 24-24',
     				// Middle line
-    				"M28 48v96"
+    				'M28 48v96'
     			],
     			width: 56
     		},
-    		",": {
-    			paths: ["M8 124c-2 0-4-2-4-4s2-4 4-4 4 2 4 4v8c0 2-2 6-4 8"],
+    		',': {
+    			paths: ['M8 124c-2 0-4-2-4-4s2-4 4-4 4 2 4 4v8c0 2-2 6-4 8'],
     			width: 16
     		},
-    		".": {
-    			paths: ["M8 116c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4z"],
+    		'.': {
+    			paths: ['M8 116c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4z'],
     			width: 16
     		}
     	};
@@ -13608,15 +13658,15 @@
     	const defaultOptions = { line: false, animate: false, height: 24 };
 
     	function iconHeight(text, options) {
-    		let width = unit, height = 24 * unit, svg = "", i, char, item, scale;
+    		let width = unit, height = 24 * unit, svg = '', i, char, item, scale;
 
     		// Convert from number
-    		if (typeof text === "number") {
-    			text = "" + text;
+    		if (typeof text === 'number') {
+    			text = '' + text;
     		}
 
     		// Set options
-    		const allOptions = Object.assign({}, defaultOptions, typeof options === "object" ? options : {});
+    		const allOptions = Object.assign({}, defaultOptions, typeof options === 'object' ? options : {});
 
     		// Get scale
     		scale = height / allOptions.height;
@@ -13631,14 +13681,14 @@
     			char = text.slice(i, i + 1);
 
     			if (shapesData[char] === void 0) {
-    				if (char === " ") {
+    				if (char === ' ') {
     					width += unit * 2;
     				}
 
     				continue;
     			}
 
-    			if (char === "|") {
+    			if (char === '|') {
     				// Force line
     				allOptions.line = true;
     			}
@@ -13646,15 +13696,15 @@
     			item = shapesData[char];
 
     			if (width > unit) {
-    				svg += "<g transform=\"translate(" + width + ")\">";
+    				svg += '<g transform="translate(' + width + ')">';
     			}
 
     			item.paths.forEach(path => {
-    				svg += "<path d=\"" + path + "\" />";
+    				svg += '<path d="' + path + '" />';
     			});
 
     			if (width > unit) {
-    				svg += "</g>";
+    				svg += '</g>';
     			}
 
     			width += item.width + unit;
@@ -13662,22 +13712,22 @@
 
     		// Add line
     		if (allOptions.line) {
-    			svg += "<path d=\"M" + unit / 2 + " " + unit / 2 + "h" + (width - unit) + "\" />";
-    			svg += "<path d=\"M" + unit / 2 + " " + (height - unit / 2) + "h" + (width - unit) + "\" />";
+    			svg += '<path d="M' + unit / 2 + ' ' + unit / 2 + 'h' + (width - unit) + '" />';
+    			svg += '<path d="M' + unit / 2 + ' ' + (height - unit / 2) + 'h' + (width - unit) + '" />';
     		}
 
     		// Wrap in group
-    		svg = "<g stroke-width=\"" + unit + "\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">" + svg + "</g>";
+    		svg = '<g stroke-width="' + unit + '" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">' + svg + '</g>';
 
     		// Wrap in <svg>
-    		return "<svg xmlns=\"http://www.w3.org/2000/svg\" focusable=\"false\" width=\"" + width / scale + "\" height=\"" + height / scale + "\" viewBox=\"0 0 " + width + " " + height + "\"> " + svg + "</svg>";
+    		return '<svg xmlns="http://www.w3.org/2000/svg" focusable="false" width="' + width / scale + '" height="' + height / scale + '" viewBox="0 0 ' + width + ' ' + height + '"> ' + svg + '</svg>';
     	}
 
     	// Convert to HTML
     	let html;
 
     	$$self.$$set = $$props => {
-    		if ("text" in $$props) $$invalidate(2, text = $$props.text);
+    		if ('text' in $$props) $$invalidate(2, text = $$props.text);
     	};
 
     	$$self.$$.update = () => {
@@ -13698,7 +13748,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/collections-list/Item.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/collections-list/Item.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$h(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -13818,6 +13868,7 @@
     // (103:2) {#if samples.length > 0}
     function create_if_block_1$c(ctx) {
     	let div;
+    	let div_class_value;
     	let current;
     	let each_value = /*samples*/ ctx[7];
     	let each_blocks = [];
@@ -13838,9 +13889,9 @@
     				each_blocks[i].c();
     			}
 
-    			attr(div, "class", "iif-collection-samples" + (/*samplesHeight*/ ctx[8]
-    			? " iif-collection-samples--" + /*samplesHeight*/ ctx[8]
-    			: ""));
+    			attr(div, "class", div_class_value = "iif-collection-samples" + (/*samplesHeight*/ ctx[8]
+    			? ' iif-collection-samples--' + /*samplesHeight*/ ctx[8]
+    			: ''));
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -13912,9 +13963,9 @@
     	icon = new Icon({
     			props: {
     				class: "iconify",
-    				icon: (/*provider*/ ctx[0] === ""
-    				? ""
-    				: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[15]
+    				icon: (/*provider*/ ctx[0] === ''
+    				? ''
+    				: '@' + /*provider*/ ctx[0] + ':') + /*prefix*/ ctx[1] + ':' + /*sample*/ ctx[15]
     			}
     		});
 
@@ -13929,9 +13980,9 @@
     		p(ctx, dirty) {
     			const icon_changes = {};
 
-    			if (dirty & /*provider, prefix*/ 3) icon_changes.icon = (/*provider*/ ctx[0] === ""
-    			? ""
-    			: "@" + /*provider*/ ctx[0] + ":") + /*prefix*/ ctx[1] + ":" + /*sample*/ ctx[15];
+    			if (dirty & /*provider, prefix*/ 3) icon_changes.icon = (/*provider*/ ctx[0] === ''
+    			? ''
+    			: '@' + /*provider*/ ctx[0] + ':') + /*prefix*/ ctx[1] + ':' + /*sample*/ ctx[15];
 
     			icon.$set(icon_changes);
     		},
@@ -14006,7 +14057,7 @@
     	let if_block2 = /*info*/ ctx[2].height && create_if_block$m(ctx);
 
     	height_1 = new Height({
-    			props: { text: /*info*/ ctx[2].total + "" }
+    			props: { text: /*info*/ ctx[2].total + '' }
     		});
 
     	return {
@@ -14103,7 +14154,7 @@
     			}
 
     			const height_1_changes = {};
-    			if (dirty & /*info*/ 4) height_1_changes.text = /*info*/ ctx[2].total + "";
+    			if (dirty & /*info*/ 4) height_1_changes.text = /*info*/ ctx[2].total + '';
     			height_1.$set(height_1_changes);
 
     			if (!current || dirty & /*className*/ 32) {
@@ -14135,7 +14186,7 @@
     	};
     }
 
-    const baseClass$9 = "iif-collection";
+    const baseClass$9 = 'iif-collection';
 
     function instance$C($$self, $$props, $$invalidate) {
     	
@@ -14146,7 +14197,7 @@
     	let { onClick } = $$props;
 
     	// Get registry instance
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// on:click event for external links
     	const onExternalClick = registry.link;
@@ -14163,9 +14214,9 @@
     	const samplesHeight = getSamplesHeight();
 
     	// Height
-    	const height = "|" + (typeof info.height !== "object"
+    	const height = '|' + (typeof info.height !== 'object'
     	? info.height
-    	: info.height.join(", "));
+    	: info.height.join(', '));
 
     	// Block was clicked
     	function handleBlockClick(event) {
@@ -14174,7 +14225,7 @@
     	function getSamplesHeight() {
     		if (info.displayHeight) {
     			return info.displayHeight;
-    		} else if (typeof info.height === "number") {
+    		} else if (typeof info.height === 'number') {
     			return info.height;
     		}
 
@@ -14192,10 +14243,10 @@
     	const click_handler = () => onClick(prefix);
 
     	$$self.$$set = $$props => {
-    		if ("provider" in $$props) $$invalidate(0, provider = $$props.provider);
-    		if ("prefix" in $$props) $$invalidate(1, prefix = $$props.prefix);
-    		if ("info" in $$props) $$invalidate(2, info = $$props.info);
-    		if ("onClick" in $$props) $$invalidate(3, onClick = $$props.onClick);
+    		if ('provider' in $$props) $$invalidate(0, provider = $$props.provider);
+    		if ('prefix' in $$props) $$invalidate(1, prefix = $$props.prefix);
+    		if ('info' in $$props) $$invalidate(2, info = $$props.info);
+    		if ('onClick' in $$props) $$invalidate(3, onClick = $$props.onClick);
     	};
 
     	$$self.$$.update = () => {
@@ -14204,24 +14255,24 @@
     				const providerData = lib.getProvider(provider);
 
     				if (providerData) {
-    					$$invalidate(4, link = providerData.links.collection.replace("{prefix}", prefix));
+    					$$invalidate(4, link = providerData.links.collection.replace('{prefix}', prefix));
 
-    					if (link === "") {
-    						$$invalidate(4, link = "#");
+    					if (link === '') {
+    						$$invalidate(4, link = '#');
     					}
     				} else {
-    					$$invalidate(4, link = "#");
+    					$$invalidate(4, link = '#');
     				}
     			}
     		}
 
     		if ($$self.$$.dirty & /*prefix, provider, info*/ 7) {
     			{
-    				$$invalidate(5, className = baseClass$9 + " " + baseClass$9 + "--prefix--" + prefix + (provider === ""
-    				? ""
-    				: " " + baseClass$9 + "--provider--" + provider) + ("") + (info.index
-    				? " " + baseClass$9 + "--" + info.index % maxIndex
-    				: ""));
+    				$$invalidate(5, className = baseClass$9 + ' ' + baseClass$9 + '--prefix--' + prefix + (provider === ''
+    				? ''
+    				: ' ' + baseClass$9 + '--provider--' + provider) + ('') + (info.index
+    				? ' ' + baseClass$9 + '--' + info.index % maxIndex
+    				: ''));
     			}
     		}
     	};
@@ -14255,7 +14306,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/collections-list/Category.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/collections-list/Category.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$g(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -14436,17 +14487,17 @@
     function instance$B($$self, $$props, $$invalidate) {
     	
     	let { showCategories } = $$props;
-    	let { category = "" } = $$props;
+    	let { category = '' } = $$props;
     	let { items } = $$props;
     	let { provider } = $$props;
     	let { onClick } = $$props;
 
     	$$self.$$set = $$props => {
-    		if ("showCategories" in $$props) $$invalidate(0, showCategories = $$props.showCategories);
-    		if ("category" in $$props) $$invalidate(1, category = $$props.category);
-    		if ("items" in $$props) $$invalidate(2, items = $$props.items);
-    		if ("provider" in $$props) $$invalidate(3, provider = $$props.provider);
-    		if ("onClick" in $$props) $$invalidate(4, onClick = $$props.onClick);
+    		if ('showCategories' in $$props) $$invalidate(0, showCategories = $$props.showCategories);
+    		if ('category' in $$props) $$invalidate(1, category = $$props.category);
+    		if ('items' in $$props) $$invalidate(2, items = $$props.items);
+    		if ('provider' in $$props) $$invalidate(3, provider = $$props.provider);
+    		if ('onClick' in $$props) $$invalidate(4, onClick = $$props.onClick);
     	};
 
     	return [showCategories, category, items, provider, onClick];
@@ -14466,7 +14517,7 @@
     	}
     }
 
-    /* src/icon-finder/components/ui/ContentError.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/ui/ContentError.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$A(ctx) {
     	let div;
@@ -14497,7 +14548,7 @@
     	let { error } = $$props;
 
     	$$self.$$set = $$props => {
-    		if ("error" in $$props) $$invalidate(0, error = $$props.error);
+    		if ('error' in $$props) $$invalidate(0, error = $$props.error);
     	};
 
     	return [error];
@@ -14510,7 +14561,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/CollectionsList.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/CollectionsList.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$f(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -14757,7 +14808,7 @@
     	let { provider } = $$props;
 
     	// Get registry instance
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Click event
     	function onClick(prefix) {
@@ -14765,9 +14816,9 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(3, name = $$props.name);
-    		if ("block" in $$props) $$invalidate(0, block = $$props.block);
-    		if ("provider" in $$props) $$invalidate(1, provider = $$props.provider);
+    		if ('name' in $$props) $$invalidate(3, name = $$props.name);
+    		if ('block' in $$props) $$invalidate(0, block = $$props.block);
+    		if ('provider' in $$props) $$invalidate(1, provider = $$props.provider);
     	};
 
     	return [block, provider, onClick, name];
@@ -14780,7 +14831,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/views/Collections.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/views/Collections.svelte generated by Svelte v3.42.1 */
 
     function create_if_block$k(ctx) {
     	let filtersblock;
@@ -14928,8 +14979,8 @@
     	let { route } = $$props;
 
     	$$self.$$set = $$props => {
-    		if ("blocks" in $$props) $$invalidate(0, blocks = $$props.blocks);
-    		if ("route" in $$props) $$invalidate(1, route = $$props.route);
+    		if ('blocks' in $$props) $$invalidate(0, blocks = $$props.blocks);
+    		if ('route' in $$props) $$invalidate(1, route = $$props.route);
     	};
 
     	return [blocks, route];
@@ -14942,7 +14993,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/CollectionInfo.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/CollectionInfo.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$x(ctx) {
     	let if_block_anchor;
@@ -14985,7 +15036,7 @@
     	const text = phrases$1.collectionInfo;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Callback for external link
     	const onExternalClick = registry.link;
@@ -14994,10 +15045,10 @@
     	let info;
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
-    		if ("block" in $$props) $$invalidate(6, block = $$props.block);
-    		if ("short" in $$props) $$invalidate(1, short = $$props.short);
-    		if ("showTitle" in $$props) $$invalidate(2, showTitle = $$props.showTitle);
+    		if ('name' in $$props) $$invalidate(0, name = $$props.name);
+    		if ('block' in $$props) $$invalidate(6, block = $$props.block);
+    		if ('short' in $$props) $$invalidate(1, short = $$props.short);
+    		if ('showTitle' in $$props) $$invalidate(2, showTitle = $$props.showTitle);
     	};
 
     	$$self.$$.update = () => {
@@ -15024,7 +15075,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/icons/IconList.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/icons/IconList.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$e(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -15119,8 +15170,8 @@
     	uiicon = new UIIcon({
     			props: {
     				icon: /*selected*/ ctx[4]
-    				? "selecting-selected"
-    				: "selecting-unselected"
+    				? 'selecting-selected'
+    				: 'selecting-unselected'
     			}
     		});
 
@@ -15136,8 +15187,8 @@
     			const uiicon_changes = {};
 
     			if (dirty & /*selected*/ 16) uiicon_changes.icon = /*selected*/ ctx[4]
-    			? "selecting-selected"
-    			: "selecting-unselected";
+    			? 'selecting-selected'
+    			: 'selecting-unselected';
 
     			uiicon.$set(uiicon_changes);
     		},
@@ -15285,7 +15336,7 @@
     	filter = new Filter({
     			props: {
     				filter: /*filter*/ ctx[14].item,
-    				title: /*filter*/ ctx[14].item.title === ""
+    				title: /*filter*/ ctx[14].item.title === ''
     				? phrases$1.filters.uncategorised
     				: /*filter*/ ctx[14].item.title,
     				onClick: func
@@ -15305,7 +15356,7 @@
     			const filter_changes = {};
     			if (dirty & /*filters*/ 256) filter_changes.filter = /*filter*/ ctx[14].item;
 
-    			if (dirty & /*filters*/ 256) filter_changes.title = /*filter*/ ctx[14].item.title === ""
+    			if (dirty & /*filters*/ 256) filter_changes.title = /*filter*/ ctx[14].item.title === ''
     			? phrases$1.filters.uncategorised
     			: /*filter*/ ctx[14].item.title;
 
@@ -15366,7 +15417,7 @@
     			attr(a1, "class", "iif-icon-name");
     			attr(a1, "href", /*link*/ ctx[5]);
     			attr(a1, "title", /*tooltip*/ ctx[1]);
-    			attr(div1, "class", div1_class_value = "iif-icon-data iif-icon-data--filters--" + /*filters*/ ctx[8].length);
+    			attr(div1, "class", div1_class_value = 'iif-icon-data iif-icon-data--filters--' + /*filters*/ ctx[8].length);
     			attr(li, "class", /*className*/ ctx[10]);
     		},
     		m(target, anchor) {
@@ -15471,7 +15522,7 @@
     				check_outros();
     			}
 
-    			if (!current || dirty & /*filters*/ 256 && div1_class_value !== (div1_class_value = "iif-icon-data iif-icon-data--filters--" + /*filters*/ ctx[8].length)) {
+    			if (!current || dirty & /*filters*/ 256 && div1_class_value !== (div1_class_value = 'iif-icon-data iif-icon-data--filters--' + /*filters*/ ctx[8].length)) {
     				attr(div1, "class", div1_class_value);
     			}
 
@@ -15501,7 +15552,7 @@
     	};
     }
 
-    const baseClass$8 = "iif-icon-list";
+    const baseClass$8 = 'iif-icon-list';
 
     function instance$w($$self, $$props, $$invalidate) {
     	
@@ -15526,8 +15577,8 @@
     	function handleClick() {
     		onClick(
     			isSelecting
-    			? selected ? "deselect" : "select"
-    			: "toggle",
+    			? selected ? 'deselect' : 'select'
+    			: 'toggle',
     			icon
     		);
     	}
@@ -15535,22 +15586,22 @@
     	const func = filter => onClick(filter.action, filter.value);
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
-    		if ("tooltip" in $$props) $$invalidate(1, tooltip = $$props.tooltip);
-    		if ("text" in $$props) $$invalidate(2, text = $$props.text);
-    		if ("icon" in $$props) $$invalidate(12, icon = $$props.icon);
-    		if ("exists" in $$props) $$invalidate(3, exists = $$props.exists);
-    		if ("selected" in $$props) $$invalidate(4, selected = $$props.selected);
-    		if ("link" in $$props) $$invalidate(5, link = $$props.link);
-    		if ("onClick" in $$props) $$invalidate(6, onClick = $$props.onClick);
-    		if ("isSelecting" in $$props) $$invalidate(7, isSelecting = $$props.isSelecting);
-    		if ("filters" in $$props) $$invalidate(8, filters = $$props.filters);
+    		if ('name' in $$props) $$invalidate(0, name = $$props.name);
+    		if ('tooltip' in $$props) $$invalidate(1, tooltip = $$props.tooltip);
+    		if ('text' in $$props) $$invalidate(2, text = $$props.text);
+    		if ('icon' in $$props) $$invalidate(12, icon = $$props.icon);
+    		if ('exists' in $$props) $$invalidate(3, exists = $$props.exists);
+    		if ('selected' in $$props) $$invalidate(4, selected = $$props.selected);
+    		if ('link' in $$props) $$invalidate(5, link = $$props.link);
+    		if ('onClick' in $$props) $$invalidate(6, onClick = $$props.onClick);
+    		if ('isSelecting' in $$props) $$invalidate(7, isSelecting = $$props.isSelecting);
+    		if ('filters' in $$props) $$invalidate(8, filters = $$props.filters);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*exists, selected*/ 24) {
     			{
-    				$$invalidate(10, className = baseClass$8 + " " + baseClass$8 + (exists ? "--loaded" : "--loading") + (selected ? " " + baseClass$8 + "--selected" : ""));
+    				$$invalidate(10, className = baseClass$8 + ' ' + baseClass$8 + (exists ? '--loaded' : '--loading') + (selected ? ' ' + baseClass$8 + '--selected' : ''));
     			}
     		}
 
@@ -15602,7 +15653,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/icons/IconGrid.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/icons/IconGrid.svelte generated by Svelte v3.42.1 */
 
     function create_else_block$5(ctx) {
     	let span;
@@ -15717,8 +15768,8 @@
     	uiicon = new UIIcon({
     			props: {
     				icon: /*selected*/ ctx[4]
-    				? "selecting-selected"
-    				: "selecting-unselected"
+    				? 'selecting-selected'
+    				: 'selecting-unselected'
     			}
     		});
 
@@ -15734,8 +15785,8 @@
     			const uiicon_changes = {};
 
     			if (dirty & /*selected*/ 16) uiicon_changes.icon = /*selected*/ ctx[4]
-    			? "selecting-selected"
-    			: "selecting-unselected";
+    			? 'selecting-selected'
+    			: 'selecting-unselected';
 
     			uiicon.$set(uiicon_changes);
     		},
@@ -15851,7 +15902,7 @@
     	};
     }
 
-    const baseClass$7 = "iif-icon-grid";
+    const baseClass$7 = 'iif-icon-grid';
 
     function instance$v($$self, $$props, $$invalidate) {
     	
@@ -15869,27 +15920,27 @@
     	function handleClick() {
     		onClick(
     			isSelecting
-    			? selected ? "deselect" : "select"
-    			: "toggle",
+    			? selected ? 'deselect' : 'select'
+    			: 'toggle',
     			icon
     		);
     	}
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
-    		if ("tooltip" in $$props) $$invalidate(1, tooltip = $$props.tooltip);
-    		if ("icon" in $$props) $$invalidate(2, icon = $$props.icon);
-    		if ("exists" in $$props) $$invalidate(3, exists = $$props.exists);
-    		if ("selected" in $$props) $$invalidate(4, selected = $$props.selected);
-    		if ("link" in $$props) $$invalidate(5, link = $$props.link);
-    		if ("onClick" in $$props) $$invalidate(9, onClick = $$props.onClick);
-    		if ("isSelecting" in $$props) $$invalidate(6, isSelecting = $$props.isSelecting);
+    		if ('name' in $$props) $$invalidate(0, name = $$props.name);
+    		if ('tooltip' in $$props) $$invalidate(1, tooltip = $$props.tooltip);
+    		if ('icon' in $$props) $$invalidate(2, icon = $$props.icon);
+    		if ('exists' in $$props) $$invalidate(3, exists = $$props.exists);
+    		if ('selected' in $$props) $$invalidate(4, selected = $$props.selected);
+    		if ('link' in $$props) $$invalidate(5, link = $$props.link);
+    		if ('onClick' in $$props) $$invalidate(9, onClick = $$props.onClick);
+    		if ('isSelecting' in $$props) $$invalidate(6, isSelecting = $$props.isSelecting);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*exists, selected*/ 24) {
     			{
-    				$$invalidate(7, className = baseClass$7 + " " + baseClass$7 + (exists ? "--loaded" : "--loading") + (selected ? " " + baseClass$7 + "--selected" : ""));
+    				$$invalidate(7, className = baseClass$7 + ' ' + baseClass$7 + (exists ? '--loaded' : '--loading') + (selected ? ' ' + baseClass$7 + '--selected' : ''));
     			}
     		}
     	};
@@ -15925,7 +15976,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/icons/Container.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/icons/Container.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$d(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -16143,9 +16194,9 @@
     				each_blocks[i].c();
     			}
 
-    			attr(div, "class", div_class_value = baseClass$6 + " " + baseClass$6 + (/*isList*/ ctx[0] ? "--list" : "--grid") + (/*isSelecting*/ ctx[1]
-    			? " " + baseClass$6 + "--selecting"
-    			: ""));
+    			attr(div, "class", div_class_value = baseClass$6 + ' ' + baseClass$6 + (/*isList*/ ctx[0] ? '--list' : '--grid') + (/*isSelecting*/ ctx[1]
+    			? ' ' + baseClass$6 + '--selecting'
+    			: ''));
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -16165,9 +16216,9 @@
     				check_outros();
     			}
 
-    			if (!current || dirty & /*isList, isSelecting*/ 3 && div_class_value !== (div_class_value = baseClass$6 + " " + baseClass$6 + (/*isList*/ ctx[0] ? "--list" : "--grid") + (/*isSelecting*/ ctx[1]
-    			? " " + baseClass$6 + "--selecting"
-    			: ""))) {
+    			if (!current || dirty & /*isList, isSelecting*/ 3 && div_class_value !== (div_class_value = baseClass$6 + ' ' + baseClass$6 + (/*isList*/ ctx[0] ? '--list' : '--grid') + (/*isSelecting*/ ctx[1]
+    			? ' ' + baseClass$6 + '--selecting'
+    			: ''))) {
     				attr(div, "class", div_class_value);
     			}
     		},
@@ -16197,7 +16248,7 @@
     	};
     }
 
-    const baseClass$6 = "iif-icons";
+    const baseClass$6 = 'iif-icons';
 
     function instance$u($$self, $$props, $$invalidate) {
     	
@@ -16210,10 +16261,10 @@
     	let { isSelecting } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// List of keys used for filters. Same keys are used in both blocks and icon.
-    	const filterKeys = ["tags", "themePrefixes", "themeSuffixes"];
+    	const filterKeys = ['tags', 'themePrefixes', 'themeSuffixes'];
 
     	// Tooltip
     	const tooltipText = phrases$1.icons.tooltip;
@@ -16256,7 +16307,7 @@
     			const active = block.active;
     			const iconValue = icon[key];
 
-    			(typeof iconValue === "string"
+    			(typeof iconValue === 'string'
     			? [iconValue]
     			: iconValue instanceof Array ? iconValue : []).forEach(value => {
     				if (value === active) {
@@ -16274,7 +16325,7 @@
     		});
 
     		// Icon sets
-    		if (route.type === "search") {
+    		if (route.type === 'search') {
     			const searchBlocks = blocks;
 
     			if (searchBlocks.collections) {
@@ -16282,7 +16333,7 @@
 
     				if (searchBlocks.collections.filters[prefix]) {
     					filters.push({
-    						action: "collections",
+    						action: 'collections',
     						value: prefix,
     						item: searchBlocks.collections.filters[prefix]
     					});
@@ -16298,19 +16349,19 @@
 
     	// Icon or filter was clicked
     	function onClick(event, value) {
-    		if (event === "toggle") {
+    		if (event === 'toggle') {
     			// UISelectionEvent
-    			registry.callback({ type: "selection", icon: value });
+    			registry.callback({ type: 'selection', icon: value });
 
     			return;
     		}
 
-    		if (event === "select" || event === "deselect") {
+    		if (event === 'select' || event === 'deselect') {
     			// UISelectionEvent
     			registry.callback({
-    				type: "selection",
+    				type: 'selection',
     				icon: value,
-    				selected: event === "select"
+    				selected: event === 'select'
     			});
 
     			return;
@@ -16328,17 +16379,17 @@
     	});
 
     	$$self.$$set = $$props => {
-    		if ("route" in $$props) $$invalidate(4, route = $$props.route);
-    		if ("selection" in $$props) $$invalidate(5, selection = $$props.selection);
-    		if ("blocks" in $$props) $$invalidate(6, blocks = $$props.blocks);
-    		if ("isList" in $$props) $$invalidate(0, isList = $$props.isList);
-    		if ("isSelecting" in $$props) $$invalidate(1, isSelecting = $$props.isSelecting);
+    		if ('route' in $$props) $$invalidate(4, route = $$props.route);
+    		if ('selection' in $$props) $$invalidate(5, selection = $$props.selection);
+    		if ('blocks' in $$props) $$invalidate(6, blocks = $$props.blocks);
+    		if ('isList' in $$props) $$invalidate(0, isList = $$props.isList);
+    		if ('isSelecting' in $$props) $$invalidate(1, isSelecting = $$props.isSelecting);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*route*/ 16) {
     			{
-    				$$invalidate(7, showPrefix = route.type !== "collection");
+    				$$invalidate(7, showPrefix = route.type !== 'collection');
     			}
     		}
 
@@ -16377,18 +16428,18 @@
     					let tooltip = text;
 
     					if (data) {
-    						tooltip += tooltipText.size.replace("{size}", data.width + " x " + data.height);
-    						tooltip += tooltipText.length.replace("{length}", data.body.length + "");
+    						tooltip += tooltipText.size.replace('{size}', data.width + ' x ' + data.height);
+    						tooltip += tooltipText.length.replace('{length}', data.body.length + '');
 
     						if (icon.chars !== void 0) {
-    							tooltip += tooltipText.char.replace("{char}", typeof icon.chars === "string"
+    							tooltip += tooltipText.char.replace('{char}', typeof icon.chars === 'string'
     							? icon.chars
-    							: icon.chars.join(", "));
+    							: icon.chars.join(', '));
     						}
 
-    						tooltip += tooltipText[data.body.indexOf("currentColor") === -1
-    						? "colorful"
-    						: "colorless"];
+    						tooltip += tooltipText[data.body.indexOf('currentColor') === -1
+    						? 'colorful'
+    						: 'colorless'];
     					}
 
     					// Link
@@ -16397,13 +16448,13 @@
     					let link;
 
     					if (providerData) {
-    						link = providerData.links.icon.replace("{prefix}", icon.prefix).replace("{name}", icon.name);
+    						link = providerData.links.icon.replace('{prefix}', icon.prefix).replace('{name}', icon.name);
 
-    						if (link === "") {
-    							link = "#";
+    						if (link === '') {
+    							link = '#';
     						}
     					} else {
-    						link = "#";
+    						link = '#';
     					}
 
     					// Item
@@ -16487,7 +16538,7 @@
     	}
     }
 
-    /* src/icon-finder/components/ui/IconButton.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/ui/IconButton.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$t(ctx) {
     	let button;
@@ -16551,9 +16602,9 @@
     	let { onClick } = $$props;
 
     	$$self.$$set = $$props => {
-    		if ("icon" in $$props) $$invalidate(0, icon = $$props.icon);
-    		if ("title" in $$props) $$invalidate(1, title = $$props.title);
-    		if ("onClick" in $$props) $$invalidate(2, onClick = $$props.onClick);
+    		if ('icon' in $$props) $$invalidate(0, icon = $$props.icon);
+    		if ('title' in $$props) $$invalidate(1, title = $$props.title);
+    		if ('onClick' in $$props) $$invalidate(2, onClick = $$props.onClick);
     	};
 
     	return [icon, title, onClick];
@@ -16566,7 +16617,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/icons/Header.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/icons/Header.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$c(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -16916,25 +16967,25 @@
     	let selectionIcon;
 
     	$$self.$$set = $$props => {
-    		if ("headerText" in $$props) $$invalidate(0, headerText = $$props.headerText);
-    		if ("isList" in $$props) $$invalidate(9, isList = $$props.isList);
-    		if ("canChangeLayout" in $$props) $$invalidate(1, canChangeLayout = $$props.canChangeLayout);
-    		if ("changeLayout" in $$props) $$invalidate(2, changeLayout = $$props.changeLayout);
-    		if ("canSelectMultiple" in $$props) $$invalidate(3, canSelectMultiple = $$props.canSelectMultiple);
-    		if ("isSelecting" in $$props) $$invalidate(10, isSelecting = $$props.isSelecting);
-    		if ("toggleSelection" in $$props) $$invalidate(4, toggleSelection = $$props.toggleSelection);
+    		if ('headerText' in $$props) $$invalidate(0, headerText = $$props.headerText);
+    		if ('isList' in $$props) $$invalidate(9, isList = $$props.isList);
+    		if ('canChangeLayout' in $$props) $$invalidate(1, canChangeLayout = $$props.canChangeLayout);
+    		if ('changeLayout' in $$props) $$invalidate(2, changeLayout = $$props.changeLayout);
+    		if ('canSelectMultiple' in $$props) $$invalidate(3, canSelectMultiple = $$props.canSelectMultiple);
+    		if ('isSelecting' in $$props) $$invalidate(10, isSelecting = $$props.isSelecting);
+    		if ('toggleSelection' in $$props) $$invalidate(4, toggleSelection = $$props.toggleSelection);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*isList*/ 512) {
     			{
-    				$$invalidate(6, mode = isList ? "grid" : "list");
+    				$$invalidate(6, mode = isList ? 'grid' : 'list');
     			}
     		}
 
     		if ($$self.$$.dirty & /*isSelecting*/ 1024) {
     			{
-    				$$invalidate(7, selectionIcon = "check-list" + (isSelecting ? "-checked" : ""));
+    				$$invalidate(7, selectionIcon = 'check-list' + (isSelecting ? '-checked' : ''));
     			}
     		}
     	};
@@ -16970,7 +17021,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/Pagination.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/Pagination.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$b(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -17143,7 +17194,7 @@
     			a = element("a");
     			create_component(uiicon.$$.fragment);
     			attr(a, "href", "# ");
-    			attr(a, "class", /*arrowClass*/ ctx[4] + "prev");
+    			attr(a, "class", /*arrowClass*/ ctx[4] + 'prev');
     			attr(a, "title", phrases$1.pagination.prev);
     		},
     		m(target, anchor) {
@@ -17240,7 +17291,7 @@
     			t0 = space();
     			a = element("a");
     			t1 = text(t1_value);
-    			attr(a, "href", a_href_value = /*page*/ ctx[13].selected ? void 0 : "# ");
+    			attr(a, "href", a_href_value = /*page*/ ctx[13].selected ? void 0 : '# ');
     			attr(a, "class", a_class_value = /*page*/ ctx[13].className);
     			this.first = first;
     		},
@@ -17275,7 +17326,7 @@
 
     			if (dirty & /*pages*/ 2 && t1_value !== (t1_value = /*page*/ ctx[13].text + "")) set_data(t1, t1_value);
 
-    			if (dirty & /*pages*/ 2 && a_href_value !== (a_href_value = /*page*/ ctx[13].selected ? void 0 : "# ")) {
+    			if (dirty & /*pages*/ 2 && a_href_value !== (a_href_value = /*page*/ ctx[13].selected ? void 0 : '# ')) {
     				attr(a, "href", a_href_value);
     			}
 
@@ -17348,7 +17399,7 @@
     			a = element("a");
     			create_component(uiicon.$$.fragment);
     			attr(a, "href", "# ");
-    			attr(a, "class", /*arrowClass*/ ctx[4] + "next");
+    			attr(a, "class", /*arrowClass*/ ctx[4] + 'next');
     			attr(a, "title", phrases$1.pagination.next);
     		},
     		m(target, anchor) {
@@ -17460,7 +17511,7 @@
     	};
     }
 
-    const baseClass$5 = "iif-page";
+    const baseClass$5 = 'iif-page';
 
     function instance$r($$self, $$props, $$invalidate) {
     	
@@ -17469,11 +17520,11 @@
     	let { block } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
-    	const selectedClass = baseClass$5 + " " + baseClass$5 + "--selected";
-    	const arrowClass = baseClass$5 + " " + baseClass$5 + "--arrow " + baseClass$5 + "--";
-    	const moreClass = baseClass$5 + " " + baseClass$5 + "--more";
+    	const selectedClass = baseClass$5 + ' ' + baseClass$5 + '--selected';
+    	const arrowClass = baseClass$5 + ' ' + baseClass$5 + '--arrow ' + baseClass$5 + '--';
+    	const moreClass = baseClass$5 + ' ' + baseClass$5 + '--more';
     	let pages = [];
     	let prevPage;
     	let nextPage;
@@ -17484,12 +17535,12 @@
     	}
 
     	const click_handler = () => setPage(prevPage);
-    	const click_handler_1 = () => setPage("more");
+    	const click_handler_1 = () => setPage('more');
     	const click_handler_2 = () => setPage(nextPage);
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(7, name = $$props.name);
-    		if ("block" in $$props) $$invalidate(0, block = $$props.block);
+    		if ('name' in $$props) $$invalidate(7, name = $$props.name);
+    		if ('block' in $$props) $$invalidate(0, block = $$props.block);
     	};
 
     	$$self.$$.update = () => {
@@ -17516,7 +17567,7 @@
     							selected,
     							dot,
     							page,
-    							text: page + 1 + "",
+    							text: page + 1 + '',
     							className: selected ? selectedClass : baseClass$5,
     							onClick: () => setPage(page)
     						};
@@ -17556,7 +17607,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/IconsWithPages.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/IconsWithPages.svelte generated by Svelte v3.42.1 */
 
     function create_else_block$3(ctx) {
     	let block;
@@ -17807,7 +17858,7 @@
     	let { blocks } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Get config
     	const componentsConfig = registry.config.components;
@@ -17849,7 +17900,7 @@
     			$$invalidate(6, isList = componentsConfig.list = !componentsConfig.list);
 
     			// UIConfigEvent
-    			registry.callback({ type: "config" });
+    			registry.callback({ type: 'config' });
     		}
     	}
 
@@ -17863,9 +17914,9 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ("route" in $$props) $$invalidate(0, route = $$props.route);
-    		if ("selection" in $$props) $$invalidate(1, selection = $$props.selection);
-    		if ("blocks" in $$props) $$invalidate(2, blocks = $$props.blocks);
+    		if ('route' in $$props) $$invalidate(0, route = $$props.route);
+    		if ('selection' in $$props) $$invalidate(1, selection = $$props.selection);
+    		if ('blocks' in $$props) $$invalidate(2, blocks = $$props.blocks);
     	};
 
     	$$self.$$.update = () => {
@@ -17881,7 +17932,7 @@
 
     				if (!isEmpty) {
     					// Generate header text
-    					$$invalidate(5, headerText = generateHeaderText().replace("{count}", pagination.length + ""));
+    					$$invalidate(5, headerText = generateHeaderText().replace('{count}', pagination.length + ''));
     				}
     			}
     		}
@@ -17910,7 +17961,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/blocks/Search.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/blocks/Search.svelte generated by Svelte v3.42.1 */
 
     function create_default_slot$b(ctx) {
     	let input;
@@ -18009,10 +18060,10 @@
     	let { name } = $$props;
     	let { block } = $$props;
     	let { info = null } = $$props;
-    	let { customType = "" } = $$props;
+    	let { customType = '' } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Phrases
     	const searchPhrases = phrases$1.search;
@@ -18026,19 +18077,19 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
-    		if ("block" in $$props) $$invalidate(1, block = $$props.block);
-    		if ("info" in $$props) $$invalidate(4, info = $$props.info);
-    		if ("customType" in $$props) $$invalidate(5, customType = $$props.customType);
+    		if ('name' in $$props) $$invalidate(0, name = $$props.name);
+    		if ('block' in $$props) $$invalidate(1, block = $$props.block);
+    		if ('info' in $$props) $$invalidate(4, info = $$props.info);
+    		if ('customType' in $$props) $$invalidate(5, customType = $$props.customType);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*customType, info*/ 48) {
     			{
-    				if (customType !== "" && searchPhrases.placeholder[customType] !== void 0) {
+    				if (customType !== '' && searchPhrases.placeholder[customType] !== void 0) {
     					$$invalidate(2, placeholder = searchPhrases.placeholder[customType]);
     				} else if (info && info.name && searchPhrases.placeholder.collection !== void 0) {
-    					$$invalidate(2, placeholder = searchPhrases.placeholder.collection.replace("{name}", info.name));
+    					$$invalidate(2, placeholder = searchPhrases.placeholder.collection.replace('{name}', info.name));
     				} else {
     					$$invalidate(2, placeholder = searchPhrases.defaultPlaceholder);
     				}
@@ -18062,7 +18113,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/views/Collection.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/views/Collection.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$a(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -18082,7 +18133,7 @@
     				name: "collections",
     				parent: /*route*/ ctx[2].parent
     				? /*route*/ ctx[2].parent.type
-    				: "collections",
+    				: 'collections',
     				link: /*collectionsLink*/ ctx[6],
     				block: /*blocks*/ ctx[1].collections
     			}
@@ -18104,7 +18155,7 @@
 
     			if (dirty & /*route*/ 4) filters_changes.parent = /*route*/ ctx[2].parent
     			? /*route*/ ctx[2].parent.type
-    			: "collections";
+    			: 'collections';
 
     			if (dirty & /*collectionsLink*/ 64) filters_changes.link = /*collectionsLink*/ ctx[6];
     			if (dirty & /*blocks*/ 2) filters_changes.block = /*blocks*/ ctx[1].collections;
@@ -18327,9 +18378,9 @@
     			t3 = space();
     			create_component(iconswithpages.$$.fragment);
 
-    			attr(div, "class", div_class_value = "iif-view " + baseClass$4 + "\n\t\t" + baseClass$4 + "--prefix--" + (/*prefix*/ ctx[4] + (/*provider*/ ctx[3] === ""
-    			? ""
-    			: " " + baseClass$4 + "--provider--" + /*provider*/ ctx[3])));
+    			attr(div, "class", div_class_value = "iif-view " + baseClass$4 + "\n\t\t" + baseClass$4 + "--prefix--" + (/*prefix*/ ctx[4] + (/*provider*/ ctx[3] === ''
+    			? ''
+    			: ' ' + baseClass$4 + '--provider--' + /*provider*/ ctx[3])));
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -18425,9 +18476,9 @@
     			if (dirty & /*route*/ 4) iconswithpages_changes.route = /*route*/ ctx[2];
     			iconswithpages.$set(iconswithpages_changes);
 
-    			if (!current || dirty & /*prefix, provider*/ 24 && div_class_value !== (div_class_value = "iif-view " + baseClass$4 + "\n\t\t" + baseClass$4 + "--prefix--" + (/*prefix*/ ctx[4] + (/*provider*/ ctx[3] === ""
-    			? ""
-    			: " " + baseClass$4 + "--provider--" + /*provider*/ ctx[3])))) {
+    			if (!current || dirty & /*prefix, provider*/ 24 && div_class_value !== (div_class_value = "iif-view " + baseClass$4 + "\n\t\t" + baseClass$4 + "--prefix--" + (/*prefix*/ ctx[4] + (/*provider*/ ctx[3] === ''
+    			? ''
+    			: ' ' + baseClass$4 + '--provider--' + /*provider*/ ctx[3])))) {
     				attr(div, "class", div_class_value);
     			}
     		},
@@ -18459,7 +18510,7 @@
     	};
     }
 
-    const baseClass$4 = "iif-view--collection";
+    const baseClass$4 = 'iif-view--collection';
 
     function instance$o($$self, $$props, $$invalidate) {
     	
@@ -18469,7 +18520,7 @@
     	let { route } = $$props;
 
     	// Filter blocks
-    	const filterBlockKeys = ["tags", "themePrefixes", "themeSuffixes"];
+    	const filterBlockKeys = ['tags', 'themePrefixes', 'themeSuffixes'];
 
     	// Provider and prefix from route
     	let provider;
@@ -18485,9 +18536,9 @@
     	let filterBlocks;
 
     	$$self.$$set = $$props => {
-    		if ("selection" in $$props) $$invalidate(0, selection = $$props.selection);
-    		if ("blocks" in $$props) $$invalidate(1, blocks = $$props.blocks);
-    		if ("route" in $$props) $$invalidate(2, route = $$props.route);
+    		if ('selection' in $$props) $$invalidate(0, selection = $$props.selection);
+    		if ('blocks' in $$props) $$invalidate(1, blocks = $$props.blocks);
+    		if ('route' in $$props) $$invalidate(2, route = $$props.route);
     	};
 
     	$$self.$$.update = () => {
@@ -18495,8 +18546,8 @@
     			{
     				$$invalidate(3, provider = route.params.provider);
 
-    				if (typeof provider !== "string") {
-    					$$invalidate(3, provider = "");
+    				if (typeof provider !== 'string') {
+    					$$invalidate(3, provider = '');
     				}
 
     				$$invalidate(4, prefix = route.params.prefix);
@@ -18508,7 +18559,7 @@
     				if (providerData) {
     					$$invalidate(6, collectionsLink = providerData.links.collection);
     				} else {
-    					$$invalidate(6, collectionsLink = "");
+    					$$invalidate(6, collectionsLink = '');
     				}
     			}
     		}
@@ -18541,7 +18592,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/views/Search.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/views/Search.svelte generated by Svelte v3.42.1 */
 
     function create_if_block$c(ctx) {
     	let filtersblock;
@@ -18674,9 +18725,9 @@
     	let collectionsLink;
 
     	$$self.$$set = $$props => {
-    		if ("route" in $$props) $$invalidate(0, route = $$props.route);
-    		if ("selection" in $$props) $$invalidate(1, selection = $$props.selection);
-    		if ("blocks" in $$props) $$invalidate(2, blocks = $$props.blocks);
+    		if ('route' in $$props) $$invalidate(0, route = $$props.route);
+    		if ('selection' in $$props) $$invalidate(1, selection = $$props.selection);
+    		if ('blocks' in $$props) $$invalidate(2, blocks = $$props.blocks);
     	};
 
     	$$self.$$.update = () => {
@@ -18684,8 +18735,8 @@
     			{
     				let provider = route.params.provider;
 
-    				if (typeof provider !== "string") {
-    					provider = "";
+    				if (typeof provider !== 'string') {
+    					provider = '';
     				}
 
     				// Get collection link
@@ -18694,7 +18745,7 @@
     				if (providerData) {
     					$$invalidate(3, collectionsLink = providerData.links.collection);
     				} else {
-    					$$invalidate(3, collectionsLink = "");
+    					$$invalidate(3, collectionsLink = '');
     				}
     			}
     		}
@@ -18710,7 +18761,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/views/Custom.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/views/Custom.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$m(ctx) {
     	let div;
@@ -18793,9 +18844,9 @@
     	let { blocks } = $$props;
 
     	$$self.$$set = $$props => {
-    		if ("route" in $$props) $$invalidate(0, route = $$props.route);
-    		if ("selection" in $$props) $$invalidate(1, selection = $$props.selection);
-    		if ("blocks" in $$props) $$invalidate(2, blocks = $$props.blocks);
+    		if ('route' in $$props) $$invalidate(0, route = $$props.route);
+    		if ('selection' in $$props) $$invalidate(1, selection = $$props.selection);
+    		if ('blocks' in $$props) $$invalidate(2, blocks = $$props.blocks);
     	};
 
     	return [route, selection, blocks];
@@ -18808,7 +18859,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/views/Error.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/views/Error.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$9(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -18864,7 +18915,7 @@
     	let current;
 
     	uiicon = new UIIcon({
-    			props: { icon: "error-" + /*type*/ ctx[7] }
+    			props: { icon: 'error-' + /*type*/ ctx[7] }
     		});
 
     	let if_block = /*canReturn*/ ctx[2] && create_if_block$b(ctx);
@@ -18891,7 +18942,7 @@
     		},
     		p(ctx, dirty) {
     			const uiicon_changes = {};
-    			if (dirty & /*error*/ 1) uiicon_changes.icon = "error-" + /*type*/ ctx[7];
+    			if (dirty & /*error*/ 1) uiicon_changes.icon = 'error-' + /*type*/ ctx[7];
     			uiicon.$set(uiicon_changes);
     			if (!current || dirty & /*text*/ 2) set_data(t1, /*text*/ ctx[1]);
 
@@ -18936,7 +18987,7 @@
     	block = new Block({
     			props: {
     				type: "error",
-    				extra: "error--" + /*type*/ ctx[7],
+    				extra: 'error--' + /*type*/ ctx[7],
     				$$slots: { default: [create_default_slot$a] },
     				$$scope: { ctx }
     			}
@@ -18958,7 +19009,7 @@
     		p(new_ctx, dirty) {
     			ctx = new_ctx;
     			const block_changes = {};
-    			if (dirty & /*error*/ 1) block_changes.extra = "error--" + /*type*/ ctx[7];
+    			if (dirty & /*error*/ 1) block_changes.extra = 'error--' + /*type*/ ctx[7];
 
     			if (dirty & /*$$scope, canReturn, text, error*/ 1031) {
     				block_changes.$$scope = { dirty, ctx };
@@ -19053,7 +19104,7 @@
     	let { route } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Get text and check if can return
     	const errorPhrases = phrases$1.errors;
@@ -19064,35 +19115,35 @@
     	function handleReturn() {
     		const router = registry.router;
 
-    		if (route && route.type === "collections") {
+    		if (route && route.type === 'collections') {
     			// Return to default provider
-    			router.home("");
+    			router.home('');
     		} else {
     			router.home();
     		}
     	}
 
     	$$self.$$set = $$props => {
-    		if ("error" in $$props) $$invalidate(0, error = $$props.error);
-    		if ("route" in $$props) $$invalidate(5, route = $$props.route);
+    		if ('error' in $$props) $$invalidate(0, error = $$props.error);
+    		if ('route' in $$props) $$invalidate(5, route = $$props.route);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*route, error, text*/ 35) {
     			{
-    				$$invalidate(2, canReturn = !!(route && (route.type !== "collections" || route.parent || route.params && route.params.provider) && errorPhrases.custom.home !== void 0));
+    				$$invalidate(2, canReturn = !!(route && (route.type !== 'collections' || route.parent || route.params && route.params.provider) && errorPhrases.custom.home !== void 0));
 
     				$$invalidate(1, text = errorPhrases.custom[error] === void 0
     				? errorPhrases.defaultError
     				: errorPhrases.custom[error]);
 
     				switch (error) {
-    					case "not_found":
-    						$$invalidate(1, text = text.replace("{prefix}", route && route.type === "collection"
-    						? "\"" + route.params.prefix + "\""
-    						: ""));
+    					case 'not_found':
+    						$$invalidate(1, text = text.replace('{prefix}', route && route.type === 'collection'
+    						? '"' + route.params.prefix + '"'
+    						: ''));
     						break;
-    					case "bad_route":
+    					case 'bad_route':
     						$$invalidate(2, canReturn = errorPhrases.custom.home !== void 0);
     						break;
     				}
@@ -19110,7 +19161,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/Content.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/Content.svelte generated by Svelte v3.42.1 */
 
     function create_if_block_8$2(ctx) {
     	let providersblock;
@@ -19246,11 +19297,11 @@
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*error*/ ctx[2] !== "" || !/*route*/ ctx[3]) return 0;
-    		if (/*route*/ ctx[3].type === "collections") return 1;
-    		if (/*route*/ ctx[3].type === "collection") return 2;
-    		if (/*route*/ ctx[3].type === "search") return 3;
-    		if (/*route*/ ctx[3].type === "custom") return 4;
+    		if (/*error*/ ctx[2] !== '' || !/*route*/ ctx[3]) return 0;
+    		if (/*route*/ ctx[3].type === 'collections') return 1;
+    		if (/*route*/ ctx[3].type === 'collection') return 2;
+    		if (/*route*/ ctx[3].type === 'search') return 3;
+    		if (/*route*/ ctx[3].type === 'custom') return 4;
     		return 5;
     	}
 
@@ -19527,7 +19578,7 @@
 
     	viewerror = new Error$1({
     			props: {
-    				error: /*error*/ ctx[2] !== "" ? /*error*/ ctx[2] : "bad_route",
+    				error: /*error*/ ctx[2] !== '' ? /*error*/ ctx[2] : 'bad_route',
     				route: /*route*/ ctx[3]
     			}
     		});
@@ -19542,7 +19593,7 @@
     		},
     		p(ctx, dirty) {
     			const viewerror_changes = {};
-    			if (dirty & /*error*/ 4) viewerror_changes.error = /*error*/ ctx[2] !== "" ? /*error*/ ctx[2] : "bad_route";
+    			if (dirty & /*error*/ 4) viewerror_changes.error = /*error*/ ctx[2] !== '' ? /*error*/ ctx[2] : 'bad_route';
     			if (dirty & /*route*/ 8) viewerror_changes.route = /*route*/ ctx[3];
     			viewerror.$set(viewerror_changes);
     		},
@@ -19570,7 +19621,7 @@
     	let if_block0 = /*providersVisible*/ ctx[8] && create_if_block_8$2(ctx);
     	let if_block1 = /*showGlobalSearch*/ ctx[5] && create_if_block_7$2(ctx);
     	let if_block2 = /*route*/ ctx[3]?.parent && create_if_block_6$2(ctx);
-    	let if_block3 = (!/*route*/ ctx[3] || /*route*/ ctx[3].type !== "empty") && create_if_block$a(ctx);
+    	let if_block3 = (!/*route*/ ctx[3] || /*route*/ ctx[3].type !== 'empty') && create_if_block$a(ctx);
 
     	return {
     		c() {
@@ -19665,7 +19716,7 @@
     				check_outros();
     			}
 
-    			if (!/*route*/ ctx[3] || /*route*/ ctx[3].type !== "empty") {
+    			if (!/*route*/ ctx[3] || /*route*/ ctx[3].type !== 'empty') {
     				if (if_block3) {
     					if_block3.p(ctx, dirty);
 
@@ -19717,7 +19768,7 @@
     	};
     }
 
-    const baseClass$3 = "iif-content";
+    const baseClass$3 = 'iif-content';
 
     function instance$k($$self, $$props, $$invalidate) {
     	
@@ -19735,15 +19786,15 @@
     	// Get providers
     	let providersVisible = canAddProviders;
 
-    	let activeProvider = "";
-    	let providers = [""];
+    	let activeProvider = '';
+    	let providers = [''];
 
     	$$self.$$set = $$props => {
-    		if ("selection" in $$props) $$invalidate(0, selection = $$props.selection);
-    		if ("viewChanged" in $$props) $$invalidate(1, viewChanged = $$props.viewChanged);
-    		if ("error" in $$props) $$invalidate(2, error = $$props.error);
-    		if ("route" in $$props) $$invalidate(3, route = $$props.route);
-    		if ("blocks" in $$props) $$invalidate(4, blocks = $$props.blocks);
+    		if ('selection' in $$props) $$invalidate(0, selection = $$props.selection);
+    		if ('viewChanged' in $$props) $$invalidate(1, viewChanged = $$props.viewChanged);
+    		if ('error' in $$props) $$invalidate(2, error = $$props.error);
+    		if ('route' in $$props) $$invalidate(3, route = $$props.route);
+    		if ('blocks' in $$props) $$invalidate(4, blocks = $$props.blocks);
     	};
 
     	$$self.$$.update = () => {
@@ -19752,24 +19803,24 @@
     				// Check class name and search form value
     				$$invalidate(7, className = baseClass$3);
 
-    				if (error !== "") {
+    				if (error !== '') {
     					// View shows error
-    					$$invalidate(7, className += " " + baseClass$3 + "--error " + baseClass$3 + "--error--" + error);
+    					$$invalidate(7, className += ' ' + baseClass$3 + '--error ' + baseClass$3 + '--error--' + error);
     				} else {
     					// View shows something
-    					$$invalidate(7, className += " " + baseClass$3 + "--view " + baseClass$3 + "--view--" + route.type);
+    					$$invalidate(7, className += ' ' + baseClass$3 + '--view ' + baseClass$3 + '--view--' + route.type);
 
-    					if (route.params && (route.type === "search" || route.type === "collections" || route.type === "collection") && route.params.provider) {
+    					if (route.params && (route.type === 'search' || route.type === 'collections' || route.type === 'collection') && route.params.provider) {
     						// Add provider: '{base}--view--{type}--provider--{provider}'
-    						$$invalidate(7, className += " " + baseClass$3 + "--view--" + route.type + "--provider--" + route.params.provider);
+    						$$invalidate(7, className += ' ' + baseClass$3 + '--view--' + route.type + '--provider--' + route.params.provider);
     					}
 
-    					if (route.type === "collection") {
+    					if (route.type === 'collection') {
     						// Add prefix: '{base}--view--collection--prefix--{prefix}'
-    						$$invalidate(7, className += " " + baseClass$3 + "--view--collection--prefix--" + route.params.prefix);
-    					} else if (route.type === "custom") {
+    						$$invalidate(7, className += ' ' + baseClass$3 + '--view--collection--prefix--' + route.params.prefix);
+    					} else if (route.type === 'custom') {
     						// Add custom type: '{base} {base}--view {base}--view--custom {base}--view--custom--{customType}'
-    						$$invalidate(7, className += " " + baseClass$3 + "--view--custom--" + route.params.customType);
+    						$$invalidate(7, className += ' ' + baseClass$3 + '--view--custom--' + route.params.customType);
     					}
     				}
     			}
@@ -19781,7 +19832,7 @@
     				let item = route;
 
     				while (!showGlobalSearch && item) {
-    					if (item.type === "collections") {
+    					if (item.type === 'collections') {
     						$$invalidate(5, showGlobalSearch = true);
     					} else {
     						item = item.parent;
@@ -19827,7 +19878,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/FooterBlock.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/FooterBlock.svelte generated by Svelte v3.42.1 */
 
     function create_if_block_1$5(ctx) {
     	let p;
@@ -19930,7 +19981,7 @@
 
     // (56:3) {:else}
     function create_else_block$1(ctx) {
-    	let t_value = /*title*/ ctx[0] + ":" + "";
+    	let t_value = /*title*/ ctx[0] + ':' + "";
     	let t;
 
     	return {
@@ -19941,7 +19992,7 @@
     			insert(target, t, anchor);
     		},
     		p(ctx, dirty) {
-    			if (dirty & /*title*/ 1 && t_value !== (t_value = /*title*/ ctx[0] + ":" + "")) set_data(t, t_value);
+    			if (dirty & /*title*/ 1 && t_value !== (t_value = /*title*/ ctx[0] + ':' + "")) set_data(t, t_value);
     		},
     		d(detaching) {
     			if (detaching) detach(t);
@@ -19953,9 +20004,9 @@
     function create_if_block_2$4(ctx) {
     	let a;
 
-    	let t_value = (!/*expanded*/ ctx[2] && /*titleHidden*/ ctx[1] !== ""
+    	let t_value = (!/*expanded*/ ctx[2] && /*titleHidden*/ ctx[1] !== ''
     	? /*titleHidden*/ ctx[1]
-    	: /*title*/ ctx[0]) + (/*expanded*/ ctx[2] ? ":" : "") + "";
+    	: /*title*/ ctx[0]) + (/*expanded*/ ctx[2] ? ':' : '') + "";
 
     	let t;
     	let mounted;
@@ -19977,9 +20028,9 @@
     			}
     		},
     		p(ctx, dirty) {
-    			if (dirty & /*expanded, titleHidden, title*/ 7 && t_value !== (t_value = (!/*expanded*/ ctx[2] && /*titleHidden*/ ctx[1] !== ""
+    			if (dirty & /*expanded, titleHidden, title*/ 7 && t_value !== (t_value = (!/*expanded*/ ctx[2] && /*titleHidden*/ ctx[1] !== ''
     			? /*titleHidden*/ ctx[1]
-    			: /*title*/ ctx[0]) + (/*expanded*/ ctx[2] ? ":" : "") + "")) set_data(t, t_value);
+    			: /*title*/ ctx[0]) + (/*expanded*/ ctx[2] ? ':' : '') + "")) set_data(t, t_value);
     		},
     		d(detaching) {
     			if (detaching) detach(a);
@@ -20009,7 +20060,16 @@
     		p(ctx, dirty) {
     			if (default_slot) {
     				if (default_slot.p && (!current || dirty & /*$$scope*/ 128)) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[7], dirty, null, null);
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[7],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[7])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[7], dirty, null),
+    						null
+    					);
     				}
     			}
     		},
@@ -20032,7 +20092,7 @@
     	let div;
     	let t;
     	let current;
-    	let if_block0 = /*title*/ ctx[0] !== "" && create_if_block_1$5(ctx);
+    	let if_block0 = /*title*/ ctx[0] !== '' && create_if_block_1$5(ctx);
     	let if_block1 = /*expanded*/ ctx[2] && create_if_block$9(ctx);
 
     	return {
@@ -20051,7 +20111,7 @@
     			current = true;
     		},
     		p(ctx, [dirty]) {
-    			if (/*title*/ ctx[0] !== "") {
+    			if (/*title*/ ctx[0] !== '') {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
 
@@ -20120,20 +20180,20 @@
     	};
     }
 
-    const baseClass$2 = "iif-footer-block";
+    const baseClass$2 = 'iif-footer-block';
 
     function instance$j($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	
     	let { name } = $$props;
     	let { title } = $$props;
-    	let { titleHidden = "" } = $$props;
+    	let { titleHidden = '' } = $$props;
 
     	// Config key
-    	let key = name + "Visible";
+    	let key = name + 'Visible';
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Get config
     	const config = registry.config.components;
@@ -20142,7 +20202,7 @@
     	const canExpand = canToggleFooterBlocks ;
 
     	// Check if info block is visible
-    	let expanded = true;
+    	let expanded = canExpand && title !== '' ? config[key] : true;
 
     	let className;
 
@@ -20151,20 +20211,20 @@
      */
     	function toggle() {
     		$$invalidate(2, expanded = config[key] = !expanded);
-    		registry.callback({ type: "config" });
+    		registry.callback({ type: 'config' });
     	}
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(6, name = $$props.name);
-    		if ("title" in $$props) $$invalidate(0, title = $$props.title);
-    		if ("titleHidden" in $$props) $$invalidate(1, titleHidden = $$props.titleHidden);
-    		if ("$$scope" in $$props) $$invalidate(7, $$scope = $$props.$$scope);
+    		if ('name' in $$props) $$invalidate(6, name = $$props.name);
+    		if ('title' in $$props) $$invalidate(0, title = $$props.title);
+    		if ('titleHidden' in $$props) $$invalidate(1, titleHidden = $$props.titleHidden);
+    		if ('$$scope' in $$props) $$invalidate(7, $$scope = $$props.$$scope);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*name, expanded*/ 68) {
     			{
-    				$$invalidate(3, className = baseClass$2 + " " + baseClass$2 + "--" + name + " " + baseClass$2 + "--" + (expanded ? "expanded" : "collapsed"));
+    				$$invalidate(3, className = baseClass$2 + ' ' + baseClass$2 + '--' + name + ' ' + baseClass$2 + '--' + (expanded ? 'expanded' : 'collapsed'));
     			}
     		}
     	};
@@ -20366,7 +20426,7 @@
         // Color module level 4
         rebeccapurple: [102, 51, 153],
     };
-    //# sourceMappingURL=color-keywords.js.map
+
     });
 
     var colors = createCommonjsModule(function (module, exports) {
@@ -20714,10 +20774,10 @@
         return (rgbColor.a === 1 ? 'rgb(' : 'rgba(') + list.join(', ') + ')';
     }
     exports.colorToString = colorToString;
-    //# sourceMappingURL=colors.js.map
+
     });
 
-    /* src/icon-finder/components/content/footers/parts/OptionsBlock.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/OptionsBlock.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$i(ctx) {
     	let div1;
@@ -20738,7 +20798,7 @@
     			t1 = space();
     			div0 = element("div");
     			if (default_slot) default_slot.c();
-    			attr(div1, "class", div1_class_value = baseClass$1 + " " + baseClass$1 + "--" + /*type*/ ctx[0]);
+    			attr(div1, "class", div1_class_value = baseClass$1 + ' ' + baseClass$1 + '--' + /*type*/ ctx[0]);
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
@@ -20758,11 +20818,20 @@
 
     			if (default_slot) {
     				if (default_slot.p && (!current || dirty & /*$$scope*/ 4)) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[2], dirty, null, null);
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[2],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[2])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[2], dirty, null),
+    						null
+    					);
     				}
     			}
 
-    			if (!current || dirty & /*type*/ 1 && div1_class_value !== (div1_class_value = baseClass$1 + " " + baseClass$1 + "--" + /*type*/ ctx[0])) {
+    			if (!current || dirty & /*type*/ 1 && div1_class_value !== (div1_class_value = baseClass$1 + ' ' + baseClass$1 + '--' + /*type*/ ctx[0])) {
     				attr(div1, "class", div1_class_value);
     			}
     		},
@@ -20782,7 +20851,7 @@
     	};
     }
 
-    const baseClass$1 = "iif-footer-options-block";
+    const baseClass$1 = 'iif-footer-options-block';
 
     function instance$i($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
@@ -20792,8 +20861,8 @@
     	let title;
 
     	$$self.$$set = $$props => {
-    		if ("type" in $$props) $$invalidate(0, type = $$props.type);
-    		if ("$$scope" in $$props) $$invalidate(2, $$scope = $$props.$$scope);
+    		if ('type' in $$props) $$invalidate(0, type = $$props.type);
+    		if ('$$scope' in $$props) $$invalidate(2, $$scope = $$props.$$scope);
     	};
 
     	$$self.$$.update = () => {
@@ -20802,7 +20871,7 @@
     				const text = phrases$1.footerBlocks;
 
     				$$invalidate(1, title = text[type] === void 0
-    				? type.split(" ").map(str => str.slice(0, 1).toUpperCase() + str.slice(1)).join(" ")
+    				? type.split(' ').map(str => str.slice(0, 1).toUpperCase() + str.slice(1)).join(' ')
     				: text[type]);
     			}
     		}
@@ -20818,7 +20887,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/props/Color.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/props/Color.svelte generated by Svelte v3.42.1 */
 
     function create_if_block$8(ctx) {
     	let optionsblock;
@@ -20876,10 +20945,10 @@
     				title: /*title*/ ctx[3],
     				onInput: /*onInput*/ ctx[4],
     				onBlur: /*onBlur*/ ctx[5],
-    				icon: /*value*/ ctx[0] === void 0 || /*value*/ ctx[0] === ""
-    				? "color"
-    				: "color-filled",
-    				extra: /*value*/ ctx[0] === void 0 ? "" : /*value*/ ctx[0],
+    				icon: /*value*/ ctx[0] === void 0 || /*value*/ ctx[0] === ''
+    				? 'color'
+    				: 'color-filled',
+    				extra: /*value*/ ctx[0] === void 0 ? '' : /*value*/ ctx[0],
     				type: "color"
     			}
     		});
@@ -20896,11 +20965,11 @@
     			const input_changes = {};
     			if (dirty & /*inputValue*/ 4) input_changes.value = /*inputValue*/ ctx[2];
 
-    			if (dirty & /*value*/ 1) input_changes.icon = /*value*/ ctx[0] === void 0 || /*value*/ ctx[0] === ""
-    			? "color"
-    			: "color-filled";
+    			if (dirty & /*value*/ 1) input_changes.icon = /*value*/ ctx[0] === void 0 || /*value*/ ctx[0] === ''
+    			? 'color'
+    			: 'color-filled';
 
-    			if (dirty & /*value*/ 1) input_changes.extra = /*value*/ ctx[0] === void 0 ? "" : /*value*/ ctx[0];
+    			if (dirty & /*value*/ 1) input_changes.extra = /*value*/ ctx[0] === void 0 ? '' : /*value*/ ctx[0];
     			input.$set(input_changes);
     		},
     		i(local) {
@@ -20997,7 +21066,7 @@
     		}
 
     		const cleanColor = colors.colorToString(color);
-    		return cleanColor === "" ? defaultValue : cleanColor;
+    		return cleanColor === '' ? defaultValue : cleanColor;
     	}
 
     	// Check input
@@ -21005,8 +21074,8 @@
     		$$invalidate(2, inputValue = newValue);
 
     		// Check for valid color
-    		if (newValue === "") {
-    			customise("color", "");
+    		if (newValue === '') {
+    			customise('color', '');
     			return;
     		}
 
@@ -21016,7 +21085,7 @@
     			// Change lastValue to avoid triggering component refresh
     			$$invalidate(9, lastValue = $$invalidate(0, value = validatedValue));
 
-    			customise("color", validatedValue);
+    			customise('color', validatedValue);
     		}
     	}
 
@@ -21027,9 +21096,9 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ("icons" in $$props) $$invalidate(6, icons = $$props.icons);
-    		if ("value" in $$props) $$invalidate(0, value = $$props.value);
-    		if ("customise" in $$props) $$invalidate(7, customise = $$props.customise);
+    		if ('icons' in $$props) $$invalidate(6, icons = $$props.icons);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('customise' in $$props) $$invalidate(7, customise = $$props.customise);
     	};
 
     	$$self.$$.update = () => {
@@ -21042,7 +21111,7 @@
     					? void 0
     					: _a.call(iconify.Iconify, lib.iconToString(icons[i]));
 
-    					if (data && data.body.indexOf("currentColor") !== -1) {
+    					if (data && data.body.indexOf('currentColor') !== -1) {
     						$$invalidate(1, hasColor = true);
     						break;
     					}
@@ -21082,7 +21151,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/props/SizeInput.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/props/SizeInput.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$g(ctx) {
     	let input;
@@ -21095,7 +21164,7 @@
     				title: /*title*/ ctx[2],
     				onInput: /*onInput*/ ctx[4],
     				onBlur: /*onBlur*/ ctx[5],
-    				icon: "icon-" + /*prop*/ ctx[0],
+    				icon: 'icon-' + /*prop*/ ctx[0],
     				type: "number"
     			}
     		});
@@ -21113,7 +21182,7 @@
     			if (dirty & /*inputValue*/ 8) input_changes.value = /*inputValue*/ ctx[3];
     			if (dirty & /*placeholder*/ 2) input_changes.placeholder = /*placeholder*/ ctx[1];
     			if (dirty & /*title*/ 4) input_changes.title = /*title*/ ctx[2];
-    			if (dirty & /*prop*/ 1) input_changes.icon = "icon-" + /*prop*/ ctx[0];
+    			if (dirty & /*prop*/ 1) input_changes.icon = 'icon-' + /*prop*/ ctx[0];
     			input.$set(input_changes);
     		},
     		i(local) {
@@ -21151,9 +21220,9 @@
     		// Clean up number: make sure it is empty or complete
     		let cleanValue = newValue;
 
-    		if (newValue !== "") {
+    		if (newValue !== '') {
     			const num = parseFloat(newValue);
-    			cleanValue = "" + num;
+    			cleanValue = '' + num;
 
     			if (isNaN(num) || cleanValue !== newValue || num <= 0) {
     				return;
@@ -21169,10 +21238,10 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ("prop" in $$props) $$invalidate(0, prop = $$props.prop);
-    		if ("value" in $$props) $$invalidate(6, value = $$props.value);
-    		if ("placeholder" in $$props) $$invalidate(1, placeholder = $$props.placeholder);
-    		if ("customise" in $$props) $$invalidate(7, customise = $$props.customise);
+    		if ('prop' in $$props) $$invalidate(0, prop = $$props.prop);
+    		if ('value' in $$props) $$invalidate(6, value = $$props.value);
+    		if ('placeholder' in $$props) $$invalidate(1, placeholder = $$props.placeholder);
+    		if ('customise' in $$props) $$invalidate(7, customise = $$props.customise);
     	};
 
     	$$self.$$.update = () => {
@@ -21219,7 +21288,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/props/Size.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/props/Size.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$8(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -21238,8 +21307,8 @@
     			props: {
     				prop: /*prop*/ ctx[8],
     				value: /*customisations*/ ctx[0][/*prop*/ ctx[8]] === null
-    				? ""
-    				: /*customisations*/ ctx[0][/*prop*/ ctx[8]] + "",
+    				? ''
+    				: /*customisations*/ ctx[0][/*prop*/ ctx[8]] + '',
     				placeholder: /*placeholders*/ ctx[2][/*prop*/ ctx[8]],
     				customise: /*customise*/ ctx[1]
     			}
@@ -21263,8 +21332,8 @@
     			const sizeinput_changes = {};
 
     			if (dirty & /*customisations*/ 1) sizeinput_changes.value = /*customisations*/ ctx[0][/*prop*/ ctx[8]] === null
-    			? ""
-    			: /*customisations*/ ctx[0][/*prop*/ ctx[8]] + "";
+    			? ''
+    			: /*customisations*/ ctx[0][/*prop*/ ctx[8]] + '';
 
     			if (dirty & /*placeholders*/ 4) sizeinput_changes.placeholder = /*placeholders*/ ctx[2][/*prop*/ ctx[8]];
     			if (dirty & /*customise*/ 2) sizeinput_changes.customise = /*customise*/ ctx[1];
@@ -21403,10 +21472,10 @@
     	let { customise } = $$props;
 
     	// Get customisation type (constants because they cannot be changed at run time)
-    	const type = "size"
+    	const type = 'size'
     	;
 
-    	const props = ["width", "height"]
+    	const props = ['width', 'height']
     	;
 
     	const defaultSize = {
@@ -21418,9 +21487,9 @@
     	let placeholders;
 
     	$$self.$$set = $$props => {
-    		if ("icons" in $$props) $$invalidate(5, icons = $$props.icons);
-    		if ("customisations" in $$props) $$invalidate(0, customisations = $$props.customisations);
-    		if ("customise" in $$props) $$invalidate(1, customise = $$props.customise);
+    		if ('icons' in $$props) $$invalidate(5, icons = $$props.icons);
+    		if ('customisations' in $$props) $$invalidate(0, customisations = $$props.customisations);
+    		if ('customise' in $$props) $$invalidate(1, customise = $$props.customise);
     	};
 
     	$$self.$$.update = () => {
@@ -21486,19 +21555,19 @@
 
     		if ($$self.$$.dirty & /*customisations, data*/ 65) {
     			{
-    				$$invalidate(2, placeholders = { width: "", height: "" });
+    				$$invalidate(2, placeholders = { width: '', height: '' });
 
     				// Check if icon is rotated
     				const rotated = !!(customisations.rotate && customisations.rotate % 2 === 1);
 
     				// Get placeholder for both sides
     				if (data.ratio !== 0) {
-    					const keys = ["width", "height"];
+    					const keys = ['width', 'height'];
 
     					keys.forEach((key, index) => {
     						const altKey = keys[1 - index];
     						const placeholderKey = rotated ? altKey : key;
-    						let size = "";
+    						let size = '';
     						let scale = false;
     						const customised2 = customisations[rotated ? key : altKey];
 
@@ -21507,10 +21576,10 @@
     							size = customised2;
 
     							scale = true;
-    						} else if (defaultSize[key] !== "") {
+    						} else if (defaultSize[key] !== '') {
     							// Use default size, do not scale
     							size = defaultSize[key];
-    						} else if (defaultSize[altKey] !== "") {
+    						} else if (defaultSize[altKey] !== '') {
     							// Use default size for other property
     							size = defaultSize[altKey];
 
@@ -21522,12 +21591,12 @@
 
     						// Scale placeholder using size ratio
     						// console.log(`Size for ${key} is ${size}`);
-    						if (size !== "") {
+    						if (size !== '') {
     							$$invalidate(
     								2,
     								placeholders[placeholderKey] = (scale
-    								? calculateSize(size, key === "width" ? data.ratio : 1 / data.ratio)
-    								: size) + "",
+    								? calculateSize(size, key === 'width' ? data.ratio : 1 / data.ratio)
+    								: size) + '',
     								placeholders
     							);
     						}
@@ -21552,7 +21621,7 @@
     	}
     }
 
-    /* src/icon-finder/components/ui/OptionButton.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/ui/OptionButton.svelte generated by Svelte v3.42.1 */
 
     function create_if_block$7(ctx) {
     	let uiicon;
@@ -21678,32 +21747,32 @@
     	};
     }
 
-    const baseClass = "iif-option-button";
+    const baseClass = 'iif-option-button';
 
     function instance$e($$self, $$props, $$invalidate) {
-    	let { icon = "" } = $$props;
+    	let { icon = '' } = $$props;
     	let { onClick } = $$props;
     	let { title } = $$props;
     	let { text = null } = $$props;
     	let { textOptional = false } = $$props;
-    	let { status = "" } = $$props;
+    	let { status = '' } = $$props;
     	let className;
 
     	$$self.$$set = $$props => {
-    		if ("icon" in $$props) $$invalidate(0, icon = $$props.icon);
-    		if ("onClick" in $$props) $$invalidate(1, onClick = $$props.onClick);
-    		if ("title" in $$props) $$invalidate(2, title = $$props.title);
-    		if ("text" in $$props) $$invalidate(3, text = $$props.text);
-    		if ("textOptional" in $$props) $$invalidate(5, textOptional = $$props.textOptional);
-    		if ("status" in $$props) $$invalidate(6, status = $$props.status);
+    		if ('icon' in $$props) $$invalidate(0, icon = $$props.icon);
+    		if ('onClick' in $$props) $$invalidate(1, onClick = $$props.onClick);
+    		if ('title' in $$props) $$invalidate(2, title = $$props.title);
+    		if ('text' in $$props) $$invalidate(3, text = $$props.text);
+    		if ('textOptional' in $$props) $$invalidate(5, textOptional = $$props.textOptional);
+    		if ('status' in $$props) $$invalidate(6, status = $$props.status);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*icon, text, textOptional, status*/ 105) {
     			{
-    				$$invalidate(4, className = baseClass + " " + baseClass + (icon ? "--with-icon" : "--without-icon") + " " + baseClass + (text && !textOptional || !icon
-    				? "--with-text"
-    				: "--without-text") + (status === "" ? "" : " " + baseClass + "--" + status));
+    				$$invalidate(4, className = baseClass + ' ' + baseClass + (icon ? '--with-icon' : '--without-icon') + ' ' + baseClass + (text && !textOptional || !icon
+    				? '--with-text'
+    				: '--without-text') + (status === '' ? '' : ' ' + baseClass + '--' + status));
     			}
     		}
     	};
@@ -21726,7 +21795,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/props/Rotate.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/props/Rotate.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$7(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -21748,12 +21817,12 @@
 
     	button = new OptionButton({
     			props: {
-    				icon: "rotate" + /*count*/ ctx[6],
-    				title: /*buttonPhrases*/ ctx[2].rotateTitle.replace("{num}", /*count*/ ctx[6] * 90 + ""),
-    				text: /*buttonPhrases*/ ctx[2].rotate.replace("{num}", /*count*/ ctx[6] * 90 + ""),
+    				icon: 'rotate' + /*count*/ ctx[6],
+    				title: /*buttonPhrases*/ ctx[2].rotateTitle.replace('{num}', /*count*/ ctx[6] * 90 + ''),
+    				text: /*buttonPhrases*/ ctx[2].rotate.replace('{num}', /*count*/ ctx[6] * 90 + ''),
     				status: /*value*/ ctx[0] === /*count*/ ctx[6]
-    				? "checked"
-    				: "unchecked",
+    				? 'checked'
+    				: 'unchecked',
     				onClick: func
     			}
     		});
@@ -21774,13 +21843,13 @@
     		p(new_ctx, dirty) {
     			ctx = new_ctx;
     			const button_changes = {};
-    			if (dirty & /*list*/ 2) button_changes.icon = "rotate" + /*count*/ ctx[6];
-    			if (dirty & /*list*/ 2) button_changes.title = /*buttonPhrases*/ ctx[2].rotateTitle.replace("{num}", /*count*/ ctx[6] * 90 + "");
-    			if (dirty & /*list*/ 2) button_changes.text = /*buttonPhrases*/ ctx[2].rotate.replace("{num}", /*count*/ ctx[6] * 90 + "");
+    			if (dirty & /*list*/ 2) button_changes.icon = 'rotate' + /*count*/ ctx[6];
+    			if (dirty & /*list*/ 2) button_changes.title = /*buttonPhrases*/ ctx[2].rotateTitle.replace('{num}', /*count*/ ctx[6] * 90 + '');
+    			if (dirty & /*list*/ 2) button_changes.text = /*buttonPhrases*/ ctx[2].rotate.replace('{num}', /*count*/ ctx[6] * 90 + '');
 
     			if (dirty & /*value, list*/ 3) button_changes.status = /*value*/ ctx[0] === /*count*/ ctx[6]
-    			? "checked"
-    			: "unchecked";
+    			? 'checked'
+    			: 'unchecked';
 
     			if (dirty & /*list*/ 2) button_changes.onClick = func;
     			button.$set(button_changes);
@@ -21913,7 +21982,7 @@
     function addItem$1(count, selected, temp) {
     	return {
     		count,
-    		key: count + "-" + temp,
+    		key: count + '-' + temp,
     		selected,
     		temp
     	};
@@ -21934,14 +22003,14 @@
     			return;
     		}
 
-    		customise("rotate", count === value ? 0 : count);
+    		customise('rotate', count === value ? 0 : count);
     	}
 
     	const func = count => rotateClicked(count);
 
     	$$self.$$set = $$props => {
-    		if ("value" in $$props) $$invalidate(0, value = $$props.value);
-    		if ("customise" in $$props) $$invalidate(4, customise = $$props.customise);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('customise' in $$props) $$invalidate(4, customise = $$props.customise);
     	};
 
     	$$self.$$.update = () => {
@@ -21977,7 +22046,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/props/Flip.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/props/Flip.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$6(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -22001,8 +22070,8 @@
     				icon: /*item*/ ctx[6].icon,
     				title: /*item*/ ctx[6].title,
     				status: /*customisations*/ ctx[0][/*item*/ ctx[6].prop]
-    				? "checked"
-    				: "unchecked",
+    				? 'checked'
+    				: 'unchecked',
     				onClick: func
     			}
     		});
@@ -22027,8 +22096,8 @@
     			if (dirty & /*list*/ 2) button_changes.title = /*item*/ ctx[6].title;
 
     			if (dirty & /*customisations, list*/ 3) button_changes.status = /*customisations*/ ctx[0][/*item*/ ctx[6].prop]
-    			? "checked"
-    			: "unchecked";
+    			? 'checked'
+    			: 'unchecked';
 
     			if (dirty & /*list*/ 2) button_changes.onClick = func;
     			button.$set(button_changes);
@@ -22165,12 +22234,12 @@
     	let list;
 
     	function addItem(key, selected) {
-    		const prop = key + "Flip";
+    		const prop = key + 'Flip';
 
     		return {
     			prop,
-    			icon: key + "-flip",
-    			key: key + "Flip" + (selected ? "!" : ""),
+    			icon: key + '-flip',
+    			key: key + 'Flip' + (selected ? '!' : ''),
     			title: phrases$1.footerOptionButtons[prop]
     		};
     	}
@@ -22183,14 +22252,14 @@
     	const func = item => flipClicked(item.prop);
 
     	$$self.$$set = $$props => {
-    		if ("customisations" in $$props) $$invalidate(0, customisations = $$props.customisations);
-    		if ("customise" in $$props) $$invalidate(3, customise = $$props.customise);
+    		if ('customisations' in $$props) $$invalidate(0, customisations = $$props.customisations);
+    		if ('customise' in $$props) $$invalidate(3, customise = $$props.customise);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*customisations*/ 1) {
     			{
-    				$$invalidate(1, list = [addItem("h", customisations.hFlip), addItem("v", customisations.vFlip)]);
+    				$$invalidate(1, list = [addItem('h', customisations.hFlip), addItem('v', customisations.vFlip)]);
     			}
     		}
     	};
@@ -22205,7 +22274,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/props/Inline.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/props/Inline.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$5(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -22224,12 +22293,12 @@
 
     	button = new OptionButton({
     			props: {
-    				icon: "mode-" + /*mode*/ ctx[5],
+    				icon: 'mode-' + /*mode*/ ctx[5],
     				text: /*buttonPhrases*/ ctx[2][/*mode*/ ctx[5]],
-    				title: /*buttonPhrases*/ ctx[2][/*mode*/ ctx[5] + "Hint"],
+    				title: /*buttonPhrases*/ ctx[2][/*mode*/ ctx[5] + 'Hint'],
     				status: /*value*/ ctx[0] === /*inline*/ ctx[6]
-    				? "checked"
-    				: "unchecked",
+    				? 'checked'
+    				: 'unchecked',
     				textOptional: true,
     				onClick: /*inlineClicked*/ ctx[3]
     			}
@@ -22251,13 +22320,13 @@
     		p(new_ctx, dirty) {
     			ctx = new_ctx;
     			const button_changes = {};
-    			if (dirty & /*list*/ 2) button_changes.icon = "mode-" + /*mode*/ ctx[5];
+    			if (dirty & /*list*/ 2) button_changes.icon = 'mode-' + /*mode*/ ctx[5];
     			if (dirty & /*list*/ 2) button_changes.text = /*buttonPhrases*/ ctx[2][/*mode*/ ctx[5]];
-    			if (dirty & /*list*/ 2) button_changes.title = /*buttonPhrases*/ ctx[2][/*mode*/ ctx[5] + "Hint"];
+    			if (dirty & /*list*/ 2) button_changes.title = /*buttonPhrases*/ ctx[2][/*mode*/ ctx[5] + 'Hint'];
 
     			if (dirty & /*value, list*/ 3) button_changes.status = /*value*/ ctx[0] === /*inline*/ ctx[6]
-    			? "checked"
-    			: "unchecked";
+    			? 'checked'
+    			: 'unchecked';
 
     			button.$set(button_changes);
     		},
@@ -22387,7 +22456,7 @@
     }
 
     function addItem(inline, selected, temp) {
-    	const mode = inline ? "inline" : "block";
+    	const mode = inline ? 'inline' : 'block';
 
     	return {
     		mode,
@@ -22409,12 +22478,12 @@
     	let list;
 
     	function inlineClicked() {
-    		customise("inline", !value);
+    		customise('inline', !value);
     	}
 
     	$$self.$$set = $$props => {
-    		if ("value" in $$props) $$invalidate(0, value = $$props.value);
-    		if ("customise" in $$props) $$invalidate(4, customise = $$props.customise);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('customise' in $$props) $$invalidate(4, customise = $$props.customise);
     	};
 
     	$$self.$$.update = () => {
@@ -22452,7 +22521,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/Properties.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/Properties.svelte generated by Svelte v3.42.1 */
 
     function create_if_block_4$2(ctx) {
     	let colorblock;
@@ -22461,9 +22530,9 @@
     	colorblock = new Color({
     			props: {
     				icons: /*icons*/ ctx[0],
-    				value: typeof /*customisations*/ ctx[1].color === "string"
+    				value: typeof /*customisations*/ ctx[1].color === 'string'
     				? /*customisations*/ ctx[1].color
-    				: "",
+    				: '',
     				customise: /*customise*/ ctx[2]
     			}
     		});
@@ -22480,9 +22549,9 @@
     			const colorblock_changes = {};
     			if (dirty & /*icons*/ 1) colorblock_changes.icons = /*icons*/ ctx[0];
 
-    			if (dirty & /*customisations*/ 2) colorblock_changes.value = typeof /*customisations*/ ctx[1].color === "string"
+    			if (dirty & /*customisations*/ 2) colorblock_changes.value = typeof /*customisations*/ ctx[1].color === 'string'
     			? /*customisations*/ ctx[1].color
-    			: "";
+    			: '';
 
     			if (dirty & /*customise*/ 4) colorblock_changes.customise = /*customise*/ ctx[2];
     			colorblock.$set(colorblock_changes);
@@ -22822,15 +22891,15 @@
     	let title;
 
     	$$self.$$set = $$props => {
-    		if ("icons" in $$props) $$invalidate(0, icons = $$props.icons);
-    		if ("customisations" in $$props) $$invalidate(1, customisations = $$props.customisations);
-    		if ("customise" in $$props) $$invalidate(2, customise = $$props.customise);
+    		if ('icons' in $$props) $$invalidate(0, icons = $$props.icons);
+    		if ('customisations' in $$props) $$invalidate(1, customisations = $$props.customisations);
+    		if ('customise' in $$props) $$invalidate(2, customise = $$props.customise);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*icons*/ 1) {
     			{
-    				$$invalidate(3, title = "");
+    				$$invalidate(3, title = '');
     			}
     		}
     	};
@@ -22872,7 +22941,7 @@
         };
     }
 
-    /* src/icon-finder/components/content/footers/parts/samples/Full.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/samples/Full.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -23066,8 +23135,8 @@
     	let props;
 
     	$$self.$$set = $$props => {
-    		if ("icon" in $$props) $$invalidate(0, icon = $$props.icon);
-    		if ("customisations" in $$props) $$invalidate(4, customisations = $$props.customisations);
+    		if ('icon' in $$props) $$invalidate(0, icon = $$props.icon);
+    		if ('customisations' in $$props) $$invalidate(4, customisations = $$props.customisations);
     	};
 
     	$$self.$$.update = () => {
@@ -23091,13 +23160,13 @@
 
     		if ($$self.$$.dirty & /*customisations, style, data*/ 22) {
     			{
-    				$$invalidate(2, style = "");
+    				$$invalidate(2, style = '');
 
     				// Add color
     				if (customisations.color) {
-    					$$invalidate(2, style += "color: " + customisations.color + ";");
+    					$$invalidate(2, style += 'color: ' + customisations.color + ';');
     				} else {
-    					$$invalidate(2, style += "color: " + defaultColor + ";");
+    					$$invalidate(2, style += 'color: ' + defaultColor + ';');
     				}
 
     				// Set dimensions
@@ -23112,7 +23181,7 @@
     					// Scale
     					scaleSample(size, true);
 
-    					$$invalidate(2, style += "font-size: " + size.height + "px;");
+    					$$invalidate(2, style += 'font-size: ' + size.height + 'px;');
     				}
     			}
     		}
@@ -23121,7 +23190,7 @@
     			{
     				$$invalidate(3, props = {});
 
-    				["hFlip", "vFlip", "rotate"].forEach(key => {
+    				['hFlip', 'vFlip', 'rotate'].forEach(key => {
     					const prop = key;
 
     					if (customisations[prop]) {
@@ -23134,13 +23203,13 @@
     				const customisedHeight = customisations.height;
 
     				if (customisedWidth || customisedHeight) {
-    					size = getDimensions(customisedWidth ? customisedWidth : "", customisedHeight ? customisedHeight : "", data.ratio, data.rotated);
+    					size = getDimensions(customisedWidth ? customisedWidth : '', customisedHeight ? customisedHeight : '', data.ratio, data.rotated);
     				}
 
     				if (size !== void 0) {
     					scaleSample(size, false);
-    					$$invalidate(3, props.width = size.width + "", props);
-    					$$invalidate(3, props.height = size.height + "", props);
+    					$$invalidate(3, props.width = size.width + '', props);
+    					$$invalidate(3, props.height = size.height + '', props);
     				}
     			}
     		}
@@ -23156,7 +23225,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/samples/Inline.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/samples/Inline.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -23327,24 +23396,24 @@
     	let style;
 
     	$$self.$$set = $$props => {
-    		if ("icon" in $$props) $$invalidate(3, icon = $$props.icon);
-    		if ("customisations" in $$props) $$invalidate(4, customisations = $$props.customisations);
+    		if ('icon' in $$props) $$invalidate(3, icon = $$props.icon);
+    		if ('customisations' in $$props) $$invalidate(4, customisations = $$props.customisations);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*icon, customisations, props*/ 25) {
     			{
     				$$invalidate(0, props = { icon: lib.iconToString(icon) });
-    				$$invalidate(1, style = "");
+    				$$invalidate(1, style = '');
 
     				// Customisations
     				Object.keys(customisations).forEach(key => {
     					const attr = key;
     					const value = customisations[attr];
 
-    					if (value !== void 0 && value !== "" && value !== 0 && value !== false) {
-    						if (attr === "color") {
-    							$$invalidate(1, style = "color: " + value + ";");
+    					if (value !== void 0 && value !== '' && value !== 0 && value !== false) {
+    						if (attr === 'color') {
+    							$$invalidate(1, style = 'color: ' + value + ';');
     						} else {
     							$$invalidate(0, props[attr] = value, props);
     						}
@@ -23356,14 +23425,14 @@
     					const rotated = !!(customisations.rotate % 2);
 
     					// Check maxWidth
-    					let key = rotated ? "height" : "width";
+    					let key = rotated ? 'height' : 'width';
 
     					if (props[key] && props[key] > maxWidth) {
     						$$invalidate(0, props[key] = maxWidth, props);
     					}
 
     					// Check maxHeight
-    					key = !rotated ? "height" : "width";
+    					key = !rotated ? 'height' : 'width';
 
     					if (props[key] && props[key] > maxHeight) {
     						$$invalidate(0, props[key] = maxHeight, props);
@@ -23409,7 +23478,7 @@
         return icon.prefix + ':' + icon.name;
     }
 
-    /* src/icon-finder/components/content/footers/parts/Icons.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/Icons.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -23778,16 +23847,16 @@
     	let { icons } = $$props;
     	let { customisations } = $$props;
     	let { route } = $$props;
-    	let { selected = "" } = $$props;
+    	let { selected = '' } = $$props;
     	let { onSelect = null } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	let items;
 
     	// Copy customisations
-    	const transformations = ["rotate", "hFlip", "vFlip"];
+    	const transformations = ['rotate', 'hFlip', 'vFlip'];
 
     	let props;
     	let style;
@@ -23799,7 +23868,7 @@
     			return;
     		}
 
-    		registry.callback({ type: "selection", icon, selected: false });
+    		registry.callback({ type: 'selection', icon, selected: false });
     	}
 
     	const click_handler = item => {
@@ -23811,11 +23880,11 @@
     	};
 
     	$$self.$$set = $$props => {
-    		if ("icons" in $$props) $$invalidate(5, icons = $$props.icons);
-    		if ("customisations" in $$props) $$invalidate(6, customisations = $$props.customisations);
-    		if ("route" in $$props) $$invalidate(7, route = $$props.route);
-    		if ("selected" in $$props) $$invalidate(8, selected = $$props.selected);
-    		if ("onSelect" in $$props) $$invalidate(0, onSelect = $$props.onSelect);
+    		if ('icons' in $$props) $$invalidate(5, icons = $$props.icons);
+    		if ('customisations' in $$props) $$invalidate(6, customisations = $$props.customisations);
+    		if ('route' in $$props) $$invalidate(7, route = $$props.route);
+    		if ('selected' in $$props) $$invalidate(8, selected = $$props.selected);
+    		if ('onSelect' in $$props) $$invalidate(0, onSelect = $$props.onSelect);
     	};
 
     	$$self.$$.update = () => {
@@ -23832,10 +23901,10 @@
     					;
 
     					// Hint
-    					const removeTitle = phrases$1.footer.remove.replace("{name}", text);
+    					const removeTitle = phrases$1.footer.remove.replace('{name}', text);
 
     					const selectTitle = onSelect
-    					? phrases$1.footer.select.replace("{name}", text)
+    					? phrases$1.footer.select.replace('{name}', text)
     					: removeTitle;
 
     					// Item
@@ -23865,7 +23934,7 @@
     				});
 
     				// Height
-    				if (typeof customisations.height === "number" && customisations.height < 32) {
+    				if (typeof customisations.height === 'number' && customisations.height < 32) {
     					$$invalidate(2, props.height = customisations.height, props);
 
     					// Width, but only if height is set
@@ -23875,10 +23944,10 @@
     				}
 
     				// Color
-    				$$invalidate(3, style = "");
+    				$$invalidate(3, style = '');
 
-    				if (customisations.color !== "") {
-    					$$invalidate(3, style = "color: " + customisations.color + ";");
+    				if (customisations.color !== '') {
+    					$$invalidate(3, style = 'color: ' + customisations.color + ';');
     				}
     			}
     		}
@@ -23913,7 +23982,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/name/Simple.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/name/Simple.svelte generated by Svelte v3.42.1 */
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -24066,8 +24135,8 @@
     	let text;
 
     	$$self.$$set = $$props => {
-    		if ("icon" in $$props) $$invalidate(2, icon = $$props.icon);
-    		if ("route" in $$props) $$invalidate(3, route = $$props.route);
+    		if ('icon' in $$props) $$invalidate(2, icon = $$props.icon);
+    		if ('route' in $$props) $$invalidate(3, route = $$props.route);
     	};
 
     	$$self.$$.update = () => {
@@ -24114,7 +24183,7 @@
             .join(' ');
     }
     exports.capitalize = capitalize;
-    //# sourceMappingURL=capitalize.js.map
+
     });
 
     var phrases = createCommonjsModule(function (module, exports) {
@@ -24177,7 +24246,7 @@
         }
     }
     exports.translateCodeSampleTitles = translateCodeSampleTitles;
-    //# sourceMappingURL=phrases.js.map
+
     });
 
     var tree = createCommonjsModule(function (module, exports) {
@@ -24234,7 +24303,7 @@
                 case 'raw':
                     return config[type];
                 case 'api':
-                    return config.api !== void 0;
+                    return config.api;
                 case 'svg':
                     return config.svg !== void 0;
                 case 'offline':
@@ -24316,7 +24385,7 @@
         return results;
     }
     exports.getCodeSamplesTree = getCodeSamplesTree;
-    //# sourceMappingURL=tree.js.map
+
     });
 
     /**
@@ -24326,13 +24395,14 @@
         providers: Object.create(null),
         // Default configuration
         defaultProvider: {
+            api: true,
             raw: true,
         },
     };
     // Add default provider
     codeConfig.providers[''] = {
         // Show packages that use API
-        api: '',
+        api: true,
         // NPM packages for React, Vue, Svelte components
         npmES: {
             package: '@iconify-icons/{prefix}',
@@ -24348,51 +24418,14 @@
         svg: 'https://api.iconify.design/{prefix}/{name}.svg',
     };
 
-    var versions = createCommonjsModule(function (module, exports) {
+    var common = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.getComponentImport = exports.componentPackages = exports.iconifyVersion = void 0;
-    // Iconify version (replaced during build!)
-    exports.iconifyVersion = '2.0.3';
-    exports.componentPackages = {
-        react: {
-            name: '@iconify/react',
-        },
-        vue2: {
-            name: '@iconify/vue2',
-        },
-        vue3: {
-            name: '@iconify/vue',
-        },
-        svelte: {
-            name: '@iconify/svelte',
-        },
-        ember: {
-            name: '@iconify/ember',
-        },
-    };
-    /**
-     * Get import value for package
-     */
-    function getComponentImport(key) {
-        const item = exports.componentPackages[key];
-        let result = item.name;
-        if (item.version !== void 0) {
-            result += item.version;
-        }
-        return result;
-    }
-    exports.getComponentImport = getComponentImport;
-    //# sourceMappingURL=versions.js.map
-    });
-
-    var codeParsers = createCommonjsModule(function (module, exports) {
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.codeParser = exports.getCustomisationAttributes = exports.varName = void 0;
+    exports.mergeAttributes = exports.mergeAttr = exports.addEmberAttr = exports.addVueAttr = exports.addReactAttr = exports.addDynamicAttr = exports.addAttr = exports.npmIconImport = exports.getCustomisationsList = exports.docsBase = exports.getCustomisationAttributes = exports.toString = exports.degrees = exports.isNumber = exports.iconToVarName = void 0;
 
     /**
      * Convert icon name to variable
      */
-    function varName(iconName) {
+    function iconToVarName(iconName) {
         let name = '';
         const parts = iconName.split('-');
         parts.forEach((part, index) => {
@@ -24408,7 +24441,7 @@
         }
         return name;
     }
-    exports.varName = varName;
+    exports.iconToVarName = iconToVarName;
     /**
      * Check if string contains units
      */
@@ -24419,12 +24452,14 @@
                 ? !!value.match(/^-?[0-9.]+$/)
                 : false;
     }
+    exports.isNumber = isNumber;
     /**
      * Convert number to degrees string
      */
     function degrees(value) {
         return value * 90 + 'deg';
     }
+    exports.degrees = degrees;
     /**
      * Convert value to string
      */
@@ -24438,6 +24473,7 @@
                 return JSON.stringify(value);
         }
     }
+    exports.toString = toString;
     /**
      * List of attributes
      */
@@ -24465,323 +24501,520 @@
     /**
      * Documentation
      */
-    const docsBase = 'https://docs.iconify.design/icon-components/';
+    exports.docsBase = 'https://docs.iconify.design/icon-components/';
+    function getCustomisationsList(customisations$1) {
+        const results = new Set();
+        // Add color
+        if (customisations$1.color !== '') {
+            results.add('color');
+        }
+        // Add dimensions
+        const width = customisations$1.width;
+        const hasWidth = width !== null && width !== '';
+        const height = customisations$1.height;
+        const hasHeight = height !== null && height !== '';
+        if (hasWidth) {
+            results.add('width');
+        }
+        if (hasHeight) {
+            results.add(hasWidth || height === 'auto' ? 'height' : 'onlyHeight');
+        }
+        // Transformations and alignment
+        ['rotate', 'hFlip', 'vFlip', 'hAlign', 'vAlign', 'slice'].forEach((prop) => {
+            const key = prop;
+            const value = customisations$1[key];
+            if (value !== void 0 && value !== customisations.emptyCustomisations[key]) {
+                results.add(key);
+            }
+        });
+        // Inline
+        if (customisations$1.inline) {
+            results.add('inline');
+        }
+        return results;
+    }
+    exports.getCustomisationsList = getCustomisationsList;
+    function npmIconImport(icon, name, providerConfig, preferES) {
+        const npm = preferES
+            ? providerConfig.npmES
+                ? providerConfig.npmES
+                : providerConfig.npmCJS
+            : providerConfig.npmCJS
+                ? providerConfig.npmCJS
+                : providerConfig.npmES;
+        if (!npm) {
+            return null;
+        }
+        const packageName = typeof npm.package === 'string'
+            ? npm.package.replace('{prefix}', icon.prefix)
+            : typeof npm.package === 'function'
+                ? npm.package(providerConfig, icon)
+                : null;
+        if (typeof packageName !== 'string') {
+            return null;
+        }
+        const file = typeof npm.file === 'string'
+            ? npm.file.replace('{name}', icon.name)
+            : typeof npm.file === 'function'
+                ? npm.file(providerConfig, icon)
+                : null;
+        if (typeof file !== 'string') {
+            return null;
+        }
+        const code = 'import ' + name + " from '" + packageName + file + "';";
+        return {
+            name,
+            package: packageName,
+            file,
+            code,
+        };
+    }
+    exports.npmIconImport = npmIconImport;
+    function addAttr(list, key, value) {
+        list[key] = {
+            key,
+            value,
+        };
+    }
+    exports.addAttr = addAttr;
+    function addDynamicAttr(list, key, anyValue, syntax) {
+        let value;
+        switch (typeof anyValue) {
+            case 'boolean':
+                value = anyValue ? 'true' : 'false';
+                break;
+            case 'object':
+                value = JSON.stringify(anyValue);
+                break;
+            default:
+                value = anyValue;
+        }
+        list[key] = {
+            key,
+            value,
+            syntax,
+        };
+    }
+    exports.addDynamicAttr = addDynamicAttr;
+    function addReactAttr(list, key, value) {
+        if (typeof value === 'string' && key !== 'icon') {
+            addAttr(list, key, value);
+        }
+        else {
+            addDynamicAttr(list, key, value, '{var}={{value}}');
+        }
+    }
+    exports.addReactAttr = addReactAttr;
+    function addVueAttr(list, key, value) {
+        if (typeof value === 'string' && key !== 'icon') {
+            addAttr(list, key, value);
+        }
+        else {
+            addDynamicAttr(list, key, value, ':{var}="{value}"');
+        }
+    }
+    exports.addVueAttr = addVueAttr;
+    function addEmberAttr(list, key, value) {
+        if (typeof value === 'string') {
+            addAttr(list, '@' + key, value);
+        }
+        else {
+            addDynamicAttr(list, key, value, '@{var}={{{value}}}');
+        }
+    }
+    exports.addEmberAttr = addEmberAttr;
     /**
-     * Generate parsers
+     * Merge attribute values
      */
-    function generateParser(mode) {
-        /**
-         * Add attributes to parsed attributes
-         */
-        function addRawAttr(list, key, value) {
-            list[key] = value;
+    function mergeAttr(list, key, value, separator) {
+        const oldItem = typeof list[key] === 'object'
+            ? list[key]
+            : void 0;
+        list[key] = {
+            key,
+            value: (oldItem ? oldItem.value + separator : '') + value,
+            syntax: oldItem ? oldItem.syntax : void 0,
+        };
+    }
+    exports.mergeAttr = mergeAttr;
+    /**
+     * Merge result
+     */
+    function mergeAttributes(list) {
+        return Object.keys(list)
+            .map((key) => {
+            const item = list[key];
+            if (typeof item === 'object') {
+                return (typeof item.syntax === 'string'
+                    ? item.syntax
+                    : '{var}="{value}"')
+                    .replace('{var}', item.key)
+                    .replace('{value}', item.value);
+            }
+            return item;
+        })
+            .join(' ');
+    }
+    exports.mergeAttributes = mergeAttributes;
+
+    });
+
+    var css = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.cssParser = void 0;
+    // Documentation links
+    const docs = {
+        type: 'css',
+        href: common.docsBase + 'css.html',
+    };
+    /**
+     * Code output for CSS
+     */
+    const cssParser = (icon, customisations, providerConfig) => {
+        if (typeof providerConfig.svg !== 'string') {
+            return null;
         }
-        function addAttr(list, key, value) {
-            list[key] = {
-                key,
-                value,
-            };
+        // Parse all customisations
+        const list = {};
+        common.getCustomisationsList(customisations).forEach((attr) => {
+            switch (attr) {
+                // Ignore
+                case 'inline':
+                    break;
+                // Color
+                case 'color':
+                    common.addAttr(list, 'color', customisations[attr]);
+                    break;
+                // Dimensions
+                case 'width':
+                case 'height':
+                    common.addAttr(list, attr, common.toString(customisations[attr]));
+                    break;
+                case 'onlyHeight':
+                    common.addAttr(list, 'height', common.toString(customisations.height));
+                    break;
+                // Transformations
+                case 'rotate':
+                    common.addAttr(list, attr, common.degrees(customisations[attr]));
+                    break;
+                case 'hFlip':
+                    common.mergeAttr(list, 'flip', 'horizontal', ',');
+                    break;
+                case 'vFlip':
+                    common.mergeAttr(list, 'flip', 'vertical', ',');
+                    break;
+                // Alignment
+                case 'hAlign':
+                case 'vAlign':
+                    common.mergeAttr(list, 'align', customisations[attr], ',');
+                    break;
+                case 'slice':
+                    common.mergeAttr(list, 'align', attr, ',');
+                    break;
+            }
+        });
+        // Generate params
+        const params = Object.keys(list)
+            .map((key) => {
+            const item = list[key];
+            if (typeof item === 'object') {
+                return item.key + '=' + encodeURIComponent(item.value);
+            }
+            return key + '=' + encodeURIComponent(item);
+        })
+            .join('&');
+        // Get URL
+        const url = providerConfig.svg
+            .replace('{prefix}', icon.prefix)
+            .replace('{name}', icon.name) + (params ? '?' + params : '');
+        const result = {
+            raw: [
+                "background: url('" + url + "') no-repeat center center / contain;",
+                "content: url('" + url + "');",
+            ],
+            isAPI: true,
+            docs,
+        };
+        return result;
+    };
+    exports.cssParser = cssParser;
+
+    });
+
+    var versions = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.getComponentInstall = exports.componentPackages = exports.iconifyVersion = void 0;
+    // Iconify version (do not edit it, replaced during build!)
+    exports.iconifyVersion = '2.0.3';
+    exports.componentPackages = {
+        react: {
+            name: '@iconify/react',
+        },
+        vue2: {
+            name: '@iconify/vue2',
+        },
+        vue3: {
+            name: '@iconify/vue',
+        },
+        svelte: {
+            name: '@iconify/svelte',
+        },
+        ember: {
+            name: '@iconify/ember',
+        },
+    };
+    /**
+     * Get package name to install
+     */
+    function getComponentInstall(key, dev) {
+        const item = exports.componentPackages[key];
+        let result = item.name;
+        if (item.version !== void 0) {
+            result += item.version;
         }
-        function addDynamicAttr(list, key, anyValue, syntax) {
-            let value;
-            switch (typeof anyValue) {
-                case 'boolean':
-                    value = anyValue ? 'true' : 'false';
+        if (typeof dev === 'boolean') {
+            return 'npm install --save' + (dev ? '-dev ' : ' ') + result;
+        }
+        return result;
+    }
+    exports.getComponentInstall = getComponentInstall;
+
+    });
+
+    var ember = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.emberParser = void 0;
+
+
+
+    // Documentation links
+    const docs = {
+        type: 'ember',
+        href: common.docsBase + 'ember/',
+    };
+    // Code cache
+    const installCode = versions.getComponentInstall('ember', true);
+    /**
+     * Code output for API component
+     */
+    const emberParser = (icon$1, customisations, providerConfig) => {
+        if (!providerConfig.api) {
+            return null;
+        }
+        // List of attributes
+        const list = {};
+        // Add icon name
+        common.addEmberAttr(list, 'icon', icon.iconToString(icon$1));
+        // Params
+        common.getCustomisationsList(customisations).forEach((attr) => {
+            switch (attr) {
+                case 'onlyHeight': {
+                    const value = customisations.height;
+                    common.addEmberAttr(list, 'height', value);
                     break;
-                case 'object':
-                    value = JSON.stringify(anyValue);
-                    break;
+                }
                 default:
-                    value = anyValue;
+                    common.addEmberAttr(list, attr, customisations[attr]);
             }
-            list[key] = {
-                key,
-                value,
-                syntax,
-            };
-        }
-        function addReactAttr(list, key, value) {
-            if (typeof value === 'string' && key !== 'icon') {
-                addAttr(list, key, value);
-            }
-            else {
-                addDynamicAttr(list, key, value, '{var}={{value}}');
-            }
-        }
-        function addVueAttr(list, key, value) {
-            if (typeof value === 'string' && key !== 'icon') {
-                addAttr(list, key, value);
-            }
-            else {
-                addDynamicAttr(list, key, value, ':{var}="{value}"');
-            }
-        }
-        function addEmberAttr(list, key, value) {
-            if (typeof value === 'string' && key !== 'icon') {
-                addAttr(list, '@' + key, value);
-            }
-            else {
-                addDynamicAttr(list, key, value, '@{var}={{value}}');
-            }
-        }
-        /**
-         * Merge attribute values
-         */
-        function mergeAttr(list, key, value, separator) {
-            const oldItem = typeof list[key] === 'object'
-                ? list[key]
-                : void 0;
-            list[key] = {
-                key,
-                value: (oldItem ? oldItem.value + separator : '') + value,
-                syntax: oldItem ? oldItem.syntax : void 0,
-            };
-        }
-        /**
-         * Add functions for multiple attribute parsers
-         */
-        function addMultipleAttributeParsers(parser, attribs, callback) {
-            attribs.forEach((attr) => {
-                if (parser.parsers[attr] === void 0) {
-                    parser.parsers[attr] = (list, value) => callback(list, attr, value);
+        });
+        // Generate code
+        const code = '<IconifyIcon ' + common.mergeAttributes(list) + ' />';
+        const result = {
+            component: {
+                'install-addon': installCode,
+                'use-in-template': code,
+            },
+            isAPI: true,
+            docs,
+        };
+        return result;
+    };
+    exports.emberParser = emberParser;
+
+    });
+
+    var react = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.reactOfflineParser = exports.reactParser = void 0;
+
+
+
+    // Documentation links
+    const docs = {
+        type: 'react',
+        href: common.docsBase + 'react/',
+    };
+    // Code cache
+    const installCode = versions.getComponentInstall('react', true);
+    const importCode = "import { Icon } from '" + versions.componentPackages.react.name + "';";
+    /**
+     * Add properties and generate code
+     */
+    function generateCode(list, customisations) {
+        // Parse all customisations
+        common.getCustomisationsList(customisations).forEach((attr) => {
+            switch (attr) {
+                case 'onlyHeight': {
+                    const value = customisations.height;
+                    common.addReactAttr(list, 'height', value);
+                    break;
                 }
-            });
-            return parser;
-        }
-        /**
-         * Merge result
-         */
-        function mergeAttributes(list) {
-            return Object.keys(list)
-                .map((key) => {
-                const item = list[key];
-                if (typeof item === 'object') {
-                    return (typeof item.syntax === 'string'
-                        ? item.syntax
-                        : '{var}="{value}"')
-                        .replace('{var}', item.key)
-                        .replace('{value}', item.value);
-                }
-                return item;
-            })
-                .join(' ');
-        }
-        /**
-         * Get Vue offline parser
-         */
-        function vueParser(offline, vue3) {
-            const templateCode = '<Icon {attr} />';
-            const scriptOfflineCode = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n\tdata() {\n\t\treturn {\n\t\t\ticons: {\n\t\t\t\t{varName},\n\t\t\t},\n\t\t};\n\t},\n});';
-            const scriptOnlineCode = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n});';
-            const scriptCode = offline ? scriptOfflineCode : scriptOnlineCode;
-            const parser = {
-                iconParser: (list, valueStr, valueIcon) => (offline ? addVueAttr : addAttr)(list, 'icon', offline ? 'icons.' + varName(valueIcon.name) : valueStr),
-                parsers: {
-                    hFlip: (list, value) => addVueAttr(list, 'horizontalFlip', value),
-                    vFlip: (list, value) => addVueAttr(list, 'verticalFlip', value),
-                    hAlign: (list, value) => addVueAttr(list, 'horizontalAlign', value),
-                    vAlign: (list, value) => addVueAttr(list, 'verticalAlign', value),
-                    inline: (list, value) => addVueAttr(list, 'inline', value),
-                },
-                merge: mergeAttributes,
-                template: (attr, customisations) => templateCode.replace('{attr}', attr),
-                vueTemplate: (attr, customisations) => scriptCode.replace('{attr}', attr),
-                docs: {
-                    type: 'vue',
-                    href: docsBase + (vue3 ? 'vue/' : 'vue2/'),
-                },
-                npm: {
-                    install: versions.getComponentImport(vue3 ? 'vue3' : 'vue2'),
-                    import: (attr, customisations) => "import { Icon } from '" +
-                        versions.componentPackages[vue3 ? 'vue3' : 'vue2'].name +
-                        "';",
-                },
-                useType: 'use-in-template',
-            };
-            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, false), addVueAttr);
-            return parser;
-        }
-        function svelteParser(offline) {
-            const parser = {
-                iconParser: (list, valueStr, valueIcon) => (offline ? addReactAttr : addAttr)(list, 'icon', offline ? varName(valueIcon.name) : valueStr),
-                parsers: {},
-                merge: mergeAttributes,
-                template: '<Icon {attr} />',
-                docs: {
-                    type: 'svelte',
-                    href: docsBase + 'svelte/',
-                },
-                npm: {
-                    install: versions.getComponentImport('svelte'),
-                    import: "import Icon from '" + versions.componentPackages.svelte.name + "';",
-                },
-                useType: 'use-in-template',
-            };
-            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
-            return parser;
-        }
-        function reactParser(offline) {
-            const parser = {
-                iconParser: (list, valueStr, valueIcon) => (offline ? addReactAttr : addAttr)(list, 'icon', offline ? varName(valueIcon.name) : valueStr),
-                parsers: {},
-                merge: mergeAttributes,
-                template: (attr, customisations) => '<Icon ' + attr + ' />',
-                docs: {
-                    type: 'react',
-                    href: docsBase + 'react/',
-                },
-                npm: {
-                    install: versions.getComponentImport('react'),
-                    import: (attr, customisations) => "import { Icon } from '" +
-                        versions.componentPackages.react.name +
-                        "';",
-                },
-                useType: 'use-in-template',
-            };
-            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addReactAttr);
-            return parser;
-        }
-        function emberParser() {
-            const parser = {
-                iconParser: (list, valueStr, valueIcon) => addAttr(list, 'icon', valueStr),
-                parsers: {},
-                merge: mergeAttributes,
-                template: '<IconifyIcon {attr} />',
-                docs: {
-                    type: 'ember',
-                    href: docsBase + 'ember/',
-                },
-                npm: {
-                    install: versions.getComponentImport('ember'),
-                    isAddon: true,
-                },
-                useType: 'use-in-template',
-            };
-            addMultipleAttributeParsers(parser, getCustomisationAttributes(true, true), addEmberAttr);
-            return parser;
-        }
-        /**
-         * Generate parser
-         */
-        let parser;
-        switch (mode) {
-            case 'iconify':
-                // SVG framework
-                return {
-                    init: (customisations) => {
-                        return {
-                            class: 'class="' +
-                                (customisations.inline
-                                    ? 'iconify-inline'
-                                    : 'iconify') +
-                                '"',
-                        };
-                    },
-                    iconParser: (list, valueStr, valueIcon) => addAttr(list, 'data-icon', valueStr),
-                    parsers: {
-                        color: (list, value) => mergeAttr(list, 'style', 'color: ' + value + ';', ' '),
-                        onlyHeight: (list, value) => mergeAttr(list, 'style', 'font-size: ' +
-                            value +
-                            (isNumber(value) ? 'px;' : ';'), ' '),
-                        width: (list, value) => addAttr(list, 'data-width', toString(value)),
-                        height: (list, value) => addAttr(list, 'data-height', toString(value)),
-                        rotate: (list, value) => addAttr(list, 'data-rotate', degrees(value)),
-                        hFlip: (list) => mergeAttr(list, 'data-flip', 'horizontal', ','),
-                        vFlip: (list) => mergeAttr(list, 'data-flip', 'vertical', ','),
-                        hAlign: (list, value) => mergeAttr(list, 'data-align', value, ','),
-                        vAlign: (list, value) => mergeAttr(list, 'data-align', value, ','),
-                        slice: (list) => mergeAttr(list, 'data-align', 'slice', ','),
-                    },
-                    merge: mergeAttributes,
-                    template: '<span {attr}></span>',
-                    docs: {
-                        type: 'iconify',
-                        href: docsBase + 'svg-framework/',
-                    },
-                    useType: 'use-in-html',
-                };
-            // CSS
-            case 'css':
-                return {
-                    parsers: {
-                        color: (list, value) => addAttr(list, 'color', toString(value)),
-                        width: (list, value) => addAttr(list, 'width', toString(value)),
-                        height: (list, value) => addAttr(list, 'height', toString(value)),
-                        rotate: (list, value) => addAttr(list, 'rotate', degrees(value)),
-                        hFlip: (list) => mergeAttr(list, 'flip', 'horizontal', ','),
-                        vFlip: (list) => mergeAttr(list, 'flip', 'vertical', ','),
-                        hAlign: (list, value) => mergeAttr(list, 'align', value, ','),
-                        vAlign: (list, value) => mergeAttr(list, 'align', value, ','),
-                        slice: (list) => mergeAttr(list, 'align', 'slice', ','),
-                    },
-                    merge: (list) => {
-                        return Object.keys(list)
-                            .map((key) => {
-                            const item = list[key];
-                            if (typeof item === 'object') {
-                                return (item.key +
-                                    '=' +
-                                    encodeURIComponent(item.value));
-                            }
-                            return key + '=' + encodeURIComponent(item);
-                        })
-                            .join('&');
-                    },
-                    docs: {
-                        type: 'css',
-                        href: docsBase + 'css.html',
-                    },
-                    useType: 'use-in-html',
-                };
-            // SVG
-            case 'svg-raw':
-            case 'svg-uri':
-            case 'svg-box':
-                parser = {
-                    parsers: {},
-                    useType: 'use-generic',
-                };
-                addMultipleAttributeParsers(parser, getCustomisationAttributes(false, true), addRawAttr);
-                return parser;
-            // React components
-            case 'react-offline':
-                return reactParser(true);
-            case 'react-api':
-                return reactParser(false);
-            // Vue
-            case 'vue2-offline':
-                return vueParser(true, false);
-            case 'vue2-api':
-                return vueParser(false, false);
-            case 'vue3-offline':
-                return vueParser(true, true);
-            case 'vue3-api':
-                return vueParser(false, true);
-            // Svelte
-            case 'svelte-offline':
-                return svelteParser(true);
-            case 'svelte-api':
-                return svelteParser(false);
-            // Ember
-            case 'ember':
-                return emberParser();
-        }
+                default:
+                    common.addReactAttr(list, attr, customisations[attr]);
+            }
+        });
+        return '<Icon ' + common.mergeAttributes(list) + ' />';
     }
     /**
-     * Parsers cache
+     * Code output for API component
      */
-    const cache = Object.create(null);
-    /**
-     * Get code parser
-     */
-    function codeParser(mode) {
-        if (cache[mode] === void 0) {
-            cache[mode] = generateParser(mode);
+    const reactParser = (icon$1, customisations, providerConfig) => {
+        if (!providerConfig.api) {
+            return null;
         }
-        return cache[mode];
+        // List of attributes
+        const list = {};
+        // Add icon name
+        common.addAttr(list, 'icon', icon.iconToString(icon$1));
+        // Generate code
+        const code = generateCode(list, customisations);
+        const result = {
+            component: {
+                'install-simple': installCode,
+                'import-simple': importCode,
+                'use-in-template': code,
+            },
+            isAPI: true,
+            docs,
+        };
+        return result;
+    };
+    exports.reactParser = reactParser;
+    /**
+     * Code output for offline component
+     */
+    const reactOfflineParser = (icon, customisations, providerConfig) => {
+        if (!providerConfig.npmCJS && !providerConfig.npmES) {
+            return null;
+        }
+        // Variable name
+        const varName = common.iconToVarName(icon.name);
+        // Import statement
+        const npmImport = common.npmIconImport(icon, varName, providerConfig, false);
+        if (!npmImport) {
+            return null;
+        }
+        // List of attributes
+        const list = {};
+        // Add icon name
+        common.addReactAttr(list, 'icon', varName);
+        // Generate code
+        const code = generateCode(list, customisations);
+        const result = {
+            component: {
+                'install-offline': installCode + ' ' + npmImport.package,
+                'import-offline': importCode + '\n' + npmImport.code,
+                'use-in-template': code,
+            },
+            isAPI: false,
+            docs,
+        };
+        return result;
+    };
+    exports.reactOfflineParser = reactOfflineParser;
+
+    });
+
+    var svelte = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.svelteOfflineParser = exports.svelteParser = void 0;
+
+
+
+    // Documentation links
+    const docs = {
+        type: 'svelte',
+        href: common.docsBase + 'svelte/',
+    };
+    // Code cache
+    const installCode = versions.getComponentInstall('svelte', true);
+    const importCode = "import Icon from '" + versions.componentPackages.svelte.name + "';";
+    /**
+     * Add properties and generate code
+     */
+    function generateCode(list, customisations) {
+        // Parse all customisations
+        common.getCustomisationsList(customisations).forEach((attr) => {
+            switch (attr) {
+                case 'onlyHeight': {
+                    const value = customisations.height;
+                    common.addReactAttr(list, 'height', value);
+                    break;
+                }
+                default:
+                    common.addReactAttr(list, attr, customisations[attr]);
+            }
+        });
+        return '<Icon ' + common.mergeAttributes(list) + ' />';
     }
-    exports.codeParser = codeParser;
-    //# sourceMappingURL=code-parsers.js.map
+    /**
+     * Code output for API component
+     */
+    const svelteParser = (icon$1, customisations, providerConfig) => {
+        if (!providerConfig.api) {
+            return null;
+        }
+        // List of attributes
+        const list = {};
+        // Add icon name
+        common.addAttr(list, 'icon', icon.iconToString(icon$1));
+        // Generate code
+        const code = generateCode(list, customisations);
+        const result = {
+            component: {
+                'install-simple': installCode,
+                'import-simple': importCode,
+                'use-in-template': code,
+            },
+            isAPI: true,
+            docs,
+        };
+        return result;
+    };
+    exports.svelteParser = svelteParser;
+    /**
+     * Code output for offline component
+     */
+    const svelteOfflineParser = (icon, customisations, providerConfig) => {
+        if (!providerConfig.npmCJS && !providerConfig.npmES) {
+            return null;
+        }
+        // Variable name
+        const varName = common.iconToVarName(icon.name);
+        // Import statement
+        const npmImport = common.npmIconImport(icon, varName, providerConfig, false);
+        if (!npmImport) {
+            return null;
+        }
+        // List of attributes
+        const list = {};
+        // Add icon name
+        common.addReactAttr(list, 'icon', varName);
+        // Generate code
+        const code = generateCode(list, customisations);
+        const result = {
+            component: {
+                'install-offline': installCode + ' ' + npmImport.package,
+                'import-offline': importCode + '\n' + npmImport.code,
+                'use-in-template': code,
+            },
+            isAPI: false,
+            docs,
+        };
+        return result;
+    };
+    exports.svelteOfflineParser = svelteOfflineParser;
+
     });
 
     var size = createCommonjsModule(function (module, exports) {
@@ -25081,18 +25314,275 @@
             '</svg>');
     }
     exports.renderHTML = renderHTML;
-    //# sourceMappingURL=html.js.map
+
+    });
+
+    var svg = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.svgParser = void 0;
+
+
+
+    /**
+     * Code output for API component
+     */
+    function svgParser(lang, icon$1, customisations, providerConfig) {
+        var _a;
+        if (!providerConfig.raw) {
+            return null;
+        }
+        const iconName = icon.iconToString(icon$1);
+        const data = (_a = iconify.Iconify.getIcon) === null || _a === void 0 ? void 0 : _a.call(iconify.Iconify, iconName);
+        if (!data) {
+            return null;
+        }
+        let str = html.renderHTML(data, customisations);
+        switch (lang) {
+            case 'svg-box':
+                // Add empty rectangle before shapes
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                str = str.replace('>', '><rect x="' +
+                    data.left +
+                    '" y="' +
+                    data.top +
+                    '" width="' +
+                    data.width +
+                    '" height="' +
+                    data.height +
+                    '" fill="none" stroke="none" />');
+                break;
+            case 'svg-uri': {
+                // Remove unused attributes
+                const parts = str.split('>');
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                let firstTag = parts.shift();
+                ['aria-hidden', 'focusable', 'role', 'class', 'style'].forEach((attr) => {
+                    firstTag = firstTag.replace(new RegExp('\\s' + attr + '="[^"]*"'), '');
+                });
+                parts.unshift(firstTag);
+                str = parts.join('>');
+                // Encode
+                str = "url('data:image/svg+xml," + encodeURIComponent(str) + "')";
+                break;
+            }
+        }
+        const result = {
+            raw: [str],
+            isAPI: false,
+        };
+        return result;
+    }
+    exports.svgParser = svgParser;
+
+    });
+
+    var svgFramework = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.svgFrameworkParser = void 0;
+    // Documentation links
+    const docs = {
+        type: 'iconify',
+        href: common.docsBase + 'svg-framework/',
+    };
+    // Head section
+    let head;
+    /**
+     * Code output for SVG Framework
+     */
+    const svgFrameworkParser = (icon$1, customisations, providerConfig) => {
+        if (!providerConfig.api) {
+            return null;
+        }
+        // List of attributes
+        const list = {};
+        // Add class
+        common.addAttr(list, 'class', customisations.inline ? 'iconify-inline' : 'iconify');
+        // Add icon name
+        common.addAttr(list, 'data-icon', icon.iconToString(icon$1));
+        // Parse all customisations
+        common.getCustomisationsList(customisations).forEach((attr) => {
+            switch (attr) {
+                case 'inline':
+                    break;
+                // Color
+                case 'color':
+                    common.mergeAttr(list, 'style', 'color: ' + customisations[attr] + ';', ' ');
+                    break;
+                // Dimensions
+                case 'width':
+                    common.addAttr(list, 'data-width', common.toString(customisations[attr]));
+                    break;
+                case 'onlyHeight': {
+                    const value = customisations.height;
+                    common.mergeAttr(list, 'style', 'font-size: ' + value + (common.isNumber(value) ? 'px;' : ';'), ' ');
+                    break;
+                }
+                case 'height':
+                    common.addAttr(list, 'data-height', common.toString(customisations[attr]));
+                    break;
+                // Transformations
+                case 'rotate':
+                    common.addAttr(list, 'data-rotate', common.degrees(customisations[attr]));
+                    break;
+                case 'hFlip':
+                    common.mergeAttr(list, 'data-flip', 'horizontal', ',');
+                    break;
+                case 'vFlip':
+                    common.mergeAttr(list, 'data-flip', 'vertical', ',');
+                    break;
+                // Alignment
+                case 'hAlign':
+                case 'vAlign':
+                    common.mergeAttr(list, 'data-align', customisations[attr], ',');
+                    break;
+                case 'slice':
+                    common.mergeAttr(list, 'data-align', attr, ',');
+                    break;
+            }
+        });
+        // Generate HTML
+        const html = '<span ' + common.mergeAttributes(list) + '></span>';
+        // Head script
+        if (head === void 0) {
+            const str = iconify.Iconify.getVersion ? iconify.Iconify.getVersion() : versions.iconifyVersion;
+            head =
+                '<script src="https://code.iconify.design/' +
+                    str.split('.').shift() +
+                    '/' +
+                    str +
+                    '/iconify.min.js"><' +
+                    '/script>';
+        }
+        const result = {
+            iconify: {
+                head,
+                html,
+            },
+            isAPI: true,
+            docs,
+        };
+        return result;
+    };
+    exports.svgFrameworkParser = svgFrameworkParser;
+
+    });
+
+    var vue = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.vueOfflineParser = exports.vueParser = void 0;
+
+
+
+    // Documentation links
+    const docs2 = {
+        type: 'vue',
+        href: common.docsBase + 'vue2/',
+    };
+    const docs3 = {
+        type: 'vue',
+        href: common.docsBase + 'vue/',
+    };
+    // Code cache
+    const installCode2 = versions.getComponentInstall('vue2', true);
+    const installCode3 = versions.getComponentInstall('vue3', true);
+    const importCode2 = "import { Icon } from '" + versions.componentPackages.vue2.name + "';";
+    const importCode3 = "import { Icon } from '" + versions.componentPackages.vue3.name + "';";
+    const scriptCode = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n});';
+    const scriptOfflineCode = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n\tdata() {\n\t\treturn {\n\t\t\ticons: {\n\t\t\t\t{varName},\n\t\t\t},\n\t\t};\n\t},\n});';
+    /**
+     * Add properties and generate code
+     */
+    function generateCode(list, customisations) {
+        // Parse all customisations
+        common.getCustomisationsList(customisations).forEach((attr) => {
+            switch (attr) {
+                case 'onlyHeight': {
+                    const value = customisations.height;
+                    common.addVueAttr(list, 'height', value);
+                    break;
+                }
+                case 'hFlip':
+                case 'vFlip':
+                case 'hAlign':
+                case 'vAlign': {
+                    common.addVueAttr(list, (attr.slice(0, 1) === 'h' ? 'horizontal' : 'vertical') +
+                        attr.slice(1), customisations[attr]);
+                    break;
+                }
+                default:
+                    common.addVueAttr(list, attr, customisations[attr]);
+            }
+        });
+        return '<Icon ' + common.mergeAttributes(list) + ' />';
+    }
+    /**
+     * Code output for API component
+     */
+    function vueParser(vue3, icon$1, customisations, providerConfig) {
+        if (!providerConfig.api) {
+            return null;
+        }
+        // List of attributes
+        const list = {};
+        // Add icon name
+        common.addAttr(list, 'icon', icon.iconToString(icon$1));
+        // Generate code
+        const code = generateCode(list, customisations);
+        const result = {
+            component: {
+                'install-simple': vue3 ? installCode3 : installCode2,
+                'import-simple': vue3 ? importCode3 : importCode2,
+                'use-in-template': code,
+                'vue-simple': scriptCode,
+            },
+            isAPI: true,
+            docs: vue3 ? docs3 : docs2,
+        };
+        return result;
+    }
+    exports.vueParser = vueParser;
+    /**
+     * Code output for offline component
+     */
+    function vueOfflineParser(vue3, icon, customisations, providerConfig) {
+        if (!providerConfig.npmCJS && !providerConfig.npmES) {
+            return null;
+        }
+        // Variable name
+        const varName = common.iconToVarName(icon.name);
+        // Import statement
+        const npmImport = common.npmIconImport(icon, varName, providerConfig, vue3);
+        if (!npmImport) {
+            return null;
+        }
+        // List of attributes
+        const list = {};
+        // Add icon name
+        common.addVueAttr(list, 'icon', 'icons.' + varName);
+        // Generate code
+        const code = generateCode(list, customisations);
+        const result = {
+            component: {
+                'install-offline': (vue3 ? installCode3 : installCode2) + ' ' + npmImport.package,
+                'import-offline': (vue3 ? importCode3 : importCode2) + '\n' + npmImport.code,
+                'use-in-template': code,
+                'vue-offline': scriptOfflineCode.replace('{varName}', varName),
+            },
+            isAPI: false,
+            docs: vue3 ? docs3 : docs2,
+        };
+        return result;
+    }
+    exports.vueOfflineParser = vueOfflineParser;
+
     });
 
     var code = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getIconCode = exports.codeOutputComponentKeys = void 0;
-
-
-
-
-
-
+    /**
+     * Output
+     */
     exports.codeOutputComponentKeys = [
         'install-simple',
         'install-addon',
@@ -25108,281 +25598,71 @@
         'use-generic',
     ];
     /**
-     * Convert template to string
-     */
-    function resolveTemplate(value, attr, customisations) {
-        return typeof value === 'string'
-            ? value.replace('{attr}', attr)
-            : value(attr, customisations);
-    }
-    /**
      * Get code for icon
      */
-    function getIconCode(lang, icon$1, customisations$1, providerConfig) {
-        var _a;
-        function npmIconImport(preferES) {
-            const name = codeParsers.varName(icon$1.name);
-            const npm = preferES
-                ? providerConfig.npmES
-                    ? providerConfig.npmES
-                    : providerConfig.npmCJS
-                : providerConfig.npmCJS
-                    ? providerConfig.npmCJS
-                    : providerConfig.npmES;
-            if (!npm) {
-                return null;
-            }
-            const packageName = typeof npm.package === 'string'
-                ? npm.package.replace('{prefix}', icon$1.prefix)
-                : typeof npm.package === 'function'
-                    ? npm.package(providerConfig, icon$1)
-                    : null;
-            if (typeof packageName !== 'string') {
-                return null;
-            }
-            const file = typeof npm.file === 'string'
-                ? npm.file.replace('{name}', icon$1.name)
-                : typeof npm.file === 'function'
-                    ? npm.file(providerConfig, icon$1)
-                    : null;
-            if (typeof file !== 'string') {
-                return null;
-            }
-            return {
-                name,
-                package: packageName,
-                file,
-            };
-        }
-        const parser = codeParsers.codeParser(lang);
-        if (!parser) {
-            return null;
-        }
-        // Icon as string
-        const iconName = icon.iconToString(icon$1);
-        // Init parser
-        const attr = parser.init ? parser.init(customisations$1) : {};
-        const attrParsers = parser.parsers;
-        // Add icon name
-        if (parser.iconParser) {
-            parser.iconParser(attr, iconName, icon$1);
-        }
-        // Add color
-        if (customisations$1.color !== '' && attrParsers.color) {
-            attrParsers.color(attr, customisations$1.color);
-        }
-        // Add dimensions
-        if (customisations$1.width === '' &&
-            customisations$1.height !== '' &&
-            attrParsers.onlyHeight) {
-            attrParsers.onlyHeight(attr, customisations$1.height);
-        }
-        else {
-            ['width', 'height'].forEach((prop) => {
-                const key = prop;
-                const value = customisations$1[key];
-                if (value !== null && value !== '' && attrParsers[key]) {
-                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                    attrParsers[key](attr, value);
-                }
-            });
-        }
-        // Transformations and alignment
-        ['rotate', 'hFlip', 'vFlip', 'hAlign', 'vAlign', 'slice'].forEach((prop) => {
-            const key = prop;
-            const value = customisations$1[key];
-            if (value !== void 0 &&
-                value !== customisations.emptyCustomisations[key] &&
-                attrParsers[key]) {
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                attrParsers[key](attr, value);
-            }
-        });
-        // Inline
-        if (customisations$1.inline && attrParsers.inline) {
-            attrParsers.inline(attr, true);
-        }
-        // Merge attributes
-        const merged = parser.merge ? parser.merge(attr) : '';
-        // Use template
-        const html$1 = parser.template
-            ? resolveTemplate(parser.template, merged, customisations$1)
-            : '';
-        // Generate output
-        const output = {
-            docs: parser.docs,
-        };
-        const useKey = parser.useType;
-        // Add language specific stuff
+    function getIconCode(lang, icon, customisations, providerConfig) {
+        let parser;
         switch (lang) {
-            case 'iconify': {
-                const str = iconify.Iconify.getVersion
-                    ? iconify.Iconify.getVersion()
-                    : versions.iconifyVersion;
-                output.iconify = {
-                    head: '<script src="https://code.iconify.design/' +
-                        str.split('.').shift() +
-                        '/' +
-                        str +
-                        '/iconify.min.js"><' +
-                        '/script>',
-                    html: html$1,
-                };
-                output.isAPI = true;
-                return output;
-            }
-            case 'css': {
-                const baseURL = providerConfig.svg;
-                if (!baseURL) {
-                    return null;
-                }
-                // Generate URL
-                let url = baseURL
-                    .replace('{prefix}', icon$1.prefix)
-                    .replace('{name}', icon$1.name);
-                if (merged !== '') {
-                    url += '?' + merged;
-                }
-                // Return output
-                output.raw = [
-                    "background: url('" +
-                        url +
-                        "') no-repeat center center / contain;",
-                    "content: url('" + url + "');",
-                ];
-                output.isAPI = true;
-                return output;
-            }
-            case 'svg-raw':
-            case 'svg-box':
-            case 'svg-uri': {
-                const data = (_a = iconify.Iconify.getIcon) === null || _a === void 0 ? void 0 : _a.call(iconify.Iconify, iconName);
-                if (!data) {
-                    return null;
-                }
-                let str = html.renderHTML(data, customisations$1);
-                if (lang === 'svg-box') {
-                    // Add empty rectangle before shapes
-                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                    if (data) {
-                        str = str.replace('>', '><rect x="' +
-                            data.left +
-                            '" y="' +
-                            data.top +
-                            '" width="' +
-                            data.width +
-                            '" height="' +
-                            data.height +
-                            '" fill="none" stroke="none" />');
-                    }
-                    else {
-                        return null;
-                    }
-                }
-                if (lang === 'svg-uri') {
-                    // Remove unused attributes
-                    const parts = str.split('>');
-                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                    let firstTag = parts.shift();
-                    ['aria-hidden', 'focusable', 'role', 'class', 'style'].forEach((attr) => {
-                        firstTag = firstTag.replace(new RegExp('\\s' + attr + '="[^"]*"'), '');
-                    });
-                    parts.unshift(firstTag);
-                    str = parts.join('>');
-                    // Encode
-                    str =
-                        "url('data:image/svg+xml," + encodeURIComponent(str) + "')";
-                }
-                output.raw = [str];
-                output.isAPI = false;
-                return output;
-            }
-            case 'react-offline':
-            case 'svelte-offline':
-            case 'vue2-offline':
-            case 'vue3-offline': {
-                if (!parser.npm ||
-                    (!providerConfig.npmCJS && !providerConfig.npmES)) {
-                    return null;
-                }
-                const npm = npmIconImport(
-                // Use ES modules for Vue 3 and Svelte, CommonJS for everything else
-                lang === 'vue3-offline' || lang === 'svelte-offline');
-                if (!npm) {
-                    return null;
-                }
-                output.component = {
-                    'install-offline': 'npm install --save-dev ' +
-                        parser.npm.install +
-                        ' ' +
-                        npm.package,
-                    'import-offline': parser.npm.import
-                        ? resolveTemplate(parser.npm.import, merged, customisations$1) +
-                            '\nimport ' +
-                            npm.name +
-                            " from '" +
-                            npm.package +
-                            npm.file +
-                            "';"
-                        : void 0,
-                    [useKey]: html$1
-                        .replace(/{varName}/g, npm.name)
-                        .replace('{iconPackage}', npm.package + npm.file),
-                };
-                if (parser.vueTemplate !== void 0) {
-                    const html = typeof parser.vueTemplate === 'function'
-                        ? resolveTemplate(parser.vueTemplate, merged, customisations$1)
-                        : parser.vueTemplate;
-                    if (typeof html === 'string') {
-                        output.component['vue-offline'] = html
-                            .replace(/{varName}/g, npm.name)
-                            .replace('{iconPackage}', npm.package + npm.file);
-                    }
-                }
-                output.isAPI = false;
-                return output;
-            }
+            // SVG Framework
+            case 'iconify':
+                parser = svgFramework.svgFrameworkParser;
+                break;
+            // CSS
+            case 'css':
+                parser = css.cssParser;
+                break;
+            // React
             case 'react-api':
-            case 'svelte-api':
+                parser = react.reactParser;
+                break;
+            case 'react-offline':
+                parser = react.reactOfflineParser;
+                break;
+            // Vue
             case 'vue2-api':
+                parser = vue.vueParser.bind(null, false);
+                break;
+            case 'vue2-offline':
+                parser = vue.vueOfflineParser.bind(null, false);
+                break;
             case 'vue3-api':
-            case 'ember': {
-                if (!parser.npm) {
-                    return null;
-                }
-                const parserNPM = parser.npm;
-                const installKey = parserNPM.isAddon
-                    ? 'install-addon'
-                    : 'install-simple';
-                output.component = {
-                    [installKey]: 'npm install --save-dev ' + parserNPM.install,
-                    'import-simple': parserNPM.import
-                        ? resolveTemplate(parserNPM.import, merged, customisations$1)
-                        : void 0,
-                    [useKey]: html$1,
-                };
-                if (parser.vueTemplate !== void 0) {
-                    const html = typeof parser.vueTemplate === 'function'
-                        ? resolveTemplate(parser.vueTemplate, merged, customisations$1)
-                        : parser.vueTemplate;
-                    if (typeof html === 'string') {
-                        output.component['vue-simple'] = html;
-                    }
-                }
-                output.isAPI = true;
-                return output;
-            }
+                parser = vue.vueParser.bind(null, true);
+                break;
+            case 'vue3-offline':
+                parser = vue.vueOfflineParser.bind(null, true);
+                break;
+            // Svelte
+            case 'svelte-api':
+                parser = svelte.svelteParser;
+                break;
+            case 'svelte-offline':
+                parser = svelte.svelteOfflineParser;
+                break;
+            // Ember
+            case 'ember':
+                parser = ember.emberParser;
+                break;
+            // SVG
+            case 'svg-box':
+            case 'svg-raw':
+            case 'svg-uri':
+                parser = svg.svgParser.bind(null, lang);
+                break;
+            default:
+                return null;
         }
+        return parser(icon, customisations, providerConfig);
     }
     exports.getIconCode = getIconCode;
-    //# sourceMappingURL=code.js.map
+
     });
 
-    /* src/icon-finder/components/content/footers/parts/code/Sample.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/code/Sample.svelte generated by Svelte v3.42.1 */
 
     function create_if_block_1$2(ctx) {
     	let a;
     	let uiicon;
+    	let a_title_value;
     	let current;
     	let mounted;
     	let dispose;
@@ -25392,7 +25672,7 @@
     		c() {
     			a = element("a");
     			create_component(uiicon.$$.fragment);
-    			attr(a, "title", /*text*/ ctx[4].copy);
+    			attr(a, "title", a_title_value = /*text*/ ctx[4].copy);
     			attr(a, "href", "# ");
     		},
     		m(target, anchor) {
@@ -25431,6 +25711,7 @@
     	let t0;
     	let t1_value = /*text*/ ctx[4].copied + "";
     	let t1;
+    	let div_class_value;
     	let current;
     	uiicon = new UIIcon({ props: { icon: "confirm" } });
 
@@ -25440,7 +25721,7 @@
     			create_component(uiicon.$$.fragment);
     			t0 = space();
     			t1 = text(t1_value);
-    			attr(div, "class", baseClassName + "-notice");
+    			attr(div, "class", div_class_value = baseClassName + '-notice');
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -25485,7 +25766,7 @@
     			if (if_block0) if_block0.c();
     			t2 = space();
     			if (if_block1) if_block1.c();
-    			attr(div0, "class", baseClassName + "-content");
+    			attr(div0, "class", baseClassName + '-content');
     			attr(div1, "class", /*className*/ ctx[2]);
     		},
     		m(target, anchor) {
@@ -25570,7 +25851,7 @@
     	};
     }
 
-    const baseClassName = "iif-input-sample";
+    const baseClassName = 'iif-input-sample';
 
     function instance$5($$self, $$props, $$invalidate) {
     	let { content } = $$props;
@@ -25586,19 +25867,19 @@
      */
     	function copy() {
     		const node = document.body;
-    		const textarea = document.createElement("textarea");
+    		const textarea = document.createElement('textarea');
     		const style = textarea.style;
     		textarea.value = content;
-    		style.position = "absolute";
+    		style.position = 'absolute';
 
     		try {
-    			style.left = window.pageXOffset + "px";
-    			style.top = window.pageYOffset + "px";
+    			style.left = window.pageXOffset + 'px';
+    			style.top = window.pageYOffset + 'px';
     		} catch(err) {
     			
     		}
 
-    		style.height = "0";
+    		style.height = '0';
     		node.appendChild(textarea);
     		textarea.focus();
     		textarea.select();
@@ -25606,11 +25887,11 @@
 
     		try {
     			// Modern way
-    			if (!document.execCommand || !document.execCommand("copy")) {
+    			if (!document.execCommand || !document.execCommand('copy')) {
     				const w = window;
 
     				if (w.clipboardData) {
-    					w.clipboardData.setData("Text", content);
+    					w.clipboardData.setData('Text', content);
     					copied = true;
     				}
     			} else {
@@ -25649,13 +25930,13 @@
     	});
 
     	$$self.$$set = $$props => {
-    		if ("content" in $$props) $$invalidate(0, content = $$props.content);
+    		if ('content' in $$props) $$invalidate(0, content = $$props.content);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*notice*/ 2) {
     			{
-    				$$invalidate(2, className = baseClassName + (notice > 0 ? " " + baseClassName + "--with-notice" : ""));
+    				$$invalidate(2, className = baseClassName + (notice > 0 ? ' ' + baseClassName + '--with-notice' : ''));
     			}
     		}
     	};
@@ -25670,7 +25951,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/code/Code.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/code/Code.svelte generated by Svelte v3.42.1 */
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -26091,7 +26372,7 @@
     // (83:1) {#if output.iconify}
     function create_if_block_9(ctx) {
     	let p0;
-    	let t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace("{name}", /*icon*/ ctx[0].name) + "";
+    	let t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace('{name}', /*icon*/ ctx[0].name) + "";
     	let t0;
     	let t1;
     	let sampleinput0;
@@ -26140,7 +26421,7 @@
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if ((!current || dirty & /*icon*/ 1) && t0_value !== (t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace("{name}", /*icon*/ ctx[0].name) + "")) set_data(t0, t0_value);
+    			if ((!current || dirty & /*icon*/ 1) && t0_value !== (t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace('{name}', /*icon*/ ctx[0].name) + "")) set_data(t0, t0_value);
     			const sampleinput0_changes = {};
     			if (dirty & /*output*/ 4) sampleinput0_changes.content = /*output*/ ctx[2].iconify.html;
     			sampleinput0.$set(sampleinput0_changes);
@@ -26778,7 +27059,7 @@
     	let { mode } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Callback for external link
     	const onExternalClick = registry.link;
@@ -26796,10 +27077,10 @@
     	let docsText;
 
     	$$self.$$set = $$props => {
-    		if ("icon" in $$props) $$invalidate(0, icon = $$props.icon);
-    		if ("customisations" in $$props) $$invalidate(6, customisations = $$props.customisations);
-    		if ("providerConfig" in $$props) $$invalidate(7, providerConfig = $$props.providerConfig);
-    		if ("mode" in $$props) $$invalidate(1, mode = $$props.mode);
+    		if ('icon' in $$props) $$invalidate(0, icon = $$props.icon);
+    		if ('customisations' in $$props) $$invalidate(6, customisations = $$props.customisations);
+    		if ('providerConfig' in $$props) $$invalidate(7, providerConfig = $$props.providerConfig);
+    		if ('mode' in $$props) $$invalidate(1, mode = $$props.mode);
     	};
 
     	$$self.$$.update = () => {
@@ -26813,32 +27094,32 @@
 
     					$$invalidate(3, docsText = codePhrases.docs[docsType]
     					? codePhrases.docs[docsType]
-    					: codePhrases.docsDefault.replace("{title}", phrases.capitalizeCodeSampleTitle(docsType)));
+    					: codePhrases.docsDefault.replace('{title}', phrases.capitalizeCodeSampleTitle(docsType)));
     				} else {
-    					$$invalidate(3, docsText = "");
+    					$$invalidate(3, docsText = '');
     				}
 
     				// Add line-md stylesheet
-    				if (mode !== "svg-uri") {
+    				if (mode !== 'svg-uri') {
     					// Add link to footer
     					$$invalidate(
     						2,
     						output.footer = {
-    							text: "Do not forget to add stylesheet to your page if you want animated icons:",
-    							code: "<link rel=\"stylesheet\" href=\"https://code.iconify.design/css/line-md.css\">"
+    							text: 'Do not forget to add stylesheet to your page if you want animated icons:',
+    							code: '<link rel="stylesheet" href="https://code.iconify.design/css/line-md.css">'
     						},
     						output
     					);
 
     					// Modify code
     					if (output.component) {
-    						if (typeof output.component.use === "string") {
+    						if (typeof output.component.use === 'string') {
     							// Add class
     							$$invalidate(
     								2,
     								output.component.use = output.component.use.// Rect and Svelte
-    								replace("Icon icon={", "Icon class" + (mode === "svelte" ? "" : "Name") + "=\"iconify--line-md\" icon={").// Vue
-    								replace("Icon :icon", "Icon class=\"iconify--line-md\" :icon"),
+    								replace('Icon icon={', 'Icon class' + (mode === 'svelte' ? '' : 'Name') + '="iconify--line-md" icon={').// Vue
+    								replace('Icon :icon', 'Icon class="iconify--line-md" :icon'),
     								output
     							);
     						}
@@ -26873,7 +27154,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/parts/code/Container.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/parts/code/Container.svelte generated by Svelte v3.42.1 */
 
     function create_if_block$2(ctx) {
     	let footerblock;
@@ -26882,8 +27163,8 @@
     	footerblock = new FooterBlock({
     			props: {
     				name: "code",
-    				title: /*codePhrases*/ ctx[6].heading.replace("{name}", /*icon*/ ctx[0].name),
-    				titleHidden: /*codePhrases*/ ctx[6].headingHidden.replace("{name}", /*icon*/ ctx[0].name),
+    				title: /*codePhrases*/ ctx[6].heading.replace('{name}', /*icon*/ ctx[0].name),
+    				titleHidden: /*codePhrases*/ ctx[6].headingHidden.replace('{name}', /*icon*/ ctx[0].name),
     				$$slots: { default: [create_default_slot$2] },
     				$$scope: { ctx }
     			}
@@ -26899,8 +27180,8 @@
     		},
     		p(ctx, dirty) {
     			const footerblock_changes = {};
-    			if (dirty & /*icon*/ 1) footerblock_changes.title = /*codePhrases*/ ctx[6].heading.replace("{name}", /*icon*/ ctx[0].name);
-    			if (dirty & /*icon*/ 1) footerblock_changes.titleHidden = /*codePhrases*/ ctx[6].headingHidden.replace("{name}", /*icon*/ ctx[0].name);
+    			if (dirty & /*icon*/ 1) footerblock_changes.title = /*codePhrases*/ ctx[6].heading.replace('{name}', /*icon*/ ctx[0].name);
+    			if (dirty & /*icon*/ 1) footerblock_changes.titleHidden = /*codePhrases*/ ctx[6].headingHidden.replace('{name}', /*icon*/ ctx[0].name);
 
     			if (dirty & /*$$scope, currentTab, icon, customisations, childFilters, childTabsTitle, parentFilters*/ 32831) {
     				footerblock_changes.$$scope = { dirty, ctx };
@@ -26923,7 +27204,7 @@
     	};
     }
 
-    // (266:4) {#if parentFilters}
+    // (265:4) {#if parentFilters}
     function create_if_block_2$1(ctx) {
     	let filterscomponent;
     	let current;
@@ -26964,7 +27245,7 @@
     	};
     }
 
-    // (272:4) {#if childFilters}
+    // (271:4) {#if childFilters}
     function create_if_block_1(ctx) {
     	let filterscomponent;
     	let current;
@@ -27007,7 +27288,7 @@
     	};
     }
 
-    // (260:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}   titleHidden={codePhrases.headingHidden.replace('{name}', icon.name)}>
+    // (259:1) <FooterBlock   name="code"   title={codePhrases.heading.replace('{name}', icon.name)}   titleHidden={codePhrases.headingHidden.replace('{name}', icon.name)}>
     function create_default_slot$2(ctx) {
     	let div1;
     	let div0;
@@ -27190,7 +27471,7 @@
     	let { customisations } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	const codePhrases = phrases$1.codeSamples;
     	const componentsConfig = registry.config.components;
@@ -27211,7 +27492,7 @@
     	let parentFilters = null;
 
     	let childFilters = null;
-    	let childTabsTitle = "";
+    	let childTabsTitle = '';
 
     	/**
      * Get data for provider
@@ -27230,18 +27511,17 @@
     				const tab = tree$1[i];
 
     				switch (tab.tab) {
-    					case "html":
+    					case 'html':
     						// Disable CSS: move first child as root
     						tree$1[i] = tab.children[0];
     						break;
-    					case "svg":
+    					case 'svg':
     						// Remove SVG as URI
-    						tab.children = tab.children.filter(item => item.mode !== "svg-uri");
+    						tab.children = tab.children.filter(item => item.mode !== 'svg-uri');
     						break;
     				}
     			}
 
-    			// Disable SVG as URI:
     			providerCache[provider] = { config, tree: tree$1 };
     		}
 
@@ -27258,8 +27538,8 @@
     			}
 
     			const block = {
-    				type: "filters",
-    				filterType: "code-tabs",
+    				type: 'filters',
+    				filterType: 'code-tabs',
     				active,
     				filters: Object.create(null)
     			};
@@ -27280,13 +27560,13 @@
     			$$invalidate(2, currentTab = $$invalidate(9, componentsConfig.codeTab = tab, componentsConfig));
 
     			// UIConfigEvent
-    			registry.callback({ type: "config" });
+    			registry.callback({ type: 'config' });
     		} else if (data.lastParent === item.parent && data.lastParent === item.child) {
     			// Nothing to change
     			return;
     		}
 
-    		if (tab === "") {
+    		if (tab === '') {
     			// Nothing to display
     			$$invalidate(3, parentFilters = $$invalidate(4, childFilters = $$invalidate(10, data.lastChild = $$invalidate(10, data.lastParent = null, data), data)));
 
@@ -27328,10 +27608,10 @@
     			const key = parent.tab;
 
     			$$invalidate(5, childTabsTitle = codePhrases.childTabTitles[key] === void 0
-    			? codePhrases.childTabTitle.replace("{key}", key)
+    			? codePhrases.childTabTitle.replace('{key}', key)
     			: codePhrases.childTabTitles[key]);
     		} else {
-    			$$invalidate(5, childTabsTitle = "");
+    			$$invalidate(5, childTabsTitle = '');
     		}
 
     		// Store last items to avoid re-rendering if items do not change
@@ -27347,7 +27627,7 @@
     		const providerData = getProviderData(icon.provider);
     		const tree = providerData.tree;
 
-    		if (typeof tab === "string") {
+    		if (typeof tab === 'string') {
     			for (let parentIndex = 0; parentIndex < tree.length; parentIndex++) {
     				const parent = tree[parentIndex];
 
@@ -27393,7 +27673,7 @@
     			if (!parent) {
     				// No modes available
     				return {
-    					tab: "",
+    					tab: '',
     					parent: null,
     					parentIndex: 0,
     					child: null
@@ -27422,7 +27702,7 @@
     		}
 
     		return {
-    			tab: "",
+    			tab: '',
     			parent: null,
     			parentIndex: 0,
     			child: null
@@ -27433,7 +27713,7 @@
     	function changeTab(tab) {
     		const item = checkCurrentTab(tab, false);
 
-    		if (item.tab === currentTab || item.tab === "" && currentTab !== "") {
+    		if (item.tab === currentTab || item.tab === '' && currentTab !== '') {
     			// Do not change tab if it wasn't changed or if it doesn't exist
     			return;
     		}
@@ -27442,8 +27722,8 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ("icon" in $$props) $$invalidate(0, icon = $$props.icon);
-    		if ("customisations" in $$props) $$invalidate(1, customisations = $$props.customisations);
+    		if ('icon' in $$props) $$invalidate(0, icon = $$props.icon);
+    		if ('customisations' in $$props) $$invalidate(1, customisations = $$props.customisations);
     	};
 
     	$$self.$$.update = () => {
@@ -27459,7 +27739,7 @@
     					getProviderData(provider);
 
     					// Get current tab
-    					let tab = typeof currentTab !== "string"
+    					let tab = typeof currentTab !== 'string'
     					? componentsConfig.codeTab
     					: currentTab;
 
@@ -27492,7 +27772,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/footers/Full.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/footers/Full.svelte generated by Svelte v3.42.1 */
 
     function create_if_block$1(ctx) {
     	let block;
@@ -27994,8 +28274,8 @@
     			t3 = space();
     			if (if_block4) if_block4.c();
     			t4 = space();
-    			attr(div0, "class", div0_class_value = /*icon*/ ctx[4] ? "iif-footer-full-content" : "");
-    			attr(div1, "class", div1_class_value = /*icon*/ ctx[4] ? "iif-footer-full" : "");
+    			attr(div0, "class", div0_class_value = /*icon*/ ctx[4] ? 'iif-footer-full-content' : '');
+    			attr(div1, "class", div1_class_value = /*icon*/ ctx[4] ? 'iif-footer-full' : '');
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
@@ -28144,11 +28424,11 @@
     				check_outros();
     			}
 
-    			if (!current || dirty & /*icon*/ 16 && div0_class_value !== (div0_class_value = /*icon*/ ctx[4] ? "iif-footer-full-content" : "")) {
+    			if (!current || dirty & /*icon*/ 16 && div0_class_value !== (div0_class_value = /*icon*/ ctx[4] ? 'iif-footer-full-content' : '')) {
     				attr(div0, "class", div0_class_value);
     			}
 
-    			if (!current || dirty & /*icon*/ 16 && div1_class_value !== (div1_class_value = /*icon*/ ctx[4] ? "iif-footer-full" : "")) {
+    			if (!current || dirty & /*icon*/ 16 && div1_class_value !== (div1_class_value = /*icon*/ ctx[4] ? 'iif-footer-full' : '')) {
     				attr(div1, "class", div1_class_value);
     			}
     		},
@@ -28251,7 +28531,7 @@
     	let { route } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Check if icons are selected, get first icon
     	let icon;
@@ -28264,10 +28544,10 @@
     	let infoBlockTitle;
 
     	$$self.$$set = $$props => {
-    		if ("icons" in $$props) $$invalidate(0, icons = $$props.icons);
-    		if ("customise" in $$props) $$invalidate(1, customise = $$props.customise);
-    		if ("customisations" in $$props) $$invalidate(2, customisations = $$props.customisations);
-    		if ("route" in $$props) $$invalidate(3, route = $$props.route);
+    		if ('icons' in $$props) $$invalidate(0, icons = $$props.icons);
+    		if ('customise' in $$props) $$invalidate(1, customise = $$props.customise);
+    		if ('customisations' in $$props) $$invalidate(2, customisations = $$props.customisations);
+    		if ('route' in $$props) $$invalidate(3, route = $$props.route);
     	};
 
     	$$self.$$.update = () => {
@@ -28283,9 +28563,9 @@
     				let showInfo = true;
 
     				// Get provider and prefix for info
-    				let provider = "";
+    				let provider = '';
 
-    				let prefix = "";
+    				let prefix = '';
 
     				{
     					// Disabled
@@ -28293,7 +28573,7 @@
     				}
 
     				// Check route
-    				if (showInfo && route.type === "collection" && provider === route.params.provider && prefix === route.params.prefix) {
+    				if (showInfo && route.type === 'collection' && provider === route.params.provider && prefix === route.params.prefix) {
     					// Already showing info for the same icon set above icons list
     					showInfo = false;
     				}
@@ -28304,14 +28584,14 @@
 
     					if (!info) {
     						$$invalidate(6, infoBlock = null);
-    						$$invalidate(7, infoBlockTitle = "");
+    						$$invalidate(7, infoBlockTitle = '');
     					} else {
-    						$$invalidate(6, infoBlock = { type: "collection-info", prefix, info });
-    						$$invalidate(7, infoBlockTitle = phrases$1.footer.about.replace("{title}", info.name));
+    						$$invalidate(6, infoBlock = { type: 'collection-info', prefix, info });
+    						$$invalidate(7, infoBlockTitle = phrases$1.footer.about.replace('{title}', info.name));
     					}
     				} else {
     					$$invalidate(6, infoBlock = null);
-    					$$invalidate(7, infoBlockTitle = "");
+    					$$invalidate(7, infoBlockTitle = '');
     				}
     			}
     		}
@@ -28342,7 +28622,7 @@
     	}
     }
 
-    /* src/icon-finder/components/content/Footer.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/content/Footer.svelte generated by Svelte v3.42.1 */
 
     function create_fragment$1(ctx) {
     	let footer;
@@ -28399,15 +28679,15 @@
     	let { route } = $$props;
 
     	// Registry
-    	const registry = getContext("registry");
+    	const registry = getContext('registry');
 
     	// Change icon customisation value
     	function customise(prop, value) {
     		// Convert empty width/height to null
     		switch (prop) {
-    			case "width":
-    			case "height":
-    				if (value === "" || value === 0) {
+    			case 'width':
+    			case 'height':
+    				if (value === '' || value === 0) {
     					value = null;
     				}
     				break;
@@ -28419,7 +28699,7 @@
 
     			// Send event: UICustomisationEvent
     			registry.callback({
-    				type: "customisation",
+    				type: 'customisation',
     				changed,
     				customisations: Object.assign(Object.assign({}, customisations), changed)
     			});
@@ -28453,10 +28733,10 @@
     	});
 
     	$$self.$$set = $$props => {
-    		if ("selection" in $$props) $$invalidate(4, selection = $$props.selection);
-    		if ("selectionLength" in $$props) $$invalidate(5, selectionLength = $$props.selectionLength);
-    		if ("customisations" in $$props) $$invalidate(0, customisations = $$props.customisations);
-    		if ("route" in $$props) $$invalidate(1, route = $$props.route);
+    		if ('selection' in $$props) $$invalidate(4, selection = $$props.selection);
+    		if ('selectionLength' in $$props) $$invalidate(5, selectionLength = $$props.selectionLength);
+    		if ('customisations' in $$props) $$invalidate(0, customisations = $$props.customisations);
+    		if ('route' in $$props) $$invalidate(1, route = $$props.route);
     	};
 
     	$$self.$$.update = () => {
@@ -28537,7 +28817,7 @@
     	}
     }
 
-    /* src/icon-finder/components/Container.svelte generated by Svelte v3.38.2 */
+    /* src/icon-finder/components/Container.svelte generated by Svelte v3.42.1 */
 
     function create_if_block(ctx) {
     	let wrapper;
@@ -28725,18 +29005,18 @@
     	let { blocks } = $$props;
 
     	// Set context
-    	setContext("registry", registry);
+    	setContext('registry', registry);
 
     	$$self.$$set = $$props => {
-    		if ("registry" in $$props) $$invalidate(8, registry = $$props.registry);
-    		if ("selection" in $$props) $$invalidate(0, selection = $$props.selection);
-    		if ("selectionLength" in $$props) $$invalidate(1, selectionLength = $$props.selectionLength);
-    		if ("customisations" in $$props) $$invalidate(2, customisations = $$props.customisations);
-    		if ("hidden" in $$props) $$invalidate(3, hidden = $$props.hidden);
-    		if ("viewChanged" in $$props) $$invalidate(4, viewChanged = $$props.viewChanged);
-    		if ("error" in $$props) $$invalidate(5, error = $$props.error);
-    		if ("route" in $$props) $$invalidate(6, route = $$props.route);
-    		if ("blocks" in $$props) $$invalidate(7, blocks = $$props.blocks);
+    		if ('registry' in $$props) $$invalidate(8, registry = $$props.registry);
+    		if ('selection' in $$props) $$invalidate(0, selection = $$props.selection);
+    		if ('selectionLength' in $$props) $$invalidate(1, selectionLength = $$props.selectionLength);
+    		if ('customisations' in $$props) $$invalidate(2, customisations = $$props.customisations);
+    		if ('hidden' in $$props) $$invalidate(3, hidden = $$props.hidden);
+    		if ('viewChanged' in $$props) $$invalidate(4, viewChanged = $$props.viewChanged);
+    		if ('error' in $$props) $$invalidate(5, error = $$props.error);
+    		if ('route' in $$props) $$invalidate(6, route = $$props.route);
+    		if ('blocks' in $$props) $$invalidate(7, blocks = $$props.blocks);
     	};
 
     	return [
