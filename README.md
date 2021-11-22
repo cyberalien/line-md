@@ -29,7 +29,7 @@ To refresh animation you can either re-render icon or use display to hide and sh
 2. Include Iconify SVG framework:
 
 ```html
-<script src="https://code.iconify.design/2/2.0.0-rc.2/iconify.min.js"></script>
+<script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 ```
 
 3. Add placeholder for icon, using "line-md" prefix:
