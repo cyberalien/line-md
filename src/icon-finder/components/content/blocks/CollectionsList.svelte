@@ -26,7 +26,7 @@
 </script>
 
 <Block type="collections">
-	{#each Object.entries(block.collections) as [category, items], i (category)}
+	{#each Object.entries(block.collections.visible) as [category, items], i (category)}
 		<Category
 			{onClick}
 			showCategories={block.showCategories}
