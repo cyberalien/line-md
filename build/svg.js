@@ -1,21 +1,39 @@
+const { promises: fs } = require('fs');
 const { dirname } = require('path');
-const tools = require('@iconify/tools');
+const { IconSet } = require('@iconify/tools/lib/icon-set/index');
+const {
+	prepareDirectoryForExport,
+} = require('@iconify/tools/lib/export/helpers/prepare');
 
 async function build() {
-	// Load icon set
-	const collection = await tools.ImportJSON(
-		dirname(__dirname) + '/line-md.json'
-	);
+	const rootDir = dirname(__dirname);
+	const source = rootDir + '/line-md.json';
+	const target = rootDir + '/svg';
 
-	// Add class to all icons
-	collection.keys().forEach((key) => {
-		const svg = collection.items[key];
-		svg.$svg('svg').attr('class', 'iconify iconify--line-md');
+	// Load icon set
+	const content = JSON.parse(await fs.readFile(source, 'utf8'));
+	const iconSet = new IconSet(content);
+
+	// Normalise and prepare directory
+	const dir = await prepareDirectoryForExport({
+		target,
+		cleanup: true,
 	});
 
-	// Export SVG
-	await tools.ExportDir(collection, dirname(__dirname) + '/svg', {
-		includePrefix: false,
+	// Export all icons
+	const customisations = { height: 'auto' };
+	await iconSet.forEach(async (name) => {
+		let svg = iconSet.toString(name, customisations);
+		if (!svg) {
+			return;
+		}
+
+		svg = svg.replace(
+			'width="',
+			'class="iconify iconify--line-md" width="'
+		);
+		await fs.writeFile(`${target}/${name}.svg`, svg, 'utf8');
+		console.log(`Exported ${name}.svg`);
 	});
 }
 

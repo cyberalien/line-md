@@ -3848,6 +3848,13 @@
                 for (const key in items) {
                     const value = items[key];
                     if (typeof value === 'function') {
+                        if (key === 'getVersion') {
+                            const version = value();
+                            if (version.slice(0, 4) === '2.0.') {
+                                // 2.1.0 is newer. To be fixed in rewrite
+                                continue;
+                            }
+                        }
                         exports.Iconify[key] = value;
                     }
                 }
@@ -3860,23 +3867,11 @@
 
     var icon$1 = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.fullIcon = exports.iconDefaults = exports.minifyProps = exports.matchName = void 0;
+    exports.fullIcon = exports.iconDefaults = exports.matchName = void 0;
     /**
      * Expression to test part of icon name.
      */
     exports.matchName = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-    /**
-     * Properties that can be minified
-     *
-     * Values of all these properties are awalys numbers
-     */
-    exports.minifyProps = [
-        // All IconifyDimenisons properties
-        'width',
-        'height',
-        'top',
-        'left',
-    ];
     /**
      * Default values for all optional IconifyIcon properties
      */
@@ -5077,6 +5072,10 @@
                     result.palette = true;
             }
         }
+        // Hidden
+        if (source.hidden) {
+            result.hidden = true;
+        }
         // Parse all old keys
         Object.keys(source).forEach((key) => {
             const value = source[key];
@@ -5112,7 +5111,11 @@
      * Convert data from API to CollectionsList
      */
     function dataToCollections(data) {
-        const result = Object.create(null);
+        const result = {
+            visible: Object.create(null),
+            hidden: Object.create(null),
+        };
+        const visible = result.visible;
         const uncategorised = Object.create(null);
         if (typeof data !== 'object' || data === null) {
             return result;
@@ -5127,16 +5130,20 @@
             }
             // Convert item
             const item = info.dataToCollectionInfo(row, prefix);
-            if (item === null) {
+            if (!item) {
+                return;
+            }
+            if (item.hidden) {
+                result.hidden[prefix] = item;
                 return;
             }
             // Add category and item
             const category = row.category;
             if (category !== '') {
-                if (result[category] === void 0) {
-                    result[category] = Object.create(null);
+                if (visible[category] === void 0) {
+                    visible[category] = Object.create(null);
                 }
-                result[category][prefix] = item;
+                visible[category][prefix] = item;
             }
             else {
                 uncategorised[prefix] = item;
@@ -5144,7 +5151,7 @@
         });
         // Add uncategorised at the end
         if (Object.keys(uncategorised).length > 0) {
-            result[''] = uncategorised;
+            visible[''] = uncategorised;
         }
         return result;
     }
@@ -5154,8 +5161,9 @@
      */
     function collectionsPrefixes(collections) {
         let prefixes = [];
-        Object.keys(collections).forEach((category) => {
-            prefixes = prefixes.concat(Object.keys(collections[category]));
+        const visible = collections.visible;
+        Object.keys(visible).forEach((category) => {
+            prefixes = prefixes.concat(Object.keys(visible[category]));
         });
         return prefixes;
     }
@@ -5164,23 +5172,28 @@
      * Filter collections
      */
     function filterCollections(collections, callback, keepEmptyCategories = false) {
-        const result = Object.create(null);
+        const result = {
+            visible: Object.create(null),
+            hidden: collections.hidden,
+        };
+        const visibleSource = collections.visible;
+        const visibleResults = result.visible;
         // Parse each category
-        Object.keys(collections).forEach((category) => {
+        Object.keys(visibleSource).forEach((category) => {
             if (keepEmptyCategories) {
-                result[category] = Object.create(null);
+                visibleResults[category] = Object.create(null);
             }
             // Parse each item in category
-            Object.keys(collections[category]).forEach((prefix) => {
-                const item = collections[category][prefix];
+            Object.keys(visibleSource[category]).forEach((prefix) => {
+                const item = visibleSource[category][prefix];
                 if (!callback(item, category, prefix)) {
                     return;
                 }
                 // Passed filter
-                if (result[category] === void 0) {
-                    result[category] = Object.create(null);
+                if (visibleResults[category] === void 0) {
+                    visibleResults[category] = Object.create(null);
                 }
-                result[category][prefix] = item;
+                visibleResults[category][prefix] = item;
             });
         });
         return result;
@@ -5190,9 +5203,10 @@
      * Add indexes to all collections
      */
     function autoIndexCollections(collections, start = 0) {
+        const visible = collections.visible;
         let index = start;
-        Object.keys(collections).forEach((category) => {
-            const items = collections[category];
+        Object.keys(visible).forEach((category) => {
+            const items = visible[category];
             Object.keys(items).forEach((prefix) => {
                 items[prefix].index = index++;
             });
@@ -5275,7 +5289,10 @@
         return {
             type: 'collections-list',
             showCategories: true,
-            collections: Object.create(null),
+            collections: {
+                visible: Object.create(null),
+                hidden: Object.create(null),
+            },
         };
     };
     exports.defaultCollectionsListBlock = defaultCollectionsListBlock;
@@ -5286,9 +5303,10 @@
         if (block === void 0 || block === null) {
             return true;
         }
-        const categories = Object.keys(block.collections);
+        const items = block.collections.visible;
+        const categories = Object.keys(items);
         for (let i = 0; i < categories.length; i++) {
-            if (Object.keys(block.collections[categories[i]]).length > 0) {
+            if (Object.keys(items[categories[i]]).length > 0) {
                 return false;
             }
         }
@@ -5299,9 +5317,10 @@
      * Get categories
      */
     function getCollectionsBlockCategories(block, ignoreEmpty = false) {
-        let categories = Object.keys(block.collections);
+        const items = block.collections.visible;
+        let categories = Object.keys(items);
         if (ignoreEmpty) {
-            categories = categories.filter((category) => Object.keys(block.collections[category]).length > 0);
+            categories = categories.filter((category) => Object.keys(items[category]).length > 0);
         }
         return categories;
     }
@@ -5318,12 +5337,11 @@
      */
     function collectionsPrefixesWithInfo(block) {
         const info = [];
-        Object.keys(block.collections).forEach((category) => {
-            const items = block.collections[category];
+        const visibleItems = block.collections.visible;
+        Object.keys(visibleItems).forEach((category) => {
+            const items = visibleItems[category];
             Object.keys(items).forEach((prefix) => {
-                if (items[prefix] !== null) {
-                    info.push(items[prefix]);
-                }
+                info.push(items[prefix]);
             });
         });
         return info;
@@ -5333,8 +5351,9 @@
      * Iterate collections block
      */
     function iterateCollectionsBlock(block, callback) {
-        Object.keys(block.collections).forEach((category) => {
-            const items = block.collections[category];
+        const visibleItems = block.collections.visible;
+        Object.keys(visibleItems).forEach((category) => {
+            const items = visibleItems[category];
             Object.keys(items).forEach((prefix) => {
                 callback(items[prefix], prefix, category);
             });
@@ -5360,13 +5379,17 @@
         if (category === null) {
             return block;
         }
+        const visibleItems = block.collections.visible;
         const result = {
             type: 'collections-list',
             showCategories: block.showCategories,
-            collections: Object.create(null),
+            collections: {
+                visible: Object.create(null),
+                hidden: block.collections.hidden,
+            },
         };
-        if (block.collections[category] !== void 0) {
-            result.collections[category] = block.collections[category];
+        if (visibleItems[category] !== void 0) {
+            result.collections.visible[category] = visibleItems[category];
         }
         return result;
     }
@@ -6120,7 +6143,10 @@
                 result.providers[provider] = {
                     total: 0,
                     data: Object.create(null),
-                    collections: {},
+                    collections: {
+                        visible: Object.create(null),
+                        hidden: Object.create(null),
+                    },
                 };
             }
             const providerData = result.providers[provider];
@@ -6160,7 +6186,7 @@
         if (defaultSets) {
             parsedData.push({
                 isCustom: false,
-                categories: defaultSets,
+                data: defaultSets,
             });
         }
         if (customSets) {
@@ -6168,25 +6194,31 @@
             // Unshift or push it, depending on merge order
             parsedData[customSets.merge === 'custom-first' ? 'unshift' : 'push']({
                 isCustom: true,
-                categories: customCollections,
+                data: customCollections,
             });
         }
         // Setup result as empty object
-        const results = Object.create(null);
+        const results = {
+            visible: Object.create(null),
+            hidden: Object.create(null),
+        };
+        const visibleResults = results.visible;
+        const hiddenResults = results.hidden;
         // Store prefixes map to avoid duplicates
-        const usedPrefixes = Object.create(null);
-        // Parse all data
+        const prefixCategories = Object.create(null);
+        // Parse all visible items
         parsedData.forEach((item) => {
             // Parse all categories
-            const collectionsList = item.categories;
-            Object.keys(collectionsList).forEach((category) => {
-                const categoryItems = collectionsList[category];
+            const data = item.data;
+            const visibleItems = data.visible;
+            Object.keys(visibleItems).forEach((category) => {
+                const categoryItems = visibleItems[category];
                 Object.keys(categoryItems).forEach((prefix) => {
-                    if (usedPrefixes[prefix] !== void 0) {
+                    if (prefixCategories[prefix] !== void 0) {
                         // Prefix has already been parsed
                         if (item.isCustom) {
                             // Remove previous entry
-                            delete results[usedPrefixes[prefix]][prefix];
+                            delete visibleResults[prefixCategories[prefix]][prefix];
                         }
                         else {
                             // Do not overwrite: always show set from API in case of duplicate entries
@@ -6194,12 +6226,21 @@
                         }
                     }
                     // Add item
-                    usedPrefixes[prefix] = category;
-                    if (results[category] === void 0) {
-                        results[category] = Object.create(null);
+                    prefixCategories[prefix] = category;
+                    if (visibleResults[category] === void 0) {
+                        visibleResults[category] = Object.create(null);
                     }
-                    results[category][prefix] = categoryItems[prefix];
+                    visibleResults[category][prefix] = categoryItems[prefix];
                 });
+            });
+        });
+        // Parse all hidden items
+        parsedData.forEach((item) => {
+            const hiddenItems = item.data.hidden;
+            Object.keys(hiddenItems).forEach((prefix) => {
+                if (prefixCategories[prefix] === void 0) {
+                    hiddenResults[prefix] = hiddenItems[prefix];
+                }
             });
         });
         return results;
@@ -6269,7 +6310,9 @@
                 this._parseAPIData(null);
                 return;
             }
-            this._loadAPI(this.provider, '/collections', {}, base$1.collectionsCacheKey());
+            this._loadAPI(this.provider, '/collections', {
+                hidden: true,
+            }, base$1.collectionsCacheKey());
         }
         /**
          * Run action on view
@@ -6344,12 +6387,15 @@
             // Try to find prefix in collections list
             if (!this.loading && this._data !== null && this.error === '') {
                 // Find matching prefix
-                const categories = Object.keys(this._data);
-                let found = false;
-                for (let i = 0; i < categories.length; i++) {
-                    if (this._data[categories[i]][prefix] !== void 0) {
-                        found = true;
-                        break;
+                let found = !!this._data.hidden[prefix];
+                if (!found) {
+                    const visibleItems = this._data.visible;
+                    const categories = Object.keys(visibleItems);
+                    for (let i = 0; i < categories.length; i++) {
+                        if (visibleItems[categories[i]][prefix] !== void 0) {
+                            found = true;
+                            break;
+                        }
                     }
                 }
                 if (!found) {
@@ -6448,19 +6494,20 @@
                 this.error = data === null ? 'not_found' : 'invalid_data';
             }
             else {
+                const collectionsBlock = this._blocks.collections;
                 // Add indexes to collections
                 collections$2.autoIndexCollections(this._data);
                 // Set collections
-                this._blocks.collections.collections = this._data;
+                collectionsBlock.collections = this._data;
                 // Get categories
-                const categories = collectionsList.getCollectionsBlockCategories(this._blocks.collections, true);
+                const categories = collectionsList.getCollectionsBlockCategories(collectionsBlock, true);
                 if (categories.length === 0) {
                     this.error = 'empty';
                 }
                 else {
                     if (categories.length > 1) {
                         // Set category filters
-                        this._blocks.collections.showCategories = true;
+                        collectionsBlock.showCategories = true;
                         const filters$1 = this._blocks.categories.filters;
                         categories.forEach((category) => {
                             filters$1[category] = filters.defaultFilter(category);
@@ -6469,12 +6516,15 @@
                     }
                     else {
                         // Disable category filters
-                        this._blocks.collections.showCategories = false;
+                        collectionsBlock.showCategories = false;
                     }
                     // Store collections in global data
                     const registry = storage.getRegistry(this._instance);
                     const collections = registry.collections;
-                    collectionsList.iterateCollectionsBlock(this._blocks.collections, (item, prefix) => {
+                    Object.keys(collectionsBlock.collections.hidden).forEach((prefix) => {
+                        collections$1.setCollectionInfo(collections, this.provider, prefix, collectionsBlock.collections.hidden[prefix]);
+                    });
+                    collectionsList.iterateCollectionsBlock(collectionsBlock, (item, prefix) => {
                         collections$1.setCollectionInfo(collections, this.provider, prefix, item);
                     });
                 }
@@ -7280,7 +7330,7 @@
                 prefix,
                 name,
             };
-            return validate && !exports.validateIcon(result) ? null : result;
+            return validate && !(0, exports.validateIcon)(result) ? null : result;
         }
         // Attempt to split by dash: "prefix-name"
         const name = colonSeparated[0];
@@ -7291,7 +7341,7 @@
                 prefix: dashSeparated.shift(),
                 name: dashSeparated.join('-'),
             };
-            return validate && !exports.validateIcon(result) ? null : result;
+            return validate && !(0, exports.validateIcon)(result) ? null : result;
         }
         // If allowEmpty is set, allow empty provider and prefix, allowing names like "home"
         if (allowSimpleName && provider === '') {
@@ -7300,7 +7350,7 @@
                 prefix: '',
                 name,
             };
-            return validate && !exports.validateIcon(result, allowSimpleName)
+            return validate && !(0, exports.validateIcon)(result, allowSimpleName)
                 ? null
                 : result;
         }
@@ -8239,12 +8289,12 @@
             }
             // Check visible view
             if (this._visibleView.type === 'custom' &&
-                this._visibleView.type === customType) {
+                this._visibleView.customType === customType) {
                 return this._visibleView;
             }
             // Check pending view
             if (this._view.type === 'custom' &&
-                this._view.type === customType) {
+                this._view.customType === customType) {
                 return this._view;
             }
             return null;
@@ -14604,7 +14654,7 @@
     	};
     }
 
-    // (23:1) {#each Object.entries(block.collections) as [category, items], i (category)}
+    // (23:1) {#each Object.entries(block.collections.visible) as [category, items], i (category)}
     function create_each_block$f(key_1, ctx) {
     	let first;
     	let category;
@@ -14664,7 +14714,7 @@
     	let each_1_lookup = new Map();
     	let each_1_anchor;
     	let current;
-    	let each_value = Object.entries(/*block*/ ctx[0].collections);
+    	let each_value = Object.entries(/*block*/ ctx[0].collections.visible);
     	const get_key = ctx => /*category*/ ctx[5];
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -14706,7 +14756,7 @@
     		},
     		p(ctx, dirty) {
     			if (dirty & /*onClick, block, Object, provider, phrases*/ 7) {
-    				each_value = Object.entries(/*block*/ ctx[0].collections);
+    				each_value = Object.entries(/*block*/ ctx[0].collections.visible);
     				group_outros();
     				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block$f, each_1_anchor, get_each_context$f);
     				check_outros();
@@ -24744,8 +24794,7 @@
     var versions = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getComponentInstall = exports.componentPackages = exports.iconifyVersion = void 0;
-    // Iconify version (do not edit it, replaced during build!)
-    exports.iconifyVersion = '2.0.3';
+    exports.iconifyVersion = '2.1.0';
     exports.componentPackages = {
         react: {
             name: '@iconify/react',
@@ -25027,13 +25076,6 @@
     const unitsTest = /^-?[0-9.]*[0-9]+[0-9.]*$/g;
     /**
      * Calculate second dimension when only 1 dimension is set
-     *
-     * @param {string|number} size One dimension (such as width)
-     * @param {number} ratio Width/height ratio.
-     *      If size is width, ratio = height/width
-     *      If size is height, ratio = width/height
-     * @param {number} [precision] Floating number precision in result to minimize output. Default = 2
-     * @return {string|number} Another dimension
      */
     function calculateSize(size, ratio, precision) {
         if (ratio === 1) {
@@ -25215,7 +25257,7 @@
         if (customisations.width === null && customisations.height === null) {
             // Set height to '1em', calculate width
             height = '1em';
-            width = size.calculateSize(height, box.width / box.height);
+            width = (0, size.calculateSize)(height, box.width / box.height);
         }
         else if (customisations.width !== null &&
             customisations.height !== null) {
@@ -25226,12 +25268,12 @@
         else if (customisations.height !== null) {
             // Height is set
             height = customisations.height;
-            width = size.calculateSize(height, box.width / box.height);
+            width = (0, size.calculateSize)(height, box.width / box.height);
         }
         else {
             // Width is set
             width = customisations.width;
-            height = size.calculateSize(width, box.height / box.width);
+            height = (0, size.calculateSize)(width, box.height / box.width);
         }
         // Check for 'auto'
         if (width === 'auto') {
