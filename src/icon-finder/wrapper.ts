@@ -122,12 +122,11 @@ export class Wrapper {
 			coreParams.config = customState.config;
 		}
 		if (params.iconSets) {
-			coreParams.iconSets =
-				params.iconSets instanceof Array
-					? {
-							iconSets: params.iconSets,
-					  }
-					: params.iconSets;
+			coreParams.iconSets = (params.iconSets instanceof Array
+				? {
+						iconSets: params.iconSets,
+				  }
+				: params.iconSets) as typeof coreParams.iconSets;
 
 			// console.log('Params.iconSets:', coreParams.iconSets);
 		}

@@ -3867,11 +3867,23 @@
 
     var icon$1 = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.fullIcon = exports.iconDefaults = exports.matchName = void 0;
+    exports.fullIcon = exports.iconDefaults = exports.minifyProps = exports.matchName = void 0;
     /**
      * Expression to test part of icon name.
      */
     exports.matchName = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+    /**
+     * Properties that can be minified
+     *
+     * Values of all these properties are awalys numbers
+     */
+    exports.minifyProps = [
+        // All IconifyDimenisons properties
+        'width',
+        'height',
+        'top',
+        'left',
+    ];
     /**
      * Default values for all optional IconifyIcon properties
      */
@@ -7330,7 +7342,7 @@
                 prefix,
                 name,
             };
-            return validate && !(0, exports.validateIcon)(result) ? null : result;
+            return validate && !exports.validateIcon(result) ? null : result;
         }
         // Attempt to split by dash: "prefix-name"
         const name = colonSeparated[0];
@@ -7341,7 +7353,7 @@
                 prefix: dashSeparated.shift(),
                 name: dashSeparated.join('-'),
             };
-            return validate && !(0, exports.validateIcon)(result) ? null : result;
+            return validate && !exports.validateIcon(result) ? null : result;
         }
         // If allowEmpty is set, allow empty provider and prefix, allowing names like "home"
         if (allowSimpleName && provider === '') {
@@ -7350,7 +7362,7 @@
                 prefix: '',
                 name,
             };
-            return validate && !(0, exports.validateIcon)(result, allowSimpleName)
+            return validate && !exports.validateIcon(result, allowSimpleName)
                 ? null
                 : result;
         }
@@ -24794,7 +24806,7 @@
     var versions = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getComponentInstall = exports.componentPackages = exports.iconifyVersion = void 0;
-    exports.iconifyVersion = '2.1.0';
+    exports.iconifyVersion = '2.2.1';
     exports.componentPackages = {
         react: {
             name: '@iconify/react',
@@ -25076,6 +25088,13 @@
     const unitsTest = /^-?[0-9.]*[0-9]+[0-9.]*$/g;
     /**
      * Calculate second dimension when only 1 dimension is set
+     *
+     * @param {string|number} size One dimension (such as width)
+     * @param {number} ratio Width/height ratio.
+     *      If size is width, ratio = height/width
+     *      If size is height, ratio = width/height
+     * @param {number} [precision] Floating number precision in result to minimize output. Default = 2
+     * @return {string|number} Another dimension
      */
     function calculateSize(size, ratio, precision) {
         if (ratio === 1) {
@@ -25257,7 +25276,7 @@
         if (customisations.width === null && customisations.height === null) {
             // Set height to '1em', calculate width
             height = '1em';
-            width = (0, size.calculateSize)(height, box.width / box.height);
+            width = size.calculateSize(height, box.width / box.height);
         }
         else if (customisations.width !== null &&
             customisations.height !== null) {
@@ -25268,12 +25287,12 @@
         else if (customisations.height !== null) {
             // Height is set
             height = customisations.height;
-            width = (0, size.calculateSize)(height, box.width / box.height);
+            width = size.calculateSize(height, box.width / box.height);
         }
         else {
             // Width is set
             width = customisations.width;
-            height = (0, size.calculateSize)(width, box.height / box.width);
+            height = size.calculateSize(width, box.height / box.width);
         }
         // Check for 'auto'
         if (width === 'auto') {
@@ -25343,6 +25362,10 @@
         if (customisations.color !== '') {
             body = body.replace(/currentColor/g, customisations.color);
         }
+        // Remove unused xlink namespace
+        if (body.indexOf('xlink:') === -1) {
+            delete attributes['xmlns:xlink'];
+        }
         // Generate HTML
         return ('<svg ' +
             Object.keys(attributes)
@@ -25404,7 +25427,13 @@
                 parts.unshift(firstTag);
                 str = parts.join('>');
                 // Encode
-                str = "url('data:image/svg+xml," + encodeURIComponent(str) + "')";
+                str =
+                    "url('data:image/svg+xml," +
+                        encodeURIComponent(str)
+                            .replace(/%20/g, ' ')
+                            .replace(/%22/g, '"')
+                            .replace(/%3D/g, '=') +
+                        "')";
                 break;
             }
         }
@@ -26007,7 +26036,7 @@
     	return child_ctx;
     }
 
-    // (69:0) {#if output}
+    // (48:0) {#if output}
     function create_if_block$3(ctx) {
     	let t0;
     	let t1;
@@ -26249,7 +26278,7 @@
     	};
     }
 
-    // (70:1) {#if output.header}
+    // (49:1) {#if output.header}
     function create_if_block_11(ctx) {
     	let t;
     	let if_block1_anchor;
@@ -26326,7 +26355,7 @@
     	};
     }
 
-    // (71:2) {#if output.header.text}
+    // (50:2) {#if output.header.text}
     function create_if_block_13(ctx) {
     	let p;
     	let t_value = /*output*/ ctx[2].header.text + "";
@@ -26350,7 +26379,7 @@
     	};
     }
 
-    // (74:2) {#if output.header.code}
+    // (53:2) {#if output.header.code}
     function create_if_block_12(ctx) {
     	let sampleinput;
     	let current;
@@ -26387,7 +26416,7 @@
     	};
     }
 
-    // (79:1) {#if codePhrases.intro[mode]}
+    // (58:1) {#if codePhrases.intro[mode]}
     function create_if_block_10(ctx) {
     	let p;
     	let t_value = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] + "";
@@ -26411,7 +26440,7 @@
     	};
     }
 
-    // (83:1) {#if output.iconify}
+    // (62:1) {#if output.iconify}
     function create_if_block_9(ctx) {
     	let p0;
     	let t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace('{name}', /*icon*/ ctx[0].name) + "";
@@ -26496,7 +26525,7 @@
     	};
     }
 
-    // (91:1) {#if output.raw}
+    // (70:1) {#if output.raw}
     function create_if_block_8$1(ctx) {
     	let each_1_anchor;
     	let current;
@@ -26580,7 +26609,7 @@
     	};
     }
 
-    // (92:2) {#each output.raw as code}
+    // (71:2) {#each output.raw as code}
     function create_each_block_1(ctx) {
     	let sampleinput;
     	let current;
@@ -26614,7 +26643,7 @@
     	};
     }
 
-    // (97:1) {#if output.component}
+    // (76:1) {#if output.component}
     function create_if_block_5$1(ctx) {
     	let each_1_anchor;
     	let current;
@@ -26698,7 +26727,7 @@
     	};
     }
 
-    // (99:3) {#if output.component[key]}
+    // (78:3) {#if output.component[key]}
     function create_if_block_6$1(ctx) {
     	let t;
     	let sampleinput;
@@ -26746,7 +26775,7 @@
     	};
     }
 
-    // (100:4) {#if codePhrases.component[key]}
+    // (79:4) {#if codePhrases.component[key]}
     function create_if_block_7$1(ctx) {
     	let p;
     	let t_value = /*codePhrases*/ ctx[5].component[/*key*/ ctx[9]] + "";
@@ -26768,7 +26797,7 @@
     	};
     }
 
-    // (98:2) {#each codeOutputComponentKeys as key}
+    // (77:2) {#each codeOutputComponentKeys as key}
     function create_each_block(ctx) {
     	let if_block_anchor;
     	let current;
@@ -26824,7 +26853,7 @@
     	};
     }
 
-    // (108:1) {#if output.footer}
+    // (87:1) {#if output.footer}
     function create_if_block_2$2(ctx) {
     	let t;
     	let if_block1_anchor;
@@ -26901,7 +26930,7 @@
     	};
     }
 
-    // (109:2) {#if output.footer.text}
+    // (88:2) {#if output.footer.text}
     function create_if_block_4$1(ctx) {
     	let p;
     	let t_value = /*output*/ ctx[2].footer.text + "";
@@ -26925,7 +26954,7 @@
     	};
     }
 
-    // (112:2) {#if output.footer.code}
+    // (91:2) {#if output.footer.code}
     function create_if_block_3$1(ctx) {
     	let sampleinput;
     	let current;
@@ -26962,7 +26991,7 @@
     	};
     }
 
-    // (117:1) {#if output.docs}
+    // (96:1) {#if output.docs}
     function create_if_block_1$1(ctx) {
     	let p;
     	let uiicon0;
@@ -27139,33 +27168,6 @@
     					: codePhrases.docsDefault.replace('{title}', phrases.capitalizeCodeSampleTitle(docsType)));
     				} else {
     					$$invalidate(3, docsText = '');
-    				}
-
-    				// Add line-md stylesheet
-    				if (mode !== 'svg-uri') {
-    					// Add link to footer
-    					$$invalidate(
-    						2,
-    						output.footer = {
-    							text: 'Do not forget to add stylesheet to your page if you want animated icons:',
-    							code: '<link rel="stylesheet" href="https://code.iconify.design/css/line-md.css">'
-    						},
-    						output
-    					);
-
-    					// Modify code
-    					if (output.component) {
-    						if (typeof output.component.use === 'string') {
-    							// Add class
-    							$$invalidate(
-    								2,
-    								output.component.use = output.component.use.// Rect and Svelte
-    								replace('Icon icon={', 'Icon class' + (mode === 'svelte' ? '' : 'Name') + '="iconify--line-md" icon={').// Vue
-    								replace('Icon :icon', 'Icon class="iconify--line-md" :icon'),
-    								output
-    							);
-    						}
-    					}
     				}
     			}
     		}
@@ -29138,12 +29140,11 @@
                 coreParams.config = customState.config;
             }
             if (params.iconSets) {
-                coreParams.iconSets =
-                    params.iconSets instanceof Array
-                        ? {
-                            iconSets: params.iconSets,
-                        }
-                        : params.iconSets;
+                coreParams.iconSets = (params.iconSets instanceof Array
+                    ? {
+                        iconSets: params.iconSets,
+                    }
+                    : params.iconSets);
                 // console.log('Params.iconSets:', coreParams.iconSets);
             }
             // Disable Iconify cache

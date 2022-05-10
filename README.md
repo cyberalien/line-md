@@ -12,37 +12,19 @@ Preview is available at https://cyberalien.github.io/line-md/
 
 Icon set is in development. It contains only few icons so far. Icons can change any time.
 
-# CSS stroke animations
+# CSS 2 animations
 
-Icons use stroke that can be animated on first render. All you have to do is add class "iconify--line-md" to SVG element (Iconify SVG framework 2.0 does it automatically) and include stylesheet from `https://code.iconify.design/css/line-md.css`.
-
-To refresh animation you can either re-render icon or use display to hide and show it.
+Icons use CSS 2 animations, which are contained in icon code and do not require external stylesheet or script.
 
 # Usage in HTML
 
-1. Add stylesheet for CSS animations:
+1. Include IconifyIcon component, [see `iconify-icon` package for latest code](https://www.npmjs.com/package/iconify-icon).
+
+2. Add icon, using "line-md" prefix:
 
 ```html
-<link rel="stylesheet" href="https://code.iconify.design/css/line-md.css" />
+<iconify-icon icon="line-md:home"></iconify-icon>
 ```
-
-2. Include Iconify SVG framework:
-
-```html
-<script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
-```
-
-3. Add placeholder for icon, using "line-md" prefix:
-
-```html
-<span class="iconify" data-icon="line-md:home"></span>
-```
-
-See [Iconify SVG framework documentation](https://docs.iconify.design/implementations/svg-framework/) for details.
-
-# Components
-
-React, Vue and Svelte components are available. See [Iconify components documentation](https://docs.iconify.design/implementations/components/) for details.
 
 # Icon requests
 

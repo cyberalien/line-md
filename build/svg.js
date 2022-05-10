@@ -27,11 +27,6 @@ async function build() {
 		if (!svg) {
 			return;
 		}
-
-		svg = svg.replace(
-			'width="',
-			'class="iconify iconify--line-md" width="'
-		);
 		await fs.writeFile(`${target}/${name}.svg`, svg, 'utf8');
 		console.log(`Exported ${name}.svg`);
 	});
