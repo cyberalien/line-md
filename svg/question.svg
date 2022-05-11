@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <path d="M7 8C7 5.23858 9.23857 3 12 3C14.7614 3 17 5.23858 17 8C17 9.6356 16.2147 11.0878 15.0005 12C14.1647 12.6279 12 14 12 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="32" stroke-dashoffset="32">
+        <animate attributeName="stroke-dashoffset" values="32;0" dur="0.5s" fill="freeze" />
+    </path>
+    <circle cx="12" cy="21" r="1" fill="currentColor" fill-opacity="0">
+         <animate attributeName="fill-opacity" values="0;1" begin="0.5s" dur="0.2s" fill="freeze" />
+    </circle>
+</svg>

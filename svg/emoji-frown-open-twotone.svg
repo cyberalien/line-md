@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <mask id="smile">
+        <path d="M8.5 16C9 15 10 14 12 14C14 14 15 15 15.5 16M8.5 16C9.5 15.5 11 15.5 12 15.5C13 15.5 14.5 15.5 15.5 16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    </mask>
+    <g fill="currentColor">
+        <path d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" fill-opacity="0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="60" stroke-dashoffset="60">
+            <animate attributeName="stroke-dashoffset" values="60;0" dur="0.5s" fill="freeze" />
+            <animate attributeName="fill-opacity" values="0;0.3" begin="1.2s" dur="0.15s" fill="freeze" />
+        </path>
+        <rect mask="url(#smile)" x="6" y="12" width="0" height="7" fill="currentColor">
+            <animate attributeName="width" values="0;12" begin="1s" dur="0.2s" fill="freeze" />
+        </rect>
+        <ellipse cx="9" cy="9.5" rx="1" ry="1.5" fill-opacity="0">
+            <animate attributeName="fill-opacity" values="0;1" begin="0.6s" dur="0.2s" fill="freeze" />
+        </ellipse>
+        <ellipse cx="15" cy="9.5" rx="1" ry="1.5" fill-opacity="0">
+            <animate attributeName="fill-opacity" values="0;1" begin="0.8s" dur="0.2s" fill="freeze" />
+        </ellipse>
+    </g>
+</svg>
