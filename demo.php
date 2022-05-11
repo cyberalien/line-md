@@ -151,7 +151,7 @@ foreach ($dirs as $dir) {
         document.addEventListener('DOMContentLoaded', () => {
             const header = <?php echo json_encode($header); ?>;
             const icons = <?php echo json_encode($icons); ?>;
-            const debugRemoveAnimation = false;
+            const debugRemoveAnimation = true;
 
             icons.sort((a, b) => {
                 // Icons with bad header first
@@ -238,45 +238,72 @@ foreach ($dirs as $dir) {
                 }
                 function test(node) {
                     const parent = node.parentElement;
+
+                    function changeValue(attr, lastValue) {
+                        const oldValue = parent.getAttribute(attr);
+
+                        // Convert to numbers
+                        const oldNum = parseFloat(oldValue);
+                        const lastNum = parseFloat(lastValue);
+
+                        // Get to maximum value
+                        let newValue;
+                        switch (attr) {
+                            case 'stroke-dashoffset': {
+                                // Set offset to 0
+                                newValue = '0';
+                                break;
+                            }
+
+                            case 'fill-opacity': {
+                                // Set opacity to non-null value
+                                newValue = lastNum ? lastValue : oldValue;
+                                break;
+                            }
+
+                            // Set to non-null or final value
+                            default: {
+                                newValue = !lastNum && oldNum ? oldValue : lastValue;
+                            }
+                        }
+
+                        // console.log('Animation debug:', attr, oldValue, lastValue, newValue);
+                        parent.setAttribute(attr, newValue);
+                    }
+
                     switch (node.tagName) {
-                        case 'set': 
-                        case 'discard': {
+
+                        case 'discard': 
+                        case 'animateMotion': {
+                            // Not supported and should be removed
+                            parent.removeChild(node);
+                            return;
+                        }
+
+                        case 'animateTransform': {
                             console.log(`TODO: de-animate <${node.tagName}>`);
                             break;
+                        }
+
+                        case 'set': {
+                            const attr = node.getAttribute('attributeName');
+                            const value = node.getAttribute('to');
+
+                            changeValue(attr, value);
+                            parent.removeChild(node);
+                            return;
                         }
 
                         case 'animate': {
                             const attr = node.getAttribute('attributeName');
                             const valuesList = node.getAttribute('values').split(';');
-                            const lastValue = valuesList.pop();
-                            const oldValue = parent.getAttribute(attr);
-
-                            const oldNum = parseFloat(oldValue);
-                            const lastNum = parseFloat(lastValue);
-                            
-                            // Get to maximum value
-                            let newValue;
-                            switch (attr) {
-                                case 'stroke-dashoffset': {
-                                    // Set offset to 0
-                                    newValue = '0';
-                                    break;
-                                }
-
-                                case 'fill-opacity': {
-                                    // Set opacity to non-null value
-                                    newValue = lastNum ? lastValue : oldValue;
-                                    break;
-                                }
-
-                                // Set to non-null or final value
-                                default: {
-                                    newValue = !lastNum && oldNum ? oldValue : lastValue;
-                                }
+                            let lastValue = valuesList.pop();
+                            if (valuesList.length > 1 && valuesList[0] === lastValue) {
+                                // First and last values are identical, more than 1 value.
+                                // Probably repeating animation. Use second to last value
+                                lastValue = valuesList.pop();
                             }
-
-                            // console.log('Animation debug:', attr, oldValue, lastValue, newValue);
-                            parent.setAttribute(attr, newValue);
+                            changeValue(attr, lastValue);
                             parent.removeChild(node);
                             return;
                         }
