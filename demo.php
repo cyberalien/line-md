@@ -121,6 +121,11 @@ foreach ($dirs as $dir) {
             background-color: #f8f8f8;
             margin: 0;
         }
+        iconify-icon + iconify-icon {
+            left: auto;
+            right: 0;
+            opacity: 0.3;
+        }
 
         li.zoomed iconify-icon {
             font-size: 192px;
@@ -146,6 +151,7 @@ foreach ($dirs as $dir) {
         document.addEventListener('DOMContentLoaded', () => {
             const header = <?php echo json_encode($header); ?>;
             const icons = <?php echo json_encode($icons); ?>;
+            const debugRemoveAnimation = false;
 
             icons.sort((a, b) => {
                 // Icons with bad header first
@@ -218,6 +224,72 @@ foreach ($dirs as $dir) {
                 }
             }
 
+            function removeAnimations(body) {
+                const node = document.createElement('span');
+                const shadow = node.attachShadow({
+                    mode: 'open'
+                });
+                shadow.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' + body + '</svg>';
+
+                const svg = shadow.querySelector('svg');
+                
+                function testChildren(node) {
+                    Array.from(node.childNodes).forEach(test);
+                }
+                function test(node) {
+                    const parent = node.parentElement;
+                    switch (node.tagName) {
+                        case 'set': 
+                        case 'discard': {
+                            console.log(`TODO: de-animate <${node.tagName}>`);
+                            break;
+                        }
+
+                        case 'animate': {
+                            const attr = node.getAttribute('attributeName');
+                            const valuesList = node.getAttribute('values').split(';');
+                            const lastValue = valuesList.pop();
+                            const oldValue = parent.getAttribute(attr);
+
+                            const oldNum = parseFloat(oldValue);
+                            const lastNum = parseFloat(lastValue);
+                            
+                            // Get to maximum value
+                            let newValue;
+                            switch (attr) {
+                                case 'stroke-dashoffset': {
+                                    // Set offset to 0
+                                    newValue = '0';
+                                    break;
+                                }
+
+                                case 'fill-opacity': {
+                                    // Set opacity to non-null value
+                                    newValue = lastNum ? lastValue : oldValue;
+                                    break;
+                                }
+
+                                // Set to non-null or final value
+                                default: {
+                                    newValue = !lastNum && oldNum ? oldValue : lastValue;
+                                }
+                            }
+
+                            // console.log('Animation debug:', attr, oldValue, lastValue, newValue);
+                            parent.setAttribute(attr, newValue);
+                            parent.removeChild(node);
+                            return;
+                        }
+                    }
+
+                    testChildren(node);
+                }
+                
+                testChildren(svg);
+                
+                return svg.innerHTML;
+            }
+
             function showIcon(item) {
                 let node = list.querySelector('li[data-index="' + item.index + '"]')
                 if (!node) {
@@ -243,6 +315,18 @@ foreach ($dirs as $dir) {
                     icon.addEventListener('mouseover', () => {
                         icon.restartAnimation();
                     })
+
+                    // Add copy without animation to test removeAnimations()
+                    if (debugRemoveAnimation || item.dev) {
+                        const icon2 = document.createElement('iconify-icon');
+                        icon2.className = 'without-animation';
+                        icon2.setAttribute('icon', JSON.stringify({
+                            body: removeAnimations(item.body),
+                            width: 24,
+                            height: 24
+                        }));
+                        node.appendChild(icon2);
+                    }
 
                     // Add raw code
                     const rawIcon = document.createElement('span');
