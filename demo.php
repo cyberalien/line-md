@@ -94,13 +94,22 @@ foreach ($dirs as $dir) {
             color: #a00;
         }
 
+        li.always-visible + li {
+            clear: left;
+        }
+        li.always-visible {
+            clear: none !important;
+        }
 
         li > span:first-child {
             line-height: 48px;
             padding-left: 64px;
         }
 
-        span.raw, iconify-icon {
+        span.raw-hidden {
+            display: none;
+        }
+        span.raw-visible, iconify-icon {
             position: absolute;
             left: 0;
             top: 0;
@@ -121,17 +130,16 @@ foreach ($dirs as $dir) {
         }
 
         small {
-            font-size: 16px;
-            display: inline-block;
-            margin: 0 8px;
-            vertical-align: 16px;
+            font: inherit;
+            color: #e00;
+            padding-left: 4px;
         }
     </style>
     <script src="./node_modules/iconify-icon/dist/iconify-icon.min.js"></script>
 </head>
 <body>
     <div id="content">
-        <p>Testing animations. Hover icon to restart animation, click icon or filename to temporarily zoom in.</p>
+        <p>Testing animations. Hover icon to restart animation. Click icon or filename to temporarily zoom in and debug shapes.</p>
         <p><input id="search" placeholder="Filter icons..." /> <a id="show-all" href="#">Show all</a></p>
     </div>
     <script>
@@ -156,6 +164,19 @@ foreach ($dirs as $dir) {
             const list = document.createElement('ul');
             document.getElementById('content').appendChild(list);
 
+            function debugIcon(title, svg) {
+                svg.querySelectorAll('path, rect, circle, ellipse').forEach(node => {
+                    if (node.getTotalLength) {
+                        let length = 'failed';
+                        try {
+                            length = node.getTotalLength();
+                        } catch {
+                        }
+                        console.log(title, node.tagName, length, node.outerHTML);
+                    }
+                });
+            }
+
             function createNode(item) {
                 const node = document.createElement('li');
                 node.setAttribute('data-index', item.index);
@@ -164,10 +185,17 @@ foreach ($dirs as $dir) {
                     event.preventDefault();
                     const className = 'zoomed';
                     if (!node.classList.contains(className)) {
+                        // Zoom in
                         node.classList.add(className);
                         setTimeout(() => {
                             node.classList.remove(className);
                         }, 5000);
+
+                        // Debug element
+                        const icon = node.querySelector('span.raw svg');
+                        if (icon) {
+                            debugIcon(item.file, icon);
+                        }
                     } else {
                         node.classList.remove(className);
                     }
@@ -215,52 +243,67 @@ foreach ($dirs as $dir) {
                     icon.addEventListener('mouseover', () => {
                         icon.restartAnimation();
                     })
+
+                    // Add raw code
+                    const rawIcon = document.createElement('span');
+                    rawIcon.className = 'raw raw-hidden';
+                    rawIcon.innerHTML = item.html;
+                    node.appendChild(rawIcon);
                 } else {
                     node.classList.add('raw');
                     const icon = document.createElement('span');
-                    icon.className = 'raw';
+                    icon.className = 'raw raw-visible';
                     icon.innerHTML = item.html;
                     node.appendChild(icon);
                 }
 
+                function addComment(text) {
+                    const span = node.querySelector('span');
+                    const comment = document.createElement('small');
+                    comment.innerText = text;
+                    span.appendChild(comment);
+                }
+
                 if (item.badHeader) {
                     node.classList.add('bad');
-                    const comment = document.createElement('small');
-                    comment.innerText = '(bad header)';
-                    node.appendChild(comment);
+                    addComment('(bad header)');
                 }
 
                 if (item.dev) {
                     node.classList.add('dev');
-                    const comment = document.createElement('small');
-                    comment.innerText = '(dev)';
-                    node.appendChild(comment);
+                    addComment('(dev)');
                 }
 
                 list.appendChild(node);
                 return node;
             }
 
-            // Add icons
+            // Add icons, icons in development first
             let visible = 0;
-            icons.forEach(item => {
-                const alwaysShow = !!(item.badHeader || item.dev);
-                let show = alwaysShow;
-                if (!show && visible < 10) {
-                    visible ++;
-                    show = true;
-                }
-
-                if (show) {
-                    // Show node
-                    const node = showIcon(item);
-                    if (alwaysShow) {
-                        item.alwaysVisible = true;
-                        node.classList.add('always-visible');
+            [true, false].forEach(dev => {
+                icons.forEach(item => {
+                    const alwaysShow = !!(item.badHeader || item.dev);
+                    if (alwaysShow !== dev) {
+                        return;
                     }
-                } else {
-                    showPlaceholder(item.index);
-                }
+
+                    let show = alwaysShow;
+                    if (!show && visible < 10) {
+                        visible ++;
+                        show = true;
+                    }
+                    
+                    if (show) {
+                        // Show node
+                        const node = showIcon(item);
+                        if (alwaysShow) {
+                            item.alwaysVisible = true;
+                            node.classList.add('always-visible');
+                        }
+                    } else {
+                        showPlaceholder(item.index);
+                    }
+                });
             });
 
             // Show all icons
