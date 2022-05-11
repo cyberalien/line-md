@@ -16,5 +16,8 @@
 	},
 	"devDependencies": {
 		"@iconify/tools": "^2.0.16"
+	},
+	"dependencies": {
+		"iconify-icon": "^0.0.4"
 	}
 }
