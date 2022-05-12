@@ -32,7 +32,7 @@ function icon($entry) {
 }
 
 $productionDir = './svg';
-$dirs = [$productionDir, './dev-svg'];
+$dirs = [$productionDir, './svg-dev'];
 foreach ($dirs as $dir) {
     if ($handle = opendir($dir)) {
         // Find all files
@@ -432,18 +432,24 @@ foreach ($dirs as $dir) {
                 }
                 lastSearch = filter;
 
-                icons.forEach(item => {
-                    if (item.alwaysVisible) {
-                        return;
-                    }
+                const filters = filter.split(',').map(item => item.trim()).filter(item => item.length > 0);
+                if (filters.length) {
+                    icons.forEach(item => {
+                        if (item.alwaysVisible) {
+                            return;
+                        }
+                        
+                        const file = item.file;
+                        for (let i = 0; i < filters.length; i++) {
+                            if (file.indexOf(filters[i]) !== -1) {
+                                showIcon(item);
+                                return;
+                            }
+                        }
 
-                    const file = item.file;
-                    if (file.indexOf(filter) !== -1) {
-                        showIcon(item);
-                    } else {
                         showPlaceholder(item);
-                    }
-                })
+                    });
+                }
             });
         });
     </script>
