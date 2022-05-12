@@ -1,5 +1,8 @@
 <?php
 
+$iconComponent = './node_modules/iconify-icon/dist/iconify-icon.min.js';
+$iconComponentExists = @file_exists($iconComponent);
+
 $header = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">';
 
 $icons = [];
@@ -69,6 +72,11 @@ foreach ($dirs as $dir) {
             background-color: #fff;
             color: #000;
         }
+
+        p.error {
+            color: #e00;
+        }
+
         ul {
             list-style: none;
             margin: 0;
@@ -121,6 +129,10 @@ foreach ($dirs as $dir) {
             background-color: #f8f8f8;
             margin: 0;
         }
+        span.raw-visible svg {
+            width: 1em;
+            height: 1em;
+        }
         iconify-icon + iconify-icon {
             left: auto;
             right: 0;
@@ -140,15 +152,22 @@ foreach ($dirs as $dir) {
             padding-left: 4px;
         }
     </style>
-    <script src="./node_modules/iconify-icon/dist/iconify-icon.min.js"></script>
+    <script src="<?php echo $iconComponent; ?>"></script>
 </head>
 <body>
     <div id="content">
-        <p>Testing animations. Hover icon to restart animation. Click icon or filename to temporarily zoom in and debug shapes.</p>
+        <?php
+            if (!$iconComponentExists) {
+                echo '<p class="error">NPM dependencies are not installed, this demo will not work properly. Run `npm install`!</p>';
+            } else {
+                echo '<p>Testing animations. Hover icon to restart animation. Click icon or filename to temporarily zoom in and debug shapes.</p>';
+            }
+        ?>
         <p><input id="search" placeholder="Filter icons..." /> <a id="show-all" href="#">Show all</a></p>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const useIconComponent = <?php echo json_encode($iconComponentExists); ?>;
             const header = <?php echo json_encode($header); ?>;
             const icons = <?php echo json_encode($icons); ?>;
             const debugRemoveAnimation = true;
@@ -329,7 +348,7 @@ foreach ($dirs as $dir) {
                 node.classList.remove('hidden');
                 node.innerHTML = '<span>' + item.filename + '</span>';
 
-                if (item.body) {
+                if (item.body && useIconComponent) {
                     const icon = document.createElement('iconify-icon');
                     icon.setAttribute('icon', JSON.stringify({
                         body: item.body,
