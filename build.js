@@ -187,6 +187,8 @@ const categories = {
 		'github',
 		'github-twotone',
 		'github-loop',
+		'discord',
+		'discord-twotone',
 		'heart',
 		'heart-twotone',
 		'heart-twotone-half',
