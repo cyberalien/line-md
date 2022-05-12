@@ -189,14 +189,43 @@ foreach ($dirs as $dir) {
             const list = document.createElement('ul');
             document.getElementById('content').appendChild(list);
 
+            function copyToClipboard(code) {
+                const parentNode = document.body;
+                const textarea = document.createElement('textarea');
+                textarea.value = code;
+                textarea.style.height = 0;
+                parentNode.appendChild(textarea);
+
+                textarea.focus();
+                textarea.select();
+
+                let copied = false;
+                try {
+                    // Modern way
+                    if (!document.execCommand || !document.execCommand('copy')) {
+                        // Ancient way
+                        if (window.clipboardData) {
+                            window.clipboardData.setData('Text', rawCode);
+                            copied = true;
+                        }
+                    } else {
+                        copied = true;
+                    }
+                } catch { }
+
+                // Remove textarea on next tick
+                setTimeout(() => {
+                    parentNode.removeChild(textarea);
+                });
+            }
+
             function debugIcon(title, svg) {
                 svg.querySelectorAll('path, rect, circle, ellipse').forEach(node => {
                     if (node.getTotalLength) {
                         let length = 'failed';
                         try {
                             length = node.getTotalLength();
-                        } catch {
-                        }
+                        } catch { }
                         console.log(title, node.tagName, length, node.outerHTML);
                     }
                 });
@@ -251,6 +280,7 @@ foreach ($dirs as $dir) {
                 shadow.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' + body + '</svg>';
 
                 const svg = shadow.querySelector('svg');
+                const removeAttributes = ['stroke-dasharray', 'stroke-dashoffset'];
                 
                 function testChildren(node) {
                     Array.from(node.childNodes).forEach(test);
@@ -259,6 +289,11 @@ foreach ($dirs as $dir) {
                     const parent = node.parentElement;
 
                     function changeValue(attr, lastValue) {
+                        if (removeAttributes.indexOf(attr) !== -1) {
+                            // Attribute was removed
+                            return;
+                        }
+
                         const oldValue = parent.getAttribute(attr);
 
                         // Convert to numbers
@@ -290,8 +325,15 @@ foreach ($dirs as $dir) {
                         parent.setAttribute(attr, newValue);
                     }
 
-                    switch (node.tagName) {
+                    // Remove stroke attributes that confuse Figma
+                    removeAttributes.forEach(attr => {
+                        try {
+                            node.removeAttribute(attr);
+                        } catch { }
+                    });
 
+                    // Check tag
+                    switch (node.tagName) {
                         case 'discard': 
                         case 'animateMotion': {
                             // Not supported and should be removed
@@ -364,14 +406,19 @@ foreach ($dirs as $dir) {
 
                     // Add copy without animation to test removeAnimations()
                     if (debugRemoveAnimation || item.dev) {
+                        const body = removeAnimations(item.body);
                         const icon2 = document.createElement('iconify-icon');
                         icon2.className = 'without-animation';
                         icon2.setAttribute('icon', JSON.stringify({
-                            body: removeAnimations(item.body),
+                            body,
                             width: 24,
                             height: 24
                         }));
                         node.appendChild(icon2);
+
+                        icon2.addEventListener('click', () => {
+                            copyToClipboard(header + body + '</svg>')
+                        });
                     }
 
                     // Add raw code
