@@ -127,9 +127,9 @@ foreach ($dirs as $dir) {
             opacity: 0.3;
         }
 
-        li.zoomed iconify-icon {
+        li.zoomed iconify-icon:first-of-type {
             font-size: 192px;
-            background-color: #f4f4f4;
+            background: url("data:image/svg+xml,%3Csvg width='8' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23F4F4F4' stroke='%23E0E0E0' d='M.5.5h7v7h-7z'/%3E%3C/svg%3E") 0 0 repeat;
             color: #00e;
             z-index: 2;
         }
