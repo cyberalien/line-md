@@ -4,7 +4,7 @@ There are many icon sets that are designed to Material Design guidelines. You ca
 
 This icon set is different:
 
--   Icons are animated using CSS animations for stroke.
+-   Icons are animated using SVG animations. No CSS or JavaScript.
 -   It follows guidelines that are used for 'Round' and 'TwoTone' icons in the official Material Design Icons set.
 -   Sometimes 1px thin lines are used where it makes sense.
 
@@ -12,9 +12,9 @@ Preview is available at https://cyberalien.github.io/line-md/
 
 Icon set is in development. It contains only few icons so far. Icons can change any time.
 
-# CSS 2 animations
+# SVG 2 animations
 
-Icons use CSS 2 animations, which are contained in icon code and do not require external stylesheet or script.
+Icons use SVG 2 animations, which are contained in icon code and do not require external stylesheet or script.
 
 # Usage in HTML
 
