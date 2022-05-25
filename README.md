@@ -10,13 +10,28 @@ This icon set is different:
 
 Preview is available at https://cyberalien.github.io/line-md/
 
-Icon set is in development. It contains only few icons so far. Icons can change any time.
+Icon set is in development. It contains only few icons so far.
 
-# SVG 2 animations
+## Icon requests
 
-Icons use SVG 2 animations, which are contained in icon code and do not require external stylesheet or script.
+If you like this icon set, but it is missing icons that you need, [please open an issue at repository](https://github.com/cyberalien/line-md/issues).
 
-# Usage in HTML
+## SVG animations level 2
+
+Icons use [SVG animations](https://svgwg.org/specs/animations/), which are contained in icon code and do not require external stylesheet or script.
+
+No, these are not outdated SMIL animations. Icons are animated using modern SVG spec, supported by all browsers.
+
+## Animation types
+
+Most icons use "fade-in" animation. Animation shows icon appearing from nothing.
+
+Other icons:
+- Icons that end with `-loop` use infinite animtions.
+- Icons that end with `-out` disappear icon. It is the opposite of same icon without `-out` suffix.
+- Icons that end with `-transition` transition between two icons (not yet available, but planned).
+
+## Usage in HTML
 
 1. Include IconifyIcon component, [see `iconify-icon` package for latest code](https://www.npmjs.com/package/iconify-icon).
 
@@ -26,14 +41,12 @@ Icons use SVG 2 animations, which are contained in icon code and do not require 
 <iconify-icon icon="line-md:home"></iconify-icon>
 ```
 
-# Icon requests
+## Usage without web component
 
-You can [open an issue on GitHub repository](https://github.com/cyberalien/line-md/issues) to request icons.
+There are few issues with SVG animations.
 
-Icons are currently designed in Figma and exported using custom Figma plug-in. Plug-in calculates lengths of all shapes, order of animations and assigns appropriate classes to shapes within exported SVG.
+[Iconify icon web component](https://docs.iconify.design/iconify-icon/) solves those issues, but if you are using icons without it, see [article that explains known SVG issues and solutions](https://docs.iconify.design/articles/svg-animation-issues/).
 
-At moment of writing this, Figma has a bug with exporting shapes that require masking (it replaces stroke with fill and merges shape with mask), which means complex shapes cannot be animated, so icons that require masks cannot be added yet.
-
-# Licence
+## Licence
 
 MIT
