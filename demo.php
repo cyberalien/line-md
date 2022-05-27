@@ -35,7 +35,7 @@ function icon($entry) {
 }
 
 $productionDir = './svg';
-$dirs = [$productionDir, './svg-dev'];
+$dirs = [$productionDir, './svg-dev', './temp'];
 foreach ($dirs as $dir) {
     if ($handle = opendir($dir)) {
         // Find all files
@@ -335,15 +335,11 @@ foreach ($dirs as $dir) {
                     // Check tag
                     switch (node.tagName) {
                         case 'discard': 
-                        case 'animateMotion': {
+                        case 'animateMotion': 
+                        case 'animateTransform': {
                             // Not supported and should be removed
                             parent.removeChild(node);
                             return;
-                        }
-
-                        case 'animateTransform': {
-                            console.log(`TODO: de-animate <${node.tagName}>`);
-                            break;
                         }
 
                         case 'set': {
@@ -367,6 +363,35 @@ foreach ($dirs as $dir) {
                             changeValue(attr, lastValue);
                             parent.removeChild(node);
                             return;
+                        }
+
+                        case 'path': {
+                            // Fix Figma bug
+                            const path = node.getAttribute('d').split('M').map(chunk => 'M' + chunk);
+                            path.shift();
+
+                            if (path.length > 1) {
+                                // Split by chunks
+                                if (node.hasAttribute('id')) {
+                                    // Unique ID... do nothing
+                                    return;
+                                }
+
+                                node.setAttribute('d', path.shift());
+                                const nextNode = node.nextSibling;
+
+                                while (path.length) {
+                                    const clone = node.cloneNode(true);
+                                    clone.setAttribute('d', path.shift());
+                                    if (nextNode) {
+                                        parent.insertBefore(clone, nextNode);
+                                    } else {
+                                        parent.appendChild(clone);
+                                    }
+
+                                    test(clone);
+                                }
+                            }
                         }
                     }
 
