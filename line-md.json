@@ -12,8 +12,12 @@
 			"url": "https://github.com/cyberalien/line-md/blob/master/license.txt"
 		},
 		"height": 24,
-		"samples": ["home", "edit-twotone", "image-twotone"],
-		"total": 254
+		"samples": [
+			"home",
+			"edit-twotone",
+			"image-twotone"
+		],
+		"total": 256
 	},
 	"icons": {
 		"account": {
@@ -468,6 +472,12 @@
 		},
 		"list-indented": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M8 5H20\" stroke-dasharray=\"14\" stroke-dashoffset=\"14\"><animate attributeName=\"stroke-dashoffset\" values=\"14;0\" begin=\"0.1s\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M10 10H20\" stroke-dasharray=\"12\" stroke-dashoffset=\"12\"><animate attributeName=\"stroke-dashoffset\" values=\"12;0\" begin=\"0.4s\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M12 15H20\" stroke-dasharray=\"10\" stroke-dashoffset=\"10\"><animate attributeName=\"stroke-dashoffset\" values=\"10;0\" begin=\"0.7s\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M14 20H20\" stroke-dasharray=\"8\" stroke-dashoffset=\"8\"><animate attributeName=\"stroke-dashoffset\" values=\"8;0\" begin=\"1s\" dur=\"0.2s\" fill=\"freeze\"/></path></g><g fill=\"currentColor\"><circle cx=\"4\" cy=\"5\" r=\"1\" fill-opacity=\"0\"><animate attributeName=\"fill-opacity\" values=\"0;1\" dur=\"0.2s\" fill=\"freeze\"/></circle><circle cx=\"6\" cy=\"10\" r=\"1\" fill-opacity=\"0\"><animate attributeName=\"fill-opacity\" values=\"0;1\" begin=\"0.3s\" dur=\"0.2s\" fill=\"freeze\"/></circle><circle cx=\"8\" cy=\"15\" r=\"1\" fill-opacity=\"0\"><animate attributeName=\"fill-opacity\" values=\"0;1\" begin=\"0.6s\" dur=\"0.2s\" fill=\"freeze\"/></circle><circle cx=\"10\" cy=\"20\" r=\"1\" fill-opacity=\"0\"><animate attributeName=\"fill-opacity\" values=\"0;1\" begin=\"0.9s\" dur=\"0.2s\" fill=\"freeze\"/></circle></g>"
+		},
+		"loading-loop": {
+			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"2\"><path d=\"M12 3C16.9706 3 21 7.02944 21 12\" stroke-dasharray=\"15\" stroke-dashoffset=\"15\"><animate attributeName=\"stroke-dashoffset\" values=\"15;0\" dur=\"0.3s\" fill=\"freeze\"/><animateTransform attributeName=\"transform\" type=\"rotate\" values=\"0 12 12;360 12 12\" dur=\"1.5s\" repeatCount=\"indefinite\"/></path></g>"
+		},
+		"loading-twotone-loop": {
+			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"2\"><path d=\"M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z\" stroke-dasharray=\"60\" stroke-dashoffset=\"60\" stroke-opacity=\"0.3\"><animate attributeName=\"stroke-dashoffset\" values=\"60;0\" dur=\"1.3s\" fill=\"freeze\"/></path><path d=\"M12 3C16.9706 3 21 7.02944 21 12\" stroke-dasharray=\"15\" stroke-dashoffset=\"15\"><animate attributeName=\"stroke-dashoffset\" values=\"15;0\" dur=\"0.3s\" fill=\"freeze\"/><animateTransform attributeName=\"transform\" type=\"rotate\" values=\"0 12 12;360 12 12\" dur=\"1.5s\" repeatCount=\"indefinite\"/></path></g>"
 		},
 		"marker": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 14L17 3L21 7L10 18L6 14Z\" stroke-width=\"2\" stroke-dasharray=\"44\" stroke-dashoffset=\"44\"><animate attributeName=\"stroke-dashoffset\" values=\"44;0\" dur=\"0.5s\" fill=\"freeze\"/></path><path d=\"M9 17L6.5 19.5H2.5L7 15\" stroke-dasharray=\"20\" stroke-dashoffset=\"20\"><animate attributeName=\"stroke-dashoffset\" values=\"20;0\" begin=\"0.6s\" dur=\"0.2s\" fill=\"freeze\"/></path></g>"
@@ -992,6 +1002,8 @@
 			"confirm-circle-twotone",
 			"construction",
 			"construction-twotone",
+			"loading-loop",
+			"loading-twotone-loop",
 			"minus",
 			"minus-circle",
 			"minus-circle-twotone",
@@ -1069,6 +1081,11 @@
 			"laptop",
 			"laptop-twotone"
 		]
+	},
+	"suffixes": {
+		"": "Fade In",
+		"out": "Fade Out",
+		"loop": "Loop"
 	},
 	"width": 24,
 	"height": 24
