@@ -469,6 +469,7 @@ async function build() {
 	});
 
 	// Clean up icons
+	/*
 	await iconSet.forEach(async (name, type) => {
 		if (type !== 'icon') {
 			return;
@@ -479,6 +480,7 @@ async function build() {
 		await deOptimisePaths(svg);
 		iconSet.fromSVG(name, svg);
 	});
+	*/
 
 	// Export
 	const exported = iconSet.export();
