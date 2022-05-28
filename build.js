@@ -140,6 +140,8 @@ const categories = {
 		'cancel-twotone',
 		'construction',
 		'construction-twotone',
+		'loading-loop',
+		'loading-twotone-loop',
 	],
 	Navigation: [
 		'home-md',
@@ -374,7 +376,7 @@ const aliasesConfig = [
 	},
 ];
 
-(async () => {
+async function build() {
 	// Load SVGs
 	const iconSet = await importDirectory('svg', {
 		prefix: 'line-md',
@@ -393,6 +395,12 @@ const aliasesConfig = [
 		},
 		height: 24,
 		samples: ['home', 'edit-twotone', 'image-twotone'],
+	};
+	iconSet.suffixes = {
+		'': 'Fade In',
+		'out': 'Fade Out',
+		'loop': 'Loop',
+		// 'transition': 'Transition',
 	};
 
 	// Make sure all icons are present
@@ -467,10 +475,8 @@ const aliasesConfig = [
 		}
 
 		const svg = iconSet.toSVG(name);
-		// await runSVGO(svg, {
-		// 	keepShapes: true,
-		// });
-		// await deOptimisePaths(svg);
+		await runSVGO(svg);
+		await deOptimisePaths(svg);
 		iconSet.fromSVG(name, svg);
 	});
 
@@ -479,4 +485,15 @@ const aliasesConfig = [
 	const info = exported.info;
 	console.log(`Exported ${info.total} icons`);
 	await fs.writeFile('line-md.json', JSON.stringify(exported, null, '\t'));
-})();
+}
+
+/**
+ * Export or build
+ */
+if (!module.parent) {
+	build().catch((err) => {
+		console.error(err);
+	});
+} else {
+	module.exports = build;
+}
