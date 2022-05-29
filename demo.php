@@ -142,7 +142,9 @@ foreach ($dirs as $dir) {
             box-shadow: 0 0 1px #ccc;
             position: relative;
             display: block;
-            width: 400px;
+            min-width: 300px;
+            padding-right: 64px;
+            white-space: nowrap;
         }
 
         li.hidden {
