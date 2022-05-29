@@ -1,0 +1,126 @@
+[
+	{
+		"icons": [
+			"arrow-left",
+			"arrow-small-left",
+			"arrow-left-circle",
+			"arrow-left-circle-twotone",
+			"chevron-left",
+			"chevron-left-circle",
+			"chevron-left-circle-twotone",
+			"chevron-double-left",
+			"chevron-triple-left",
+			"chevron-small-left",
+			"chevron-small-double-left",
+			"chevron-small-triple-left",
+			"arrow-open-left",
+			"arrow-close-left"
+		],
+		"search": "-left",
+		"aliases": [
+			{
+				"replace": "-right",
+				"changes": {
+					"hFlip": true
+				}
+			},
+			{
+				"replace": "-down",
+				"changes": {
+					"rotate": 3
+				}
+			},
+			{
+				"replace": "-up",
+				"changes": {
+					"rotate": 3,
+					"hFlip": true
+				}
+			}
+		]
+	},
+	{
+		"icons": ["align-left", "navigation-left-up"],
+		"search": "-left",
+		"replace": "-right",
+		"changes": {
+			"hFlip": true
+		}
+	},
+	{
+		"icons": ["arrow-align-left"],
+		"search": "-left",
+		"aliases": [
+			{
+				"replace": "-right",
+				"changes": {
+					"hFlip": true
+				}
+			},
+			{
+				"replace": "-bottom",
+				"changes": {
+					"rotate": 3
+				}
+			},
+			{
+				"replace": "-top",
+				"changes": {
+					"rotate": 3,
+					"hFlip": true
+				}
+			}
+		]
+	},
+	{
+		"icons": ["arrow-align-center"],
+		"search": "-center",
+		"replace": "-middle",
+		"changes": {
+			"rotate": 3
+		}
+	},
+	{
+		"icons": ["arrows-diagonal", "arrow-long-diagonal"],
+		"append": "-rotated",
+		"changes": {
+			"hFlip": true
+		}
+	},
+	{
+		"icons": [
+			"arrows-horizontal",
+			"arrows-horizontal-alt",
+			"double-arrow-horizontal"
+		],
+		"search": "-horizontal",
+		"replace": "-vertical",
+		"changes": {
+			"rotate": 1
+		}
+	},
+	{
+		"icons": ["navigation-left-up"],
+		"search": "-left-up",
+		"aliases": [
+			{
+				"replace": "-left-down",
+				"changes": {
+					"vFlip": true
+				}
+			},
+			{
+				"replace": "-right-up",
+				"changes": {
+					"hFlip": true
+				}
+			},
+			{
+				"replace": "-right-down",
+				"changes": {
+					"rotate": 2
+				}
+			}
+		]
+	}
+]

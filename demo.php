@@ -7,6 +7,56 @@ $header = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBo
 
 $icons = [];
 
+/**
+ * Get metadata, strip comments
+ */
+function metadata($filename) {
+    return cleanupMetadata(json_decode(file_get_contents($filename)));
+}
+
+function cleanupMetadata($value) {
+    if (is_array($value)) {
+        $newValue = [];
+        foreach ($value as $entry) {
+            $cleanEntry = cleanupMetadata($entry);
+            if ($cleanEntry !== null) {
+                $newValue[] = $cleanEntry;
+            }
+        }
+        return $newValue;
+    }
+
+    if (!$value) {
+        // Null, false, 0, ...
+        return $value;
+    }
+
+
+    if (is_object($value)) {
+        $newObject = [];
+        foreach ($value as $key => $oldValue) {
+            if (substr($key, 0, 2) === '//') {
+                continue;
+            }
+            $newValue = cleanupMetadata($oldValue);
+            if ($newValue !== null) {
+                $newObject[$key] = $newValue;
+            }
+        }
+        return $newObject;
+    }
+
+    if (is_string($value)) {
+        if (substr($value, 0, 2) === '//') {
+            return null;
+        }
+    }
+    return $value;
+}
+
+/**
+ * Get icon body, test for bad header
+ */
 function icon($entry) {
     global $header;
 
@@ -34,6 +84,9 @@ function icon($entry) {
     return $entry;
 }
 
+/**
+ * Find all icons
+ */
 $productionDir = './svg';
 $dirs = [$productionDir, './svg-dev', './temp'];
 foreach ($dirs as $dir) {
