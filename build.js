@@ -44,27 +44,28 @@ async function loadJSON(filename) {
 }
 
 async function build() {
-	// Categories for all icons
-	const categories = await loadJSON('./metadata/categories.json');
-
-	// Sort categories
-	const sortedCategories = Object.create(null);
-	for (const title in categories) {
-		categories[title].forEach((name) => {
-			if (sortedCategories[name]) {
-				console.error(
-					`Multiple categories for ${name}: ${title} and ${sortedCategories[name]}`
-				);
-			}
-			sortedCategories[name] = title;
-		});
-	}
-
 	// Load SVGs
+	const categories = Object.create(null);
+	const iconCategories = Object.create(null);
 	const iconSet = await importDirectory('svg', {
 		prefix: 'line-md',
-		includeSubDirs: false,
+		includeSubDirs: true,
+		keyword: (file, keyword) => {
+			const category = file.subdir.split('/').shift();
+			if (!category) {
+				throw new Error(`Icon is in wrong category: ${file.path}`);
+			}
+			if (iconCategories[keyword]) {
+				throw new Error(
+					`Icon ${keyword} is in multiple categories: ${category} and ${iconCategories[keyword]}`
+				);
+			}
+			iconCategories[keyword] = category;
+			(categories[category] || (categories[category] = [])).push(keyword);
+			return keyword;
+		},
 	});
+
 	iconSet.info = {
 		name: 'Material Line Icons',
 		author: {
@@ -81,27 +82,10 @@ async function build() {
 	};
 	iconSet.suffixes = await loadJSON('./metadata/suffixes.json');
 
-	// Make sure all icons are present
-	for (const name in sortedCategories) {
-		const category = sortedCategories[name];
-		if (!iconSet.entries[name]) {
-			throw new Error(
-				`Missing icon "${name}", supposed to be in category "${category}"`
-			);
-		}
-		iconSet.toggleCategory(name, category, true);
-	}
-
-	// Validate categories
-	iconSet.forEach((name, type) => {
-		if (type !== 'icon') {
-			return;
-		}
-
-		// Find category
-		if (!sortedCategories[name]) {
-			console.error(`Missing category for "${name}"`);
-		}
+	// Add categories
+	console.log(iconCategories);
+	Object.keys(iconCategories).forEach((icon) => {
+		iconSet.toggleCategory(icon, iconCategories[icon], true);
 	});
 
 	// Add aliases
@@ -139,7 +123,7 @@ async function build() {
 
 				// Add icon and category
 				iconSet.setVariation(newName, name, changes);
-				const category = sortedCategories[name];
+				const category = iconCategories[name];
 				if (category) {
 					iconSet.toggleCategory(newName, category, true);
 				}

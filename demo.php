@@ -84,30 +84,54 @@ function icon($entry) {
     return $entry;
 }
 
+function scanDirectory($dir) {
+    $files = [];
+    if ($handle = opendir($dir)) {
+        // Find all files
+        while (false !== ($entry = readdir($handle))) {
+            $filename = $dir . '/' . $entry;
+            if (is_dir($filename)) {
+                if (substr($entry, 0, 1) !== '.' && $handle2 = opendir($filename)) {
+                    // Find all files
+                    while (false !== ($entry2 = readdir($handle2))) {
+                        $filename2 = $filename . '/' . $entry2;
+                        if (substr($entry2, -4) === '.svg') {
+                            $files[] = [
+                                'file' => $entry2,
+                                'filename' => $filename2,
+                                'time' => filemtime($filename2),
+                                'html' => trim(file_get_contents($filename2)),
+                            ];
+                        }
+                    }
+                    closedir($handle2);
+                }
+            } elseif (substr($entry, -4) === '.svg') {
+                $files[] = [
+                    'file' => $entry,
+                    'filename' => $filename,
+                    'time' => filemtime($filename),
+                    'html' => trim(file_get_contents($filename)),
+                ];
+            }
+        }
+        closedir($handle);
+    }
+    return $files;
+}
+
 /**
  * Find all icons
  */
 $productionDir = './svg';
 $dirs = [$productionDir, './svg-dev', './temp'];
 foreach ($dirs as $dir) {
-    if ($handle = opendir($dir)) {
-        // Find all files
-        while (false !== ($entry = readdir($handle))) {
-            if (substr($entry, -4) === '.svg') {
-                $filename = $dir . '/' . $entry;
-                $item = [
-                    'file' => $entry,
-                    'filename' => $filename,
-                    'time' => filemtime($filename),
-                    'html' => trim(file_get_contents($filename)),
-                ];
-                if ($dir !== $productionDir) {
-                    $item['dev'] = true;
-                }
-                $icons[] = icon($item);
-            }
+    $files = scanDirectory($dir);
+    foreach ($files as $item) {
+        if ($dir !== $productionDir) {
+            $item['dev'] = true;
         }
-        closedir($handle);
+        $icons[] = icon($item); 
     }
 }
 
