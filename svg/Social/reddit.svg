@@ -14,7 +14,7 @@
                 <animate attributeName="cx" values="16.76;20.06" begin="1s" dur="0.2s" fill="freeze" />
             </circle>
             <circle cx="18.45" cy="4.23" r="1.61">
-                <animate attributeName="fill-opacity" values="0;1" begin="2.6s" dur="0.4s" fill="freeze" />
+                <set attributeName="fill-opacity" to="1" begin="2.6s" />
             </circle>
         </g>
         <path d="M12 8.75L13.18 3.11L18.21 4.18" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" fill="none" stroke-dasharray="12" stroke-dashoffset="12">

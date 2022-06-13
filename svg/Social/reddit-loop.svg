@@ -14,7 +14,7 @@
                 <animate attributeName="cx" values="16.76;20.06" begin="1s" dur="0.2s" fill="freeze" />
             </circle>
             <circle cx="18.45" cy="4.23" r="1.61">
-                <animate attributeName="fill-opacity" values="0;1" begin="2.6s" dur="0.4s" fill="freeze" />
+                <set attributeName="fill-opacity" to="1" begin="2.6s" />
                 <animate attributeName="cx" values="18.45;5.75;18.45" begin="2.4s" dur="6s" repeatCount="indefinite" />
             </circle>
         </g>
