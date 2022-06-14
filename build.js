@@ -57,11 +57,35 @@ async function build() {
 			}
 			if (iconCategories[keyword]) {
 				throw new Error(
-					`Icon ${keyword} is in multiple categories: ${category} and ${iconCategories[keyword]}`
+					`Icon ${
+						file.subdir + keyword
+					} is in multiple categories: ${category} and ${
+						iconCategories[keyword]
+					}`
 				);
 			}
 			iconCategories[keyword] = category;
 			(categories[category] || (categories[category] = [])).push(keyword);
+
+			// Check valid suffix
+			const suffix = keyword.split('-').pop();
+			switch (suffix) {
+				case 'transition':
+					if (keyword.indexOf('-to-') === -1) {
+						throw new Error(
+							`Invalid transition name: ${file.subdir + keyword}`
+						);
+					}
+					break;
+
+				default:
+					if (keyword.indexOf('-to-') !== -1) {
+						throw new Error(
+							`Transition is missing suffix: ${file.subdir + keyword}`
+						);
+					}
+			}
+
 			return keyword;
 		},
 	});
