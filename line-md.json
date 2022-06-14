@@ -13,8 +13,8 @@
 		},
 		"height": 24,
 		"samples": [
-			"home",
-			"edit-twotone",
+			"loading-twotone-loop",
+			"beer-alt-twotone-loop",
 			"image-twotone"
 		],
 		"total": 298
@@ -1252,12 +1252,18 @@
 			"computer-twotone",
 			"laptop",
 			"laptop-twotone"
+		],
+		"Weather": [
+			"cloud",
+			"cloud-filled",
+			"cloud-twotone"
 		]
 	},
 	"suffixes": {
-		"": "Fade In",
-		"out": "Fade Out",
-		"loop": "Loop"
+		"": "Outline Animation",
+		"out": "Erase Animation",
+		"loop": "Looping Animation",
+		"transition": "Transition Between Icons"
 	},
 	"width": 24,
 	"height": 24
