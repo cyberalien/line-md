@@ -102,7 +102,7 @@ async function build() {
 			url: 'https://github.com/cyberalien/line-md/blob/master/license.txt',
 		},
 		height: 24,
-		samples: ['home', 'edit-twotone', 'image-twotone'],
+		samples: ['loading-twotone-loop', 'beer-alt-twotone-loop', 'image-twotone'],
 	};
 	iconSet.suffixes = await loadJSON('./metadata/suffixes.json');
 
