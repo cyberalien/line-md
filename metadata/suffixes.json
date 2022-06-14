@@ -1,6 +1,6 @@
 {
-	"": "Fade In",
-	"out": "Fade Out",
-	"loop": "Loop",
-	"//transition": "Transition"
+	"": "Outline Animation",
+	"out": "Erase Animation",
+	"loop": "Looping Animation",
+	"transition": "Transition Between Icons"
 }

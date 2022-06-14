@@ -169,6 +169,61 @@ async function build() {
 	});
 	*/
 
+	const allowedSuffixes = ['twotone', 'filled', 'solid', 'loop', 'out'];
+	const findMatches = (match) => {
+		const checkEnd = match.slice(-1) !== '-';
+		const checkStart = match.slice(0, 1) !== '-';
+		return Object.keys(iconSet.entries).filter((icon) => {
+			if (iconSet.entries[icon].type !== 'icon') {
+				return false;
+			}
+			const index = icon.indexOf(match);
+			if (index === -1) {
+				return false;
+			}
+
+			if (checkStart && index !== 0) {
+				// Must start with match
+				return false;
+			}
+
+			if (checkEnd && index !== icon.length - match.length) {
+				// Must end with match
+				for (let i = 0; i < allowedSuffixes.length; i++) {
+					const test = match + '-' + allowedSuffixes[i];
+					if (icon.slice(0 - test.length) === test) {
+						return true;
+					}
+				}
+				return false;
+			}
+
+			return true;
+		});
+	};
+
+	// Add extra categories
+	const extraCategories = await loadJSON('./metadata/extra-categories.json');
+	extraCategories.forEach((item) => {
+		const category = item.category;
+		if (!iconSet.findCategory(category, false)) {
+			console.log('Adding new category:', category);
+		}
+
+		item.icons?.forEach((name) => {
+			const matches = findMatches(name);
+			if (!matches.length) {
+				throw new Error(
+					`Cannot find matching icons for "${name}" to add to category "${category}"`
+				);
+			}
+			matches.forEach((name) => {
+				iconSet.toggleCategory(name, category, true);
+				console.log(`Added category "${category}" to "${name}"`);
+			});
+		});
+	});
+
 	// Export
 	const exported = iconSet.export();
 	const info = exported.info;
