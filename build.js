@@ -107,7 +107,6 @@ async function build() {
 	iconSet.suffixes = await loadJSON('./metadata/suffixes.json');
 
 	// Add categories
-	console.log(iconCategories);
 	Object.keys(iconCategories).forEach((icon) => {
 		iconSet.toggleCategory(icon, iconCategories[icon], true);
 	});
