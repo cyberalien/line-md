@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="cloud-mask">
+		<g fill="white">
+			<circle cx="12" cy="10" r="6">
+				<animate attributeName="cx" values="12;11;12;13;12" dur="30s" repeatCount="indefinite" />
+			</circle>
+			<rect x="8" y="13" width="9" height="7" />
+			<rect x="1" y="8" width="15" height="12" rx="6">
+				<animate attributeName="x" values="1;0;1;2;1" dur="19s" repeatCount="indefinite" />
+			</rect>
+			<rect x="10" y="10" width="13" height="10" rx="5">
+				<animate attributeName="x" values="10;9;10;11;10" dur="23s" repeatCount="indefinite" />
+			</rect>
+		</g>
+	</mask>
+	<rect mask="url(#cloud-mask)" width="24" height="24" fill="currentColor" />
+</svg>

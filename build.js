@@ -1,10 +1,5 @@
 const { promises: fs } = require('fs');
-const {
-	IconSet,
-	importDirectory,
-	runSVGO,
-	deOptimisePaths,
-} = require('@iconify/tools');
+const { IconSet, importDirectory, runSVGO, deOptimisePaths } = require('@iconify/tools');
 
 // Load JSON file
 async function loadJSON(filename) {
@@ -43,6 +38,8 @@ async function loadJSON(filename) {
 	return cleanup(JSON.parse(await fs.readFile(filename)));
 }
 
+const badSuffixes = ['solid', 'fill'];
+
 async function build() {
 	// Load SVGs
 	const categories = Object.create(null);
@@ -56,13 +53,7 @@ async function build() {
 				throw new Error(`Icon is in wrong category: ${file.path}`);
 			}
 			if (iconCategories[keyword]) {
-				throw new Error(
-					`Icon ${
-						file.subdir + keyword
-					} is in multiple categories: ${category} and ${
-						iconCategories[keyword]
-					}`
-				);
+				throw new Error(`Icon ${file.subdir + keyword} is in multiple categories: ${category} and ${iconCategories[keyword]}`);
 			}
 			iconCategories[keyword] = category;
 			(categories[category] || (categories[category] = [])).push(keyword);
@@ -72,17 +63,16 @@ async function build() {
 			switch (suffix) {
 				case 'transition':
 					if (keyword.indexOf('-to-') === -1) {
-						throw new Error(
-							`Invalid transition name: ${file.subdir + keyword}`
-						);
+						throw new Error(`Invalid transition name: ${file.subdir + keyword}`);
 					}
 					break;
 
 				default:
 					if (keyword.indexOf('-to-') !== -1) {
-						throw new Error(
-							`Transition is missing suffix: ${file.subdir + keyword}`
-						);
+						throw new Error(`Transition is missing suffix: ${file.subdir + keyword}`);
+					}
+					if (badSuffixes.indexOf(suffix) !== -1) {
+						throw new Error(`Bad suffix: ${file.subdir + keyword}`);
 					}
 			}
 
@@ -122,9 +112,7 @@ async function build() {
 				throw new Error(`Cannot transform missing icon: "${name}"`);
 			}
 			if (search && name.indexOf(search) === -1) {
-				throw new Error(
-					`Cannot rename icon "${name}": expected to find "${search}"`
-				);
+				throw new Error(`Cannot rename icon "${name}": expected to find "${search}"`);
 			}
 
 			(item.aliases || [item]).forEach(({ replace, append, changes }) => {
@@ -137,9 +125,7 @@ async function build() {
 				const entry = iconSet.entries[newName];
 				if (entry) {
 					if (entry.type !== 'icon') {
-						throw new Error(
-							`Cannot rename icon "${name}" to "${newName}": variation already exists`
-						);
+						throw new Error(`Cannot rename icon "${name}" to "${newName}": variation already exists`);
 					}
 					return;
 				}
@@ -168,7 +154,7 @@ async function build() {
 	});
 	*/
 
-	const allowedSuffixes = ['twotone', 'filled', 'solid', 'loop', 'out'];
+	const allowedSuffixes = ['twotone', 'filled', 'loop', 'out'];
 	const findMatches = (match) => {
 		const checkEnd = match.slice(-1) !== '-';
 		const checkStart = match.slice(0, 1) !== '-';
@@ -212,9 +198,7 @@ async function build() {
 		item.icons?.forEach((name) => {
 			const matches = findMatches(name);
 			if (!matches.length) {
-				throw new Error(
-					`Cannot find matching icons for "${name}" to add to category "${category}"`
-				);
+				throw new Error(`Cannot find matching icons for "${name}" to add to category "${category}"`);
 			}
 			matches.forEach((name) => {
 				iconSet.toggleCategory(name, category, true);

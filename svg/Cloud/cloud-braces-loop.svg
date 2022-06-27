@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="cloud-braces-mask">
+		<g fill="white">
+			<circle cx="12" cy="10" r="6">
+				<animate attributeName="cx" values="12;13;12" dur="30s" repeatCount="indefinite" />
+			</circle>
+			<rect x="8" y="13" width="9" height="7" />
+			<rect x="1" y="8" width="15" height="12" rx="6">
+				<animate attributeName="x" values="1;0;1;2;1" dur="15s" repeatCount="indefinite" />
+			</rect>
+			<rect x="10" y="10" width="13" height="10" rx="5">
+				<animate attributeName="x" values="10;11;10;9;10" dur="15s" repeatCount="indefinite" />
+			</rect>
+		</g>
+		<g fill="black">
+			<path d="M18.5 12H18a1 1 0 0 1-1-1v-1a2 2 0 0 0-2-2h-1.5v2H15v1a2 2 0 0 0 2 2 2 2 0 0 0-2 2v1h-1.5v2H15a2 2 0 0 0 2-2v-1a1 1 0 0 1 1-1h.5v-2Z">
+				<animateMotion path="M0 0h-1h2z" keyPoints="0;0.25;0.5;0.75;1" keyTimes="0;0.1;0.5;0.8;1" calcMode="linear" dur="6s" repeatCount="indefinite" />
+			</path>
+			<path d="M5.5 12v2H6a1 1 0 0 1 1 1v1a2 2 0 0 0 2 2h1.5v-2H9v-1a2 2 0 0 0-2-2 2 2 0 0 0 2-2v-1h1.5V8H9a2 2 0 0 0-2 2v1a1 1 0 0 1-1 1h-.5Z">
+				<animateMotion path="M0 0h1h-2z" keyPoints="0;0.25;0.5;0.75;1" keyTimes="0;0.1;0.5;0.8;1" calcMode="linear" dur="6s" repeatCount="indefinite" />
+			</path>
+		</g>
+	</mask>
+	<rect mask="url(#cloud-braces-mask)" width="24" height="24" fill="currentColor" />
+</svg>

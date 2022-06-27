@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="weather-cloudy-mask">
+		<g fill="white">
+			<circle cx="12" cy="11" r="6">
+				<animate attributeName="cx" values="12;11;12;13;12" dur="30s" repeatCount="indefinite" />
+			</circle>
+			<rect x="8" y="12" width="10" height="7" />
+			<rect x="1" y="9" width="16" height="10" rx="5">
+				<animate attributeName="x" values="1;0;1;2;1" dur="19s" repeatCount="indefinite" />
+			</rect>
+			<rect x="6" y="11" width="17" height="8" rx="4">
+				<animate attributeName="x" values="6;5;6;7;6" dur="23s" repeatCount="indefinite" />
+			</rect>
+		</g>
+		<g fill="black">
+			<circle cx="12" cy="11" r="4">
+				<animate attributeName="cx" values="12;11;12;13;12" dur="30s" repeatCount="indefinite" />
+			</circle>
+			<rect x="8" y="11" width="8" height="6">
+				<animate attributeName="x" values="8;7;8;9;8" dur="30s" repeatCount="indefinite" />
+			</rect>
+			<rect x="3" y="11" width="12" height="6" rx="3">
+				<animate attributeName="x" values="3;2;3;4;3" dur="19s" repeatCount="indefinite" />
+			</rect>
+			<rect x="8" y="13" width="13" height="4" rx="2">
+				<animate attributeName="x" values="8;7;8;9;8" dur="23s" repeatCount="indefinite" />
+			</rect>
+		</g>
+	</mask>
+	<rect mask="url(#weather-cloudy-mask)" width="24" height="24" fill="currentColor" />
+</svg>
