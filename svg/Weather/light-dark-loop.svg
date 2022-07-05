@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="moon-mask">
+			<circle cx="7.5" cy="7.5" r="5.5" fill="#fff" />
+			<circle cx="7.5" cy="7.5" r="5.5" fill="#000">
+				<animate attributeName="cx" values="7.5;11" dur="0.4s" fill="freeze" />
+				<animate attributeName="r" values="5.5;6.5" dur="0.4s" fill="freeze" />
+			</circle>
+		</mask>
+		<symbol id="sun-triangle">
+			<path d="M0 0">
+				<animate attributeName="d" values="M11 18h2L12 20z;M10.5 21.5h3L12 24z" begin="1.5s" dur="0.4s" fill="freeze" />
+			</path>
+		</symbol>
+		<mask id="sun-mask">
+			<g fill="#fff">
+				<circle cx="12" cy="9" r="5.5">
+					<animate attributeName="cy" values="9;15" begin="1s" dur="0.5s" fill="freeze" />
+				</circle>
+				<g>
+					<g fill-opacity="0">
+						<use href="#sun-triangle" transform="rotate(-125 12 15)" />
+						<use href="#sun-triangle" transform="rotate(-75 12 15)" />
+						<use href="#sun-triangle" transform="rotate(-25 12 15)" />
+						<use href="#sun-triangle" transform="rotate(25 12 15)" />
+						<use href="#sun-triangle" transform="rotate(75 12 15)" />
+						<set attributeName="fill-opacity" to="1" begin="1.5s" />
+					</g>
+					<animateTransform attributeName="transform" type="rotate" values="0 12 15;50 12 15" dur="5s" repeatCount="indefinite" />
+				</g>
+			</g>
+			<path d="M0 10h26v5h-26z" fill="black" />
+			<path d="M1 12h22" fill="none" stroke-width="2" stroke-linecap="round" stroke="white" stroke-dasharray="26" stroke-dashoffset="26">
+				<animate attributeName="d" values="M0 12h22;M2 12h22;M0 12h22" dur="6s" repeatCount="indefinite" />
+				<animate attributeName="stroke-dashoffset" values="26;52" begin="0.5s" dur="0.4s" fill="freeze" />
+			</path>
+		</mask>
+	</defs>
+	<g fill="currentColor">
+		<rect x="1" y="1" width="13" height="13" mask="url(#moon-mask)" />
+		<g transform="rotate(-45 12 12)">
+			<path d="M-2 11h28v13h-28z" mask="url(#sun-mask)" />
+		</g>
+	</g>
+</svg>
