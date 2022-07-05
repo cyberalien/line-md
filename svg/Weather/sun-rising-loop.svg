@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-		<circle cx="12" cy="32" r="6">
+		<circle cx="12" cy="32" r="5">
 			<animate attributeName="cy" values="32;12" dur="0.6s" fill="freeze" />
 		</circle>
 		<g stroke-dasharray="2" stroke-dashoffset="2">
