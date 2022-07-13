@@ -29,7 +29,7 @@ Most icons use "fade-in" animation. Animation shows icon appearing from nothing.
 Other icons:
 - Icons that end with `-loop` use infinite animtions.
 - Icons that end with `-out` disappear icon. It is the opposite of same icon without `-out` suffix.
-- Icons that end with `-transition` transition between two icons (not yet available, but planned).
+- Icons that end with `-transition` transition between two icons.
 
 ## Usage in HTML
 
