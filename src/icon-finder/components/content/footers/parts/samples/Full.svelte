@@ -76,11 +76,13 @@
 
 	// Get icon name, data, check data
 	interface IconData {
+		counter: number; // Counter to re-render on each change
 		name: string;
 		data: IconifyIcon;
 		rotated: boolean;
 		ratio: number;
 	}
+	let counter = 0;
 	let data: IconData;
 	$: {
 		// Get name
@@ -100,6 +102,7 @@
 		const ratio = iconData.width! / iconData.height!;
 
 		data = {
+			counter: counter++,
 			name,
 			data: iconData,
 			rotated,
@@ -185,10 +188,9 @@
 </script>
 
 <div
-	class="iif-foote
-	r-sample iif-footer-sample--block iif-footer-sample--loaded"
+	class="iif-footer-sample iif-footer-sample--block iif-footer-sample--loaded"
 	{style}>
-	{#each [data] as icon (icon.name)}
+	{#each [data] as icon (icon.counter)}
 		<IconComponent icon={icon.name} {...props} />
 	{/each}
 </div>

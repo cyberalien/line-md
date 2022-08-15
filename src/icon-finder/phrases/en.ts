@@ -159,8 +159,8 @@ export const phrases: UITranslation = {
 		},
 		docsDefault: 'Click here for more information about {title} component.',
 		docs: {
-			iconify:
-				'Click here for more information about Iconify SVG framework.',
+			iconify: 'Click here for more information about Iconify SVG framework.',
+			'iconify-icon': 'Click here for more information about IconifyIcon web component.',
 			css: 'Click here for more code examples.',
 		},
 		intro: {
@@ -185,12 +185,39 @@ export const phrases: UITranslation = {
 			'use-in-template': 'Use component in template:',
 			'use-generic': '',
 		},
-		iconify: {
-			intro1:
-				'Iconify SVG framework makes using icons as easy as icon fonts. To use "{name}" in HTML, add this code to the document:',
-			intro2:
-				'Iconify SVG framework will load icon data from Iconify API and replace that placeholder with SVG.',
-			head: 'Make sure you import Iconify SVG framework:',
+		componentDeprecation: 'If you are using server side rendering, consider switching to web component. Click "Web Component" tab above.',
+		html: {
+			iconify: {
+				intro1:
+					'Iconify SVG framework makes using icons as easy as icon fonts. To use "{name}" in HTML, add this code to the document:',
+				intro2:
+					'Iconify SVG framework will load icon data from Iconify API and replace that placeholder with SVG.',
+				head: 'Make sure you import Iconify SVG framework:',
+				outro: 'Use SVG framework if you want to support very old browsers. Otherwise consider using web component instead.'
+			},
+			'iconify-icon': {
+				intro1:
+				'IconifyIcon web component makes using icons as easy as icon fonts. To use "{name}" in HTML, add this code to the document:',
+				intro2:
+				'Web component will load icon data from Iconify API and render SVG.',
+				head: 'Make sure you import IconifyIcon web component:',
+				outro: 'Web component works with almost all modern UI frameworks. Click documentation link below.'
+			},
+		}
+	},
+	website: {
+		title: {
+			// Prefix and suffix for titles
+			prefix: '',
+			suffix: ' • Iconify',
+
+			// Titles for Icon Finder based on route
+			browse: 'Browse Icons',
+			collections: 'Icon Sets',
+			collection: '{prefix}',
+			search: 'Search for "{keyword}" icons',
+			custom: {},
+			icon: '{name} • {prefix}',
 		},
 	},
 };

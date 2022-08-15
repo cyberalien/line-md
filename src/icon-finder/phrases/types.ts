@@ -14,6 +14,13 @@ export interface UITranslationAddForm {
 	invalid?: string;
 }
 
+export interface UITranslationHTMLCodePhrases {
+	intro1: string;
+	intro2: string;
+	head: string;
+	outro?: string;
+}
+
 export interface UITranslation {
 	lang: string;
 	search: {
@@ -104,10 +111,19 @@ export interface UITranslation {
 		docs: Partial<Record<CodeSampleKey, string>>;
 		intro: Partial<Record<CodeSampleMode, string>>;
 		component: Record<keyof ComponentCodeOutput, string>;
-		iconify: {
-			intro1: string;
-			intro2: string;
-			head: string;
+		componentDeprecation: string;
+		html: Partial<Record<CodeSampleKey, UITranslationHTMLCodePhrases>>;
+	};
+	website: {
+		title: {
+			prefix: string;
+			suffix: string;
+			browse: string;
+			collections: string;
+			collection: string;
+			search: string;
+			custom: Record<string, string>;
+			icon: string;
 		};
 	};
 }

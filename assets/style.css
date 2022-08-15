@@ -2673,6 +2673,12 @@ a.iif-filter--selected:focus:not(:hover) {
 	display: none;
 }
 
+.iif-code-notice {
+	padding: 8px 12px;
+	border-radius: 5px;
+	background-color: #fff9c2;
+}
+
 .iif-collections-header {
 	display: flex;
 	width: 100%;

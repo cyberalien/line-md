@@ -3165,7 +3165,7 @@
     /**
      * Calculate icon size
      */
-    const calculateSize = functions$2.builderFunctions.calculateSize;
+    const calculateSize$1 = functions$2.builderFunctions.calculateSize;
     /**
      * Replace unique ids in content
      */
@@ -3697,7 +3697,7 @@
      * Create configuration object
      */
     function createConfig(customValues = {}) {
-        const config = objects.cloneObject(defaultConfig);
+        const config = (0, objects.cloneObject)(defaultConfig);
         if (customValues) {
             mergeConfig(config, customValues);
         }
@@ -3865,45 +3865,31 @@
 
     });
 
-    var icon$1 = createCommonjsModule(function (module, exports) {
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.fullIcon = exports.iconDefaults = exports.minifyProps = exports.matchName = void 0;
-    /**
-     * Expression to test part of icon name.
-     */
-    exports.matchName = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-    /**
-     * Properties that can be minified
-     *
-     * Values of all these properties are awalys numbers
-     */
-    exports.minifyProps = [
-        // All IconifyDimenisons properties
-        'width',
-        'height',
-        'top',
-        'left',
-    ];
-    /**
-     * Default values for all optional IconifyIcon properties
-     */
-    exports.iconDefaults = Object.freeze({
-        left: 0,
-        top: 0,
-        width: 16,
-        height: 16,
-        rotate: 0,
-        vFlip: false,
-        hFlip: false,
+    const matchName = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+    const iconDefaults = Object.freeze({
+      left: 0,
+      top: 0,
+      width: 16,
+      height: 16,
+      rotate: 0,
+      vFlip: false,
+      hFlip: false
     });
-    /**
-     * Add optional properties to icon
-     */
     function fullIcon(data) {
-        return { ...exports.iconDefaults, ...data };
+      return { ...iconDefaults, ...data };
     }
-    exports.fullIcon = fullIcon;
-    });
+
+    var fullIcon_1 = fullIcon;
+    var iconDefaults_1 = iconDefaults;
+    var matchName_1 = matchName;
+
+    var icon$1 = /*#__PURE__*/Object.defineProperty({
+    	fullIcon: fullIcon_1,
+    	iconDefaults: iconDefaults_1,
+    	matchName: matchName_1
+    }, '__esModule', {value: true});
+
+    var icon_index = icon$1;
 
     var providers = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -3969,7 +3955,7 @@
         const provider = raw.provider;
         if (typeof provider !== 'string' ||
             // Allow empty string
-            (provider !== '' && !provider.match(icon$1.matchName))) {
+            (provider !== '' && !provider.match(icon_index.matchName))) {
             return null;
         }
         // Clean up raw data
@@ -4278,7 +4264,7 @@
          */
         _getRedundancy(provider) {
             // Init redundancy
-            const providerData = providers.getProvider(provider);
+            const providerData = (0, providers.getProvider)(provider);
             if (!providerData) {
                 // Error
                 return null;
@@ -4461,7 +4447,7 @@
 
     });
 
-    var defaults = createCommonjsModule(function (module, exports) {
+    var defaults$1 = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.emptyRouteMinimum = exports.customRouteMinimum = exports.searchRouteMinimum = exports.collectionRouteMinimum = exports.collectionsRouteMinimum = exports.emptyRouteDefaults = exports.customRouteDefaults = exports.searchRouteDefaults = exports.collectionRouteDefaults = exports.collectionsRouteDefaults = void 0;
     /**
@@ -4518,34 +4504,34 @@
      * Get required and default values
      */
     function getValues(type) {
-        let defaults$1;
+        let defaults;
         let required;
         switch (type) {
             case 'collections':
-                defaults$1 = defaults.collectionsRouteDefaults;
-                required = defaults.collectionsRouteMinimum;
+                defaults = defaults$1.collectionsRouteDefaults;
+                required = defaults$1.collectionsRouteMinimum;
                 break;
             case 'collection':
-                defaults$1 = defaults.collectionRouteDefaults;
-                required = defaults.collectionRouteMinimum;
+                defaults = defaults$1.collectionRouteDefaults;
+                required = defaults$1.collectionRouteMinimum;
                 break;
             case 'search':
-                defaults$1 = defaults.searchRouteDefaults;
-                required = defaults.searchRouteMinimum;
+                defaults = defaults$1.searchRouteDefaults;
+                required = defaults$1.searchRouteMinimum;
                 break;
             case 'custom':
-                defaults$1 = defaults.customRouteDefaults;
-                required = defaults.customRouteMinimum;
+                defaults = defaults$1.customRouteDefaults;
+                required = defaults$1.customRouteMinimum;
                 break;
             case 'empty':
-                defaults$1 = defaults.emptyRouteDefaults;
-                required = defaults.emptyRouteMinimum;
+                defaults = defaults$1.emptyRouteDefaults;
+                required = defaults$1.emptyRouteMinimum;
                 break;
             default:
                 throw new Error(`Unknown route type: ${type}`);
         }
         return {
-            defaults: defaults$1,
+            defaults,
             required,
         };
     }
@@ -4575,12 +4561,12 @@
         const result = {
             type: route.type,
         };
-        const params = exports.routeParamsToObject(route.type, route.params);
+        const params = (0, exports.routeParamsToObject)(route.type, route.params);
         if (Object.keys(params).length > 0) {
             result.params = params;
         }
         if (route.parent) {
-            const parent = exports.routeToObject(route.parent);
+            const parent = (0, exports.routeToObject)(route.parent);
             if (parent) {
                 result.parent = parent;
             }
@@ -4664,7 +4650,7 @@
         // Get parameters
         let params;
         try {
-            params = exports.objectToRouteParams(type, typeof data.params === 'object'
+            params = (0, exports.objectToRouteParams)(type, typeof data.params === 'object'
                 ? data.params
                 : {});
         }
@@ -4674,7 +4660,7 @@
         // Get parent
         let parent = null;
         if (typeof data.parent === 'object' && data.parent !== null) {
-            parent = exports.objectToRoute(data.parent, null);
+            parent = (0, exports.objectToRoute)(data.parent, null);
             if (parent === null) {
                 // Error in child route
                 return defaultRoute;
@@ -4721,7 +4707,7 @@
          */
         _checkSync() {
             if (this._isSync === null) {
-                this._isSync = !!storage.getRegistry(this._instance).config.router
+                this._isSync = !!(0, storage.getRegistry)(this._instance).config.router
                     .syncRender;
             }
             return this._isSync;
@@ -4734,7 +4720,7 @@
                 return;
             }
             const levels = typeof value === 'number' && value > 0 ? value : 1;
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const router = registry.router;
             router.setParentView(levels);
         }
@@ -4745,11 +4731,11 @@
             if (typeof value !== 'string') {
                 return;
             }
-            const providerData = providers.getProvider(value);
+            const providerData = (0, providers.getProvider)(value);
             if (!providerData) {
                 return;
             }
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const router = registry.router;
             router.home(value);
         }
@@ -4807,7 +4793,7 @@
                 levels++;
             }
             // Apply action to collections
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const router = registry.router;
             router.createChildView({
                 type: 'search',
@@ -4821,7 +4807,7 @@
          * Load data from API
          */
         _loadAPI(provider, query, params, cacheKey = true) {
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const api = registry.api;
             // Send query
             api.query(provider, query, params, (data, error) => {
@@ -4879,7 +4865,7 @@
                 return;
             }
             this._alreadyLoaded = true;
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const events = registry.events;
             events.fire('view-loaded', this);
             // Trigger onLoad event for child view
@@ -4899,7 +4885,7 @@
                 this.updating = true;
                 const update = () => {
                     this.updating = false;
-                    const registry = storage.getRegistry(this._instance);
+                    const registry = (0, storage.getRegistry)(this._instance);
                     const events = registry.events;
                     events.fire('view-updated', this);
                 };
@@ -4987,6 +4973,7 @@
             prefix = expectedPrefix;
         }
         // Generate data
+        const samples = [];
         const result = {
             prefix: prefix,
             name: name,
@@ -5001,7 +4988,7 @@
                 spdx: getSourceNestedString('license', 'spdx', ''),
                 url: getSourceNestedString('license', 'url', ''),
             },
-            samples: [],
+            samples,
             category: typeof source.category === 'string' ? source.category : '',
             palette: typeof source.palette === 'boolean' ? source.palette : false,
         };
@@ -5015,8 +5002,8 @@
         // Add samples
         if (source.samples instanceof Array) {
             source.samples.forEach((item) => {
-                if (result.samples.length < 3 && typeof item === 'string') {
-                    result.samples.push(item);
+                if (samples.length < 3 && typeof item === 'string') {
+                    samples.push(item);
                 }
             });
         }
@@ -5141,7 +5128,7 @@
                 return;
             }
             // Convert item
-            const item = info.dataToCollectionInfo(row, prefix);
+            const item = (0, info.dataToCollectionInfo)(row, prefix);
             if (!item) {
                 return;
             }
@@ -5341,7 +5328,7 @@
      * Get all prefixes
      */
     function getCollectionsBlockPrefixes(block) {
-        return collections$2.collectionsPrefixes(block.collections);
+        return (0, collections$2.collectionsPrefixes)(block.collections);
     }
     exports.getCollectionsBlockPrefixes = getCollectionsBlockPrefixes;
     /**
@@ -5379,7 +5366,7 @@
         const result = {
             type: 'collections-list',
             showCategories: block.showCategories,
-            collections: collections$2.filterCollections(block.collections, callback, keepEmptyCategories),
+            collections: (0, collections$2.filterCollections)(block.collections, callback, keepEmptyCategories),
         };
         return result;
     }
@@ -5429,14 +5416,14 @@
             // Empty
             if (hasFilters) {
                 // Enable all filters
-                filters.enableFilters(filtersList, true);
+                (0, filters.enableFilters)(filtersList, true);
             }
             return block;
         }
         // Disable all filters, will re-enable them again during filter process
         const activeCategories = {};
         if (hasFilters) {
-            filters.enableFilters(filtersList, false);
+            (0, filters.enableFilters)(filtersList, false);
         }
         // Filter collections block
         return filterCollectionsBlock(block, (item, category) => {
@@ -5447,7 +5434,7 @@
                     continue;
                 }
                 // Test value
-                if (objects.match(item[key], keyword)) {
+                if ((0, objects.match)(item[key], keyword)) {
                     // Enable category in category filters
                     if (hasFilters) {
                         if (activeCategories[category] !== true) {
@@ -5734,7 +5721,7 @@
         };
         // Get info
         if (typeof source.info === 'object' && source.info !== null) {
-            const info$1 = info.dataToCollectionInfo(source.info, result.prefix);
+            const info$1 = (0, info.dataToCollectionInfo)(source.info, result.prefix);
             if (info$1 === null) {
                 // Invalid info block, so something is wrong
                 return null;
@@ -5996,7 +5983,7 @@
         if (typeof source.info !== 'object' || source.info === null) {
             return null;
         }
-        const info$1 = info.dataToCollectionInfo(source.info, result.prefix);
+        const info$1 = (0, info.dataToCollectionInfo)(source.info, result.prefix);
         if (info$1 === null) {
             // Invalid info block, so something is wrong
             return null;
@@ -6146,7 +6133,7 @@
                 item.info = data.info[item.prefix];
             }
             // Convert data
-            const convertedData = collection$1.rawDataToCollection(item);
+            const convertedData = (0, collection$1.rawDataToCollection)(item);
             if (!convertedData) {
                 return;
             }
@@ -6184,7 +6171,7 @@
         });
         // Parse collections lists
         Object.keys(rawInfo).forEach((provider) => {
-            result.providers[provider].collections = collections$2.dataToCollections(rawInfo[provider]);
+            result.providers[provider].collections = (0, collections$2.dataToCollections)(rawInfo[provider]);
         });
         return result;
     }
@@ -6290,7 +6277,7 @@
             this.provider = route.params.provider;
             this.parent = parent;
             // Check if custom icon set is used
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const customSets = registry.customIconSets;
             if (customSets.providers[this.provider] !== void 0) {
                 this._sources = {
@@ -6324,7 +6311,7 @@
             }
             this._loadAPI(this.provider, '/collections', {
                 hidden: true,
-            }, base$1.collectionsCacheKey());
+            }, (0, base$1.collectionsCacheKey)());
         }
         /**
          * Run action on view
@@ -6415,7 +6402,7 @@
                 }
             }
             // Create child view
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const router = registry.router;
             router.createChildView({
                 type: 'collection',
@@ -6451,10 +6438,10 @@
             // Set collections
             blocks.collections.collections = this._data;
             // Apply search filter and change disabled categories in categories filter
-            blocks.collections = collectionsList.applyCollectionsFilter(blocks.collections, blocks.filter, blocks.categories);
+            blocks.collections = (0, collectionsList.applyCollectionsFilter)(blocks.collections, blocks.filter, blocks.categories);
             // Apply category filter
             if (category !== null) {
-                blocks.collections = collectionsList.disableInactiveCategories(blocks.collections, category);
+                blocks.collections = (0, collectionsList.disableInactiveCategories)(blocks.collections, category);
             }
             return blocks;
         }
@@ -6484,10 +6471,10 @@
             }
             else if (!this._data) {
                 // Convert and merge data
-                this._data = customSets.mergeCollections(this.route.params.provider, this._sources.api
-                    ? collections$2.dataToCollections(data)
+                this._data = (0, customSets.mergeCollections)(this.route.params.provider, this._sources.api
+                    ? (0, collections$2.dataToCollections)(data)
                     : null, this._sources.custom
-                    ? storage.getRegistry(this._instance).customIconSets
+                    ? (0, storage.getRegistry)(this._instance).customIconSets
                     : null);
             }
             // Mark as loaded and mark blocks for re-render
@@ -6496,9 +6483,9 @@
             this.error = '';
             // Create blocks
             this._blocks = {
-                filter: collectionsFilter.defaultCollectionsFilterBlock(),
-                categories: filters.defaultFiltersBlock(),
-                collections: collectionsList.defaultCollectionsListBlock(),
+                filter: (0, collectionsFilter.defaultCollectionsFilterBlock)(),
+                categories: (0, filters.defaultFiltersBlock)(),
+                collections: (0, collectionsList.defaultCollectionsListBlock)(),
             };
             this._blocks.categories.filterType = 'categories';
             // Parse data
@@ -6508,11 +6495,11 @@
             else {
                 const collectionsBlock = this._blocks.collections;
                 // Add indexes to collections
-                collections$2.autoIndexCollections(this._data);
+                (0, collections$2.autoIndexCollections)(this._data);
                 // Set collections
                 collectionsBlock.collections = this._data;
                 // Get categories
-                const categories = collectionsList.getCollectionsBlockCategories(collectionsBlock, true);
+                const categories = (0, collectionsList.getCollectionsBlockCategories)(collectionsBlock, true);
                 if (categories.length === 0) {
                     this.error = 'empty';
                 }
@@ -6522,22 +6509,22 @@
                         collectionsBlock.showCategories = true;
                         const filters$1 = this._blocks.categories.filters;
                         categories.forEach((category) => {
-                            filters$1[category] = filters.defaultFilter(category);
+                            filters$1[category] = (0, filters.defaultFilter)(category);
                         });
-                        filters.autoIndexFilters(this._blocks.categories);
+                        (0, filters.autoIndexFilters)(this._blocks.categories);
                     }
                     else {
                         // Disable category filters
                         collectionsBlock.showCategories = false;
                     }
                     // Store collections in global data
-                    const registry = storage.getRegistry(this._instance);
+                    const registry = (0, storage.getRegistry)(this._instance);
                     const collections = registry.collections;
                     Object.keys(collectionsBlock.collections.hidden).forEach((prefix) => {
-                        collections$1.setCollectionInfo(collections, this.provider, prefix, collectionsBlock.collections.hidden[prefix]);
+                        (0, collections$1.setCollectionInfo)(collections, this.provider, prefix, collectionsBlock.collections.hidden[prefix]);
                     });
-                    collectionsList.iterateCollectionsBlock(collectionsBlock, (item, prefix) => {
-                        collections$1.setCollectionInfo(collections, this.provider, prefix, item);
+                    (0, collectionsList.iterateCollectionsBlock)(collectionsBlock, (item, prefix) => {
+                        (0, collections$1.setCollectionInfo)(collections, this.provider, prefix, item);
                     });
                 }
             }
@@ -6662,7 +6649,7 @@
         // Toggle filter visibility
         const isSearched = icons.length !== block.icons.length;
         filters$1.forEach((filter) => {
-            filters.enableFilters(filter, true);
+            (0, filters.enableFilters)(filter, true);
             if (!isSearched) {
                 return;
             }
@@ -6862,7 +6849,7 @@
             this.parent = parent;
             this.prefix = route.params.prefix;
             // Check if custom icon set is used
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const customSets = registry.customIconSets;
             if (customSets.providers[this.provider] !== void 0 &&
                 customSets.providers[this.provider].data[this.prefix] !== void 0) {
@@ -6903,7 +6890,7 @@
                     // reference icon, in case if reference icon is hidden.
                     params.hidden = 'true';
                 }
-                this._loadAPI(this.provider, '/collection', params, base$1.collectionCacheKey(this.prefix));
+                this._loadAPI(this.provider, '/collection', params, (0, base$1.collectionCacheKey)(this.prefix));
             }
             else {
                 this._parseAPIData(null);
@@ -7075,7 +7062,7 @@
                 blocks.themeSuffixes.active = this.route.params.themeSuffix;
             }
             // Apply search
-            iconsList.applyIconFilters(blocks.icons, blocks.filter, filterKeys
+            (0, iconsList.applyIconFilters)(blocks.icons, blocks.filter, filterKeys
                 .filter((key) => blocks[key] !== null)
                 .map((key) => blocks[key]));
             const iconsBlock = blocks.icons;
@@ -7093,12 +7080,12 @@
             else {
                 const iconIndex = this._getIconIndex(iconsList$1, referenceIcon);
                 page =
-                    iconIndex === false ? 0 : pagination.getPageForIndex(perPage, iconIndex);
+                    iconIndex === false ? 0 : (0, pagination.getPageForIndex)(perPage, iconIndex);
             }
             // Check pagination
             blocks.pagination.length = iconsBlock.icons.length;
             blocks.pagination.page = page;
-            const maximumPage = pagination.maxPage(blocks.pagination);
+            const maximumPage = (0, pagination.maxPage)(blocks.pagination);
             if (maximumPage < blocks.pagination.page) {
                 this.route.params.page = blocks.pagination.page = maximumPage;
             }
@@ -7135,7 +7122,7 @@
          */
         _parseAPIData(data) {
             if (!this._data && !this._isCustom) {
-                this._data = collection$1.dataToCollection(this.provider, data);
+                this._data = (0, collection$1.dataToCollection)(this.provider, data);
             }
             // Mark as loaded, mark blocks for re-render and reset error
             this.loading = false;
@@ -7144,9 +7131,9 @@
             // Create empty blocks
             this._blocks = {
                 // Info
-                info: collectionInfo.defaultCollectionInfoBlock(),
+                info: (0, collectionInfo.defaultCollectionInfoBlock)(),
                 // Search
-                filter: Object.assign(search$2.defaultSearchBlock(), {
+                filter: Object.assign((0, search$2.defaultSearchBlock)(), {
                     keyword: this.route.params.filter,
                     searchType: 'collection',
                     title: this.prefix,
@@ -7157,8 +7144,8 @@
                 themePrefixes: null,
                 themeSuffixes: null,
                 // Icons and pagination
-                icons: iconsList.defaultIconsListBlock(),
-                pagination: pagination.defaultPaginationBlock(),
+                icons: (0, iconsList.defaultIconsListBlock)(),
+                pagination: (0, pagination.defaultPaginationBlock)(),
             };
             const initialisedBlocks = this._blocks;
             // Check if data was valid
@@ -7175,17 +7162,17 @@
                 return;
             }
             // Get registry and modules
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const config = registry.config;
             const collections = registry.collections;
             // Set info
             initialisedBlocks.info.prefix = this.prefix;
             if (parsedData.info !== void 0) {
                 // Store info in collections storage
-                collections$1.setCollectionInfo(collections, this.provider, this.prefix, parsedData.info);
+                (0, collections$1.setCollectionInfo)(collections, this.provider, this.prefix, parsedData.info);
             }
             // Get info from collections storage because it might include index for color scheme
-            initialisedBlocks.info.info = collections$1.getCollectionInfo(collections, this.provider, this.prefix);
+            initialisedBlocks.info.info = (0, collections$1.getCollectionInfo)(collections, this.provider, this.prefix);
             if (initialisedBlocks.info.info !== null) {
                 initialisedBlocks.filter.title = initialisedBlocks.info.info.name;
             }
@@ -7201,7 +7188,7 @@
                 pagination$1.fullLength = pagination$1.length = parsedData.icons.length;
                 const page = this.route.params.page;
                 pagination$1.page =
-                    page === null ? 0 : Math.min(page, pagination.maxPage(pagination$1));
+                    page === null ? 0 : Math.min(page, (0, pagination.maxPage)(pagination$1));
                 // Copy full icons list for possible use in UI
                 this._blocks.icons.allIcons = parsedData.icons;
                 // Copy collections filter from parent view
@@ -7236,19 +7223,19 @@
                             : Object.keys(item);
                         if (list instanceof Array && list.length > 1) {
                             // Create empty filters block
-                            const filter = filters.defaultFiltersBlock();
+                            const filter = (0, filters.defaultFiltersBlock)();
                             filter.filterType = key;
                             initialisedBlocks[key] = filter;
                             // Copy all filters
                             list.forEach((tag, index) => {
-                                const item = filters.defaultFilter(tag);
+                                const item = (0, filters.defaultFilter)(tag);
                                 if (!isArray) {
                                     item.match = listKeys[index];
                                 }
                                 filter.filters[tag] = item;
                             });
                             // Apply index
-                            startIndex = filters.autoIndexFilters(filter, startIndex);
+                            startIndex = (0, filters.autoIndexFilters)(filter, startIndex);
                         }
                     }
                 });
@@ -7265,13 +7252,13 @@
             if (collectionsBlock === null) {
                 return null;
             }
-            const collections = collectionsList.collectionsPrefixesWithInfo(collectionsBlock);
+            const collections = (0, collectionsList.collectionsPrefixesWithInfo)(collectionsBlock);
             const match = collections.find((item) => item.prefix === this.prefix);
             if (match === void 0 || collections.length < 2) {
                 return null;
             }
             // Get limit
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const config = registry.config;
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             const limit = config.ui.showSiblingCollections;
@@ -7295,11 +7282,11 @@
                 }
             }
             // Create block
-            const block = filters.defaultFiltersBlock();
+            const block = (0, filters.defaultFiltersBlock)();
             block.filterType = 'collections';
             block.active = this.prefix;
             display.forEach((item) => {
-                const filter = filters.defaultFilter(item.name);
+                const filter = (0, filters.defaultFilter)(item.name);
                 filter.index = item.index;
                 block.filters[item.prefix] = filter;
             });
@@ -7310,87 +7297,69 @@
 
     });
 
-    var name = createCommonjsModule(function (module, exports) {
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.validateIcon = exports.stringToIcon = void 0;
-
-    /**
-     * Convert string to Icon object.
-     */
-    const stringToIcon = (value, validate, allowSimpleName, provider = '') => {
-        const colonSeparated = value.split(':');
-        // Check for provider with correct '@' at start
-        if (value.slice(0, 1) === '@') {
-            // First part is provider
-            if (colonSeparated.length < 2 || colonSeparated.length > 3) {
-                // "@provider:prefix:name" or "@provider:prefix-name"
-                return null;
-            }
-            provider = colonSeparated.shift().slice(1);
+    const stringToIcon = (value, validate, allowSimpleName, provider = "") => {
+      const colonSeparated = value.split(":");
+      if (value.slice(0, 1) === "@") {
+        if (colonSeparated.length < 2 || colonSeparated.length > 3) {
+          return null;
         }
-        // Check split by colon: "prefix:name", "provider:prefix:name"
-        if (colonSeparated.length > 3 || !colonSeparated.length) {
-            return null;
-        }
-        if (colonSeparated.length > 1) {
-            // "prefix:name"
-            const name = colonSeparated.pop();
-            const prefix = colonSeparated.pop();
-            const result = {
-                // Allow provider without '@': "provider:prefix:name"
-                provider: colonSeparated.length > 0 ? colonSeparated[0] : provider,
-                prefix,
-                name,
-            };
-            return validate && !exports.validateIcon(result) ? null : result;
-        }
-        // Attempt to split by dash: "prefix-name"
-        const name = colonSeparated[0];
-        const dashSeparated = name.split('-');
-        if (dashSeparated.length > 1) {
-            const result = {
-                provider: provider,
-                prefix: dashSeparated.shift(),
-                name: dashSeparated.join('-'),
-            };
-            return validate && !exports.validateIcon(result) ? null : result;
-        }
-        // If allowEmpty is set, allow empty provider and prefix, allowing names like "home"
-        if (allowSimpleName && provider === '') {
-            const result = {
-                provider: provider,
-                prefix: '',
-                name,
-            };
-            return validate && !exports.validateIcon(result, allowSimpleName)
-                ? null
-                : result;
-        }
+        provider = colonSeparated.shift().slice(1);
+      }
+      if (colonSeparated.length > 3 || !colonSeparated.length) {
         return null;
+      }
+      if (colonSeparated.length > 1) {
+        const name2 = colonSeparated.pop();
+        const prefix = colonSeparated.pop();
+        const result = {
+          provider: colonSeparated.length > 0 ? colonSeparated[0] : provider,
+          prefix,
+          name: name2
+        };
+        return validate && !validateIcon(result) ? null : result;
+      }
+      const name = colonSeparated[0];
+      const dashSeparated = name.split("-");
+      if (dashSeparated.length > 1) {
+        const result = {
+          provider,
+          prefix: dashSeparated.shift(),
+          name: dashSeparated.join("-")
+        };
+        return validate && !validateIcon(result) ? null : result;
+      }
+      if (allowSimpleName && provider === "") {
+        const result = {
+          provider,
+          prefix: "",
+          name
+        };
+        return validate && !validateIcon(result, allowSimpleName) ? null : result;
+      }
+      return null;
     };
-    exports.stringToIcon = stringToIcon;
-    /**
-     * Check if icon is valid.
-     *
-     * This function is not part of stringToIcon because validation is not needed for most code.
-     */
     const validateIcon = (icon, allowSimpleName) => {
-        if (!icon) {
-            return false;
-        }
-        return !!((icon.provider === '' || icon.provider.match(icon$1.matchName)) &&
-            ((allowSimpleName && icon.prefix === '') ||
-                icon.prefix.match(icon$1.matchName)) &&
-            icon.name.match(icon$1.matchName));
+      if (!icon) {
+        return false;
+      }
+      return !!((icon.provider === "" || icon.provider.match(icon_index.matchName)) && (allowSimpleName && icon.prefix === "" || icon.prefix.match(icon_index.matchName)) && icon.name.match(icon_index.matchName));
     };
-    exports.validateIcon = validateIcon;
-    });
+
+    var stringToIcon_1 = stringToIcon;
+    var validateIcon_1 = validateIcon;
+
+    var name = /*#__PURE__*/Object.defineProperty({
+    	stringToIcon: stringToIcon_1,
+    	validateIcon: validateIcon_1
+    }, '__esModule', {value: true});
+
+    var name_1 = name;
 
     var icon = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.iconToString = exports.compareIcons = exports.validateIcon = exports.stringToIcon = exports.match = void 0;
 
-    Object.defineProperty(exports, "validateIcon", { enumerable: true, get: function () { return name.validateIcon; } });
+    Object.defineProperty(exports, "validateIcon", { enumerable: true, get: function () { return name_1.validateIcon; } });
     /**
      * Expression to test part of icon name.
      */
@@ -7399,7 +7368,7 @@
      * Convert string to Icon object.
      */
     const stringToIcon = (value, validate = false, provider = '') => {
-        return name.stringToIcon(value, validate, false, provider);
+        return (0, name_1.stringToIcon)(value, validate, false, provider);
     };
     exports.stringToIcon = stringToIcon;
     /**
@@ -7468,7 +7437,7 @@
         const sourceCollections = source.collections;
         try {
             sourceIcons.forEach((item) => {
-                const icon$1 = icon.stringToIcon(item, true, provider);
+                const icon$1 = (0, icon.stringToIcon)(item, true, provider);
                 if (icon$1 === null) {
                     throw new Error('Invalid icon');
                 }
@@ -7479,7 +7448,7 @@
                     if (sourceCollections[prefix] === void 0) {
                         throw new Error(`Missing data for prefix ${prefix}`);
                     }
-                    const info$1 = info.dataToCollectionInfo(sourceCollections[prefix], prefix);
+                    const info$1 = (0, info.dataToCollectionInfo)(sourceCollections[prefix], prefix);
                     if (info$1 === null) {
                         throw new Error(`Invalid data for prefix ${prefix}`);
                     }
@@ -7528,7 +7497,7 @@
             this.parent = parent;
             this.keyword = route.params.search;
             // Get number of items per page
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const config = registry.config;
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             this.itemsPerPage = config.ui.itemsPerPage;
@@ -7559,7 +7528,7 @@
                 this._loadAPI(this.provider, '/search', {
                     query,
                     limit,
-                }, base$1.searchCacheKey(query, limit));
+                }, (0, base$1.searchCacheKey)(query, limit));
             }
             else {
                 this._parseAPIData(null);
@@ -7642,7 +7611,7 @@
                 this._blocks.collections === null) {
                 return;
             }
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const router = registry.router;
             if (value === null) {
                 // Change view to search results
@@ -7665,7 +7634,7 @@
          */
         _triggerFullResults(page) {
             // Create sibling view
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const router = registry.router;
             router.createChildView({
                 type: 'search',
@@ -7698,7 +7667,7 @@
             // Check pagination
             blocks.pagination.length = blocks.icons.icons.length;
             blocks.pagination.page = this.route.params.page;
-            const maximumPage = pagination.maxPage(blocks.pagination);
+            const maximumPage = (0, pagination.maxPage)(blocks.pagination);
             if (maximumPage < blocks.pagination.page) {
                 this.route.params.page = blocks.pagination.page = maximumPage;
             }
@@ -7718,7 +7687,7 @@
             }
             const blocks = this.render();
             return blocks !== null && blocks.collections !== null
-                ? objects.cloneObject(blocks.collections)
+                ? (0, objects.cloneObject)(blocks.collections)
                 : null;
         }
         /**
@@ -7736,7 +7705,7 @@
          */
         _parseAPIData(data) {
             if (!this._data) {
-                this._data = search$1.dataToSearchResults(this.provider, data);
+                this._data = (0, search$1.dataToSearchResults)(this.provider, data);
             }
             // Mark as loaded, mark blocks for re-render and reset error
             this.loading = false;
@@ -7747,8 +7716,8 @@
                 // Filters
                 collections: null,
                 // Icons and pagination
-                icons: iconsList.defaultIconsListBlock(),
-                pagination: pagination.defaultPaginationBlock(),
+                icons: (0, iconsList.defaultIconsListBlock)(),
+                pagination: (0, pagination.defaultPaginationBlock)(),
             };
             const initialisedBlocks = this._blocks;
             // Check if data was valid
@@ -7777,26 +7746,26 @@
                 const pagination$1 = initialisedBlocks.pagination;
                 pagination$1.perPage = this.itemsPerPage;
                 pagination$1.fullLength = pagination$1.length = parsedData.icons.length;
-                pagination$1.page = Math.min(this.route.params.page, pagination.maxPage(pagination$1));
+                pagination$1.page = Math.min(this.route.params.page, (0, pagination.maxPage)(pagination$1));
                 // Check if more results are available
                 pagination$1.more = this._showMoreButton();
                 // Get all collections
                 const prefixes = Object.keys(parsedData.collections);
                 // Store collections in global data
-                const registry = storage.getRegistry(this._instance);
+                const registry = (0, storage.getRegistry)(this._instance);
                 const collections = registry.collections;
                 prefixes.forEach((prefix) => {
-                    collections$1.setCollectionInfo(collections, this.provider, prefix, parsedData.collections[prefix]);
+                    (0, collections$1.setCollectionInfo)(collections, this.provider, prefix, parsedData.collections[prefix]);
                 });
                 // Collections filter
                 if (prefixes.length > 1) {
-                    const block = filters.defaultFiltersBlock();
+                    const block = (0, filters.defaultFiltersBlock)();
                     this._blocks.collections = block;
                     block.filterType = 'collections';
                     prefixes.forEach((prefix) => {
-                        block.filters[prefix] = filters.defaultFilter(parsedData.collections[prefix].name);
+                        block.filters[prefix] = (0, filters.defaultFilter)(parsedData.collections[prefix].name);
                     });
-                    filters.autoIndexFilters(block);
+                    (0, filters.autoIndexFilters)(block);
                 }
             }
             // Send event
@@ -7842,7 +7811,7 @@
             if (this._data !== null) {
                 return;
             }
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const events = registry.events;
             // Fire public event, exposed to external code
             events.fire('load-' + this.customType, this.setIcons.bind(this));
@@ -7917,16 +7886,16 @@
             blocks.icons.icons = this._data.slice(0);
             // Search icons
             blocks.filter.keyword = this.route.params.filter;
-            iconsList.applyIconFilters(blocks.icons, blocks.filter, [], true);
+            (0, iconsList.applyIconFilters)(blocks.icons, blocks.filter, [], true);
             // Get items per page
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const config = registry.config;
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             const itemsPerPage = config.ui.itemsPerPage;
             // Check pagination
             blocks.pagination.length = blocks.icons.icons.length;
             blocks.pagination.page = this.route.params.page;
-            const maximumPage = pagination.maxPage(blocks.pagination);
+            const maximumPage = (0, pagination.maxPage)(blocks.pagination);
             if (maximumPage < blocks.pagination.page) {
                 this.route.params.page = blocks.pagination.page = maximumPage;
             }
@@ -7964,10 +7933,10 @@
                 .map((item) => {
                 // Convert strings
                 if (typeof item === 'string') {
-                    item = icon.stringToIcon(item);
+                    item = (0, icon.stringToIcon)(item);
                 }
                 // Validate object
-                if (typeof item === 'object' && icon.validateIcon(item)) {
+                if (typeof item === 'object' && (0, icon.validateIcon)(item)) {
                     const icon = item;
                     return {
                         provider: icon.provider,
@@ -7988,14 +7957,14 @@
             // Create empty blocks
             this._blocks = {
                 // Search
-                filter: Object.assign(search$2.defaultSearchBlock(), {
+                filter: Object.assign((0, search$2.defaultSearchBlock)(), {
                     keyword: this.route.params.filter,
                     searchType: 'custom',
                     title: this.customType,
                 }),
                 // Icons and pagination
-                icons: iconsList.defaultIconsListBlock(),
-                pagination: pagination.defaultPaginationBlock(),
+                icons: (0, iconsList.defaultIconsListBlock)(),
+                pagination: (0, pagination.defaultPaginationBlock)(),
             };
             const initialisedBlocks = this._blocks;
             // Check if data was valid
@@ -8010,14 +7979,14 @@
             }
             else {
                 // Get registry and modules
-                const registry = storage.getRegistry(this._instance);
+                const registry = (0, storage.getRegistry)(this._instance);
                 const config = registry.config;
                 // Create pagination
                 const pagination$1 = initialisedBlocks.pagination;
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 pagination$1.perPage = config.ui.itemsPerPage;
                 pagination$1.fullLength = pagination$1.length = parsedData.length;
-                pagination$1.page = Math.min(this.route.params.page, pagination.maxPage(pagination$1));
+                pagination$1.page = Math.min(this.route.params.page, (0, pagination.maxPage)(pagination$1));
                 // Copy full icons list for possible use in UI
                 this._blocks.icons.allIcons = parsedData;
             }
@@ -8031,7 +8000,7 @@
             if (this.loading || this._blocks === null || this._data === null) {
                 return null;
             }
-            return objects.cloneObject(this._data);
+            return (0, objects.cloneObject)(this._data);
         }
     }
     exports.CustomView = CustomView;
@@ -8129,7 +8098,7 @@
             // Default API provider
             this.defaultProvider = '';
             this._instance = instance;
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             // Subscribe to view events, handle them in the same handler
             const events = registry.events;
             events.subscribe('view-loaded', (view) => {
@@ -8160,11 +8129,11 @@
          * Route could be null when reading it for the first time, so value null.
          */
         set partialRoute(route) {
-            this._setRoute(route ? convert.objectToRoute(route) : null);
+            this._setRoute(route ? (0, convert.objectToRoute)(route) : null);
         }
         get partialRoute() {
             return this._visibleView
-                ? convert.routeToObject(this._visibleView.route)
+                ? (0, convert.routeToObject)(this._visibleView.route)
                 : null;
         }
         set fullRoute(route) {
@@ -8177,7 +8146,7 @@
          * Navigate to home
          */
         home(provider = null) {
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const config = registry.config;
             // Generate route
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -8185,7 +8154,7 @@
             let route = null;
             if (defaultRouteString !== '') {
                 // Use configured route
-                route = convert.objectToRoute(JSON.parse(defaultRouteString));
+                route = (0, convert.objectToRoute)(JSON.parse(defaultRouteString));
             }
             else {
                 // Detect route. Check custom icon sets first
@@ -8193,7 +8162,7 @@
                 const currentProvider = typeof provider === 'string' ? provider : this.defaultProvider;
                 if (customIconSets.providers[currentProvider] === void 0) {
                     // No custom icon sets, use collections
-                    route = convert.objectToRoute({
+                    route = (0, convert.objectToRoute)({
                         type: 'collections',
                     });
                 }
@@ -8206,7 +8175,7 @@
                         // Show collections if API provider is valid
                         showCollections = this._checkProvider(currentProvider, false);
                     }
-                    route = convert.objectToRoute(showCollections
+                    route = (0, convert.objectToRoute)(showCollections
                         ? {
                             type: 'collections',
                             params: {
@@ -8315,7 +8284,7 @@
          * Create child view
          */
         createChildView(route, parentLevels = 0) {
-            const cleanRoute = route === null ? null : convert.objectToRoute(route);
+            const cleanRoute = route === null ? null : (0, convert.objectToRoute)(route);
             if (cleanRoute === null) {
                 return;
             }
@@ -8444,7 +8413,7 @@
          * Something has changed in visible view
          */
         _triggerChange(viewChanged) {
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const events = registry.events;
             // Render blocks first, it might change error or route
             const blocks = this.render();
@@ -8462,7 +8431,7 @@
          */
         _startTimer() {
             this._stopTimer();
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const config = registry.config;
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             const timeout = config.ui.viewUpdateDelay;
@@ -8493,7 +8462,7 @@
          */
         _checkProvider(provider, checkCustom = true) {
             // Get provider
-            const result = providers.getProvider(provider);
+            const result = (0, providers.getProvider)(provider);
             if (result !== null) {
                 return true;
             }
@@ -8501,7 +8470,7 @@
             if (!checkCustom) {
                 return false;
             }
-            const registry = storage.getRegistry(this._instance);
+            const registry = (0, storage.getRegistry)(this._instance);
             const customIconSets = registry.customIconSets;
             return customIconSets.providers[provider] !== void 0;
         }
@@ -8533,11 +8502,11 @@
                     : 'iconify';
             this.namespace = namespace;
             // Get unique id based on namespace
-            this.id = storage.uniqueId(namespace);
+            this.id = (0, storage.uniqueId)(namespace);
             // Add namespace
-            this.initialised = storage.addRegistry(this);
+            this.initialised = (0, storage.addRegistry)(this);
             // Copy shared data
-            this._sharedData = storage.getSharedData(namespace);
+            this._sharedData = (0, storage.getSharedData)(namespace);
             // Params
             this.params = typeof params === 'object' ? params : {};
             // Add instance
@@ -8547,14 +8516,14 @@
          * Save instance in registry list
          */
         _save() {
-            storage.saveRegistry(this);
+            (0, storage.saveRegistry)(this);
         }
         /**
          * Get/set config
          */
         get config() {
             if (this._sharedData.config === void 0) {
-                this._sharedData.config = config.createConfig(this.params.config);
+                this._sharedData.config = (0, config.createConfig)(this.params.config);
             }
             return this._sharedData.config;
         }
@@ -8670,7 +8639,7 @@
          * Destroy instance
          */
         destroy() {
-            storage.destroyRegistry(this);
+            (0, storage.destroyRegistry)(this);
         }
     }
     exports.Registry = Registry;
@@ -8690,19 +8659,19 @@
         const type = block.type;
         switch (type) {
             case 'collection-info':
-                return collectionInfo.isCollectionInfoBlockEmpty(block);
+                return (0, collectionInfo.isCollectionInfoBlockEmpty)(block);
             case 'collections-filter':
-                return collectionsFilter.isCollectionsFilterBlockEmpty(block);
+                return (0, collectionsFilter.isCollectionsFilterBlockEmpty)(block);
             case 'collections-list':
-                return collectionsList.isCollectionsBlockEmpty(block);
+                return (0, collectionsList.isCollectionsBlockEmpty)(block);
             case 'filters':
-                return filters.isFiltersBlockEmpty(block);
+                return (0, filters.isFiltersBlockEmpty)(block);
             case 'icons-list':
-                return iconsList.isIconsListBlockEmpty(block);
+                return (0, iconsList.isIconsListBlockEmpty)(block);
             case 'pagination':
-                return pagination.isPaginationEmpty(block);
+                return (0, pagination.isPaginationEmpty)(block);
             case 'search':
-                return search$2.isSearchBlockEmpty(block);
+                return (0, search$2.isSearchBlockEmpty)(block);
             default:
                 return true;
         }
@@ -8771,7 +8740,7 @@
             registry$1.setCustom('core', this, true);
             // Set custom icon sets
             if (params.iconSets) {
-                registry$1.customIconSets = customSets.convertCustomSets(params.iconSets);
+                registry$1.customIconSets = (0, customSets.convertCustomSets)(params.iconSets);
                 // console.log('Custom sets:', registry.customIconSets);
             }
             // Get other required classes from Registry
@@ -8801,7 +8770,7 @@
          * Get collection information
          */
         getCollection(provider, prefix) {
-            return collections$1.getCollectionInfo(this.registry.collections, provider, prefix);
+            return (0, collections$1.getCollectionInfo)(this.registry.collections, provider, prefix);
         }
         /**
          * Event was fired by router
@@ -8830,7 +8799,7 @@
      * Find Icon Finder Core instance for id
      */
     function getCoreInstance(id) {
-        const registry = storage.getRegistry(id);
+        const registry = (0, storage.getRegistry)(id);
         return registry
             ? registry.getCustom('core', true)
             : void 0;
@@ -8839,84 +8808,70 @@
 
     });
 
-    var customisations$1 = createCommonjsModule(function (module, exports) {
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.mergeCustomisations = exports.defaults = void 0;
-    /**
-     * Default icon customisations values
-     */
-    exports.defaults = Object.freeze({
-        // Display mode
-        inline: false,
-        // Dimensions
-        width: null,
-        height: null,
-        // Alignment
-        hAlign: 'center',
-        vAlign: 'middle',
-        slice: false,
-        // Transformations
-        hFlip: false,
-        vFlip: false,
-        rotate: 0,
+    const defaults = Object.freeze({
+      inline: false,
+      width: null,
+      height: null,
+      hAlign: "center",
+      vAlign: "middle",
+      slice: false,
+      hFlip: false,
+      vFlip: false,
+      rotate: 0
     });
-    /**
-     * Convert IconifyIconCustomisations to FullIconCustomisations
-     */
-    function mergeCustomisations(defaults, item) {
-        const result = {};
-        for (const key in defaults) {
-            const attr = key;
-            // Copy old value
-            result[attr] = defaults[attr];
-            if (item[attr] === void 0) {
-                continue;
-            }
-            // Validate new value
-            const value = item[attr];
-            switch (attr) {
-                // Boolean attributes that override old value
-                case 'inline':
-                case 'slice':
-                    if (typeof value === 'boolean') {
-                        result[attr] = value;
-                    }
-                    break;
-                // Boolean attributes that are merged
-                case 'hFlip':
-                case 'vFlip':
-                    if (value === true) {
-                        result[attr] = !result[attr];
-                    }
-                    break;
-                // Non-empty string
-                case 'hAlign':
-                case 'vAlign':
-                    if (typeof value === 'string' && value !== '') {
-                        result[attr] = value;
-                    }
-                    break;
-                // Non-empty string / non-zero number / null
-                case 'width':
-                case 'height':
-                    if ((typeof value === 'string' && value !== '') ||
-                        (typeof value === 'number' && value) ||
-                        value === null) {
-                        result[attr] = value;
-                    }
-                    break;
-                // Rotation
-                case 'rotate':
-                    if (typeof value === 'number') {
-                        result[attr] += value;
-                    }
-                    break;
-            }
+    function mergeCustomisations(defaults2, item) {
+      const result = {};
+      for (const key in defaults2) {
+        const attr = key;
+        result[attr] = defaults2[attr];
+        if (item[attr] === void 0) {
+          continue;
         }
-        return result;
+        const value = item[attr];
+        switch (attr) {
+          case "inline":
+          case "slice":
+            if (typeof value === "boolean") {
+              result[attr] = value;
+            }
+            break;
+          case "hFlip":
+          case "vFlip":
+            if (value === true) {
+              result[attr] = !result[attr];
+            }
+            break;
+          case "hAlign":
+          case "vAlign":
+            if (typeof value === "string" && value !== "") {
+              result[attr] = value;
+            }
+            break;
+          case "width":
+          case "height":
+            if (typeof value === "string" && value !== "" || typeof value === "number" && value || value === null) {
+              result[attr] = value;
+            }
+            break;
+          case "rotate":
+            if (typeof value === "number") {
+              result[attr] += value;
+            }
+            break;
+        }
+      }
+      return result;
     }
-    exports.mergeCustomisations = mergeCustomisations;
-    });
+
+    var defaults_1 = defaults;
+    var mergeCustomisations_1 = mergeCustomisations;
+
+    var customisations$1 = /*#__PURE__*/Object.defineProperty({
+    	defaults: defaults_1,
+    	mergeCustomisations: mergeCustomisations_1
+    }, '__esModule', {value: true});
+
+    var customisations_1 = customisations$1;
 
     var customisations = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -8932,7 +8887,7 @@
      * Empty values
      */
     exports.emptyCustomisations = {
-        ...customisations$1.defaults,
+        ...customisations_1.defaults,
         ...emptyCustomValues,
     };
     /**
@@ -8946,7 +8901,7 @@
      */
     function mergeCustomisations(defaults, values) {
         // Merge default properties
-        const result = customisations$1.mergeCustomisations(defaults, values);
+        const result = (0, customisations_1.mergeCustomisations)(defaults, values);
         // Merge custom properties
         for (const key in emptyCustomValues) {
             const attr = key;
@@ -9986,6 +9941,7 @@
             docsDefault: 'Click here for more information about {title} component.',
             docs: {
                 iconify: 'Click here for more information about Iconify SVG framework.',
+                'iconify-icon': 'Click here for more information about IconifyIcon web component.',
                 css: 'Click here for more code examples.',
             },
             intro: {
@@ -10006,10 +9962,34 @@
                 'use-in-template': 'Use component in template:',
                 'use-generic': '',
             },
-            iconify: {
-                intro1: 'Iconify SVG framework makes using icons as easy as icon fonts. To use "{name}" in HTML, add this code to the document:',
-                intro2: 'Iconify SVG framework will load icon data from Iconify API and replace that placeholder with SVG.',
-                head: 'Make sure you import Iconify SVG framework:',
+            componentDeprecation: 'If you are using server side rendering, consider switching to web component. Click "Web Component" tab above.',
+            html: {
+                iconify: {
+                    intro1: 'Iconify SVG framework makes using icons as easy as icon fonts. To use "{name}" in HTML, add this code to the document:',
+                    intro2: 'Iconify SVG framework will load icon data from Iconify API and replace that placeholder with SVG.',
+                    head: 'Make sure you import Iconify SVG framework:',
+                    outro: 'Use SVG framework if you want to support very old browsers. Otherwise consider using web component instead.'
+                },
+                'iconify-icon': {
+                    intro1: 'IconifyIcon web component makes using icons as easy as icon fonts. To use "{name}" in HTML, add this code to the document:',
+                    intro2: 'Web component will load icon data from Iconify API and render SVG.',
+                    head: 'Make sure you import IconifyIcon web component:',
+                    outro: 'Web component works with almost all modern UI frameworks. Click documentation link below.'
+                },
+            }
+        },
+        website: {
+            title: {
+                // Prefix and suffix for titles
+                prefix: '',
+                suffix: ' • Iconify',
+                // Titles for Icon Finder based on route
+                browse: 'Browse Icons',
+                collections: 'Icon Sets',
+                collection: '{prefix}',
+                search: 'Search for "{keyword}" icons',
+                custom: {},
+                icon: '{name} • {prefix}',
             },
         },
     };
@@ -21657,7 +21637,7 @@
     							$$invalidate(
     								2,
     								placeholders[placeholderKey] = (scale
-    								? calculateSize(size, key === 'width' ? data.ratio : 1 / data.ratio)
+    								? calculateSize$1(size, key === 'width' ? data.ratio : 1 / data.ratio)
     								: size) + '',
     								placeholders
     							);
@@ -22992,10 +22972,10 @@
             };
         }
         if (!height) {
-            height = calculateSize(width, rotated ? ratio : 1 / ratio);
+            height = calculateSize$1(width, rotated ? ratio : 1 / ratio);
         }
         else {
-            width = calculateSize(height, rotated ? 1 / ratio : ratio);
+            width = calculateSize$1(height, rotated ? 1 / ratio : ratio);
         }
         return {
             width,
@@ -23011,7 +22991,7 @@
     	return child_ctx;
     }
 
-    // (126:1) {#each [data] as icon (icon.name)}
+    // (127:1) {#each [data] as icon (icon.counter)}
     function create_each_block$4(key_1, ctx) {
     	let first;
     	let iconcomponent;
@@ -23072,7 +23052,7 @@
     	let each_1_lookup = new Map();
     	let current;
     	let each_value = [/*data*/ ctx[1]];
-    	const get_key = ctx => /*icon*/ ctx[0].name;
+    	const get_key = ctx => /*icon*/ ctx[0].counter;
 
     	for (let i = 0; i < 1; i += 1) {
     		let child_ctx = get_each_context$4(ctx, each_value, i);
@@ -23088,7 +23068,7 @@
     				each_blocks[i].c();
     			}
 
-    			attr(div, "class", "iif-foote\n\tr-sample iif-footer-sample--block iif-footer-sample--loaded");
+    			attr(div, "class", "iif-footer-sample iif-footer-sample--block iif-footer-sample--loaded");
     			attr(div, "style", /*style*/ ctx[2]);
     		},
     		m(target, anchor) {
@@ -23188,6 +23168,7 @@
     		}
     	}
 
+    	let counter = 0;
     	let data;
 
     	// Calculate style
@@ -23202,7 +23183,7 @@
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*icon, customisations*/ 17) {
+    		if ($$self.$$.dirty & /*icon, customisations, counter*/ 49) {
     			{
     				// Get name
     				const name = lib.iconToString(icon);
@@ -23216,7 +23197,13 @@
     				// Width / height ratio
     				const ratio = iconData.width / iconData.height;
 
-    				$$invalidate(1, data = { name, data: iconData, rotated, ratio });
+    				$$invalidate(1, data = {
+    					counter: $$invalidate(5, counter++, counter),
+    					name,
+    					data: iconData,
+    					rotated,
+    					ratio
+    				});
     			}
     		}
 
@@ -23277,7 +23264,7 @@
     		}
     	};
 
-    	return [icon, data, style, props, customisations];
+    	return [icon, data, style, props, customisations, counter];
     }
 
     class Full$1 extends SvelteComponent {
@@ -23291,16 +23278,16 @@
 
     function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[7] = list[i];
+    	child_ctx[8] = list[i];
     	return child_ctx;
     }
 
-    // (62:3) {#each [props] as iconProps (iconProps.icon)}
+    // (64:3) {#each [props] as iconProps (iconProps.counter)}
     function create_each_block$3(key_1, ctx) {
     	let first;
     	let iconcomponent;
     	let current;
-    	const iconcomponent_spread_levels = [/*iconProps*/ ctx[7]];
+    	const iconcomponent_spread_levels = [/*iconProps*/ ctx[8]];
     	let iconcomponent_props = {};
 
     	for (let i = 0; i < iconcomponent_spread_levels.length; i += 1) {
@@ -23326,7 +23313,7 @@
     			ctx = new_ctx;
 
     			const iconcomponent_changes = (dirty & /*props*/ 1)
-    			? get_spread_update(iconcomponent_spread_levels, [get_spread_object(/*iconProps*/ ctx[7])])
+    			? get_spread_update(iconcomponent_spread_levels, [get_spread_object(/*iconProps*/ ctx[8])])
     			: {};
 
     			iconcomponent.$set(iconcomponent_changes);
@@ -23361,7 +23348,7 @@
     	let t3;
     	let current;
     	let each_value = [/*props*/ ctx[0]];
-    	const get_key = ctx => /*iconProps*/ ctx[7].icon;
+    	const get_key = ctx => /*iconProps*/ ctx[8].counter;
 
     	for (let i = 0; i < 1; i += 1) {
     		let child_ctx = get_each_context$3(ctx, each_value, i);
@@ -23455,6 +23442,7 @@
     	// Get HTML
     	let props;
 
+    	let counter = 0;
     	let style;
 
     	$$self.$$set = $$props => {
@@ -23463,9 +23451,13 @@
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*icon, customisations, props*/ 25) {
+    		if ($$self.$$.dirty & /*counter, icon, customisations, props*/ 57) {
     			{
-    				$$invalidate(0, props = { icon: lib.iconToString(icon) });
+    				$$invalidate(0, props = {
+    					counter: $$invalidate(5, counter++, counter),
+    					icon: lib.iconToString(icon)
+    				});
+
     				$$invalidate(1, style = '');
 
     				// Customisations
@@ -23504,7 +23496,7 @@
     		}
     	};
 
-    	return [props, style, samplePhrases, icon, customisations];
+    	return [props, style, samplePhrases, icon, customisations, counter];
     }
 
     class Inline extends SvelteComponent {
@@ -24260,6 +24252,7 @@
      */
     exports.codeSampleTitles = {
         'iconify': 'SVG Framework',
+        'iconify-icon': 'Web Component',
         'html': 'HTML',
         'css': 'CSS',
         'svg': 'SVG',
@@ -24295,7 +24288,7 @@
             }
         }
         // Return capitalised value
-        return capitalize_1.capitalize(key);
+        return (0, capitalize_1.capitalize)(key);
     }
     exports.capitalizeCodeSampleTitle = capitalizeCodeSampleTitle;
     /**
@@ -24318,6 +24311,7 @@
 
     const rawCodeTabs = {
         html: {
+            'iconify-icon': 'api',
             iconify: 'api',
             css: 'svg',
         },
@@ -24380,7 +24374,7 @@
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 return phrases.codeSampleTitles[mode];
             }
-            return phrases.capitalizeCodeSampleTitle(mode);
+            return (0, phrases.capitalizeCodeSampleTitle)(mode);
         }
         for (const key in rawCodeTabs) {
             // Using weird type casting because TypeScript can't property resolve it
@@ -24482,7 +24476,7 @@
 
     var common = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.mergeAttributes = exports.mergeAttr = exports.addEmberAttr = exports.addVueAttr = exports.addReactAttr = exports.addDynamicAttr = exports.addAttr = exports.npmIconImport = exports.getCustomisationsList = exports.docsBase = exports.getCustomisationAttributes = exports.toString = exports.degrees = exports.isNumber = exports.iconToVarName = void 0;
+    exports.mergeAttributes = exports.mergeAttr = exports.addEmberAttr = exports.addVueAttr = exports.addReactAttr = exports.addDynamicAttr = exports.addAttr = exports.npmIconImport = exports.getCustomisationsList = exports.docsBase = exports.docsWebsite = exports.getCustomisationAttributes = exports.toString = exports.degrees = exports.isNumber = exports.iconToVarName = void 0;
 
     /**
      * Convert icon name to variable
@@ -24545,9 +24539,6 @@
         'rotate',
         'hFlip',
         'vFlip',
-        'hAlign',
-        'vAlign',
-        'slice',
     ];
     function getCustomisationAttributes(color, inline) {
         const results = baseCustomisationAttributes.slice(0);
@@ -24563,7 +24554,8 @@
     /**
      * Documentation
      */
-    exports.docsBase = 'https://docs.iconify.design/icon-components/';
+    exports.docsWebsite = 'https://docs.iconify.design/';
+    exports.docsBase = exports.docsWebsite + 'icon-components/';
     function getCustomisationsList(customisations$1) {
         const results = new Set();
         // Add color
@@ -24582,7 +24574,7 @@
             results.add(hasWidth || height === 'auto' ? 'height' : 'onlyHeight');
         }
         // Transformations and alignment
-        ['rotate', 'hFlip', 'vFlip', 'hAlign', 'vAlign', 'slice'].forEach((prop) => {
+        ['rotate', 'hFlip', 'vFlip'].forEach((prop) => {
             const key = prop;
             const value = customisations$1[key];
             if (value !== void 0 && value !== customisations.emptyCustomisations[key]) {
@@ -24724,6 +24716,7 @@
     var css = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.cssParser = void 0;
+
     // Documentation links
     const docs = {
         type: 'css',
@@ -24738,40 +24731,32 @@
         }
         // Parse all customisations
         const list = {};
-        common.getCustomisationsList(customisations).forEach((attr) => {
+        (0, common.getCustomisationsList)(customisations).forEach((attr) => {
             switch (attr) {
                 // Ignore
                 case 'inline':
                     break;
                 // Color
                 case 'color':
-                    common.addAttr(list, 'color', customisations[attr]);
+                    (0, common.addAttr)(list, 'color', customisations[attr]);
                     break;
                 // Dimensions
                 case 'width':
                 case 'height':
-                    common.addAttr(list, attr, common.toString(customisations[attr]));
+                    (0, common.addAttr)(list, attr, (0, common.toString)(customisations[attr]));
                     break;
                 case 'onlyHeight':
-                    common.addAttr(list, 'height', common.toString(customisations.height));
+                    (0, common.addAttr)(list, 'height', (0, common.toString)(customisations.height));
                     break;
                 // Transformations
                 case 'rotate':
-                    common.addAttr(list, attr, common.degrees(customisations[attr]));
+                    (0, common.addAttr)(list, attr, (0, common.degrees)(customisations[attr]));
                     break;
                 case 'hFlip':
-                    common.mergeAttr(list, 'flip', 'horizontal', ',');
+                    (0, common.mergeAttr)(list, 'flip', 'horizontal', ',');
                     break;
                 case 'vFlip':
-                    common.mergeAttr(list, 'flip', 'vertical', ',');
-                    break;
-                // Alignment
-                case 'hAlign':
-                case 'vAlign':
-                    common.mergeAttr(list, 'align', customisations[attr], ',');
-                    break;
-                case 'slice':
-                    common.mergeAttr(list, 'align', attr, ',');
+                    (0, common.mergeAttr)(list, 'flip', 'vertical', ',');
                     break;
             }
         });
@@ -24780,7 +24765,7 @@
             .map((key) => {
             const item = list[key];
             if (typeof item === 'object') {
-                return item.key + '=' + encodeURIComponent(item.value);
+                return item.key + '=' + encodeURIComponent(item.value || '');
             }
             return key + '=' + encodeURIComponent(item);
         })
@@ -24805,8 +24790,9 @@
 
     var versions = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.getComponentInstall = exports.componentPackages = exports.iconifyVersion = void 0;
+    exports.getComponentInstall = exports.componentPackages = exports.iconifyIconVersion = exports.iconifyVersion = void 0;
     exports.iconifyVersion = '2.2.1';
+    exports.iconifyIconVersion = '1.0.0-beta.3';
     exports.componentPackages = {
         react: {
             name: '@iconify/react',
@@ -24854,7 +24840,7 @@
         href: common.docsBase + 'ember/',
     };
     // Code cache
-    const installCode = versions.getComponentInstall('ember', true);
+    const installCode = (0, versions.getComponentInstall)('ember', true);
     /**
      * Code output for API component
      */
@@ -24865,21 +24851,21 @@
         // List of attributes
         const list = {};
         // Add icon name
-        common.addEmberAttr(list, 'icon', icon.iconToString(icon$1));
+        (0, common.addEmberAttr)(list, 'icon', (0, icon.iconToString)(icon$1));
         // Params
-        common.getCustomisationsList(customisations).forEach((attr) => {
+        (0, common.getCustomisationsList)(customisations).forEach((attr) => {
             switch (attr) {
                 case 'onlyHeight': {
                     const value = customisations.height;
-                    common.addEmberAttr(list, 'height', value);
+                    (0, common.addEmberAttr)(list, 'height', value);
                     break;
                 }
                 default:
-                    common.addEmberAttr(list, attr, customisations[attr]);
+                    (0, common.addEmberAttr)(list, attr, customisations[attr]);
             }
         });
         // Generate code
-        const code = '<IconifyIcon ' + common.mergeAttributes(list) + ' />';
+        const code = '<IconifyIcon ' + (0, common.mergeAttributes)(list) + ' />';
         const result = {
             component: {
                 'install-addon': installCode,
@@ -24906,25 +24892,25 @@
         href: common.docsBase + 'react/',
     };
     // Code cache
-    const installCode = versions.getComponentInstall('react', true);
+    const installCode = (0, versions.getComponentInstall)('react', true);
     const importCode = "import { Icon } from '" + versions.componentPackages.react.name + "';";
     /**
      * Add properties and generate code
      */
     function generateCode(list, customisations) {
         // Parse all customisations
-        common.getCustomisationsList(customisations).forEach((attr) => {
+        (0, common.getCustomisationsList)(customisations).forEach((attr) => {
             switch (attr) {
                 case 'onlyHeight': {
                     const value = customisations.height;
-                    common.addReactAttr(list, 'height', value);
+                    (0, common.addReactAttr)(list, 'height', value);
                     break;
                 }
                 default:
-                    common.addReactAttr(list, attr, customisations[attr]);
+                    (0, common.addReactAttr)(list, attr, customisations[attr]);
             }
         });
-        return '<Icon ' + common.mergeAttributes(list) + ' />';
+        return '<Icon ' + (0, common.mergeAttributes)(list) + ' />';
     }
     /**
      * Code output for API component
@@ -24936,7 +24922,7 @@
         // List of attributes
         const list = {};
         // Add icon name
-        common.addAttr(list, 'icon', icon.iconToString(icon$1));
+        (0, common.addAttr)(list, 'icon', (0, icon.iconToString)(icon$1));
         // Generate code
         const code = generateCode(list, customisations);
         const result = {
@@ -24959,16 +24945,16 @@
             return null;
         }
         // Variable name
-        const varName = common.iconToVarName(icon.name);
+        const varName = (0, common.iconToVarName)(icon.name);
         // Import statement
-        const npmImport = common.npmIconImport(icon, varName, providerConfig, false);
+        const npmImport = (0, common.npmIconImport)(icon, varName, providerConfig, false);
         if (!npmImport) {
             return null;
         }
         // List of attributes
         const list = {};
         // Add icon name
-        common.addReactAttr(list, 'icon', varName);
+        (0, common.addReactAttr)(list, 'icon', varName);
         // Generate code
         const code = generateCode(list, customisations);
         const result = {
@@ -24998,25 +24984,25 @@
         href: common.docsBase + 'svelte/',
     };
     // Code cache
-    const installCode = versions.getComponentInstall('svelte', true);
+    const installCode = (0, versions.getComponentInstall)('svelte', true);
     const importCode = "import Icon from '" + versions.componentPackages.svelte.name + "';";
     /**
      * Add properties and generate code
      */
     function generateCode(list, customisations) {
         // Parse all customisations
-        common.getCustomisationsList(customisations).forEach((attr) => {
+        (0, common.getCustomisationsList)(customisations).forEach((attr) => {
             switch (attr) {
                 case 'onlyHeight': {
                     const value = customisations.height;
-                    common.addReactAttr(list, 'height', value);
+                    (0, common.addReactAttr)(list, 'height', value);
                     break;
                 }
                 default:
-                    common.addReactAttr(list, attr, customisations[attr]);
+                    (0, common.addReactAttr)(list, attr, customisations[attr]);
             }
         });
-        return '<Icon ' + common.mergeAttributes(list) + ' />';
+        return '<Icon ' + (0, common.mergeAttributes)(list) + ' />';
     }
     /**
      * Code output for API component
@@ -25028,7 +25014,7 @@
         // List of attributes
         const list = {};
         // Add icon name
-        common.addAttr(list, 'icon', icon.iconToString(icon$1));
+        (0, common.addAttr)(list, 'icon', (0, icon.iconToString)(icon$1));
         // Generate code
         const code = generateCode(list, customisations);
         const result = {
@@ -25051,16 +25037,16 @@
             return null;
         }
         // Variable name
-        const varName = common.iconToVarName(icon.name);
+        const varName = (0, common.iconToVarName)(icon.name);
         // Import statement
-        const npmImport = common.npmIconImport(icon, varName, providerConfig, false);
+        const npmImport = (0, common.npmIconImport)(icon, varName, providerConfig, false);
         if (!npmImport) {
             return null;
         }
         // List of attributes
         const list = {};
         // Add icon name
-        common.addReactAttr(list, 'icon', varName);
+        (0, common.addReactAttr)(list, 'icon', varName);
         // Generate code
         const code = generateCode(list, customisations);
         const result = {
@@ -25078,256 +25064,189 @@
 
     });
 
-    var size = createCommonjsModule(function (module, exports) {
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.calculateSize = void 0;
-    /**
-     * Regular expressions for calculating dimensions
-     */
     const unitsSplit = /(-?[0-9.]*[0-9]+[0-9.]*)/g;
     const unitsTest = /^-?[0-9.]*[0-9]+[0-9.]*$/g;
-    /**
-     * Calculate second dimension when only 1 dimension is set
-     *
-     * @param {string|number} size One dimension (such as width)
-     * @param {number} ratio Width/height ratio.
-     *      If size is width, ratio = height/width
-     *      If size is height, ratio = width/height
-     * @param {number} [precision] Floating number precision in result to minimize output. Default = 2
-     * @return {string|number} Another dimension
-     */
     function calculateSize(size, ratio, precision) {
-        if (ratio === 1) {
-            return size;
+      if (ratio === 1) {
+        return size;
+      }
+      precision = precision === void 0 ? 100 : precision;
+      if (typeof size === "number") {
+        return Math.ceil(size * ratio * precision) / precision;
+      }
+      if (typeof size !== "string") {
+        return size;
+      }
+      const oldParts = size.split(unitsSplit);
+      if (oldParts === null || !oldParts.length) {
+        return size;
+      }
+      const newParts = [];
+      let code = oldParts.shift();
+      let isNumber = unitsTest.test(code);
+      while (true) {
+        if (isNumber) {
+          const num = parseFloat(code);
+          if (isNaN(num)) {
+            newParts.push(code);
+          } else {
+            newParts.push(Math.ceil(num * ratio * precision) / precision);
+          }
+        } else {
+          newParts.push(code);
         }
-        precision = precision === void 0 ? 100 : precision;
-        if (typeof size === 'number') {
-            return Math.ceil(size * ratio * precision) / precision;
+        code = oldParts.shift();
+        if (code === void 0) {
+          return newParts.join("");
         }
-        if (typeof size !== 'string') {
-            return size;
-        }
-        // Split code into sets of strings and numbers
-        const oldParts = size.split(unitsSplit);
-        if (oldParts === null || !oldParts.length) {
-            return size;
-        }
-        const newParts = [];
-        let code = oldParts.shift();
-        let isNumber = unitsTest.test(code);
-        // eslint-disable-next-line no-constant-condition
-        while (true) {
-            if (isNumber) {
-                const num = parseFloat(code);
-                if (isNaN(num)) {
-                    newParts.push(code);
-                }
-                else {
-                    newParts.push(Math.ceil(num * ratio * precision) / precision);
-                }
-            }
-            else {
-                newParts.push(code);
-            }
-            // next
-            code = oldParts.shift();
-            if (code === void 0) {
-                return newParts.join('');
-            }
-            isNumber = !isNumber;
-        }
+        isNumber = !isNumber;
+      }
     }
-    exports.calculateSize = calculateSize;
-    });
 
-    var build = createCommonjsModule(function (module, exports) {
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.iconToSVG = void 0;
+    var calculateSize_1 = calculateSize;
 
-    /**
-     * Get preserveAspectRatio value
-     */
+    var size = /*#__PURE__*/Object.defineProperty({
+    	calculateSize: calculateSize_1
+    }, '__esModule', {value: true});
+
+    var svg_size = size;
+
     function preserveAspectRatio(props) {
-        let result = '';
-        switch (props.hAlign) {
-            case 'left':
-                result += 'xMin';
-                break;
-            case 'right':
-                result += 'xMax';
-                break;
-            default:
-                result += 'xMid';
-        }
-        switch (props.vAlign) {
-            case 'top':
-                result += 'YMin';
-                break;
-            case 'bottom':
-                result += 'YMax';
-                break;
-            default:
-                result += 'YMid';
-        }
-        result += props.slice ? ' slice' : ' meet';
-        return result;
+      let result = "";
+      switch (props.hAlign) {
+        case "left":
+          result += "xMin";
+          break;
+        case "right":
+          result += "xMax";
+          break;
+        default:
+          result += "xMid";
+      }
+      switch (props.vAlign) {
+        case "top":
+          result += "YMin";
+          break;
+        case "bottom":
+          result += "YMax";
+          break;
+        default:
+          result += "YMid";
+      }
+      result += props.slice ? " slice" : " meet";
+      return result;
     }
-    /**
-     * Get SVG attributes and content from icon + customisations
-     *
-     * Does not generate style to make it compatible with frameworks that use objects for style, such as React.
-     * Instead, it generates 'inline' value. If true, rendering engine should add verticalAlign: -0.125em to icon.
-     *
-     * Customisations should be normalised by platform specific parser.
-     * Result should be converted to <svg> by platform specific parser.
-     * Use replaceIDs to generate unique IDs for body.
-     */
     function iconToSVG(icon, customisations) {
-        // viewBox
-        const box = {
-            left: icon.left,
-            top: icon.top,
-            width: icon.width,
-            height: icon.height,
-        };
-        // Body
-        let body = icon.body;
-        // Apply transformations
-        [icon, customisations].forEach((props) => {
-            const transformations = [];
-            const hFlip = props.hFlip;
-            const vFlip = props.vFlip;
-            let rotation = props.rotate;
-            // Icon is flipped first, then rotated
-            if (hFlip) {
-                if (vFlip) {
-                    rotation += 2;
-                }
-                else {
-                    // Horizontal flip
-                    transformations.push('translate(' +
-                        (box.width + box.left) +
-                        ' ' +
-                        (0 - box.top) +
-                        ')');
-                    transformations.push('scale(-1 1)');
-                    box.top = box.left = 0;
-                }
-            }
-            else if (vFlip) {
-                // Vertical flip
-                transformations.push('translate(' +
-                    (0 - box.left) +
-                    ' ' +
-                    (box.height + box.top) +
-                    ')');
-                transformations.push('scale(1 -1)');
-                box.top = box.left = 0;
-            }
-            let tempValue;
-            if (rotation < 0) {
-                rotation -= Math.floor(rotation / 4) * 4;
-            }
-            rotation = rotation % 4;
-            switch (rotation) {
-                case 1:
-                    // 90deg
-                    tempValue = box.height / 2 + box.top;
-                    transformations.unshift('rotate(90 ' + tempValue + ' ' + tempValue + ')');
-                    break;
-                case 2:
-                    // 180deg
-                    transformations.unshift('rotate(180 ' +
-                        (box.width / 2 + box.left) +
-                        ' ' +
-                        (box.height / 2 + box.top) +
-                        ')');
-                    break;
-                case 3:
-                    // 270deg
-                    tempValue = box.width / 2 + box.left;
-                    transformations.unshift('rotate(-90 ' + tempValue + ' ' + tempValue + ')');
-                    break;
-            }
-            if (rotation % 2 === 1) {
-                // Swap width/height and x/y for 90deg or 270deg rotation
-                if (box.left !== 0 || box.top !== 0) {
-                    tempValue = box.left;
-                    box.left = box.top;
-                    box.top = tempValue;
-                }
-                if (box.width !== box.height) {
-                    tempValue = box.width;
-                    box.width = box.height;
-                    box.height = tempValue;
-                }
-            }
-            if (transformations.length) {
-                body =
-                    '<g transform="' +
-                        transformations.join(' ') +
-                        '">' +
-                        body +
-                        '</g>';
-            }
-        });
-        // Calculate dimensions
-        let width, height;
-        if (customisations.width === null && customisations.height === null) {
-            // Set height to '1em', calculate width
-            height = '1em';
-            width = size.calculateSize(height, box.width / box.height);
+      const box = {
+        left: icon.left,
+        top: icon.top,
+        width: icon.width,
+        height: icon.height
+      };
+      let body = icon.body;
+      [icon, customisations].forEach((props) => {
+        const transformations = [];
+        const hFlip = props.hFlip;
+        const vFlip = props.vFlip;
+        let rotation = props.rotate;
+        if (hFlip) {
+          if (vFlip) {
+            rotation += 2;
+          } else {
+            transformations.push("translate(" + (box.width + box.left).toString() + " " + (0 - box.top).toString() + ")");
+            transformations.push("scale(-1 1)");
+            box.top = box.left = 0;
+          }
+        } else if (vFlip) {
+          transformations.push("translate(" + (0 - box.left).toString() + " " + (box.height + box.top).toString() + ")");
+          transformations.push("scale(1 -1)");
+          box.top = box.left = 0;
         }
-        else if (customisations.width !== null &&
-            customisations.height !== null) {
-            // Values are set
-            width = customisations.width;
-            height = customisations.height;
+        let tempValue;
+        if (rotation < 0) {
+          rotation -= Math.floor(rotation / 4) * 4;
         }
-        else if (customisations.height !== null) {
-            // Height is set
-            height = customisations.height;
-            width = size.calculateSize(height, box.width / box.height);
+        rotation = rotation % 4;
+        switch (rotation) {
+          case 1:
+            tempValue = box.height / 2 + box.top;
+            transformations.unshift("rotate(90 " + tempValue.toString() + " " + tempValue.toString() + ")");
+            break;
+          case 2:
+            transformations.unshift("rotate(180 " + (box.width / 2 + box.left).toString() + " " + (box.height / 2 + box.top).toString() + ")");
+            break;
+          case 3:
+            tempValue = box.width / 2 + box.left;
+            transformations.unshift("rotate(-90 " + tempValue.toString() + " " + tempValue.toString() + ")");
+            break;
         }
-        else {
-            // Width is set
-            width = customisations.width;
-            height = size.calculateSize(width, box.height / box.width);
+        if (rotation % 2 === 1) {
+          if (box.left !== 0 || box.top !== 0) {
+            tempValue = box.left;
+            box.left = box.top;
+            box.top = tempValue;
+          }
+          if (box.width !== box.height) {
+            tempValue = box.width;
+            box.width = box.height;
+            box.height = tempValue;
+          }
         }
-        // Check for 'auto'
-        if (width === 'auto') {
-            width = box.width;
+        if (transformations.length) {
+          body = '<g transform="' + transformations.join(" ") + '">' + body + "</g>";
         }
-        if (height === 'auto') {
-            height = box.height;
-        }
-        // Convert to string
-        width = typeof width === 'string' ? width : width + '';
-        height = typeof height === 'string' ? height : height + '';
-        // Result
-        const result = {
-            attributes: {
-                width,
-                height,
-                preserveAspectRatio: preserveAspectRatio(customisations),
-                viewBox: box.left + ' ' + box.top + ' ' + box.width + ' ' + box.height,
-            },
-            body,
-        };
-        if (customisations.inline) {
-            result.inline = true;
-        }
-        return result;
+      });
+      let width, height;
+      if (customisations.width === null && customisations.height === null) {
+        height = "1em";
+        width = svg_size.calculateSize(height, box.width / box.height);
+      } else if (customisations.width !== null && customisations.height !== null) {
+        width = customisations.width;
+        height = customisations.height;
+      } else if (customisations.height !== null) {
+        height = customisations.height;
+        width = svg_size.calculateSize(height, box.width / box.height);
+      } else {
+        width = customisations.width;
+        height = svg_size.calculateSize(width, box.height / box.width);
+      }
+      if (width === "auto") {
+        width = box.width;
+      }
+      if (height === "auto") {
+        height = box.height;
+      }
+      width = typeof width === "string" ? width : width.toString() + "";
+      height = typeof height === "string" ? height : height.toString() + "";
+      const result = {
+        attributes: {
+          width,
+          height,
+          preserveAspectRatio: preserveAspectRatio(customisations),
+          viewBox: box.left.toString() + " " + box.top.toString() + " " + box.width.toString() + " " + box.height.toString()
+        },
+        body
+      };
+      if (customisations.inline) {
+        result.inline = true;
+      }
+      return result;
     }
-    exports.iconToSVG = iconToSVG;
-    });
+
+    var iconToSVG_1 = iconToSVG;
+
+    var build = /*#__PURE__*/Object.defineProperty({
+    	iconToSVG: iconToSVG_1
+    }, '__esModule', {value: true});
+
+    var build_1 = build;
 
     var html = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.renderHTML = void 0;
 
     function renderHTML(icon, customisations, className) {
-        const buildResult = build.iconToSVG(icon, customisations);
+        const buildResult = (0, build_1.iconToSVG)(icon, customisations);
         // Style
         const style = [];
         if (customisations.inline) {
@@ -25349,9 +25268,9 @@
         const attributes = {
             // Default SVG stuff
             'xmlns': 'http://www.w3.org/2000/svg',
-            'xmlns:xlink': 'http://www.w3.org/1999/xlink',
-            'aria-hidden': 'true',
-            'role': 'img',
+            // 'xmlns:xlink': 'http://www.w3.org/1999/xlink',
+            // 'aria-hidden': 'true',
+            // 'role': 'img',
             // Custom attributes
             ...customAttributes,
             // Attributes from build result
@@ -25363,9 +25282,9 @@
             body = body.replace(/currentColor/g, customisations.color);
         }
         // Remove unused xlink namespace
-        if (body.indexOf('xlink:') === -1) {
-            delete attributes['xmlns:xlink'];
-        }
+        // if (body.indexOf('xlink:') === -1) {
+        // 	delete attributes['xmlns:xlink'];
+        // }
         // Generate HTML
         return ('<svg ' +
             Object.keys(attributes)
@@ -25396,12 +25315,12 @@
         if (!providerConfig.raw) {
             return null;
         }
-        const iconName = icon.iconToString(icon$1);
+        const iconName = (0, icon.iconToString)(icon$1);
         const data = (_a = iconify.Iconify.getIcon) === null || _a === void 0 ? void 0 : _a.call(iconify.Iconify, iconName);
         if (!data) {
             return null;
         }
-        let str = html.renderHTML(data, customisations);
+        let str = (0, html.renderHTML)(data, customisations);
         switch (lang) {
             case 'svg-box':
                 // Add empty rectangle before shapes
@@ -25450,6 +25369,9 @@
     var svgFramework = createCommonjsModule(function (module, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.svgFrameworkParser = void 0;
+
+
+
     // Documentation links
     const docs = {
         type: 'iconify',
@@ -25467,65 +25389,54 @@
         // List of attributes
         const list = {};
         // Add class
-        common.addAttr(list, 'class', customisations.inline ? 'iconify-inline' : 'iconify');
+        (0, common.addAttr)(list, 'class', customisations.inline ? 'iconify-inline' : 'iconify');
         // Add icon name
-        common.addAttr(list, 'data-icon', icon.iconToString(icon$1));
+        (0, common.addAttr)(list, 'data-icon', (0, icon.iconToString)(icon$1));
         // Parse all customisations
-        common.getCustomisationsList(customisations).forEach((attr) => {
+        (0, common.getCustomisationsList)(customisations).forEach((attr) => {
             switch (attr) {
-                case 'inline':
-                    break;
                 // Color
                 case 'color':
-                    common.mergeAttr(list, 'style', 'color: ' + customisations[attr] + ';', ' ');
+                    (0, common.mergeAttr)(list, 'style', 'color: ' + customisations[attr] + ';', ' ');
                     break;
                 // Dimensions
                 case 'width':
-                    common.addAttr(list, 'data-width', common.toString(customisations[attr]));
+                    (0, common.addAttr)(list, 'data-width', (0, common.toString)(customisations[attr]));
                     break;
                 case 'onlyHeight': {
                     const value = customisations.height;
-                    common.mergeAttr(list, 'style', 'font-size: ' + value + (common.isNumber(value) ? 'px;' : ';'), ' ');
+                    (0, common.mergeAttr)(list, 'style', 'font-size: ' + value + ((0, common.isNumber)(value) ? 'px;' : ';'), ' ');
                     break;
                 }
                 case 'height':
-                    common.addAttr(list, 'data-height', common.toString(customisations[attr]));
+                    (0, common.addAttr)(list, 'data-height', (0, common.toString)(customisations[attr]));
                     break;
                 // Transformations
                 case 'rotate':
-                    common.addAttr(list, 'data-rotate', common.degrees(customisations[attr]));
+                    (0, common.addAttr)(list, 'data-rotate', (0, common.degrees)(customisations[attr]));
                     break;
                 case 'hFlip':
-                    common.mergeAttr(list, 'data-flip', 'horizontal', ',');
+                    (0, common.mergeAttr)(list, 'data-flip', 'horizontal', ',');
                     break;
                 case 'vFlip':
-                    common.mergeAttr(list, 'data-flip', 'vertical', ',');
-                    break;
-                // Alignment
-                case 'hAlign':
-                case 'vAlign':
-                    common.mergeAttr(list, 'data-align', customisations[attr], ',');
-                    break;
-                case 'slice':
-                    common.mergeAttr(list, 'data-align', attr, ',');
+                    (0, common.mergeAttr)(list, 'data-flip', 'vertical', ',');
                     break;
             }
         });
         // Generate HTML
-        const html = '<span ' + common.mergeAttributes(list) + '></span>';
+        const html = '<span ' + (0, common.mergeAttributes)(list) + '></span>';
         // Head script
         if (head === void 0) {
-            const str = iconify.Iconify.getVersion ? iconify.Iconify.getVersion() : versions.iconifyVersion;
             head =
                 '<script src="https://code.iconify.design/' +
-                    str.split('.').shift() +
+                    versions.iconifyVersion.split('.').shift() +
                     '/' +
-                    str +
+                    versions.iconifyVersion +
                     '/iconify.min.js"><' +
                     '/script>';
         }
         const result = {
-            iconify: {
+            html: {
                 head,
                 html,
             },
@@ -25535,6 +25446,83 @@
         return result;
     };
     exports.svgFrameworkParser = svgFrameworkParser;
+
+    });
+
+    var iconifyIcon = createCommonjsModule(function (module, exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.webComponentParser = void 0;
+
+
+
+    // Documentation links
+    const docs = {
+        type: 'iconify-icon',
+        href: common.docsWebsite + 'iconify-icon/',
+    };
+    // Head section
+    let head;
+    /**
+     * Code output for web component
+     */
+    const webComponentParser = (icon$1, customisations, providerConfig) => {
+        if (!providerConfig.api) {
+            return null;
+        }
+        // List of attributes
+        const list = {};
+        // Add icon name
+        (0, common.addAttr)(list, 'icon', (0, icon.iconToString)(icon$1));
+        // Parse all customisations
+        (0, common.getCustomisationsList)(customisations).forEach((attr) => {
+            switch (attr) {
+                // Color
+                case 'color':
+                    (0, common.mergeAttr)(list, 'style', 'color: ' + customisations[attr] + ';', ' ');
+                    break;
+                // Dimensions
+                case 'width':
+                case 'height':
+                    (0, common.addAttr)(list, attr, (0, common.toString)(customisations[attr]));
+                    break;
+                case 'onlyHeight': {
+                    const value = customisations.height;
+                    (0, common.mergeAttr)(list, 'style', 'font-size: ' + value + ((0, common.isNumber)(value) ? 'px;' : ';'), ' ');
+                    break;
+                }
+                // Transformations
+                case 'rotate':
+                    (0, common.addAttr)(list, attr, (0, common.degrees)(customisations[attr]));
+                    break;
+                case 'hFlip':
+                    (0, common.mergeAttr)(list, 'flip', 'horizontal', ',');
+                    break;
+                case 'vFlip':
+                    (0, common.mergeAttr)(list, 'flip', 'vertical', ',');
+                    break;
+            }
+        });
+        // Generate HTML
+        const html = '<iconify-icon ' + (customisations.inline ? 'inline ' : '') + (0, common.mergeAttributes)(list) + '></iconify-icon>';
+        // Head script
+        if (head === void 0) {
+            head =
+                '<script src="https://code.iconify.design/iconify-icon/' +
+                    versions.iconifyIconVersion +
+                    '/iconify-icon.min.js"><' +
+                    '/script>';
+        }
+        const result = {
+            html: {
+                head,
+                html,
+            },
+            isAPI: true,
+            docs,
+        };
+        return result;
+    };
+    exports.webComponentParser = webComponentParser;
 
     });
 
@@ -25554,8 +25542,8 @@
         href: common.docsBase + 'vue/',
     };
     // Code cache
-    const installCode2 = versions.getComponentInstall('vue2', true);
-    const installCode3 = versions.getComponentInstall('vue3', true);
+    const installCode2 = (0, versions.getComponentInstall)('vue2', true);
+    const installCode3 = (0, versions.getComponentInstall)('vue3', true);
     const importCode2 = "import { Icon } from '" + versions.componentPackages.vue2.name + "';";
     const importCode3 = "import { Icon } from '" + versions.componentPackages.vue3.name + "';";
     const scriptCode = 'export default {\n\tcomponents: {\n\t\tIcon,\n\t},\n});';
@@ -25565,26 +25553,26 @@
      */
     function generateCode(list, customisations) {
         // Parse all customisations
-        common.getCustomisationsList(customisations).forEach((attr) => {
+        (0, common.getCustomisationsList)(customisations).forEach((attr) => {
             switch (attr) {
                 case 'onlyHeight': {
                     const value = customisations.height;
-                    common.addVueAttr(list, 'height', value);
+                    (0, common.addVueAttr)(list, 'height', value);
                     break;
                 }
                 case 'hFlip':
                 case 'vFlip':
                 case 'hAlign':
                 case 'vAlign': {
-                    common.addVueAttr(list, (attr.slice(0, 1) === 'h' ? 'horizontal' : 'vertical') +
+                    (0, common.addVueAttr)(list, (attr.slice(0, 1) === 'h' ? 'horizontal' : 'vertical') +
                         attr.slice(1), customisations[attr]);
                     break;
                 }
                 default:
-                    common.addVueAttr(list, attr, customisations[attr]);
+                    (0, common.addVueAttr)(list, attr, customisations[attr]);
             }
         });
-        return '<Icon ' + common.mergeAttributes(list) + ' />';
+        return '<Icon ' + (0, common.mergeAttributes)(list) + ' />';
     }
     /**
      * Code output for API component
@@ -25596,7 +25584,7 @@
         // List of attributes
         const list = {};
         // Add icon name
-        common.addAttr(list, 'icon', icon.iconToString(icon$1));
+        (0, common.addAttr)(list, 'icon', (0, icon.iconToString)(icon$1));
         // Generate code
         const code = generateCode(list, customisations);
         const result = {
@@ -25620,16 +25608,16 @@
             return null;
         }
         // Variable name
-        const varName = common.iconToVarName(icon.name);
+        const varName = (0, common.iconToVarName)(icon.name);
         // Import statement
-        const npmImport = common.npmIconImport(icon, varName, providerConfig, vue3);
+        const npmImport = (0, common.npmIconImport)(icon, varName, providerConfig, vue3);
         if (!npmImport) {
             return null;
         }
         // List of attributes
         const list = {};
         // Add icon name
-        common.addVueAttr(list, 'icon', 'icons.' + varName);
+        (0, common.addVueAttr)(list, 'icon', 'icons.' + varName);
         // Generate code
         const code = generateCode(list, customisations);
         const result = {
@@ -25674,6 +25662,10 @@
     function getIconCode(lang, icon, customisations, providerConfig) {
         let parser;
         switch (lang) {
+            // IconifyIcon
+            case 'iconify-icon':
+                parser = iconifyIcon.webComponentParser;
+                break;
             // SVG Framework
             case 'iconify':
                 parser = svgFramework.svgFrameworkParser;
@@ -26026,17 +26018,17 @@
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
+    	child_ctx[10] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i];
+    	child_ctx[13] = list[i];
     	return child_ctx;
     }
 
-    // (48:0) {#if output}
+    // (53:0) {#if output}
     function create_if_block$3(ctx) {
     	let t0;
     	let t1;
@@ -26046,9 +26038,9 @@
     	let t5;
     	let if_block6_anchor;
     	let current;
-    	let if_block0 = /*output*/ ctx[2].header && create_if_block_11(ctx);
-    	let if_block1 = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] && create_if_block_10(ctx);
-    	let if_block2 = /*output*/ ctx[2].iconify && create_if_block_9(ctx);
+    	let if_block0 = /*output*/ ctx[2].header && create_if_block_12(ctx);
+    	let if_block1 = /*codePhrases*/ ctx[6].intro[/*mode*/ ctx[1]] && create_if_block_11(ctx);
+    	let if_block2 = /*output*/ ctx[2].html && /*htmlPhrases*/ ctx[4] && create_if_block_9(ctx);
     	let if_block3 = /*output*/ ctx[2].raw && create_if_block_8$1(ctx);
     	let if_block4 = /*output*/ ctx[2].component && create_if_block_5$1(ctx);
     	let if_block5 = /*output*/ ctx[2].footer && create_if_block_2$2(ctx);
@@ -26097,7 +26089,7 @@
     						transition_in(if_block0, 1);
     					}
     				} else {
-    					if_block0 = create_if_block_11(ctx);
+    					if_block0 = create_if_block_12(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
     					if_block0.m(t0.parentNode, t0);
@@ -26112,11 +26104,11 @@
     				check_outros();
     			}
 
-    			if (/*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]]) {
+    			if (/*codePhrases*/ ctx[6].intro[/*mode*/ ctx[1]]) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block_10(ctx);
+    					if_block1 = create_if_block_11(ctx);
     					if_block1.c();
     					if_block1.m(t1.parentNode, t1);
     				}
@@ -26125,11 +26117,11 @@
     				if_block1 = null;
     			}
 
-    			if (/*output*/ ctx[2].iconify) {
+    			if (/*output*/ ctx[2].html && /*htmlPhrases*/ ctx[4]) {
     				if (if_block2) {
     					if_block2.p(ctx, dirty);
 
-    					if (dirty & /*output*/ 4) {
+    					if (dirty & /*output, htmlPhrases*/ 20) {
     						transition_in(if_block2, 1);
     					}
     				} else {
@@ -26278,13 +26270,13 @@
     	};
     }
 
-    // (49:1) {#if output.header}
-    function create_if_block_11(ctx) {
+    // (54:1) {#if output.header}
+    function create_if_block_12(ctx) {
     	let t;
     	let if_block1_anchor;
     	let current;
-    	let if_block0 = /*output*/ ctx[2].header.text && create_if_block_13(ctx);
-    	let if_block1 = /*output*/ ctx[2].header.code && create_if_block_12(ctx);
+    	let if_block0 = /*output*/ ctx[2].header.text && create_if_block_14(ctx);
+    	let if_block1 = /*output*/ ctx[2].header.code && create_if_block_13(ctx);
 
     	return {
     		c() {
@@ -26305,7 +26297,7 @@
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
     				} else {
-    					if_block0 = create_if_block_13(ctx);
+    					if_block0 = create_if_block_14(ctx);
     					if_block0.c();
     					if_block0.m(t.parentNode, t);
     				}
@@ -26322,7 +26314,7 @@
     						transition_in(if_block1, 1);
     					}
     				} else {
-    					if_block1 = create_if_block_12(ctx);
+    					if_block1 = create_if_block_13(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
     					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
@@ -26355,8 +26347,8 @@
     	};
     }
 
-    // (50:2) {#if output.header.text}
-    function create_if_block_13(ctx) {
+    // (55:2) {#if output.header.text}
+    function create_if_block_14(ctx) {
     	let p;
     	let t_value = /*output*/ ctx[2].header.text + "";
     	let t;
@@ -26379,8 +26371,8 @@
     	};
     }
 
-    // (53:2) {#if output.header.code}
-    function create_if_block_12(ctx) {
+    // (58:2) {#if output.header.code}
+    function create_if_block_13(ctx) {
     	let sampleinput;
     	let current;
 
@@ -26416,10 +26408,10 @@
     	};
     }
 
-    // (58:1) {#if codePhrases.intro[mode]}
-    function create_if_block_10(ctx) {
+    // (63:1) {#if codePhrases.intro[mode]}
+    function create_if_block_11(ctx) {
     	let p;
-    	let t_value = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] + "";
+    	let t_value = /*codePhrases*/ ctx[6].intro[/*mode*/ ctx[1]] + "";
     	let t;
 
     	return {
@@ -26432,7 +26424,7 @@
     			append(p, t);
     		},
     		p(ctx, dirty) {
-    			if (dirty & /*mode*/ 2 && t_value !== (t_value = /*codePhrases*/ ctx[5].intro[/*mode*/ ctx[1]] + "")) set_data(t, t_value);
+    			if (dirty & /*mode*/ 2 && t_value !== (t_value = /*codePhrases*/ ctx[6].intro[/*mode*/ ctx[1]] + "")) set_data(t, t_value);
     		},
     		d(detaching) {
     			if (detaching) detach(p);
@@ -26440,28 +26432,36 @@
     	};
     }
 
-    // (62:1) {#if output.iconify}
+    // (67:1) {#if output.html && htmlPhrases}
     function create_if_block_9(ctx) {
     	let p0;
-    	let t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace('{name}', /*icon*/ ctx[0].name) + "";
+    	let t0_value = /*htmlPhrases*/ ctx[4].intro1.replace('{name}', /*icon*/ ctx[0].name) + "";
     	let t0;
     	let t1;
     	let sampleinput0;
     	let t2;
     	let p1;
+    	let t3_value = /*htmlPhrases*/ ctx[4].intro2 + "";
+    	let t3;
     	let t4;
     	let p2;
+    	let t5_value = /*htmlPhrases*/ ctx[4].head + "";
+    	let t5;
     	let t6;
     	let sampleinput1;
+    	let t7;
+    	let if_block_anchor;
     	let current;
 
     	sampleinput0 = new Sample({
-    			props: { content: /*output*/ ctx[2].iconify.html }
+    			props: { content: /*output*/ ctx[2].html.html }
     		});
 
     	sampleinput1 = new Sample({
-    			props: { content: /*output*/ ctx[2].iconify.head }
+    			props: { content: /*output*/ ctx[2].html.head }
     		});
+
+    	let if_block = /*htmlPhrases*/ ctx[4].outro && create_if_block_10(ctx);
 
     	return {
     		c() {
@@ -26471,12 +26471,15 @@
     			create_component(sampleinput0.$$.fragment);
     			t2 = space();
     			p1 = element("p");
-    			p1.textContent = `${/*codePhrases*/ ctx[5].iconify.intro2}`;
+    			t3 = text(t3_value);
     			t4 = space();
     			p2 = element("p");
-    			p2.textContent = `${/*codePhrases*/ ctx[5].iconify.head}`;
+    			t5 = text(t5_value);
     			t6 = space();
     			create_component(sampleinput1.$$.fragment);
+    			t7 = space();
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
     		},
     		m(target, anchor) {
     			insert(target, p0, anchor);
@@ -26485,20 +26488,40 @@
     			mount_component(sampleinput0, target, anchor);
     			insert(target, t2, anchor);
     			insert(target, p1, anchor);
+    			append(p1, t3);
     			insert(target, t4, anchor);
     			insert(target, p2, anchor);
+    			append(p2, t5);
     			insert(target, t6, anchor);
     			mount_component(sampleinput1, target, anchor);
+    			insert(target, t7, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert(target, if_block_anchor, anchor);
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if ((!current || dirty & /*icon*/ 1) && t0_value !== (t0_value = /*codePhrases*/ ctx[5].iconify.intro1.replace('{name}', /*icon*/ ctx[0].name) + "")) set_data(t0, t0_value);
+    			if ((!current || dirty & /*htmlPhrases, icon*/ 17) && t0_value !== (t0_value = /*htmlPhrases*/ ctx[4].intro1.replace('{name}', /*icon*/ ctx[0].name) + "")) set_data(t0, t0_value);
     			const sampleinput0_changes = {};
-    			if (dirty & /*output*/ 4) sampleinput0_changes.content = /*output*/ ctx[2].iconify.html;
+    			if (dirty & /*output*/ 4) sampleinput0_changes.content = /*output*/ ctx[2].html.html;
     			sampleinput0.$set(sampleinput0_changes);
+    			if ((!current || dirty & /*htmlPhrases*/ 16) && t3_value !== (t3_value = /*htmlPhrases*/ ctx[4].intro2 + "")) set_data(t3, t3_value);
+    			if ((!current || dirty & /*htmlPhrases*/ 16) && t5_value !== (t5_value = /*htmlPhrases*/ ctx[4].head + "")) set_data(t5, t5_value);
     			const sampleinput1_changes = {};
-    			if (dirty & /*output*/ 4) sampleinput1_changes.content = /*output*/ ctx[2].iconify.head;
+    			if (dirty & /*output*/ 4) sampleinput1_changes.content = /*output*/ ctx[2].html.head;
     			sampleinput1.$set(sampleinput1_changes);
+
+    			if (/*htmlPhrases*/ ctx[4].outro) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_10(ctx);
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
     		},
     		i(local) {
     			if (current) return;
@@ -26521,11 +26544,39 @@
     			if (detaching) detach(p2);
     			if (detaching) detach(t6);
     			destroy_component(sampleinput1, detaching);
+    			if (detaching) detach(t7);
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach(if_block_anchor);
     		}
     	};
     }
 
-    // (70:1) {#if output.raw}
+    // (73:2) {#if htmlPhrases.outro}
+    function create_if_block_10(ctx) {
+    	let p;
+    	let t_value = /*htmlPhrases*/ ctx[4].outro + "";
+    	let t;
+
+    	return {
+    		c() {
+    			p = element("p");
+    			t = text(t_value);
+    			attr(p, "class", "iif-code-notice");
+    		},
+    		m(target, anchor) {
+    			insert(target, p, anchor);
+    			append(p, t);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty & /*htmlPhrases*/ 16 && t_value !== (t_value = /*htmlPhrases*/ ctx[4].outro + "")) set_data(t, t_value);
+    		},
+    		d(detaching) {
+    			if (detaching) detach(p);
+    		}
+    	};
+    }
+
+    // (78:1) {#if output.raw}
     function create_if_block_8$1(ctx) {
     	let each_1_anchor;
     	let current;
@@ -26609,11 +26660,11 @@
     	};
     }
 
-    // (71:2) {#each output.raw as code}
+    // (79:2) {#each output.raw as code}
     function create_each_block_1(ctx) {
     	let sampleinput;
     	let current;
-    	sampleinput = new Sample({ props: { content: /*code*/ ctx[12] } });
+    	sampleinput = new Sample({ props: { content: /*code*/ ctx[13] } });
 
     	return {
     		c() {
@@ -26625,7 +26676,7 @@
     		},
     		p(ctx, dirty) {
     			const sampleinput_changes = {};
-    			if (dirty & /*output*/ 4) sampleinput_changes.content = /*code*/ ctx[12];
+    			if (dirty & /*output*/ 4) sampleinput_changes.content = /*code*/ ctx[13];
     			sampleinput.$set(sampleinput_changes);
     		},
     		i(local) {
@@ -26643,9 +26694,10 @@
     	};
     }
 
-    // (76:1) {#if output.component}
+    // (84:1) {#if output.component}
     function create_if_block_5$1(ctx) {
-    	let each_1_anchor;
+    	let t0;
+    	let p;
     	let current;
     	let each_value = code.codeOutputComponentKeys;
     	let each_blocks = [];
@@ -26664,18 +26716,22 @@
     				each_blocks[i].c();
     			}
 
-    			each_1_anchor = empty();
+    			t0 = space();
+    			p = element("p");
+    			p.textContent = `${/*codePhrases*/ ctx[6].componentDeprecation}`;
+    			attr(p, "class", "iif-code-notice");
     		},
     		m(target, anchor) {
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(target, anchor);
     			}
 
-    			insert(target, each_1_anchor, anchor);
+    			insert(target, t0, anchor);
+    			insert(target, p, anchor);
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (dirty & /*output, codeOutputComponentKeys, codePhrases*/ 36) {
+    			if (dirty & /*output, codeOutputComponentKeys, codePhrases*/ 68) {
     				each_value = code.codeOutputComponentKeys;
     				let i;
 
@@ -26689,7 +26745,7 @@
     						each_blocks[i] = create_each_block(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    						each_blocks[i].m(t0.parentNode, t0);
     					}
     				}
 
@@ -26722,21 +26778,22 @@
     		},
     		d(detaching) {
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach(each_1_anchor);
+    			if (detaching) detach(t0);
+    			if (detaching) detach(p);
     		}
     	};
     }
 
-    // (78:3) {#if output.component[key]}
+    // (86:3) {#if output.component[key]}
     function create_if_block_6$1(ctx) {
     	let t;
     	let sampleinput;
     	let current;
-    	let if_block = /*codePhrases*/ ctx[5].component[/*key*/ ctx[9]] && create_if_block_7$1(ctx);
+    	let if_block = /*codePhrases*/ ctx[6].component[/*key*/ ctx[10]] && create_if_block_7$1(ctx);
 
     	sampleinput = new Sample({
     			props: {
-    				content: /*output*/ ctx[2].component[/*key*/ ctx[9]]
+    				content: /*output*/ ctx[2].component[/*key*/ ctx[10]]
     			}
     		});
 
@@ -26753,9 +26810,9 @@
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (/*codePhrases*/ ctx[5].component[/*key*/ ctx[9]]) if_block.p(ctx, dirty);
+    			if (/*codePhrases*/ ctx[6].component[/*key*/ ctx[10]]) if_block.p(ctx, dirty);
     			const sampleinput_changes = {};
-    			if (dirty & /*output*/ 4) sampleinput_changes.content = /*output*/ ctx[2].component[/*key*/ ctx[9]];
+    			if (dirty & /*output*/ 4) sampleinput_changes.content = /*output*/ ctx[2].component[/*key*/ ctx[10]];
     			sampleinput.$set(sampleinput_changes);
     		},
     		i(local) {
@@ -26775,10 +26832,10 @@
     	};
     }
 
-    // (79:4) {#if codePhrases.component[key]}
+    // (87:4) {#if codePhrases.component[key]}
     function create_if_block_7$1(ctx) {
     	let p;
-    	let t_value = /*codePhrases*/ ctx[5].component[/*key*/ ctx[9]] + "";
+    	let t_value = /*codePhrases*/ ctx[6].component[/*key*/ ctx[10]] + "";
     	let t;
 
     	return {
@@ -26797,11 +26854,11 @@
     	};
     }
 
-    // (77:2) {#each codeOutputComponentKeys as key}
+    // (85:2) {#each codeOutputComponentKeys as key}
     function create_each_block(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*output*/ ctx[2].component[/*key*/ ctx[9]] && create_if_block_6$1(ctx);
+    	let if_block = /*output*/ ctx[2].component[/*key*/ ctx[10]] && create_if_block_6$1(ctx);
 
     	return {
     		c() {
@@ -26814,7 +26871,7 @@
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (/*output*/ ctx[2].component[/*key*/ ctx[9]]) {
+    			if (/*output*/ ctx[2].component[/*key*/ ctx[10]]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
@@ -26853,7 +26910,7 @@
     	};
     }
 
-    // (87:1) {#if output.footer}
+    // (96:1) {#if output.footer}
     function create_if_block_2$2(ctx) {
     	let t;
     	let if_block1_anchor;
@@ -26930,7 +26987,7 @@
     	};
     }
 
-    // (88:2) {#if output.footer.text}
+    // (97:2) {#if output.footer.text}
     function create_if_block_4$1(ctx) {
     	let p;
     	let t_value = /*output*/ ctx[2].footer.text + "";
@@ -26954,7 +27011,7 @@
     	};
     }
 
-    // (91:2) {#if output.footer.code}
+    // (100:2) {#if output.footer.code}
     function create_if_block_3$1(ctx) {
     	let sampleinput;
     	let current;
@@ -26991,7 +27048,7 @@
     	};
     }
 
-    // (96:1) {#if output.docs}
+    // (105:1) {#if output.docs}
     function create_if_block_1$1(ctx) {
     	let p;
     	let uiicon0;
@@ -27031,7 +27088,7 @@
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen(a, "click", /*onExternalClick*/ ctx[4]);
+    				dispose = listen(a, "click", /*onExternalClick*/ ctx[5]);
     				mounted = true;
     			}
     		},
@@ -27124,6 +27181,7 @@
     	
     	
     	
+    	
     	let { icon } = $$props;
     	let { customisations } = $$props;
     	let { providerConfig } = $$props;
@@ -27146,16 +27204,17 @@
     	let output;
 
     	let docsText;
+    	let htmlPhrases;
 
     	$$self.$$set = $$props => {
     		if ('icon' in $$props) $$invalidate(0, icon = $$props.icon);
-    		if ('customisations' in $$props) $$invalidate(6, customisations = $$props.customisations);
-    		if ('providerConfig' in $$props) $$invalidate(7, providerConfig = $$props.providerConfig);
+    		if ('customisations' in $$props) $$invalidate(7, customisations = $$props.customisations);
+    		if ('providerConfig' in $$props) $$invalidate(8, providerConfig = $$props.providerConfig);
     		if ('mode' in $$props) $$invalidate(1, mode = $$props.mode);
     	};
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*mode, icon, customisations, providerConfig, output*/ 199) {
+    		if ($$self.$$.dirty & /*mode, icon, customisations, providerConfig, output*/ 391) {
     			{
     				$$invalidate(2, output = code.getIconCode(mode, icon, customisations, providerConfig));
 
@@ -27171,6 +27230,12 @@
     				}
     			}
     		}
+
+    		if ($$self.$$.dirty & /*mode*/ 2) {
+    			{
+    				$$invalidate(4, htmlPhrases = codePhrases.html[mode]);
+    			}
+    		}
     	};
 
     	return [
@@ -27178,6 +27243,7 @@
     		mode,
     		output,
     		docsText,
+    		htmlPhrases,
     		onExternalClick,
     		codePhrases,
     		customisations,
@@ -27191,8 +27257,8 @@
 
     		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
     			icon: 0,
-    			customisations: 6,
-    			providerConfig: 7,
+    			customisations: 7,
+    			providerConfig: 8,
     			mode: 1
     		});
     	}

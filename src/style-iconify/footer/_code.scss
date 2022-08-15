@@ -46,4 +46,11 @@
 			}
 		}
 	}
+
+	&-notice {
+		// color: $iif-input-placeholder-icon-color;
+		padding: 8px 12px;
+		border-radius: $iif-input-border-radius;
+		background-color: palette('yellow', 100);
+	}
 }

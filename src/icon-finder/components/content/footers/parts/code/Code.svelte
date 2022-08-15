@@ -12,6 +12,7 @@
 		codeOutputComponentKeys,
 	} from '@iconify/search-core/lib/code-samples/code';
 	import { capitalizeCodeSampleTitle } from '@iconify/search-core/lib/code-samples/phrases';
+	import type { UITranslationHTMLCodePhrases } from '../../../../../phrases/types';
 	import { phrases } from '../../../../../config/phrases';
 	import type { WrappedRegistry } from '../../../../../wrapper/registry';
 	import UIIcon from '../../../../ui/UIIcon.svelte';
@@ -66,6 +67,11 @@
 			docsText = '';
 		}
 	}
+
+	let htmlPhrases: UITranslationHTMLCodePhrases | undefined;
+	$: {
+		htmlPhrases = codePhrases.html[mode];
+	}
 </script>
 
 {#if output}
@@ -82,12 +88,15 @@
 		<p>{codePhrases.intro[mode]}</p>
 	{/if}
 
-	{#if output.iconify}
-		<p>{codePhrases.iconify.intro1.replace('{name}', icon.name)}</p>
-		<SampleInput content={output.iconify.html} />
-		<p>{codePhrases.iconify.intro2}</p>
-		<p>{codePhrases.iconify.head}</p>
-		<SampleInput content={output.iconify.head} />
+	{#if output.html && htmlPhrases}
+		<p>{htmlPhrases.intro1.replace('{name}', icon.name)}</p>
+		<SampleInput content={output.html.html} />
+		<p>{htmlPhrases.intro2}</p>
+		<p>{htmlPhrases.head}</p>
+		<SampleInput content={output.html.head} />
+		{#if htmlPhrases.outro}
+			<p class="iif-code-notice">{htmlPhrases.outro}</p>
+		{/if}
 	{/if}
 
 	{#if output.raw}
@@ -105,6 +114,7 @@
 				<SampleInput content={output.component[key]} />
 			{/if}
 		{/each}
+		<p class="iif-code-notice">{codePhrases.componentDeprecation}</p>
 	{/if}
 
 	{#if output.footer}

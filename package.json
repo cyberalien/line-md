@@ -14,7 +14,7 @@
 	"homepage": "https://github.com/cyberalien/line-md",
 	"repository": "github:cyberalien/line-md",
 	"devDependencies": {
-		"@iconify/search-core": "^1.1.0",
+		"@iconify/search-core": "^1.2.0",
 		"@iconify/svelte": "^2.0.0",
 		"@iconify/tools": "^2.0.1",
 		"@iconify/utils": "^1.0.19",

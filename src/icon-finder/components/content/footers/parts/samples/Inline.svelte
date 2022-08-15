@@ -20,10 +20,14 @@
 	const maxHeight = iconSampleSize.height;
 
 	// Get HTML
-	let props: IconProps;
+	let props: IconProps & {
+		counter: number;
+	};
+	let counter = 0;
 	let style: string;
 	$: {
 		props = {
+			counter: counter++,
 			icon: iconToString(icon),
 		};
 		style = '';
@@ -72,7 +76,7 @@
 	<p>
 		{samplePhrases.before}
 		<span {style}>
-			{#each [props] as iconProps (iconProps.icon)}
+			{#each [props] as iconProps (iconProps.counter)}
 				<IconComponent {...iconProps} />
 			{/each}
 		</span>
