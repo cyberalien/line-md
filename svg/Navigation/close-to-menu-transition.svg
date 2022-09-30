@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+		<path d="M5 5L12 12L19 5">
+			<animate attributeName="d" values="M5 5L12 12L19 5;M5 5L12 5L19 5" dur="0.4s" fill="freeze" />
+		</path>
+		<path d="M12 12H12">
+			<animate attributeName="d" values="M12 12H12;M5 12H19" dur="0.4s" fill="freeze" />
+		</path>
+		<path d="M5 19L12 12L19 19">
+			<animate attributeName="d" values="M5 19L12 12L19 19;M5 19L12 19L19 19" dur="0.4s" fill="freeze" />
+		</path>
+	</g>
+</svg>
