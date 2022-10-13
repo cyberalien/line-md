@@ -17,7 +17,7 @@
 			"beer-alt-twotone-loop",
 			"image-twotone"
 		],
-		"total": 375
+		"total": 383
 	},
 	"icons": {
 		"account": {
@@ -791,6 +791,15 @@
 		"paint-drop-twotone": {
 			"body": "<path d=\"M12 4C12 4 18 9 18 15C18 19 15 20 12 20C9 20 6 19 6 15C6 9 12 4 12 4Z\" fill=\"currentColor\" fill-opacity=\"0\"><animate attributeName=\"fill-opacity\" values=\"0;0.3\" begin=\"0.4s\" dur=\"0.15s\" fill=\"freeze\"/></path><path d=\"M12 3C12 3 19 9 19 15C19 17 18 21 12 21M12 3C12 3 5 9 5 15C5 17 6 21 12 21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" dur=\"0.4s\" fill=\"freeze\"/></path>"
 		},
+		"pause": {
+			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"32\" stroke-dashoffset=\"32\"><path d=\"M7 6h2v12h-2z\"><animate attributeName=\"stroke-dashoffset\" values=\"32;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M15 6h2v12h-2z\"><animate attributeName=\"stroke-dashoffset\" values=\"32;0\" begin=\"0.5s\" dur=\"0.4s\" fill=\"freeze\"/></path></g>"
+		},
+		"pause-to-play-filled-transition": {
+			"body": "<g fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 6L9 18L7 18L7 6z\"><animate attributeName=\"d\" values=\"M9 18L7 18L7 6L9 6L9 18;M13 15L8 18L8 6L13 9L13 15\" dur=\"0.4s\" fill=\"freeze\"/><set attributeName=\"opacity\" to=\"0\" begin=\"0.4s\"/></path><path d=\"M15 6L17 6L17 18L15 18L15 6\"><animate attributeName=\"d\" values=\"M15 6L17 6L17 18L15 18L15 6;M13 9L18 12L18 12L13 15L13 9\" dur=\"0.4s\" fill=\"freeze\"/><set attributeName=\"opacity\" to=\"0\" begin=\"0.4s\"/></path><path d=\"M8 6L18 12L8 18z\" opacity=\"0\"><set attributeName=\"opacity\" to=\"1\" begin=\"0.4s\"/></path></g>"
+		},
+		"pause-to-play-transition": {
+			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 6L9 18L7 18L7 6z\"><animate attributeName=\"d\" values=\"M9 18L7 18L7 6L9 6L9 18;M13 15L8 18L8 6L13 9L13 15;M13 15L8 18L8 6L13 9L13 9\" keyTimes=\"0;0.66;1\" dur=\"0.6s\" fill=\"freeze\"/><set attributeName=\"opacity\" to=\"0\" begin=\"0.6s\"/></path><path d=\"M15 6L17 6L17 18L15 18L15 6\"><animate attributeName=\"d\" values=\"M15 6L17 6L17 18L15 18L15 6;M13 9L18 12L18 12L13 15L13 9;M13 9L18 12L18 12L13 15L13 15\" keyTimes=\"0;0.66;1\" dur=\"0.6s\" fill=\"freeze\"/><set attributeName=\"opacity\" to=\"0\" begin=\"0.6s\"/></path><path d=\"M8 6L18 12L8 18z\" opacity=\"0\"><set attributeName=\"opacity\" to=\"1\" begin=\"0.6s\"/></path></g>"
+		},
 		"pencil": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 21L4.99998 15L16 4C17 3 19 3 20 4C21 5 21 7 20 8L8.99998 19L3 21\" stroke-dasharray=\"56\" stroke-dashoffset=\"56\"><animate attributeName=\"stroke-dashoffset\" values=\"56;0\" dur=\"0.6s\" fill=\"freeze\"/></path><g stroke-dasharray=\"6\"><path d=\"M15 5L19 9\" stroke-dashoffset=\"6\"><animate attributeName=\"stroke-dashoffset\" values=\"6;0\" begin=\"0.6s\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M6 15L9 18\" stroke-width=\"1\" stroke-dashoffset=\"6\"><animate attributeName=\"stroke-dashoffset\" values=\"6;0\" begin=\"0.6s\" dur=\"0.2s\" fill=\"freeze\"/></path></g></g>"
 		},
@@ -799,6 +808,21 @@
 		},
 		"pencil-twotone-alt": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 21L4.99998 15L16 4C17 3 19 3 20 4C21 5 21 7 20 8L8.99998 19L3 21\" stroke-dasharray=\"56\" stroke-dashoffset=\"56\"><animate attributeName=\"stroke-dashoffset\" values=\"56;0\" dur=\"0.6s\" fill=\"freeze\"/></path><g stroke-dasharray=\"6\"><path d=\"M15 5L19 9\" stroke-dashoffset=\"6\"><animate attributeName=\"stroke-dashoffset\" values=\"6;0\" begin=\"0.6s\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M6 15L9 18\" stroke-width=\"1\" stroke-dashoffset=\"6\"><animate attributeName=\"stroke-dashoffset\" values=\"6;0\" begin=\"0.6s\" dur=\"0.2s\" fill=\"freeze\"/></path></g></g><path d=\"M9 18L18 9L15 6L6 15L9 18Z\" fill=\"currentColor\" fill-opacity=\"0\"><animate attributeName=\"fill-opacity\" values=\"0;0.3\" begin=\"0.8s\" dur=\"0.15s\" fill=\"freeze\"/></path>"
+		},
+		"play": {
+			"body": "<path d=\"M8 6L18 12L8 18z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"36\" stroke-dashoffset=\"36\"><animate attributeName=\"stroke-dashoffset\" values=\"36;0\" dur=\"0.4s\" fill=\"freeze\"/></path>"
+		},
+		"play-filled": {
+			"body": "<path d=\"M8 6L18 12L8 18z\" fill=\"currentColor\" fill-opacity=\"0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"36\" stroke-dashoffset=\"36\"><animate attributeName=\"stroke-dashoffset\" values=\"36;0\" dur=\"0.4s\" fill=\"freeze\"/><animate attributeName=\"fill-opacity\" values=\"0;1\" begin=\"0.5s\" dur=\"0.5s\" fill=\"freeze\"/></path>"
+		},
+		"play-filled-to-pause-transition": {
+			"body": "<g fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 15L8 18L8 6L13 9L13 15\"><animate attributeName=\"d\" values=\"M13 15L8 18L8 6L13 9L13 15;M9 18L7 18L7 6L9 6L9 18\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M13 9L18 12L18 12L13 15L13 9\"><animate attributeName=\"d\" values=\"M13 9L18 12L18 12L13 15L13 9;M15 6L17 6L17 18L15 18L15 6\" dur=\"0.4s\" fill=\"freeze\"/></path></g>"
+		},
+		"play-to-pause-transition": {
+			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 15L8 18L8 6L13 9L13 9\"><animate attributeName=\"d\" values=\"M13 15L8 18L8 6L13 9L13 9;M13 15L8 18L8 6L13 9L13 15;M9 18L7 18L7 6L9 6L9 18\" keyTimes=\"0;0.33;1\" dur=\"0.6s\" fill=\"freeze\"/></path><path d=\"M13 9L18 12L18 12L13 15L13 15\"><animate attributeName=\"d\" values=\"M13 9L18 12L18 12L13 15L13 15;M13 9L18 12L18 12L13 15L13 9;M15 6L17 6L17 18L15 18L15 6\" keyTimes=\"0;0.33;1\" dur=\"0.6s\" fill=\"freeze\"/></path></g>"
+		},
+		"play-twotone": {
+			"body": "<path d=\"M8 6L18 12L8 18z\" fill=\"currentColor\" fill-opacity=\"0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"36\" stroke-dashoffset=\"36\"><animate attributeName=\"stroke-dashoffset\" values=\"36;0\" dur=\"0.4s\" fill=\"freeze\"/><animate attributeName=\"fill-opacity\" values=\"0;0.3\" begin=\"0.5s\" dur=\"0.15s\" fill=\"freeze\"/></path>"
 		},
 		"plus": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-dasharray=\"18\"><path d=\"M12 5V19\" stroke-dashoffset=\"18\"><animate attributeName=\"stroke-dashoffset\" values=\"18;0\" begin=\"0.4s\" dur=\"0.3s\" fill=\"freeze\"/></path><path d=\"M5 12H19\" stroke-dashoffset=\"18\"><animate attributeName=\"stroke-dashoffset\" values=\"18;0\" dur=\"0.3s\" fill=\"freeze\"/></path></g>"
@@ -1412,7 +1436,15 @@
 			"lightbulb-off-loop",
 			"lightbulb-off-twotone",
 			"lightbulb-off-twotone-loop",
-			"lightbulb-twotone"
+			"lightbulb-twotone",
+			"pause",
+			"pause-to-play-filled-transition",
+			"pause-to-play-transition",
+			"play",
+			"play-filled",
+			"play-filled-to-pause-transition",
+			"play-to-pause-transition",
+			"play-twotone"
 		],
 		"Interface": [
 			"cancel",
