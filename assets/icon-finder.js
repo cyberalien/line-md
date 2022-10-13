@@ -24792,7 +24792,7 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getComponentInstall = exports.componentPackages = exports.iconifyIconVersion = exports.iconifyVersion = void 0;
     exports.iconifyVersion = '3.0.0';
-    exports.iconifyIconVersion = '1.0.0';
+    exports.iconifyIconVersion = '1.0.1';
     exports.componentPackages = {
         react: {
             name: '@iconify/react',
