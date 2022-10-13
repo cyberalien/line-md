@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M9 6L9 18L7 18L7 6z">
+			<animate attributeName="d" values="M9 18L7 18L7 6L9 6L9 18;M13 15L8 18L8 6L13 9L13 15;M13 15L8 18L8 6L13 9L13 9" keyTimes="0;0.66;1" dur="0.6s" fill="freeze" />
+			<set attributeName="opacity" to="0" begin="0.6s" />
+		</path>
+		<path d="M15 6L17 6L17 18L15 18L15 6">
+			<animate attributeName="d" values="M15 6L17 6L17 18L15 18L15 6;M13 9L18 12L18 12L13 15L13 9;M13 9L18 12L18 12L13 15L13 15" keyTimes="0;0.66;1" dur="0.6s" fill="freeze" />
+			<set attributeName="opacity" to="0" begin="0.6s" />
+		</path>
+		<path d="M8 6L18 12L8 18z" opacity="0">
+			<set attributeName="opacity" to="1" begin="0.6s" />
+		</path>
+	</g>
+</svg>
