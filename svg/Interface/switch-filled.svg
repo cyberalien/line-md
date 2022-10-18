@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="switch-mask">
+		<g fill="#fff" fill-opacity="0" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<rect x="3" y="8" width="18" height="8" rx="4" stroke-dasharray="54" stroke-dashoffset="54">
+				<animate attributeName="stroke-dashoffset" values="54;0" dur="0.6s" fill="freeze" />
+			</rect>
+			<animate attributeName="fill-opacity" values="0;1" begin="0.7s" dur="0.2s" fill="freeze" />
+		</g>
+		<circle fill="#000" cx="17" cy="12" r="3" fill-opacity="0">
+			<animate attributeName="fill-opacity" values="0;1" begin="0.9s" dur="0.2s" fill="freeze" />
+		</circle>
+	</mask>
+	<rect x="2" y="7" width="20" height="10" fill="currentColor" mask="url(#switch-mask)" />
+</svg>
