@@ -17,8 +17,9 @@
 			"beer-alt-twotone-loop",
 			"image-twotone"
 		],
-		"total": 412
+		"total": 413
 	},
+	"lastModified": 1686211614,
 	"icons": {
 		"account": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M4 21V20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20V21\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7C16 9.20914 14.2091 11 12 11Z\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" begin=\"0.5s\" dur=\"0.4s\" fill=\"freeze\"/></path></g>"
@@ -253,6 +254,9 @@
 		},
 		"close-circle-twotone": {
 			"body": "<g stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z\" fill=\"currentColor\" fill-opacity=\"0\" stroke-dasharray=\"60\" stroke-dashoffset=\"60\"><animate attributeName=\"stroke-dashoffset\" values=\"60;0\" dur=\"0.5s\" fill=\"freeze\"/><animate attributeName=\"fill-opacity\" values=\"0;0.3\" begin=\"0.8s\" dur=\"0.15s\" fill=\"freeze\"/></path><path d=\"M12 12L16 16M12 12L8 8M12 12L8 16M12 12L16 8\" fill=\"none\" stroke-dasharray=\"8\" stroke-dashoffset=\"8\"><animate attributeName=\"stroke-dashoffset\" values=\"8;0\" begin=\"0.6s\" dur=\"0.2s\" fill=\"freeze\"/></path></g>"
+		},
+		"close-small": {
+			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M7 7L17 17\" stroke-dashoffset=\"16\" stroke-dasharray=\"16\"><animate attributeName=\"stroke-dashoffset\" values=\"16;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M17 7L7 17\" stroke-dashoffset=\"16\" stroke-dasharray=\"16\"><animate attributeName=\"stroke-dashoffset\" values=\"16;0\" dur=\"0.4s\" begin=\"0.4s\" fill=\"freeze\"/></path></g>"
 		},
 		"close-to-menu-alt-transition": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 5L19 19\"><animate attributeName=\"d\" values=\"M5 5L19 19;M5 5L19 5\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M12 12H12\" opacity=\"0\"><animate attributeName=\"d\" values=\"M12 12H12;M5 12H19\" begin=\"0.2s\" dur=\"0.4s\" fill=\"freeze\"/><set attributeName=\"opacity\" to=\"1\" begin=\"0.2s\"/></path><path d=\"M5 19L19 5\"><animate attributeName=\"d\" values=\"M5 19L19 5;M5 19L19 19\" dur=\"0.4s\" fill=\"freeze\"/></path></g>"
@@ -1548,6 +1552,7 @@
 			"close",
 			"close-circle",
 			"close-circle-twotone",
+			"close-small",
 			"confirm",
 			"confirm-circle",
 			"confirm-circle-to-circle-transition",
