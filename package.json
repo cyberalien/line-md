@@ -15,9 +15,9 @@
 		"build": "node build"
 	},
 	"devDependencies": {
-		"@iconify/tools": "^2.0.18"
+		"@iconify/tools": "^3.0.2"
 	},
 	"dependencies": {
-		"iconify-icon": "^0.0.6"
+		"iconify-icon": "^1.0.7"
 	}
 }
