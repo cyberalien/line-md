@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<clipPath id="watch-top">
+			<rect x="0" y="0" width="24" height="12" />
+		</clipPath>
+		<symbol id="watch-content">
+			<path d="M23 16.5C23 10.4249 18.0751 5.5 12 5.5C5.92487 5.5 1 10.4249 1 16.5z" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" clip-path="url(#watch-top)">
+				<animate attributeName="d" values="M23 16.5C23 11.5 18.0751 12 12 12C5.92487 12 1 11.5 1 16.5z;M23 16.5C23 10.4249 18.0751 5.5 12 5.5C5.92487 5.5 1 10.4249 1 16.5z" dur="0.5s" fill="freeze" />
+			</path>
+		</symbol>
+		<mask id="watch-mask">
+			<use href="#watch-content" />
+			<use href="#watch-content" transform="rotate(180 12 12)" />
+			<circle cx="12" cy="12" r="0" fill="#fff">
+				<animate attributeName="r" values="0;3" dur="0.2s" fill="freeze" />
+			</circle>
+		</mask>
+	</defs>
+	<rect x="0" y="0" width="24" height="24" fill="currentColor" mask="url(#watch-mask)" />
+</svg>
