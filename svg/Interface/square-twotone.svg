@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<path d="M4 12V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" fill="currentColor" fill-opacity="0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="64" stroke-dashoffset="64">
+		<animate attributeName="stroke-dashoffset" values="64;0" dur="0.5s" fill="freeze" />
+		<animate attributeName="fill-opacity" values="0;0.3" begin="0.5s" dur="0.15s" fill="freeze" />
+	</path>
+</svg>
