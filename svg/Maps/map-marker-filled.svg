@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="map-marker-mask">
+		<path d="M12 20.5C12 20.5 6 13.5 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9C18 13.5 12 20.5 12 20.5z" fill="white" fill-opacity="0" stroke="white" stroke-width="2" stroke-linecap="round" stroke-dasharray="48" stroke-dashoffset="48">
+			<animate attributeName="stroke-dashoffset" values="48;0" dur="0.6s" fill="freeze" />
+			<animate attributeName="fill-opacity" values="0;1" begin="0.7s" dur="0.4s" fill="freeze" />
+		</path>
+		<circle fill="black" cx="12" cy="9" r="2.5" />
+	</mask>
+	<rect mask="url(#map-marker-mask)" width="24" height="24" fill="currentColor" />
+</svg>
