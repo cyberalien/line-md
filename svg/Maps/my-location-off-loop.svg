@@ -14,7 +14,7 @@
 			<set attributeName="fill-opacity" to="1" begin="0.6s" />
 			<animate attributeName="r" values="0;4" begin="0.6s" dur="0.2s" fill="freeze" />
 		</circle>
-		<g transform="rotate(45 13 12)" fill="none" stroke-width="2" stroke-linecap="round" stroke-dasharray="26" stroke-dashoffset="26">
+		<g transform="rotate(45 12 12)" fill="none" stroke-width="2" stroke-linecap="round" stroke-dasharray="26" stroke-dashoffset="26">
 			<path d="M0 11h24" stroke="black" />
 			<path d="M0 13h22" stroke="white">
 				<animate attributeName="d" values="M0 13h22;M2 13h22;M0 13h22" dur="6s" repeatCount="indefinite" />
