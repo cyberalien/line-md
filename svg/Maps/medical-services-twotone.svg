@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+		<path d="M15 7V4C15 3.44772 14.5523 3 14 3H10C9.44772 3 9 3.44772 9 4V7" stroke-dasharray="16" stroke-dashoffset="16" opacity="0">
+			<animate attributeName="stroke-dashoffset" values="16;32" begin="0.7s" dur="0.2s" fill="freeze" />
+			<set attributeName="opacity" to="1" begin="0.7s" />
+		</path>
+		<path d="M12 11v6" stroke-dasharray="8" stroke-dashoffset="8" opacity="0">
+			<animate attributeName="stroke-dashoffset" values="8;0" begin="1.0s" dur="0.2s" fill="freeze" />
+			<set attributeName="opacity" to="1" begin="1.0s" />
+		</path>
+		<path d="M9 14h6" stroke-dasharray="8" stroke-dashoffset="8" opacity="0">
+			<animate attributeName="stroke-dashoffset" values="8;0" begin="1.2s" dur="0.2s" fill="freeze" />
+			<set attributeName="opacity" to="1" begin="1.2s" />
+		</path>
+		<path d="M9 7H20C20.5523 7 21 7.44772 21 8V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V8C3 7.44772 3.44772 7 4 7z" fill="currentColor" fill-opacity="0" stroke-dasharray="64" stroke-dashoffset="64">
+			<animate attributeName="stroke-dashoffset" values="64;0" dur="0.6s" fill="freeze" />
+			<animate attributeName="fill-opacity" values="0;0.3" begin="0.7s" dur="0.15s" fill="freeze" />
+		</path>
+	</g>
+</svg>
