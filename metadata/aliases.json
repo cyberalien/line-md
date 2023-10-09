@@ -1,25 +1,6 @@
 [
 	{
-		"icons": [
-			"arrow-left",
-			"arrow-small-left",
-			"arrow-left-circle",
-			"arrow-left-circle-twotone",
-			"arrow-left-square",
-			"arrow-left-square-twotone",
-			"chevron-left",
-			"chevron-left-circle",
-			"chevron-left-circle-twotone",
-			"chevron-left-square",
-			"chevron-left-square-twotone",
-			"chevron-double-left",
-			"chevron-triple-left",
-			"chevron-small-left",
-			"chevron-small-double-left",
-			"chevron-small-triple-left",
-			"arrow-open-left",
-			"arrow-close-left"
-		],
+		"icons": ["arrow-left", "arrow-small-left", "arrow-left-circle", "arrow-left-circle-twotone", "arrow-left-square", "arrow-left-square-twotone", "chevron-left", "chevron-left-circle", "chevron-left-circle-twotone", "chevron-left-square", "chevron-left-square-twotone", "chevron-double-left", "chevron-triple-left", "chevron-small-left", "chevron-small-double-left", "chevron-small-triple-left", "arrow-open-left", "arrow-close-left"],
 		"search": "-left",
 		"aliases": [
 			{
@@ -44,7 +25,7 @@
 		]
 	},
 	{
-		"icons": ["align-left", "navigation-left-up"],
+		"icons": ["align-left", "navigation-left-up", "turn-slight-left", "turn-sharp-left", "roundabout-left", "fork-left", "u-turn-left", "turn-left", "round-ramp-left"],
 		"search": "-left",
 		"replace": "-right",
 		"changes": {
@@ -92,11 +73,7 @@
 		}
 	},
 	{
-		"icons": [
-			"arrows-horizontal",
-			"arrows-horizontal-alt",
-			"double-arrow-horizontal"
-		],
+		"icons": ["arrows-horizontal", "arrows-horizontal-alt", "double-arrow-horizontal"],
 		"search": "-horizontal",
 		"replace": "-vertical",
 		"changes": {
