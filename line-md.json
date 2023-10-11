@@ -17,9 +17,9 @@
 			"beer-alt-twotone-loop",
 			"map-marker-off-loop"
 		],
-		"total": 512
+		"total": 518
 	},
-	"lastModified": 1696884175,
+	"lastModified": 1697051106,
 	"icons": {
 		"account": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M4 21V20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20V21\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7C16 9.20914 14.2091 11 12 11Z\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" begin=\"0.5s\" dur=\"0.4s\" fill=\"freeze\"/></path></g>"
@@ -996,6 +996,15 @@
 		"person-twotone": {
 			"body": "<g fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill-opacity=\"0\"><path d=\"M12 5C13.66 5 15 6.34 15 8C15 9.65685 13.6569 11 12 11C10.3431 11 9 9.65685 9 8C9 6.34315 10.3431 5 12 5z\" stroke-dasharray=\"20\" stroke-dashoffset=\"20\"><animate attributeName=\"stroke-dashoffset\" values=\"20;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M12 14C16 14 19 16 19 17V19H5V17C5 16 8 14 12 14z\" opacity=\"0\" stroke-dasharray=\"36\" stroke-dashoffset=\"36\"><set attributeName=\"opacity\" to=\"1\" begin=\"0.5s\"/><animate attributeName=\"stroke-dashoffset\" values=\"36;0\" begin=\"0.5s\" dur=\"0.4s\" fill=\"freeze\"/></path><animate attributeName=\"fill-opacity\" values=\"0;0.3\" begin=\"0.9s\" dur=\"0.15s\" fill=\"freeze\"/></g>"
 		},
+		"pixelfed": {
+			"body": "<path d=\"M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"2\" stroke-dasharray=\"60\" stroke-dashoffset=\"60\"><animate attributeName=\"stroke-dashoffset\" values=\"60;0\" dur=\"0.5s\" fill=\"freeze\"/></path><path d=\"M11.2061 14.1832H13.0406C14.7687 14.1832 16.1697 12.8194 16.1697 11.1371C16.1697 9.45472 14.7687 8.09091 13.0406 8.09091H10.3929C9.39592 8.09091 8.58769 8.87772 8.58769 9.8483V16.6883L11.2061 14.1832Z\" fill=\"currentColor\" fill-opacity=\"0\"><animate attributeName=\"fill-opacity\" values=\"0;1\" begin=\"0.6s\" dur=\"0.5s\" fill=\"freeze\"/></path>"
+		},
+		"pixelfed-filled": {
+			"body": "<mask id=\"pixelfed-mask\"><path d=\"M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z\" fill=\"white\" fill-opacity=\"0\" stroke=\"white\" stroke-linecap=\"round\" stroke-width=\"2\" stroke-dasharray=\"60\" stroke-dashoffset=\"60\"><animate attributeName=\"stroke-dashoffset\" values=\"60;0\" dur=\"0.5s\" fill=\"freeze\"/><animate attributeName=\"fill-opacity\" values=\"0;1\" begin=\"0.6s\" dur=\"0.5s\" fill=\"freeze\"/></path><path d=\"M11.2061 14.1832H13.0406C14.7687 14.1832 16.1697 12.8194 16.1697 11.1371C16.1697 9.45472 14.7687 8.09091 13.0406 8.09091H10.3929C9.39592 8.09091 8.58769 8.87772 8.58769 9.8483V16.6883L11.2061 14.1832Z\" fill=\"black\"/></mask><rect mask=\"url(#pixelfed-mask)\" width=\"24\" height=\"24\" fill=\"currentColor\"/>"
+		},
+		"pixelfed-twotone": {
+			"body": "<path d=\"M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z\" fill=\"currentColor\" fill-opacity=\"0\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"2\" stroke-dasharray=\"60\" stroke-dashoffset=\"60\"><animate attributeName=\"stroke-dashoffset\" values=\"60;0\" dur=\"0.5s\" fill=\"freeze\"/><animate attributeName=\"fill-opacity\" values=\"0;0.3\" begin=\"0.5s\" dur=\"0.15s\" fill=\"freeze\"/></path><path d=\"M11.2061 14.1832H13.0406C14.7687 14.1832 16.1697 12.8194 16.1697 11.1371C16.1697 9.45472 14.7687 8.09091 13.0406 8.09091H10.3929C9.39592 8.09091 8.58769 8.87772 8.58769 9.8483V16.6883L11.2061 14.1832Z\" fill=\"currentColor\" fill-opacity=\"0\"><animate attributeName=\"fill-opacity\" values=\"0;1\" begin=\"0.7s\" dur=\"0.5s\" fill=\"freeze\"/></path>"
+		},
 		"play": {
 			"body": "<path d=\"M8 6L18 12L8 18z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"36\" stroke-dashoffset=\"36\"><animate attributeName=\"stroke-dashoffset\" values=\"36;0\" dur=\"0.4s\" fill=\"freeze\"/></path>"
 		},
@@ -1343,6 +1352,15 @@
 		},
 		"weather-cloudy-loop": {
 			"body": "<mask id=\"weather-cloudy-mask\"><g fill=\"white\"><circle cx=\"12\" cy=\"11\" r=\"6\"><animate attributeName=\"cx\" values=\"12;11;12;13;12\" dur=\"30s\" repeatCount=\"indefinite\"/></circle><rect x=\"8\" y=\"12\" width=\"10\" height=\"7\"/><rect x=\"1\" y=\"9\" width=\"16\" height=\"10\" rx=\"5\"><animate attributeName=\"x\" values=\"1;0;1;2;1\" dur=\"19s\" repeatCount=\"indefinite\"/></rect><rect x=\"6\" y=\"11\" width=\"17\" height=\"8\" rx=\"4\"><animate attributeName=\"x\" values=\"6;5;6;7;6\" dur=\"23s\" repeatCount=\"indefinite\"/></rect></g><g fill=\"black\"><circle cx=\"12\" cy=\"11\" r=\"4\"><animate attributeName=\"cx\" values=\"12;11;12;13;12\" dur=\"30s\" repeatCount=\"indefinite\"/></circle><rect x=\"8\" y=\"11\" width=\"8\" height=\"6\"><animate attributeName=\"x\" values=\"8;7;8;9;8\" dur=\"30s\" repeatCount=\"indefinite\"/></rect><rect x=\"3\" y=\"11\" width=\"12\" height=\"6\" rx=\"3\"><animate attributeName=\"x\" values=\"3;2;3;4;3\" dur=\"19s\" repeatCount=\"indefinite\"/></rect><rect x=\"8\" y=\"13\" width=\"13\" height=\"4\" rx=\"2\"><animate attributeName=\"x\" values=\"8;7;8;9;8\" dur=\"23s\" repeatCount=\"indefinite\"/></rect></g></mask><rect mask=\"url(#weather-cloudy-mask)\" width=\"24\" height=\"24\" fill=\"currentColor\"/>"
+		},
+		"youtube": {
+			"body": "<path d=\"M12 5C21 5 21 5 21 12C21 19 21 19 12 19C3 19 3 19 3 12C3 5 3 5 12 5z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-dasharray=\"60\" stroke-dashoffset=\"60\"><animate attributeName=\"stroke-dashoffset\" values=\"60;0\" dur=\"0.6s\" fill=\"freeze\"/></path><path fill=\"currentColor\" d=\"M10 8.5L16 12L10 15.5z\" fill-opacity=\"0\"><set attributeName=\"fill-opacity\" to=\"1\" begin=\"0.7s\"/><animate attributeName=\"d\" values=\"M12 11L12 12L12 13z;M10 8.5L16 12L10 15.5z\" begin=\"0.7s\" dur=\"0.2s\" fill=\"freeze\"/></path>"
+		},
+		"youtube-filled": {
+			"body": "<mask id=\"youtube-mask\"><path d=\"M12 5C21 5 21 5 21 12C21 19 21 19 12 19C3 19 3 19 3 12C3 5 3 5 12 5z\" fill=\"white\" fill-opacity=\"0\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-dasharray=\"60\" stroke-dashoffset=\"60\"><animate attributeName=\"stroke-dashoffset\" values=\"60;0\" dur=\"0.6s\" fill=\"freeze\"/><animate attributeName=\"fill-opacity\" values=\"0;1\" begin=\"0.6s\" dur=\"0.5s\" fill=\"freeze\"/></path><path fill=\"black\" d=\"M10 8.5L16 12L10 15.5z\"/></mask><rect mask=\"url(#youtube-mask)\" width=\"24\" height=\"24\" fill=\"currentColor\"/>"
+		},
+		"youtube-twotone": {
+			"body": "<path d=\"M12 5C21 5 21 5 21 12C21 19 21 19 12 19C3 19 3 19 3 12C3 5 3 5 12 5z\" fill=\"currentColor\" fill-opacity=\"0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-dasharray=\"60\" stroke-dashoffset=\"60\"><animate attributeName=\"stroke-dashoffset\" values=\"60;0\" dur=\"0.6s\" fill=\"freeze\"/><animate attributeName=\"fill-opacity\" values=\"0;0.3\" begin=\"0.6s\" dur=\"0.15s\" fill=\"freeze\"/></path><path fill=\"currentColor\" d=\"M10 8.5L16 12L10 15.5z\" fill-opacity=\"0\"><set attributeName=\"fill-opacity\" to=\"1\" begin=\"0.8s\"/><animate attributeName=\"d\" values=\"M12 11L12 12L12 13z;M10 8.5L16 12L10 15.5z\" begin=\"0.8s\" dur=\"0.2s\" fill=\"freeze\"/></path>"
 		}
 	},
 	"aliases": {
@@ -2042,6 +2060,9 @@
 			"mastodon",
 			"mastodon-filled",
 			"mastodon-twotone",
+			"pixelfed",
+			"pixelfed-filled",
+			"pixelfed-twotone",
 			"reddit",
 			"reddit-circle",
 			"reddit-circle-loop",
@@ -2068,7 +2089,10 @@
 			"twitter",
 			"twitter-twotone",
 			"twitter-x",
-			"twitter-x-alt"
+			"twitter-x-alt",
+			"youtube",
+			"youtube-filled",
+			"youtube-twotone"
 		],
 		"Technology": [
 			"cloud",
