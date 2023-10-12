@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<g fill="currentColor">
+		<path d="M8 9.34L12 6.67L4 12z">
+			<animate attributeName="d" values="M8 9.34L12 6.67L4 12z;M4 1.34L12 6.67L4 12z" begin="0.2s" dur="0.4s" fill="freeze" />
+		</path>
+		<path d="M12 6.67L12 12L12 17.34z">
+			<animate attributeName="d" values="M12 6.67L12 12L12 17.34z;M12 6.67L20 12L12 17.34z" dur="0.4s" fill="freeze" />
+		</path>
+		<path d="M4 12L12 17.34L8 14.67z">
+			<animate attributeName="d" values="M4 12L12 17.34L8 14.67z;M4 12L12 17.34L4 22.67z" begin="0.4s" dur="0.4s" fill="freeze" />
+		</path>
+	</g>
+</svg>

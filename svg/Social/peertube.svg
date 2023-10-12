@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="peertube-mask">
+		<path d="M4 1.34L20 12L4 22.67z" fill="white">
+			<animate attributeName="d" values="M12 12L12 12L12 12z;M4 1.34L20 12L4 22.67z" dur="0.4s" fill="freeze" />
+		</path>
+		<path d="M12 6.67v10.67L4 12z" fill="black" />
+	</mask>
+	<rect mask="url(#peertube-mask)" width="24" height="24" fill="currentColor" />
+</svg>
