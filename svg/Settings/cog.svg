@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<symbol id="cog-part">
+			<path fill="none" stroke-width="2" d="M15.24 6.37C15.65 6.6 16.04 6.88 16.38 7.2C16.6 7.4 16.8 7.61 16.99 7.83C17.46 8.4 17.85 9.05 18.11 9.77C18.2 10.03 18.28 10.31 18.35 10.59C18.45 11.04 18.5 11.52 18.5 12">
+				<animate attributeName="d" values="M15.24 6.37C15.65 6.6 16.04 6.88 16.38 7.2C16.6 7.4 16.8 7.61 16.99 7.83C17.46 8.4 17.85 9.05 18.11 9.77C18.2 10.03 18.28 10.31 18.35 10.59C18.45 11.04 18.5 11.52 18.5 12;M15.24 6.37C15.65 6.6 16.04 6.88 16.38 7.2C16.38 7.2 19 6.12 19.01 6.14C19.01 6.14 20.57 8.84 20.57 8.84C20.58 8.87 18.35 10.59 18.35 10.59C18.45 11.04 18.5 11.52 18.5 12" begin="0.8s" dur="0.2s" fill="freeze" />
+			</path>
+		</symbol>
+	</defs>
+	<g fill="none" stroke="currentColor" stroke-width="2">
+		<g stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 5.5C15.59 5.5 18.5 8.41 18.5 12C18.5 15.59 15.59 18.5 12 18.5C8.41 18.5 5.5 15.59 5.5 12C5.5 8.41 8.41 5.5 12 5.5z" stroke-dasharray="42" stroke-dashoffset="42" opacity="0">
+				<animate attributeName="stroke-dashoffset" values="42;0" begin="0.2s" dur="0.5s" fill="freeze" />
+				<set attributeName="opacity" to="1" begin="0.2s" />
+				<set attributeName="opacity" to="0" begin="0.7s" />
+			</path>
+			<path d="M12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9z" stroke-dasharray="20" stroke-dashoffset="20">
+				<animate attributeName="stroke-dashoffset" values="20;0" dur="0.2s" fill="freeze" />
+			</path>
+		</g>
+		<g opacity="0">
+			<use href="#cog-part" />
+			<use href="#cog-part" transform="rotate(60 12 12)" />
+			<use href="#cog-part" transform="rotate(120 12 12)" />
+			<use href="#cog-part" transform="rotate(180 12 12)" />
+			<use href="#cog-part" transform="rotate(240 12 12)" />
+			<use href="#cog-part" transform="rotate(300 12 12)" />
+			<set attributeName="opacity" to="1" begin="0.7s" />
+		</g>
+	</g>
+</svg>
