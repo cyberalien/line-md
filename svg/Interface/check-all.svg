@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="confirm-mask">
+			<g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M2 13.5l4 4l10.75 -10.75" stroke-dasharray="22" stroke-dashoffset="22">
+					<animate attributeName="stroke-dashoffset" values="22;0" dur="0.4s" fill="freeze" />
+				</path>
+				<path d="M7.5 13.5l4 4l10.75 -10.75" stroke-width="4" stroke="black" stroke-dasharray="22" stroke-dashoffset="22" opacity="0">
+					<set attributeName="opacity" to="1" begin="0.4s" />
+					<animate attributeName="stroke-dashoffset" values="22;0" begin="0.4s" dur="0.4s" fill="freeze" />
+				</path>
+				<path d="M7.5 13.5l4 4l10.75 -10.75" stroke-dasharray="22" stroke-dashoffset="22" opacity="0">
+					<set attributeName="opacity" to="1" begin="0.4s" />
+					<animate attributeName="stroke-dashoffset" values="22;0" begin="0.4s" dur="0.4s" fill="freeze" />
+				</path>
+			</g>
+		</mask>
+	</defs>
+	<rect mask="url(#confirm-mask)" width="24" height="24" fill="currentColor" />
+</svg>
