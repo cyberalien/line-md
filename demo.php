@@ -31,7 +31,6 @@ function cleanupMetadata($value) {
         return $value;
     }
 
-
     if (is_object($value)) {
         $newObject = [];
         foreach ($value as $key => $oldValue) {
