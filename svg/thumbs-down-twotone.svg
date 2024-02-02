@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M3 4H7V13H3V4Z" fill="currentColor" fill-opacity="0"><animate attributeName="fill-opacity" values="0;0.3" begin="0.8s" dur="0.15s" fill="freeze"/></path><path d="M7 4H18L21 11V14H14L15 20L12 21L7 13H3V4H7V13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="80" stroke-dashoffset="80"><animate attributeName="stroke-dashoffset" values="80;0" dur="0.8s" fill="freeze"/></path></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<path d="M3 4H7V13H3V4Z" fill="currentColor" fill-opacity="0">
+		<animate attributeName="fill-opacity" values="0;0.3" begin="0.8s" dur="0.15s" fill="freeze" />
+	</path>
+	<path d="M7 4H18L21 11V14H14L15 20L12 21L7 13H3V4H7V13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="80" stroke-dashoffset="80">
+		<animate attributeName="stroke-dashoffset" values="80;0" dur="0.8s" fill="freeze" />
+	</path>
+</svg>
