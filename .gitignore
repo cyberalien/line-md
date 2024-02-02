@@ -3,7 +3,3 @@
 .DS_Store
 node_modules
 npm-debug.log
-lib
-dist
-# Keeping package-lock.json guarantees merge conflicts when updating forks, so it is better to ignore it.
-package-lock.json

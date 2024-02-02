@@ -45,7 +45,7 @@ Other icons:
 
 There are few issues with SVG animations.
 
-[Iconify icon web component](https://docs.iconify.design/iconify-icon/) solves those issues, but if you are using icons without it, see [article that explains known SVG issues and solutions](https://docs.iconify.design/articles/svg-animation-issues/).
+[Iconify icon web component](https://iconify.design/docs/iconify-icon/) solves those issues, but if you are using icons without it, see [article that explains known SVG issues and solutions](https://iconify.design/docs/articles/svg-animation-issues/).
 
 ## Licence
 

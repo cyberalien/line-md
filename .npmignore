@@ -2,15 +2,6 @@
 .vscode
 .DS_Store
 node_modules
-src
-build
-lib
-dist
-assets
-demo
-tsconfig.json
-rollup.config.js
-dev.md
 index.html
-# Keeping package-lock.json guarantees merge conflicts when updating forks, so it is better to ignore it.
-package-lock.json
+pnpm-lock.taml
+build.js
