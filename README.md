@@ -8,9 +8,9 @@ This icon set is different:
 -   It follows guidelines that are used for 'Round' and 'TwoTone' icons in the official Material Design Icons set.
 -   Sometimes 1px thin lines are used where it makes sense.
 
-Preview is available at https://cyberalien.github.io/line-md/
+You can browse all icons at https://icon-sets.iconify.design/line-md/
 
-Icon set is in development. It contains only few icons so far.
+Click any icon to get code you can use in your project.
 
 ## Icon requests
 
