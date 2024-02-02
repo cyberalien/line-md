@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="tiktok-mask">
+		<path d="M16.6 5.82C15.9164 5.03962 15.5397 4.03743 15.54 3H12.45V15.4C12.4262 16.071 12.1429 16.7066 11.6598 17.1729C11.1767 17.6393 10.5314 17.8999 9.86 17.9C8.44 17.9 7.26 16.74 7.26 15.3C7.26 13.58 8.92 12.29 10.63 12.82V9.66C7.18 9.2 4.16 11.88 4.16 15.3C4.16 18.63 6.92 21 9.85 21C12.99 21 15.54 18.45 15.54 15.3V9.01C16.793 9.90985 18.2974 10.3926 19.84 10.39V7.3C19.84 7.3 17.96 7.39 16.6 5.82Z" fill="white" />
+		<g fill="none" stroke="black" stroke-width="4">
+			<path d="M11 11H10C7.79086 11 5.5 12.7909 5.5 15C5.5 17.2091 7 19.5 10 19.5C12.2091 19.5 14 17.2091 14 15V2.5" stroke-dasharray="36" stroke-dashoffset="72">
+				<animate attributeName="stroke-dashoffset" values="72;36" dur="0.6s" fill="freeze" />
+			</path>
+			<path d="M18 2.5V10.5" stroke-dasharray="10" stroke-dashoffset="20">
+				<animate attributeName="stroke-dashoffset" values="20;10" begin="0.5s" dur="0.1s" fill="freeze" />
+			</path>
+		</g>
+	</mask>
+	<rect mask="url(#tiktok-mask)" width="24" height="24" fill="currentColor" />
+</svg>
