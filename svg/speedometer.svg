@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="speed-mask">
+		<path fill="none" stroke="white" stroke-linecap="round" stroke-width="2" d="M21 13C21 8.02944 16.9706 4 12 4C7.02944 4 3 8.02944 3 13C3 17.9706 7.02944 22 12 22" transform="rotate(45 12 13)" stroke-dasharray="46" stroke-dashoffset="46">
+			<animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="46;92" />
+		</path>
+		<g fill-opacity="0" transform="rotate(-100 12 13)">
+			<path d="M12 14C12 14 12 14 12 14C12 14 12 14 12 14C12 14 12 14 12 14C12 14 12 14 12 14Z" fill="black">
+				<animate fill="freeze" attributeName="d" begin="0.4s" dur="0.2s" values="M12 14C12 14 12 14 12 14C12 14 12 14 12 14C12 14 12 14 12 14C12 14 12 14 12 14Z;M17 13C17 15.7614 14.7614 18 12 18C9.23858 18 7 15.7614 7 13C7 10.2386 12 -2 12 -2C12 -2 17 10.2386 17 13Z" />
+			</path>
+			<path d="M12 14C12 14 12 14 12 14C12 14 12 14 12 14C12 14 12 14 12 14C12 14 12 14 12 14Z" fill="white">
+				<animate fill="freeze" attributeName="d" begin="0.4s" dur="0.2s" values="M12 14C12 14 12 14 12 14C12 14 12 14 12 14C12 14 12 14 12 14C12 14 12 14 12 14Z;M15 13C15 14.6568 13.6569 16 12 16C10.3431 16 9 14.6568 9 13C9 11.3431 12 2 12 2C12 2 15 11.3431 15 13Z" />
+			</path>
+			<set attributeName="fill-opacity" to="1" begin="0.4s" />
+			<animateTransform attributeName="transform" type="rotate" values="-100 12 13;65 12 13" begin="0.6s" dur="0.3s" fill="freeze" />
+		</g>
+	</mask>
+	<rect mask="url(#speed-mask)" width="24" height="24" fill="currentColor" />
+</svg>
