@@ -1,5 +1,5 @@
 const { promises: fs } = require('fs');
-const { IconSet, importDirectory, runSVGO, deOptimisePaths } = require('@iconify/tools');
+const { importDirectory } = require('@iconify/tools');
 
 // Load JSON file
 async function loadJSON(filename) {
@@ -140,21 +140,7 @@ async function build() {
 		});
 	});
 
-	// Clean up icons
-	/*
-	await iconSet.forEach(async (name, type) => {
-		if (type !== 'icon') {
-			return;
-		}
-
-		const svg = iconSet.toSVG(name);
-		await runSVGO(svg);
-		await deOptimisePaths(svg);
-		iconSet.fromSVG(name, svg);
-	});
-	*/
-
-	const allowedSuffixes = ['twotone', 'filled', 'loop', 'out'];
+	const allowedSuffixes = ['twotone', 'filled', 'loop'];
 	const findMatches = (match) => {
 		const checkEnd = match.slice(-1) !== '-';
 		const checkStart = match.slice(0, 1) !== '-';

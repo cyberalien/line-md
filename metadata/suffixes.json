@@ -1,6 +1,5 @@
 {
-	"": "Outline Animation",
-	"out": "Erase Animation",
-	"loop": "Looping Animation",
-	"transition": "Transition Between Icons"
+	"": "Animation On Render",
+	"loop": "Indefinite Animation",
+	"transition": "Transitions Between Icons"
 }
