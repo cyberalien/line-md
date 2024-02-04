@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <mask id="beer-mask">
-        <g transform="translate(0 14)">
-            <path d="M6 7.67C6.6 7.3 7.22 7 8 7C10 7 11 9 13 9C14.64 9 15.6 7.66 17 7.17" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M17 8L16 21H7L6 8z" fill="#fff" />
-            <animateMotion path="M0 0v-14" calcMode="linear" begin="0.6s" dur="0.6s" fill="freeze" />
-        </g>
-    </mask>
-    <path d="M18 3L16 21H7L5 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60">
-        <animate attributeName="stroke-dashoffset" values="60;0" dur="0.6s" fill="freeze" />
-    </path>
-    <rect x="6" y="6" width="11" height="14" fill="currentColor" mask="url(#beer-mask)" />
+	<mask id="beer-mask">
+		<g transform="translate(0 16)">
+			<path d="M5 7.67h1C6.6 7.3 7.22 7 8 7C10 7 11 9 13 9C14.64 9 15.6 7.66 17 7.17h1" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M5 7.67h1C6.6 7.3 7.22 7 8 7C10 7 11 9 13 9C14.64 9 15.6 7.66 17 7.17h1V24H6z" fill="#fff" />
+			<animateMotion path="M0 0v-16" calcMode="linear" begin="0.6s" dur="0.6s" fill="freeze" />
+		</g>
+	</mask>
+	<path d="M18 3L16 21H7L5 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60">
+		<animate attributeName="stroke-dashoffset" values="60;0" dur="0.6s" fill="freeze" />
+	</path>
+	<path d="M18 3L16 21H7L5 3z" fill="currentColor" mask="url(#beer-mask)" />
 </svg>
