@@ -17,9 +17,9 @@
 			"beer-alt-twotone-loop",
 			"map-marker-off-loop"
 		],
-		"total": 605
+		"total": 606
 	},
-	"lastModified": 1711103722,
+	"lastModified": 1718813108,
 	"icons": {
 		"account": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M4 21V20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20V21\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7C16 9.20914 14.2091 11 12 11Z\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" begin=\"0.5s\" dur=\"0.4s\" fill=\"freeze\"/></path></g>"
@@ -821,6 +821,9 @@
 		},
 		"lightbulb-twotone": {
 			"body": "<g fill=\"currentColor\"><path d=\"M12 17H9V14.1973C7.2066 13.1599 6 11.2208 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9C18 11.2208 16.7934 13.1599 15 14.1973V17z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" stroke-dasharray=\"46\" stroke-dashoffset=\"46\" fill-opacity=\"0\"><animate attributeName=\"stroke-dashoffset\" values=\"46;0\" dur=\"0.4s\" fill=\"freeze\"/><animate attributeName=\"fill-opacity\" values=\"0;0.3\" begin=\"0.7s\" dur=\"0.15s\" fill=\"freeze\"/></path><rect x=\"9\" y=\"20\" width=\"6\" height=\"0\" rx=\"1\"><animate attributeName=\"height\" values=\"0;2\" begin=\"0.5s\" dur=\"0.2s\" fill=\"freeze\"/></rect></g>"
+		},
+		"link": {
+			"body": "<path d=\"M13 6L15 4C16 3 18 3 19 4L20 5C21 6 21 8 20 9L15 14C14 15 12 15 11 14M11 18L9 20C8 21 6 21 5 20L4 19C3 18 3 16 4 15L9 10C10 9 12 9 13 10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" dur=\"0.6s\" fill=\"freeze\"/></path>"
 		},
 		"linkedin": {
 			"body": "<circle cx=\"4\" cy=\"4\" r=\"2\" fill=\"currentColor\" fill-opacity=\"0\"><animate attributeName=\"fill-opacity\" values=\"0;1\" dur=\"0.4s\" fill=\"freeze\"/></circle><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\"><path d=\"M4 10V20\" stroke-dasharray=\"12\" stroke-dashoffset=\"12\"><animate attributeName=\"stroke-dashoffset\" values=\"12;0\" begin=\"0.2s\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M10 10V20\" stroke-dasharray=\"12\" stroke-dashoffset=\"12\"><animate attributeName=\"stroke-dashoffset\" values=\"12;0\" begin=\"0.5s\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M10 15C10 12.2386 12.2386 10 15 10C17.7614 10 20 12.2386 20 15V20\" stroke-dasharray=\"24\" stroke-dashoffset=\"24\"><animate attributeName=\"stroke-dashoffset\" values=\"24;0\" begin=\"0.7s\" dur=\"0.5s\" fill=\"freeze\"/></path></g>"
@@ -2352,6 +2355,7 @@
 			"home-simple-twotone",
 			"home-twotone",
 			"home-twotone-alt",
+			"link",
 			"menu",
 			"menu-fold-left",
 			"menu-fold-right",
