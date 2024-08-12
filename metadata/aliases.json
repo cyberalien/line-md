@@ -103,5 +103,10 @@
 				}
 			}
 		]
+	},
+	{
+		"icons": ["bell-alert-twotone", "bell-alert-twotone-loop"],
+		"search": "-alert-twotone",
+		"replace": "-twotone-alert"
 	}
 ]

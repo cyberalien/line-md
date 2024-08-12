@@ -131,7 +131,7 @@ async function build() {
 				}
 
 				// Add icon and category
-				iconSet.setVariation(newName, name, changes);
+				iconSet.setVariation(newName, name, changes ?? {});
 				const category = iconCategories[name];
 				if (category) {
 					iconSet.toggleCategory(newName, category, true);
