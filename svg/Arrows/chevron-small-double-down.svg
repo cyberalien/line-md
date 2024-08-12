@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<path d="M5 12l7 -7M5 12l7 7" stroke-dasharray="12" stroke-dashoffset="12">
+		<path d="M12 12l-5 -5M12 12l5 -5" stroke-dasharray="12" stroke-dashoffset="12">
 			<animate attributeName="stroke-dashoffset" values="12;0" dur="0.3s" fill="freeze" />
 		</path>
-		<path d="M11 12l7 -7M11 12l7 7" stroke-dasharray="12" stroke-dashoffset="12">
+		<path d="M12 18l-5 -5M12 18l5 -5" stroke-dasharray="12" stroke-dashoffset="12">
 			<animate attributeName="stroke-dashoffset" values="12;0" begin="0.3s" dur="0.3s" fill="freeze" />
 		</path>
 	</g>
