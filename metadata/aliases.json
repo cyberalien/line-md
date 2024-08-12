@@ -8,39 +8,6 @@
 		}
 	},
 	{
-		"icons": ["arrow-align-left"],
-		"search": "-left",
-		"aliases": [
-			{
-				"replace": "-right",
-				"changes": {
-					"hFlip": true
-				}
-			},
-			{
-				"replace": "-bottom",
-				"changes": {
-					"rotate": 3
-				}
-			},
-			{
-				"replace": "-top",
-				"changes": {
-					"rotate": 3,
-					"hFlip": true
-				}
-			}
-		]
-	},
-	{
-		"icons": ["arrow-align-center"],
-		"search": "-center",
-		"replace": "-middle",
-		"changes": {
-			"rotate": 3
-		}
-	},
-	{
 		"icons": ["bell-alert-twotone", "bell-alert-twotone-loop"],
 		"search": "-alert-twotone",
 		"replace": "-twotone-alert"
