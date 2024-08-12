@@ -1,6 +1,6 @@
 [
 	{
-		"icons": ["navigation-left-up", "turn-slight-left", "turn-sharp-left", "roundabout-left", "fork-left", "u-turn-left", "turn-left", "round-ramp-left"],
+		"icons": ["turn-slight-left", "turn-sharp-left", "roundabout-left", "fork-left", "u-turn-left", "turn-left", "round-ramp-left"],
 		"search": "-left",
 		"replace": "-right",
 		"changes": {
@@ -39,45 +39,6 @@
 		"changes": {
 			"rotate": 3
 		}
-	},
-	{
-		"icons": ["arrows-diagonal"],
-		"append": "-rotated",
-		"changes": {
-			"hFlip": true
-		}
-	},
-	{
-		"icons": ["arrows-horizontal", "arrows-horizontal-alt", "double-arrow-horizontal"],
-		"search": "-horizontal",
-		"replace": "-vertical",
-		"changes": {
-			"rotate": 1
-		}
-	},
-	{
-		"icons": ["navigation-left-up"],
-		"search": "-left-up",
-		"aliases": [
-			{
-				"replace": "-left-down",
-				"changes": {
-					"vFlip": true
-				}
-			},
-			{
-				"replace": "-right-up",
-				"changes": {
-					"hFlip": true
-				}
-			},
-			{
-				"replace": "-right-down",
-				"changes": {
-					"rotate": 2
-				}
-			}
-		]
 	},
 	{
 		"icons": ["bell-alert-twotone", "bell-alert-twotone-loop"],
