@@ -11,6 +11,6 @@
 		</path>
 	</g>
 	<path d="M14 6l4 4L21 7L17 3Z" fill="currentColor" fill-opacity="0">
-		<animate attributeName="fill-opacity" values="0;0.3" begin="1.1s" dur="0.15s" fill="freeze" />
+		<animate attributeName="fill-opacity" values="0;1" begin="1.1s" dur="0.5s" fill="freeze" />
 	</path>
 </svg>

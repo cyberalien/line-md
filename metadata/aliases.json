@@ -16,5 +16,10 @@
 		"icons": ["arrows-long-diagonal", "arrows-long-diagonal-rotated"],
 		"search": "arrows-",
 		"replace": "arrow-"
+	},
+	{
+		"icons": ["edit-full-twotone"],
+		"search": "-full-twotone",
+		"replace": "-twotone-full"
 	}
 ]
