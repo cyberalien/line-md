@@ -26,5 +26,10 @@
 		"icons": ["pencil-alt-twotone"],
 		"search": "-alt-twotone",
 		"replace": "-twotone-alt"
+	},
+	{
+		"icons": ["clipboard-twotone-to-clipboard-check-twotone-transition"],
+		"search": "-check-twotone-",
+		"replace": "-twotone-check-"
 	}
 ]
