@@ -21,5 +21,10 @@
 		"icons": ["edit-full-twotone"],
 		"search": "-full-twotone",
 		"replace": "-twotone-full"
+	},
+	{
+		"icons": ["pencil-alt-twotone"],
+		"search": "-alt-twotone",
+		"replace": "-twotone-alt"
 	}
 ]
