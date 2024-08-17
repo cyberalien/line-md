@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M11 9h6v10h-6.5l-2 -2h-2.5v-6.5l1.5 -1.5Z" fill="currentColor" fill-opacity="0" stroke-dasharray="48" stroke-dashoffset="48">
+			<animate attributeName="fill-opacity" values="0;0.3" begin="1.3s" dur="0.15s" fill="freeze" />
+			<animate attributeName="stroke-dashoffset" values="48;0" dur="0.6s" fill="freeze" />
+		</path>
+		<path d="M17 13h0v-3h0v8h0v-3h0z" fill="currentColor" fill-opacity="0" opacity="0">
+			<animate attributeName="d" values="M17 13h0v-3h0v8h0v-3h0z;M17 13h4v-3h1v8h-1v-3h-4z" begin="0.6s" dur="0.2s" fill="freeze" />
+			<set attributeName="fill-opacity" to="1" begin="0.8s" fill="freeze" />
+			<set attributeName="opacity" to="1" begin="0.6s" fill="freeze" />
+		</path>
+		<path d="M6 14h0M6 11v6" opacity="0">
+			<animate attributeName="d" values="M6 14h0M6 11v6;M6 14h-4M2 11v6" begin="0.8s" dur="0.2s" fill="freeze" />
+			<set attributeName="opacity" to="1" begin="0.8s" fill="freeze" />
+		</path>
+		<path d="M11 9v0M8 9h6" opacity="0">
+			<animate attributeName="d" values="M11 9v0M8 9h6;M11 9v-4M8 5h6" begin="1s" dur="0.2s" fill="freeze" />
+			<set attributeName="opacity" to="1" begin="1s" fill="freeze" />
+		</path>
+	</g>
+</svg>

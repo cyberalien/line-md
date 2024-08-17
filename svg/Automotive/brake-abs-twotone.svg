@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="brake-mask">
+		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8" fill="#fff" fill-opacity="0" stroke-dasharray="56" stroke-dashoffset="56">
+				<animate attributeName="fill-opacity" values="0;0.3" begin="1.9s" dur="0.15s" fill="freeze" />
+				<animate attributeName="stroke-dashoffset" values="56;0" dur="0.6s" fill="freeze" />
+			</path>
+			<path d="M4.22 4.22c-4.29 4.3 -4.29 11.26 0 15.56" stroke-dasharray="20" stroke-dashoffset="20">
+				<animate attributeName="stroke-dashoffset" values="20;0" begin="0.7s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M19.78 4.22c4.29 4.3 4.29 11.26 0 15.56" stroke-dasharray="20" stroke-dashoffset="20">
+				<animate attributeName="stroke-dashoffset" values="20;0" begin="0.9s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M4 6h16c1.26 1.67 2 3.75 2 6c0 2.25 -0.74 4.33 -2 6h-16c-1.26 -1.67 -2 -3.75 -2 -6c0 -2.25 0.74 -4.33 2 -6Z" fill="#000" fill-opacity="0" stroke="none">
+				<animate attributeName="fill-opacity" values="0;1" begin="1.1s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M7.2 16v-3.2h-1.6v3.2h-1.6v-6.4c0 -0.42 0.17 -0.83 0.47 -1.13c0.3 -0.3 0.71 -0.47 1.13 -0.47h1.6c0.88 0 1.6 0.72 1.6 1.6v6.4h-1.6ZM7.2 11.2v-1.6h-1.6v1.6h1.6Z" fill="#fff" fill-opacity="0" stroke="none">
+				<animate attributeName="fill-opacity" values="0;1" begin="1.3s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M13.2 12c0.64 0 1.2 0.56 1.2 1.2v1.2c0 0.21 -0.04 0.42 -0.12 0.61c-0.08 0.19 -0.2 0.37 -0.35 0.52c-0.15 0.15 -0.32 0.27 -0.52 0.35c-0.19 0.08 -0.4 0.12 -0.61 0.12h-3.2v-8h3.2c0.42 0 0.83 0.17 1.13 0.47c0.3 0.3 0.47 0.71 0.47 1.13v1.2c0 0.64 -0.56 1.2 -1.2 1.2ZM12.8 12.8h-1.6v1.6h1.6v-1.6ZM12.8 9.6h-1.6v1.6h1.6v-1.6Z" fill="#fff" fill-opacity="0" stroke="none">
+				<animate attributeName="fill-opacity" values="0;1" begin="1.5s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M20 9.6v-1.6h-3.2c-0.88 0 -1.6 0.72 -1.6 1.6v1.6c0 0.42 0.17 0.83 0.47 1.13c0.3 0.3 0.71 0.47 1.13 0.47h1.6v1.6h-3.2v1.6h3.2c0.88 0 1.6 -0.72 1.6 -1.6v-1.6c0 -0.42 -0.17 -0.83 -0.47 -1.13c-0.3 -0.3 -0.71 -0.47 -1.13 -0.47h-1.6v-1.6h3.2Z" fill="#fff" fill-opacity="0" stroke="none">
+				<animate attributeName="fill-opacity" values="0;1" begin="1.7s" dur="0.2s" fill="freeze" />
+			</path>
+		</g>
+	</mask>
+	<rect mask="url(#brake-mask)" width="24" height="24" fill="currentColor" />
+</svg>
