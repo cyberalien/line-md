@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<mask id="brake-mask">
+	<mask id="engine-mask">
 		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 			<path d="M11 9h6v10h-6.5l-2 -2h-2.5v-6.5l1.5 -1.5Z" fill="#fff" fill-opacity="0" stroke-dasharray="48" stroke-dashoffset="48">
 				<animate attributeName="fill-opacity" values="0;0.3" begin="1.7s" dur="0.15s" fill="freeze" />
@@ -26,5 +26,5 @@
 			</path>
 		</g>
 	</mask>
-	<rect mask="url(#brake-mask)" width="24" height="24" fill="currentColor" />
+	<rect mask="url(#engine-mask)" width="24" height="24" fill="currentColor" />
 </svg>

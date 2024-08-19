@@ -31,5 +31,10 @@
 		"icons": ["clipboard-twotone-to-clipboard-check-twotone-transition"],
 		"search": "-check-twotone-",
 		"replace": "-twotone-check-"
+	},
+	{
+		"icons": ["cloud-alt-braces-loop", "cloud-alt-download-loop", "cloud-alt-download-outline-loop", "cloud-alt-loop", "cloud-alt-off-outline-loop", "cloud-alt-outline-loop", "cloud-alt-print-loop", "cloud-alt-print-outline-loop", "cloud-alt-tags-loop", "cloud-alt-upload-loop", "cloud-alt-upload-outline-loop"],
+		"search": "cloud-alt-",
+		"replace": "cloud-"
 	}
 ]
