@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="cloud-mask">
+		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M7 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h-1v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z" stroke-dasharray="64" stroke-dashoffset="64" opacity="1">
+				<animate attributeName="stroke-dashoffset" values="64;0" dur="0.6s" fill="freeze" />
+				<set attributeName="opacity" to="0" begin="0.7s" fill="freeze" />
+			</path>
+			<g fill="#fff" stroke="none" opacity="0">
+				<circle cx="12" cy="10" r="6" />
+				<rect x="8" y="12" width="9" height="8" />
+				<rect x="1" y="8" width="15" height="12" rx="6" />
+				<rect x="10" y="10" width="13" height="10" rx="5" />
+				<set attributeName="opacity" to="1" begin="0.7s" fill="freeze" />
+			</g>
+			<g fill="#000" stroke="none" fill-opacity="0" opacity="1">
+				<circle cx="12" cy="10" r="4" />
+				<rect x="8" y="12" width="9" height="6" />
+				<rect x="3" y="10" width="11" height="8" rx="4" />
+				<rect x="12" y="12" width="9" height="6" rx="3" />
+				<set attributeName="fill-opacity" to="1" begin="0.7s" fill="freeze" />
+				<animate attributeName="opacity" values="1;0.7" begin="0.7s" dur="0.15s" fill="freeze" />
+			</g>
+			<g stroke="none" fill="#fff">
+				<path d="M10.5 10h3v0h-3z">
+					<animate attributeName="d" values="M10.5 10h3v0h-3z;M10.5 10h3v4h-3z" begin="0.95s" dur="0.2s" fill="freeze" />
+				</path>
+				<path d="M8 13h8l-4 0z">
+					<animate attributeName="d" values="M8 13h8l-4 0z;M8 13h8l-4 4z" begin="1.15s" dur="0.1s" fill="freeze" />
+				</path>
+			</g>
+		</g>
+	</mask>
+	<rect mask="url(#cloud-mask)" width="24" height="24" fill="currentColor" />
+</svg>
