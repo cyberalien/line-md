@@ -33,8 +33,58 @@
 		"replace": "-twotone-check-"
 	},
 	{
-		"icons": ["cloud-alt-braces-loop", "cloud-alt-download-loop", "cloud-alt-download-outline-loop", "cloud-alt-loop", "cloud-alt-off-outline-loop", "cloud-alt-outline-loop", "cloud-alt-print-loop", "cloud-alt-print-outline-loop", "cloud-alt-tags-loop", "cloud-alt-upload-loop", "cloud-alt-upload-outline-loop"],
-		"search": "cloud-alt-",
-		"replace": "cloud-"
+		"icons": ["cloud-alt-braces-loop"],
+		"search": "alt-",
+		"replace": ""
+	},
+	{
+		"icons": ["cloud-alt-download-filled-loop"],
+		"search": "alt-download-filled",
+		"replace": "download"
+	},
+	{
+		"icons": ["cloud-alt-download-loop"],
+		"search": "alt-download",
+		"replace": "download-outline"
+	},
+	{
+		"icons": ["cloud-alt-filled-loop"],
+		"search": "-alt-filled",
+		"replace": ""
+	},
+	{
+		"icons": ["cloud-alt-off-loop"],
+		"search": "alt-off",
+		"replace": "off-outline"
+	},
+	{
+		"icons": ["cloud-alt-loop"],
+		"search": "alt",
+		"replace": "outline"
+	},
+	{
+		"icons": ["cloud-alt-print-filled-loop"],
+		"search": "alt-print-filled",
+		"replace": "print"
+	},
+	{
+		"icons": ["cloud-alt-print-loop"],
+		"search": "alt-print",
+		"replace": "print-outline"
+	},
+	{
+		"icons": ["cloud-alt-tags-filled-loop"],
+		"search": "alt-tags-filled",
+		"replace": "tags"
+	},
+	{
+		"icons": ["cloud-alt-upload-filled-loop"],
+		"search": "alt-upload-filled",
+		"replace": "upload"
+	},
+	{
+		"icons": ["cloud-alt-upload-loop"],
+		"search": "alt-upload",
+		"replace": "upload-outline"
 	}
 ]
