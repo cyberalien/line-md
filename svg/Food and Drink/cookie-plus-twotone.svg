@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="cookie-mask">
+		<g fill="#fff" />
+		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 4c-4.42 0 -8 3.58 -8 8c0 4.42 3.58 8 8 8c4.42 0 8 -3.58 8 -8v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-1c-0.55 0 -1 -0.45 -1 -1Z" fill="#fff" fill-opacity="0" stroke-dasharray="56" stroke-dashoffset="56">
+				<animate attributeName="fill-opacity" values="0;0.3" begin="0.7s" dur="0.15s" fill="freeze" />
+				<animate attributeName="stroke-dashoffset" values="56;0" dur="0.6s" fill="freeze" />
+			</path>
+			<g stroke="none" fill="#fff">
+				<circle cx="9.5" cy="7.5" r="1.5" fill-opacity="0">
+					<animate attributeName="fill-opacity" values="0;1" begin="0.9s" dur="0.2s" fill="freeze" />
+				</circle>
+				<circle cx="11" cy="17.5" r="1.5" fill-opacity="0">
+					<animate attributeName="fill-opacity" values="0;1" begin="1s" dur="0.2s" fill="freeze" />
+				</circle>
+				<circle cx="6.5" cy="11.5" r="1.5" fill-opacity="0">
+					<animate attributeName="fill-opacity" values="0;1" begin="1.1s" dur="0.2s" fill="freeze" />
+				</circle>
+				<circle cx="16.5" cy="14.5" r="1.5" fill-opacity="0">
+					<animate attributeName="fill-opacity" values="0;1" begin="1.2s" dur="0.2s" fill="freeze" />
+				</circle>
+				<circle cx="11.5" cy="12.5" r="1.5" fill-opacity="0">
+					<animate attributeName="fill-opacity" values="0;1" begin="1.3s" dur="0.2s" fill="freeze" />
+				</circle>
+			</g>
+			<path d="M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z" fill="#000" fill-opacity="0" stroke="none">
+				<set attributeName="fill-opacity" to="1" begin="1.6s" fill="freeze" />
+			</path>
+			<path d="M16 19h6" stroke-dasharray="8" stroke-dashoffset="8">
+				<animate attributeName="stroke-dashoffset" values="8;0" begin="1.6s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M19 16v6" stroke-dasharray="8" stroke-dashoffset="8">
+				<animate attributeName="stroke-dashoffset" values="8;0" begin="1.8s" dur="0.2s" fill="freeze" />
+			</path>
+		</g>
+	</mask>
+	<rect mask="url(#cookie-mask)" width="24" height="24" fill="currentColor" />
+</svg>
