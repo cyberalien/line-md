@@ -88,5 +88,10 @@
 		"icons": ["map-marker-alt-off", "map-marker-alt-off-twotone", "map-marker-alt-off-twotone-loop", "map-marker-alt-off-loop", "map-marker-alt-off-filled", "map-marker-alt-off-filled-loop"],
 		"search": "alt-off",
 		"replace": "off-alt"
+	},
+	{
+		"icons": ["home-md-alt-twotone", "home-alt-twotone"],
+		"search": "alt-twotone",
+		"replace": "twotone-alt"
 	}
 ]
