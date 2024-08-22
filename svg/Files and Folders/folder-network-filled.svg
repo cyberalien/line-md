@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<g fill="currentColor" />
 	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 		<path d="M12 6h7c0.55 0 1 0.45 1 1v8c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-9Z" fill="currentColor" fill-opacity="0" stroke-dasharray="56" stroke-dashoffset="56">
 			<animate attributeName="fill-opacity" values="0;1" begin="0.8s" dur="0.5s" fill="freeze" />

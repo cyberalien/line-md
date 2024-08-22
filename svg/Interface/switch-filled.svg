@@ -7,7 +7,7 @@
 			</path>
 			<circle cx="17" cy="12" r="3" fill="#000" fill-opacity="0" stroke="none" opacity="0">
 				<animate attributeName="fill-opacity" values="0;1" begin="0.6s" dur="0.5s" fill="freeze" />
-				<animate attributeName="opacity" values="0;1" dur="0.2s" fill="freeze" />
+				<animate attributeName="opacity" values="0;1" begin="0.6s" dur="0.2s" fill="freeze" />
 			</circle>
 		</g>
 	</mask>

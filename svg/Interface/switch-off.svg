@@ -2,7 +2,7 @@
 	<g fill="currentColor">
 		<circle cx="7" cy="12" r="3" fill-opacity="0" opacity="0">
 			<animate attributeName="fill-opacity" values="0;1" begin="0.6s" dur="0.15s" fill="freeze" />
-			<animate attributeName="opacity" values="0;1" dur="0.2s" fill="freeze" />
+			<animate attributeName="opacity" values="0;1" begin="0.6s" dur="0.2s" fill="freeze" />
 		</circle>
 	</g>
 	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
