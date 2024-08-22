@@ -1,9 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<path d="M17 15.3264C19.412 14.6089 21 13.3869 21 12C21 9.79086 16.9706 8 12 8C7.02944 8 3 9.79086 3 12C3 14.0589 6.50005 15.7545 11 15.9756" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="40" stroke-dashoffset="40">
-		<animate attributeName="stroke-dashoffset" values="40;0" dur="0.5s" fill="freeze" />
-	</path>
-	<path fill="currentColor" fill-opacity="0" d="M12.3414 16.6586L12.8586 16.1414C12.9367 16.0633 12.9367 15.9367 12.8586 15.8586L12.3414 15.3414C12.2154 15.2154 12 15.3047 12 15.4828V16.5172C12 16.6953 12.2154 16.7846 12.3414 16.6586Z">
-		<set attributeName="fill-opacity" to="1" begin="0.5s" />
-		<animate attributeName="d" values="M12.3414 16.6586L12.8586 16.1414C12.9367 16.0633 12.9367 15.9367 12.8586 15.8586L12.3414 15.3414C12.2154 15.2154 12 15.3047 12 15.4828V16.5172C12 16.6953 12.2154 16.7846 12.3414 16.6586Z;M9.85355 19.1464L12.6464 16.3536C12.8417 16.1583 12.8417 15.8417 12.6464 15.6464L9.85355 12.8536C9.53857 12.5386 9 12.7617 9 13.2071V18.7929C9 19.2383 9.53857 19.4614 9.85355 19.1464Z" begin="0.5s" dur="0.2s" fill="freeze" />
-	</path>
+	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M17 15.33c2.41 -0.72 4 -1.94 4 -3.33c0 -2.21 -4.03 -4 -9 -4c-4.97 0 -9 1.79 -9 4c0 2.06 3.5 3.75 8 3.98" stroke-dasharray="40" stroke-dashoffset="40">
+			<animate attributeName="stroke-dashoffset" values="40;0" dur="0.5s" fill="freeze" />
+		</path>
+		<path d="M12.25 16l0 0l0 0z" fill="currentColor" opacity="0">
+			<animate attributeName="d" values="M12.25 16l0 0l0 0z;M12.25 16L9.5 13.25L9.5 18.75z" begin="0.5s" dur="0.2s" fill="freeze" />
+			<set attributeName="opacity" to="1" begin="0.5s" fill="freeze" />
+		</path>
+	</g>
 </svg>

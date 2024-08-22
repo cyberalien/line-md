@@ -1,13 +1,5 @@
 [
 	{
-		"icons": ["turn-slight-left", "turn-sharp-left", "roundabout-left", "fork-left", "u-turn-left", "turn-left", "round-ramp-left"],
-		"search": "-left",
-		"replace": "-right",
-		"changes": {
-			"hFlip": true
-		}
-	},
-	{
 		"icons": ["bell-alert-twotone", "bell-alert-twotone-loop"],
 		"search": "-alert-twotone",
 		"replace": "-twotone-alert"
@@ -91,5 +83,10 @@
 		"icons": ["compass-off-twotone"],
 		"search": "off-twotone",
 		"replace": "twotone-off"
+	},
+	{
+		"icons": ["map-marker-alt-off", "map-marker-alt-off-twotone", "map-marker-alt-off-twotone-loop", "map-marker-alt-off-loop", "map-marker-alt-off-filled", "map-marker-alt-off-filled-loop"],
+		"search": "alt-off",
+		"replace": "off-alt"
 	}
 ]
