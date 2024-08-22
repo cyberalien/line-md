@@ -86,5 +86,10 @@
 		"icons": ["cloud-alt-upload-loop"],
 		"search": "alt-upload",
 		"replace": "upload-outline"
+	},
+	{
+		"icons": ["compass-off-twotone"],
+		"search": "off-twotone",
+		"replace": "twotone-off"
 	}
 ]

@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<mask id="compass-mask">
-		<path fill="none" stroke="white" stroke-linecap="round" stroke-width="2" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke-dasharray="60" stroke-dashoffset="60">
-			<animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0" />
-		</path>
-		<path fill="white" d="M11 11L12 12L13 13L12 12z">
-			<set attributeName="opacity" to="1" begin="0.6s" />
-			<animate attributeName="d" values="M11 11L12 12L13 13L12 12z;M10.2 10.2L17 7L13.8 13.8L7 17z" begin="0.6s" dur="0.3s" fill="freeze" />
-			<animateTransform attributeName="transform" type="rotate" values="-180 12 12;0 12 12;0 12 12;0 12 12;0 12 12;270 12 12;-90 12 12;0 12 12;-180 12 12;-35 12 12;-40 12 12;-45 12 12;-45 12 12;-110 12 12;-135 12 12;-180 12 12" begin="0.5s" dur="9s" repeatCount="indefinite" />
-		</path>
-		<circle cx="12" cy="12" r="1" fill="black" fill-opacity="0">
-			<animate attributeName="fill-opacity" values="0;1" begin="0.8s" dur="0.3s" fill="freeze" />
-		</circle>
+	<mask id="compass{off}{fill}-loop-mask">
+		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z" stroke-dasharray="64" stroke-dashoffset="64">
+				<animate attributeName="stroke-dashoffset" values="64;0" dur="0.6s" fill="freeze" />
+			</path>
+			<path d="M11 11L12 12L13 13L12 12z" fill="#fff" stroke="none" transform="rotate(-180 12 12)">
+				<animate attributeName="d" values="M11 11L12 12L13 13L12 12z;M10.2 10.2L17 7L13.8 13.8L7 17z" begin="0.6s" dur="0.3s" fill="freeze" />
+				<animateTransform attributeName="transform" type="rotate" values="-180 12 12;0 12 12;0 12 12;0 12 12;0 12 12;270 12 12;-90 12 12;0 12 12;-180 12 12;-35 12 12;-40 12 12;-45 12 12;-45 12 12;-110 12 12;-135 12 12;-180 12 12" dur="9s" repeatCount="indefinite" />
+			</path>
+			<circle cx="12" cy="12" r="1" fill="#000" fill-opacity="0" stroke="none">
+				<animate attributeName="fill-opacity" values="0;1" begin="0.9s" dur="0.15s" fill="freeze" />
+			</circle>
+		</g>
 	</mask>
-	<rect mask="url(#compass-mask)" width="24" height="24" fill="currentColor" />
+	<rect mask="url(#compass{off}{fill}-loop-mask)" width="24" height="24" fill="currentColor" />
 </svg>
