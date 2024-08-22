@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<mask id="mastodon-mask">
-		<path d="M17.25 2.315c2.366.346 4.361 2.131 4.67 4.396c.167 1.683.022 4.421.02 4.87c0 .133-.019 1.34-.027 1.468c-.207 3.236-2.247 4.514-4.391 4.922c-.03.008-.063.014-.097.02c-1.36.263-2.815.333-4.197.372c-.33.008-.66.008-.99.008c-1.373 0-2.742-.16-4.077-.479a.046.046 0 0 0-.059.047c.038.43.133.853.281 1.259c.185.47.832 1.597 3.234 1.597a17.89 17.89 0 0 0 4.146-.479a.048.048 0 0 1 .053.025a.047.047 0 0 1 .005.02v1.589a.05.05 0 0 1-.02.038c-.444.318-1.048.5-1.562.661c-.228.071-.459.133-.692.187c-2.12.478-4.331.362-6.388-.333c-1.921-.667-3.882-2.302-4.367-4.266a22.953 22.953 0 0 1-.545-3.233c-.151-1.64-.164-3.282-.229-4.928c-.045-1.148-.019-2.4.226-3.528c.51-2.292 2.61-3.896 4.91-4.233c.4-.058 1.15-.27 4.655-.27h.026c3.503 0 5.016.212 5.415.27Z" fill="#fff" />
-		<g fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="18" stroke-dashoffset="18">
-			<path d="M12.2 12L12.2 9C12.2 8 13.1 6.5 14.85 6.5C16.6 6.5 17.5 8 17.5 9L17.5 14">
-				<animate attributeName="stroke-dashoffset" values="18;0" dur="0.4s" begin="0.4s" fill="freeze" />
+		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M15.5 21.5c-10.5 2.5 -12.5 -2.5 -12.5 -8.5v-3c0 -6 2.5 -7 7 -7h4c4.5 0 7 1.5 7 5.5v4c0 6.5 -10 4 -13.5 4c-1 0 -1.5 7 8 5Z" fill="#fff" fill-opacity="0" stroke-dasharray="96" stroke-dashoffset="96">
+				<animate attributeName="fill-opacity" values="0;1" begin="0.6s" dur="0.5s" fill="freeze" />
+				<animate attributeName="stroke-dashoffset" values="96;0" dur="0.6s" fill="freeze" />
 			</path>
-			<path d="M6.9 14L6.9 9C6.9 8 7.8 6.45 9.54 6.5C11.3 6.47 12.2 8 12.2 9L12.2 12">
-				<animate attributeName="stroke-dashoffset" values="18;0" dur="0.4s" fill="freeze" />
+			<path d="M7 13.5l0 -5.5c0 0 0.5 -2 2.5 -2c2 0 2.5 2 2.5 2l0 2.5l0 -2.5c0 0 0.5 -2 2.5 -2c2 0 2.5 2 2.5 2l0 5.5" stroke="#000" stroke-dasharray="32" stroke-dashoffset="32">
+				<animate attributeName="stroke-dashoffset" values="32;0" begin="1.1s" dur="0.7s" fill="freeze" />
 			</path>
 		</g>
 	</mask>
-	<rect x="0" y="0" width="24" height="24" fill="currentColor" mask="url(#mastodon-mask)" />
+	<rect mask="url(#mastodon-mask)" width="24" height="24" fill="currentColor" />
 </svg>

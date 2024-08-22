@@ -93,5 +93,10 @@
 		"icons": ["home-md-alt-twotone", "home-alt-twotone"],
 		"search": "alt-twotone",
 		"replace": "twotone-alt"
+	},
+	{
+		"icons": ["email-alt-twotone", "email-opened-alt-twotone"],
+		"search": "alt-twotone",
+		"replace": "twotone-alt"
 	}
 ]
