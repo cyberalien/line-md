@@ -98,5 +98,10 @@
 		"icons": ["email-alt-twotone", "email-opened-alt-twotone"],
 		"search": "alt-twotone",
 		"replace": "twotone-alt"
+	},
+	{
+		"icons": ["sunny-filled-loop-to-moon-filled-alt-loop-transition"],
+		"search": "moon-filled-alt",
+		"replace": "moon-alt-filled"
 	}
 ]
