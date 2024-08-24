@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="briefcase-minus-mask">
+		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M9 7h11c0.55 0 1 0.45 1 1v11c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11c0 -0.55 0.45 -1 1 -1Z" fill="#fff" fill-opacity="0" stroke-dasharray="64" stroke-dashoffset="64">
+				<animate attributeName="fill-opacity" values="0;0.3" begin="0.9s" dur="0.15s" fill="freeze" />
+				<animate attributeName="stroke-dashoffset" values="64;0" dur="0.6s" fill="freeze" />
+			</path>
+			<path d="M9 7v-3c0 -0.55 0.45 -1 1 -1h4c0.55 0 1 0.45 1 1v3" stroke-dasharray="16" stroke-dashoffset="16">
+				<animate attributeName="stroke-dashoffset" values="16;0" begin="0.7s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z" fill="#000" fill-opacity="0" stroke="none">
+				<set attributeName="fill-opacity" to="1" begin="1.05s" fill="freeze" />
+			</path>
+			<path d="M16 19h6" stroke-dasharray="8" stroke-dashoffset="8">
+				<animate attributeName="stroke-dashoffset" values="8;0" begin="1.05s" dur="0.2s" fill="freeze" />
+			</path>
+		</g>
+	</mask>
+	<rect mask="url(#briefcase-minus-mask)" width="24" height="24" fill="currentColor" />
+</svg>

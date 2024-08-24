@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<mask id="weather-cloudy-mask">
-		<g fill="white">
+		<g fill="#fff">
 			<circle cx="12" cy="11" r="6">
 				<animate attributeName="cx" values="12;11;12;13;12" dur="30s" repeatCount="indefinite" />
 			</circle>
@@ -12,7 +12,7 @@
 				<animate attributeName="x" values="6;5;6;7;6" dur="23s" repeatCount="indefinite" />
 			</rect>
 		</g>
-		<g fill="black">
+		<g fill="#000">
 			<circle cx="12" cy="11" r="4">
 				<animate attributeName="cx" values="12;11;12;13;12" dur="30s" repeatCount="indefinite" />
 			</circle>

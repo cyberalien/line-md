@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="car-light-mask">
+		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 5.5l-9 2.5" stroke-dasharray="12" stroke-dashoffset="12">
+				<animate attributeName="stroke-dashoffset" values="12;0" begin="0.85s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M12 10.5l-9 2.5" stroke-dasharray="12" stroke-dashoffset="12">
+				<animate attributeName="stroke-dashoffset" values="12;0" begin="1.05s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M12 15.5l-9 2.5" stroke-dasharray="12" stroke-dashoffset="12">
+				<animate attributeName="stroke-dashoffset" values="12;0" begin="1.25s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z" stroke="#000" stroke-width="6" />
+			<path d="M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z" fill="#fff" fill-opacity="0" stroke-dasharray="40" stroke-dashoffset="40">
+				<animate attributeName="fill-opacity" values="0;0.3" begin="0.6s" dur="0.15s" fill="freeze" />
+				<animate attributeName="stroke-dashoffset" values="40;0" dur="0.5s" fill="freeze" />
+			</path>
+		</g>
+	</mask>
+	<rect mask="url(#car-light-mask)" width="24" height="24" fill="currentColor" />
+</svg>

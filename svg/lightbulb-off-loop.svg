@@ -1,18 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<mask id="lightbulb-mask">
-		<path d="M12 17H9V14.1973C7.2066 13.1599 6 11.2208 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9C18 11.2208 16.7934 13.1599 15 14.1973V17z" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="46" stroke-dashoffset="46">
-			<animate attributeName="stroke-dashoffset" values="46;0" dur="0.4s" fill="freeze" />
-		</path>
-		<rect x="9" y="20" width="6" height="0" rx="1" fill="white">
-			<animate attributeName="height" values="0;2" begin="0.5s" dur="0.2s" fill="freeze" />
-		</rect>
-		<g transform="rotate(45 13 12)" fill="none" stroke-width="2" stroke-linecap="round" stroke-dasharray="26" stroke-dashoffset="26">
-			<path d="M0 11h24" stroke="black" />
-			<path d="M0 13h22" stroke="white">
-				<animate attributeName="d" values="M0 13h22;M2 13h22;M0 13h22" dur="6s" repeatCount="indefinite" />
+	<mask id="lightbulb-off{fill}-loop-mask">
+		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 17h-3v-2.8c-1.79 -1.04 -3 -2.98 -3 -5.2c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 2.22 -1.21 4.16 -3 5.2v2.8Z" stroke-dasharray="48" stroke-dashoffset="48">
+				<animate attributeName="stroke-dashoffset" values="48;0" dur="0.6s" fill="freeze" />
 			</path>
-			<animate attributeName="stroke-dashoffset" values="26;0" begin="0.7s" dur="0.2s" fill="freeze" />
+			<rect x="9" y="20" width="6" height="0" fill="#fff" fill-opacity="0" stroke="none">
+				<animate attributeName="height" values="0;2" begin="0.6s" dur="0.2s" fill="freeze" />
+				<animate attributeName="fill-opacity" values="0;1" begin="0.6s" dur="0.15s" fill="freeze" />
+			</rect>
+			<path d="M1 11h22" stroke="#000" stroke-dasharray="24" stroke-dashoffset="24" transform="rotate(45 13 12)">
+				<animate attributeName="stroke-dashoffset" values="24;0" begin="0.8s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M0 13h22" stroke-dasharray="24" stroke-dashoffset="24" transform="rotate(45 13 12)">
+				<animate attributeName="d" values="M0 13h22;M2 13h22;M0 13h22" dur="6s" repeatCount="indefinite" />
+				<animate attributeName="stroke-dashoffset" values="24;0" begin="0.8s" dur="0.2s" fill="freeze" />
+			</path>
 		</g>
 	</mask>
-	<rect mask="url(#lightbulb-mask)" width="24" height="24" fill="currentColor" />
+	<rect mask="url(#lightbulb-off{fill}-loop-mask)" width="24" height="24" fill="currentColor" />
 </svg>

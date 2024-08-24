@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<g transform="rotate(-90 12 12)">
-		<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8">
-			<path d="M12 12L17 7M12 12L17 17" stroke-dashoffset="8">
-				<animate attributeName="stroke-dashoffset" values="8;0" dur="0.3s" fill="freeze" />
-			</path>
-			<path d="M6 12L11 7M6 12L11 17" stroke-dashoffset="8">
-				<animate attributeName="stroke-dashoffset" values="8;0" begin="0.3s" dur="0.3s" fill="freeze" />
-			</path>
-		</g>
+	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M12 12l-5 -5M12 12l5 -5" stroke-dasharray="12" stroke-dashoffset="12">
+			<animate attributeName="stroke-dashoffset" values="12;0" dur="0.3s" fill="freeze" />
+		</path>
+		<path d="M12 18l-5 -5M12 18l5 -5" stroke-dasharray="12" stroke-dashoffset="12">
+			<animate attributeName="stroke-dashoffset" values="12;0" begin="0.3s" dur="0.3s" fill="freeze" />
+		</path>
 	</g>
 </svg>

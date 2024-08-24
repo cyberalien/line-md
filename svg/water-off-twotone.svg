@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="water-mask">
+		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 5c0 0 5 6 5 9c0 2.76 -2.24 5 -5 5" stroke-dasharray="20" stroke-dashoffset="20">
+				<animate attributeName="stroke-dashoffset" values="20;0" dur="0.4s" fill="freeze" />
+			</path>
+			<path d="M12 5c0 0 -5 6 -5 9c0 2.76 2.24 5 5 5" stroke-dasharray="20" stroke-dashoffset="20">
+				<animate attributeName="stroke-dashoffset" values="20;0" dur="0.4s" fill="freeze" />
+			</path>
+			<path d="M12 5c0 0 5 6 5 9c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -3 5 -9 5 -9Z" fill="#fff" fill-opacity="0" stroke="none">
+				<animate attributeName="fill-opacity" values="0;0.3" begin="0.4s" dur="0.15s" fill="freeze" />
+			</path>
+			<path d="M1 11h22" stroke="#000" stroke-dasharray="24" stroke-dashoffset="24" transform="rotate(45 12 12)">
+				<animate attributeName="stroke-dashoffset" values="24;0" begin="0.55s" dur="0.2s" fill="freeze" />
+			</path>
+			<path d="M1 13h22" stroke-dasharray="24" stroke-dashoffset="24" transform="rotate(45 12 12)">
+				<animate attributeName="stroke-dashoffset" values="24;0" begin="0.55s" dur="0.2s" fill="freeze" />
+			</path>
+		</g>
+	</mask>
+	<rect mask="url(#water-mask)" width="24" height="24" fill="currentColor" />
+</svg>

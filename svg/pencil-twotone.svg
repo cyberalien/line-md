@@ -1,16 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<path d="M3 21L4.99998 15L16 4C17 3 19 3 20 4C21 5 21 7 20 8L8.99998 19L3 21" stroke-dasharray="56" stroke-dashoffset="56">
+		<path d="M3 21l2 -6l11 -11c1 -1 3 -1 4 0c1 1 1 3 0 4l-11 11l-6 2" stroke-dasharray="56" stroke-dashoffset="56">
 			<animate attributeName="stroke-dashoffset" values="56;0" dur="0.6s" fill="freeze" />
 		</path>
-		<g stroke-dasharray="6">
-			<path d="M15 5L19 9" stroke-dashoffset="6">
-				<animate attributeName="stroke-dashoffset" values="6;0" begin="0.6s" dur="0.2s" fill="freeze" />
-			</path>
-			<path d="M6 15L9 18" stroke-width="1" stroke-dashoffset="6">
-				<animate attributeName="stroke-dashoffset" values="6;0" begin="0.6s" dur="0.2s" fill="freeze" />
-			</path>
-		</g>
+		<path d="M15 5l4 4" stroke-dasharray="8" stroke-dashoffset="8">
+			<animate attributeName="stroke-dashoffset" values="8;0" begin="0.6s" dur="0.2s" fill="freeze" />
+		</path>
+		<path d="M6 15l3 3" stroke-width="1" stroke-dasharray="8" stroke-dashoffset="8">
+			<animate attributeName="stroke-dashoffset" values="8;0" begin="0.6s" dur="0.2s" fill="freeze" />
+		</path>
 	</g>
 	<path d="M17 4H20V7L9 18L6 15L17 4Z" fill="currentColor" fill-opacity="0">
 		<animate attributeName="fill-opacity" values="0;0.3" begin="0.8s" dur="0.15s" fill="freeze" />

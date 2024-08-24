@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<path d="M12 3C12 3 19 9 19 15C19 17 18 21 12 21M12 3C12 3 5 9 5 15C5 17 6 21 12 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="28" stroke-dashoffset="28">
-		<animate attributeName="stroke-dashoffset" values="28;0" dur="0.4s" fill="freeze" />
+	<path d="M12 3c0 0 7 6 7 12c0 2 -1 6 -7 6M12 3c0 0 -7 6 -7 12c0 2 1 6 7 6" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="32" stroke-dashoffset="32" stroke-linecap="round" stroke-linejoin="round">
+		<animate attributeName="stroke-dashoffset" values="32;0" dur="0.7s" fill="freeze" />
 	</path>
 </svg>

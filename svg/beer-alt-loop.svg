@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<mask id="beer-mask">
+		<g>
+			<g>
+				<path d="M18 23c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2" fill="none" stroke="#fff" stroke-width="2" />
+				<animateMotion path="M0 0h10" dur="3s" calcMode="linear" repeatCount="indefinite" />
+			</g>
+			<animateMotion path="M0 0v-16" begin="0.7s" dur="0.3s" calcMode="linear" fill="freeze" />
+		</g>
+	</mask>
+	<path d="M18 3l-2 18h-9l-2 -18Z" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="64" stroke-dashoffset="64" stroke-linecap="round" stroke-linejoin="round">
+		<animate attributeName="stroke-dashoffset" values="64;0" dur="0.6s" fill="freeze" />
+	</path>
+	<path d="M18 3l-2 18h-9l-2 -18Z" fill="currentColor" mask="url(#beer-mask)" />
+</svg>
