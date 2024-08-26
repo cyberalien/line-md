@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<g fill="currentColor">
-		<circle cx="9" cy="7" r="0" fill-opacity="0">
-			<animate attributeName="r" values="0;2" begin="0.75s" dur="0.2s" fill="freeze" />
-			<animate attributeName="fill-opacity" values="0;1" begin="0.75s" dur="0.15s" fill="freeze" />
+		<circle cx="9" cy="7" r="0">
+			<animate attributeName="r" values="0;2" begin="0.6s" dur="0.2s" fill="freeze" />
 		</circle>
-		<circle cx="12" cy="13" r="0" fill-opacity="0">
-			<animate attributeName="r" values="0;2" begin="0.9s" dur="0.2s" fill="freeze" />
-			<animate attributeName="fill-opacity" values="0;1" begin="0.9s" dur="0.15s" fill="freeze" />
+		<circle cx="12" cy="13" r="0">
+			<animate attributeName="r" values="0;2" begin="0.8s" dur="0.2s" fill="freeze" />
 		</circle>
 	</g>
 	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

@@ -1,20 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<g fill="currentColor">
-		<circle cx="13" cy="15" r="0" fill-opacity="0">
-			<animate attributeName="r" values="0;1" begin="0.75s" dur="0.2s" fill="freeze" />
-			<animate attributeName="fill-opacity" values="0;1" begin="0.75s" dur="0.15s" fill="freeze" />
+		<circle cx="13" cy="15" r="0">
+			<animate attributeName="r" values="0;1" begin="0.6s" dur="0.2s" fill="freeze" />
 		</circle>
-		<circle cx="13" cy="6" r="0" fill-opacity="0">
+		<circle cx="13" cy="6" r="0">
+			<animate attributeName="r" values="0;1" begin="0.7s" dur="0.2s" fill="freeze" />
+		</circle>
+		<circle cx="11" cy="17" r="0">
 			<animate attributeName="r" values="0;1" begin="0.8s" dur="0.2s" fill="freeze" />
-			<animate attributeName="fill-opacity" values="0;1" begin="0.8s" dur="0.15s" fill="freeze" />
 		</circle>
-		<circle cx="11" cy="17" r="0" fill-opacity="0">
-			<animate attributeName="r" values="0;1" begin="0.85s" dur="0.2s" fill="freeze" />
-			<animate attributeName="fill-opacity" values="0;1" begin="0.85s" dur="0.15s" fill="freeze" />
-		</circle>
-		<circle cx="14" cy="18" r="0" fill-opacity="0">
+		<circle cx="14" cy="18" r="0">
 			<animate attributeName="r" values="0;1" begin="0.9s" dur="0.2s" fill="freeze" />
-			<animate attributeName="fill-opacity" values="0;1" begin="0.9s" dur="0.15s" fill="freeze" />
 		</circle>
 	</g>
 	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
