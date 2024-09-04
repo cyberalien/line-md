@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+  <path
+    fill="currentColor" stroke="none" transform-origin="0.74 14.15" transform="scale(1 0)"
+    d="m 0.74,15.94 c 0,0.17 -0.13,0.26 -0.26,0.26 -0.13,0 -0.26,-0.09 -0.26,-0.26 C 0.11,15.31 0.02,14.73 0.00,14.15 -0.01,13.58 0.04,13.00 0.21,12.37 c 0.02,-0.17 0.15,-0.25 0.28,-0.25 0.13,0 0.26,0.08 0.28,0.25 0.2,0.63 0.26,1.21 0.24,1.78 C 0.99,14.72 0.88,15.3 0.74,15.94 Z"
+  >
+    <animateTransform attributeName="transform" type="scale" values="1 0;1 1;1 0;1 1" begin="0s" dur="1s" fill="freeze" />
+  </path>
+  <path
+    fill="currentColor" stroke="none" transform-origin="0.74 14.15" transform="scale(1 0)"
+    d="M 2.43,16.87 C 2.41,17.01 2.29,17.08 2.16,17.08 2.03,17.08 1.9,17.01 1.89,16.87 1.76,15.93 1.68,15.04 1.66,14.16 1.65,13.28 1.71,12.39 1.88,11.46 c 0.02,-0.16 0.15,-0.24 0.28,-0.24 0.13,0 0.26,0.08 0.28,0.24 0.19,0.95 0.26,1.83 0.24,2.70 C 2.66,15.04 2.56,15.92 2.43,16.87 Z"
+  >
+    <animateTransform attributeName="transform" type="scale" values="1 0;1 1;1 0;1 1" begin="0.1s" dur="1s" fill="freeze" />
+  </path>
+  <path
+    fill="currentColor" stroke="none" transform-origin="0.74 14.15" transform="scale(1 0)"
+    d="m 4.06,17.12 c 0,0.171333 -0.13,0.257 -0.26,0.257 -0.13,0 -0.26,-0.09 -0.26,-0.26 C 3.44,16.19 3.34,15.30 3.32,14.42 3.30,13.53 3.35,12.65 3.55,11.73 3.54,11.59 3.66,11.49 3.80,11.47 3.93,11.46 4.07,11.53 4.09,11.73 4.30,12.64 4.36,13.51 4.33,14.39 4.30,15.28 4.19,16.17 4.06,17.12 Z"
+  >
+    <animateTransform attributeName="transform" type="scale" values="1 0;1 1;1 0;1 1" begin="0.2s" dur="1s" fill="freeze" />
+  </path>
+  <path
+    fill="currentColor" stroke="none" transform-origin="0.74 14.15" transform="scale(1 0)"
+    d="m 5.75,17.11 c -0.01,0.17 -0.14,0.25 -0.27,0.25 -0.13,0 -0.26,-0.08 -0.27,-0.25 -0.15,-1.19 -0.23,-2.38 -0.23,-3.57 0,-1.19 0.08,-2.39 0.23,-3.57 0,-0.18 0.14,-0.27 0.27,-0.27 0.14,0 0.27,0.09 0.27,0.27 0.16,1.19 0.24,2.38 0.24,3.57 C 6.00,14.73 5.92,15.92 5.75,17.11 Z"
+  >
+    <animateTransform attributeName="transform" type="scale" values="1 0;1 1;1 0;1 1" begin="0.3s" dur="1s" fill="freeze" />
+  </path>
+  <path
+    fill="currentColor" stroke="none" transform-origin="0.74 14.15" transform="scale(1 0)"
+    d="m 7.41,17.09 c 0,0.18 -0.13,0.27 -0.27,0.27 -0.13,0 -0.27,-0.09 -0.27,-0.27 C 6.69,15.75 6.62,14.45 6.64,13.14 6.65,11.84 6.75,10.54 6.88,9.19 c 0,-0.18 0.13,-0.27 0.27,-0.27 0.13,0 0.27,0.09 0.27,0.27 0.13,1.36 0.23,2.66 0.25,3.95 C 7.67,14.43 7.60,15.73 7.41,17.09 Z"
+  >
+    <animateTransform attributeName="transform" type="scale" values="1 0;1 1;1 0;1 1" begin="0.4s" dur="1s" fill="freeze" />
+  </path>
+  <path
+    fill="currentColor" stroke="none" transform-origin="0.74 14.15" transform="scale(1 0)"
+    d="M 9.07,17.10 C 9.05,17.27 8.92,17.35 8.79,17.35 8.66,17.35 8.54,17.27 8.52,17.10 8.35,15.79 8.29,14.53 8.30,13.28 8.31,12.02 8.39,10.77 8.52,9.45 c 0,-0.19 0.14,-0.28 0.28,-0.28 0.14,0 0.28,0.09 0.28,0.28 0.14,1.33 0.23,2.58 0.24,3.82 C 9.33,14.52 9.25,15.77 9.07,17.10 Z"
+  >
+    <animateTransform attributeName="transform" type="scale" values="1 0;1 1;1 0;1 1" begin="0.5s" dur="1s" fill="freeze" />
+  </path>
+  <path
+    fill="currentColor" stroke="none" transform-origin="0.74 14.15" transform="scale(1 0)"
+    d="m 10.72,17.09 c 0,0.18 -0.13,0.26 -0.26,0.26 -0.13,0 -0.26,-0.09 -0.26,-0.26 C 9.99,15.62 9.94,14.19 9.96,12.76 9.98,11.33 10.08,9.90 10.19,8.42 c 0,-0.18 0.13,-0.26 0.26,-0.26 0.13,0 0.26,0.09 0.26,0.26 0.12,1.49 0.23,2.91 0.25,4.34 C 11.00,14.18 10.93,15.61 10.72,17.09 Z"
+  >
+    <animateTransform attributeName="transform" type="scale" values="1 0;1 1;1 0;1 1" begin="0.6s" dur="1s" fill="freeze" />
+  </path>
+  <path
+      fill="currentColor" fill-opacity="0" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="2" stroke-dasharray="48" stroke-dashoffset="48"
+      d="M 12.80 16.28 C 12.80 13.52 12.80 10.76 12.80 8.01 C 12.94 7.92 13.12 7.88 13.27 7.83 C 13.68 7.73 14.11 7.69 14.53 7.68 C 15.11 7.68 15.69 7.80 16.23 8.03 C 16.61 8.19 16.96 8.40 17.29 8.66 C 18.03 9.25 18.57 10.09 18.80 11.02 C 18.89 11.43 18.98 11.84 19.07 12.25 C 19.40 12.15 19.73 12.06 20.07 11.96 C 20.31 11.88 20.57 11.85 20.83 11.86 C 21.38 11.88 21.92 12.12 22.31 12.52 C 22.80 13.02 23.03 13.76 22.91 14.45 C 22.84 14.84 22.64 15.21 22.37 15.50 C 21.93 15.99 21.28 16.27 20.63 16.28 C 18.02 16.28 15.41 16.28 12.80 16.28 Z"
+  >
+    <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.8s" values="48;0" />
+    <animate fill="freeze" attributeName="fill-opacity" begin="1.6s" dur="0.5s" values="0;1" />
+  </path>
+</svg>
