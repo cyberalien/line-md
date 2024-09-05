@@ -4,8 +4,8 @@
 			<animate attributeName="fill-opacity" values="0;1" begin="0.8s" dur="0.5s" fill="freeze" />
 			<animate attributeName="stroke-dashoffset" values="56;0" dur="0.6s" fill="freeze" />
 		</path>
-		<path d="M16 18l2 2l3.5 -3.5" stroke-dasharray="12" stroke-dashoffset="12">
-			<animate attributeName="stroke-dashoffset" values="12;0" begin="0.6s" dur="0.2s" fill="freeze" />
+		<path d="M16 18l2 2l3.5 -3.5" stroke-dasharray="10" stroke-dashoffset="10">
+			<animate attributeName="stroke-dashoffset" values="10;0" begin="0.6s" dur="0.2s" fill="freeze" />
 		</path>
 	</g>
 </svg>

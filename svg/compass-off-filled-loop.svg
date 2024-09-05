@@ -12,11 +12,11 @@
 			<circle cx="12" cy="12" r="1" fill="#fff" fill-opacity="0" stroke="none">
 				<animate attributeName="fill-opacity" values="0;1" begin="1.4s" dur="0.5s" fill="freeze" />
 			</circle>
-			<path d="M-1 11h26" stroke="#000" stroke-dasharray="32" stroke-dashoffset="32" transform="rotate(45 12 12)">
-				<animate attributeName="stroke-dashoffset" values="32;0" begin="1.9s" dur="0.4s" fill="freeze" />
+			<path d="M-1 11h26" stroke="#000" stroke-dasharray="28" stroke-dashoffset="28" transform="rotate(45 12 12)">
+				<animate attributeName="stroke-dashoffset" values="28;0" begin="1.9s" dur="0.4s" fill="freeze" />
 			</path>
-			<path d="M-1 13h26" stroke-dasharray="32" stroke-dashoffset="32" transform="rotate(45 12 12)">
-				<animate attributeName="stroke-dashoffset" values="32;0" begin="1.9s" dur="0.4s" fill="freeze" />
+			<path d="M-1 13h26" stroke-dasharray="28" stroke-dashoffset="28" transform="rotate(45 12 12)">
+				<animate attributeName="stroke-dashoffset" values="28;0" begin="1.9s" dur="0.4s" fill="freeze" />
 			</path>
 		</g>
 	</mask>

@@ -2,28 +2,28 @@
 	<mask id="mushroom-mask">
 		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 			<path d="M20 13c0.55 0 1 -0.45 1 -1c0 -4.97 -4.03 -9 -9 -9c-4.97 0 -9 4.03 -9 9c0 0.55 0.45 1 1 1ZM14.5 21c0.5 0 0.85 -0.5 0.85 -1c0 -0.5 -1.1 -4 -1.1 -4h-4.5c0 0 -1.1 3.5 -1.1 4c0 0.5 0.35 1 0.85 1Z" fill="#fff" fill-opacity="0" stroke="none">
-				<animate attributeName="fill-opacity" values="0;1" begin="1s" dur="0.5s" fill="freeze" />
+				<animate attributeName="fill-opacity" values="0;1" begin="0.9s" dur="0.5s" fill="freeze" />
 			</path>
 			<path d="M12 21h2.5c0.5 0 0.85 -0.5 0.85 -1c0 -0.5 -1.1 -4 -1.1 -4h-2.25M12 21h-2.5c-0.5 0 -0.85 -0.5 -0.85 -1c0 -0.5 1.1 -4 1.1 -4h2.25" stroke-dasharray="12" stroke-dashoffset="12">
 				<animate attributeName="stroke-dashoffset" values="12;0" dur="0.3s" fill="freeze" />
 			</path>
-			<path d="M12 13h8c0.55 0 1 -0.45 1 -1c0 -4.97 -4.03 -9 -9 -9M12 13h-8c-0.55 0 -1 -0.45 -1 -1c0 -4.97 4.03 -9 9 -9" stroke-dasharray="32" stroke-dashoffset="32">
-				<animate attributeName="stroke-dashoffset" values="32;0" begin="0.3s" dur="0.7s" fill="freeze" />
+			<path d="M12 13h8c0.55 0 1 -0.45 1 -1c0 -4.97 -4.03 -9 -9 -9M12 13h-8c-0.55 0 -1 -0.45 -1 -1c0 -4.97 4.03 -9 9 -9" stroke-dasharray="28" stroke-dashoffset="28">
+				<animate attributeName="stroke-dashoffset" values="28;0" begin="0.3s" dur="0.6s" fill="freeze" />
 			</path>
 			<circle cx="11" cy="5" r="0" fill="#000" stroke="none">
-				<animate attributeName="r" values="0;2" begin="1.5s" dur="0.2s" fill="freeze" />
+				<animate attributeName="r" values="0;2" begin="1.4s" dur="0.2s" fill="freeze" />
 			</circle>
 			<circle cx="6" cy="9" r="0" fill="#000" stroke="none">
-				<animate attributeName="r" values="0;2" begin="1.6s" dur="0.2s" fill="freeze" />
+				<animate attributeName="r" values="0;2" begin="1.5s" dur="0.2s" fill="freeze" />
 			</circle>
 			<circle cx="16" cy="9" r="0" fill="#000" stroke="none">
-				<animate attributeName="r" values="0;2" begin="1.7s" dur="0.2s" fill="freeze" />
+				<animate attributeName="r" values="0;2" begin="1.6s" dur="0.2s" fill="freeze" />
 			</circle>
-			<path d="M-1 11h26" stroke="#000" stroke-dasharray="32" stroke-dashoffset="32" transform="rotate(45 12 12)">
-				<animate attributeName="stroke-dashoffset" values="32;0" begin="1.8s" dur="0.4s" fill="freeze" />
+			<path d="M-1 11h26" stroke="#000" stroke-dasharray="28" stroke-dashoffset="28" transform="rotate(45 12 12)">
+				<animate attributeName="stroke-dashoffset" values="28;0" begin="1.7s" dur="0.4s" fill="freeze" />
 			</path>
-			<path d="M-1 13h26" stroke-dasharray="32" stroke-dashoffset="32" transform="rotate(45 12 12)">
-				<animate attributeName="stroke-dashoffset" values="32;0" begin="1.8s" dur="0.4s" fill="freeze" />
+			<path d="M-1 13h26" stroke-dasharray="28" stroke-dashoffset="28" transform="rotate(45 12 12)">
+				<animate attributeName="stroke-dashoffset" values="28;0" begin="1.7s" dur="0.4s" fill="freeze" />
 			</path>
 		</g>
 	</mask>

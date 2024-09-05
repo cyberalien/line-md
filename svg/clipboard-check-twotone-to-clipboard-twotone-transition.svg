@@ -2,8 +2,8 @@
 	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 		<path d="M12 3h7v18h-14v-18h7Z" />
 		<path d="M14.5 3.5v3h-5v-3" />
-		<path d="M9 13l2 2l4 -4" stroke-dasharray="12" stroke-dashoffset="0">
-			<animate attributeName="stroke-dashoffset" values="0;12" dur="0.2s" fill="freeze" />
+		<path d="M9 13l2 2l4 -4" stroke-dasharray="10" stroke-dashoffset="0">
+			<animate attributeName="stroke-dashoffset" values="0;10" dur="0.2s" fill="freeze" />
 		</path>
 	</g>
 	<path d="M6 4H10V6H14V4H18V20H6V4Z" fill="currentColor" fill-opacity="0.3" />

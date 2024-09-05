@@ -5,11 +5,11 @@
 				<animate attributeName="fill-opacity" values="0;1" begin="0.6s" dur="0.5s" fill="freeze" />
 				<animate attributeName="stroke-dashoffset" values="56;0" dur="0.6s" fill="freeze" />
 			</path>
-			<path d="M-1 11h26" stroke="#000" stroke-dasharray="32" stroke-dashoffset="32" transform="rotate(45 12 12)">
-				<animate attributeName="stroke-dashoffset" values="32;0" begin="1.1s" dur="0.4s" fill="freeze" />
+			<path d="M-1 11h26" stroke="#000" stroke-dasharray="28" stroke-dashoffset="28" transform="rotate(45 12 12)">
+				<animate attributeName="stroke-dashoffset" values="28;0" begin="1.1s" dur="0.4s" fill="freeze" />
 			</path>
-			<path d="M-1 13h26" stroke-dasharray="32" stroke-dashoffset="32" transform="rotate(45 12 12)">
-				<animate attributeName="stroke-dashoffset" values="32;0" begin="1.1s" dur="0.4s" fill="freeze" />
+			<path d="M-1 13h26" stroke-dasharray="28" stroke-dashoffset="28" transform="rotate(45 12 12)">
+				<animate attributeName="stroke-dashoffset" values="28;0" begin="1.1s" dur="0.4s" fill="freeze" />
 			</path>
 		</g>
 	</mask>
