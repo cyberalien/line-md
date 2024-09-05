@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<path d="M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5" stroke-dasharray="40" stroke-dashoffset="40">
-			<animate attributeName="stroke-dashoffset" values="40;0" dur="0.4s" fill="freeze" />
+		<path d="M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5" stroke-dasharray="36" stroke-dashoffset="36">
+			<animate attributeName="stroke-dashoffset" values="36;0" dur="0.4s" fill="freeze" />
 		</path>
 		<g>
 			<path d="M12 19v1M19 12h1M12 5v-1M5 12h-1" stroke="currentColor" stroke-dasharray="2" stroke-dashoffset="2">

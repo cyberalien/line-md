@@ -3,8 +3,8 @@
 		<path d="M6.5 17.53c3.29 -1.9 5.5 -5.46 5.5 -9.53v-4M12 20v-16" stroke-dasharray="20" stroke-dashoffset="20">
 			<animate attributeName="stroke-dashoffset" values="20;0" dur="0.4s" fill="freeze" />
 		</path>
-		<path d="M12 4l3 3M12 4l-3 3" stroke-dasharray="8" stroke-dashoffset="8">
-			<animate attributeName="stroke-dashoffset" values="8;0" begin="0.4s" dur="0.2s" fill="freeze" />
+		<path d="M12 4l3 3M12 4l-3 3" stroke-dasharray="6" stroke-dashoffset="6">
+			<animate attributeName="stroke-dashoffset" values="6;0" begin="0.4s" dur="0.2s" fill="freeze" />
 		</path>
 	</g>
 </svg>
