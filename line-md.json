@@ -17,9 +17,9 @@
 			"beer-alt-twotone-loop",
 			"map-marker-off-loop"
 		],
-		"total": 1119
+		"total": 1120
 	},
-	"lastModified": 1736404329,
+	"lastModified": 1744197098,
 	"icons": {
 		"account": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 21v-1c0 -3.31 2.69 -6 6 -6h4c3.31 0 6 2.69 6 6v1\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M12 11c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4Z\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" begin=\"0.4s\" dur=\"0.4s\" fill=\"freeze\"/></path></g>"
@@ -3075,6 +3075,9 @@
 		"tiktok": {
 			"body": "<mask id=\"tiktok-mask\"><g fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16.6 5.82c-0.68 -0.78 -1.06 -1.78 -1.06 -2.82h-3.09v12.4c-0.02 0.67 -0.31 1.31 -0.79 1.77c-0.48 0.47 -1.13 0.73 -1.8 0.73c-1.42 0 -2.6 -1.16 -2.6 -2.6c0 -1.72 1.66 -3.01 3.37 -2.48v-3.16c-3.45 -0.46 -6.47 2.22 -6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69 -2.55 5.69 -5.7v-6.29c1.25 0.9 2.76 1.38 4.3 1.38v-3.09c0 0 -1.88 0.09 -3.24 -1.48Z\" fill=\"#fff\" stroke=\"none\"/><path d=\"M11 11h-1c-2.21 0 -4.5 1.79 -4.5 4c0 2.21 1.5 4.5 4.5 4.5c2.21 0 4 -2.29 4 -4.5v-12.5\" stroke=\"#000\" stroke-dasharray=\"36\" stroke-dashoffset=\"72\" stroke-width=\"4\"><animate attributeName=\"stroke-dashoffset\" values=\"72;36\" dur=\"0.6s\" fill=\"freeze\"/></path><path d=\"M18 2.5v8\" stroke=\"#000\" stroke-width=\"4\" stroke-dasharray=\"10\" stroke-dashoffset=\"20\"><animate attributeName=\"stroke-dashoffset\" values=\"20;10\" begin=\"0.5s\" dur=\"0.1s\" fill=\"freeze\"/></path></g></mask><rect mask=\"url(#tiktok-mask)\" width=\"24\" height=\"24\" fill=\"currentColor\"/>"
 		},
+		"trash": {
+			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h5c0.5 0 1 -0.5 1 -1v-14M12 20h-5c-0.5 0 -1 -0.5 -1 -1v-14\" stroke-dasharray=\"24\" stroke-dashoffset=\"24\"><animate attributeName=\"stroke-dashoffset\" values=\"24;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M4 5h16\" stroke-dasharray=\"20\" stroke-dashoffset=\"20\"><animate attributeName=\"stroke-dashoffset\" values=\"20;0\" begin=\"0.4s\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M10 4h4M10 9v7M14 9v7\" stroke-dasharray=\"8\" stroke-dashoffset=\"8\"><animate attributeName=\"stroke-dashoffset\" values=\"8;0\" begin=\"0.6s\" dur=\"0.2s\" fill=\"freeze\"/></path></g>"
+		},
 		"turn-left": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 19v-8c0 -0.55 -0.45 -1 -1 -1h-11\" stroke-dasharray=\"24\" stroke-dashoffset=\"24\"><animate attributeName=\"stroke-dashoffset\" values=\"24;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M4 10l3 -3M4 10l3 3\" stroke-dasharray=\"6\" stroke-dashoffset=\"6\"><animate attributeName=\"stroke-dashoffset\" values=\"6;0\" begin=\"0.4s\" dur=\"0.2s\" fill=\"freeze\"/></path></g>"
 		},
@@ -4120,6 +4123,7 @@
 			"switch-to-switch-off-transition",
 			"switch-twotone",
 			"switch-twotone-to-switch-off-twotone-transition",
+			"trash",
 			"watch",
 			"watch-loop",
 			"watch-off",
