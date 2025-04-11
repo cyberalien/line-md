@@ -25,7 +25,7 @@
 				<use href="#cog-part" transform="rotate(240 12 12)" />
 				<use href="#cog-part" transform="rotate(300 12 12)" />
 				<set attributeName="opacity" to="1" begin="0.9s" fill="freeze" />
-				<animateTransform attributeName="transform" type="rotate" values="0 12 12;360 12 12" dur="30s" fill="freeze" />
+				<animateTransform attributeName="transform" type="rotate" values="0 12 12;360 12 12" dur="30s" fill="freeze" repeatCount="indefinite" />
 			</g>
 		</g>
 		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
