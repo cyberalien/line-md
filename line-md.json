@@ -17,9 +17,9 @@
 			"beer-alt-twotone-loop",
 			"map-marker-off-loop"
 		],
-		"total": 1120
+		"total": 1121
 	},
-	"lastModified": 1744379194,
+	"lastModified": 1746597841,
 	"icons": {
 		"account": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 21v-1c0 -3.31 2.69 -6 6 -6h4c3.31 0 6 2.69 6 6v1\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" dur=\"0.4s\" fill=\"freeze\"/></path><path d=\"M12 11c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4Z\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" begin=\"0.4s\" dur=\"0.4s\" fill=\"freeze\"/></path></g>"
@@ -305,6 +305,9 @@
 		},
 		"bell-twotone-loop": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><g><path d=\"M12 3v2\" stroke-dasharray=\"4\" stroke-dashoffset=\"4\"><animate attributeName=\"stroke-dashoffset\" values=\"4;0\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M12 5c-3.31 0 -6 2.69 -6 6l0 6c-1 0 -2 1 -2 2h8M12 5c3.31 0 6 2.69 6 6l0 6c1 0 2 1 2 2h-8\" fill=\"currentColor\" fill-opacity=\"0\" stroke-dasharray=\"28\" stroke-dashoffset=\"28\"><animate attributeName=\"fill-opacity\" values=\"0;0.3\" begin=\"0.9s\" dur=\"0.15s\" fill=\"freeze\"/><animate attributeName=\"stroke-dashoffset\" values=\"28;0\" begin=\"0.2s\" dur=\"0.4s\" fill=\"freeze\"/></path><animateTransform attributeName=\"transform\" type=\"rotate\" values=\"0 12 3;3 12 3;-3 12 3;0 12 3;0 12 3\" begin=\"0.9s\" dur=\"6s\" keyTimes=\"0;0.05;0.15;0.2;1\" fill=\"freeze\"/></g><path d=\"M10 20c0 1.1 0.9 2 2 2c1.1 0 2 -0.9 2 -2\" stroke-dasharray=\"8\" stroke-dashoffset=\"8\"><animate attributeName=\"stroke-dashoffset\" values=\"8;0\" begin=\"0.6s\" dur=\"0.2s\" fill=\"freeze\"/><animateTransform attributeName=\"transform\" type=\"rotate\" values=\"0 12 8;6 12 8;-6 12 8;0 12 8;0 12 8\" begin=\"1.1s\" dur=\"6s\" keyTimes=\"0;0.05;0.15;0.2;1\" fill=\"freeze\"/></path></g>"
+		},
+		"bluesky": {
+			"body": "<path d=\"M7.47 5.94c1.83 1.37 3.81 4.14 4.53 5.63c0.72 -1.49 2.7 -4.26 4.53 -5.63c1.33 -0.99 3.47 -1.75 3.47 0.68c0 0.49 -0.28 4.08 -0.45 4.66c-0.57 2.03 -2.65 2.55 -4.5 2.23c3.24 0.55 4.06 2.36 2.28 4.17c-3.38 3.44 -4.85 -0.87 -5.23 -1.97c-0.07 -0.2 -0.1 -0.3 -0.1 -0.22c-0 -0.08 -0.03 0.02 -0.1 0.22c-0.38 1.1 -1.86 5.41 -5.23 1.97c-1.78 -1.81 -0.96 -3.63 2.28 -4.17c-1.85 0.31 -3.93 -0.21 -4.5 -2.23c-0.17 -0.58 -0.45 -4.18 -0.45 -4.66c0 -2.43 2.14 -1.67 3.47 -0.68Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"80\" stroke-dashoffset=\"80\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><animate attributeName=\"stroke-dashoffset\" values=\"80;0\" dur=\"0.6s\" fill=\"freeze\"/></path>"
 		},
 		"brake": {
 			"body": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8\" stroke-dasharray=\"56\" stroke-dashoffset=\"56\"><animate attributeName=\"stroke-dashoffset\" values=\"56;0\" dur=\"0.6s\" fill=\"freeze\"/></path><path d=\"M4.22 4.22c-4.29 4.3 -4.29 11.26 0 15.56\" stroke-dasharray=\"20\" stroke-dashoffset=\"20\"><animate attributeName=\"stroke-dashoffset\" values=\"20;0\" begin=\"0.7s\" dur=\"0.2s\" fill=\"freeze\"/></path><path d=\"M19.78 4.22c4.29 4.3 4.29 11.26 0 15.56\" stroke-dasharray=\"20\" stroke-dashoffset=\"20\"><animate attributeName=\"stroke-dashoffset\" values=\"20;0\" begin=\"0.9s\" dur=\"0.2s\" fill=\"freeze\"/></path></g>"
@@ -4254,6 +4257,7 @@
 		],
 		"Social": [
 			"at",
+			"bluesky",
 			"buy-me-a-coffee",
 			"buy-me-a-coffee-filled",
 			"buy-me-a-coffee-twotone",
