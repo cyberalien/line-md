@@ -11,8 +11,8 @@
 	"bugs": "https://github.com/cyberalien/line-md/issues",
 	"homepage": "https://github.com/cyberalien/line-md",
 	"repository": "github:cyberalien/line-md",
-	"packageManager": "pnpm@10.18.0",
+	"packageManager": "pnpm@10.26.2",
 	"devDependencies": {
-		"@iconify/tools": "^4.1.2"
+		"@iconify/tools": "^5.0.2"
 	}
 }
