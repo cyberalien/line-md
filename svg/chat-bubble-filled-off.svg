@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGOisF4e6j">
+			<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+				<path d="M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z" stroke="#fff" fill="#fff" stroke-dasharray="70" fill-opacity="0">
+					<animate attributeName="stroke-dashoffset" dur="0.6s" fill="freeze" values="70;0" />
+					<animate attributeName="fill-opacity" begin="0.7s" dur="0.4s" fill="freeze" to="1" />
+				</path>
+				<path d="M-1 11h26" stroke="#000" fill="none" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28">
+					<animate attributeName="stroke-dashoffset" begin="1.2s" dur="0.4s" fill="freeze" to="0" />
+				</path>
+			</g>
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGOisF4e6j)" />
+	<path d="M-1 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28">
+		<animate attributeName="stroke-dashoffset" begin="1.2s" dur="0.4s" fill="freeze" to="0" />
+	</path>
+</svg>

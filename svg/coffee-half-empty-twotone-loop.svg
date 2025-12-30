@@ -1,22 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<path d="M17 14v4c0 1.66 -1.34 3 -3 3h-6c-1.66 0 -3 -1.34 -3 -3v-4Z" fill="currentColor" fill-opacity="0">
-		<animate attributeName="fill-opacity" values="0;0.3" begin="0.8s" dur="0.15s" fill="freeze" />
-	</path>
-	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<path d="M17 9v9c0 1.66 -1.34 3 -3 3h-6c-1.66 0 -3 -1.34 -3 -3v-9Z" stroke-dasharray="48" stroke-dashoffset="48">
-			<animate attributeName="stroke-dashoffset" values="48;0" dur="0.6s" fill="freeze" />
-		</path>
-		<path d="M17 9h3c0.55 0 1 0.45 1 1v3c0 0.55 -0.45 1 -1 1h-3" stroke-dasharray="14" stroke-dashoffset="14">
-			<animate attributeName="stroke-dashoffset" values="14;0" begin="0.6s" dur="0.2s" fill="freeze" />
-		</path>
-		<mask id="coffee-mask">
-			<path d="M8 0c0 2-2 2-2 4s2 2 2 4-2 2-2 4 2 2 2 4M12 0c0 2-2 2-2 4s2 2 2 4-2 2-2 4 2 2 2 4M16 0c0 2-2 2-2 4s2 2 2 4-2 2-2 4 2 2 2 4" fill="none" stroke="#fff" stroke-width="2">
-				<animateMotion path="M0 0v-8" dur="3s" calcMode="linear" repeatCount="indefinite" />
+	<defs>
+		<mask id="SVGH98quKAd">
+			<path d="M8 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M12 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M16 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<animate attributeName="d" dur="3s" repeatCount="indefinite" values="M8 0c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M12 0c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M16 0c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4;M8 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M12 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M16 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4" />
+			</path>
+			<path d="M4 7h16v0h-16v12h16v-32h-16Z" fill="#000">
+				<animate attributeName="d" begin="1s" dur="0.6s" fill="freeze" to="M4 2h16v5h-16v12h16v-24h-16Z" />
 			</path>
 		</mask>
-		<rect y="7" width="24" height="0" fill="currentColor" mask="url(#coffee-mask)">
-			<animate attributeName="y" values="7;2" begin="0.8s" dur="0.6s" fill="freeze" />
-			<animate attributeName="height" values="0;5" begin="0.8s" dur="0.6s" fill="freeze" />
-		</rect>
+	</defs>
+	<path d="M17 14v4c0 1.66 -1.34 3 -3 3h-6c-1.66 0 -3 -1.34 -3 -3v-4Z" fill="currentColor" fill-opacity="0">
+		<animate attributeName="fill-opacity" begin="1.6s" dur="0.15s" fill="freeze" to="0.3" />
+	</path>
+	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		<path d="M17 9v9c0 1.66 -1.34 3 -3 3h-6c-1.66 0 -3 -1.34 -3 -3v-9Z" stroke-dasharray="48">
+			<animate attributeName="stroke-dashoffset" dur="0.6s" fill="freeze" values="48;0" />
+		</path>
+		<path d="M17 9h3c0.55 0 1 0.45 1 1v3c0 0.55 -0.45 1 -1 1h-3" stroke-dasharray="16" stroke-dashoffset="16">
+			<animate attributeName="stroke-dashoffset" begin="0.6s" dur="0.3s" fill="freeze" to="0" />
+		</path>
 	</g>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGH98quKAd)" />
 </svg>

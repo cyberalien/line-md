@@ -1,13 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<g fill="currentColor">
-		<path d="M11.21 14.18h1.83c1.73 0 3.13 -1.36 3.13 -3.05c0 -1.68 -1.4 -3.05 -3.13 -3.05h-2.65c-1 0 -1.81 0.79 -1.81 1.76v6.84l2.62 -2.51Z" fill-opacity="0">
-			<animate attributeName="fill-opacity" values="0;1" begin="0.75s" dur="0.5s" fill="freeze" />
+		<path d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke-dasharray="60">
+			<animate attributeName="stroke-dashoffset" dur="0.6s" fill="freeze" values="60;0" />
+			<animate attributeName="fill-opacity" begin="0.6s" dur="0.15s" fill="freeze" to="0.3" />
 		</path>
-	</g>
-	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<path d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z" fill="currentColor" fill-opacity="0" stroke-dasharray="64" stroke-dashoffset="64">
-			<animate attributeName="fill-opacity" values="0;0.3" begin="0.6s" dur="0.15s" fill="freeze" />
-			<animate attributeName="stroke-dashoffset" values="64;0" dur="0.6s" fill="freeze" />
+		<path d="M11.21 14.18h1.83c1.73 0 3.13 -1.36 3.13 -3.05c0 -1.68 -1.4 -3.05 -3.13 -3.05h-2.65c-1 0 -1.81 0.79 -1.81 1.76v6.84l2.62 -2.51Z" opacity="0">
+			<animate attributeName="opacity" begin="0.85s" dur="0.2s" fill="freeze" to="1" />
 		</path>
 	</g>
 </svg>

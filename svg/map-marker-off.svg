@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<mask id="map-marker{off}{fill}-mask">
-		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-			<path d="M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z" stroke-dasharray="48" stroke-dashoffset="48">
-				<animate attributeName="stroke-dashoffset" values="48;0" dur="0.6s" fill="freeze" />
+	<defs>
+		<mask id="SVG944kNdyH">
+			<path d="M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="48">
+				<animate attributeName="stroke-dashoffset" dur="0.6s" fill="freeze" values="48;0" />
 			</path>
-			<circle cx="12" cy="9" r="2.5" fill="#fff" fill-opacity="0" stroke="none">
-				<animate attributeName="fill-opacity" values="0;1" begin="0.7s" dur="0.15s" fill="freeze" />
+			<circle cx="12" cy="9" fill="#fff">
+				<animate attributeName="r" begin="0.7s" dur="0.2s" fill="freeze" to="2.5" />
 			</circle>
-			<path d="M-1 11h26" stroke="#000" stroke-dasharray="28" stroke-dashoffset="28" transform="rotate(45 12 12)">
-				<animate attributeName="stroke-dashoffset" values="28;0" begin="0.85s" dur="0.4s" fill="freeze" />
+			<path d="M-1 11h26" stroke="#000" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28">
+				<animate attributeName="stroke-dashoffset" begin="0.9s" dur="0.4s" fill="freeze" to="0" />
 			</path>
-			<path d="M-1 13h26" stroke-dasharray="28" stroke-dashoffset="28" transform="rotate(45 12 12)">
-				<animate attributeName="stroke-dashoffset" values="28;0" begin="0.85s" dur="0.4s" fill="freeze" />
-			</path>
-		</g>
-	</mask>
-	<rect mask="url(#map-marker{off}{fill}-mask)" width="24" height="24" fill="currentColor" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVG944kNdyH)" />
+	<path d="M-1 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28">
+		<animate attributeName="stroke-dashoffset" begin="0.9s" dur="0.4s" fill="freeze" to="0" />
+	</path>
 </svg>

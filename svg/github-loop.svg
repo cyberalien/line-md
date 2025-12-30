@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<mask id="cat-eyes" x="0" y="0" width="24" height="24">
-		<g fill="#fff">
-			<ellipse cx="9.5" cy="9" rx="1.5" ry="1" />
-			<ellipse cx="14.5" cy="9" rx="1.5" ry="1" />
-		</g>
-	</mask>
-	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<path d="M12 4c1.67 0 2.61 0.4 3 0.5c0.53 -0.43 1.94 -1.5 3.5 -1.5c0.34 1 0.29 2.22 0 3c0.75 1 1 2 1 3.5c0 2.19 -0.48 3.58 -1.5 4.5c-1.02 0.92 -2.11 1.37 -3.5 1.5c0.65 0.54 0.5 1.87 0.5 2.5c0 0.73 0 3 0 3M12 4c-1.67 0 -2.61 0.4 -3 0.5c-0.53 -0.43 -1.94 -1.5 -3.5 -1.5c-0.34 1 -0.29 2.22 0 3c-0.75 1 -1 2 -1 3.5c0 2.19 0.48 3.58 1.5 4.5c1.02 0.92 2.11 1.37 3.5 1.5c-0.65 0.54 -0.5 1.87 -0.5 2.5c0 0.73 0 3 0 3" stroke-dasharray="32" stroke-dashoffset="32">
-			<animate attributeName="stroke-dashoffset" values="32;0" dur="0.7s" fill="freeze" />
+	<defs>
+		<mask id="SVGssb1EdSh">
+			<path d="M9.5 8c0.83 0 1.5 0.45 1.5 1c0 0.55 -0.67 1 -1.5 1c-0.83 0 -1.5 -0.45 -1.5 -1c0 -0.55 0.67 -1 1.5 -1ZM14.5 8c0.83 0 1.5 0.45 1.5 1c0 0.55 -0.67 1 -1.5 1c-0.83 0 -1.5 -0.45 -1.5 -1c0 -0.55 0.67 -1 1.5 -1Z" fill="#fff" />
+			<rect x="8" y="7" width="8" height="4" fill="#000">
+				<animate attributeName="y" dur="9s" repeatCount="indefinite" keyTimes="0;0.45;0.46;0.54;0.55;1" values="7;7;11;11;7;7" />
+			</rect>
+		</mask>
+	</defs>
+	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		<path d="M12 4c1.67 0 2.61 0.4 3 0.5c0.53 -0.43 1.94 -1.5 3.5 -1.5c0.34 1 0.29 2.22 0 3c0.75 1 1 2 1 3.5c0 2.19 -0.48 3.58 -1.5 4.5c-1.02 0.92 -2.11 1.37 -3.5 1.5c0.65 0.54 0.5 1.87 0.5 2.5c0 0.73 0 3 0 3M12 4c-1.67 0 -2.61 0.4 -3 0.5c-0.53 -0.43 -1.94 -1.5 -3.5 -1.5c-0.34 1 -0.29 2.22 0 3c-0.75 1 -1 2 -1 3.5c0 2.19 0.48 3.58 1.5 4.5c1.02 0.92 2.11 1.37 3.5 1.5c-0.65 0.54 -0.5 1.87 -0.5 2.5c0 0.73 0 3 0 3" stroke-dasharray="32">
+			<animate attributeName="stroke-dashoffset" dur="0.6s" fill="freeze" values="32;0" />
 		</path>
-		<path d="M9 19c-1.406 0-2.844-.563-3.688-1.188C4.47 17.188 4.22 16.157 3 15.5" stroke-dasharray="10" stroke-dashoffset="10">
-			<animate attributeName="d" values="M9 19c-1.406 0-2.844-.563-3.688-1.188C4.47 17.188 4.22 16.157 3 15.5;M9 19c-1.406 0-3-.5-4-.5-.532 0-1 0-2-.5;M9 19c-1.406 0-2.844-.563-3.688-1.188C4.47 17.188 4.22 16.157 3 15.5" dur="3s" repeatCount="indefinite" />
-			<animate attributeName="stroke-dashoffset" values="10;0" begin="0.8s" dur="0.2s" fill="freeze" />
+		<path d="M9 19c-1.41 0 -2.84 -0.56 -3.69 -1.19c-0.84 -0.62 -1.09 -1.66 -2.31 -2.31" stroke-dasharray="10" stroke-dashoffset="10">
+			<animate attributeName="d" dur="3s" repeatCount="indefinite" keyTimes="0;0.5;1" values="M9 19c-1.41 0 -2.84 -0.56 -3.69 -1.19c-0.84 -0.62 -1.09 -1.66 -2.31 -2.31;M9 19c-1.41 0 -3 -0.5 -4 -0.5c-0.53 0 -1 0 -2 -0.5;M9 19c-1.41 0 -2.84 -0.56 -3.69 -1.19c-0.84 -0.62 -1.09 -1.66 -2.31 -2.31" />
+			<animate attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" fill="freeze" to="0" />
 		</path>
 	</g>
-	<rect x="8" y="11" width="8" height="4" fill="currentColor" mask="url(#cat-eyes)">
-		<animate attributeName="y" values="11;11;7;7;11;11" dur="10s" keyTimes="0;0.45;0.46;0.54;0.55;1" repeatCount="indefinite" />
-	</rect>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGssb1EdSh)" />
 </svg>

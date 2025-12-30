@@ -1,10 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<path d="M8 8h8M8 12h8M8 16h5M20 5v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z">
-			<animate attributeName="d" values="M8 8h8M8 12h8M8 16h5M20 5v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z;M10 6h8M10 10h8M10 14h5M22 3v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z" dur="0.4s" fill="freeze" />
-		</path>
-		<path d="M2 6v15c0 0.55 0.45 1 1 1h15" stroke-dasharray="36" stroke-dashoffset="36">
-			<animate attributeName="stroke-dashoffset" values="36;0" begin="0.4s" dur="0.5s" fill="freeze" />
-		</path>
-	</g>
+	<path d="M22 3v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1ZM10 6h8M10 10h8M10 14h5M2 6v15c0 0.55 0.45 1 1 1h15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		<animate attributeName="d" dur="0.4s" fill="freeze" values="M20 5v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1ZM8 8h8M8 12h8M8 16h5M4 5v14c0 0.55 0.45 1 1 1h14;M22 3v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1ZM10 6h8M10 10h8M10 14h5M2 6v15c0 0.55 0.45 1 1 1h15" />
+	</path>
 </svg>

@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<mask id="switch{fill}-to-switch-off{fill}-transition-mask">
-		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-			<path d="M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z" fill="#fff" />
-			<circle cx="17" cy="12" r="3" fill="#000" stroke="none">
-				<animate attributeName="cx" values="17;7" dur="0.2s" fill="freeze" />
+	<defs>
+		<mask id="SVG0RPHDdND">
+			<path d="M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z" stroke="#fff" fill="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<circle cx="7" cy="12" r="3" fill="#000">
+				<animate attributeName="cx" dur="0.2s" fill="freeze" values="17;7" />
 			</circle>
-		</g>
-	</mask>
-	<rect mask="url(#switch{fill}-to-switch-off{fill}-transition-mask)" width="24" height="24" fill="currentColor" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVG0RPHDdND)" />
 </svg>

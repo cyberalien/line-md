@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<mask id="compass-mask">
-		<g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-			<path d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z" stroke-dasharray="64" stroke-dashoffset="64">
-				<animate attributeName="stroke-dashoffset" values="64;0" dur="0.6s" fill="freeze" />
+	<defs>
+		<mask id="SVGvQTqjdtb">
+			<path d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60">
+				<animate attributeName="stroke-dashoffset" dur="0.6s" fill="freeze" values="60;0" />
 			</path>
-			<path d="M11 11L12 12L13 13L12 12z" fill="#fff" stroke="none" transform="rotate(-180 12 12)">
-				<animate attributeName="d" values="M11 11L12 12L13 13L12 12z;M10.2 10.2L17 7L13.8 13.8L7 17z" begin="0.6s" dur="0.3s" fill="freeze" />
-				<animateTransform attributeName="transform" type="rotate" values="-180 12 12;0 12 12" begin="0.6s" dur="0.5s" fill="freeze" />
+			<path d="M11 11l1 1l1 1l-1 -1Z" fill="#fff" transform="rotate(-180 12 12)">
+				<animate attributeName="d" begin="0.6s" dur="0.3s" fill="freeze" to="M10.2 10.2l6.8 -3.2l-3.2 6.8l-6.8 3.2Z" />
+				<animateTransform attributeName="transform" type="rotate" begin="0.6s" dur="0.5s" fill="freeze" values="-180 12 12;0 12 12" />
 			</path>
-			<circle cx="12" cy="12" r="1" fill="#000" fill-opacity="0" stroke="none">
-				<animate attributeName="fill-opacity" values="0;1" begin="0.9s" dur="0.15s" fill="freeze" />
+			<circle cx="12" cy="12" fill="#000">
+				<animate attributeName="r" begin="0.6s" dur="0.3s" fill="freeze" to="1" />
 			</circle>
-		</g>
-	</mask>
-	<rect mask="url(#compass-mask)" width="24" height="24" fill="currentColor" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGvQTqjdtb)" />
 </svg>

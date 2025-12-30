@@ -1,19 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<mask id="person-off-mask">
-		<g fill="#fff" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0">
-			<path d="M12 5c1.66 0 3 1.34 3 3c0 1.66 -1.34 3 -3 3c-1.66 0 -3 -1.34 -3 -3c0 -1.66 1.34 -3 3 -3Z" stroke-dasharray="20" stroke-dashoffset="20">
-				<animate attributeName="stroke-dashoffset" values="20;0" dur="0.4s" fill="freeze" />
-			</path>
-			<path d="M12 14c4 0 7 2 7 3v2h-14v-2c0 -1 3 -3 7 -3Z" stroke-dasharray="36" stroke-dashoffset="36">
-				<animate attributeName="stroke-dashoffset" values="36;0" begin="0.5s" dur="0.5s" fill="freeze" />
-			</path>
-			<g transform="rotate(45 12 12)" fill="none" stroke-dasharray="28" stroke-dashoffset="28">
-				<path d="M0 11h24" stroke="#000" />
-				<path d="M1 13h22" />
-				<animate attributeName="stroke-dashoffset" values="28;0" begin="1.35s" dur="0.4s" fill="freeze" />
+	<defs>
+		<mask id="SVGUZOp1bpZ">
+			<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+				<g fill="#fff" stroke="#fff">
+					<path d="M10 5c1.66 0 3 1.34 3 3c0 1.66 -1.34 3 -3 3c-1.66 0 -3 -1.34 -3 -3c0 -1.66 1.34 -3 3 -3Z" fill-opacity="0" stroke-dasharray="22">
+						<animate attributeName="stroke-dashoffset" dur="0.5s" fill="freeze" values="22;0" />
+						<animate attributeName="fill-opacity" begin="1.6s" dur="0.15s" fill="freeze" to="0.3" />
+					</path>
+					<path d="M10 14c4 0 7 2 7 3v2h-14v-2c0 -1 3 -3 7 -3Z" fill-opacity="0" stroke-dasharray="38" stroke-dashoffset="38">
+						<animate attributeName="stroke-dashoffset" begin="0.5s" dur="0.5s" fill="freeze" to="0" />
+						<animate attributeName="fill-opacity" begin="1.6s" dur="0.15s" fill="freeze" to="0.3" />
+					</path>
+				</g>
+				<path d="M0 11h24" stroke="#000" fill="none" transform="rotate(45 12 12)" stroke-dasharray="26" stroke-dashoffset="26">
+					<animate attributeName="stroke-dashoffset" begin="1.1s" dur="0.4s" fill="freeze" to="0" />
+				</path>
 			</g>
-			<animate attributeName="fill-opacity" values="0;0.3" begin="1.1s" dur="0.15s" fill="freeze" />
-		</g>
-	</mask>
-	<rect mask="url(#person-off-mask)" width="24" height="24" fill="currentColor" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGUZOp1bpZ)" />
+	<path d="M1 13h22" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="24" stroke-dashoffset="24">
+		<animate attributeName="stroke-dashoffset" begin="1.1s" dur="0.3s" fill="freeze" to="0" />
+	</path>
 </svg>

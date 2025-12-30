@@ -1,12 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<path d="M5 12H19" opacity="1">
-			<animate attributeName="d" values="M5 12H19;M12 12H12" dur="0.4s" fill="freeze" />
-			<set attributeName="opacity" to="0" begin="0.4s" fill="freeze" />
+	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		<path d="M5 5l14 14M5 19l14 -14">
+			<animate attributeName="d" dur="0.4s" fill="freeze" values="M5 5l14 0M5 19l14 0;M5 5l14 14M5 19l14 -14" />
 		</path>
-		<path d="M5 5L19 5M5 19L19 19" opacity="0">
-			<animate attributeName="d" values="M5 5L19 5M5 19L19 19;M5 5L19 19M5 19L19 5" begin="0.2s" dur="0.4s" fill="freeze" />
-			<set attributeName="opacity" to="1" begin="0.2s" fill="freeze" />
+		<path d="M12 12h0">
+			<animate attributeName="d" dur="0.4s" fill="freeze" values="M5 12h14;M12 12h0" />
+			<set attributeName="opacity" to="0" begin="0.4s" fill="freeze" />
 		</path>
 	</g>
 </svg>

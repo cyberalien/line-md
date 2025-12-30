@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGuZ6iB2MN">
+			<g fill="#fff">
+				<path d="M12 17h-10v-14h20v14Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="70" fill-opacity="0">
+					<animate attributeName="stroke-dashoffset" dur="0.6s" fill="freeze" values="70;0" />
+					<animate attributeName="fill-opacity" begin="1.2s" dur="0.4s" fill="freeze" to="1" />
+				</path>
+				<path d="M10 16h4v0h-4Z">
+					<animate attributeName="d" begin="0.6s" dur="0.2s" fill="freeze" to="M10 16h4v6h-4Z" />
+				</path>
+			</g>
+			<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+				<path d="M12 21h3M12 21h-3" stroke="#fff" stroke-dasharray="6" stroke-dashoffset="6">
+					<animate attributeName="stroke-dashoffset" begin="0.8s" dur="0.4s" fill="freeze" to="0" />
+				</path>
+				<path d="M6 7h2M6 7v2M18 13h-2M18 13v-2" stroke="#000" stroke-dasharray="4" stroke-dashoffset="4">
+					<animate attributeName="stroke-dashoffset" begin="1.7s" dur="0.2s" fill="freeze" to="0" />
+				</path>
+			</g>
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGuZ6iB2MN)" />
+</svg>
