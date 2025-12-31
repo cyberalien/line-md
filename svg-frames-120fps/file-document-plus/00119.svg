@@ -1,16 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVGaIswOcmC">
+		<mask id="SVGQOnBNcTL">
 			<g stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
 				<path d="M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z" fill="none" />
 				<path d="M14 3.5l0 4.5l4.5 0Z" fill="#fff" />
-				<g fill="none">
-					<path d="M9 13h6" stroke-dasharray="8" stroke-dashoffset="0.333" />
-					<path d="M9 17h3" stroke-dasharray="6" stroke-dashoffset="6" />
-				</g>
+				<path d="M9 13h6" fill="none" stroke-dasharray="8" stroke-dashoffset="0.333" />
 			</g>
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGaIswOcmC)" />
-	<path d="M16 19h6M19 16v6" stroke-dashoffset="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="8" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGQOnBNcTL)" />
 </svg>

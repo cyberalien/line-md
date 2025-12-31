@@ -1,13 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-		<g stroke-width="2">
-			<path d="M12 3h7v8" />
-			<path d="M19 17v4h-14v-18h7" stroke-dasharray="46" stroke-dashoffset="43.7" />
-		</g>
-		<path d="M14.5 3.5v3h-5v-3" stroke-dasharray="14" stroke-dashoffset="14" />
-		<g stroke-width="2">
-			<path d="M21 14h-8.5" stroke-dasharray="12" stroke-dashoffset="12" />
-			<path d="M12 14l3 3M12 14l3 -3" stroke-dasharray="8" stroke-dashoffset="8" />
-		</g>
+	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		<path d="M12 3h7v8" />
+		<path d="M19 17v4h-14v-18h7" stroke-dasharray="46" stroke-dashoffset="43.7" />
 	</g>
 </svg>

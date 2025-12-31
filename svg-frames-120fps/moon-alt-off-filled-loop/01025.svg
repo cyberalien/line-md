@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVG3s8JheIa">
+		<mask id="SVGkKQ8WdRX">
 			<g stroke-linecap="round" stroke-linejoin="round">
 				<path d="M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z" stroke="#fff" fill="#fff" stroke-width="2" />
 				<g fill="none">
@@ -8,12 +8,6 @@
 						<path d="M12 5h1.5M12 5h-1.5M12 5v1.5M12 5v-1.5" />
 						<g stroke-dasharray="4">
 							<path d="M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5" stroke-dashoffset="1.722" />
-							<path d="M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5" stroke-dashoffset="4" />
-							<path d="M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5" stroke-dashoffset="4" />
-							<path d="M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5" stroke-dashoffset="4" />
-							<path d="M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5" stroke-dashoffset="4" />
-							<path d="M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5" stroke-dashoffset="4" />
-							<path d="M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5" stroke-dashoffset="4" />
 							<path d="M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5" stroke-dashoffset="2.194" />
 						</g>
 					</g>
@@ -22,6 +16,6 @@
 			</g>
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVG3s8JheIa)" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGkKQ8WdRX)" />
 	<path d="M-1 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" />
 </svg>

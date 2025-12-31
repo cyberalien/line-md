@@ -9,9 +9,6 @@
 	</g>
 	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
 		<path d="M8 23h0.01" />
-		<g stroke-dasharray="4">
-			<path d="M12 23h0.01" stroke-dashoffset="1" />
-			<path d="M16 23h0.01" stroke-dashoffset="4" />
-		</g>
+		<path d="M12 23h0.01" stroke-dasharray="4" stroke-dashoffset="1" />
 	</g>
 </svg>

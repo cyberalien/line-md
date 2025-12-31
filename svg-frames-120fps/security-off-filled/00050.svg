@@ -1,12 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVGSzH1icLt">
-			<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-				<path d="M12 2l-8 3.5v6.5c0 3.5 3.5 8 8 10c4.5 -1 8 -6.5 8 -10v-6.5l-8 -3.5Z" stroke="#fff" fill="#fff" stroke-dasharray="60" fill-opacity="0" stroke-dashoffset="18.333" />
-				<path d="M-1 11h26" stroke="#000" fill="none" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
-			</g>
+		<mask id="SVGCQKMy8NO">
+			<path d="M12 2l-8 3.5v6.5c0 3.5 3.5 8 8 10c4.5 -1 8 -6.5 8 -10v-6.5l-8 -3.5Z" stroke="#fff" fill="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" fill-opacity="0" stroke-dashoffset="18.333" />
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGSzH1icLt)" />
-	<path d="M-1 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGCQKMy8NO)" />
 </svg>

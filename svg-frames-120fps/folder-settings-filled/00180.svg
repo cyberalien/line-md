@@ -3,10 +3,7 @@
 		<path d="M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z" fill="currentColor" />
 		<g fill="none">
 			<path d="M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6ZM8 23h0.01" />
-			<g stroke-dasharray="4">
-				<path d="M12 23h0.01" stroke-dashoffset="2" />
-				<path d="M16 23h0.01" stroke-dashoffset="4" />
-			</g>
+			<path d="M12 23h0.01" stroke-dasharray="4" stroke-dashoffset="2" />
 		</g>
 	</g>
 </svg>

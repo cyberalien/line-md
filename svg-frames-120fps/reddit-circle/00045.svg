@@ -1,12 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVGARp6yeFY">
-			<g stroke-linecap="round" stroke-linejoin="round">
-				<path d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z" stroke="#fff" fill="#fff" stroke-width="2" stroke-dasharray="60" fill-opacity="0" stroke-dashoffset="15" />
-				<path d="M12 9.91l0.76 -3.64l3.24 0.71" stroke="#000" fill="none" stroke-width="0.8" stroke-dasharray="10" stroke-dashoffset="10" />
-			</g>
+		<mask id="SVGGF71leBd">
+			<path d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z" stroke="#fff" fill="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" fill-opacity="0" stroke-dashoffset="15" />
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGARp6yeFY)" />
-	<path d="M9.72 15.6c0 0 0.61 0.69 2.28 0.69c1.67 -0 2.28 -0.69 2.28 -0.69" stroke="currentColor" fill="none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8" stroke-dashoffset="8" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGGF71leBd)" />
 </svg>

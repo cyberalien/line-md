@@ -1,15 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVGnkTtyF9x">
-			<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-				<g stroke="#fff">
-					<path d="M12 9c1.66 0 3 1.34 3 3c0 1.66 -1.34 3 -3 3c-1.66 0 -3 -1.34 -3 -3c0 -1.66 1.34 -3 3 -3Z" stroke-dasharray="22" stroke-dashoffset="6.722" />
-					<path d="M12 5.5c3.59 0 6.5 2.91 6.5 6.5c0 3.59 -2.91 6.5 -6.5 6.5c-3.59 0 -6.5 -2.91 -6.5 -6.5c0 -3.59 2.91 -6.5 6.5 -6.5Z" stroke-dasharray="44" stroke-dashoffset="44" />
-				</g>
-				<path d="M0 11h24" stroke="#000" transform="rotate(45 12 12)" stroke-dasharray="26" stroke-dashoffset="26" />
-			</g>
+		<mask id="SVGFci67d9x">
+			<path d="M12 9c1.66 0 3 1.34 3 3c0 1.66 -1.34 3 -3 3c-1.66 0 -3 -1.34 -3 -3c0 -1.66 1.34 -3 3 -3Z" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="22" stroke-dashoffset="6.722" />
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGnkTtyF9x)" />
-	<path d="M-0.86 13h24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="26" stroke-dashoffset="26" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGFci67d9x)" />
 </svg>

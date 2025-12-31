@@ -2,6 +2,5 @@
 	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
 		<path d="M7 17v-4l10 -10l4 4l-10 10h-4" stroke-dasharray="44" stroke-dashoffset="0.733" />
 		<path d="M3 21h18" />
-		<path d="M14 6l4 4" stroke-dasharray="8" stroke-dashoffset="8" />
 	</g>
 </svg>

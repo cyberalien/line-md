@@ -5,7 +5,6 @@
 		<g fill="none">
 			<path d="M10 20c0 1.1 0.9 2 2 2c1.1 0 2 -0.9 2 -2" />
 			<path d="M22 6v4" stroke-dasharray="6" stroke-dashoffset="5.5" />
-			<path d="M22 14v0.01" stroke-dasharray="4" stroke-dashoffset="4" />
 		</g>
 	</g>
 </svg>

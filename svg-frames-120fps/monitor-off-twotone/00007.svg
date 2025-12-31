@@ -1,16 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVGenoeIbYY">
+		<mask id="SVGP99fabJK">
 			<g fill="#fff">
 				<path d="M12 17h-10v-14h20v14Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke-dasharray="70" stroke-dashoffset="63.194" />
 				<path d="M10 16h4v0h-4Z" />
 			</g>
-			<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-				<path d="M12 21h3M12 21h-3" stroke="#fff" stroke-dasharray="6" stroke-dashoffset="6" />
-				<path d="M-1 11h26" stroke="#000" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
-			</g>
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGenoeIbYY)" />
-	<path d="M-1 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGP99fabJK)" />
 </svg>

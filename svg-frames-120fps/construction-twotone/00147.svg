@@ -4,8 +4,6 @@
 		<g fill="none">
 			<path d="M6 17l6 -15M18 17l-6 -15" stroke-width="2" />
 			<path d="M8 12l4.5 -2.5" stroke-dasharray="8" stroke-dashoffset="7" />
-			<path d="M6 16l7.5 -4" stroke-dasharray="12" stroke-dashoffset="12" />
-			<path d="M9.5 17l5 -2.5" stroke-dasharray="8" stroke-dashoffset="8" />
 		</g>
 	</g>
 </svg>

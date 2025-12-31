@@ -3,9 +3,5 @@
 		<path d="M4 5h0.01M8 5h12" />
 		<path d="M4 10h0.01" stroke-dasharray="4" stroke-dashoffset="0.333" />
 		<path d="M8 10h12" stroke-dasharray="14" stroke-dashoffset="8.167" />
-		<path d="M4 15h0.01" stroke-dasharray="4" stroke-dashoffset="4" />
-		<path d="M8 15h12" stroke-dasharray="14" stroke-dashoffset="14" />
-		<path d="M4 20h0.01" stroke-dasharray="4" stroke-dashoffset="4" />
-		<path d="M8 20h12" stroke-dasharray="14" stroke-dashoffset="14" />
 	</g>
 </svg>

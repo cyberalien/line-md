@@ -4,10 +4,7 @@
 		<path d="M14.5 3.5v3h-5v-3" />
 		<g stroke-width="2">
 			<path d="M9 10h3" />
-			<g stroke-dasharray="8">
-				<path d="M9 13h5" stroke-dashoffset="4" />
-				<path d="M9 16h6" stroke-dashoffset="8" />
-			</g>
+			<path d="M9 13h5" stroke-dasharray="8" stroke-dashoffset="4" />
 		</g>
 	</g>
 </svg>

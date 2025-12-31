@@ -3,6 +3,5 @@
 	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
 		<path d="M4 10v10" />
 		<path d="M10 10v10" stroke-dasharray="12" stroke-dashoffset="10.5" />
-		<path d="M10 15c0 -2.76 2.24 -5 5 -5c2.76 0 5 2.24 5 5v5" stroke-dasharray="24" stroke-dashoffset="24" />
 	</g>
 </svg>

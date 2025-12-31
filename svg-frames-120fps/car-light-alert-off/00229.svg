@@ -15,6 +15,5 @@
 	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
 		<path d="M0 13h26" transform="rotate(45 12 12)" />
 		<path d="M22 8v4" stroke-dasharray="6" stroke-dashoffset="2.75" />
-		<path d="M22 16v0.01" stroke-dasharray="4" stroke-dashoffset="4" />
 	</g>
 </svg>

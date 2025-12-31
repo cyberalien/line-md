@@ -8,8 +8,4 @@
 		</mask>
 	</defs>
 	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGcoh4oc9F)" />
-	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-		<path d="M18.5 14c2.48 0 4.5 2.02 4.5 4.5c0 2.48 -2.02 4.5 -4.5 4.5c-2.48 0 -4.5 -2.02 -4.5 -4.5c0 -2.48 2.02 -4.5 4.5 -4.5Z" stroke-dasharray="32" stroke-dashoffset="32" />
-		<path d="M16 16l5 5" stroke-dasharray="10" stroke-dashoffset="10" />
-	</g>
 </svg>

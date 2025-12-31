@@ -12,9 +12,5 @@
 		</mask>
 	</defs>
 	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGhAzQKEEK)" />
-	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-		<path d="M0 13h26" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="22.75" />
-		<path d="M22 8v4" stroke-dasharray="6" stroke-dashoffset="6" />
-		<path d="M22 16v0.01" stroke-dasharray="4" stroke-dashoffset="4" />
-	</g>
+	<path d="M0 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="22.75" />
 </svg>

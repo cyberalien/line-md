@@ -3,5 +3,4 @@
 		<path d="M12 5h9c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-18c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0.183" />
 		<path d="M2 5h3v14h-3ZM22 5h-3v14h3Z" />
 	</g>
-	<path d="M8 9h2M8 9v2M16 15h-2M16 15v-2" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4" stroke-dashoffset="4" />
 </svg>

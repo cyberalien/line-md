@@ -2,11 +2,5 @@
 	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
 		<path d="M4 5h0.01" stroke-dasharray="4" stroke-dashoffset="0.667" />
 		<path d="M8 5h12" stroke-dasharray="14" stroke-dashoffset="9.333" />
-		<path d="M4 10h0.01" stroke-dasharray="4" stroke-dashoffset="4" />
-		<path d="M8 10h12" stroke-dasharray="14" stroke-dashoffset="14" />
-		<path d="M4 15h0.01" stroke-dasharray="4" stroke-dashoffset="4" />
-		<path d="M8 15h12" stroke-dasharray="14" stroke-dashoffset="14" />
-		<path d="M4 20h0.01" stroke-dasharray="4" stroke-dashoffset="4" />
-		<path d="M8 20h12" stroke-dasharray="14" stroke-dashoffset="14" />
 	</g>
 </svg>

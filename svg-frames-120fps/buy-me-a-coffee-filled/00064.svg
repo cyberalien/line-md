@@ -9,10 +9,7 @@
 			<path d="M8 10h8v10h-8Z" fill="#000" />
 		</mask>
 	</defs>
-	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-		<path d="M7.5 10.5c0 0 0.83 6.93 1 8.5c0.17 1.57 1.5 2 2.5 2l2 0c1.5 0 2.88 -1.14 3 -2c0.13 -0.86 1 -12 1 -12" />
-		<path d="M8 4c1.1 -0.57 2 -1 4 -1c2 0 4.5 0.5 4.5 3" stroke-dasharray="14" stroke-dashoffset="14" />
-	</g>
+	<path d="M7.5 10.5c0 0 0.83 6.93 1 8.5c0.17 1.57 1.5 2 2.5 2l2 0c1.5 0 2.88 -1.14 3 -2c0.13 -0.86 1 -12 1 -12" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 	<g fill="currentColor">
 		<path d="M0 0h24v24H0z" mask="url(#SVGyGNRdbZf)" />
 		<path d="M0 0h24v24H0z" mask="url(#SVGHnmo4byZ)" />

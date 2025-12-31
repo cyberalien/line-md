@@ -1,11 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVGOQdW7b0a">
+		<mask id="SVGvEl0hdFd">
 			<path d="M2.24 12c1.68 -3.46 5.4 -5.87 9.76 -5.87c4.36 0 8.08 2.41 9.76 5.87c-1.68 3.46 -5.4 5.87 -9.76 5.87c-4.36 0 -8.08 -2.41 -9.76 -5.87Z" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 			<circle cx="12" cy="12" r="2.639" fill="#fff" />
-			<path d="M0 11h24" stroke="#000" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="26" stroke-dashoffset="26" />
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGOQdW7b0a)" />
-	<path d="M-0.89 13h24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="26" stroke-dashoffset="26" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGvEl0hdFd)" />
 </svg>

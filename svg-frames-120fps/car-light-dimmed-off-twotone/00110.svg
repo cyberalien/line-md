@@ -1,22 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVGO2FYweKO">
+		<mask id="SVGPsluveHt">
 			<g stroke-linecap="round" stroke-linejoin="round">
 				<g fill="none" stroke="#fff" stroke-width="2">
 					<path d="M12 5.5l-9 2.5" />
-					<g stroke-dasharray="12">
-						<path d="M12 10.5l-9 2.5" stroke-dashoffset="5" />
-						<path d="M12 15.5l-9 2.5" stroke-dashoffset="12" />
-					</g>
+					<path d="M12 10.5l-9 2.5" stroke-dasharray="12" stroke-dashoffset="5" />
 				</g>
 				<path d="M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z" stroke="#000" fill="#000" stroke-width="4" />
-				<g stroke-width="2">
-					<path d="M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z" stroke="#fff" fill="#fff" fill-opacity="0" />
-					<path d="M0 11h26" stroke="#000" fill="none" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
-				</g>
+				<path d="M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z" stroke="#fff" fill="#fff" stroke-width="2" fill-opacity="0" />
 			</g>
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGO2FYweKO)" />
-	<path d="M0 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGPsluveHt)" />
 </svg>

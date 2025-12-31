@@ -5,8 +5,4 @@
 		</mask>
 	</defs>
 	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGvnMm1btf)" />
-	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-		<path d="M19 16v5" stroke-dasharray="8" stroke-dashoffset="8" />
-		<path d="M19 21l2 -2M19 21l-2 -2" stroke-dasharray="6" stroke-dashoffset="6" />
-	</g>
 </svg>

@@ -9,5 +9,4 @@
 		<path d="M0 0h24v24H0z" mask="url(#SVGXy6E6cQx)" />
 		<path d="M18.12 18.12c-1.17 1.17 -3.07 1.17 -4.24 0c-1.17 -1.17 -1.17 -3.07 0 -4.24c1.17 -1.17 3.07 -1.17 4.24 0c1.17 1.17 1.17 3.07 0 4.24Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="22" stroke-dashoffset="22" fill-opacity="0" />
 	</g>
-	<path d="M18.12 18.12l2.83 2.83" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8" stroke-dashoffset="8" />
 </svg>

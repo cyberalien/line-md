@@ -4,7 +4,6 @@
 		<g fill="none">
 			<path d="M4.22 4.22c-4.29 4.3 -4.29 11.26 0 15.56" />
 			<path d="M19.78 4.22c4.29 4.3 4.29 11.26 0 15.56" stroke-dasharray="20" stroke-dashoffset="18.889" />
-			<path d="M10.5 16v-8h3c0.55 0 1 0.45 1 1v2c0 0.55 -0.45 1 -1 1h-3" stroke-dasharray="22" stroke-dashoffset="22" />
 		</g>
 	</g>
 </svg>

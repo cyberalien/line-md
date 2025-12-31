@@ -6,8 +6,5 @@
 		</mask>
 	</defs>
 	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGD3xCGqHM)" />
-	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="10">
-		<path d="M16.5 15.5l5 5" stroke-dashoffset="0.417" />
-		<path d="M16.5 20.5l5 -5" stroke-dashoffset="10" />
-	</g>
+	<path d="M16.5 15.5l5 5" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10" stroke-dashoffset="0.417" />
 </svg>

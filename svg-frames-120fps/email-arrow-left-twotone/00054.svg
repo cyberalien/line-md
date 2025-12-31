@@ -1,15 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVGtqZOWN3a">
-			<g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-				<path d="M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z" stroke-dasharray="66" stroke-dashoffset="16.5" />
-				<path d="M3 6.5l9 5.5l9 -5.5" stroke-dasharray="24" stroke-dashoffset="24" />
-			</g>
+		<mask id="SVGd6tiSdAK">
+			<path d="M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="66" stroke-dashoffset="16.5" />
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGtqZOWN3a)" />
-	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-		<path d="M21 19h-5" stroke-dasharray="8" stroke-dashoffset="8" />
-		<path d="M16 19l2 2M16 19l2 -2" stroke-dasharray="6" stroke-dashoffset="6" />
-	</g>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGd6tiSdAK)" />
 </svg>

@@ -1,19 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVG1MCZ0cgj">
+		<mask id="SVGoBriHbib">
 			<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
 				<path d="M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z" stroke="#fff" fill="#fff" />
 				<path d="M14 3.5l0 4.5l4.5 0Z" stroke="#000" fill="#000" />
 				<g fill="none">
 					<path d="M13.5 3l5.5 5.5" stroke="#fff" />
-					<g stroke="#000">
-						<path d="M7 13h10" stroke-dasharray="12" stroke-dashoffset="3.5" />
-						<path d="M7 17h7" stroke-dasharray="10" stroke-dashoffset="10" />
-					</g>
+					<path d="M7 13h10" stroke="#000" stroke-dasharray="12" stroke-dashoffset="3.5" />
 				</g>
 			</g>
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVG1MCZ0cgj)" />
-	<path d="M17 17l4 4M21 17l-4 4" stroke-dashoffset="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="8" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGoBriHbib)" />
 </svg>

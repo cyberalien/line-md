@@ -5,6 +5,5 @@
 			<path d="M8 7h8" stroke-dashoffset="0.833" />
 			<path d="M8 10h8" stroke-dashoffset="5.833" />
 		</g>
-		<path d="M8 13h4" stroke-dasharray="6" stroke-dashoffset="6" />
 	</g>
 </svg>

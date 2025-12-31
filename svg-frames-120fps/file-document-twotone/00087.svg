@@ -1,12 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-		<g fill="currentColor">
-			<path d="M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z" fill-opacity="0" />
-			<path d="M14 3.5l0.84 3.66l3.66 0.84Z" />
-		</g>
-		<g fill="none">
-			<path d="M9 13h6" stroke-dasharray="8" stroke-dashoffset="8" />
-			<path d="M9 17h3" stroke-dasharray="6" stroke-dashoffset="6" />
-		</g>
+	<g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		<path d="M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z" fill-opacity="0" />
+		<path d="M14 3.5l0.84 3.66l3.66 0.84Z" />
 	</g>
 </svg>

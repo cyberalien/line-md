@@ -1,10 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-		<g stroke-dasharray="16">
-			<path d="M5 21h14" stroke-dashoffset="8.444" />
-			<path d="M5 21v-13M19 21v-13" stroke-dashoffset="16" />
-		</g>
-		<path d="M9 21v-8h6v8" stroke-dasharray="24" stroke-dashoffset="24" />
-		<path d="M2 10l10 -8l10 8" stroke-dasharray="28" stroke-dashoffset="28" />
-	</g>
+	<path d="M5 21h14" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16" stroke-dashoffset="8.444" />
 </svg>

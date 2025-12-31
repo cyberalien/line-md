@@ -6,7 +6,6 @@
 			<g stroke-dasharray="4">
 				<path d="M15 9v0.01M17 11v0.01" stroke-dashoffset="1.5" />
 				<path d="M15 13v0.01M17 15v0.01" stroke-dashoffset="3.5" />
-				<path d="M15 17v0.01" stroke-dashoffset="4" />
 			</g>
 		</g>
 	</g>

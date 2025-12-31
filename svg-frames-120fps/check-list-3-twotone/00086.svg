@@ -6,10 +6,7 @@
 		</g>
 		<g fill="none" stroke-width="2">
 			<path d="M3 5l2 2l4 -4" />
-			<g stroke-dasharray="12">
-				<path d="M3 12l2 2l4 -4" stroke-dashoffset="5" />
-				<path d="M3 19l2 2l4 -4" stroke-dashoffset="12" />
-			</g>
+			<path d="M3 12l2 2l4 -4" stroke-dasharray="12" stroke-dashoffset="5" />
 		</g>
 	</g>
 </svg>

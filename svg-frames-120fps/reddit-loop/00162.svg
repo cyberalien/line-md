@@ -1,16 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	<defs>
-		<mask id="SVGiaVGAcle">
+		<mask id="SVGqjp08c0g">
 			<g fill="#fff">
 				<path d="M12 9.42c4.42 0 8 2.37 8 5.29c0 2.92 -3.58 5.29 -8 5.29c-4.42 0 -8 -2.37 -8 -5.29c0 -2.92 3.58 -5.29 8 -5.29Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 				<path d="M3.94 9.73c1.24 0 2.24 1 2.24 2.24c0 1.24 -1 2.24 -2.24 2.24c-1.24 0 -2.24 -1 -2.24 -2.24c0 -1.24 1 -2.24 2.24 -2.24ZM20.06 9.73c1.24 0 2.24 1 2.24 2.24c0 1.24 -1 2.24 -2.24 2.24c-1.24 0 -2.24 -1 -2.24 -2.24c0 -1.24 1 -2.24 2.24 -2.24Z" />
 			</g>
 			<circle cx="8.45" cy="13.59" r="1.61" fill="#000" opacity="0.375" />
-			<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8">
-				<path d="M12 8.75l1.18 -5.64l5.03 1.07" stroke="#fff" stroke-dasharray="14" stroke-dashoffset="14" />
-				<path d="M8.47 17.52c0 0 0.94 1.06 3.53 1.06c2.58 0 3.53 -1.06 3.53 -1.06" stroke="#000" stroke-dasharray="10" stroke-dashoffset="10" />
-			</g>
 		</mask>
 	</defs>
-	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGiaVGAcle)" />
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGqjp08c0g)" />
 </svg>

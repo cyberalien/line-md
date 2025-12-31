@@ -4,12 +4,6 @@
 		<path d="M12 5h1.5M12 5h-1.5M12 5v1.5M12 5v-1.5" />
 		<g stroke-dasharray="4">
 			<path d="M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5" stroke-dashoffset="3.111" />
-			<path d="M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5" stroke-dashoffset="4" />
-			<path d="M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5" stroke-dashoffset="4" />
-			<path d="M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5" stroke-dashoffset="4" />
-			<path d="M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5" stroke-dashoffset="4" />
-			<path d="M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5" stroke-dashoffset="4" />
-			<path d="M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5" stroke-dashoffset="4" />
 			<path d="M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5" stroke-dashoffset="0.806" />
 		</g>
 	</g>
