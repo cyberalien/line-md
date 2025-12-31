@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGwzO8K01Y">
+			<path d="M12 4.42c4.18 0 7.58 3.4 7.58 7.58c0 4.18 -3.4 7.58 -7.58 7.58c-4.18 0 -7.58 -3.4 -7.58 -7.58c0 -4.18 3.4 -7.58 7.58 -7.58Z" fill="#fff" />
+			<path d="M20.42 -4c4.18 0 7.58 3.4 7.58 7.58c0 4.18 -3.4 7.58 -7.58 7.58c-4.18 0 -7.58 -3.4 -7.58 -7.58c0 -4.18 3.4 -7.58 7.58 -7.58Z" fill="#000" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGwzO8K01Y)" />
+</svg>

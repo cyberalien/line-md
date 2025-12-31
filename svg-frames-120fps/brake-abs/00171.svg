@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGx8Mkwdou">
+			<path d="M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8M4.22 4.22c-4.29 4.3 -4.29 11.26 0 15.56M19.78 4.22c4.29 4.3 4.29 11.26 0 15.56" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+			<path d="M4 6h16c1.26 1.67 2 3.75 2 6c0 2.25 -0.74 4.33 -2 6h-16c-1.26 -1.67 -2 -3.75 -2 -6c0 -2.25 0.74 -4.33 2 -6Z" fill="#000" opacity="0.625" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGx8Mkwdou)" />
+</svg>

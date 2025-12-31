@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGbePsxvOM">
+			<g stroke-linecap="round" stroke-linejoin="round" fill-opacity="0">
+				<path d="M10 20.5c0 0 -5.29 -5.79 -5.29 -9.64c0 -2.64 2.29 -5.29 5.29 -5.29c3 0 5.29 2.64 5.29 5.29c0 3.86 -5.29 9.64 -5.29 9.64Z" stroke="#fff" fill="#fff" stroke-width="2" />
+				<path d="M14 20.5c0 0 -5.29 -5.79 -5.29 -9.64c0 -2.64 2.29 -5.29 5.29 -5.29c3 0 5.29 2.64 5.29 5.29c0 3.86 -5.29 9.64 -5.29 9.64Z" stroke="#000" fill="#000" stroke-width="4" />
+			</g>
+			<g fill="#fff">
+				<path d="M14 20.5c0 0 -5.29 -5.79 -5.29 -9.64c0 -2.64 2.29 -5.29 5.29 -5.29c3 0 5.29 2.64 5.29 5.29c0 3.86 -5.29 9.64 -5.29 9.64Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" />
+				<circle cx="14" cy="9" />
+			</g>
+			<path d="M-1 11h26" stroke="#000" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGbePsxvOM)" />
+	<path d="M-1 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+</svg>

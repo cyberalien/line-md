@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGp9Nuxfyx">
+			<g fill="#fff">
+				<path d="M2.03 12c1.71 -3.78 5.51 -6.41 9.97 -6.41c4.46 0 8.25 2.63 9.97 6.41c-1.71 3.78 -5.51 6.41 -9.97 6.41c-4.46 0 -8.25 -2.63 -9.97 -6.41Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" />
+				<circle cx="12" cy="12" r="3" />
+			</g>
+			<path d="M0 11h24" stroke="#000" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="26" stroke-dashoffset="26" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGp9Nuxfyx)" />
+	<path d="M0 13h24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="26" stroke-dashoffset="26" />
+</svg>

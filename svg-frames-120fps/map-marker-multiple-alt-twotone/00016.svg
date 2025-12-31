@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGfsJApeaF">
+			<g stroke-linecap="round" stroke-linejoin="round" fill-opacity="0">
+				<path d="M10 20.5c0 0 -3.86 -4.36 -3.86 -7.26c0 -1.93 1.69 -3.86 3.86 -3.86c2.17 0 3.86 1.93 3.86 3.86c0 2.9 -3.86 7.26 -3.86 7.26Z" stroke="#fff" fill="#fff" stroke-width="2" />
+				<path d="M14 20.5c0 0 -3.86 -4.36 -3.86 -7.26c0 -1.93 1.69 -3.86 3.86 -3.86c2.17 0 3.86 1.93 3.86 3.86c0 2.9 -3.86 7.26 -3.86 7.26Z" stroke="#000" fill="#000" stroke-width="4" />
+			</g>
+		</mask>
+	</defs>
+	<g fill="currentColor">
+		<path d="M0 0h24v24H0z" mask="url(#SVGfsJApeaF)" />
+		<path d="M14 20.5c0 0 -3.86 -4.36 -3.86 -7.26c0 -1.93 1.69 -3.86 3.86 -3.86c2.17 0 3.86 1.93 3.86 3.86c0 2.9 -3.86 7.26 -3.86 7.26Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" />
+		<circle cx="14" cy="9" />
+	</g>
+</svg>

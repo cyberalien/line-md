@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGdrzgxCJS">
+			<path d="M12 20.5c0 0 -1.89 -2.39 -1.89 -3.99c0 -0.95 0.87 -1.89 1.89 -1.89c1.02 0 1.89 0.95 1.89 1.89c0 1.6 -1.89 3.99 -1.89 3.99Z" stroke="#fff" fill="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" />
+			<circle cx="12" cy="9" fill="#000" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGdrzgxCJS)" />
+</svg>

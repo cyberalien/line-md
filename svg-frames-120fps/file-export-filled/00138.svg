@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGPvGm3ddo">
+			<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+				<path d="M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z" stroke="#fff" fill="#fff" />
+				<path d="M14 3.5l0 4.5l4.5 0Z" stroke="#000" fill="#000" />
+				<path d="M13.5 3l5.5 5.5" stroke="#fff" fill="none" />
+			</g>
+			<path d="M8 16l0.75 -0.75l-2 -2l4.38 2.62l2.62 4.38l-2 -2l-0.75 0.75Z" fill="#000" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGPvGm3ddo)" />
+</svg>

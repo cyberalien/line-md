@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGCvExfcGP">
+			<g fill="#fff">
+				<path d="M12 4c-4.42 0 -8 3.58 -8 8c0 4.42 3.58 8 8 8c4.42 0 8 -3.58 8 -8v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-1c-0.55 0 -1 -0.45 -1 -1Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0.3" />
+				<circle cx="9.5" cy="7.5" r="1.5" />
+				<circle cx="11" cy="17.5" r="1.5" />
+				<circle cx="6.5" cy="11.5" r="1.5" />
+				<circle cx="16.5" cy="14.5" r="1.5" />
+				<circle cx="11.5" cy="12.5" r="1.5" />
+			</g>
+			<path d="M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z" fill="#000" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGCvExfcGP)" />
+	<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		<path d="M16 19h6" />
+		<path d="M19 16v6" stroke-dasharray="8" stroke-dashoffset="1.333" />
+	</g>
+</svg>

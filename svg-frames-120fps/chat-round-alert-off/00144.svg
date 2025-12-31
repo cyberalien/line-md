@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGEpd9LN5e">
+			<path d="M7 16.82c-2.41 -1.25 -4 -3.39 -4 -5.82c0 -3.87 4.03 -7 9 -7c4.97 0 9 3.13 9 7c0 3.87 -4.03 7 -9 7c-1.85 0 -3.57 -0.43 -5 -1.18Z" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M5 15.5c1 1 2.5 2 4 2.5c-2 2 -5 3 -7 3c2 -2 3 -3.5 3 -5.5Z" fill="#fff" />
+			<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+				<g stroke="#fff">
+					<path d="M12 8v2" />
+					<path d="M12 14v0.01" stroke-dasharray="4" stroke-dashoffset="2" />
+				</g>
+				<path d="M-1 11h26" stroke="#000" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+			</g>
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGEpd9LN5e)" />
+	<path d="M-1 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+</svg>

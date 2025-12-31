@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGIGY28dXY">
+			<path d="M12 3c-4.42 0 -8 3.58 -8 8c0 4.42 3.58 8 8 8c4.42 0 8 -3.58 8 -8v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-1c-0.55 0 -1 -0.45 -1 -1Z" stroke="#fff" fill="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<g fill="#000">
+				<circle cx="9.5" cy="6.5" r="1.5" />
+				<circle cx="11" cy="16.5" r="1.5" />
+				<circle cx="6.5" cy="10.5" r="1.5" opacity="0.25" />
+			</g>
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGIGY28dXY)" />
+	<path d="M8 23h0.01M12 23h0.01M16 23h0.01" stroke-dashoffset="4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="4" />
+</svg>

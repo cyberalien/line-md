@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGzb4wSd7L">
+			<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+				<path d="M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z" stroke="#fff" fill="#fff" stroke-dasharray="62" fill-opacity="0" stroke-dashoffset="12.056" />
+				<g fill="none" stroke="#000">
+					<path d="M7 13h10" stroke-dasharray="12" stroke-dashoffset="12" />
+					<path d="M7 17h7" stroke-dasharray="10" stroke-dashoffset="10" />
+					<path d="M-1 11h26" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+				</g>
+			</g>
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGzb4wSd7L)" />
+	<path d="M-1 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+</svg>

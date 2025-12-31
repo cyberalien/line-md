@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVG80tGmeiv">
+			<g stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+				<path d="M2 12c0 -5.52 4.48 -10 10 -10c5.52 0 10 4.48 10 10c0 5.52 -4.48 10 -10 10c-5.52 0 -10 -4.48 -10 -10Z" stroke="#fff" fill="#fff" stroke-dasharray="66" fill-opacity="0" stroke-dashoffset="43.083" />
+				<g fill="none" stroke="#000">
+					<path d="M8.63 15.31c2.18 -0.58 4.49 -0.34 6.5 0.69" stroke-dasharray="10" stroke-dashoffset="10" />
+					<path d="M7.5 12.07c1.1 -0.37 2.28 -0.57 3.5 -0.57c2.02 0 3.92 0.55 5.55 1.5" stroke-dasharray="12" stroke-dashoffset="12" />
+					<path d="M7 8.91c1.38 -0.59 2.9 -0.91 4.5 -0.91c2.41 0 4.65 0.74 6.5 2" stroke-dasharray="14" stroke-dashoffset="14" />
+				</g>
+			</g>
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVG80tGmeiv)" />
+</svg>

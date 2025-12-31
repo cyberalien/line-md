@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		<path d="M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8" fill="currentColor" fill-opacity="0" />
+		<g fill="none">
+			<path d="M4.22 4.22c-4.29 4.3 -4.29 11.26 0 15.56M19.78 4.22c4.29 4.3 4.29 11.26 0 15.56" />
+			<g stroke-dasharray="10">
+				<path d="M10 8v8" stroke-dashoffset="3.333" />
+				<path d="M14 8v8" stroke-dashoffset="10" />
+			</g>
+			<path d="M10 12h4" stroke-dasharray="6" stroke-dashoffset="6" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "duration": {
+    "render": 0.75,
+    "loop": 12
+  },
+  "frames": {
+    "render": 91,
+    "loop": 1440
+  },
+  "fps": 120,
+  "padding": 5
+}

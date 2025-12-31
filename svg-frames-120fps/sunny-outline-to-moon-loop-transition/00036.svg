@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGGUDukddf">
+			<path d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z" fill="#fff" />
+			<path d="M19 -4c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9ZM12 5c3.87 0 7 3.13 7 7c0 3.87 -3.13 7 -7 7c-3.87 0 -7 -3.13 -7 -7c0 -3.87 3.13 -7 7 -7Z" fill="#000" />
+		</mask>
+		<mask id="SVGxj9rKcKu">
+			<path d="M19 -6c6.07 0 11 4.93 11 11c0 6.07 -4.93 11 -11 11c-6.07 0 -11 -4.93 -11 -11c0 -6.07 4.93 -11 11 -11Z" fill="#fff" />
+			<path d="M19 -4c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9ZM3 12v-20h29v29h-20c4.97 0 9 -4.03 9 -9c0 -4.97 -4.03 -9 -9 -9c-4.97 0 -9 4.03 -9 9Z" fill="#000" />
+		</mask>
+	</defs>
+	<path d="M12 21v1M21 12h1M12 3v-1M3 12h-1M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.25" />
+	<g fill="currentColor">
+		<path d="M0 0h24v24H0z" mask="url(#SVGGUDukddf)" />
+		<path d="M0 0h24v24H0z" mask="url(#SVGxj9rKcKu)" />
+	</g>
+</svg>

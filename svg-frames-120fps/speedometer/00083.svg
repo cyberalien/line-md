@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGMjLivrae">
+			<path d="M5.64 19.36c-3.52 -3.51 -3.52 -9.21 0 -12.72c3.51 -3.52 9.21 -3.52 12.72 -0c3.52 3.51 3.52 9.21 0 12.72" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M16.79 13.04c0 2.64 -2.15 4.79 -4.79 4.79c-2.64 0 -4.79 -2.15 -4.79 -4.79c0 -2.64 4.79 -14.37 4.79 -14.37c0 0 4.79 11.73 4.79 14.37Z" fill="#000" transform="rotate(-100 12 13)" />
+		</mask>
+	</defs>
+	<g fill="currentColor">
+		<path d="M0 0h24v24H0z" mask="url(#SVGMjLivrae)" />
+		<path d="M14.88 13.04c0 1.59 -1.28 2.87 -2.87 2.87c-1.59 0 -2.87 -1.28 -2.87 -2.87c0 -1.59 2.87 -10.54 2.87 -10.54c0 0 2.87 8.95 2.87 10.54Z" transform="rotate(-100 12 13)" />
+	</g>
+</svg>

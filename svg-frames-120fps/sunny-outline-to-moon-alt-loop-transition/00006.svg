@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGT1xp5bQh">
+			<path d="M12 5.5c3.59 0 6.5 2.91 6.5 6.5c0 3.59 -2.91 6.5 -6.5 6.5c-3.59 0 -6.5 -2.91 -6.5 -6.5c0 -3.59 2.91 -6.5 6.5 -6.5Z" fill="#fff" />
+			<path d="M21.5 -4c3.59 0 6.5 2.91 6.5 6.5c0 3.59 -2.91 6.5 -6.5 6.5c-3.59 0 -6.5 -2.91 -6.5 -6.5c0 -3.59 2.91 -6.5 6.5 -6.5ZM12 7.5c2.49 0 4.5 2.01 4.5 4.5c0 2.49 -2.01 4.5 -4.5 4.5c-2.49 0 -4.5 -2.01 -4.5 -4.5c0 -2.49 2.01 -4.5 4.5 -4.5Z" fill="#000" />
+		</mask>
+		<mask id="SVG6esqpdNv">
+			<path d="M21.5 -6c4.7 0 8.5 3.81 8.5 8.5c0 4.7 -3.81 8.5 -8.5 8.5c-4.7 0 -8.5 -3.81 -8.5 -8.5c0 -4.7 3.81 -8.5 8.5 -8.5Z" fill="#fff" />
+			<path d="M21.5 -4c3.59 0 6.5 2.91 6.5 6.5c0 3.59 -2.91 6.5 -6.5 6.5c-3.59 0 -6.5 -2.91 -6.5 -6.5c0 -3.59 2.91 -6.5 6.5 -6.5ZM5.5 12v-20h26.5v26.5h-20c3.59 0 6.5 -2.91 6.5 -6.5c0 -3.59 -2.91 -6.5 -6.5 -6.5c-3.59 0 -6.5 2.91 -6.5 6.5Z" fill="#000" />
+		</mask>
+	</defs>
+	<path d="M12 21v1M21 12h1M12 3v-1M3 12h-1M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.875" />
+	<g fill="currentColor">
+		<path d="M0 0h24v24H0z" mask="url(#SVGT1xp5bQh)" />
+		<path d="M0 0h24v24H0z" mask="url(#SVG6esqpdNv)" />
+	</g>
+	<path d="M12 5h1.5M12 5h-1.5M12 5v1.5M12 5v-1.5M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5" stroke-dashoffset="4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4" />
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGdzxgAbMv">
+			<g fill="#fff">
+				<path d="M12 9.42c4.42 0 8 2.37 8 5.29c0 2.92 -3.58 5.29 -8 5.29c-4.42 0 -8 -2.37 -8 -5.29c0 -2.92 3.58 -5.29 8 -5.29Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				<path d="M3.94 9.73c1.24 0 2.24 1 2.24 2.24c0 1.24 -1 2.24 -2.24 2.24c-1.24 0 -2.24 -1 -2.24 -2.24c0 -1.24 1 -2.24 2.24 -2.24ZM20.06 9.73c1.24 0 2.24 1 2.24 2.24c0 1.24 -1 2.24 -2.24 2.24c-1.24 0 -2.24 -1 -2.24 -2.24c0 -1.24 1 -2.24 2.24 -2.24Z" />
+				<circle cx="16.545" cy="4.23" r="1.61" />
+			</g>
+			<g fill="#000">
+				<circle cx="8.45" cy="13.59" r="1.61" />
+				<circle cx="15.55" cy="13.59" r="1.61" />
+			</g>
+			<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8">
+				<path d="M12 8.75l0.83 -5.97l3.52 1.4" stroke="#fff" />
+				<path d="M8.47 17.52c0 0 0.94 1.06 3.53 1.06c2.58 0 3.53 -1.06 3.53 -1.06" stroke="#000" />
+			</g>
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGdzxgAbMv)" />
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGCkd6be9q">
+			<g stroke-linecap="round" stroke-linejoin="round">
+				<path d="M10 20.5c0 0 -6.69 -7.35 -6.69 -12.19c0 -3.44 2.91 -6.69 6.69 -6.69c3.79 0 6.69 3.25 6.69 6.69c0 4.85 -6.69 12.19 -6.69 12.19Z" stroke="#fff" fill="none" stroke-width="2" />
+				<path d="M14 20.5c0 0 -6.69 -7.35 -6.69 -12.19c0 -3.44 2.91 -6.69 6.69 -6.69c3.79 0 6.69 3.25 6.69 6.69c0 4.85 -6.69 12.19 -6.69 12.19Z" stroke="#000" fill="#000" stroke-width="4" />
+				<path d="M14 20.5c0 0 -6.69 -7.35 -6.69 -12.19c0 -3.44 2.91 -6.69 6.69 -6.69c3.79 0 6.69 3.25 6.69 6.69c0 4.85 -6.69 12.19 -6.69 12.19Z" stroke="#fff" fill="none" stroke-width="2" />
+			</g>
+			<circle cx="14" cy="9" fill="#fff" />
+			<path d="M-1 11h26" stroke="#000" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+		</mask>
+	</defs>
+	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGCkd6be9q)" />
+	<path d="M-1 13h26" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" stroke-dasharray="28" stroke-dashoffset="28" />
+</svg>

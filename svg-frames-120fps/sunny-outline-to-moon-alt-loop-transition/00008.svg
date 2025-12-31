@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGCOa5KUkT">
+			<path d="M12 5.33c3.68 0 6.67 2.99 6.67 6.67c0 3.68 -2.99 6.67 -6.67 6.67c-3.68 0 -6.67 -2.99 -6.67 -6.67c0 -3.68 2.99 -6.67 6.67 -6.67Z" fill="#fff" />
+			<path d="M21.33 -4c3.68 0 6.67 2.99 6.67 6.67c0 3.68 -2.99 6.67 -6.67 6.67c-3.68 0 -6.67 -2.99 -6.67 -6.67c0 -3.68 2.99 -6.67 6.67 -6.67ZM12 7.33c2.58 0 4.67 2.09 4.67 4.67c0 2.58 -2.09 4.67 -4.67 4.67c-2.58 0 -4.67 -2.09 -4.67 -4.67c0 -2.58 2.09 -4.67 4.67 -4.67Z" fill="#000" />
+		</mask>
+		<mask id="SVGrN2JZcVc">
+			<path d="M21.33 -6c4.79 0 8.67 3.88 8.67 8.67c0 4.79 -3.88 8.67 -8.67 8.67c-4.79 0 -8.67 -3.88 -8.67 -8.67c0 -4.79 3.88 -8.67 8.67 -8.67Z" fill="#fff" />
+			<path d="M21.33 -4c3.68 0 6.67 2.99 6.67 6.67c0 3.68 -2.99 6.67 -6.67 6.67c-3.68 0 -6.67 -2.99 -6.67 -6.67c0 -3.68 2.99 -6.67 6.67 -6.67ZM5.33 12v-20h26.67v26.67h-20c3.68 0 6.67 -2.99 6.67 -6.67c0 -3.68 -2.99 -6.67 -6.67 -6.67c-3.68 0 -6.67 2.99 -6.67 6.67Z" fill="#000" />
+		</mask>
+	</defs>
+	<path d="M12 21v1M21 12h1M12 3v-1M3 12h-1M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.833" />
+	<g fill="currentColor">
+		<path d="M0 0h24v24H0z" mask="url(#SVGCOa5KUkT)" />
+		<path d="M0 0h24v24H0z" mask="url(#SVGrN2JZcVc)" />
+	</g>
+	<path d="M12 5h1.5M12 5h-1.5M12 5v1.5M12 5v-1.5M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5" stroke-dashoffset="4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4" />
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGtMmODdAU">
+			<path d="M12 2.67c5.15 0 9.33 4.18 9.33 9.33c0 5.15 -4.18 9.33 -9.33 9.33c-5.15 0 -9.33 -4.18 -9.33 -9.33c0 -5.15 4.18 -9.33 9.33 -9.33Z" fill="#fff" />
+			<path d="M18.67 -4c5.15 0 9.33 4.18 9.33 9.33c0 5.15 -4.18 9.33 -9.33 9.33c-5.15 0 -9.33 -4.18 -9.33 -9.33c0 -5.15 4.18 -9.33 9.33 -9.33ZM12 4.67c4.05 0 7.33 3.28 7.33 7.33c0 4.05 -3.28 7.33 -7.33 7.33c-4.05 0 -7.33 -3.28 -7.33 -7.33c0 -4.05 3.28 -7.33 7.33 -7.33Z" fill="#000" />
+		</mask>
+		<mask id="SVG7hjsWczy">
+			<path d="M18.67 -6c6.25 0 11.33 5.08 11.33 11.33c0 6.25 -5.08 11.33 -11.33 11.33c-6.25 0 -11.33 -5.08 -11.33 -11.33c0 -6.25 5.08 -11.33 11.33 -11.33Z" fill="#fff" />
+			<path d="M18.67 -4c5.15 0 9.33 4.18 9.33 9.33c0 5.15 -4.18 9.33 -9.33 9.33c-5.15 0 -9.33 -4.18 -9.33 -9.33c0 -5.15 4.18 -9.33 9.33 -9.33ZM2.67 12v-20h29.33v29.33h-20c5.15 0 9.33 -4.18 9.33 -9.33c0 -5.15 -4.18 -9.33 -9.33 -9.33c-5.15 0 -9.33 4.18 -9.33 9.33Z" fill="#000" />
+		</mask>
+	</defs>
+	<path d="M12 21v1M21 12h1M12 3v-1M3 12h-1M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.166" />
+	<g fill="currentColor">
+		<path d="M0 0h24v24H0z" mask="url(#SVGtMmODdAU)" />
+		<path d="M0 0h24v24H0z" mask="url(#SVG7hjsWczy)" />
+	</g>
+	<path d="M12 5h1.5M12 5h-1.5M12 5v1.5M12 5v-1.5M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5" stroke-dashoffset="4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4" />
+</svg>

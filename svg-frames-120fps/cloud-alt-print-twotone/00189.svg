@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVG7eqfkCdw">
+			<g fill="#fff">
+				<path d="M7 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h-1v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0.3" />
+				<path d="M6 11h12v10.12h-12Z" />
+			</g>
+			<path d="M8 13h8v6.12h-8Z" fill="#000" />
+		</mask>
+	</defs>
+	<g fill="currentColor">
+		<path d="M0 0h24v24H0z" mask="url(#SVG7eqfkCdw)" />
+		<path d="M9 12h6v1h-6ZM9 13.26h6v1h-6ZM9 15.26h6v1h-6ZM9 17.26h6v1h-6Z" />
+	</g>
+</svg>
