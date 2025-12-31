@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<defs>
+		<mask id="SVGBd4muejn">
+			<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+				<g stroke="#fff">
+					<path d="M12 22.25h8.75M12 22.25h-8.75" opacity="0.33" stroke-width="1.5" stroke-dasharray="12">
+						<animate attributeName="stroke-dashoffset" dur="0.4s" fill="freeze" values="12;0" />
+					</path>
+					<g stroke-width="2">
+						<path d="M7 6v-3" opacity="0" stroke-dasharray="6">
+							<set attributeName="opacity" to="0.33" begin="0.9s" fill="freeze" />
+							<animate attributeName="stroke-dashoffset" begin="0.9s" dur="0.2s" fill="freeze" values="6;0" />
+						</path>
+						<path d="M12 19h-7v-11M12 19h7v-11" opacity="0.6" stroke-dasharray="20">
+							<animate attributeName="stroke-dashoffset" dur="0.5s" fill="freeze" values="20;0" />
+						</path>
+					</g>
+				</g>
+				<g stroke="#000" stroke-width="4">
+					<path d="M12 16v4.5" opacity="0" stroke-dasharray="8">
+						<set attributeName="opacity" to="1" begin="1.3s" fill="freeze" />
+						<animate attributeName="stroke-dashoffset" begin="1.3s" dur="0.2s" fill="freeze" values="8;0" />
+					</path>
+					<path d="M12 3l8.5 5.5" opacity="0" stroke-dasharray="14">
+						<set attributeName="opacity" to="1" begin="0.5s" fill="freeze" />
+						<animate attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" fill="freeze" values="14;0" />
+					</path>
+				</g>
+				<g stroke-dasharray="14">
+					<path d="M12 3l8.5 5.5" opacity="0" stroke="#fff" stroke-width="2">
+						<set attributeName="opacity" to="0.6" begin="0.5s" fill="freeze" />
+						<animate attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" fill="freeze" values="14;0" />
+					</path>
+					<path d="M12 3l-8.5 5.5" stroke="#000" stroke-width="4" opacity="0">
+						<set attributeName="opacity" to="1" begin="0.5s" fill="freeze" />
+						<animate attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" fill="freeze" values="14;0" />
+					</path>
+				</g>
+				<g stroke="#fff" stroke-width="2">
+					<path d="M12 3l-8.5 5.5" opacity="0" stroke-dasharray="14">
+						<set attributeName="opacity" to="0.6" begin="0.5s" fill="freeze" />
+						<animate attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" fill="freeze" values="14;0" />
+					</path>
+					<path d="M12 11.5v9" opacity="0" stroke-dasharray="12">
+						<set attributeName="opacity" to="1" begin="1.3s" fill="freeze" />
+						<animate attributeName="stroke-dashoffset" begin="1.3s" dur="0.2s" fill="freeze" values="12;0" />
+					</path>
+				</g>
+			</g>
+			<circle cx="12" cy="11.5" r="3.5" fill="#000" />
+		</mask>
+	</defs>
+	<g fill="currentColor">
+		<path d="M0 0h24v24H0z" mask="url(#SVGBd4muejn)" />
+		<circle cx="12" cy="11.5">
+			<animate attributeName="r" begin="1.1s" dur="0.2s" fill="freeze" to="1.5" />
+		</circle>
+	</g>
+</svg>
