@@ -12,6 +12,21 @@ You can browse all icons at https://icon-sets.iconify.design/line-md/
 
 Click any icon to get code you can use in your project.
 
+## Rendering animation
+
+Vast majority of icons in this repository use "rendering" animation: icon shapes are rendered one by one.
+
+This is the safest way to animate icons, which improves UX rather than makes it worse.
+
+Why is that?
+
+Typical "bounce" animations make UX worse because:
+
+-   They take user's focus from actual content.
+-   Looping animations use a lot of resources, making page slower. CPU is always busy, so on mobile devices such animations deplete battery.
+
+Rendering animation, if used correctly, can improve user experience. Animation takes user focus only temporarily, when icon is rendered. Animation duration is very short, so it does not use too much resources.
+
 ## Icon requests
 
 If you like this icon set, but it is missing icons that you need, [please open an issue at repository](https://github.com/cyberalien/line-md/issues).
@@ -40,8 +55,9 @@ Icons in `svg-style` and `css-json` directories rely on CSS to animate icons.
 
 These are superior to SVG animations because:
 
--   CSS animations are faster, use less resources.
+-   CSS animations are usually faster and use less resources.
 -   Icons are compact because CSS can be moved to a `.css` file and cached in browser, also avoiding content duplication.
+-   Icons check user `prefers-reduced-motion` settings, rendering static icon for users that do not want animations.
 -   CSS animations have predictable timing. Show icon and animation starts. Change display mode in CSS to show/hide icon. With SVG animations level 2 spec, display has no effect, so triggering animation is not always trivial.
 
 However, there is one downside - browser support.
@@ -123,29 +139,12 @@ If you need a different format for each frame, such as PNG, you need to convert 
 
 ## Animation types
 
-Most icons use "fade-in" animation. Animation shows icon appearing from nothing.
+Most icons use "render" animation: icon shapes appearing one by one.
 
 Other icons:
 
 -   Icons that end with `-loop` use infinite animtions.
--   Icons that end with `-out` disappear icon. It is the opposite of same icon without `-out` suffix.
 -   Icons that end with `-transition` transition between two icons.
-
-## Usage in HTML
-
-1. Include IconifyIcon component, [see `iconify-icon` package for latest code](https://www.npmjs.com/package/iconify-icon).
-
-2. Add icon, using "line-md" prefix:
-
-```html
-<iconify-icon icon="line-md:home"></iconify-icon>
-```
-
-## Usage without web component
-
-There are few issues with SVG animations.
-
-[Iconify icon web component](https://iconify.design/docs/iconify-icon/) solves those issues, but if you are using icons without it, see [article that explains known SVG issues and solutions](https://iconify.design/docs/articles/svg-animation-issues/).
 
 ## Licence
 
