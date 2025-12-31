@@ -1,0 +1,21 @@
+{
+  "content": "<path class=\"n4qeej qsudlx\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "qsudlx": {
+      "rules": "",
+      "animation": "stroke-dasharray:22;animation:0.5s linear forwards so-from-22;"
+    },
+    "n4qeej": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;d:path('M12 5c0 0 5 6 5 9c0 2.76 -2.24 5 -5 5M12 5c0 0 -5 6 -5 9c0 2.76 2.24 5 5 5');fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-22": "@keyframes so-from-22{0%{stroke-dashoffset:22}}"
+  }
+}

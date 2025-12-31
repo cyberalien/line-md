@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .iusj3b {
+    animation: 0s forwards d-r0slez, 3s linear infinite transform-g4nv7i, 0.3s linear 0.6s forwards d-2uguob;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .eed_9o {
+    animation: 0s forwards d-uhwnay, 3s linear infinite transform-g4nv7i, 0.3s linear 0.6s forwards d-0z2h2x;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .j6lqly {
+    stroke-dasharray: 62;
+    animation: 0.6s linear forwards so-from-62;
+  }
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.hfnyth {
+  d: path('M18 7c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2');
+  stroke: #fff;
+}
+
+.km2k5a {
+  fill: #fff;
+  d: path('M18 7c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2v15h25Z');
+}
+
+.j3vs1j {
+  fill: #000;
+  d: path('M18 3l-2 18h-9l-2 -18h-5v21h24v-20Z');
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.k4tgzu {
+  d: path('M18 3l-2 18h-9l-2 -18Z');
+  stroke: currentColor;
+}
+
+@keyframes d-r0slez {
+  100% {
+    d: path('M18 23c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2');
+  }
+}
+
+@keyframes transform-g4nv7i {
+  100% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes d-2uguob {
+  100% {
+    d: path('M18 7c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2');
+  }
+}
+
+@keyframes d-uhwnay {
+  100% {
+    d: path('M18 23c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2v15h25Z');
+  }
+}
+
+@keyframes d-0z2h2x {
+  100% {
+    d: path('M18 7c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2v15h25Z');
+  }
+}
+
+@keyframes so-from-62 {
+  0% {
+    stroke-dashoffset: 62;
+  }
+}
+</style><defs><mask id="SVGdFdLAdvd"><path class="c5xdmn hfnyth iusj3b"/><path class="eed_9o km2k5a"/><path class="j3vs1j"/></mask></defs><path mask="url(#SVGdFdLAdvd)" class="botfzx"/><path class="c5xdmn j6lqly k4tgzu"/></svg>

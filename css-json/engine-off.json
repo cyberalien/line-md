@@ -1,0 +1,69 @@
+{
+  "content": "<defs><mask id=\"SVGprQqFdmy\"><path class=\"c5xdmn kxi4oj u3pk8c zxndow\"/><path class=\"c5xdmn i6qn2o vni3zr zxndow\"/><path class=\"c5xdmn nsm7mq yw3f7b zxndow\"/><path class=\"c5xdmn kxiy0s twu__s zxndow\"/><path class=\"c5xdmn ggl9ne oeeggn yl0nmc\"/></mask></defs><path mask=\"url(#SVGprQqFdmy)\" class=\"botfzx\"/><path class=\"c5xdmn fo5bbb ggl9ne yl0nmc\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "u3pk8c": {
+      "rules": "",
+      "animation": "stroke-dasharray:42;animation:0.5s linear forwards so-from-42;"
+    },
+    "kxi4oj": {
+      "rules": "d:path('M11 9h6v10h-6.5l-2 -2h-2.5v-6.5l1.5 -1.5Z');"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "vni3zr": {
+      "rules": "d:path('M17 13h4v-3h1v8h-1v-3h-4Z');"
+    },
+    "i6qn2o": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-15binr;"
+    },
+    "nsm7mq": {
+      "rules": "d:path('M6 14h-4M2 11v6');"
+    },
+    "yw3f7b": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.8s forwards fade-to-1, 0.2s linear 0.8s forwards d-vq39db;"
+    },
+    "kxiy0s": {
+      "rules": "d:path('M11 9v-4M8 5h6');"
+    },
+    "twu__s": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-6j2qwa;"
+    },
+    "yl0nmc": {
+      "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "ggl9ne": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.3s forwards so-to-0;"
+    },
+    "c5xdmn": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none;"
+    },
+    "oeeggn": {
+      "rules": "stroke:#000;d:path('M0 11h26');"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "fo5bbb": {
+      "rules": "d:path('M0 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-42": "@keyframes so-from-42{0%{stroke-dashoffset:42}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-15binr": "@keyframes d-15binr{0%{d:path('M17 13h0v-3h0v8h0v-3h0Z')}}",
+    "d-vq39db": "@keyframes d-vq39db{0%{d:path('M6 14h0M6 11v6')}}",
+    "d-6j2qwa": "@keyframes d-6j2qwa{0%{d:path('M11 9v0M8 9h6')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

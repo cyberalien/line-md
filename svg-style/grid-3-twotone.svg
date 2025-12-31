@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .jz9w-m {
+    stroke-dasharray: 12;
+    animation: 0s forwards fill-to-0, 0.2s linear forwards so-from-12, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
+}
+
+.j4mq8a {
+  d: path('M3.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM10.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM17.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .x6n_ki {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0s forwards fill-to-0, 0.2s linear 0.2s forwards so-to-0, 0.15s linear 0.85s forwards fill-to-0_3;
+  }
+}
+
+.enq9se {
+  d: path('M3.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM10.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM17.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .l2x6km {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0s forwards fill-to-0, 0.2s linear 0.4s forwards so-to-0, 0.15s linear 1.1s forwards fill-to-0_3;
+  }
+}
+
+.u5asmt {
+  d: path('M3.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM10.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM17.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+}
+
+.w5x6ze {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-12 {
+  0% {
+    stroke-dashoffset: 12;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="j4mq8a jz9w-m w5x6ze"/><path class="enq9se w5x6ze x6n_ki"/><path class="l2x6km u5asmt w5x6ze"/></svg>

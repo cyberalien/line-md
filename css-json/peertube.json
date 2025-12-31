@@ -1,0 +1,27 @@
+{
+  "content": "<defs><mask id=\"SVGRtACpbnL\"><path class=\"cne-5n tj_mqo\"/><path class=\"yfo60c\"/></mask></defs><path mask=\"url(#SVGRtACpbnL)\" class=\"botfzx\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "tj_mqo": {
+      "rules": "",
+      "animation": "animation:0.4s linear forwards d-tbwzce;"
+    },
+    "cne-5n": {
+      "rules": "fill:#fff;d:path('M4 1.34l16 10.66l-16 10.67Z');"
+    },
+    "yfo60c": {
+      "rules": "d:path('M12 6.67v10.67l-8 -5.34Z');fill:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "d-tbwzce": "@keyframes d-tbwzce{0%{d:path('M12 12l0 0l0 0Z')}}"
+  }
+}

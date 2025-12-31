@@ -1,0 +1,33 @@
+{
+  "content": "<path class=\"a0m25c cfc-5f cw549a\"/><path class=\"a0m25c mds46n y220iv\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "cfc-5f": {
+      "rules": "",
+      "animation": "stroke-dasharray:18;transform-origin:12px 12px;animation:0.3s linear forwards so-from-18, 1.5s linear infinite transform-2c6-rw;"
+    },
+    "cw549a": {
+      "rules": "d:path('M12 3c4.97 0 9 4.03 9 9');"
+    },
+    "y220iv": {
+      "rules": "",
+      "animation": "stroke-dasharray:60;animation:1.2s linear forwards so-from-60;"
+    },
+    "mds46n": {
+      "rules": "d:path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');opacity:0.3;"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-18": "@keyframes so-from-18{0%{stroke-dashoffset:18}}",
+    "transform-2c6-rw": "@keyframes transform-2c6-rw{100%{transform:rotate(360deg)}}",
+    "so-from-60": "@keyframes so-from-60{0%{stroke-dashoffset:60}}"
+  }
+}

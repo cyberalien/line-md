@@ -1,0 +1,23 @@
+{
+  "content": "<path class=\"m0ptra x4jrid\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "m0ptra": {
+      "rules": "",
+      "animation": "stroke-dasharray:54;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.7s forwards fill-to-0_3;"
+    },
+    "x4jrid": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M5 4h14l-5 6.5v9.5l-4 -4v-5.5Z');stroke:currentColor;stroke-width:2px;fill-opacity:0.3;fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-54": "@keyframes so-from-54{0%{stroke-dashoffset:54}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}"
+  }
+}

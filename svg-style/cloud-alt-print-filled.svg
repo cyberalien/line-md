@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ceb96a {
+    stroke-dasharray: 60;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-60, 0.4s linear 0.6s forwards fill-to-1;
+  }
+}
+
+.g26hbu {
+  fill: #fff;
+}
+
+.cpc8qp {
+  d: path('M6 11h12v11h-12Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .x-r2ow {
+    animation: 0s forwards d-eq6hjf, 0.2s linear 1.1s forwards d-h32jkf, 0.6s linear 1.3s forwards d-6r6z8f;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .iq7gpp {
+    animation: 0s forwards d-3t3e2u, 0.6s linear 1.3s forwards d-qldk7p;
+  }
+}
+
+.lsejuv {
+  d: path('M0 0h24v24H0z');
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+.t-mrol {
+  d: path('M9 12h6v1h-6ZM9 14h6v1h-6ZM9 16h6v1h-6ZM9 18h6v1h-6Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .ua38ys {
+    opacity: 0;
+    animation: 0s 1.3s forwards fade-to-1, 0.6s linear 1.3s forwards d-0rke9k;
+  }
+}
+
+.q5_6vh {
+  d: path('M7 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h-1v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z');
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  stroke: #fff;
+}
+
+.l-y5oo {
+  d: path('M8 13h8v7h-8Z');
+  fill: #000;
+}
+
+@keyframes so-from-60 {
+  0% {
+    stroke-dashoffset: 60;
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes d-eq6hjf {
+  100% {
+    d: path('M6 11h12v0h-12Z');
+  }
+}
+
+@keyframes d-h32jkf {
+  100% {
+    d: path('M6 11h12v4h-12Z');
+  }
+}
+
+@keyframes d-6r6z8f {
+  100% {
+    d: path('M6 11h12v11h-12Z');
+  }
+}
+
+@keyframes d-3t3e2u {
+  100% {
+    d: path('M8 13h8v0h-8Z');
+  }
+}
+
+@keyframes d-qldk7p {
+  100% {
+    d: path('M8 13h8v7h-8Z');
+  }
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes d-0rke9k {
+  0% {
+    d: path('M9 12h6v1h-6ZM9 12h6v1h-6ZM9 12h6v1h-6ZM9 12h6v1h-6Z');
+  }
+  33% {
+    d: path('M9 12h6v1h-6ZM9 12h6v1h-6ZM9 12h6v1h-6ZM9 14h6v1h-6Z');
+  }
+  66% {
+    d: path('M9 12h6v1h-6ZM9 12h6v1h-6ZM9 14h6v1h-6ZM9 16h6v1h-6Z');
+  }
+}
+</style><defs><mask id="SVG5g3p5d5G"><path class="ceb96a g26hbu q5_6vh"/><path class="cpc8qp g26hbu x-r2ow"/><path class="iq7gpp l-y5oo"/></mask></defs><path mask="url(#SVG5g3p5d5G)" class="lsejuv ydovum"/><path class="t-mrol ua38ys ydovum"/></svg>

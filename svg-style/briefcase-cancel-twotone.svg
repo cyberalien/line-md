@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .m2t6jm {
+    stroke-dasharray: 64;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-64, 0.15s linear 1s forwards fill-to-0_3;
+  }
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .h7habt {
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    animation: 0.3s linear 0.6s forwards so-to-0;
+  }
+}
+
+.jco1mq {
+  d: path('M9 7v-3c0 -0.55 0.45 -1 1 -1h4c0.55 0 1 0.45 1 1v3');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .ed3frq {
+    opacity: 0;
+    animation: 0s 1.25s forwards fade-to-1;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .lllhao {
+    stroke-dasharray: 32;
+    stroke-dashoffset: 32;
+    animation: 0.4s linear 1.25s forwards so-to-0;
+  }
+}
+
+.em33eh {
+  d: path('M18.5 14c2.48 0 4.5 2.02 4.5 4.5c0 2.48 -2.02 4.5 -4.5 4.5c-2.48 0 -4.5 -2.02 -4.5 -4.5c0 -2.48 2.02 -4.5 4.5 -4.5Z');
+}
+
+.s8e22g {
+  stroke: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .es5mno {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    animation: 0.2s linear 1.65s forwards so-to-0;
+  }
+}
+
+.v4kj9k {
+  d: path('M16 16l5 5');
+}
+
+.o52q8b {
+  fill: #fff;
+  d: path('M9 7h11c0.55 0 1 0.45 1 1v11c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11c0 -0.55 0.45 -1 1 -1Z');
+  fill-opacity: 0.3;
+}
+
+.t5pxry {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+.iydlkp {
+  d: path('M18.5 11c4.14 0 7.5 3.36 7.5 7.5c0 4.14 -3.36 7.5 -7.5 7.5c-4.14 0 -7.5 -3.36 -7.5 -7.5c0 -4.14 3.36 -7.5 7.5 -7.5Z');
+  fill: #000;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-64 {
+  0% {
+    stroke-dashoffset: 64;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+</style><defs><mask id="SVGvSt1idit"><path class="m2t6jm o52q8b t5pxry zxndow"/><path class="h7habt jco1mq t5pxry y4wbml zxndow"/><path class="ed3frq iydlkp"/></mask></defs><path mask="url(#SVGvSt1idit)" class="botfzx"/><path class="em33eh lllhao s8e22g t5pxry y4wbml"/><path class="es5mno s8e22g t5pxry v4kj9k y4wbml"/></svg>

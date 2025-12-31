@@ -1,0 +1,34 @@
+{
+  "content": "<path class=\"b_skuu iw1iew vtuwrt\"/><path class=\"ek9rqv iw1iew mff-vb\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "vtuwrt": {
+      "rules": "",
+      "animation": "stroke-dasharray:54;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.9s forwards fill-to-0_3;"
+    },
+    "ek9rqv": {
+      "rules": "",
+      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 0.7s forwards so-to-0;"
+    },
+    "iw1iew": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;"
+    },
+    "b_skuu": {
+      "rules": "d:path('M3 4h14l-5 6.5v9.5l-4 -4v-5.5Z');fill-opacity:0.3;fill:currentColor;"
+    },
+    "mff-vb": {
+      "rules": "d:path('M16 18l2 2l3.5 -3.5');fill:none;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-54": "@keyframes so-from-54{0%{stroke-dashoffset:54}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

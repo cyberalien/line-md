@@ -1,0 +1,63 @@
+{
+  "content": "<defs><mask id=\"SVG6j74GPuL\"><path class=\"g26hbu ikkfxy t5pxry zf0xnu\"/><path class=\"g26hbu lwlurj xw5yzg\"/><path class=\"g26hbu qetw5h wzieoo\"/><path class=\"eycklu ggl9ne oxx-om t5pxry\"/></mask></defs><path mask=\"url(#SVG6j74GPuL)\" class=\"botfzx\"/><path class=\"eycklu gd_4-q ggl9ne t5pxry\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ikkfxy": {
+      "rules": "",
+      "animation": "stroke-dasharray:34;fill-opacity:0;animation:0.4s linear forwards so-from-34, 0.4s linear 0.8s forwards fill-to-1;"
+    },
+    "g26hbu": {
+      "rules": "fill:#fff;"
+    },
+    "lwlurj": {
+      "rules": "d:path('M14 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');"
+    },
+    "xw5yzg": {
+      "rules": "",
+      "animation": "animation:0s forwards d-k6ve5o, 0.2s linear 0.4s forwards d-c-ymvb;"
+    },
+    "qetw5h": {
+      "rules": "d:path('M14 3.23c4 0.91 7 4.49 7 8.77c0 4.28 -3 7.86 -7 8.77v-2.07c2.89 -0.86 5 -3.53 5 -6.7c0 -3.17 -2.11 -5.85 -5 -6.71Z');"
+    },
+    "wzieoo": {
+      "rules": "",
+      "animation": "animation:0s forwards d-ap4uuv, 0.4s linear 0.4s forwards d-yv2e7k;"
+    },
+    "ggl9ne": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.3s forwards so-to-0;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "zf0xnu": {
+      "rules": "d:path('M4 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');stroke:#fff;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "eycklu": {
+      "rules": "fill:none;transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-34": "@keyframes so-from-34{0%{stroke-dashoffset:34}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "d-k6ve5o": "@keyframes d-k6ve5o{100%{d:path('M14 12c0 0 0 0 0 0c0 0 0 0 0 0Z')}}",
+    "d-c-ymvb": "@keyframes d-c-ymvb{100%{d:path('M14 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z')}}",
+    "d-ap4uuv": "@keyframes d-ap4uuv{100%{d:path('M14 12c0 0 0 0 0 0c0 0 0 0 0 0v0c0 0 0 0 0 0c0 0 0 0 0 0Z')}}",
+    "d-yv2e7k": "@keyframes d-yv2e7k{100%{d:path('M14 3.23c4 0.91 7 4.49 7 8.77c0 4.28 -3 7.86 -7 8.77v-2.07c2.89 -0.86 5 -3.53 5 -6.7c0 -3.17 -2.11 -5.85 -5 -6.71Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

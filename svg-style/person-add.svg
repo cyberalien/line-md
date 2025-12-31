@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .qsudlx {
+    stroke-dasharray: 22;
+    animation: 0.5s linear forwards so-from-22;
+  }
+}
+
+.yjonwg {
+  d: path('M10 5c1.66 0 3 1.34 3 3c0 1.66 -1.34 3 -3 3c-1.66 0 -3 -1.34 -3 -3c0 -1.66 1.34 -3 3 -3Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .qvol-z {
+    stroke-dasharray: 38;
+    stroke-dashoffset: 38;
+    animation: 0.5s linear 0.5s forwards so-to-0;
+  }
+}
+
+.d9pajc {
+  d: path('M10 14c4 0 7 2 7 3v2h-14v-2c0 -1 3 -3 7 -3Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .f33u3v {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.2s linear 1.1s forwards so-to-0;
+  }
+}
+
+.q92kam {
+  d: path('M18 11h4');
+}
+
+@media not (prefers-reduced-motion) {
+  .y6hfxi {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.2s linear 1.3s forwards so-to-0;
+  }
+}
+
+.slob-q {
+  d: path('M20 9v4');
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes so-from-22 {
+  0% {
+    stroke-dashoffset: 22;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="a0m25c qsudlx yjonwg"/><path class="a0m25c d9pajc qvol-z"/><path class="a0m25c f33u3v q92kam"/><path class="a0m25c slob-q y6hfxi"/></svg>

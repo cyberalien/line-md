@@ -1,0 +1,22 @@
+{
+  "content": "<path class=\"gh7arw n0w0qy\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "gh7arw": {
+      "rules": "",
+      "animation": "stroke-dasharray:34;animation:1.5s linear infinite d-t9c80f, 0.5s linear forwards so-from-34;"
+    },
+    "n0w0qy": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28');stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "d-t9c80f": "@keyframes d-t9c80f{50%{d:path('M12 7l-1.18 3.38l-3.58 0.07l2.86 2.17l-1.04 3.43l2.94 -2.05M12 7l1.18 3.38l3.58 0.07l-2.86 2.17l1.04 3.43l-2.94 -2.05')}}",
+    "so-from-34": "@keyframes so-from-34{0%{stroke-dashoffset:34}}"
+  }
+}

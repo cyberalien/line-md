@@ -1,0 +1,58 @@
+{
+  "content": "<defs><mask id=\"SVG5ldwmcsU\"><path class=\"sgvilr t5pxry ur73aa zxndow\"/><path class=\"qwuois ro5eeq t5pxry y4wbml zxndow\"/><path class=\"i44_ky oxx-om t5pxry y4wbml yl0nmc\"/></mask></defs><path mask=\"url(#SVG5ldwmcsU)\" class=\"botfzx\"/><path class=\"gd_4-q i44_ky t5pxry y4wbml yl0nmc\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "sgvilr": {
+      "rules": "",
+      "animation": "stroke-dasharray:62;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 0.8s forwards fill-to-0_3;"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "qwuois": {
+      "rules": "d:path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');"
+    },
+    "ro5eeq": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "yl0nmc": {
+      "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "i44_ky": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.05s forwards so-to-0;"
+    },
+    "ur73aa": {
+      "rules": "fill:#fff;d:path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');fill-opacity:0.3;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-62": "@keyframes so-from-62{0%{stroke-dashoffset:62}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-tnsd9f": "@keyframes d-tnsd9f{0%{d:path('M12 7h-9v0c0 0 0.45 0 1 0h6Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

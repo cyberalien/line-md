@@ -1,0 +1,42 @@
+{
+  "content": "<defs><mask id=\"SVG0f7QXZvN\"><path class=\"t5pxry tangpy w2p1hy\"/><path class=\"eycklu l_snni oxx-om t5pxry\"/></mask></defs><path mask=\"url(#SVG0f7QXZvN)\" class=\"botfzx\"/><path class=\"eycklu gd_4-q l_snni t5pxry\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "w2p1hy": {
+      "rules": "",
+      "animation": "stroke-dasharray:34;fill-opacity:0;animation:0.4s linear forwards so-from-34, 0.4s linear 0.4s forwards fill-to-1;"
+    },
+    "l_snni": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 0.9s forwards so-to-0;"
+    },
+    "tangpy": {
+      "rules": "fill:#fff;d:path('M8 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');stroke:#fff;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "eycklu": {
+      "rules": "fill:none;transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-34": "@keyframes so-from-34{0%{stroke-dashoffset:34}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

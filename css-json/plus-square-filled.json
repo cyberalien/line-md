@@ -1,0 +1,46 @@
+{
+  "content": "<defs><mask id=\"SVGButOJdHS\"><path class=\"p7dawc t5pxry ypjaod\"/><path class=\"pgsw-e t5pxry tfihep u63-fz\"/><path class=\"sfgsad t5j5kf t5pxry u63-fz\"/></mask></defs><path mask=\"url(#SVGButOJdHS)\" class=\"botfzx\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ypjaod": {
+      "rules": "",
+      "animation": "stroke-dasharray:66;fill-opacity:0;animation:0.6s linear forwards so-from-66, 0.4s linear 0.6s forwards fill-to-1;"
+    },
+    "tfihep": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 1.1s forwards so-to-0;"
+    },
+    "pgsw-e": {
+      "rules": "d:path('M7 12h10');"
+    },
+    "t5j5kf": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 1.3s forwards so-to-0;"
+    },
+    "sfgsad": {
+      "rules": "d:path('M12 7v10');"
+    },
+    "p7dawc": {
+      "rules": "fill:#fff;d:path('M4 12v-7c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1Z');stroke:#fff;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "u63-fz": {
+      "rules": "stroke:#000;fill:none;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-66": "@keyframes so-from-66{0%{stroke-dashoffset:66}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

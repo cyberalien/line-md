@@ -1,0 +1,27 @@
+{
+  "content": "<defs><mask id=\"SVGWKS3HdbR\"><path class=\"snl_hb\"/><circle class=\"gqzmpm rslhfn\"/></mask></defs><path mask=\"url(#SVGWKS3HdbR)\" class=\"botfzx\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "rslhfn": {
+      "rules": "",
+      "animation": "animation:0.2s linear forwards cx-from-7px;"
+    },
+    "snl_hb": {
+      "rules": "fill:#fff;stroke-linecap:round;stroke-linejoin:round;d:path('M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');stroke-width:2px;stroke:#fff;"
+    },
+    "gqzmpm": {
+      "rules": "cx:17px;fill:#000;cy:12px;r:3px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "cx-from-7px": "@keyframes cx-from-7px{0%{cx:7px}}"
+  }
+}

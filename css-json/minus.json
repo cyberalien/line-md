@@ -1,0 +1,21 @@
+{
+  "content": "<path class=\"bgxodj fka9vr\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "bgxodj": {
+      "rules": "",
+      "animation": "stroke-dasharray:16;animation:0.5s linear forwards so-from-16;"
+    },
+    "fka9vr": {
+      "rules": "d:path('M5 12h14');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-16": "@keyframes so-from-16{0%{stroke-dashoffset:16}}"
+  }
+}

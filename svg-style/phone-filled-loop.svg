@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ijcxsl {
+    stroke-dasharray: 62;
+    fill-opacity: 0;
+    transform-origin: 12px 12px;
+    animation: 0.6s linear forwards so-from-62, 2.7s linear infinite transform-b5mmly, 0.4s linear 0.7s forwards fill-to-1;
+  }
+}
+
+.sd-_hv {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z');
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: currentColor;
+}
+
+@keyframes so-from-62 {
+  0% {
+    stroke-dashoffset: 62;
+  }
+}
+
+@keyframes transform-b5mmly {
+  3.5% {
+    transform: rotate(15deg);
+  }
+  7%, 14%, 21%, 28%, 100% {
+    transform: rotate(0deg);
+  }
+  10.5% {
+    transform: rotate(-12deg);
+  }
+  17.5% {
+    transform: rotate(12deg);
+  }
+  24.5% {
+    transform: rotate(-15deg);
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+</style><path class="ijcxsl sd-_hv"/></svg>

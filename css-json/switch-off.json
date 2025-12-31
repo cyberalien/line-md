@@ -1,0 +1,29 @@
+{
+  "content": "<path class=\"g36zgr gf993l\"/><circle class=\"pkyeex ukrehj\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "gf993l": {
+      "rules": "",
+      "animation": "stroke-dasharray:54;animation:0.6s linear forwards so-from-54;"
+    },
+    "ukrehj": {
+      "rules": "",
+      "animation": "opacity:0;animation:0.2s linear 0.6s forwards fade-to-1;"
+    },
+    "g36zgr": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');stroke:currentColor;stroke-width:2px;fill:none;"
+    },
+    "pkyeex": {
+      "rules": "cx:7px;cy:12px;r:3px;fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-54": "@keyframes so-from-54{0%{stroke-dashoffset:54}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}"
+  }
+}

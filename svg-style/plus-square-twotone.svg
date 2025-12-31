@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .kaicwq {
+    stroke-dasharray: 66;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-66, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .v57oev {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.85s forwards so-to-0;
+  }
+}
+
+.pgsw-e {
+  d: path('M7 12h10');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .d8a2wo {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1.05s forwards so-to-0;
+  }
+}
+
+.sfgsad {
+  d: path('M12 7v10');
+}
+
+.iw1iew {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+.i6sxug {
+  d: path('M4 12v-7c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-66 {
+  0% {
+    stroke-dashoffset: 66;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="i6sxug iw1iew kaicwq"/><path class="iw1iew pgsw-e v57oev y4wbml"/><path class="d8a2wo iw1iew sfgsad y4wbml"/></svg>

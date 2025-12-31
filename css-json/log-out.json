@@ -1,0 +1,39 @@
+{
+  "content": "<path class=\"a0m25c jte-je low20g\"/><path class=\"a0m25c a1y1kz b_m64c\"/><path class=\"a0m25c g7fxuo novdoq\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "low20g": {
+      "rules": "",
+      "animation": "stroke-dasharray:46;animation:0.5s linear forwards so-from-46;"
+    },
+    "jte-je": {
+      "rules": "d:path('M16 5v-1c0 -0.55 -0.45 -1 -1 -1h-9c-0.55 0 -1 0.45 -1 1v16c0 0.55 0.45 1 1 1h9c0.55 0 1 -0.45 1 -1v-1');"
+    },
+    "b_m64c": {
+      "rules": "",
+      "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 0.6s forwards so-to-0;"
+    },
+    "a1y1kz": {
+      "rules": "d:path('M10 12h11');"
+    },
+    "g7fxuo": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.8s forwards so-to-0;"
+    },
+    "novdoq": {
+      "rules": "d:path('M21 12l-3.5 -3.5M21 12l-3.5 3.5');"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-46": "@keyframes so-from-46{0%{stroke-dashoffset:46}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

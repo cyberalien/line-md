@@ -1,0 +1,47 @@
+{
+  "content": "<defs><mask id=\"SVGZDLFEe7d\"><path class=\"ceb96a nay_be\"/><path class=\"i3zprw yk4t9t\"/></mask></defs><path mask=\"url(#SVGZDLFEe7d)\" class=\"lsejuv ydovum\"/><circle class=\"i-rd3h ydovum yy3iwp\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ceb96a": {
+      "rules": "",
+      "animation": "stroke-dasharray:60;fill-opacity:0;animation:0.6s linear forwards so-from-60, 0.4s linear 0.6s forwards fill-to-1;"
+    },
+    "yk4t9t": {
+      "rules": "",
+      "animation": "transform:rotate(-180deg);transform-origin:12px 12px;animation:0s forwards d-tcc6vx, 0.3s linear 1.1s forwards d-67r94s, 0.5s linear 1.1s forwards transform-g4nb9z;"
+    },
+    "lsejuv": {
+      "rules": "d:path('M0 0h24v24H0z');"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "i-rd3h": {
+      "rules": "",
+      "animation": "animation:0s forwards r-to-0px, 0.3s linear 1.1s forwards r-to-1px;"
+    },
+    "nay_be": {
+      "rules": "fill:#fff;stroke-linecap:round;stroke-linejoin:round;d:path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');stroke-width:2px;stroke:#fff;"
+    },
+    "i3zprw": {
+      "rules": "fill:#000;d:path('M10.2 10.2l6.8 -3.2l-3.2 6.8l-6.8 3.2Z');"
+    },
+    "yy3iwp": {
+      "rules": "cx:12px;cy:12px;r:1px;"
+    }
+  },
+  "keyframes": {
+    "so-from-60": "@keyframes so-from-60{0%{stroke-dashoffset:60}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "d-tcc6vx": "@keyframes d-tcc6vx{100%{d:path('M11 11l1 1l1 1l-1 -1Z')}}",
+    "d-67r94s": "@keyframes d-67r94s{100%{d:path('M10.2 10.2l6.8 -3.2l-3.2 6.8l-6.8 3.2Z')}}",
+    "transform-g4nb9z": "@keyframes transform-g4nb9z{100%{transform:rotate(0deg)}}",
+    "r-to-0px": "@keyframes r-to-0px{100%{r:0px}}",
+    "r-to-1px": "@keyframes r-to-1px{100%{r:1px}}"
+  }
+}

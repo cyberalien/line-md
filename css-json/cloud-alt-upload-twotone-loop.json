@@ -1,0 +1,37 @@
+{
+  "content": "<path class=\"j0mkea p74l_o ydovum\"/><path class=\"vd6-kb ydovum ysiwxm\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "p74l_o": {
+      "rules": "",
+      "animation": "stroke-dasharray:60;animation:0s forwards fill-to-0, 12s linear infinite d-gf8qwu, 0.6s linear forwards so-from-60, 0.15s linear 0.6s forwards fill-to-0_3;"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "ysiwxm": {
+      "rules": "d:path('M10.5 16h3v-3h2.5l-4 -4l-4 4h2.5Z');"
+    },
+    "vd6-kb": {
+      "rules": "",
+      "animation": "animation:0s forwards d-6uh96y, 0.4s linear 0.85s forwards d-t2f-vz, 1.5s linear 1.25s infinite d-46g2pq;"
+    },
+    "j0mkea": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;d:path('M7 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h-1v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z');fill-opacity:0.3;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "d-gf8qwu": "@keyframes d-gf8qwu{25%{d:path('M6 19h12c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h0v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-2.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z')}50%{d:path('M6 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h0v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-1.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z')}75%{d:path('M7 19h10c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h0v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z')}}",
+    "so-from-60": "@keyframes so-from-60{0%{stroke-dashoffset:60}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "d-6uh96y": "@keyframes d-6uh96y{100%{d:path('M10.5 16h3v0h2.5l-4 0l-4 0h2.5Z')}}",
+    "d-t2f-vz": "@keyframes d-t2f-vz{40%{d:path('M10.5 16h3v0h2.5l-4 -4l-4 4h2.5Z')}100%{d:path('M10.5 16h3v-3h2.5l-4 -4l-4 4h2.5Z')}}",
+    "d-46g2pq": "@keyframes d-46g2pq{25%{d:path('M10.5 16h3v-4h2.5l-4 -4l-4 4h2.5Z')}75%{d:path('M10.5 16h3v-2h2.5l-4 -4l-4 4h2.5Z')}}"
+  }
+}

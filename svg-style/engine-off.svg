@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .u3pk8c {
+    stroke-dasharray: 42;
+    animation: 0.5s linear forwards so-from-42;
+  }
+}
+
+.kxi4oj {
+  d: path('M11 9h6v10h-6.5l-2 -2h-2.5v-6.5l1.5 -1.5Z');
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+.vni3zr {
+  d: path('M17 13h4v-3h1v8h-1v-3h-4Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .i6qn2o {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-15binr;
+  }
+}
+
+.nsm7mq {
+  d: path('M6 14h-4M2 11v6');
+}
+
+@media not (prefers-reduced-motion) {
+  .yw3f7b {
+    opacity: 0;
+    animation: 0s 0.8s forwards fade-to-1, 0.2s linear 0.8s forwards d-vq39db;
+  }
+}
+
+.kxiy0s {
+  d: path('M11 9v-4M8 5h6');
+}
+
+@media not (prefers-reduced-motion) {
+  .twu__s {
+    opacity: 0;
+    animation: 0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-6j2qwa;
+  }
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .ggl9ne {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.3s forwards so-to-0;
+  }
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.oeeggn {
+  stroke: #000;
+  d: path('M0 11h26');
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.fo5bbb {
+  d: path('M0 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-42 {
+  0% {
+    stroke-dashoffset: 42;
+  }
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes d-15binr {
+  0% {
+    d: path('M17 13h0v-3h0v8h0v-3h0Z');
+  }
+}
+
+@keyframes d-vq39db {
+  0% {
+    d: path('M6 14h0M6 11v6');
+  }
+}
+
+@keyframes d-6j2qwa {
+  0% {
+    d: path('M11 9v0M8 9h6');
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGprQqFdmy"><path class="c5xdmn kxi4oj u3pk8c zxndow"/><path class="c5xdmn i6qn2o vni3zr zxndow"/><path class="c5xdmn nsm7mq yw3f7b zxndow"/><path class="c5xdmn kxiy0s twu__s zxndow"/><path class="c5xdmn ggl9ne oeeggn yl0nmc"/></mask></defs><path mask="url(#SVGprQqFdmy)" class="botfzx"/><path class="c5xdmn fo5bbb ggl9ne yl0nmc"/></svg>

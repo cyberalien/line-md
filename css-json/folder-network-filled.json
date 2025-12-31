@@ -1,0 +1,60 @@
+{
+  "content": "<path class=\"b-hm3g iw1iew vsey6l\"/><path class=\"gm6-0i iw1iew kwn6fo y4wbml\"/><path class=\"bfkr-v iw1iew p8mphf y4wbml\"/><path class=\"ex3b9k iw1iew x7uruc y4wbml\"/><path class=\"gbl2pu iw1iew luun2t y4wbml\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "b-hm3g": {
+      "rules": "",
+      "animation": "stroke-dasharray:54;fill-opacity:0;animation:0.6s linear forwards so-from-54, 0.4s linear 0.8s forwards fill-to-1;"
+    },
+    "gm6-0i": {
+      "rules": "d:path('M12 6h-8v-1c0 -0.55 0.45 -1 1 -1h5Z');"
+    },
+    "kwn6fo": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-c7v0ns;"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "bfkr-v": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1.3s forwards so-to-0;"
+    },
+    "p8mphf": {
+      "rules": "d:path('M12 16v5');"
+    },
+    "ex3b9k": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 1.5s forwards so-to-0;"
+    },
+    "x7uruc": {
+      "rules": "d:path('M12 21h9M12 21h-9');"
+    },
+    "gbl2pu": {
+      "rules": "d:path('M10 20h4v2h-4Z');"
+    },
+    "luun2t": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 1.7s forwards fade-to-1, 0.2s linear 1.7s forwards d-o0luwi;"
+    },
+    "iw1iew": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;"
+    },
+    "vsey6l": {
+      "rules": "d:path('M12 6h7c0.55 0 1 0.45 1 1v8c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-9Z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-54": "@keyframes so-from-54{0%{stroke-dashoffset:54}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-c7v0ns": "@keyframes d-c7v0ns{0%{d:path('M12 6h-8v0c0 0 0.45 0 1 0h5Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
+    "d-o0luwi": "@keyframes d-o0luwi{0%{d:path('M12 21h0v0h0Z')}}"
+  }
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ntf2iq {
+    stroke-dasharray: 60;
+    animation: 0.6s linear forwards so-from-60;
+  }
+}
+
+.b-z_le {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M12 2l-8 3.5v6.5c0 3.5 3.5 8 8 10c4.5 -1 8 -6.5 8 -10v-6.5l-8 -3.5Z');
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes so-from-60 {
+  0% {
+    stroke-dashoffset: 60;
+  }
+}
+</style><path class="b-z_le ntf2iq"/></svg>

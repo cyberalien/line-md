@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ao492n {
+    stroke-dasharray: 66;
+    animation: 0.6s linear forwards so-from-66;
+  }
+}
+
+.dixc2s {
+  d: path('M16 3c2.76 0 5 2.24 5 5v8c0 2.76 -2.24 5 -5 5h-8c-2.76 0 -5 -2.24 -5 -5v-8c0 -2.76 2.24 -5 5 -5h4Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .ez9eeo {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.6s linear 0.7s forwards so-to-0;
+  }
+}
+
+.yikbux {
+  d: path('M12 8c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4');
+}
+
+@media not (prefers-reduced-motion) {
+  .jwvhdr {
+    opacity: 0;
+    animation: 0.2s linear 1.3s forwards fade-to-1;
+  }
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.mjbjcq {
+  cx: 17px;
+  cy: 7px;
+  r: 1.5px;
+  fill: currentColor;
+}
+
+@keyframes so-from-66 {
+  0% {
+    stroke-dashoffset: 66;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+</style><path class="a0m25c ao492n dixc2s"/><path class="a0m25c ez9eeo yikbux"/><circle class="jwvhdr mjbjcq"/></svg>

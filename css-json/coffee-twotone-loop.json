@@ -1,0 +1,63 @@
+{
+  "content": "<defs><mask id=\"SVG7mG8jdwZ\"><path class=\"aqtkrb j9mljp t5pxry y4wbml\"/><path class=\"qlc9kd y32eri\"/></mask></defs><path class=\"mroyrs o2566m s8e22g t5pxry ydovum\"/><path class=\"h7habt mw6qgz s8e22g t5pxry y4wbml\"/><path mask=\"url(#SVG7mG8jdwZ)\" class=\"lsejuv ydovum\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "aqtkrb": {
+      "rules": "",
+      "animation": "animation:3s linear infinite d-2eh0tx;"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "qlc9kd": {
+      "rules": "",
+      "animation": "animation:0s forwards d-gxzt2d, 0.6s linear 1s forwards d--ye3im;"
+    },
+    "mroyrs": {
+      "rules": "",
+      "animation": "stroke-dasharray:48;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-48, 0.15s linear 1.6s forwards fill-to-0_3;"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "s8e22g": {
+      "rules": "stroke:currentColor;"
+    },
+    "h7habt": {
+      "rules": "",
+      "animation": "stroke-dasharray:16;stroke-dashoffset:16;animation:0.3s linear 0.6s forwards so-to-0;"
+    },
+    "mw6qgz": {
+      "rules": "d:path('M17 9h3c0.55 0 1 0.45 1 1v3c0 0.55 -0.45 1 -1 1h-3');"
+    },
+    "lsejuv": {
+      "rules": "d:path('M0 0h24v24H0z');"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "j9mljp": {
+      "rules": "d:path('M8 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M12 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M16 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4');stroke:#fff;"
+    },
+    "y32eri": {
+      "rules": "fill:#000;d:path('M4 2h16v5h-16v12h16v-24h-16Z');"
+    },
+    "o2566m": {
+      "rules": "d:path('M17 9v9c0 1.66 -1.34 3 -3 3h-6c-1.66 0 -3 -1.34 -3 -3v-9Z');fill-opacity:0.3;"
+    }
+  },
+  "keyframes": {
+    "d-2eh0tx": "@keyframes d-2eh0tx{0%{d:path('M8 0c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M12 0c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M16 0c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4')}}",
+    "d-gxzt2d": "@keyframes d-gxzt2d{100%{d:path('M4 7h16v0h-16v12h16v-32h-16Z')}}",
+    "d--ye3im": "@keyframes d--ye3im{100%{d:path('M4 2h16v5h-16v12h16v-24h-16Z')}}",
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-48": "@keyframes so-from-48{0%{stroke-dashoffset:48}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "content": "<path class=\"gf993l jrnr1r\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "gf993l": {
+      "rules": "",
+      "animation": "stroke-dasharray:54;animation:0.6s linear forwards so-from-54;"
+    },
+    "jrnr1r": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M5 4h14l-5 6.5v9.5l-4 -4v-5.5Z');stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-54": "@keyframes so-from-54{0%{stroke-dashoffset:54}}"
+  }
+}

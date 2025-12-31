@@ -1,0 +1,32 @@
+{
+  "content": "<path class=\"a0m25c ec16_t kf9ghw\"/><path class=\"a0m25c sjet3w smgh2w\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ec16_t": {
+      "rules": "",
+      "animation": "stroke-dasharray:14;animation:0.2s linear forwards so-from-14;"
+    },
+    "kf9ghw": {
+      "rules": "d:path('M12 6c3.31 0 6 2.69 6 6v2.5');"
+    },
+    "sjet3w": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.2s forwards so-to-0;"
+    },
+    "smgh2w": {
+      "rules": "d:path('M18 15l3 -3M18 15l-3 -3');"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-14": "@keyframes so-from-14{0%{stroke-dashoffset:14}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

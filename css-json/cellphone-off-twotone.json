@@ -1,0 +1,55 @@
+{
+  "content": "<defs><mask id=\"SVGG6sQvcqH\"><path class=\"g26hbu t5pxry vodx4w y50p6i\"/><path class=\"d58ker g26hbu r32i8c\"/><path class=\"eycklu oxx-om quv8lj t5pxry\"/></mask></defs><path mask=\"url(#SVGG6sQvcqH)\" class=\"botfzx\"/><path class=\"eycklu gd_4-q quv8lj t5pxry\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "y50p6i": {
+      "rules": "",
+      "animation": "stroke-dasharray:66;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-66, 0.15s linear 0.9s forwards fill-to-0_3;"
+    },
+    "g26hbu": {
+      "rules": "fill:#fff;"
+    },
+    "d58ker": {
+      "rules": "d:path('M6 2h12v3h-12ZM6 22h12v-3h-12Z');"
+    },
+    "r32i8c": {
+      "rules": "",
+      "animation": "animation:0s forwards d-3crpcp, 0.2s linear 0.6s forwards d-70g21a;"
+    },
+    "quv8lj": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.15s forwards so-to-0;"
+    },
+    "vodx4w": {
+      "rules": "d:path('M12 2h5c0.55 0 1 0.45 1 1v18c0 0.55 -0.45 1 -1 1h-10c-0.55 0 -1 -0.45 -1 -1v-18c0 -0.55 0.45 -1 1 -1Z');fill-opacity:0.3;stroke:#fff;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "eycklu": {
+      "rules": "fill:none;transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-66": "@keyframes so-from-66{0%{stroke-dashoffset:66}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "d-3crpcp": "@keyframes d-3crpcp{100%{d:path('M6 2h12v0h-12ZM6 22h12v0h-12Z')}}",
+    "d-70g21a": "@keyframes d-70g21a{100%{d:path('M6 2h12v3h-12ZM6 22h12v-3h-12Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

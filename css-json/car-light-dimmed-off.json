@@ -1,0 +1,74 @@
+{
+  "content": "<defs><mask id=\"SVGKgW90UET\"><path class=\"g269ju g_1xrq xorvsn yuzzkf zxndow\"/><path class=\"g_1xrq kowswq nb4ngv yuzzkf zxndow\"/><path class=\"g_1xrq pgj22w x8ywvh yuzzkf zxndow\"/><path class=\"g_1xrq qc_pkd uv8ddv z_b1hb\"/><path class=\"ds6iuu g_1xrq yuzzkf z_b1hb zxndow\"/><path class=\"g_1xrq mgj96l qc_pkd yl0nmc yuzzkf z8slok\"/></mask></defs><path mask=\"url(#SVGKgW90UET)\" class=\"botfzx\"/><path class=\"fo5bbb g_1xrq mgj96l yl0nmc yuzzkf\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "g269ju": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.6s forwards so-to-0;"
+    },
+    "xorvsn": {
+      "rules": "d:path('M12 5.5l-9 2.5');"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "g_1xrq": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;"
+    },
+    "kowswq": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.8s forwards so-to-0;"
+    },
+    "nb4ngv": {
+      "rules": "d:path('M12 10.5l-9 2.5');"
+    },
+    "pgj22w": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 1s forwards so-to-0;"
+    },
+    "x8ywvh": {
+      "rules": "d:path('M12 15.5l-9 2.5');"
+    },
+    "z_b1hb": {
+      "rules": "d:path('M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z');"
+    },
+    "qc_pkd": {
+      "rules": "stroke:#000;"
+    },
+    "ds6iuu": {
+      "rules": "",
+      "animation": "stroke-dasharray:40;animation:0.5s linear forwards so-from-40;"
+    },
+    "yl0nmc": {
+      "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "mgj96l": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.2s forwards so-to-0;"
+    },
+    "z8slok": {
+      "rules": "d:path('M0 11h26');"
+    },
+    "yuzzkf": {
+      "rules": "stroke-width:2px;fill:none;"
+    },
+    "uv8ddv": {
+      "rules": "fill:#000;stroke-width:4px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "fo5bbb": {
+      "rules": "d:path('M0 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
+    "so-from-40": "@keyframes so-from-40{0%{stroke-dashoffset:40}}"
+  }
+}

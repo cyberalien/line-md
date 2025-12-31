@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .lsoe3z {
+    stroke-dasharray: 56;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+.tsch9o {
+  r: 1px;
+}
+
+@media not (prefers-reduced-motion) {
+  .ed71md {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.85s forwards r-to-1px;
+  }
+}
+
+.y2385h {
+  cx: 13px;
+  cy: 15px;
+}
+
+@media not (prefers-reduced-motion) {
+  .d2qd-f {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.05s forwards r-to-1px;
+  }
+}
+
+.lgwfxl {
+  cx: 13px;
+  cy: 6px;
+}
+
+@media not (prefers-reduced-motion) {
+  .g8xj7j {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.25s forwards r-to-1px;
+  }
+}
+
+.dps93d {
+  cx: 11px;
+  cy: 17px;
+}
+
+@media not (prefers-reduced-motion) {
+  .gdot5n {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.45s forwards r-to-1px;
+  }
+}
+
+.yxzmwb {
+  cx: 14px;
+  cy: 18px;
+}
+
+.t36zte {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M12 2c2.5 0 5 2 5 5c0 1.13 -0.37 2.16 -1 3c-0.28 0.38 -0.5 1 -0.5 1.5c0 0.5 0.2 0.91 0.5 1.23c0.93 0.98 1.5 2.31 1.5 3.77c0 3.04 -2.46 5.5 -5.5 5.5c-3.04 0 -5.5 -2.46 -5.5 -5.5c0 -1.46 0.57 -2.79 1.5 -3.77c0.3 -0.32 0.5 -0.73 0.5 -1.23c0 -0.5 -0.22 -1.12 -0.5 -1.5c-0.63 -0.84 -1 -1.87 -1 -3c0 -2.76 2 -5 5 -5Z');
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill-opacity: 0.3;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-56 {
+  0% {
+    stroke-dashoffset: 56;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes r-to-0px {
+  100% {
+    r: 0px;
+  }
+}
+
+@keyframes r-to-1px {
+  100% {
+    r: 1px;
+  }
+}
+</style><path class="lsoe3z t36zte ydovum"/><circle class="ed71md tsch9o y2385h ydovum"/><circle class="d2qd-f lgwfxl tsch9o ydovum"/><circle class="dps93d g8xj7j tsch9o ydovum"/><circle class="gdot5n tsch9o ydovum yxzmwb"/></svg>

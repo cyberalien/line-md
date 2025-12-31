@@ -1,0 +1,33 @@
+{
+  "content": "<path class=\"iw1iew kwp8si r7_1mr\"/><path class=\"ibm05o iw1iew z3hn7d\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "r7_1mr": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;animation:0.4s linear forwards so-from-8;"
+    },
+    "z3hn7d": {
+      "rules": "",
+      "animation": "stroke-dasharray:62;stroke-dashoffset:62;fill-opacity:0;animation:0.6s linear 0.4s forwards so-to-0, 0.4s linear 1s forwards fill-to-1;"
+    },
+    "iw1iew": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;"
+    },
+    "kwp8si": {
+      "rules": "d:path('M12 21h5M12 21h-5M12 21v-4');fill:none;"
+    },
+    "ibm05o": {
+      "rules": "d:path('M12 17h-9v-12h18v12Z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-8": "@keyframes so-from-8{0%{stroke-dashoffset:8}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}"
+  }
+}

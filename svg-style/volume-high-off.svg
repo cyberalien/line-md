@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .q3i-gg {
+    stroke-dasharray: 34;
+    animation: 0.4s linear forwards so-from-34;
+  }
+}
+
+.lwlurj {
+  d: path('M14 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .xw5yzg {
+    animation: 0s forwards d-k6ve5o, 0.2s linear 0.4s forwards d-c-ymvb;
+  }
+}
+
+.g26hbu {
+  fill: #fff;
+}
+
+.qetw5h {
+  d: path('M14 3.23c4 0.91 7 4.49 7 8.77c0 4.28 -3 7.86 -7 8.77v-2.07c2.89 -0.86 5 -3.53 5 -6.7c0 -3.17 -2.11 -5.85 -5 -6.71Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .wzieoo {
+    animation: 0s forwards d-ap4uuv, 0.4s linear 0.4s forwards d-yv2e7k;
+  }
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .uwglvc {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 0.8s forwards so-to-0;
+  }
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.zf0xnu {
+  d: path('M4 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
+  stroke: #fff;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-34 {
+  0% {
+    stroke-dashoffset: 34;
+  }
+}
+
+@keyframes d-k6ve5o {
+  100% {
+    d: path('M14 12c0 0 0 0 0 0c0 0 0 0 0 0Z');
+  }
+}
+
+@keyframes d-c-ymvb {
+  100% {
+    d: path('M14 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');
+  }
+}
+
+@keyframes d-ap4uuv {
+  100% {
+    d: path('M14 12c0 0 0 0 0 0c0 0 0 0 0 0v0c0 0 0 0 0 0c0 0 0 0 0 0Z');
+  }
+}
+
+@keyframes d-yv2e7k {
+  100% {
+    d: path('M14 3.23c4 0.91 7 4.49 7 8.77c0 4.28 -3 7.86 -7 8.77v-2.07c2.89 -0.86 5 -3.53 5 -6.7c0 -3.17 -2.11 -5.85 -5 -6.71Z');
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGmwq1SbmF"><path class="c5xdmn q3i-gg zf0xnu"/><path class="g26hbu lwlurj xw5yzg"/><path class="g26hbu qetw5h wzieoo"/><path class="c5xdmn oxx-om uwglvc yl0nmc"/></mask></defs><path mask="url(#SVGmwq1SbmF)" class="botfzx"/><path class="c5xdmn gd_4-q uwglvc yl0nmc"/></svg>

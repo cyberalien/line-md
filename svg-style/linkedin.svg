@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .avrtvl {
+    opacity: 0;
+    animation: 0.2s linear forwards fade-to-1;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .cy1axl {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.2s forwards so-to-0;
+  }
+}
+
+.l4j5dd {
+  d: path('M4 10v10');
+}
+
+@media not (prefers-reduced-motion) {
+  .q-1rzi {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+}
+
+.qy6ibh {
+  d: path('M10 10v10');
+}
+
+@media not (prefers-reduced-motion) {
+  .vxbdkg {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: 0.3s linear 0.7s forwards so-to-0;
+  }
+}
+
+.phbefj {
+  d: path('M10 15c0 -2.76 2.24 -5 5 -5c2.76 0 5 2.24 5 5v5');
+}
+
+.kkg6le {
+  cx: 4px;
+  cy: 4px;
+  r: 2px;
+  fill: currentColor;
+}
+
+.oxmpwq {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4px;
+  stroke: currentColor;
+  fill: none;
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><circle class="avrtvl kkg6le"/><path class="cy1axl l4j5dd oxmpwq"/><path class="oxmpwq q-1rzi qy6ibh"/><path class="oxmpwq phbefj vxbdkg"/></svg>

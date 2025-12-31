@@ -1,0 +1,63 @@
+{
+  "content": "<path class=\"iw1iew o5vp4a sv6o-r ydovum\"/><path class=\"jimtmx y4r0-a ydovum\"/><path class=\"iw1iew k-1ihi y4wbml zo2mgx\"/><path class=\"frb6-z iw1iew kowswq y4wbml\"/><path class=\"glv_3w ialoxs iw1iew y4wbml\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "sv6o-r": {
+      "rules": "",
+      "animation": "stroke-dasharray:66;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-66, 0.15s linear 1s forwards fill-to-0_3;"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "y4r0-a": {
+      "rules": "d:path('M5 5h14v3h-14Z');"
+    },
+    "jimtmx": {
+      "rules": "",
+      "animation": "animation:0s forwards d-c_e20m, 0.2s linear 0.6s forwards d-x9kqov;"
+    },
+    "zo2mgx": {
+      "rules": "",
+      "animation": "stroke-dasharray:4;stroke-dashoffset:4;animation:0.2s linear 0.8s forwards so-to-0;"
+    },
+    "k-1ihi": {
+      "rules": "d:path('M7 4v-2M17 4v-2');"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "kowswq": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.8s forwards so-to-0;"
+    },
+    "frb6-z": {
+      "rules": "d:path('M7 11h10');"
+    },
+    "ialoxs": {
+      "rules": "",
+      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 0.8s forwards so-to-0;"
+    },
+    "glv_3w": {
+      "rules": "d:path('M7 15h7');"
+    },
+    "iw1iew": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;"
+    },
+    "o5vp4a": {
+      "rules": "d:path('M12 4h7c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1Z');fill-opacity:0.3;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-66": "@keyframes so-from-66{0%{stroke-dashoffset:66}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "d-c_e20m": "@keyframes d-c_e20m{100%{d:path('M5 5h14v0h-14Z')}}",
+    "d-x9kqov": "@keyframes d-x9kqov{100%{d:path('M5 5h14v3h-14Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

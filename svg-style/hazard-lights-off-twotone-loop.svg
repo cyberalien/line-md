@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .rq6xas {
+    stroke-dasharray: 28;
+    animation: 0s forwards fill-to-0, 0.4s linear forwards so-from-28, 0.15s linear 1s forwards fill-to-0_3;
+  }
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+.cbj-8o {
+  d: path('M12 4l9.25 16h-18.5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .ny1vty {
+    opacity: 0;
+    animation: 0s forwards d-7xq8qc, 0.8s linear 0.4s infinite d-7h3jep, 0.8s linear 0.4s infinite fade-qhlvwz;
+  }
+}
+
+.y4wbml {
+  fill: none;
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .m5g-ms {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 0.6s forwards so-to-0;
+  }
+}
+
+.e82e1a {
+  d: path('M12 10l4 7h-8Z');
+  fill: #fff;
+  fill-opacity: 0.3;
+}
+
+.t5pxry {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+.oeeggn {
+  stroke: #000;
+  d: path('M0 11h26');
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.fo5bbb {
+  d: path('M0 13h26');
+  stroke: currentColor;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-28 {
+  0% {
+    stroke-dashoffset: 28;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes d-7xq8qc {
+  100% {
+    d: path('M12 10l4 7h-8Z');
+  }
+}
+
+@keyframes d-7h3jep {
+  25%, 100% {
+    d: path('M12 4l9.25 16h-18.5Z');
+  }
+}
+
+@keyframes fade-qhlvwz {
+  10%, 75% {
+    opacity: 1;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVG5T49deZz"><path class="e82e1a rq6xas t5pxry zxndow"/><path class="cbj-8o ny1vty t5pxry y4wbml zxndow"/><path class="m5g-ms oeeggn t5pxry y4wbml yl0nmc"/></mask></defs><path mask="url(#SVG5T49deZz)" class="botfzx"/><path class="fo5bbb m5g-ms t5pxry y4wbml yl0nmc"/></svg>

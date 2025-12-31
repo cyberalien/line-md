@@ -1,0 +1,30 @@
+{
+  "content": "<path class=\"q3i-gg s9u7ej\"/><path class=\"jeyo8s m7vvkq\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "q3i-gg": {
+      "rules": "",
+      "animation": "stroke-dasharray:34;animation:0.4s linear forwards so-from-34;"
+    },
+    "m7vvkq": {
+      "rules": "",
+      "animation": "animation:0s forwards d-u-uo_p, 0.2s linear 0.4s forwards d-5-a1ir;"
+    },
+    "s9u7ej": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;d:path('M6 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');fill:none;"
+    },
+    "jeyo8s": {
+      "rules": "d:path('M16 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-34": "@keyframes so-from-34{0%{stroke-dashoffset:34}}",
+    "d-u-uo_p": "@keyframes d-u-uo_p{100%{d:path('M16 12c0 0 0 0 0 0c0 0 0 0 0 0Z')}}",
+    "d-5-a1ir": "@keyframes d-5-a1ir{100%{d:path('M16 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z')}}"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "content": "<defs><mask id=\"SVGH2MYic0L\"><path class=\"kruiwn t5pxry w86ebu zxndow\"/><path class=\"m9pw2i tcqpek y4wbml z-aorz zxndow\"/><path class=\"az-36w cu5zdi m9pw2i y4wbml zxndow\"/><path class=\"gch6di m9pw2i urr6zz y4wbml zxndow\"/><path class=\"cgor7y m9pw2i psd16s y4wbml zxndow\"/><path class=\"kfw_ip m671dg m9pw2i y4wbml zxndow\"/><path class=\"dl7gxu k2cc9e m9pw2i y4wbml zxndow\"/><path class=\"m9pw2i o_sype xgayif y4wbml zxndow\"/><path class=\"g_iubo kjdu8b m9pw2i y4wbml zxndow\"/><path class=\"i2okyj m9pw2i urr6zz y4wbml zxndow\"/><path class=\"neydvc oxx-om t5pxry y4wbml yl0nmc\"/></mask></defs><path mask=\"url(#SVGH2MYic0L)\" class=\"botfzx\"/><path class=\"gd_4-q neydvc t5pxry y4wbml yl0nmc\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "w86ebu": {
+      "rules": "",
+      "animation": "stroke-dasharray:56;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.7s forwards fill-to-0_3;"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "z-aorz": {
+      "rules": "",
+      "animation": "stroke-dashoffset:4;animation:6s linear 1.35s infinite so-_lg20b;"
+    },
+    "tcqpek": {
+      "rules": "d:path('M12 5h1.5M12 5h-1.5M12 5v1.5M12 5v-1.5');"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "m9pw2i": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:4;"
+    },
+    "cu5zdi": {
+      "rules": "",
+      "animation": "stroke-dashoffset:4;animation:6s linear 2.02s infinite so-_lg20b;"
+    },
+    "az-36w": {
+      "rules": "d:path('M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5');"
+    },
+    "gch6di": {
+      "rules": "",
+      "animation": "stroke-dashoffset:4;animation:6s linear 2.69s infinite so-_lg20b;"
+    },
+    "urr6zz": {
+      "rules": "d:path('M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5');"
+    },
+    "cgor7y": {
+      "rules": "",
+      "animation": "stroke-dashoffset:4;animation:6s linear 3.36s infinite so-_lg20b;"
+    },
+    "psd16s": {
+      "rules": "d:path('M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5');"
+    },
+    "kfw_ip": {
+      "rules": "",
+      "animation": "stroke-dashoffset:4;animation:6s linear 4.03s infinite so-_lg20b;"
+    },
+    "m671dg": {
+      "rules": "d:path('M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5');"
+    },
+    "dl7gxu": {
+      "rules": "",
+      "animation": "stroke-dashoffset:4;animation:6s linear 4.7s infinite so-_lg20b;"
+    },
+    "k2cc9e": {
+      "rules": "d:path('M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5');"
+    },
+    "xgayif": {
+      "rules": "",
+      "animation": "stroke-dashoffset:4;animation:6s linear 5.37s infinite so-_lg20b;"
+    },
+    "o_sype": {
+      "rules": "d:path('M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5');"
+    },
+    "kjdu8b": {
+      "rules": "",
+      "animation": "stroke-dashoffset:4;animation:6s linear 6.04s infinite so-_lg20b;"
+    },
+    "g_iubo": {
+      "rules": "d:path('M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5');"
+    },
+    "i2okyj": {
+      "rules": "",
+      "animation": "stroke-dashoffset:4;animation:6s linear 6.71s infinite so-_lg20b;"
+    },
+    "yl0nmc": {
+      "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "neydvc": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 0.95s forwards so-to-0;"
+    },
+    "kruiwn": {
+      "rules": "fill:#fff;d:path('M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z');fill-opacity:0.3;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-56": "@keyframes so-from-56{0%{stroke-dashoffset:56}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "so-_lg20b": "@keyframes so-_lg20b{8%, 22%{stroke-dashoffset:0}30%{stroke-dashoffset:4}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

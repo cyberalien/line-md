@@ -1,0 +1,69 @@
+{
+  "content": "<defs><mask id=\"SVGoJFhdbjZ\"><path class=\"gk7tul t5pxry ur73aa zxndow\"/><path class=\"qwuois ro5eeq t5pxry y4wbml zxndow\"/><path class=\"ikux3q yq7r9x\"/></mask></defs><path mask=\"url(#SVGoJFhdbjZ)\" class=\"botfzx\"/><path class=\"g7fxuo o5cv-y s8e22g t5pxry y4wbml\"/><path class=\"qj5tay s8e22g t5pxry y2edyi y4wbml\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "gk7tul": {
+      "rules": "",
+      "animation": "stroke-dasharray:62;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.2s forwards fill-to-0_3;"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "qwuois": {
+      "rules": "d:path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');"
+    },
+    "ro5eeq": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "ikux3q": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.8s forwards fade-to-1;"
+    },
+    "g7fxuo": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.8s forwards so-to-0;"
+    },
+    "o5cv-y": {
+      "rules": "d:path('M21 19h-5');"
+    },
+    "s8e22g": {
+      "rules": "stroke:currentColor;"
+    },
+    "qj5tay": {
+      "rules": "",
+      "animation": "stroke-dasharray:6;stroke-dashoffset:6;animation:0.2s linear 1s forwards so-to-0;"
+    },
+    "y2edyi": {
+      "rules": "d:path('M16 19l2 2M16 19l2 -2');"
+    },
+    "ur73aa": {
+      "rules": "fill:#fff;d:path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');fill-opacity:0.3;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "yq7r9x": {
+      "rules": "d:path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');fill:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-62": "@keyframes so-from-62{0%{stroke-dashoffset:62}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-tnsd9f": "@keyframes d-tnsd9f{0%{d:path('M12 7h-9v0c0 0 0.45 0 1 0h6Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

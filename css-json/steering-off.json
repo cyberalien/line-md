@@ -1,0 +1,58 @@
+{
+  "content": "<defs><mask id=\"SVG5e74wbJR\"><path class=\"wrpzix yy9dzd\"/><path class=\"c5xdmn gl75xl nknijc zxndow\"/><path class=\"c5xdmn gsunef x-lvxe zxndow\"/><path class=\"c5xdmn mgj96l oxx-om yl0nmc\"/></mask></defs><path mask=\"url(#SVG5e74wbJR)\" class=\"botfzx\"/><path class=\"c5xdmn gd_4-q mgj96l yl0nmc\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "yy9dzd": {
+      "rules": "",
+      "animation": "animation:0.2s linear forwards d-3fqnuo;"
+    },
+    "nknijc": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.3s forwards so-to-0;"
+    },
+    "gl75xl": {
+      "rules": "d:path('M8 12h-5M16 12h5M12 16v5');"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "x-lvxe": {
+      "rules": "",
+      "animation": "stroke-dasharray:60;stroke-dashoffset:60;animation:0.6s linear 0.5s forwards so-to-0;"
+    },
+    "gsunef": {
+      "rules": "d:path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');"
+    },
+    "yl0nmc": {
+      "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "mgj96l": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.2s forwards so-to-0;"
+    },
+    "wrpzix": {
+      "rules": "fill:#fff;d:path('M7.5 12l3 -3h3l3 3l-0.5 0c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4Z');"
+    },
+    "c5xdmn": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "d-3fqnuo": "@keyframes d-3fqnuo{0%{d:path('M12 12l0 0h0l0 0l0 0c0 0 0 0 0 0c0 0 0 0 0 0Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

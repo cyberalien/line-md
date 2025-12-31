@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .xy6l5k {
+    opacity: 0;
+    animation: 3s linear infinite transform-g4nv7i, 0.2s linear 0.6s forwards fade-to-1;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .j6lqly {
+    stroke-dasharray: 62;
+    animation: 0.6s linear forwards so-from-62;
+  }
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.hfnyth {
+  d: path('M18 7c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2');
+  stroke: #fff;
+}
+
+.j3vs1j {
+  fill: #000;
+  d: path('M18 3l-2 18h-9l-2 -18h-5v21h24v-20Z');
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.k4tgzu {
+  d: path('M18 3l-2 18h-9l-2 -18Z');
+  stroke: currentColor;
+}
+
+@keyframes transform-g4nv7i {
+  100% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes so-from-62 {
+  0% {
+    stroke-dashoffset: 62;
+  }
+}
+</style><defs><mask id="SVG5MR3XbeA"><path class="c5xdmn hfnyth xy6l5k"/><path class="j3vs1j"/></mask></defs><path mask="url(#SVG5MR3XbeA)" class="botfzx"/><path class="c5xdmn j6lqly k4tgzu"/></svg>

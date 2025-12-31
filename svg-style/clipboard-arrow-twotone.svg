@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .nd40qc {
+    animation: 0s forwards fill-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .bia62z {
+    stroke-dasharray: 18;
+    animation: 0.3s linear forwards so-from-18;
+  }
+}
+
+.xtkjkm {
+  d: path('M12 3h7v8');
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+@media not (prefers-reduced-motion) {
+  .et5h7m {
+    stroke-dasharray: 46;
+    stroke-dashoffset: 46;
+    animation: 0.5s linear 0.3s forwards so-to-0;
+  }
+}
+
+.rlj63g {
+  d: path('M19 17v4h-14v-18h7');
+}
+
+@media not (prefers-reduced-motion) {
+  .n15btw {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.9s forwards so-to-0;
+  }
+}
+
+.ecu16w {
+  d: path('M14.5 3.5v3h-5v-3');
+}
+
+@media not (prefers-reduced-motion) {
+  .tfihep {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1.1s forwards so-to-0;
+  }
+}
+
+.wtcoyn {
+  d: path('M21 14h-8.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .bfkr-v {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.3s forwards so-to-0;
+  }
+}
+
+.c_e72g {
+  d: path('M12 14l3 3M12 14l3 -3');
+}
+
+.c92a3r {
+  d: path('M6 4h4v2h4v-2h4v16h-12v-16Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.qa-o7h {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  fill: none;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-from-18 {
+  0% {
+    stroke-dashoffset: 18;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="c92a3r nd40qc"/><path class="bia62z qa-o7h taf2xz xtkjkm"/><path class="et5h7m qa-o7h rlj63g taf2xz"/><path class="ecu16w n15btw qa-o7h"/><path class="qa-o7h taf2xz tfihep wtcoyn"/><path class="bfkr-v c_e72g qa-o7h taf2xz"/></svg>

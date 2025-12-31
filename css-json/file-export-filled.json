@@ -1,0 +1,58 @@
+{
+  "content": "<defs><mask id=\"SVGU188R47Y\"><path class=\"ftfana k164js t5pxry zxndow\"/><path class=\"nf43cj t5pxry tdr3zy vn9j-y\"/><path class=\"aevgea e7klgr t5pxry zxndow\"/><path class=\"avkyfk nf43cj td-htn\"/></mask></defs><path mask=\"url(#SVGU188R47Y)\" class=\"botfzx\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ftfana": {
+      "rules": "",
+      "animation": "stroke-dasharray:62;fill-opacity:0;animation:0.6s linear forwards so-from-62, 0.4s linear 0.6s forwards fill-to-1;"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "tdr3zy": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;"
+    },
+    "nf43cj": {
+      "rules": "fill:#000;"
+    },
+    "aevgea": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1;"
+    },
+    "td-htn": {
+      "rules": "d:path('M8 16l3 -3l-2 -2l7 0l0 7l-2 -2l-3 3Z');"
+    },
+    "avkyfk": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 1.1s forwards fade-to-1, 0.2s linear 1.1s forwards d-2fyhzg;"
+    },
+    "k164js": {
+      "rules": "d:path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');fill:#fff;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "vn9j-y": {
+      "rules": "stroke:#000;d:path('M14 3.5l0 4.5l4.5 0Z');"
+    },
+    "e7klgr": {
+      "rules": "d:path('M13.5 3l5.5 5.5');fill:none;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-62": "@keyframes so-from-62{0%{stroke-dashoffset:62}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-_-jasl": "@keyframes d-_-jasl{0%{d:path('M14 3.5l2.25 2.25l2.25 2.25Z')}}",
+    "d-2fyhzg": "@keyframes d-2fyhzg{0%{d:path('M8 16l0 0l-2 -2l3.5 3.5l3.5 3.5l-2 -2l0 0Z')}}"
+  }
+}

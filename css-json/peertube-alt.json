@@ -1,0 +1,42 @@
+{
+  "content": "<path class=\"ijrfmj y5-jwp ydovum\"/><path class=\"ilryer y4c9di ydovum\"/><path class=\"m_gxky x6y11c ydovum\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ijrfmj": {
+      "rules": "d:path('M12 6.67l8 5.33l-8 5.34Z');"
+    },
+    "y5-jwp": {
+      "rules": "",
+      "animation": "animation:0.4s linear forwards d-y0k17z;"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "y4c9di": {
+      "rules": "d:path('M4 1.34l8 5.33l-8 5.33Z');"
+    },
+    "ilryer": {
+      "rules": "",
+      "animation": "animation:0s forwards d-eo5vsf, 0.4s linear 0.2s forwards d-hy4_ez;"
+    },
+    "m_gxky": {
+      "rules": "d:path('M4 12l8 5.34l-8 5.33Z');"
+    },
+    "x6y11c": {
+      "rules": "",
+      "animation": "animation:0s forwards d-zqf0qv, 0.4s linear 0.4s forwards d-h1s04y;"
+    }
+  },
+  "keyframes": {
+    "d-y0k17z": "@keyframes d-y0k17z{0%{d:path('M12 6.67l0 5.33l0 5.34Z')}}",
+    "d-eo5vsf": "@keyframes d-eo5vsf{100%{d:path('M8 9.34l4 -2.67l-8 5.33Z')}}",
+    "d-hy4_ez": "@keyframes d-hy4_ez{100%{d:path('M4 1.34l8 5.33l-8 5.33Z')}}",
+    "d-zqf0qv": "@keyframes d-zqf0qv{100%{d:path('M4 12l8 5.34l-4 -2.67Z')}}",
+    "d-h1s04y": "@keyframes d-h1s04y{100%{d:path('M4 12l8 5.34l-8 5.33Z')}}"
+  }
+}

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .kv14zj {
+    stroke-dasharray: 48;
+    fill-opacity: 0;
+    transform-origin: 10px 20.5px;
+    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
+  }
+}
+
+.djeo3r {
+  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+}
+
+.g_1xrq {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media not (prefers-reduced-motion) {
+  .lsywek {
+    stroke-dasharray: 48;
+    fill-opacity: 0;
+    transform-origin: 14px 20.5px;
+    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
+  }
+}
+
+.n53t9u {
+  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+}
+
+.nf43cj {
+  fill: #000;
+}
+
+@media not (prefers-reduced-motion) {
+  .qzmcuq {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;
+  }
+}
+
+.q7qpvx {
+  fill: #fff;
+  stroke-width: 2px;
+  stroke: #fff;
+}
+
+.ainywl {
+  stroke-width: 4px;
+  stroke: #000;
+}
+
+.jf85im {
+  cx: 14px;
+  cy: 9px;
+  r: 2.5px;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+@keyframes so-from-48 {
+  0% {
+    stroke-dashoffset: 48;
+  }
+}
+
+@keyframes transform-7ecuqx {
+  30%, 54%, 70%, 100% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  68% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes r-to-0px {
+  100% {
+    r: 0px;
+  }
+}
+
+@keyframes r-to-2_5px {
+  100% {
+    r: 2.5px;
+  }
+}
+</style><defs><mask id="SVGytqMbcQo"><path class="djeo3r g_1xrq kv14zj q7qpvx"/><path class="ainywl g_1xrq lsywek n53t9u nf43cj"/><path class="g_1xrq lsywek n53t9u q7qpvx"/><circle class="jf85im nf43cj qzmcuq"/></mask></defs><path mask="url(#SVGytqMbcQo)" class="botfzx"/></svg>

@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .v-85uu {
+    stroke-dasharray: 56;
+    animation: 0.6s linear forwards so-from-56;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .v00kgq {
+    opacity: 0;
+    animation: 0.1s linear 0.6s forwards fade-to-1;
+  }
+}
+
+.gtld9v {
+  cx: 9.5px;
+  cy: 7.5px;
+  r: 1.5px;
+}
+
+.g26hbu {
+  fill: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .iead2g {
+    opacity: 0;
+    animation: 0.1s linear 0.7s forwards fade-to-1;
+  }
+}
+
+.ohx4kk {
+  cx: 11px;
+  cy: 17.5px;
+  r: 1.5px;
+}
+
+@media not (prefers-reduced-motion) {
+  .r6ktwi {
+    opacity: 0;
+    animation: 0.1s linear 0.8s forwards fade-to-1;
+  }
+}
+
+.qe3oxa {
+  cx: 6.5px;
+  cy: 11.5px;
+  r: 1.5px;
+}
+
+@media not (prefers-reduced-motion) {
+  .u727bf {
+    opacity: 0;
+    animation: 0.1s linear 0.9s forwards fade-to-1;
+  }
+}
+
+.po0nwp {
+  cx: 16.5px;
+  cy: 14.5px;
+  r: 1.5px;
+}
+
+@media not (prefers-reduced-motion) {
+  .ueqhvk {
+    opacity: 0;
+    animation: 0.1s linear 1s forwards fade-to-1;
+  }
+}
+
+.a7j2at {
+  cx: 11.5px;
+  cy: 12.5px;
+  r: 1.5px;
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .wif67a {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.1s forwards so-to-0;
+  }
+}
+
+.p-x4nz {
+  d: path('M12 4c-4.42 0 -8 3.58 -8 8c0 4.42 3.58 8 8 8c4.42 0 8 -3.58 8 -8v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-1c-0.55 0 -1 -0.45 -1 -1Z');
+  stroke: #fff;
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-56 {
+  0% {
+    stroke-dashoffset: 56;
+  }
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGtLMczdHB"><path class="c5xdmn p-x4nz v-85uu"/><circle class="g26hbu gtld9v v00kgq"/><circle class="g26hbu iead2g ohx4kk"/><circle class="g26hbu qe3oxa r6ktwi"/><circle class="g26hbu po0nwp u727bf"/><circle class="a7j2at g26hbu ueqhvk"/><path class="c5xdmn oxx-om wif67a yl0nmc"/></mask></defs><path mask="url(#SVGtLMczdHB)" class="botfzx"/><path class="c5xdmn gd_4-q wif67a yl0nmc"/></svg>

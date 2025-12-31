@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .cfc-5f {
+    stroke-dasharray: 18;
+    transform-origin: 12px 12px;
+    animation: 0.3s linear forwards so-from-18, 1.5s linear infinite transform-2c6-rw;
+  }
+}
+
+.cw549a {
+  d: path('M12 3c4.97 0 9 4.03 9 9');
+}
+
+@media not (prefers-reduced-motion) {
+  .y220iv {
+    stroke-dasharray: 60;
+    animation: 1.2s linear forwards so-from-60;
+  }
+}
+
+.mds46n {
+  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
+  opacity: 0.3;
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes so-from-18 {
+  0% {
+    stroke-dashoffset: 18;
+  }
+}
+
+@keyframes transform-2c6-rw {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes so-from-60 {
+  0% {
+    stroke-dashoffset: 60;
+  }
+}
+</style><path class="a0m25c cfc-5f cw549a"/><path class="a0m25c mds46n y220iv"/></svg>

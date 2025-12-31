@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ntf2iq {
+    stroke-dasharray: 60;
+    animation: 0.6s linear forwards so-from-60;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .v-4_bc {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d--8d_6b;
+  }
+}
+
+.zd90xn {
+  d: path('M12 5c9 0 9 0 9 7c0 7 0 7 -9 7c-9 0 -9 0 -9 -7c0 -7 0 -7 9 -7Z');
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.ux21el {
+  d: path('M10 8.5l6 3.5l-6 3.5Z');
+  fill: currentColor;
+}
+
+@keyframes so-from-60 {
+  0% {
+    stroke-dashoffset: 60;
+  }
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes d--8d_6b {
+  0% {
+    d: path('M12 11l0 1l0 1Z');
+  }
+}
+</style><path class="ntf2iq zd90xn"/><path class="ux21el v-4_bc"/></svg>

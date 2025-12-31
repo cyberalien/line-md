@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .algbaa {
+    stroke-dasharray: 56;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-56, 0.4s linear 0.6s forwards fill-to-1;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .t50frf {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.1s forwards r-to-1px;
+  }
+}
+
+.y2385h {
+  cx: 13px;
+  cy: 15px;
+}
+
+@media not (prefers-reduced-motion) {
+  .gp10le {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.3s forwards r-to-1px;
+  }
+}
+
+.lgwfxl {
+  cx: 13px;
+  cy: 6px;
+}
+
+@media not (prefers-reduced-motion) {
+  .j1_c0f {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.5s forwards r-to-1px;
+  }
+}
+
+.dps93d {
+  cx: 11px;
+  cy: 17px;
+}
+
+@media not (prefers-reduced-motion) {
+  .n15bxy {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.7s forwards r-to-1px;
+  }
+}
+
+.yxzmwb {
+  cx: 14px;
+  cy: 18px;
+}
+
+.yesp2h {
+  fill: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M12 2c2.5 0 5 2 5 5c0 1.13 -0.37 2.16 -1 3c-0.28 0.38 -0.5 1 -0.5 1.5c0 0.5 0.2 0.91 0.5 1.23c0.93 0.98 1.5 2.31 1.5 3.77c0 3.04 -2.46 5.5 -5.5 5.5c-3.04 0 -5.5 -2.46 -5.5 -5.5c0 -1.46 0.57 -2.79 1.5 -3.77c0.3 -0.32 0.5 -0.73 0.5 -1.23c0 -0.5 -0.22 -1.12 -0.5 -1.5c-0.63 -0.84 -1 -1.87 -1 -3c0 -2.76 2 -5 5 -5Z');
+  stroke-width: 2px;
+  stroke: #fff;
+}
+
+.f2oxlq {
+  fill: #000;
+  r: 1px;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+@keyframes so-from-56 {
+  0% {
+    stroke-dashoffset: 56;
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes r-to-0px {
+  100% {
+    r: 0px;
+  }
+}
+
+@keyframes r-to-1px {
+  100% {
+    r: 1px;
+  }
+}
+</style><defs><mask id="SVGw48XPb1r"><path class="algbaa yesp2h"/><circle class="f2oxlq t50frf y2385h"/><circle class="f2oxlq gp10le lgwfxl"/><circle class="dps93d f2oxlq j1_c0f"/><circle class="f2oxlq n15bxy yxzmwb"/></mask></defs><path mask="url(#SVGw48XPb1r)" class="botfzx"/></svg>

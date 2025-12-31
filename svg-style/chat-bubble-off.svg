@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .p-jc7h {
+    stroke-dasharray: 70;
+    animation: 0.6s linear forwards so-from-70;
+  }
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .bf8xld {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 0.7s forwards so-to-0;
+  }
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.p1k1hk {
+  d: path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');
+  stroke: #fff;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-70 {
+  0% {
+    stroke-dashoffset: 70;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGMXxV1cRh"><path class="c5xdmn p-jc7h p1k1hk"/><path class="bf8xld c5xdmn oxx-om yl0nmc"/></mask></defs><path mask="url(#SVGMXxV1cRh)" class="botfzx"/><path class="bf8xld c5xdmn gd_4-q yl0nmc"/></svg>

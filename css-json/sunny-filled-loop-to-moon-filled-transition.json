@@ -1,0 +1,68 @@
+{
+  "content": "<defs><mask id=\"SVGKbi1ze3r\"><path class=\"b8yl9k ckq_5v\"/><path class=\"cb10vw x_m4cy\"/></mask></defs><path class=\"iw1iew mp8tom qtti9c\"/><path mask=\"url(#SVGKbi1ze3r)\" class=\"lsejuv ydovum\"/><path class=\"iw1iew j1uydv uaz9vt ydovum\"/><path class=\"eqzsfj qrx_-w ydovum\"/><path class=\"iummwx onrooh ydovum\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ckq_5v": {
+      "rules": "",
+      "animation": "animation:0.4s linear forwards d-jssiii, 0s 0.4s forwards fade-to-0;"
+    },
+    "cb10vw": {
+      "rules": "",
+      "animation": "animation:0.4s linear forwards d-4w6zvc, 0s 0.4s forwards fade-to-0;"
+    },
+    "qtti9c": {
+      "rules": "",
+      "animation": "animation:0.4s linear forwards fade-to-0;"
+    },
+    "lsejuv": {
+      "rules": "d:path('M0 0h24v24H0z');"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "uaz9vt": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.4s forwards fade-to-1;"
+    },
+    "j1uydv": {
+      "rules": "d:path('M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z');"
+    },
+    "qrx_-w": {
+      "rules": "",
+      "animation": "opacity:0;animation:0.4s linear 0.4s forwards fade-to-1;"
+    },
+    "eqzsfj": {
+      "rules": "d:path('M15.22 6.03l2.53 -1.94l-3.19 -0.09l-1.06 -3l-1.06 3l-3.19 0.09l2.53 1.94l-0.91 3.06l2.63 -1.81l2.63 1.81l-0.91 -3.06Z');"
+    },
+    "iummwx": {
+      "rules": "",
+      "animation": "opacity:0;animation:0.4s linear 0.8s forwards fade-to-1;"
+    },
+    "onrooh": {
+      "rules": "d:path('M19.61 12.25l1.64 -1.25l-2.06 -0.05l-0.69 -1.95l-0.69 1.95l-2.06 0.05l1.64 1.25l-0.59 1.98l1.7 -1.17l1.7 1.17l-0.59 -1.98Z');"
+    },
+    "b8yl9k": {
+      "rules": "d:path('M12 2c5.52 0 10 4.48 10 10c0 5.52 -4.48 10 -10 10c-5.52 0 -10 -4.48 -10 -10c0 -5.52 4.48 -10 10 -10Z');fill:#fff;"
+    },
+    "x_m4cy": {
+      "rules": "fill:#000;d:path('M18 -4c5.52 0 10 4.48 10 10c0 5.52 -4.48 10 -10 10c-5.52 0 -10 -4.48 -10 -10c0 -5.52 4.48 -10 10 -10Z');"
+    },
+    "iw1iew": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;"
+    },
+    "mp8tom": {
+      "rules": "d:path('M12 21v1M21 12h1M12 3v-1M3 12h-1M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5');fill:none;"
+    }
+  },
+  "keyframes": {
+    "d-jssiii": "@keyframes d-jssiii{0%{d:path('M12 6c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z')}}",
+    "fade-to-0": "@keyframes fade-to-0{100%{opacity:0}}",
+    "d-4w6zvc": "@keyframes d-4w6zvc{0%{d:path('M22 -4c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z')}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}"
+  }
+}

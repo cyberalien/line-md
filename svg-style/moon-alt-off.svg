@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .v-85uu {
+    stroke-dasharray: 56;
+    animation: 0.6s linear forwards so-from-56;
+  }
+}
+
+.j1uydv {
+  d: path('M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .mc5u5a {
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.7s forwards so-to-0;
+  }
+}
+
+.tcqpek {
+  d: path('M12 5h1.5M12 5h-1.5M12 5v1.5M12 5v-1.5');
+}
+
+.m9pw2i {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 4;
+}
+
+@media not (prefers-reduced-motion) {
+  .hn9byp {
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 1s forwards so-to-0;
+  }
+}
+
+.az-36w {
+  d: path('M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .theazp {
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 1.3s forwards so-to-0;
+  }
+}
+
+.urr6zz {
+  d: path('M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5');
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .e-vrhp {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.6s forwards so-to-0;
+  }
+}
+
+.t5pxry {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-56 {
+  0% {
+    stroke-dashoffset: 56;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGxUqekdrr"><path class="j1uydv t5pxry v-85uu y4wbml zxndow"/><path class="m9pw2i mc5u5a tcqpek y4wbml zxndow"/><path class="az-36w hn9byp m9pw2i y4wbml zxndow"/><path class="m9pw2i theazp urr6zz y4wbml zxndow"/><path class="e-vrhp oxx-om t5pxry y4wbml yl0nmc"/></mask></defs><path mask="url(#SVGxUqekdrr)" class="botfzx"/><path class="e-vrhp gd_4-q t5pxry y4wbml yl0nmc"/></svg>

@@ -1,0 +1,27 @@
+{
+  "content": "<path class=\"psp_wn ydovum\"/><circle class=\"ge47sm rslhfn ydovum\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "rslhfn": {
+      "rules": "",
+      "animation": "animation:0.2s linear forwards cx-from-7px;"
+    },
+    "psp_wn": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');stroke:currentColor;stroke-width:2px;fill-opacity:0.3;"
+    },
+    "ge47sm": {
+      "rules": "cx:17px;cy:12px;r:3px;"
+    }
+  },
+  "keyframes": {
+    "cx-from-7px": "@keyframes cx-from-7px{0%{cx:7px}}"
+  }
+}

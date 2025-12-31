@@ -1,0 +1,35 @@
+{
+  "content": "<path class=\"kyznsp sgvilr xfk-ax\"/><path class=\"kyznsp ssyogl tdr3zy\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "sgvilr": {
+      "rules": "",
+      "animation": "stroke-dasharray:62;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 0.8s forwards fill-to-0_3;"
+    },
+    "ssyogl": {
+      "rules": "d:path('M14 3.5l0 4.5l4.5 0Z');"
+    },
+    "tdr3zy": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;"
+    },
+    "xfk-ax": {
+      "rules": "d:path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');fill-opacity:0.3;"
+    },
+    "kyznsp": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-62": "@keyframes so-from-62{0%{stroke-dashoffset:62}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-_-jasl": "@keyframes d-_-jasl{0%{d:path('M14 3.5l2.25 2.25l2.25 2.25Z')}}"
+  }
+}

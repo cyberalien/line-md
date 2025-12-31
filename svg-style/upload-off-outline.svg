@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .nqzctg {
+    stroke-dasharray: 20;
+    animation: 0.5s linear forwards so-from-20;
+  }
+}
+
+.ijzdcy {
+  d: path('M12 15h2v-6h2.5l-4.5 -4.5M12 15h-2v-6h-2.5l4.5 -4.5');
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .mhf06j {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+}
+
+.ifg_mc {
+  d: path('M6 19h12');
+}
+
+.tp2lab {
+  transform: rotate(45deg);
+  transform-origin: 13px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .anx38b {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.4s linear 0.7s forwards so-to-0;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .vxbdkg {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: 0.3s linear 0.7s forwards so-to-0;
+  }
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.lwtq5s {
+  stroke: #000;
+  d: path('M0 11h24');
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.wgacfi {
+  d: path('M1 13h22');
+  stroke: currentColor;
+}
+
+@keyframes so-from-20 {
+  0% {
+    stroke-dashoffset: 20;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGbu6uGhsg"><path class="c5xdmn ijzdcy nqzctg zxndow"/><path class="c5xdmn ifg_mc mhf06j zxndow"/><path class="anx38b c5xdmn lwtq5s tp2lab"/></mask></defs><path mask="url(#SVGbu6uGhsg)" class="botfzx"/><path class="c5xdmn tp2lab vxbdkg wgacfi"/></svg>

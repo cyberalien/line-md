@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .kngkga {
+    stroke-dasharray: 24;
+    animation: 0s forwards fill-to-0, 0.3s linear forwards so-from-24, 0.15s linear 1.2s forwards fill-to-0_3;
+  }
+}
+
+.ur6k-t {
+  d: path('M11.5 5c0 -0.83 0.67 -1.5 1.5 -1.5h6c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-6c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .ickudh {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: 0s forwards fill-to-0, 0.3s linear 0.4s forwards so-to-0, 0.15s linear 1.2s forwards fill-to-0_3;
+  }
+}
+
+.iigxpk {
+  d: path('M11.5 12c0 -0.83 0.67 -1.5 1.5 -1.5h6c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-6c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .u1sndl {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: 0s forwards fill-to-0, 0.3s linear 0.8s forwards so-to-0, 0.15s linear 1.2s forwards fill-to-0_3;
+  }
+}
+
+.u95v8k {
+  d: path('M11.5 19c0 -0.83 0.67 -1.5 1.5 -1.5h6c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-6c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .cy1axl {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.2s forwards so-to-0;
+  }
+}
+
+.pko3ag {
+  d: path('M3 5l2 2l4 -4');
+}
+
+@media not (prefers-reduced-motion) {
+  .g269ju {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+}
+
+.al_u7w {
+  d: path('M3 12l2 2l4 -4');
+}
+
+@media not (prefers-reduced-motion) {
+  .pgj22w {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1s forwards so-to-0;
+  }
+}
+
+.t8ulzj {
+  d: path('M3 19l2 2l4 -4');
+}
+
+.s1ui7u {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+}
+
+.v8jzga {
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.yuzzkf {
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-24 {
+  0% {
+    stroke-dashoffset: 24;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="kngkga s1ui7u ur6k-t v8jzga"/><path class="ickudh iigxpk s1ui7u v8jzga"/><path class="s1ui7u u1sndl u95v8k v8jzga"/><path class="cy1axl pko3ag s1ui7u yuzzkf"/><path class="al_u7w g269ju s1ui7u yuzzkf"/><path class="pgj22w s1ui7u t8ulzj yuzzkf"/></svg>

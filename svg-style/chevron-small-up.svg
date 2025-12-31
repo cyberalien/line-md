@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .y55c5q {
+    stroke-dasharray: 10;
+    animation: 0.4s linear forwards so-from-10;
+  }
+}
+
+.j4dfyu {
+  d: path('M12 9l-5 5M12 9l5 5');
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes so-from-10 {
+  0% {
+    stroke-dashoffset: 10;
+  }
+}
+</style><path class="j4dfyu y55c5q"/></svg>

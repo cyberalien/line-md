@@ -1,0 +1,40 @@
+{
+  "content": "<path class=\"j4mq8a qtbnay ru0oyb\"/><path class=\"enq9se qif_1h qtbnay\"/><path class=\"l5zj1r qtbnay u5asmt\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ru0oyb": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;fill-opacity:0;animation:0.2s linear forwards so-from-12, 0.4s linear 0.6s forwards fill-to-1;"
+    },
+    "j4mq8a": {
+      "rules": "d:path('M3.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM10.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM17.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
+    },
+    "qif_1h": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;fill-opacity:0;animation:0.2s linear 0.2s forwards so-to-0, 0.4s linear 1.1s forwards fill-to-1;"
+    },
+    "enq9se": {
+      "rules": "d:path('M3.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM10.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM17.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
+    },
+    "l5zj1r": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;fill-opacity:0;animation:0.2s linear 0.4s forwards so-to-0, 0.4s linear 1.6s forwards fill-to-1;"
+    },
+    "u5asmt": {
+      "rules": "d:path('M3.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM10.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5ZM17.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
+    },
+    "qtbnay": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-12": "@keyframes so-from-12{0%{stroke-dashoffset:12}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

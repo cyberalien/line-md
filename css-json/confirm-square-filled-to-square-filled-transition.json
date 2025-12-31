@@ -1,0 +1,30 @@
+{
+  "content": "<defs><mask id=\"SVGgV6CbbME\"><path class=\"p7dawc t5pxry\"/><path class=\"o9o10l t5pxry xu2hxs\"/></mask></defs><path mask=\"url(#SVGgV6CbbME)\" class=\"botfzx\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "xu2hxs": {
+      "rules": "",
+      "animation": "stroke-dasharray:14;animation:0.2s linear forwards so-to-14;"
+    },
+    "p7dawc": {
+      "rules": "fill:#fff;d:path('M4 12v-7c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1Z');stroke:#fff;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "o9o10l": {
+      "rules": "d:path('M8 12l3 3l5 -5');stroke:#000;fill:none;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-to-14": "@keyframes so-to-14{100%{stroke-dashoffset:14}}"
+  }
+}

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .f3gh4n {
+    stroke-dasharray: 12;
+    animation: 0.2s linear forwards so-from-12;
+  }
+}
+
+.gqlbfs {
+  d: path('M21 9l-3 3l3 3');
+}
+
+@media not (prefers-reduced-motion) {
+  .medomn {
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    animation: 0.3s linear 0.2s forwards so-to-0;
+  }
+}
+
+.b2w7so {
+  d: path('M19 5h-14');
+}
+
+@media not (prefers-reduced-motion) {
+  .q-1rzi {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+}
+
+.v-wexn {
+  d: path('M14 12h-9');
+}
+
+@media not (prefers-reduced-motion) {
+  .c7p2cq {
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    animation: 0.3s linear 0.7s forwards so-to-0;
+  }
+}
+
+.xc35vf {
+  d: path('M19 19h-14');
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes so-from-12 {
+  0% {
+    stroke-dashoffset: 12;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="a0m25c f3gh4n gqlbfs"/><path class="a0m25c b2w7so medomn"/><path class="a0m25c q-1rzi v-wexn"/><path class="a0m25c c7p2cq xc35vf"/></svg>

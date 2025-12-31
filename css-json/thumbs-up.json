@@ -1,0 +1,21 @@
+{
+  "content": "<path class=\"g1bs-c wrq4aa\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "g1bs-c": {
+      "rules": "",
+      "animation": "stroke-dasharray:76;animation:0.6s linear forwards so-from-76;"
+    },
+    "wrq4aa": {
+      "rules": "d:path('M7 11l5 -8l3 1l-1 6h7v3l-3 7h-11h-4v-9h4v9');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-76": "@keyframes so-from-76{0%{stroke-dashoffset:76}}"
+  }
+}

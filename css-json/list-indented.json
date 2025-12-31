@@ -1,0 +1,74 @@
+{
+  "content": "<path class=\"a0m25c e6lg3n ej4fay\"/><path class=\"a0m25c ls-dmp w_yb1d\"/><path class=\"a0m25c lvc60w xfxuut\"/><path class=\"a0m25c n11p2v w657qf\"/><path class=\"a0m25c cyegwe gopq0r\"/><path class=\"a0m25c ek9rqv s7x7cr\"/><path class=\"a0m25c e6cmxg puqetn\"/><path class=\"a0m25c kdlk-o nfkn0j\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ej4fay": {
+      "rules": "",
+      "animation": "stroke-dasharray:4;animation:0.2s linear forwards so-from-4;"
+    },
+    "e6lg3n": {
+      "rules": "d:path('M4 5h0.01');"
+    },
+    "ls-dmp": {
+      "rules": "",
+      "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 0.1s forwards so-to-0;"
+    },
+    "w_yb1d": {
+      "rules": "d:path('M8 5h12');"
+    },
+    "lvc60w": {
+      "rules": "",
+      "animation": "stroke-dasharray:4;stroke-dashoffset:4;animation:0.2s linear 0.3s forwards so-to-0;"
+    },
+    "xfxuut": {
+      "rules": "d:path('M6 10h0.01');"
+    },
+    "w657qf": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.4s forwards so-to-0;"
+    },
+    "n11p2v": {
+      "rules": "d:path('M10 10h10');"
+    },
+    "cyegwe": {
+      "rules": "",
+      "animation": "stroke-dasharray:4;stroke-dashoffset:4;animation:0.2s linear 0.6s forwards so-to-0;"
+    },
+    "gopq0r": {
+      "rules": "d:path('M8 15h0.01');"
+    },
+    "ek9rqv": {
+      "rules": "",
+      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 0.7s forwards so-to-0;"
+    },
+    "s7x7cr": {
+      "rules": "d:path('M12 15h8');"
+    },
+    "e6cmxg": {
+      "rules": "",
+      "animation": "stroke-dasharray:4;stroke-dashoffset:4;animation:0.2s linear 0.9s forwards so-to-0;"
+    },
+    "puqetn": {
+      "rules": "d:path('M10 20h0.01');"
+    },
+    "kdlk-o": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1s forwards so-to-0;"
+    },
+    "nfkn0j": {
+      "rules": "d:path('M14 20h6');"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-4": "@keyframes so-from-4{0%{stroke-dashoffset:4}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

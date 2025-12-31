@@ -1,0 +1,79 @@
+{
+  "content": "<defs><mask id=\"SVGbKEz6dED\"><path class=\"a8gtmo g26hbu lsoe3z t5pxry\"/><circle class=\"ed71md g26hbu tsch9o y2385h\"/><circle class=\"d2qd-f g26hbu lgwfxl tsch9o\"/><circle class=\"dps93d g26hbu g8xj7j tsch9o\"/><circle class=\"g26hbu gdot5n tsch9o yxzmwb\"/><path class=\"eycklu f4hv7o t5pxry yhq8un\"/></mask></defs><path mask=\"url(#SVGbKEz6dED)\" class=\"botfzx\"/><path class=\"ca4rkt eycklu f4hv7o t5pxry\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "lsoe3z": {
+      "rules": "",
+      "animation": "stroke-dasharray:56;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.6s forwards fill-to-0_3;"
+    },
+    "g26hbu": {
+      "rules": "fill:#fff;"
+    },
+    "tsch9o": {
+      "rules": "r:1px;"
+    },
+    "ed71md": {
+      "rules": "",
+      "animation": "animation:0s forwards r-to-0px, 0.2s linear 0.85s forwards r-to-1px;"
+    },
+    "y2385h": {
+      "rules": "cx:13px;cy:15px;"
+    },
+    "d2qd-f": {
+      "rules": "",
+      "animation": "animation:0s forwards r-to-0px, 0.2s linear 1.05s forwards r-to-1px;"
+    },
+    "lgwfxl": {
+      "rules": "cx:13px;cy:6px;"
+    },
+    "g8xj7j": {
+      "rules": "",
+      "animation": "animation:0s forwards r-to-0px, 0.2s linear 1.25s forwards r-to-1px;"
+    },
+    "dps93d": {
+      "rules": "cx:11px;cy:17px;"
+    },
+    "gdot5n": {
+      "rules": "",
+      "animation": "animation:0s forwards r-to-0px, 0.2s linear 1.45s forwards r-to-1px;"
+    },
+    "yxzmwb": {
+      "rules": "cx:14px;cy:18px;"
+    },
+    "f4hv7o": {
+      "rules": "",
+      "animation": "stroke-dasharray:26;stroke-dashoffset:26;animation:0.4s linear 1.65s forwards so-to-0;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "a8gtmo": {
+      "rules": "d:path('M12 2c2.5 0 5 2 5 5c0 1.13 -0.37 2.16 -1 3c-0.28 0.38 -0.5 1 -0.5 1.5c0 0.5 0.2 0.91 0.5 1.23c0.93 0.98 1.5 2.31 1.5 3.77c0 3.04 -2.46 5.5 -5.5 5.5c-3.04 0 -5.5 -2.46 -5.5 -5.5c0 -1.46 0.57 -2.79 1.5 -3.77c0.3 -0.32 0.5 -0.73 0.5 -1.23c0 -0.5 -0.22 -1.12 -0.5 -1.5c-0.63 -0.84 -1 -1.87 -1 -3c0 -2.76 2 -5 5 -5Z');fill-opacity:0.3;stroke:#fff;"
+    },
+    "yhq8un": {
+      "rules": "stroke:#000;d:path('M1 11h24');"
+    },
+    "eycklu": {
+      "rules": "fill:none;transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "ca4rkt": {
+      "rules": "d:path('M1 13h24');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-56": "@keyframes so-from-56{0%{stroke-dashoffset:56}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "r-to-0px": "@keyframes r-to-0px{100%{r:0px}}",
+    "r-to-1px": "@keyframes r-to-1px{100%{r:1px}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

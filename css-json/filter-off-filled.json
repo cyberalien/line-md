@@ -1,0 +1,42 @@
+{
+  "content": "<defs><mask id=\"SVG51WfXdAs\"><path class=\"pvph2p t5pxry wixu5i\"/><path class=\"eycklu mgj96l oxx-om t5pxry\"/></mask></defs><path mask=\"url(#SVG51WfXdAs)\" class=\"botfzx\"/><path class=\"eycklu gd_4-q mgj96l t5pxry\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "pvph2p": {
+      "rules": "",
+      "animation": "stroke-dasharray:54;fill-opacity:0;animation:0.6s linear forwards so-from-54, 0.4s linear 0.7s forwards fill-to-1;"
+    },
+    "mgj96l": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.2s forwards so-to-0;"
+    },
+    "wixu5i": {
+      "rules": "fill:#fff;d:path('M5 4h14l-5 6.5v9.5l-4 -4v-5.5Z');stroke:#fff;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "eycklu": {
+      "rules": "fill:none;transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-54": "@keyframes so-from-54{0%{stroke-dashoffset:54}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

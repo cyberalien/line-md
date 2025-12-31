@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .low20g {
+    stroke-dasharray: 46;
+    animation: 0.5s linear forwards so-from-46;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .dm--qg {
+    animation: 0s forwards d-6w1d6t, 0s forwards transform-sjojgf, 0.2s linear 0.5s forwards d-b9332p, 6s linear 0.7s infinite transform-4h7ceu;
+  }
+}
+
+.lsejuv {
+  d: path('M0 0h24v24H0z');
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+.s1e30s {
+  d: path('M15 13c0 1.66 -1.34 3 -3 3c-1.66 0 -3 -1.34 -3 -3c0 -1.66 3 -11 3 -11c0 0 3 9.34 3 11Z');
+  transform: rotate(65deg);
+  transform-origin: 12px 13px;
+}
+
+@media not (prefers-reduced-motion) {
+  .kw43gv {
+    opacity: 0;
+    animation: 0s forwards transform-sjojgf, 0s 0.5s forwards fade-to-1, 0.2s linear 0.5s forwards d-32p-1w, 6s linear 0.7s infinite transform-4h7ceu;
+  }
+}
+
+.yya7vx {
+  d: path('M5.64 19.36c-3.52 -3.51 -3.52 -9.21 0 -12.72c3.51 -3.52 9.21 -3.52 12.72 -0c3.52 3.51 3.52 9.21 0 12.72');
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+  stroke: #fff;
+}
+
+.wbgt5v {
+  d: path('M17 13c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 5 -15 5 -15c0 0 5 12.24 5 15Z');
+  transform: rotate(65deg);
+  transform-origin: 12px 13px;
+  fill: #000;
+}
+
+@keyframes so-from-46 {
+  0% {
+    stroke-dashoffset: 46;
+  }
+}
+
+@keyframes d-6w1d6t {
+  100% {
+    d: path('M12 14c0 0 0 0 0 0c0 0 0 0 0 0c0 0 0 0 0 0c0 0 0 0 0 0Z');
+  }
+}
+
+@keyframes transform-sjojgf {
+  100% {
+    transform: rotate(-100deg);
+  }
+}
+
+@keyframes d-b9332p {
+  100% {
+    d: path('M17 13c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 5 -15 5 -15c0 0 5 12.24 5 15Z');
+  }
+}
+
+@keyframes transform-4h7ceu {
+  8%, 20% {
+    transform: rotate(65deg);
+  }
+  28% {
+    transform: rotate(30deg);
+  }
+  36% {
+    transform: rotate(10deg);
+  }
+  44% {
+    transform: rotate(0deg);
+  }
+  52% {
+    transform: rotate(35deg);
+  }
+  60% {
+    transform: rotate(55deg);
+  }
+  76% {
+    transform: rotate(75deg);
+  }
+  84% {
+    transform: rotate(15deg);
+  }
+  92% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(-100deg);
+  }
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes d-32p-1w {
+  0% {
+    d: path('M12 14c0 0 0 0 0 0c0 0 0 0 0 0c0 0 0 0 0 0c0 0 0 0 0 0Z');
+  }
+}
+</style><defs><mask id="SVGe3f74bTc"><path class="low20g yya7vx"/><path class="dm--qg wbgt5v"/></mask></defs><path mask="url(#SVGe3f74bTc)" class="lsejuv ydovum"/><path class="kw43gv s1e30s ydovum"/></svg>

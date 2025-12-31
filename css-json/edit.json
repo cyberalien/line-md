@@ -1,0 +1,39 @@
+{
+  "content": "<path class=\"a0m25c ps5g7j pvp2-a\"/><path class=\"a0m25c coduqd mz6rrw\"/><path class=\"a0m25c bc9s0q g7fxuo\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "pvp2-a": {
+      "rules": "",
+      "animation": "stroke-dasharray:44;stroke-dashoffset:44;animation:0.5s linear 0.3s forwards so-to-0;"
+    },
+    "ps5g7j": {
+      "rules": "d:path('M7 17v-4l10 -10l4 4l-10 10h-4');"
+    },
+    "mz6rrw": {
+      "rules": "",
+      "animation": "stroke-dasharray:20;animation:0.3s linear forwards so-from-20;"
+    },
+    "coduqd": {
+      "rules": "d:path('M3 21h18');"
+    },
+    "g7fxuo": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.8s forwards so-to-0;"
+    },
+    "bc9s0q": {
+      "rules": "d:path('M14 6l4 4');"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
+    "so-from-20": "@keyframes so-from-20{0%{stroke-dashoffset:20}}"
+  }
+}

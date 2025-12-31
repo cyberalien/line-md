@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .vtuwrt {
+    stroke-dasharray: 54;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.9s forwards fill-to-0_3;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .ek9rqv {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    animation: 0.2s linear 0.7s forwards so-to-0;
+  }
+}
+
+.iw1iew {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+.b_skuu {
+  d: path('M3 4h14l-5 6.5v9.5l-4 -4v-5.5Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.mff-vb {
+  d: path('M16 18l2 2l3.5 -3.5');
+  fill: none;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-54 {
+  0% {
+    stroke-dashoffset: 54;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="b_skuu iw1iew vtuwrt"/><path class="ek9rqv iw1iew mff-vb"/></svg>

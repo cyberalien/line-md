@@ -1,0 +1,55 @@
+{
+  "content": "<defs><mask id=\"SVGeqk96cIR\"><path class=\"crodlc g26hbu t5pxry ymqg7r\"/><circle class=\"enq05i g26hbu rbvuog\"/><path class=\"awro1t eycklu oxx-om t5pxry\"/></mask></defs><path mask=\"url(#SVGeqk96cIR)\" class=\"botfzx\"/><path class=\"awro1t eycklu gd_4-q t5pxry\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ymqg7r": {
+      "rules": "",
+      "animation": "animation:0s forwards fill-to-0, 0.4s linear forwards d-jkxijw, 0.15s linear 0.4s forwards fill-to-0_3;"
+    },
+    "g26hbu": {
+      "rules": "fill:#fff;"
+    },
+    "enq05i": {
+      "rules": "",
+      "animation": "animation:0s forwards r-to-0px, 0.2s linear 0.65s forwards r-to-2_5px;"
+    },
+    "awro1t": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 0.85s forwards so-to-0;"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "crodlc": {
+      "rules": "d:path('M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');fill-opacity:0.3;stroke:#fff;"
+    },
+    "rbvuog": {
+      "rules": "r:2.5px;cx:12px;cy:9px;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "eycklu": {
+      "rules": "fill:none;transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "d-jkxijw": "@keyframes d-jkxijw{0%{d:path('M12 20.5c0 0 -1 -1.5 -1 -2.5c0 -0.5 0.5 -1 1 -1c0.5 0 1 0.5 1 1c0 1 -1 2.5 -1 2.5Z')}70%{d:path('M12 20.5c0 0 -7 -7.5 -7 -12.5c0 -3.5 3 -7 7 -7c4 0 7 3.5 7 7c0 5 -7 12.5 -7 12.5Z')}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "r-to-0px": "@keyframes r-to-0px{100%{r:0px}}",
+    "r-to-2_5px": "@keyframes r-to-2_5px{100%{r:2.5px}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

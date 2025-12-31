@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .efki8y {
+    animation: 0.2s linear forwards cx-from-17px;
+  }
+}
+
+.g36zgr {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.pkyeex {
+  cx: 7px;
+  cy: 12px;
+  r: 3px;
+  fill: currentColor;
+}
+
+@keyframes cx-from-17px {
+  0% {
+    cx: 17px;
+  }
+}
+</style><path class="g36zgr"/><circle class="efki8y pkyeex"/></svg>

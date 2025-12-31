@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ej4fay {
+    stroke-dasharray: 4;
+    animation: 0.2s linear forwards so-from-4;
+  }
+}
+
+.gwnkte {
+  d: path('M10 5h0.01');
+}
+
+@media not (prefers-reduced-motion) {
+  .j8xlvs {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.1s forwards so-to-0;
+  }
+}
+
+.f9wkuo {
+  d: path('M14 5h6');
+}
+
+@media not (prefers-reduced-motion) {
+  .lvc60w {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.3s forwards so-to-0;
+  }
+}
+
+.ixtqnm {
+  d: path('M8 10h0.01');
+}
+
+@media not (prefers-reduced-motion) {
+  .l2ncxh {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    animation: 0.2s linear 0.4s forwards so-to-0;
+  }
+}
+
+.bmhb4l {
+  d: path('M12 10h8');
+}
+
+@media not (prefers-reduced-motion) {
+  .cyegwe {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+}
+
+.kt4nqh {
+  d: path('M6 15h0.01');
+}
+
+@media not (prefers-reduced-motion) {
+  .j5x6ga {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.7s forwards so-to-0;
+  }
+}
+
+.oyic9t {
+  d: path('M10 15h10');
+}
+
+@media not (prefers-reduced-motion) {
+  .e6cmxg {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.9s forwards so-to-0;
+  }
+}
+
+.yboqnw {
+  d: path('M4 20h0.01');
+}
+
+@media not (prefers-reduced-motion) {
+  .rz1dnz {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 1s forwards so-to-0;
+  }
+}
+
+.g4u4ph {
+  d: path('M8 20h12');
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes so-from-4 {
+  0% {
+    stroke-dashoffset: 4;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="a0m25c ej4fay gwnkte"/><path class="a0m25c f9wkuo j8xlvs"/><path class="a0m25c ixtqnm lvc60w"/><path class="a0m25c bmhb4l l2ncxh"/><path class="a0m25c cyegwe kt4nqh"/><path class="a0m25c j5x6ga oyic9t"/><path class="a0m25c e6cmxg yboqnw"/><path class="a0m25c g4u4ph rz1dnz"/></svg>

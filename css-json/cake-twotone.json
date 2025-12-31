@@ -1,0 +1,60 @@
+{
+  "content": "<path class=\"a0m25c m1syek y4naak\"/><path class=\"a0m25c fj5khp ssiztv\"/><path class=\"a0m25c fjamgc zdqwkw\"/><path class=\"r5aews vfbvbd ydovum\"/><path class=\"ukgxor xd39ty ydovum\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "m1syek": {
+      "rules": "",
+      "animation": "stroke-dasharray:30;animation:0.4s linear forwards so-from-30;"
+    },
+    "y4naak": {
+      "rules": "d:path('M12 21h8v-9c0 -1.1 -0.9 -2 -2 -2h-6M12 21h-8v-9c0 -1.1 0.9 -2 2 -2h6');"
+    },
+    "fj5khp": {
+      "rules": "",
+      "animation": "stroke-dasharray:4;stroke-dashoffset:4;animation:0.2s linear 0.5s forwards so-to-0;"
+    },
+    "ssiztv": {
+      "rules": "d:path('M12 10v-2');"
+    },
+    "zdqwkw": {
+      "rules": "",
+      "animation": "stroke-dasharray:22;stroke-dashoffset:22;animation:0.3s linear 0.7s forwards so-to-0;"
+    },
+    "fjamgc": {
+      "rules": "d:path('M4 16h1c2 0 3.5 -2 3.5 -2c0 0 1.5 2 3.5 2c2 0 3.5 -2 3.5 -2c0 0 1.5 2 3.5 2h1');"
+    },
+    "r5aews": {
+      "rules": "d:path('M14 4c0 1.1 -0.9 2 -2 2c-1.1 0 -2 -0.9 -2 -2c0 -1.1 2 -4 2 -4c0 0 2 2.9 2 4Z');"
+    },
+    "vfbvbd": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-ll345f;"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "xd39ty": {
+      "rules": "",
+      "animation": "animation:0s forwards fill-to-0, 0.15s linear 1.2s forwards fill-to-0_3;"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    },
+    "ukgxor": {
+      "rules": "d:path('M15.5 14c0 0 -1.5 2 -3.5 2c-2 0 -3.5 -2 -3.5 -2c0 0 -1.5 2 -3.5 2h-1v5h16v-5h-1c-2 0 -3.5 -2 -3.5 -2Z');fill-opacity:0.3;"
+    }
+  },
+  "keyframes": {
+    "so-from-30": "@keyframes so-from-30{0%{stroke-dashoffset:30}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-ll345f": "@keyframes d-ll345f{0%{d:path('M13 5c0 0.5 -0.5 1 -1 1c-0.5 0 -1 -0.5 -1 -1c0 -0.5 1 -1 1 -1c0 0 1 0.5 1 1Z')}}",
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}"
+  }
+}

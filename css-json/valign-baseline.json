@@ -1,0 +1,32 @@
+{
+  "content": "<path class=\"l5bica nd5q0m qa-o7h\"/><path class=\"qa-o7h u3kwlo xome2j\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "l5bica": {
+      "rules": "",
+      "animation": "stroke-dasharray:22;animation:0.3s linear forwards so-from-22;"
+    },
+    "nd5q0m": {
+      "rules": "d:path('M2.5 11.5h19M2.5 18.5h19');"
+    },
+    "u3kwlo": {
+      "rules": "",
+      "animation": "stroke-dasharray:50;stroke-dashoffset:50;animation:0.6s linear 0.4s forwards so-to-0;"
+    },
+    "qa-o7h": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:none;"
+    },
+    "xome2j": {
+      "rules": "d:path('M12 6h6v12h-12v-12Z');stroke-width:2px;"
+    }
+  },
+  "keyframes": {
+    "so-from-22": "@keyframes so-from-22{0%{stroke-dashoffset:22}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

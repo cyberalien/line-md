@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ao492n {
+    stroke-dasharray: 66;
+    animation: 0.6s linear forwards so-from-66;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .zklp-r {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.4s linear 0.6s forwards so-to-0;
+  }
+}
+
+.rpsexf {
+  d: path('M3 16l4 -3l3 2l6 -5l5 4');
+}
+
+@media not (prefers-reduced-motion) {
+  .en1oqr {
+    opacity: 0;
+    animation: 0.2s linear 1s forwards fade-to-1;
+  }
+}
+
+.yvzrji {
+  d: path('M3 14v-9h18v14h-18v-5');
+  stroke-width: 2px;
+}
+
+.qa-o7h {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  fill: none;
+}
+
+.ivjlms {
+  cx: 7.5px;
+  cy: 9.5px;
+  r: 1.5px;
+  fill: currentColor;
+}
+
+@keyframes so-from-66 {
+  0% {
+    stroke-dashoffset: 66;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade-to-1 {
+  100% {
+    opacity: 1;
+  }
+}
+</style><path class="ao492n qa-o7h yvzrji"/><path class="qa-o7h rpsexf zklp-r"/><circle class="en1oqr ivjlms"/></svg>

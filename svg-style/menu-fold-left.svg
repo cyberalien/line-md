@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .lk7j7i {
+    stroke-dasharray: 16;
+    animation: 0.3s linear forwards so-from-16;
+  }
+}
+
+.b2w7so {
+  d: path('M19 5h-14');
+}
+
+@media not (prefers-reduced-motion) {
+  .isz7uc {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.3s forwards so-to-0;
+  }
+}
+
+.gxv2fz {
+  d: path('M19 12h-9');
+}
+
+@media not (prefers-reduced-motion) {
+  .nu5dve {
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    animation: 0.3s linear 0.5s forwards so-to-0;
+  }
+}
+
+.xc35vf {
+  d: path('M19 19h-14');
+}
+
+@media not (prefers-reduced-motion) {
+  .kowswq {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.8s forwards so-to-0;
+  }
+}
+
+.n8_zey {
+  d: path('M7 9l-3 3l3 3');
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes so-from-16 {
+  0% {
+    stroke-dashoffset: 16;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="a0m25c b2w7so lk7j7i"/><path class="a0m25c gxv2fz isz7uc"/><path class="a0m25c nu5dve xc35vf"/><path class="a0m25c kowswq n8_zey"/></svg>

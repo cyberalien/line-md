@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .whygcj {
+    animation: 0.4s linear forwards d-0mee5h;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .eyo_nx {
+    animation: 0.4s linear forwards d-r5jj3y;
+  }
+}
+
+.iw1iew {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+.zevzrb {
+  d: path('M20 5v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.w0tm3w {
+  d: path('M8 8h8M8 12h8M8 16h5M4 5v14c0 0.55 0.45 1 1 1h14');
+  fill: none;
+}
+
+@keyframes d-0mee5h {
+  0% {
+    d: path('M22 3v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z');
+  }
+}
+
+@keyframes d-r5jj3y {
+  0% {
+    d: path('M10 6h8M10 10h8M10 14h5M2 6v15c0 0.55 0.45 1 1 1h15');
+  }
+}
+</style><path class="iw1iew whygcj zevzrb"/><path class="eyo_nx iw1iew w0tm3w"/></svg>

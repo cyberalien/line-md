@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .q3i-gg {
+    stroke-dasharray: 34;
+    animation: 0.4s linear forwards so-from-34;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .m7vvkq {
+    animation: 0s forwards d-u-uo_p, 0.2s linear 0.4s forwards d-5-a1ir;
+  }
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .m5g-ms {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 0.6s forwards so-to-0;
+  }
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.x1ix5u {
+  d: path('M6 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
+  stroke: #fff;
+}
+
+.k9h8pf {
+  d: path('M16 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');
+  fill: #fff;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-34 {
+  0% {
+    stroke-dashoffset: 34;
+  }
+}
+
+@keyframes d-u-uo_p {
+  100% {
+    d: path('M16 12c0 0 0 0 0 0c0 0 0 0 0 0Z');
+  }
+}
+
+@keyframes d-5-a1ir {
+  100% {
+    d: path('M16 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGEEu7LcHb"><path class="c5xdmn q3i-gg x1ix5u"/><path class="k9h8pf m7vvkq"/><path class="c5xdmn m5g-ms oxx-om yl0nmc"/></mask></defs><path mask="url(#SVGEEu7LcHb)" class="botfzx"/><path class="c5xdmn gd_4-q m5g-ms yl0nmc"/></svg>

@@ -1,0 +1,33 @@
+{
+  "content": "<path class=\"low20g qa-o7h y8duux\"/><path class=\"c1hxos crz5_k qa-o7h\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "low20g": {
+      "rules": "",
+      "animation": "stroke-dasharray:46;animation:0.5s linear forwards so-from-46;"
+    },
+    "crz5_k": {
+      "rules": "d:path('M9 17l-2.5 2.5l-4 0l4.5 -4.5Z');"
+    },
+    "c1hxos": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.5s forwards fade-to-1, 0.3s linear 0.5s forwards d-9jpx1r;"
+    },
+    "qa-o7h": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:none;"
+    },
+    "y8duux": {
+      "rules": "d:path('M6 14l11 -11l4 4l-11 11l-4 -4Z');stroke-width:2px;"
+    }
+  },
+  "keyframes": {
+    "so-from-46": "@keyframes so-from-46{0%{stroke-dashoffset:46}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-9jpx1r": "@keyframes d-9jpx1r{0%{d:path('M9 17l0 0l-2 -2l0 0Z')}}"
+  }
+}

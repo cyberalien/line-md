@@ -1,0 +1,57 @@
+{
+  "content": "<defs><mask id=\"SVGvMwLIn7s\"><path class=\"qsm1zq t5pxry ziwl5l zxndow\"/><path class=\"qwuois ro5eeq t5pxry y4wbml zxndow\"/><path class=\"ggl9ne oxx-om t5pxry y4wbml yl0nmc\"/></mask></defs><path mask=\"url(#SVGvMwLIn7s)\" class=\"botfzx\"/><path class=\"gd_4-q ggl9ne t5pxry y4wbml yl0nmc\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ziwl5l": {
+      "rules": "",
+      "animation": "stroke-dasharray:62;fill-opacity:0;animation:0.6s linear forwards so-from-62, 0.4s linear 0.8s forwards fill-to-1;"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "qwuois": {
+      "rules": "d:path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');"
+    },
+    "ro5eeq": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "yl0nmc": {
+      "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "ggl9ne": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.3s forwards so-to-0;"
+    },
+    "qsm1zq": {
+      "rules": "fill:#fff;d:path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-62": "@keyframes so-from-62{0%{stroke-dashoffset:62}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-tnsd9f": "@keyframes d-tnsd9f{0%{d:path('M12 7h-9v0c0 0 0.45 0 1 0h6Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

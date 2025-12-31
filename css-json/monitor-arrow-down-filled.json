@@ -1,0 +1,71 @@
+{
+  "content": "<defs><mask id=\"SVGOIEa6cdL\"><path class=\"ey-aql g26hbu s_h8wi t5pxry zxndow\"/><path class=\"g26hbu j69b_u vzlc-k\"/><path class=\"kuqyvt m6lvki t5pxry y4wbml zxndow\"/><path class=\"fp8d8g qc_pkd t5pxry xwz10b y4wbml\"/><path class=\"g3jnly o7jz9z qc_pkd t5pxry y4wbml\"/></mask></defs><path mask=\"url(#SVGOIEa6cdL)\" class=\"botfzx\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "s_h8wi": {
+      "rules": "",
+      "animation": "stroke-dasharray:70;fill-opacity:0;animation:0.6s linear forwards so-from-70, 0.4s linear 1.2s forwards fill-to-1;"
+    },
+    "ey-aql": {
+      "rules": "d:path('M12 17h-10v-14h20v14Z');"
+    },
+    "g26hbu": {
+      "rules": "fill:#fff;"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "j69b_u": {
+      "rules": "d:path('M10 16h4v6h-4Z');"
+    },
+    "vzlc-k": {
+      "rules": "",
+      "animation": "animation:0s forwards d-fwg6_w, 0.2s linear 0.6s forwards d-7yzihk;"
+    },
+    "m6lvki": {
+      "rules": "",
+      "animation": "stroke-dasharray:6;stroke-dashoffset:6;animation:0.4s linear 0.8s forwards so-to-0;"
+    },
+    "kuqyvt": {
+      "rules": "d:path('M12 21h3M12 21h-3');"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "xwz10b": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1.7s forwards so-to-0;"
+    },
+    "fp8d8g": {
+      "rules": "d:path('M12 7v6');"
+    },
+    "qc_pkd": {
+      "rules": "stroke:#000;"
+    },
+    "g3jnly": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1.9s forwards so-to-0;"
+    },
+    "o7jz9z": {
+      "rules": "d:path('M12 13l3 -3M12 13l-3 -3');"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-70": "@keyframes so-from-70{0%{stroke-dashoffset:70}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "d-fwg6_w": "@keyframes d-fwg6_w{100%{d:path('M10 16h4v0h-4Z')}}",
+    "d-7yzihk": "@keyframes d-7yzihk{100%{d:path('M10 16h4v6h-4Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

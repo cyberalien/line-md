@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .r3q2cf {
+    stroke-dasharray: 20;
+    animation: 0s forwards fill-to-0, 1.5s linear infinite d-viliiy, 0.5s linear forwards so-from-20, 0.15s linear 0.7s forwards fill-to-0_3;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .mhf06j {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+}
+
+.iw1iew {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+.og96xj {
+  d: path('M12 15h2v-6h2.5l-4.5 -4.5M12 15h-2v-6h-2.5l4.5 -4.5');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.o17d7n {
+  d: path('M6 19h12');
+  fill: none;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes d-viliiy {
+  50% {
+    d: path('M12 15h2v-3h2.5l-4.5 -4.5M12 15h-2v-3h-2.5l4.5 -4.5');
+  }
+}
+
+@keyframes so-from-20 {
+  0% {
+    stroke-dashoffset: 20;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="iw1iew og96xj r3q2cf"/><path class="iw1iew mhf06j o17d7n"/></svg>

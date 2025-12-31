@@ -1,0 +1,21 @@
+{
+  "content": "<path class=\"se98io u9-tyy\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "se98io": {
+      "rules": "",
+      "animation": "stroke-dasharray:34;animation:0.5s linear forwards so-from-34;"
+    },
+    "u9-tyy": {
+      "rules": "d:path('M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-34": "@keyframes so-from-34{0%{stroke-dashoffset:34}}"
+  }
+}

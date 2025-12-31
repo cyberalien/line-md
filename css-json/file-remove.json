@@ -1,0 +1,67 @@
+{
+  "content": "<defs><mask id=\"SVGtObeldeQ\"><path class=\"fvotmv j6lqly t5pxry y4wbml zxndow\"/><path class=\"bofaos t5pxry tdr3zy zxndow\"/><path class=\"ikux3q yq7r9x\"/></mask></defs><path mask=\"url(#SVGtObeldeQ)\" class=\"botfzx\"/><path class=\"g7fxuo n96tiz s8e22g t5pxry y4wbml\"/><path class=\"kdlk-o lbvfhd s8e22g t5pxry y4wbml\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "j6lqly": {
+      "rules": "",
+      "animation": "stroke-dasharray:62;animation:0.6s linear forwards so-from-62;"
+    },
+    "fvotmv": {
+      "rules": "d:path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "tdr3zy": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;"
+    },
+    "ikux3q": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 0.8s forwards fade-to-1;"
+    },
+    "g7fxuo": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.8s forwards so-to-0;"
+    },
+    "n96tiz": {
+      "rules": "d:path('M17 17l4 4');"
+    },
+    "s8e22g": {
+      "rules": "stroke:currentColor;"
+    },
+    "kdlk-o": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1s forwards so-to-0;"
+    },
+    "lbvfhd": {
+      "rules": "d:path('M21 17l-4 4');"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "bofaos": {
+      "rules": "fill:#fff;d:path('M14 3.5l0 4.5l4.5 0Z');"
+    },
+    "yq7r9x": {
+      "rules": "d:path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');fill:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-62": "@keyframes so-from-62{0%{stroke-dashoffset:62}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "d-_-jasl": "@keyframes d-_-jasl{0%{d:path('M14 3.5l2.25 2.25l2.25 2.25Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

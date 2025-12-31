@@ -1,0 +1,40 @@
+{
+  "content": "<path class=\"z327oc zwihds\"/><path class=\"a0m25c ao492n m913mt\"/><path class=\"a0m25c nt4shc w7zdcu\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "z327oc": {
+      "rules": "",
+      "animation": "fill-opacity:0;animation:0.4s linear 0.9s forwards fill-to-1;"
+    },
+    "ao492n": {
+      "rules": "",
+      "animation": "stroke-dasharray:66;animation:0.6s linear forwards so-from-66;"
+    },
+    "m913mt": {
+      "rules": "d:path('M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z');"
+    },
+    "nt4shc": {
+      "rules": "",
+      "animation": "stroke-dasharray:24;stroke-dashoffset:24;animation:0.3s linear 0.6s forwards so-to-0;"
+    },
+    "w7zdcu": {
+      "rules": "d:path('M3 6.5l9 5.5l9 -5.5');"
+    },
+    "zwihds": {
+      "rules": "d:path('M12 13l-8 -5v10h16v-10l-8 5Z');fill:currentColor;"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "so-from-66": "@keyframes so-from-66{0%{stroke-dashoffset:66}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

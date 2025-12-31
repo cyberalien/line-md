@@ -1,0 +1,45 @@
+{
+  "content": "<path class=\"ey-aql iw1iew s_h8wi ydovum\"/><path class=\"j69b_u vzlc-k ydovum\"/><path class=\"irefei iw1iew m6lvki\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "s_h8wi": {
+      "rules": "",
+      "animation": "stroke-dasharray:70;fill-opacity:0;animation:0.6s linear forwards so-from-70, 0.4s linear 1.2s forwards fill-to-1;"
+    },
+    "ey-aql": {
+      "rules": "d:path('M12 17h-10v-14h20v14Z');"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "j69b_u": {
+      "rules": "d:path('M10 16h4v6h-4Z');"
+    },
+    "vzlc-k": {
+      "rules": "",
+      "animation": "animation:0s forwards d-fwg6_w, 0.2s linear 0.6s forwards d-7yzihk;"
+    },
+    "m6lvki": {
+      "rules": "",
+      "animation": "stroke-dasharray:6;stroke-dashoffset:6;animation:0.4s linear 0.8s forwards so-to-0;"
+    },
+    "iw1iew": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;"
+    },
+    "irefei": {
+      "rules": "d:path('M12 21h3M12 21h-3');fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-70": "@keyframes so-from-70{0%{stroke-dashoffset:70}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "d-fwg6_w": "@keyframes d-fwg6_w{100%{d:path('M10 16h4v0h-4Z')}}",
+    "d-7yzihk": "@keyframes d-7yzihk{100%{d:path('M10 16h4v6h-4Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

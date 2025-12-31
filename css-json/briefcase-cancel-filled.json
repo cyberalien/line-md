@@ -1,0 +1,67 @@
+{
+  "content": "<defs><mask id=\"SVGkwVpOeTy\"><path class=\"j70-bw pprenl t5pxry zxndow\"/><path class=\"h7habt jco1mq t5pxry y4wbml zxndow\"/><path class=\"gni6yj iydlkp\"/></mask></defs><path mask=\"url(#SVGkwVpOeTy)\" class=\"botfzx\"/><path class=\"em33eh kq4ewt s8e22g t5pxry y4wbml\"/><path class=\"s8e22g t5pxry um7ijq v4kj9k y4wbml\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "pprenl": {
+      "rules": "",
+      "animation": "stroke-dasharray:64;fill-opacity:0;animation:0.6s linear forwards so-from-64, 0.4s linear 1s forwards fill-to-1;"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "h7habt": {
+      "rules": "",
+      "animation": "stroke-dasharray:16;stroke-dashoffset:16;animation:0.3s linear 0.6s forwards so-to-0;"
+    },
+    "jco1mq": {
+      "rules": "d:path('M9 7v-3c0 -0.55 0.45 -1 1 -1h4c0.55 0 1 0.45 1 1v3');"
+    },
+    "y4wbml": {
+      "rules": "fill:none;"
+    },
+    "gni6yj": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 1.5s forwards fade-to-1;"
+    },
+    "kq4ewt": {
+      "rules": "",
+      "animation": "stroke-dasharray:32;stroke-dashoffset:32;animation:0.4s linear 1.5s forwards so-to-0;"
+    },
+    "em33eh": {
+      "rules": "d:path('M18.5 14c2.48 0 4.5 2.02 4.5 4.5c0 2.48 -2.02 4.5 -4.5 4.5c-2.48 0 -4.5 -2.02 -4.5 -4.5c0 -2.48 2.02 -4.5 4.5 -4.5Z');"
+    },
+    "s8e22g": {
+      "rules": "stroke:currentColor;"
+    },
+    "um7ijq": {
+      "rules": "",
+      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.9s forwards so-to-0;"
+    },
+    "v4kj9k": {
+      "rules": "d:path('M16 16l5 5');"
+    },
+    "j70-bw": {
+      "rules": "fill:#fff;d:path('M9 7h11c0.55 0 1 0.45 1 1v11c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11c0 -0.55 0.45 -1 1 -1Z');"
+    },
+    "t5pxry": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
+    },
+    "iydlkp": {
+      "rules": "d:path('M18.5 11c4.14 0 7.5 3.36 7.5 7.5c0 4.14 -3.36 7.5 -7.5 7.5c-4.14 0 -7.5 -3.36 -7.5 -7.5c0 -4.14 3.36 -7.5 7.5 -7.5Z');fill:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-64": "@keyframes so-from-64{0%{stroke-dashoffset:64}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}"
+  }
+}

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ff-xby {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+}
+
+.g_jjur {
+  d: path('M8 6h-6');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+.g_1xrq {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media not (prefers-reduced-motion) {
+  .g7fxuo {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.8s forwards so-to-0;
+  }
+}
+
+.nwk86s {
+  d: path('M8 10h-6');
+}
+
+@media not (prefers-reduced-motion) {
+  .kdlk-o {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1s forwards so-to-0;
+  }
+}
+
+.cl_6ym {
+  d: path('M8 14h-6');
+}
+
+@media not (prefers-reduced-motion) {
+  .z7trln {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.2s forwards so-to-0;
+  }
+}
+
+.zr00kp {
+  d: path('M8 18h-6');
+}
+
+.qe59mu {
+  d: path('M18 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z');
+}
+
+.lsejuv {
+  d: path('M0 0h24v24H0z');
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+.x5rkfs {
+  fill-opacity: 0.3;
+}
+
+@media not (prefers-reduced-motion) {
+  .pnpdhy {
+    stroke-dasharray: 40;
+    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-40, 0.15s linear 1.8s forwards fill-to-0_3;
+  }
+}
+
+.s8e22g {
+  stroke: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .pr_73z {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.2s linear 1.4s forwards so-to-0;
+  }
+}
+
+.fpimng {
+  d: path('M22 8v4');
+}
+
+@media not (prefers-reduced-motion) {
+  .rf76zp {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 1.6s forwards so-to-0;
+  }
+}
+
+.euaq_j {
+  d: path('M22 16v0.01');
+}
+
+.qw8aly {
+  fill: #000;
+  stroke-width: 4px;
+  stroke: #000;
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-40 {
+  0% {
+    stroke-dashoffset: 40;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+</style><defs><mask id="SVGcwDDcdqK"><path class="ff-xby g_1xrq g_jjur taf2xz y4wbml zxndow"/><path class="g7fxuo g_1xrq nwk86s taf2xz y4wbml zxndow"/><path class="cl_6ym g_1xrq kdlk-o taf2xz y4wbml zxndow"/><path class="g_1xrq taf2xz y4wbml z7trln zr00kp zxndow"/><path class="g_1xrq qe59mu qw8aly"/></mask></defs><path mask="url(#SVGcwDDcdqK)" class="lsejuv ydovum"/><path class="g_1xrq pnpdhy qe59mu s8e22g taf2xz x5rkfs ydovum"/><path class="fpimng g_1xrq pr_73z s8e22g taf2xz y4wbml"/><path class="euaq_j g_1xrq rf76zp s8e22g taf2xz y4wbml"/></svg>

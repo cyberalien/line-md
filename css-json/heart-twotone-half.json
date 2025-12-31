@@ -1,0 +1,30 @@
+{
+  "content": "<path class=\"e7pbpi ffkpoo\"/><path class=\"an6i3m uvn6wq\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "e7pbpi": {
+      "rules": "",
+      "animation": "animation:0s forwards fill-to-0, 0.15s linear 0.6s forwards fill-to-0_3;"
+    },
+    "uvn6wq": {
+      "rules": "",
+      "animation": "stroke-dasharray:30;animation:0.6s linear forwards so-from-30;"
+    },
+    "ffkpoo": {
+      "rules": "d:path('M12 8c0 0 0 0 -0.76 -1c-0.88 -1.16 -2.18 -2 -3.74 -2c-2.49 0 -4.5 2.01 -4.5 4.5c0 0.93 0.28 1.79 0.76 2.5c0.81 1.21 8.24 9 8.24 9Z');fill-opacity:0.3;fill:currentColor;"
+    },
+    "an6i3m": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;d:path('M12 8c0 0 0 0 -0.76 -1c-0.88 -1.16 -2.18 -2 -3.74 -2c-2.49 0 -4.5 2.01 -4.5 4.5c0 0.93 0.28 1.79 0.76 2.5c0.81 1.21 8.24 9 8.24 9M12 8c0 0 0 0 0.76 -1c0.88 -1.16 2.18 -2 3.74 -2c2.49 0 4.5 2.01 4.5 4.5c0 0.93 -0.28 1.79 -0.76 2.5c-0.81 1.21 -8.24 9 -8.24 9');stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "so-from-30": "@keyframes so-from-30{0%{stroke-dashoffset:30}}"
+  }
+}

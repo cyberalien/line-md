@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .mz6rrw {
+    stroke-dasharray: 20;
+    animation: 0.3s linear forwards so-from-20;
+  }
+}
+
+.se58cl {
+  d: path('M21 3v18');
+}
+
+@media not (prefers-reduced-motion) {
+  .j-jftv {
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    animation: 0.3s linear 0.4s forwards so-to-0;
+  }
+}
+
+.bvgp5y {
+  d: path('M17 12h-13.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .j5x6ga {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.7s forwards so-to-0;
+  }
+}
+
+.pnj63y {
+  d: path('M3 12l7 7M3 12l7 -7');
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes so-from-20 {
+  0% {
+    stroke-dashoffset: 20;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="a0m25c mz6rrw se58cl"/><path class="a0m25c bvgp5y j-jftv"/><path class="a0m25c j5x6ga pnj63y"/></svg>

@@ -1,0 +1,39 @@
+{
+  "content": "<circle class=\"iazevu k8gjfm\"/><path class=\"a0m25c bt90qb eotxga\"/><path class=\"a0m25c m5g-ms u8pj3n\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "iazevu": {
+      "rules": "",
+      "animation": "animation:0.2s linear forwards r-from-0px;"
+    },
+    "bt90qb": {
+      "rules": "",
+      "animation": "stroke-dasharray:18;stroke-dashoffset:18;animation:0.3s linear 0.2s forwards so-to-0;"
+    },
+    "eotxga": {
+      "rules": "d:path('M4 11c2.39 0 4.68 0.95 6.36 2.64c1.69 1.68 2.64 3.97 2.64 6.36');"
+    },
+    "m5g-ms": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 0.6s forwards so-to-0;"
+    },
+    "u8pj3n": {
+      "rules": "d:path('M4 4c4.24 0 8.31 1.69 11.31 4.69c3 3 4.69 7.07 4.69 11.31');"
+    },
+    "k8gjfm": {
+      "rules": "cx:5px;cy:19px;r:2px;fill:currentColor;"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "r-from-0px": "@keyframes r-from-0px{0%{r:0px}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

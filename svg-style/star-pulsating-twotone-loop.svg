@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .lngc7g {
+    animation: 0s forwards fill-to-0, 1.5s linear infinite d-3twqkg, 0.15s linear 0.5s forwards fill-to-0_3;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .gh7arw {
+    stroke-dasharray: 34;
+    animation: 1.5s linear infinite d-t9c80f, 0.5s linear forwards so-from-34;
+  }
+}
+
+.xt8i5j {
+  d: path('M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28l-5.29 3.28l1.49 -6.04l-4.76 -4.02l6.21 -0.46Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.n0w0qy {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28');
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes d-3twqkg {
+  50% {
+    d: path('M12 7l1.18 3.38l3.58 0.07l-2.86 2.17l1.04 3.43l-2.94 -2.05l-2.94 2.05l1.04 -3.43l-2.86 -2.17l3.58 -0.07Z');
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes d-t9c80f {
+  50% {
+    d: path('M12 7l-1.18 3.38l-3.58 0.07l2.86 2.17l-1.04 3.43l2.94 -2.05M12 7l1.18 3.38l3.58 0.07l-2.86 2.17l1.04 3.43l-2.94 -2.05');
+  }
+}
+
+@keyframes so-from-34 {
+  0% {
+    stroke-dashoffset: 34;
+  }
+}
+</style><path class="lngc7g xt8i5j"/><path class="gh7arw n0w0qy"/></svg>

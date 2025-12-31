@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .kv14zj {
+    stroke-dasharray: 48;
+    fill-opacity: 0;
+    transform-origin: 10px 20.5px;
+    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
+  }
+}
+
+.djeo3r {
+  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+.g_1xrq {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media not (prefers-reduced-motion) {
+  .lsywek {
+    stroke-dasharray: 48;
+    fill-opacity: 0;
+    transform-origin: 14px 20.5px;
+    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
+  }
+}
+
+.n53t9u {
+  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+}
+
+.nf43cj {
+  fill: #000;
+}
+
+.qc_pkd {
+  stroke: #000;
+}
+
+.q0shub {
+  stroke-width: 4px;
+}
+
+@media not (prefers-reduced-motion) {
+  .qzmcuq {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .srt6gc {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.4s forwards so-to-0;
+  }
+}
+
+.nsraqz {
+  d: path('M-1 11h26');
+}
+
+.eusm4q {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.jf85im {
+  cx: 14px;
+  cy: 9px;
+  r: 2.5px;
+}
+
+.eycklu {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-48 {
+  0% {
+    stroke-dashoffset: 48;
+  }
+}
+
+@keyframes transform-7ecuqx {
+  30%, 54%, 70%, 100% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  68% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes r-to-0px {
+  100% {
+    r: 0px;
+  }
+}
+
+@keyframes r-to-2_5px {
+  100% {
+    r: 2.5px;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGX7VhHeHp"><path class="djeo3r eusm4q g_1xrq kv14zj taf2xz"/><path class="g_1xrq lsywek n53t9u nf43cj q0shub qc_pkd"/><path class="eusm4q g_1xrq lsywek n53t9u taf2xz"/><circle class="jf85im nf43cj qzmcuq"/><path class="eycklu g_1xrq nsraqz qc_pkd srt6gc taf2xz"/></mask></defs><path mask="url(#SVGX7VhHeHp)" class="botfzx"/><path class="eycklu g_1xrq gd_4-q srt6gc taf2xz"/></svg>

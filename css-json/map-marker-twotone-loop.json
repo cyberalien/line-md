@@ -1,0 +1,36 @@
+{
+  "content": "<path class=\"j_2v5e tyiptx ydovum\"/><circle class=\"rbvuog wjit4q ydovum\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "j_2v5e": {
+      "rules": "",
+      "animation": "stroke-dasharray:48;transform-origin:12px 20.5px;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.15s linear 0.7s forwards fill-to-0_3;"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "wjit4q": {
+      "rules": "",
+      "animation": "animation:0s forwards r-to-0px, 0.2s linear 0.95s forwards r-to-2_5px;"
+    },
+    "tyiptx": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');stroke:currentColor;stroke-width:2px;fill-opacity:0.3;"
+    },
+    "rbvuog": {
+      "rules": "r:2.5px;cx:12px;cy:9px;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-48": "@keyframes so-from-48{0%{stroke-dashoffset:48}}",
+    "transform-7ecuqx": "@keyframes transform-7ecuqx{30%, 54%, 70%, 100%{transform:rotate(0deg)}40%{transform:rotate(-8deg)}60%{transform:rotate(5deg)}68%{transform:rotate(-2deg)}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "r-to-0px": "@keyframes r-to-0px{100%{r:0px}}",
+    "r-to-2_5px": "@keyframes r-to-2_5px{100%{r:2.5px}}"
+  }
+}

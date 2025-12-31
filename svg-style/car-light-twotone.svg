@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ff-xby {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+}
+
+.gjm16n {
+  d: path('M11 6h-6');
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+.g_1xrq {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media not (prefers-reduced-motion) {
+  .g7fxuo {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.8s forwards so-to-0;
+  }
+}
+
+.f-0v_z {
+  d: path('M11 10h-6');
+}
+
+@media not (prefers-reduced-motion) {
+  .kdlk-o {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1s forwards so-to-0;
+  }
+}
+
+.sjx9fd {
+  d: path('M11 14h-6');
+}
+
+@media not (prefers-reduced-motion) {
+  .z7trln {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.2s forwards so-to-0;
+  }
+}
+
+.b7k19f {
+  d: path('M11 18h-6');
+}
+
+.z_b1hb {
+  d: path('M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z');
+}
+
+.lsejuv {
+  d: path('M0 0h24v24H0z');
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .c-wjtw {
+    stroke-dasharray: 40;
+    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-40, 0.15s linear 1.4s forwards fill-to-0_3;
+  }
+}
+
+.l6h9ud {
+  fill: none;
+  stroke: #fff;
+}
+
+.qw8aly {
+  fill: #000;
+  stroke-width: 4px;
+  stroke: #000;
+}
+
+.i093gj {
+  stroke: currentColor;
+  fill-opacity: 0.3;
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-40 {
+  0% {
+    stroke-dashoffset: 40;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+</style><defs><mask id="SVGnrtACcDE"><path class="ff-xby g_1xrq gjm16n l6h9ud taf2xz"/><path class="f-0v_z g7fxuo g_1xrq l6h9ud taf2xz"/><path class="g_1xrq kdlk-o l6h9ud sjx9fd taf2xz"/><path class="b7k19f g_1xrq l6h9ud taf2xz z7trln"/><path class="g_1xrq qw8aly z_b1hb"/></mask></defs><path mask="url(#SVGnrtACcDE)" class="lsejuv ydovum"/><path class="c-wjtw g_1xrq i093gj taf2xz ydovum z_b1hb"/></svg>

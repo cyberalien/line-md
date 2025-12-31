@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .y-of2o {
+    stroke-dasharray: 60;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 1s forwards fill-to-0_3;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .k4k6fe {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.2s linear 0.7s forwards so-to-0;
+  }
+}
+
+.hg4jfh {
+  d: path('M12 10v4');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .rp5_zv {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.7s forwards so-to-0;
+  }
+}
+
+.xlm2_l {
+  d: path('M12 17v0.01');
+}
+
+.ete1vj {
+  d: path('M12 3l9 17h-18l9 -17Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.iw1iew {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-60 {
+  0% {
+    stroke-dashoffset: 60;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="ete1vj iw1iew y-of2o"/><path class="hg4jfh iw1iew k4k6fe y4wbml"/><path class="iw1iew rp5_zv xlm2_l y4wbml"/></svg>

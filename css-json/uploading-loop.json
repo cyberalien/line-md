@@ -1,0 +1,51 @@
+{
+  "content": "<path class=\"g_1xrq ixizle kokv_p o77nnc\"/><path class=\"d3jeox nwwb_s o77nnc\"/><path class=\"g_1xrq h2a7ti o77nnc p3v8vf\"/><path class=\"g_1xrq hd3mjs o77nnc s0wfsy\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "kokv_p": {
+      "rules": "",
+      "animation": "stroke-dasharray:32;animation:0.6s linear forwards so-from-32;"
+    },
+    "ixizle": {
+      "rules": "d:path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9');"
+    },
+    "g_1xrq": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;"
+    },
+    "nwwb_s": {
+      "rules": "",
+      "animation": "opacity:0;stroke-dashoffset:6;transform-origin:12px 12px;animation:0s 0.45s forwards fade-to-1, 0.6s linear 0.45s forwards transform-l6a01f, 0.6s linear 0.85s infinite so-to-0;"
+    },
+    "p3v8vf": {
+      "rules": "",
+      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 0.85s forwards so-to-0;"
+    },
+    "h2a7ti": {
+      "rules": "d:path('M12 16v-7.5');"
+    },
+    "s0wfsy": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1.05s forwards so-to-0;"
+    },
+    "hd3mjs": {
+      "rules": "d:path('M12 8.5l3.5 3.5M12 8.5l-3.5 3.5');"
+    },
+    "o77nnc": {
+      "rules": "stroke:currentColor;stroke-width:2px;fill:none;"
+    },
+    "d3jeox": {
+      "rules": "d:path('M12 21c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9');stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2 4;"
+    }
+  },
+  "keyframes": {
+    "so-from-32": "@keyframes so-from-32{0%{stroke-dashoffset:32}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
+    "transform-l6a01f": "@keyframes transform-l6a01f{0%{transform:rotate(-180deg)}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

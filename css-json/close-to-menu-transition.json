@@ -1,0 +1,21 @@
+{
+  "content": "<path class=\"gcyd6o ookgpd\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "gcyd6o": {
+      "rules": "",
+      "animation": "animation:0.4s linear forwards d-jarxnk;"
+    },
+    "ookgpd": {
+      "rules": "d:path('M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "d-jarxnk": "@keyframes d-jarxnk{0%{d:path('M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7')}}"
+  }
+}

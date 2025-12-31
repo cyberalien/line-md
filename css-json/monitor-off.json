@@ -1,0 +1,60 @@
+{
+  "content": "<defs><mask id=\"SVGnSMDHbEk\"><path class=\"c5xdmn ey-aql p-jc7h zxndow\"/><path class=\"dvn_ub vzlc-k\"/><path class=\"c5xdmn kuqyvt m6lvki zxndow\"/><path class=\"c5xdmn mgj96l oxx-om yl0nmc\"/></mask></defs><path mask=\"url(#SVGnSMDHbEk)\" class=\"botfzx\"/><path class=\"c5xdmn gd_4-q mgj96l yl0nmc\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "p-jc7h": {
+      "rules": "",
+      "animation": "stroke-dasharray:70;animation:0.6s linear forwards so-from-70;"
+    },
+    "ey-aql": {
+      "rules": "d:path('M12 17h-10v-14h20v14Z');"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "vzlc-k": {
+      "rules": "",
+      "animation": "animation:0s forwards d-fwg6_w, 0.2s linear 0.6s forwards d-7yzihk;"
+    },
+    "m6lvki": {
+      "rules": "",
+      "animation": "stroke-dasharray:6;stroke-dashoffset:6;animation:0.4s linear 0.8s forwards so-to-0;"
+    },
+    "kuqyvt": {
+      "rules": "d:path('M12 21h3M12 21h-3');"
+    },
+    "yl0nmc": {
+      "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "mgj96l": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.2s forwards so-to-0;"
+    },
+    "c5xdmn": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none;"
+    },
+    "dvn_ub": {
+      "rules": "fill:#fff;d:path('M10 16h4v6h-4Z');"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-70": "@keyframes so-from-70{0%{stroke-dashoffset:70}}",
+    "d-fwg6_w": "@keyframes d-fwg6_w{100%{d:path('M10 16h4v0h-4Z')}}",
+    "d-7yzihk": "@keyframes d-7yzihk{100%{d:path('M10 16h4v6h-4Z')}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

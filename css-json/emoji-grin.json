@@ -1,0 +1,48 @@
+{
+  "content": "<path class=\"a0m25c ntf2iq z9lw0g\"/><path class=\"a0m25c cyegwe rlwpmy\"/><path class=\"a0m25c kfg56g zo2mgx\"/><path class=\"wpfo6j zpxnyr\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ntf2iq": {
+      "rules": "",
+      "animation": "stroke-dasharray:60;animation:0.6s linear forwards so-from-60;"
+    },
+    "z9lw0g": {
+      "rules": "d:path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9');"
+    },
+    "cyegwe": {
+      "rules": "",
+      "animation": "stroke-dasharray:4;stroke-dashoffset:4;animation:0.2s linear 0.6s forwards so-to-0;"
+    },
+    "rlwpmy": {
+      "rules": "d:path('M9 9v1');"
+    },
+    "zo2mgx": {
+      "rules": "",
+      "animation": "stroke-dasharray:4;stroke-dashoffset:4;animation:0.2s linear 0.8s forwards so-to-0;"
+    },
+    "kfg56g": {
+      "rules": "d:path('M15 9v1');"
+    },
+    "zpxnyr": {
+      "rules": "",
+      "animation": "animation:0s forwards d-cfpe7y, 0.2s linear 1s forwards d-p1facq;"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    },
+    "wpfo6j": {
+      "rules": "d:path('M12 14c-2.5 0 -3.25 -1 -4 -1c-0.55 0 -1 0.45 -1 1c0 0.75 1.5 4 5 4c3.5 0 5 -3.25 5 -4c0 -0.55 -0.45 -1 -1 -1c-0.75 0 -1.5 1 -4 1Z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "so-from-60": "@keyframes so-from-60{0%{stroke-dashoffset:60}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
+    "d-cfpe7y": "@keyframes d-cfpe7y{100%{d:path('M12 15c-2.5 0 -3.25 0 -4 0c-0.55 0 -1 0 -1 0c0 0 1.5 0 5 0c3.5 0 5 0 5 0c0 0 -0.45 0 -1 0c-0.75 0 -1.5 0 -4 0Z')}}",
+    "d-p1facq": "@keyframes d-p1facq{100%{d:path('M12 14c-2.5 0 -3.25 -1 -4 -1c-0.55 0 -1 0.45 -1 1c0 0.75 1.5 4 5 4c3.5 0 5 -3.25 5 -4c0 -0.55 -0.45 -1 -1 -1c-0.75 0 -1.5 1 -4 1Z')}}"
+  }
+}

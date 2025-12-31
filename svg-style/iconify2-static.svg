@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.zxndow {
+  stroke: #fff;
+}
+
+.x82j5v {
+  d: path('M7 6v-3M5 8v11h14v-11');
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+.dizlzg {
+  d: path('M12 16v4.5M12 3l8.5 5.5');
+}
+
+.w_o-7b {
+  d: path('M12 3l8.5 5.5');
+}
+
+.mdiuwa {
+  d: path('M12 3l-8.5 5.5');
+}
+
+.nvw5hd {
+  d: path('M12 11.5v9');
+}
+
+.lsejuv {
+  d: path('M0 0h24v24H0z');
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+.mr6-qm {
+  cx: 12px;
+  cy: 11.5px;
+  r: 1.5px;
+}
+
+.j217dw {
+  stroke-width: 1.5px;
+  d: path('M3.25 22.25h17.5');
+}
+
+.r1menc {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.ainywl {
+  stroke-width: 4px;
+  stroke: #000;
+}
+
+.lejxcg {
+  fill: #000;
+  cx: 12px;
+  cy: 11.5px;
+  r: 3.5px;
+}
+</style><defs><mask id="SVGD7kvoeQx"><path class="j217dw r1menc zxndow"/><path class="r1menc taf2xz x82j5v zxndow"/><path class="ainywl dizlzg r1menc"/><path class="r1menc taf2xz w_o-7b zxndow"/><path class="ainywl mdiuwa r1menc"/><path class="mdiuwa r1menc taf2xz zxndow"/><path class="nvw5hd r1menc taf2xz zxndow"/><circle class="lejxcg"/></mask></defs><path mask="url(#SVGD7kvoeQx)" class="lsejuv ydovum"/><circle class="mr6-qm ydovum"/></svg>

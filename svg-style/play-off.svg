@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .qb3u_k {
+    stroke-dasharray: 38;
+    animation: 0.5s linear forwards so-from-38;
+  }
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .xlj3dj {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 0.5s forwards so-to-0;
+  }
+}
+
+.vvhxgz {
+  d: path('M8 6l10 6l-10 6Z');
+  stroke: #fff;
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-38 {
+  0% {
+    stroke-dashoffset: 38;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGUehXYbbC"><path class="c5xdmn qb3u_k vvhxgz"/><path class="c5xdmn oxx-om xlj3dj yl0nmc"/></mask></defs><path mask="url(#SVGUehXYbbC)" class="botfzx"/><path class="c5xdmn gd_4-q xlj3dj yl0nmc"/></svg>

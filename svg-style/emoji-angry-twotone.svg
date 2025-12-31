@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .la80af {
+    stroke-dasharray: 60;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 1.2s forwards fill-to-0_3;
+  }
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+@media not (prefers-reduced-motion) {
+  .cyegwe {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+}
+
+.rlwpmy {
+  d: path('M9 9v1');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .aeobpz {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+}
+
+.z_bm5u {
+  d: path('M9.5 8.5l-2 -1');
+}
+
+@media not (prefers-reduced-motion) {
+  .zo2mgx {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.8s forwards so-to-0;
+  }
+}
+
+.kfg56g {
+  d: path('M15 9v1');
+}
+
+@media not (prefers-reduced-motion) {
+  .wn_-1q {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.2s linear 0.8s forwards so-to-0;
+  }
+}
+
+.nzpuon {
+  d: path('M14.5 8.5l2 -1');
+}
+
+@media not (prefers-reduced-motion) {
+  .pgj22w {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1s forwards so-to-0;
+  }
+}
+
+.vqb3mt {
+  d: path('M8 16c0.5 -1 1.79 -2 4 -2c2.21 0 3.5 1 4 2');
+}
+
+.s1ui7u {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+}
+
+.yynpiv {
+  fill-opacity: 0.3;
+  fill: currentColor;
+  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9');
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-60 {
+  0% {
+    stroke-dashoffset: 60;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="la80af s1ui7u taf2xz yynpiv"/><path class="cyegwe rlwpmy s1ui7u taf2xz y4wbml"/><path class="aeobpz s1ui7u y4wbml z_bm5u"/><path class="kfg56g s1ui7u taf2xz y4wbml zo2mgx"/><path class="nzpuon s1ui7u wn_-1q y4wbml"/><path class="pgj22w s1ui7u taf2xz vqb3mt y4wbml"/></svg>

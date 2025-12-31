@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .ceb96a {
+    stroke-dasharray: 60;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-60, 0.4s linear 0.6s forwards fill-to-1;
+  }
+}
+
+.g26hbu {
+  fill: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .qzhgop {
+    transform: rotate(-180deg);
+    transform-origin: 12px 12px;
+    animation: 0s forwards d-tcc6vx, 0.3s linear 1.1s forwards d-67r94s, 9s linear 1.1s infinite transform--s0y2h;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .i-rd3h {
+    animation: 0s forwards r-to-0px, 0.3s linear 1.1s forwards r-to-1px;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .e-vrhp {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.6s forwards so-to-0;
+  }
+}
+
+.t5pxry {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+.pa25mj {
+  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
+  stroke: #fff;
+}
+
+.i3zprw {
+  fill: #000;
+  d: path('M10.2 10.2l6.8 -3.2l-3.2 6.8l-6.8 3.2Z');
+}
+
+.yy3iwp {
+  cx: 12px;
+  cy: 12px;
+  r: 1px;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.eycklu {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-60 {
+  0% {
+    stroke-dashoffset: 60;
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes d-tcc6vx {
+  100% {
+    d: path('M11 11l1 1l1 1l-1 -1Z');
+  }
+}
+
+@keyframes d-67r94s {
+  100% {
+    d: path('M10.2 10.2l6.8 -3.2l-3.2 6.8l-6.8 3.2Z');
+  }
+}
+
+@keyframes transform--s0y2h {
+  30%, 50%, 80% {
+    transform: rotate(0deg);
+  }
+  36% {
+    transform: rotate(270deg);
+  }
+  42% {
+    transform: rotate(-90deg);
+  }
+  58%, 100% {
+    transform: rotate(-180deg);
+  }
+  65% {
+    transform: rotate(-35deg);
+  }
+  76% {
+    transform: rotate(-45deg);
+  }
+  84% {
+    transform: rotate(-110deg);
+  }
+  92% {
+    transform: rotate(-135deg);
+  }
+}
+
+@keyframes r-to-0px {
+  100% {
+    r: 0px;
+  }
+}
+
+@keyframes r-to-1px {
+  100% {
+    r: 1px;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGK0lD0mfu"><path class="ceb96a g26hbu pa25mj t5pxry"/><path class="i3zprw qzhgop"/><circle class="g26hbu i-rd3h yy3iwp"/><path class="e-vrhp eycklu oxx-om t5pxry"/></mask></defs><path mask="url(#SVGK0lD0mfu)" class="botfzx"/><path class="e-vrhp eycklu gd_4-q t5pxry"/></svg>

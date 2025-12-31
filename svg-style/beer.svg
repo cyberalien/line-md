@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .cx3gut {
+    stroke-dasharray: 18;
+    stroke-dashoffset: 18;
+    animation: 0.3s linear 0.6s forwards so-to-0;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .j6lqly {
+    stroke-dasharray: 62;
+    animation: 0.6s linear forwards so-from-62;
+  }
+}
+
+.rwx0uh {
+  d: path('M5 7.67h1c0.6 -0.37 1.22 -0.67 2 -0.67c2 0 3 2 5 2c1.64 0 2.6 -1.34 4 -1.83h1');
+  stroke: #fff;
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.j3vs1j {
+  fill: #000;
+  d: path('M18 3l-2 18h-9l-2 -18h-5v21h24v-20Z');
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.k4tgzu {
+  d: path('M18 3l-2 18h-9l-2 -18Z');
+  stroke: currentColor;
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes so-from-62 {
+  0% {
+    stroke-dashoffset: 62;
+  }
+}
+</style><defs><mask id="SVGsHW8Q5Ud"><path class="c5xdmn cx3gut rwx0uh"/><path class="j3vs1j"/></mask></defs><path mask="url(#SVGsHW8Q5Ud)" class="botfzx"/><path class="c5xdmn j6lqly k4tgzu"/></svg>

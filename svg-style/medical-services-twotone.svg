@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .m2t6jm {
+    stroke-dasharray: 64;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-64, 0.15s linear 1s forwards fill-to-0_3;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .h7habt {
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    animation: 0.3s linear 0.6s forwards so-to-0;
+  }
+}
+
+.jco1mq {
+  d: path('M9 7v-3c0 -0.55 0.45 -1 1 -1h4c0.55 0 1 0.45 1 1v3');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .zlnyzf {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.25s forwards so-to-0;
+  }
+}
+
+.va0wet {
+  d: path('M12 11v6');
+}
+
+@media not (prefers-reduced-motion) {
+  .hssjsx {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.45s forwards so-to-0;
+  }
+}
+
+.dcyi9s {
+  d: path('M9 14h6');
+}
+
+.iw1iew {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+.yhztjn {
+  d: path('M9 7h11c0.55 0 1 0.45 1 1v11c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11c0 -0.55 0.45 -1 1 -1Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-64 {
+  0% {
+    stroke-dashoffset: 64;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="iw1iew m2t6jm yhztjn"/><path class="h7habt iw1iew jco1mq y4wbml"/><path class="iw1iew va0wet y4wbml zlnyzf"/><path class="dcyi9s hssjsx iw1iew y4wbml"/></svg>

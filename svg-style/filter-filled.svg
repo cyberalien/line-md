@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .pvph2p {
+    stroke-dasharray: 54;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-54, 0.4s linear 0.7s forwards fill-to-1;
+  }
+}
+
+.xb69mp {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M5 4h14l-5 6.5v9.5l-4 -4v-5.5Z');
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: currentColor;
+}
+
+@keyframes so-from-54 {
+  0% {
+    stroke-dashoffset: 54;
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+</style><path class="pvph2p xb69mp"/></svg>

@@ -1,0 +1,27 @@
+{
+  "content": "<defs><mask id=\"SVGfvnCtewP\"><path class=\"snl_hb\"/><circle class=\"efki8y ojej7l\"/></mask></defs><path mask=\"url(#SVGfvnCtewP)\" class=\"botfzx\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "efki8y": {
+      "rules": "",
+      "animation": "animation:0.2s linear forwards cx-from-17px;"
+    },
+    "snl_hb": {
+      "rules": "fill:#fff;stroke-linecap:round;stroke-linejoin:round;d:path('M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');stroke-width:2px;stroke:#fff;"
+    },
+    "ojej7l": {
+      "rules": "fill:#000;cx:7px;cy:12px;r:3px;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "cx-from-17px": "@keyframes cx-from-17px{0%{cx:17px}}"
+  }
+}

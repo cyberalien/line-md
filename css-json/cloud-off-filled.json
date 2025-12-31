@@ -1,0 +1,59 @@
+{
+  "content": "<defs><mask id=\"SVGLd7grbAq\"><path class=\"j0tslp z327oc\"/><path class=\"c5xdmn qsudlx v9gp5p zxndow\"/><path class=\"c5xdmn hv3c6m k1oc5g zxndow\"/><path class=\"c5xdmn oxx-om srt6gc yl0nmc\"/></mask></defs><path mask=\"url(#SVGLd7grbAq)\" class=\"botfzx\"/><path class=\"c5xdmn gd_4-q srt6gc yl0nmc\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "z327oc": {
+      "rules": "",
+      "animation": "fill-opacity:0;animation:0.4s linear 0.9s forwards fill-to-1;"
+    },
+    "qsudlx": {
+      "rules": "",
+      "animation": "stroke-dasharray:22;animation:0.5s linear forwards so-from-22;"
+    },
+    "v9gp5p": {
+      "rules": "d:path('M12 19h-5c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c1 0 1.5 0.5 1.5 0.5M12 19h5c2.5 0 4 -2 4 -4c0 -2 -1.5 -4 -4 -4c-1 0 -1.5 0.5 -1.5 0.5');"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "hv3c6m": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.4s linear 0.5s forwards so-to-0;"
+    },
+    "k1oc5g": {
+      "rules": "d:path('M7 11v-1c0 -2.5 2 -5 5 -5M17 11v-1c0 -2.5 -2 -5 -5 -5');"
+    },
+    "yl0nmc": {
+      "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
+    },
+    "srt6gc": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.4s forwards so-to-0;"
+    },
+    "j0tslp": {
+      "rules": "d:path('M7 19c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c0 -3.5 2 -6 5 -6c3 0 5 2.5 5 5v1c2.5 0 4 2 4 4c0 2 -1.5 4 -4 4Z');fill:#fff;"
+    },
+    "c5xdmn": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none;"
+    },
+    "oxx-om": {
+      "rules": "d:path('M-1 11h26');stroke:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    },
+    "gd_4-q": {
+      "rules": "d:path('M-1 13h26');stroke:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "so-from-22": "@keyframes so-from-22{0%{stroke-dashoffset:22}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

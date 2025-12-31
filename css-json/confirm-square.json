@@ -1,0 +1,32 @@
+{
+  "content": "<path class=\"a0m25c ao492n jd_skz\"/><path class=\"a0m25c b_m64c mxf5wz\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ao492n": {
+      "rules": "",
+      "animation": "stroke-dasharray:66;animation:0.6s linear forwards so-from-66;"
+    },
+    "jd_skz": {
+      "rules": "d:path('M4 12v-7c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1Z');"
+    },
+    "b_m64c": {
+      "rules": "",
+      "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 0.6s forwards so-to-0;"
+    },
+    "mxf5wz": {
+      "rules": "d:path('M8 12l3 3l5 -5');"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-66": "@keyframes so-from-66{0%{stroke-dashoffset:66}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

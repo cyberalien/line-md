@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .zwgmdq {
+    stroke-dasharray: 36;
+    animation: 0.6s linear forwards so-yqhc8a;
+  }
+}
+
+.fve1pk {
+  d: path('M11 11h-1c-2.21 0 -4.5 1.79 -4.5 4c0 2.21 1.5 4.5 4.5 4.5c2.21 0 4 -2.29 4 -4.5v-12.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .uve3qq {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 20;
+    animation: 0.1s linear 0.5s forwards so-to-10;
+  }
+}
+
+.qcrekj {
+  d: path('M18 2.5v8');
+}
+
+.v57ckn {
+  fill: #fff;
+  d: path('M16.6 5.82c-0.68 -0.78 -1.06 -1.78 -1.06 -2.82h-3.09v12.4c-0.02 0.67 -0.31 1.31 -0.79 1.77c-0.48 0.47 -1.13 0.73 -1.8 0.73c-1.42 0 -2.6 -1.16 -2.6 -2.6c0 -1.72 1.66 -3.01 3.37 -2.48v-3.16c-3.45 -0.46 -6.47 2.22 -6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69 -2.55 5.69 -5.7v-6.29c1.25 0.9 2.76 1.38 4.3 1.38v-3.09c0 0 -1.88 0.09 -3.24 -1.48Z');
+}
+
+.lvinjf {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4px;
+  stroke: #000;
+  fill: none;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+@keyframes so-yqhc8a {
+  0% {
+    stroke-dashoffset: 72;
+  }
+  100% {
+    stroke-dashoffset: 36;
+  }
+}
+
+@keyframes so-to-10 {
+  100% {
+    stroke-dashoffset: 10;
+  }
+}
+</style><defs><mask id="SVG1cKwWd6L"><path class="v57ckn"/><path class="fve1pk lvinjf zwgmdq"/><path class="lvinjf qcrekj uve3qq"/></mask></defs><path mask="url(#SVG1cKwWd6L)" class="botfzx"/></svg>

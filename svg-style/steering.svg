@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .yy9dzd {
+    animation: 0.2s linear forwards d-3fqnuo;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .nknijc {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.3s forwards so-to-0;
+  }
+}
+
+.gl75xl {
+  d: path('M8 12h-5M16 12h5M12 16v5');
+}
+
+@media not (prefers-reduced-motion) {
+  .x-lvxe {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: 0.6s linear 0.5s forwards so-to-0;
+  }
+}
+
+.gsunef {
+  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
+}
+
+.g00sck {
+  d: path('M7.5 12l3 -3h3l3 3l-0.5 0c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4Z');
+  fill: currentColor;
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes d-3fqnuo {
+  0% {
+    d: path('M12 12l0 0h0l0 0l0 0c0 0 0 0 0 0c0 0 0 0 0 0Z');
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="g00sck yy9dzd"/><path class="a0m25c gl75xl nknijc"/><path class="a0m25c gsunef x-lvxe"/></svg>

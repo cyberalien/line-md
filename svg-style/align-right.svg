@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .lk7j7i {
+    stroke-dasharray: 16;
+    animation: 0.3s linear forwards so-from-16;
+  }
+}
+
+.s-dydm {
+  d: path('M20 5h-13');
+}
+
+@media not (prefers-reduced-motion) {
+  .isz7uc {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.3s forwards so-to-0;
+  }
+}
+
+.xlsbzv {
+  d: path('M20 10h-10');
+}
+
+@media not (prefers-reduced-motion) {
+  .gykpqe {
+    stroke-dasharray: 18;
+    stroke-dashoffset: 18;
+    animation: 0.3s linear 0.5s forwards so-to-0;
+  }
+}
+
+.qsmm_b {
+  d: path('M20 15h-16');
+}
+
+@media not (prefers-reduced-motion) {
+  .aoq5ol {
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    animation: 0.3s linear 0.8s forwards so-to-0;
+  }
+}
+
+.zj8u_w {
+  d: path('M20 20h-13');
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes so-from-16 {
+  0% {
+    stroke-dashoffset: 16;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><path class="a0m25c lk7j7i s-dydm"/><path class="a0m25c isz7uc xlsbzv"/><path class="a0m25c gykpqe qsmm_b"/><path class="a0m25c aoq5ol zj8u_w"/></svg>

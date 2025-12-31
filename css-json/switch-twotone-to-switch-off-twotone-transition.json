@@ -1,0 +1,27 @@
+{
+  "content": "<path class=\"psp_wn ydovum\"/><circle class=\"dx6m8b efki8y ydovum\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "efki8y": {
+      "rules": "",
+      "animation": "animation:0.2s linear forwards cx-from-17px;"
+    },
+    "psp_wn": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');stroke:currentColor;stroke-width:2px;fill-opacity:0.3;"
+    },
+    "dx6m8b": {
+      "rules": "cx:7px;cy:12px;r:3px;"
+    }
+  },
+  "keyframes": {
+    "cx-from-17px": "@keyframes cx-from-17px{0%{cx:17px}}"
+  }
+}

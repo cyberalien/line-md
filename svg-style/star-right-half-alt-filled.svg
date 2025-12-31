@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .bpe6qe {
+    fill-opacity: 0;
+    animation: 0.4s linear 0.5s forwards fill-to-1;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .se98io {
+    stroke-dasharray: 34;
+    animation: 0.5s linear forwards so-from-34;
+  }
+}
+
+.c5bs6d {
+  d: path('M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28');
+}
+
+@media not (prefers-reduced-motion) {
+  .bgxodj {
+    stroke-dasharray: 16;
+    animation: 0.5s linear forwards so-from-16;
+  }
+}
+
+.ejxu_a {
+  d: path('M12 3v13');
+}
+
+.kzw1cq {
+  d: path('M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28Z');
+  fill: currentColor;
+}
+
+.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes so-from-34 {
+  0% {
+    stroke-dashoffset: 34;
+  }
+}
+
+@keyframes so-from-16 {
+  0% {
+    stroke-dashoffset: 16;
+  }
+}
+</style><path class="bpe6qe kzw1cq"/><path class="a0m25c c5bs6d se98io"/><path class="a0m25c bgxodj ejxu_a"/></svg>

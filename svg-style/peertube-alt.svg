@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ijrfmj {
+  d: path('M12 6.67l8 5.33l-8 5.34Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .y5-jwp {
+    animation: 0.4s linear forwards d-y0k17z;
+  }
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+.y4c9di {
+  d: path('M4 1.34l8 5.33l-8 5.33Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .ilryer {
+    animation: 0s forwards d-eo5vsf, 0.4s linear 0.2s forwards d-hy4_ez;
+  }
+}
+
+.m_gxky {
+  d: path('M4 12l8 5.34l-8 5.33Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .x6y11c {
+    animation: 0s forwards d-zqf0qv, 0.4s linear 0.4s forwards d-h1s04y;
+  }
+}
+
+@keyframes d-y0k17z {
+  0% {
+    d: path('M12 6.67l0 5.33l0 5.34Z');
+  }
+}
+
+@keyframes d-eo5vsf {
+  100% {
+    d: path('M8 9.34l4 -2.67l-8 5.33Z');
+  }
+}
+
+@keyframes d-hy4_ez {
+  100% {
+    d: path('M4 1.34l8 5.33l-8 5.33Z');
+  }
+}
+
+@keyframes d-zqf0qv {
+  100% {
+    d: path('M4 12l8 5.34l-4 -2.67Z');
+  }
+}
+
+@keyframes d-h1s04y {
+  100% {
+    d: path('M4 12l8 5.34l-8 5.33Z');
+  }
+}
+</style><path class="ijrfmj y5-jwp ydovum"/><path class="ilryer y4c9di ydovum"/><path class="m_gxky x6y11c ydovum"/></svg>

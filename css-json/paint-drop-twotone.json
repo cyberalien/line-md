@@ -1,0 +1,23 @@
+{
+  "content": "<path class=\"n-ls4p pvp4mq\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "pvp4mq": {
+      "rules": "",
+      "animation": "stroke-dasharray:28;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-28, 0.15s linear 0.6s forwards fill-to-0_3;"
+    },
+    "n-ls4p": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M12 3c0 0 7 6 7 12c0 2 -1 6 -7 6M12 3c0 0 -7 6 -7 12c0 2 1 6 7 6');stroke:currentColor;stroke-width:2px;fill-opacity:0.3;fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "so-from-28": "@keyframes so-from-28{0%{stroke-dashoffset:28}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}"
+  }
+}

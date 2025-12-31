@@ -1,0 +1,40 @@
+{
+  "content": "<path class=\"cdk7hy z327oc\"/><path class=\"a0m25c qsudlx v9gp5p\"/><path class=\"a0m25c hv3c6m k1oc5g\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "z327oc": {
+      "rules": "",
+      "animation": "fill-opacity:0;animation:0.4s linear 0.9s forwards fill-to-1;"
+    },
+    "qsudlx": {
+      "rules": "",
+      "animation": "stroke-dasharray:22;animation:0.5s linear forwards so-from-22;"
+    },
+    "v9gp5p": {
+      "rules": "d:path('M12 19h-5c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c1 0 1.5 0.5 1.5 0.5M12 19h5c2.5 0 4 -2 4 -4c0 -2 -1.5 -4 -4 -4c-1 0 -1.5 0.5 -1.5 0.5');"
+    },
+    "hv3c6m": {
+      "rules": "",
+      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.4s linear 0.5s forwards so-to-0;"
+    },
+    "k1oc5g": {
+      "rules": "d:path('M7 11v-1c0 -2.5 2 -5 5 -5M17 11v-1c0 -2.5 -2 -5 -5 -5');"
+    },
+    "cdk7hy": {
+      "rules": "d:path('M7 19c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c0 -3.5 2 -6 5 -6c3 0 5 2.5 5 5v1c2.5 0 4 2 4 4c0 2 -1.5 4 -4 4Z');fill:currentColor;"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "so-from-22": "@keyframes so-from-22{0%{stroke-dashoffset:22}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "content": "<defs><mask id=\"SVG8HLm68Sf\"><path class=\"edfmbz g_1xrq od51jl taf2xz\"/><path class=\"g_1xrq hnr7xh uz3hvp\"/></mask></defs><path mask=\"url(#SVG8HLm68Sf)\" class=\"lsejuv ydovum\"/><path class=\"e3n56p fedvdc g_1xrq taf2xz ydovum\"/><circle class=\"enq05i jf85im ydovum\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "edfmbz": {
+      "rules": "",
+      "animation": "animation:0s forwards fill-to-0, 0.4s linear forwards d-e0pf-z, 0.15s linear 0.4s forwards fill-to-0_3;"
+    },
+    "taf2xz": {
+      "rules": "stroke-width:2px;"
+    },
+    "g_1xrq": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;"
+    },
+    "hnr7xh": {
+      "rules": "",
+      "animation": "fill-opacity:0;animation:0.4s linear forwards d-h46djy, 0.15s linear 0.4s forwards fill-to-1;"
+    },
+    "lsejuv": {
+      "rules": "d:path('M0 0h24v24H0z');"
+    },
+    "ydovum": {
+      "rules": "fill:currentColor;"
+    },
+    "e3n56p": {
+      "rules": "",
+      "animation": "animation:0s forwards fill-to-0, 0.4s linear forwards d-h46djy, 0.15s linear 0.4s forwards fill-to-0_3;"
+    },
+    "enq05i": {
+      "rules": "",
+      "animation": "animation:0s forwards r-to-0px, 0.2s linear 0.65s forwards r-to-2_5px;"
+    },
+    "od51jl": {
+      "rules": "fill:#fff;d:path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');fill-opacity:0.3;stroke:#fff;"
+    },
+    "uz3hvp": {
+      "rules": "d:path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');fill:#000;stroke-width:4px;stroke:#000;"
+    },
+    "fedvdc": {
+      "rules": "d:path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');fill-opacity:0.3;stroke:currentColor;"
+    },
+    "jf85im": {
+      "rules": "cx:14px;cy:9px;r:2.5px;"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "d-e0pf-z": "@keyframes d-e0pf-z{0%{d:path('M10 20.5c0 0 -1 -1.5 -1 -2.5c0 -0.5 0.5 -1 1 -1c0.5 0 1 0.5 1 1c0 1 -1 2.5 -1 2.5Z')}70%{d:path('M10 20.5c0 0 -7 -7.5 -7 -12.5c0 -3.5 3 -7 7 -7c4 0 7 3.5 7 7c0 5 -7 12.5 -7 12.5Z')}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "d-h46djy": "@keyframes d-h46djy{0%{d:path('M14 20.5c0 0 -1 -1.5 -1 -2.5c0 -0.5 0.5 -1 1 -1c0.5 0 1 0.5 1 1c0 1 -1 2.5 -1 2.5Z')}70%{d:path('M14 20.5c0 0 -7 -7.5 -7 -12.5c0 -3.5 3 -7 7 -7c4 0 7 3.5 7 7c0 5 -7 12.5 -7 12.5Z')}}",
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "r-to-0px": "@keyframes r-to-0px{100%{r:0px}}",
+    "r-to-2_5px": "@keyframes r-to-2_5px{100%{r:2.5px}}"
+  }
+}

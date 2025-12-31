@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .juh19x {
+    stroke-dasharray: 56;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-56, 0.4s linear 0.7s forwards fill-to-1;
+  }
+}
+
+.s8e22g {
+  stroke: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .bremdz {
+    stroke-dashoffset: 4;
+    animation: 6s linear 1.2s infinite so-_lg20b;
+  }
+}
+
+.tcqpek {
+  d: path('M12 5h1.5M12 5h-1.5M12 5v1.5M12 5v-1.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .s1yjap {
+    stroke-dashoffset: 4;
+    animation: 6s linear 1.87s infinite so-_lg20b;
+  }
+}
+
+.az-36w {
+  d: path('M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .ocjr9v {
+    stroke-dashoffset: 4;
+    animation: 6s linear 2.54s infinite so-_lg20b;
+  }
+}
+
+.urr6zz {
+  d: path('M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .o2eeyg {
+    stroke-dashoffset: 4;
+    animation: 6s linear 3.21s infinite so-_lg20b;
+  }
+}
+
+.psd16s {
+  d: path('M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .vpqkij {
+    stroke-dashoffset: 4;
+    animation: 6s linear 3.88s infinite so-_lg20b;
+  }
+}
+
+.m671dg {
+  d: path('M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .m89cny {
+    stroke-dashoffset: 4;
+    animation: 6s linear 4.55s infinite so-_lg20b;
+  }
+}
+
+.k2cc9e {
+  d: path('M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .vc-4ca {
+    stroke-dashoffset: 4;
+    animation: 6s linear 5.22s infinite so-_lg20b;
+  }
+}
+
+.o_sype {
+  d: path('M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .zy2jpw {
+    stroke-dashoffset: 4;
+    animation: 6s linear 5.89s infinite so-_lg20b;
+  }
+}
+
+.g_iubo {
+  d: path('M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5');
+}
+
+@media not (prefers-reduced-motion) {
+  .k3w11h {
+    stroke-dashoffset: 4;
+    animation: 6s linear 6.56s infinite so-_lg20b;
+  }
+}
+
+.dx7zgb {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z');
+  stroke-width: 2px;
+  fill: currentColor;
+}
+
+.b1urau {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 4;
+  fill: none;
+}
+
+@keyframes so-from-56 {
+  0% {
+    stroke-dashoffset: 56;
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes so-_lg20b {
+  8%, 22% {
+    stroke-dashoffset: 0;
+  }
+  30% {
+    stroke-dashoffset: 4;
+  }
+}
+</style><path class="dx7zgb juh19x s8e22g"/><path class="b1urau bremdz s8e22g tcqpek"/><path class="az-36w b1urau s1yjap s8e22g"/><path class="b1urau ocjr9v s8e22g urr6zz"/><path class="b1urau o2eeyg psd16s s8e22g"/><path class="b1urau m671dg s8e22g vpqkij"/><path class="b1urau k2cc9e m89cny s8e22g"/><path class="b1urau o_sype s8e22g vc-4ca"/><path class="b1urau g_iubo s8e22g zy2jpw"/><path class="b1urau k3w11h s8e22g urr6zz"/></svg>

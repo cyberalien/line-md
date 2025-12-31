@@ -1,0 +1,71 @@
+{
+  "content": "<defs><mask id=\"SVGwAPhLexL\"><path class=\"ln4ofu z327oc\"/><path class=\"ao492n c5xdmn m913mt zxndow\"/><path class=\"c5xdmn nt4shc w7zdcu zxndow\"/><path class=\"qrj5qq yq7r9x\"/></mask></defs><path mask=\"url(#SVGwAPhLexL)\" class=\"botfzx\"/><path class=\"c5xdmn dni0us n96tiz s8e22g\"/><path class=\"c5xdmn cyn_ng lbvfhd s8e22g\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "z327oc": {
+      "rules": "",
+      "animation": "fill-opacity:0;animation:0.4s linear 0.9s forwards fill-to-1;"
+    },
+    "ao492n": {
+      "rules": "",
+      "animation": "stroke-dasharray:66;animation:0.6s linear forwards so-from-66;"
+    },
+    "m913mt": {
+      "rules": "d:path('M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z');"
+    },
+    "zxndow": {
+      "rules": "stroke:#fff;"
+    },
+    "nt4shc": {
+      "rules": "",
+      "animation": "stroke-dasharray:24;stroke-dashoffset:24;animation:0.3s linear 0.6s forwards so-to-0;"
+    },
+    "w7zdcu": {
+      "rules": "d:path('M3 6.5l9 5.5l9 -5.5');"
+    },
+    "qrj5qq": {
+      "rules": "",
+      "animation": "opacity:0;animation:0s 1.4s forwards fade-to-1;"
+    },
+    "dni0us": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1.4s forwards so-to-0;"
+    },
+    "n96tiz": {
+      "rules": "d:path('M17 17l4 4');"
+    },
+    "s8e22g": {
+      "rules": "stroke:currentColor;"
+    },
+    "cyn_ng": {
+      "rules": "",
+      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1.6s forwards so-to-0;"
+    },
+    "lbvfhd": {
+      "rules": "d:path('M21 17l-4 4');"
+    },
+    "ln4ofu": {
+      "rules": "fill:#fff;d:path('M12 11l-8 -5h16l-8 5Z');"
+    },
+    "c5xdmn": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;fill:none;"
+    },
+    "yq7r9x": {
+      "rules": "d:path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');fill:#000;"
+    },
+    "botfzx": {
+      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
+    "so-from-66": "@keyframes so-from-66{0%{stroke-dashoffset:66}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
+    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}"
+  }
+}

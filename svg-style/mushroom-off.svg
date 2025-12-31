@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .dz4tsx {
+    stroke-dasharray: 14;
+    animation: 0.4s linear forwards so-from-14;
+  }
+}
+
+.ypc9-b {
+  d: path('M12 21h2.5c0.5 0 0.85 -0.5 0.85 -1c0 -0.5 -1.1 -4 -1.1 -4h-2.25M12 21h-2.5c-0.5 0 -0.85 -0.5 -0.85 -1c0 -0.5 1.1 -4 1.1 -4h2.25');
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .y5ykex {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.6s linear 0.4s forwards so-to-0;
+  }
+}
+
+.mjhdjt {
+  d: path('M12 13h8c0.55 0 1 -0.45 1 -1c0 -4.97 -4.03 -9 -9 -9M12 13h-8c-0.55 0 -1 -0.45 -1 -1c0 -4.97 4.03 -9 9 -9');
+}
+
+@media not (prefers-reduced-motion) {
+  .wa-52n {
+    animation: 0s forwards r-to-0px, 0.2s linear 1s forwards r-to-2px;
+  }
+}
+
+.yqoeal {
+  cx: 11px;
+  cy: 4px;
+}
+
+@media not (prefers-reduced-motion) {
+  .x_4jml {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2px;
+  }
+}
+
+.f_840c {
+  cx: 7px;
+  cy: 8px;
+}
+
+@media not (prefers-reduced-motion) {
+  .ueu_lg {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.4s forwards r-to-2px;
+  }
+}
+
+.ydydsi {
+  cx: 15px;
+  cy: 8px;
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+@media not (prefers-reduced-motion) {
+  .e-vrhp {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.6s forwards so-to-0;
+  }
+}
+
+.c5xdmn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.dr_qeu {
+  fill: #fff;
+  r: 2px;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes so-from-14 {
+  0% {
+    stroke-dashoffset: 14;
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes r-to-0px {
+  100% {
+    r: 0px;
+  }
+}
+
+@keyframes r-to-2px {
+  100% {
+    r: 2px;
+  }
+}
+</style><defs><mask id="SVG0KC4ZclE"><path class="c5xdmn dz4tsx ypc9-b zxndow"/><path class="c5xdmn mjhdjt y5ykex zxndow"/><circle class="dr_qeu wa-52n yqoeal"/><circle class="dr_qeu f_840c x_4jml"/><circle class="dr_qeu ueu_lg ydydsi"/><path class="c5xdmn e-vrhp oxx-om yl0nmc"/></mask></defs><path mask="url(#SVG0KC4ZclE)" class="botfzx"/><path class="c5xdmn e-vrhp gd_4-q yl0nmc"/></svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.d5v-jm {
+  d: path('M1 2h2.5l15 20h-2.5ZM5.5 2h2.5l15 20h-2.5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .mynk6h {
+    animation: 0.4s linear forwards d-nfa2oq;
+  }
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+.a14luy {
+  d: path('M3 2h5v2h-5ZM16 22h5v-2h-5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .yvm0dc {
+    animation: 0s forwards d-dnm8dn, 0.4s linear 0.4s forwards d--r6z2q;
+  }
+}
+
+.hr81jo {
+  d: path('M18.5 2h3.5l-17 20h-3.5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .gh245f {
+    animation: 0s forwards d-knq4xg, 0.4s linear 0.5s forwards d-_8bnjm;
+  }
+}
+
+@keyframes d-nfa2oq {
+  0% {
+    d: path('M1 2h2.5l0 0h-2.5ZM5.5 2h2.5l-0.8 0h-2.5Z');
+  }
+}
+
+@keyframes d-dnm8dn {
+  100% {
+    d: path('M3 2h5v0h-5ZM16 22h5v0h-5Z');
+  }
+}
+
+@keyframes d--r6z2q {
+  100% {
+    d: path('M3 2h5v2h-5ZM16 22h5v-2h-5Z');
+  }
+}
+
+@keyframes d-knq4xg {
+  100% {
+    d: path('M18.5 2h3.5l0 0h-3.5Z');
+  }
+}
+
+@keyframes d-_8bnjm {
+  100% {
+    d: path('M18.5 2h3.5l-17 20h-3.5Z');
+  }
+}
+</style><path class="d5v-jm mynk6h ydovum"/><path class="a14luy ydovum yvm0dc"/><path class="gh245f hr81jo ydovum"/></svg>

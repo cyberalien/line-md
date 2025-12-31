@@ -1,0 +1,21 @@
+{
+  "content": "<path class=\"v5-pqe y55c5q\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "y55c5q": {
+      "rules": "",
+      "animation": "stroke-dasharray:10;animation:0.4s linear forwards so-from-10;"
+    },
+    "v5-pqe": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;d:path('M12 15l-5 -5M12 15l5 -5');fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-10": "@keyframes so-from-10{0%{stroke-dashoffset:10}}"
+  }
+}

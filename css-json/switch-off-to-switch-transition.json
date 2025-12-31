@@ -1,0 +1,24 @@
+{
+  "content": "<path class=\"g36zgr\"/><circle class=\"klozaw rslhfn\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "rslhfn": {
+      "rules": "",
+      "animation": "animation:0.2s linear forwards cx-from-7px;"
+    },
+    "g36zgr": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');stroke:currentColor;stroke-width:2px;fill:none;"
+    },
+    "klozaw": {
+      "rules": "cx:17px;cy:12px;r:3px;fill:currentColor;"
+    }
+  },
+  "keyframes": {
+    "cx-from-7px": "@keyframes cx-from-7px{0%{cx:7px}}"
+  }
+}

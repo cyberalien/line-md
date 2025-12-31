@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .y50p6i {
+    stroke-dasharray: 66;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-66, 0.15s linear 0.9s forwards fill-to-0_3;
+  }
+}
+
+.g26hbu {
+  fill: #fff;
+}
+
+.d58ker {
+  d: path('M6 2h12v3h-12ZM6 22h12v-3h-12Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .r32i8c {
+    animation: 0s forwards d-3crpcp, 0.2s linear 0.6s forwards d-70g21a;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .quv8lj {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.15s forwards so-to-0;
+  }
+}
+
+.vodx4w {
+  d: path('M12 2h5c0.55 0 1 0.45 1 1v18c0 0.55 -0.45 1 -1 1h-10c-0.55 0 -1 -0.45 -1 -1v-18c0 -0.55 0.45 -1 1 -1Z');
+  fill-opacity: 0.3;
+  stroke: #fff;
+}
+
+.t5pxry {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.eycklu {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+@keyframes fill-to-0 {
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes so-from-66 {
+  0% {
+    stroke-dashoffset: 66;
+  }
+}
+
+@keyframes fill-to-0_3 {
+  100% {
+    fill-opacity: 0.3;
+  }
+}
+
+@keyframes d-3crpcp {
+  100% {
+    d: path('M6 2h12v0h-12ZM6 22h12v0h-12Z');
+  }
+}
+
+@keyframes d-70g21a {
+  100% {
+    d: path('M6 2h12v3h-12ZM6 22h12v-3h-12Z');
+  }
+}
+
+@keyframes so-to-0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+</style><defs><mask id="SVGG6sQvcqH"><path class="g26hbu t5pxry vodx4w y50p6i"/><path class="d58ker g26hbu r32i8c"/><path class="eycklu oxx-om quv8lj t5pxry"/></mask></defs><path mask="url(#SVGG6sQvcqH)" class="botfzx"/><path class="eycklu gd_4-q quv8lj t5pxry"/></svg>

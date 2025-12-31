@@ -1,0 +1,41 @@
+{
+  "content": "<path class=\"szluml uzceux\"/><path class=\"kw5qnk qa-o7h zykwzs\"/><path class=\"qa-o7h tdzpzj wejynf\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "uzceux": {
+      "rules": "",
+      "animation": "animation:0s forwards fill-to-0, 0.15s linear 0.9s forwards fill-to-0_3;"
+    },
+    "kw5qnk": {
+      "rules": "",
+      "animation": "stroke-dasharray:64;animation:0.6s linear forwards so-from-64;"
+    },
+    "wejynf": {
+      "rules": "",
+      "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 0.7s forwards so-to-0;"
+    },
+    "tdzpzj": {
+      "rules": "d:path('M12.5 3v5.5h6.5');"
+    },
+    "szluml": {
+      "rules": "d:path('M5 3h7.5v5.5h6.5v12.5h-14v-18Z');fill-opacity:0.3;fill:currentColor;"
+    },
+    "qa-o7h": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:none;"
+    },
+    "zykwzs": {
+      "rules": "stroke-width:2px;d:path('M13 3l6 6v12h-14v-18h8');"
+    }
+  },
+  "keyframes": {
+    "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
+    "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",
+    "so-from-64": "@keyframes so-from-64{0%{stroke-dashoffset:64}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

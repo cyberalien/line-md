@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .c8ywai {
+    stroke-dasharray: 52;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-52, 0.4s linear 0.6s forwards fill-to-1;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .u0dvyy {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.1s forwards r-to-2px;
+  }
+}
+
+.p55zhs {
+  cx: 9px;
+  cy: 7px;
+}
+
+@media not (prefers-reduced-motion) {
+  .b87i3t {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.3s forwards r-to-2px;
+  }
+}
+
+.ietbxk {
+  cx: 12px;
+  cy: 13px;
+}
+
+.glft5c {
+  fill: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M4 6.45c2.01 -2.12 4.85 -3.45 8 -3.45c3.15 0 5.99 1.33 8 3.45l-8 13.55Z');
+  stroke-width: 2px;
+  stroke: #fff;
+}
+
+.i7fxbk {
+  r: 2px;
+  fill: #000;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+@keyframes so-from-52 {
+  0% {
+    stroke-dashoffset: 52;
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes r-to-0px {
+  100% {
+    r: 0px;
+  }
+}
+
+@keyframes r-to-2px {
+  100% {
+    r: 2px;
+  }
+}
+</style><defs><mask id="SVGTIJbzePr"><path class="c8ywai glft5c"/><circle class="i7fxbk p55zhs u0dvyy"/><circle class="b87i3t i7fxbk ietbxk"/></mask></defs><path mask="url(#SVGTIJbzePr)" class="botfzx"/></svg>

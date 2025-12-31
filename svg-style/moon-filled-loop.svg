@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
+  .juh19x {
+    stroke-dasharray: 56;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-56, 0.4s linear 0.7s forwards fill-to-1;
+  }
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .awbfzj {
+    opacity: 0;
+    animation: 6s linear 1.2s infinite fade-d1si2b;
+  }
+}
+
+.eqzsfj {
+  d: path('M15.22 6.03l2.53 -1.94l-3.19 -0.09l-1.06 -3l-1.06 3l-3.19 0.09l2.53 1.94l-0.91 3.06l2.63 -1.81l2.63 1.81l-0.91 -3.06Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .j6muan {
+    opacity: 0;
+    animation: 6s linear 1.2s infinite fade-6y6uho;
+  }
+}
+
+.onrooh {
+  d: path('M19.61 12.25l1.64 -1.25l-2.06 -0.05l-0.69 -1.95l-0.69 1.95l-2.06 0.05l1.64 1.25l-0.59 1.98l1.7 -1.17l1.7 1.17l-0.59 -1.98Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .vsetsc {
+    opacity: 0;
+    animation: 6s linear 4.2s infinite fade-d1si2b;
+  }
+}
+
+.lbe7-c {
+  d: path('M13.61 5.25l1.64 -1.25l-2.06 -0.05l-0.69 -1.95l-0.69 1.95l-2.06 0.05l1.64 1.25l-0.59 1.98l1.7 -1.17l1.7 1.17Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .i-djvf {
+    opacity: 0;
+    animation: 6s linear 4.2s infinite fade-6y6uho;
+  }
+}
+
+.f2_1te {
+  d: path('M20.83 9.73l1.88 -1.44l-2.37 -0.07l-0.79 -2.22l-0.79 2.23l-2.37 0.07l1.88 1.44l-0.68 2.27l1.95 -1.34l1.95 1.34Z');
+}
+
+.a4_l1y {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z');
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+@keyframes so-from-56 {
+  0% {
+    stroke-dashoffset: 56;
+  }
+}
+
+@keyframes fill-to-1 {
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes fade-d1si2b {
+  10%, 40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-6y6uho {
+  20%, 70% {
+    opacity: 0;
+  }
+  30%, 60% {
+    opacity: 1;
+  }
+}
+</style><path class="a4_l1y juh19x ydovum"/><path class="awbfzj eqzsfj ydovum"/><path class="j6muan onrooh ydovum"/><path class="lbe7-c vsetsc ydovum"/><path class="f2_1te i-djvf ydovum"/></svg>

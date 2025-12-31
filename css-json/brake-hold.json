@@ -1,0 +1,60 @@
+{
+  "content": "<path class=\"a0m25c gf993l ytashc\"/><path class=\"a0m25c i6daxm rxh5or\"/><path class=\"a0m25c apv-zh z5pf2k\"/><path class=\"a0m25c pij0-w pjtnoz\"/><path class=\"a0m25c mkig6i rd_7ar\"/><path class=\"a0m25c lo4loj szef7v\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "gf993l": {
+      "rules": "",
+      "animation": "stroke-dasharray:54;animation:0.6s linear forwards so-from-54;"
+    },
+    "ytashc": {
+      "rules": "d:path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8');"
+    },
+    "rxh5or": {
+      "rules": "",
+      "animation": "stroke-dasharray:20;stroke-dashoffset:20;animation:0.3s linear 0.7s forwards so-to-0;"
+    },
+    "i6daxm": {
+      "rules": "d:path('M4.22 4.22c-4.29 4.3 -4.29 11.26 0 15.56');"
+    },
+    "apv-zh": {
+      "rules": "",
+      "animation": "stroke-dasharray:20;stroke-dashoffset:20;animation:0.3s linear 1s forwards so-to-0;"
+    },
+    "z5pf2k": {
+      "rules": "d:path('M19.78 4.22c4.29 4.3 4.29 11.26 0 15.56');"
+    },
+    "pij0-w": {
+      "rules": "",
+      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.3s forwards so-to-0;"
+    },
+    "pjtnoz": {
+      "rules": "d:path('M10 8v8');"
+    },
+    "mkig6i": {
+      "rules": "",
+      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.5s forwards so-to-0;"
+    },
+    "rd_7ar": {
+      "rules": "d:path('M14 8v8');"
+    },
+    "szef7v": {
+      "rules": "",
+      "animation": "stroke-dasharray:6;stroke-dashoffset:6;animation:0.2s linear 1.7s forwards so-to-0;"
+    },
+    "lo4loj": {
+      "rules": "d:path('M10 12h4');"
+    },
+    "a0m25c": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-54": "@keyframes so-from-54{0%{stroke-dashoffset:54}}",
+    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+  }
+}

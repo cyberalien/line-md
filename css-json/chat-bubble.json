@@ -1,0 +1,21 @@
+{
+  "content": "<path class=\"aer-rk p-jc7h\"/>",
+  "viewBox": {
+    "left": 0,
+    "top": 0,
+    "width": 24,
+    "height": 24
+  },
+  "classes": {
+    "p-jc7h": {
+      "rules": "",
+      "animation": "stroke-dasharray:70;animation:0.6s linear forwards so-from-70;"
+    },
+    "aer-rk": {
+      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');stroke:currentColor;stroke-width:2px;fill:none;"
+    }
+  },
+  "keyframes": {
+    "so-from-70": "@keyframes so-from-70{0%{stroke-dashoffset:70}}"
+  }
+}
