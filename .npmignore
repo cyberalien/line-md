@@ -5,4 +5,5 @@ node_modules
 index.html
 pnpm-lock.taml
 build.js
+svg-frames-120fps
 renovate.json
