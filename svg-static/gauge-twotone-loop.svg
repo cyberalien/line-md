@@ -10,5 +10,5 @@
 		<circle cx="7" cy="12" r="1" transform="rotate(115 12 12)" />
 		<circle cx="7" cy="12" r="1" transform="rotate(165 12 12)" />
 	</g>
-	<path d="M12 12h-5.5" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M12 12h-5.5" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(71.25 12 12)" />
 </svg>

@@ -9,5 +9,5 @@
 		</mask>
 	</defs>
 	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGUn7fNeWI)" />
-	<path d="M17 17l4 4M21 17l-4 4" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M17 17l4 4M21 17l-4 4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
 </svg>

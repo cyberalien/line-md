@@ -9,5 +9,5 @@
 		</mask>
 	</defs>
 	<path d="M0 0h24v24H0z" fill="currentColor" mask="url(#SVGM1foGcRp)" />
-	<path d="M0 13h24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" />
+	<path d="M-0.23 13h24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 12 12)" />
 </svg>

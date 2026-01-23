@@ -4,17 +4,20 @@
 			<circle cx="7.5" cy="7.5" r="5.5" fill="#fff" />
 			<circle cx="11" cy="7.5" r="6.5" fill="#000" />
 		</mask>
-		<mask id="SVGriXIUdiV">
+		<mask id="SVGOisHTdZF">
 			<g fill="#fff">
 				<circle cx="12" cy="15" r="5.5" transform="rotate(-45 12 12)" />
-				<path d="M12.62 20.62h3l-1.5 2.5ZM12.62 20.62h3l-1.5 2.5ZM12.62 20.62h3l-1.5 2.5ZM12.62 20.62h3l-1.5 2.5Z" />
+				<path d="M12.62 20.62h3l-1.5 2.5Z" transform="rotate(-127 14.12 14.12)" />
+				<path d="M12.62 20.62h3l-1.5 2.5Z" transform="rotate(-77 14.12 14.12)" />
+				<path d="M12.62 20.62h3l-1.5 2.5Z" transform="rotate(-27 14.12 14.12)" />
+				<path d="M12.62 20.62h3l-1.5 2.5Z" transform="rotate(23 14.12 14.12)" />
 			</g>
 			<path d="M-4.97 12l18.38 -18.38l10.61 10.61l-18.38 18.38Z" fill="#000" />
 		</mask>
 	</defs>
 	<g fill="currentColor">
 		<path d="M0 0h24v24H0z" mask="url(#SVGF4J8CbPQ)" />
-		<path d="M0 0h24v24H0z" mask="url(#SVGriXIUdiV)" />
+		<path d="M0 0h24v24H0z" mask="url(#SVGOisHTdZF)" />
 	</g>
-	<path d="M22 12h-22" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-45 12 12)" />
+	<path d="M23.44 12h-22" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-45 12 12)" />
 </svg>
