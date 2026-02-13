@@ -1,17 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .ymqg7r {
-    animation: 0s forwards fill-to-0, 0.4s linear forwards d-jkxijw, 0.15s linear 0.4s forwards fill-to-0_3;
-  }
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-@media not (prefers-reduced-motion) {
-  .enq05i {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.65s forwards r-to-2_5px;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.rbvuog {
+  r: 2.5px;
+  cx: 12px;
+  cy: 9px;
 }
 
 .tyiptx {
@@ -23,10 +13,18 @@
   fill-opacity: 0.3;
 }
 
-.rbvuog {
-  r: 2.5px;
-  cx: 12px;
-  cy: 9px;
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .enq05i {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.65s forwards r-to-2_5px;
+  }
+
+  .ymqg7r {
+    animation: 0s forwards fill-to-0, 0.4s linear forwards d-jkxijw, 0.15s linear 0.4s forwards fill-to-0_3;
+  }
 }
 
 @keyframes fill-to-0 {

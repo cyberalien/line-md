@@ -1,52 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .w86ebu {
-    stroke-dasharray: 56;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.7s forwards fill-to-0_3;
-  }
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-@media not (prefers-reduced-motion) {
-  .cfuu7f {
-    opacity: 0;
-    animation: 6s linear 0.95s infinite fade-d1si2b;
-  }
-}
-
-.eqzsfj {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.eqzsfj {
   d: path('M15.22 6.03l2.53 -1.94l-3.19 -0.09l-1.06 -3l-1.06 3l-3.19 0.09l2.53 1.94l-0.91 3.06l2.63 -1.81l2.63 1.81l-0.91 -3.06Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .aq1b_x {
-    opacity: 0;
-    animation: 6s linear 0.95s infinite fade-6y6uho;
-  }
-}
-
-.onrooh {
-  d: path('M19.61 12.25l1.64 -1.25l-2.06 -0.05l-0.69 -1.95l-0.69 1.95l-2.06 0.05l1.64 1.25l-0.59 1.98l1.7 -1.17l1.7 1.17l-0.59 -1.98Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .vvfbwm {
-    opacity: 0;
-    animation: 6s linear 3.95s infinite fade-d1si2b;
-  }
-}
-
-.lbe7-c {
-  d: path('M13.61 5.25l1.64 -1.25l-2.06 -0.05l-0.69 -1.95l-0.69 1.95l-2.06 0.05l1.64 1.25l-0.59 1.98l1.7 -1.17l1.7 1.17Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .k8dhtw {
-    opacity: 0;
-    animation: 6s linear 3.95s infinite fade-6y6uho;
-  }
 }
 
 .f2_1te {
@@ -60,6 +13,45 @@
   stroke: currentColor;
   stroke-width: 2px;
   fill-opacity: 0.3;
+}
+
+.lbe7-c {
+  d: path('M13.61 5.25l1.64 -1.25l-2.06 -0.05l-0.69 -1.95l-0.69 1.95l-2.06 0.05l1.64 1.25l-0.59 1.98l1.7 -1.17l1.7 1.17Z');
+}
+
+.onrooh {
+  d: path('M19.61 12.25l1.64 -1.25l-2.06 -0.05l-0.69 -1.95l-0.69 1.95l-2.06 0.05l1.64 1.25l-0.59 1.98l1.7 -1.17l1.7 1.17l-0.59 -1.98Z');
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .aq1b_x {
+    opacity: 0;
+    animation: 6s linear 0.95s infinite fade-6y6uho;
+  }
+
+  .cfuu7f {
+    opacity: 0;
+    animation: 6s linear 0.95s infinite fade-d1si2b;
+  }
+
+  .k8dhtw {
+    opacity: 0;
+    animation: 6s linear 3.95s infinite fade-6y6uho;
+  }
+
+  .vvfbwm {
+    opacity: 0;
+    animation: 6s linear 3.95s infinite fade-d1si2b;
+  }
+
+  .w86ebu {
+    stroke-dasharray: 56;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.7s forwards fill-to-0_3;
+  }
 }
 
 @keyframes fill-to-0 {

@@ -11,7 +11,6 @@
       "rules": "d:path('M12 2c5.52 0 10 4.48 10 10c0 5.52 -4.48 10 -10 10c-5.52 0 -10 -4.48 -10 -10c0 -5.52 4.48 -10 10 -10Z');"
     },
     "ckq_5v": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-jssiii, 0s 0.4s forwards fade-to-0;"
     },
     "g26hbu": {
@@ -21,7 +20,6 @@
       "rules": "d:path('M18 -4c5.52 0 10 4.48 10 10c0 5.52 -4.48 10 -10 10c-5.52 0 -10 -4.48 -10 -10c0 -5.52 4.48 -10 10 -10Z');"
     },
     "cb10vw": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-4w6zvc, 0s 0.4s forwards fade-to-0;"
     },
     "nf43cj": {
@@ -31,25 +29,21 @@
       "rules": "d:path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8Z');"
     },
     "u_70wv": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-lqhkfo, 0s 0.4s forwards fade-to-0;"
     },
     "bunr5m": {
       "rules": "d:path('M18 -6c6.62 0 12 5.38 12 12c0 6.62 -5.38 12 -12 12c-6.62 0 -12 -5.38 -12 -12c0 -6.62 5.38 -12 12 -12Z');"
     },
     "x_pg-x": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-2gwbkl, 0s 0.4s forwards fade-to-0;"
     },
     "ci4w7j": {
       "rules": "d:path('M2 12v-20h30v30h-20c5.52 0 10 -4.48 10 -10c0 -5.52 -4.48 -10 -10 -10c-5.52 0 -10 4.48 -10 10Z');"
     },
     "tkzqtl": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-wnir9s, 0s 0.4s forwards fade-to-0;"
     },
     "qtti9c": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards fade-to-0;"
     },
     "rj99_c": {
@@ -62,21 +56,18 @@
       "rules": "fill:currentColor;"
     },
     "uaz9vt": {
-      "rules": "",
       "animation": "opacity:0;animation:0s 0.4s forwards fade-to-1;"
     },
     "j1uydv": {
       "rules": "d:path('M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z');"
     },
     "qrx_-w": {
-      "rules": "",
       "animation": "opacity:0;animation:0.4s linear 0.4s forwards fade-to-1;"
     },
     "eqzsfj": {
       "rules": "d:path('M15.22 6.03l2.53 -1.94l-3.19 -0.09l-1.06 -3l-1.06 3l-3.19 0.09l2.53 1.94l-0.91 3.06l2.63 -1.81l2.63 1.81l-0.91 -3.06Z');"
     },
     "iummwx": {
-      "rules": "",
       "animation": "opacity:0;animation:0.4s linear 0.8s forwards fade-to-1;"
     },
     "onrooh": {
@@ -86,6 +77,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:sunny-outline-to-moon-transition",
   "keyframes": {
     "d-jssiii": "@keyframes d-jssiii{0%{d:path('M12 6c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z')}}",
     "fade-to-0": "@keyframes fade-to-0{100%{opacity:0}}",

@@ -1,7 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .rslhfn {
-    animation: 0.2s linear forwards cx-from-7px;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.gqzmpm {
+  cx: 17px;
+  fill: #000;
+  cy: 12px;
+  r: 3px;
 }
 
 .snl_hb {
@@ -13,16 +19,10 @@
   stroke: #fff;
 }
 
-.gqzmpm {
-  cx: 17px;
-  fill: #000;
-  cy: 12px;
-  r: 3px;
-}
-
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+@media not (prefers-reduced-motion) {
+  .rslhfn {
+    animation: 0.2s linear forwards cx-from-7px;
+  }
 }
 
 @keyframes cx-from-7px {

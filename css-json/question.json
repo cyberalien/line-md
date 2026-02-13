@@ -8,14 +8,12 @@
   },
   "classes": {
     "uvn6wq": {
-      "rules": "",
       "animation": "stroke-dasharray:30;animation:0.6s linear forwards so-from-30;"
     },
     "gcrhaw": {
       "rules": "d:path('M7 8c0 -2.76 2.24 -5 5 -5c2.76 0 5 2.24 5 5c0 1.64 -0.79 3.09 -2 4c-0.84 0.63 -3 2 -3 5');"
     },
     "cyegwe": {
-      "rules": "",
       "animation": "stroke-dasharray:4;stroke-dashoffset:4;animation:0.2s linear 0.6s forwards so-to-0;"
     },
     "rgok8w": {
@@ -25,6 +23,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:question",
   "keyframes": {
     "so-from-30": "@keyframes so-from-30{0%{stroke-dashoffset:30}}",
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"

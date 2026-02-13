@@ -1,53 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .bia62z {
-    stroke-dasharray: 18;
-    animation: 0.3s linear forwards so-from-18;
-  }
-}
-
-.xf6h4i {
-  d: path('M4 7h16');
-}
-
-.zxndow {
-  stroke: #fff;
-}
-
-@media not (prefers-reduced-motion) {
-  .isz7uc {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 0.3s forwards so-to-0;
-  }
-}
-
-.pgsw-e {
-  d: path('M7 12h10');
-}
-
-@media not (prefers-reduced-motion) {
-  .fj5khp {
-    stroke-dasharray: 4;
-    stroke-dashoffset: 4;
-    animation: 0.2s linear 0.5s forwards so-to-0;
-  }
-}
-
-.vm_8yi {
-  d: path('M11 17h2');
-}
-
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-@media not (prefers-reduced-motion) {
-  .anx38b {
-    stroke-dasharray: 26;
-    stroke-dashoffset: 26;
-    animation: 0.4s linear 0.7s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .c5xdmn {
@@ -62,14 +15,55 @@
   d: path('M0 11h24');
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.pgsw-e {
+  d: path('M7 12h10');
 }
 
 .r5412d {
   d: path('M0 13h24');
   stroke: currentColor;
+}
+
+.vm_8yi {
+  d: path('M11 17h2');
+}
+
+.xf6h4i {
+  d: path('M4 7h16');
+}
+
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .anx38b {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.4s linear 0.7s forwards so-to-0;
+  }
+
+  .bia62z {
+    stroke-dasharray: 18;
+    animation: 0.3s linear forwards so-from-18;
+  }
+
+  .fj5khp {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+
+  .isz7uc {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.3s forwards so-to-0;
+  }
 }
 
 @keyframes so-from-18 {

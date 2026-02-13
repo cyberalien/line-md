@@ -1,35 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .v-85uu {
-    stroke-dasharray: 56;
-    animation: 0.6s linear forwards so-from-56;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .fbgxmb {
-    animation: 0s forwards d-6w1d6t, 0s forwards transform-sjojgf, 0.2s linear 0.6s forwards d-emobes, 6s linear 0.8s infinite transform-3bcueo;
-  }
-}
-
-.lsejuv {
-  d: path('M0 0h24v24H0z');
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-.y5uyec {
-  d: path('M14 14c0 1.1 -0.9 2 -2 2c-1.1 0 -2 -0.9 -2 -2c0 -1.1 2 -10 2 -10c0 0 2 8.9 2 10Z');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.eop38m {
+  fill: #000;
+  d: path('M16 14c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4c0 -2.21 4 -14 4 -14c0 0 4 11.79 4 14Z');
   transform: rotate(45deg);
   transform-origin: 12px 14px;
 }
 
-@media not (prefers-reduced-motion) {
-  .m33-0b {
-    opacity: 0;
-    animation: 0s forwards transform-sjojgf, 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-32p-1w, 6s linear 0.8s infinite transform-3bcueo;
-  }
+.lsejuv {
+  d: path('M0 0h24v24H0z');
 }
 
 .ly-_ya {
@@ -41,11 +18,30 @@
   stroke: #fff;
 }
 
-.eop38m {
-  fill: #000;
-  d: path('M16 14c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4c0 -2.21 4 -14 4 -14c0 0 4 11.79 4 14Z');
+.y5uyec {
+  d: path('M14 14c0 1.1 -0.9 2 -2 2c-1.1 0 -2 -0.9 -2 -2c0 -1.1 2 -10 2 -10c0 0 2 8.9 2 10Z');
   transform: rotate(45deg);
   transform-origin: 12px 14px;
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .fbgxmb {
+    animation: 0s forwards d-6w1d6t, 0s forwards transform-sjojgf, 0.2s linear 0.6s forwards d-emobes, 6s linear 0.8s infinite transform-3bcueo;
+  }
+
+  .m33-0b {
+    opacity: 0;
+    animation: 0s forwards transform-sjojgf, 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-32p-1w, 6s linear 0.8s infinite transform-3bcueo;
+  }
+
+  .v-85uu {
+    stroke-dasharray: 56;
+    animation: 0.6s linear forwards so-from-56;
+  }
 }
 
 @keyframes so-from-56 {

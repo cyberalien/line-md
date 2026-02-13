@@ -1,30 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .uxt6dp {
-    stroke-dasharray: 52;
-    animation: 0.6s linear forwards so-from-52;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ietbxk {
+  cx: 12px;
+  cy: 13px;
 }
 
-@media not (prefers-reduced-motion) {
-  .aa2-ga {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.6s forwards r-to-2px;
-  }
+.k2j92f {
+  r: 2px;
+  fill: currentColor;
 }
 
 .p55zhs {
   cx: 9px;
   cy: 7px;
-}
-
-@media not (prefers-reduced-motion) {
-  .zt240j {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.8s forwards r-to-2px;
-  }
-}
-
-.ietbxk {
-  cx: 12px;
-  cy: 13px;
 }
 
 .y264fv {
@@ -36,9 +22,19 @@
   fill: none;
 }
 
-.k2j92f {
-  r: 2px;
-  fill: currentColor;
+@media not (prefers-reduced-motion) {
+  .aa2-ga {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.6s forwards r-to-2px;
+  }
+
+  .uxt6dp {
+    stroke-dasharray: 52;
+    animation: 0.6s linear forwards so-from-52;
+  }
+
+  .zt240j {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.8s forwards r-to-2px;
+  }
 }
 
 @keyframes so-from-52 {

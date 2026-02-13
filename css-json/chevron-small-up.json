@@ -8,13 +8,13 @@
   },
   "classes": {
     "y55c5q": {
-      "rules": "",
       "animation": "stroke-dasharray:10;animation:0.4s linear forwards so-from-10;"
     },
     "j4dfyu": {
       "rules": "d:path('M12 9l-5 5M12 9l5 5');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:chevron-small-up",
   "keyframes": {
     "so-from-10": "@keyframes so-from-10{0%{stroke-dashoffset:10}}"
   }

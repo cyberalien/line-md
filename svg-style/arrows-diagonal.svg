@@ -1,12 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .pxa2hl {
-    stroke-dasharray: 12;
-    animation: 0.4s linear forwards so-from-12;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
 .qtngmr {
   d: path('M10 14l-6.5 6.5M14 10l6.5 -6.5');
+}
+
+.w2r6li {
+  d: path('M21 3h-6M3 21v-6M21 3v6M3 21h6');
 }
 
 @media not (prefers-reduced-motion) {
@@ -15,18 +20,11 @@
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.4s forwards so-to-0;
   }
-}
 
-.w2r6li {
-  d: path('M21 3h-6M3 21v-6M21 3v6M3 21h6');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+  .pxa2hl {
+    stroke-dasharray: 12;
+    animation: 0.4s linear forwards so-from-12;
+  }
 }
 
 @keyframes so-from-12 {

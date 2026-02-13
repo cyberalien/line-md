@@ -1,29 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .dv20ga {
-    animation: 0.4s linear forwards d-ve15dr;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
-@media not (prefers-reduced-motion) {
-  .p1mz8m {
-    animation: 0.4s linear forwards d-qro6by, 0s 0.4s forwards fade-to-0;
-  }
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.cug7_u {
+  fill: #000;
+  d: path('M22 -4c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
 }
 
 .dxya9h {
   d: path('M12 21v1M21 12h1M12 3v-1M3 12h-1');
 }
 
-@media not (prefers-reduced-motion) {
-  .lcivnh {
-    opacity: 0;
-    transform-origin: 12px 12px;
-    animation: 30s linear infinite transform-2c6-rw, 0s 0.4s forwards fade-to-1, 0.2s linear 0.4s forwards d-9_o5mj;
-  }
-}
-
 .lr3xdl {
   d: path('M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5');
+}
+
+.rutrix {
+  fill: #fff;
+  d: path('M12 6c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
 }
 
 @media not (prefers-reduced-motion) {
@@ -32,29 +35,20 @@
     transform-origin: 12px 12px;
     animation: 30s linear infinite transform-2c6-rw, 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-s9ijad;
   }
-}
 
-.rutrix {
-  fill: #fff;
-  d: path('M12 6c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
-}
+  .dv20ga {
+    animation: 0.4s linear forwards d-ve15dr;
+  }
 
-.cug7_u {
-  fill: #000;
-  d: path('M22 -4c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
-}
+  .lcivnh {
+    opacity: 0;
+    transform-origin: 12px 12px;
+    animation: 30s linear infinite transform-2c6-rw, 0s 0.4s forwards fade-to-1, 0.2s linear 0.4s forwards d-9_o5mj;
+  }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+  .p1mz8m {
+    animation: 0.4s linear forwards d-qro6by, 0s 0.4s forwards fade-to-0;
+  }
 }
 
 @keyframes d-ve15dr {

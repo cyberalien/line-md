@@ -8,13 +8,13 @@
   },
   "classes": {
     "u2fi2d": {
-      "rules": "",
       "animation": "stroke-dasharray:26;animation:0.6s linear forwards so-from-26;"
     },
     "w8kq0r": {
       "rules": "d:path('M5 11l6 6l10 -10');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:confirm",
   "keyframes": {
     "so-from-26": "@keyframes so-from-26{0%{stroke-dashoffset:26}}"
   }

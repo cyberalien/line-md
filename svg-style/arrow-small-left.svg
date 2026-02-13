@@ -1,32 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .lk7j7i {
-    stroke-dasharray: 16;
-    animation: 0.3s linear forwards so-from-16;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
 .dmy2rm {
   d: path('M19 12h-13.5');
 }
 
+.y44q3t {
+  d: path('M5 12l5 5M5 12l5 -5');
+}
+
 @media not (prefers-reduced-motion) {
+  .lk7j7i {
+    stroke-dasharray: 16;
+    animation: 0.3s linear forwards so-from-16;
+  }
+
   .vr4r2y {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.2s linear 0.3s forwards so-to-0;
   }
-}
-
-.y44q3t {
-  d: path('M5 12l5 5M5 12l5 -5');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
 }
 
 @keyframes so-from-16 {

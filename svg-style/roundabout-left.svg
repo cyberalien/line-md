@@ -1,8 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .ds6iuu {
-    stroke-dasharray: 40;
-    animation: 0.5s linear forwards so-from-40;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.j9mjms {
+  d: path('M3 9l3 -3M3 9l3 3');
 }
 
 .yiao3t {
@@ -10,23 +15,16 @@
 }
 
 @media not (prefers-reduced-motion) {
+  .ds6iuu {
+    stroke-dasharray: 40;
+    animation: 0.5s linear forwards so-from-40;
+  }
+
   .w4w4hp {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.5s forwards so-to-0;
   }
-}
-
-.j9mjms {
-  d: path('M3 9l3 -3M3 9l3 3');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
 }
 
 @keyframes so-from-40 {

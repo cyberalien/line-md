@@ -11,7 +11,6 @@
       "rules": "fill:currentColor;"
     },
     "efki8y": {
-      "rules": "",
       "animation": "animation:0.2s linear forwards cx-from-17px;"
     },
     "psp_wn": {
@@ -21,6 +20,7 @@
       "rules": "cx:7px;cy:12px;r:3px;"
     }
   },
+  "fallback": "line-md:switch-twotone-to-switch-off-twotone-transition",
   "keyframes": {
     "cx-from-17px": "@keyframes cx-from-17px{0%{cx:17px}}"
   }

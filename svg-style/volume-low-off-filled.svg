@@ -1,34 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .w2p1hy {
-    stroke-dasharray: 34;
-    fill-opacity: 0;
-    animation: 0.4s linear forwards so-from-34, 0.4s linear 0.4s forwards fill-to-1;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .l_snni {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0.4s linear 0.9s forwards so-to-0;
-  }
-}
-
-.tangpy {
-  fill: #fff;
-  d: path('M8 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
-  stroke: #fff;
-}
-
-.t5pxry {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2px;
-}
-
-.oxx-om {
-  d: path('M-1 11h26');
-  stroke: #000;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .eycklu {
@@ -37,14 +9,40 @@
   transform-origin: 12px 12px;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
-
 .gd_4-q {
   d: path('M-1 13h26');
   stroke: currentColor;
+}
+
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
+}
+
+.t5pxry {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+.tangpy {
+  fill: #fff;
+  d: path('M8 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .l_snni {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 0.9s forwards so-to-0;
+  }
+
+  .w2p1hy {
+    stroke-dasharray: 34;
+    fill-opacity: 0;
+    animation: 0.4s linear forwards so-from-34, 0.4s linear 0.4s forwards fill-to-1;
+  }
 }
 
 @keyframes so-from-34 {

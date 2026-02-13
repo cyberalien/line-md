@@ -1,29 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.fu8ghk {
-  d: path('M5 5l14 0M5 19l14 0');
-}
-
-@media not (prefers-reduced-motion) {
-  .lo71rd {
-    animation: 0.4s linear forwards d-wzkz9p;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
 .c2px5j {
   d: path('M5 12h14');
 }
 
+.fu8ghk {
+  d: path('M5 5l14 0M5 19l14 0');
+}
+
 @media not (prefers-reduced-motion) {
   .hq11_u {
     animation: 0.4s linear forwards d-szjhyc;
   }
-}
 
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+  .lo71rd {
+    animation: 0.4s linear forwards d-wzkz9p;
+  }
 }
 
 @keyframes d-wzkz9p {

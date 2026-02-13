@@ -8,13 +8,13 @@
   },
   "classes": {
     "olnkek": {
-      "rules": "",
       "animation": "transform-origin:12px 12px;animation:1.5s linear infinite transform-2c6-rw;"
     },
     "j7c0tv": {
       "rules": "d:path('M12 3c4.97 0 9 4.03 9 9');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:loading-loop",
   "keyframes": {
     "transform-2c6-rw": "@keyframes transform-2c6-rw{100%{transform:rotate(360deg)}}"
   }

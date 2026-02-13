@@ -8,7 +8,6 @@
   },
   "classes": {
     "h5p5rr": {
-      "rules": "",
       "animation": "stroke-dasharray:46;fill-opacity:0;animation:0.6s linear forwards so-from-46, 0.4s linear 0.6s forwards fill-to-1;"
     },
     "g26hbu": {
@@ -24,18 +23,15 @@
       "rules": "d:path('M3.94 9.73c1.24 0 2.24 1 2.24 2.24c0 1.24 -1 2.24 -2.24 2.24c-1.24 0 -2.24 -1 -2.24 -2.24c0 -1.24 1 -2.24 2.24 -2.24ZM20.06 9.73c1.24 0 2.24 1 2.24 2.24c0 1.24 -1 2.24 -2.24 2.24c-1.24 0 -2.24 -1 -2.24 -2.24c0 -1.24 1 -2.24 2.24 -2.24Z');"
     },
     "pyhh6r": {
-      "rules": "",
       "animation": "opacity:0;animation:0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-ma61vw;"
     },
     "i0yhwz": {
-      "rules": "",
       "animation": "opacity:0;animation:0s 2.2s forwards fade-to-1;"
     },
     "m29xsy": {
       "rules": "cx:18.45px;cy:4.23px;r:1.61px;"
     },
     "oamz2k": {
-      "rules": "",
       "animation": "opacity:0;animation:0.4s linear 1.2s forwards fade-to-1;"
     },
     "tszm2x": {
@@ -45,21 +41,18 @@
       "rules": "fill:#000;"
     },
     "w04wva": {
-      "rules": "",
       "animation": "opacity:0;animation:0.4s linear 1.6s forwards fade-to-1;"
     },
     "i83a2p": {
       "rules": "cx:15.55px;cy:13.59px;r:1.61px;"
     },
     "l66rvr": {
-      "rules": "",
       "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 2s forwards so-to-0;"
     },
     "e6cnhx": {
       "rules": "d:path('M12 8.75l1.18 -5.64l5.03 1.07');"
     },
     "riaxak": {
-      "rules": "",
       "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 2s forwards so-to-0;"
     },
     "i7xm5e": {
@@ -75,6 +68,7 @@
       "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:reddit",
   "keyframes": {
     "so-from-46": "@keyframes so-from-46{0%{stroke-dashoffset:46}}",
     "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",

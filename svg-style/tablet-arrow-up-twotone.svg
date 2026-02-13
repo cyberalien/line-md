@@ -1,50 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .j5biyx {
-    stroke-dasharray: 70;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-70, 0.15s linear 0.9s forwards fill-to-0_3;
-  }
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-.d0_lsv {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.d0_lsv {
   d: path('M2 5h3v14h-3ZM22 5h-3v14h3Z');
 }
 
-@media not (prefers-reduced-motion) {
-  .gljw6l {
-    animation: 0s forwards d-4c0-hc, 0.2s linear 0.6s forwards d-i58k3z;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .cr950v {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.15s forwards so-to-0;
-  }
-}
-
-.oriqoh {
-  d: path('M12 15v-6');
-}
-
-.y4wbml {
-  fill: none;
-}
-
-@media not (prefers-reduced-motion) {
-  .bql79y {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.35s forwards so-to-0;
-  }
-}
-
-.uqhq2m {
-  d: path('M12 9l3 3M12 9l-3 3');
+.gmy6lc {
+  d: path('M12 5h9c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-18c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z');
+  fill-opacity: 0.3;
 }
 
 .iw1iew {
@@ -54,9 +14,43 @@
   stroke-width: 2px;
 }
 
-.gmy6lc {
-  d: path('M12 5h9c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-18c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z');
-  fill-opacity: 0.3;
+.oriqoh {
+  d: path('M12 15v-6');
+}
+
+.uqhq2m {
+  d: path('M12 9l3 3M12 9l-3 3');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .bql79y {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.35s forwards so-to-0;
+  }
+
+  .cr950v {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.15s forwards so-to-0;
+  }
+
+  .gljw6l {
+    animation: 0s forwards d-4c0-hc, 0.2s linear 0.6s forwards d-i58k3z;
+  }
+
+  .j5biyx {
+    stroke-dasharray: 70;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-70, 0.15s linear 0.9s forwards fill-to-0_3;
+  }
 }
 
 @keyframes fill-to-0 {

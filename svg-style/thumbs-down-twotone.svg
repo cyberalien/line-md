@@ -1,17 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .e7pbpi {
-    animation: 0s forwards fill-to-0, 0.15s linear 0.6s forwards fill-to-0_3;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .g1bs-c {
-    stroke-dasharray: 76;
-    animation: 0.6s linear forwards so-from-76;
-  }
-}
-
-.r22oft {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.r22oft {
   d: path('M3 4h4v9h-4v-9Z');
   fill-opacity: 0.3;
   fill: currentColor;
@@ -24,6 +11,17 @@
   stroke: currentColor;
   stroke-width: 2px;
   fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .e7pbpi {
+    animation: 0s forwards fill-to-0, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
+
+  .g1bs-c {
+    stroke-dasharray: 76;
+    animation: 0.6s linear forwards so-from-76;
+  }
 }
 
 @keyframes fill-to-0 {

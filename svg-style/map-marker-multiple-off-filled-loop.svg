@@ -1,18 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .kv14zj {
-    stroke-dasharray: 48;
-    fill-opacity: 0;
-    transform-origin: 10px 20.5px;
-    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .djeo3r {
   d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
 }
 
-.taf2xz {
-  stroke-width: 2px;
+.eusm4q {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.eycklu {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
 .g_1xrq {
@@ -20,13 +23,15 @@
   stroke-linejoin: round;
 }
 
-@media not (prefers-reduced-motion) {
-  .lsywek {
-    stroke-dasharray: 48;
-    fill-opacity: 0;
-    transform-origin: 14px 20.5px;
-    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
-  }
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+.jf85im {
+  cx: 14px;
+  cy: 9px;
+  r: 2.5px;
 }
 
 .n53t9u {
@@ -37,57 +42,46 @@
   fill: #000;
 }
 
-.qc_pkd {
-  stroke: #000;
+.nsraqz {
+  d: path('M-1 11h26');
 }
 
 .q0shub {
   stroke-width: 4px;
 }
 
-@media not (prefers-reduced-motion) {
-  .qzmcuq {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;
-  }
+.qc_pkd {
+  stroke: #000;
+}
+
+.taf2xz {
+  stroke-width: 2px;
 }
 
 @media not (prefers-reduced-motion) {
+  .kv14zj {
+    stroke-dasharray: 48;
+    fill-opacity: 0;
+    transform-origin: 10px 20.5px;
+    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
+  }
+
+  .lsywek {
+    stroke-dasharray: 48;
+    fill-opacity: 0;
+    transform-origin: 14px 20.5px;
+    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
+  }
+
+  .qzmcuq {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;
+  }
+
   .srt6gc {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.4s forwards so-to-0;
   }
-}
-
-.nsraqz {
-  d: path('M-1 11h26');
-}
-
-.eusm4q {
-  fill: #fff;
-  stroke: #fff;
-}
-
-.jf85im {
-  cx: 14px;
-  cy: 9px;
-  r: 2.5px;
-}
-
-.eycklu {
-  fill: none;
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
-
-.gd_4-q {
-  d: path('M-1 13h26');
-  stroke: currentColor;
 }
 
 @keyframes so-from-48 {

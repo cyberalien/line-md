@@ -11,20 +11,19 @@
       "rules": "d:path('M22 3v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z');"
     },
     "i5t7wu": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-3gok0n;"
     },
     "zijnji": {
       "rules": "d:path('M10 6h8M10 10h8M10 14h5M2 6v15c0 0.55 0.45 1 1 1h15');"
     },
     "sz0z-j": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-5rxztz;"
     },
     "a0m25c": {
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:text-box-to-text-box-multiple-transition",
   "keyframes": {
     "d-3gok0n": "@keyframes d-3gok0n{0%{d:path('M20 5v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z')}}",
     "d-5rxztz": "@keyframes d-5rxztz{0%{d:path('M8 8h8M8 12h8M8 16h5M4 5v14c0 0.55 0.45 1 1 1h14')}}"

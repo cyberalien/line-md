@@ -8,18 +8,15 @@
   },
   "classes": {
     "p-jc7h": {
-      "rules": "",
       "animation": "stroke-dasharray:70;animation:0.6s linear forwards so-from-70;"
     },
     "gljw6l": {
-      "rules": "",
       "animation": "animation:0s forwards d-4c0-hc, 0.2s linear 0.6s forwards d-i58k3z;"
     },
     "yl0nmc": {
       "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
     },
     "l_snni": {
-      "rules": "",
       "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 0.9s forwards so-to-0;"
     },
     "c5xdmn": {
@@ -41,6 +38,7 @@
       "rules": "d:path('M-1 13h26');stroke:currentColor;"
     }
   },
+  "fallback": "line-md:tablet-off",
   "keyframes": {
     "so-from-70": "@keyframes so-from-70{0%{stroke-dashoffset:70}}",
     "d-4c0-hc": "@keyframes d-4c0-hc{100%{d:path('M2 5h0v14h0ZM22 5h0v14h0Z')}}",

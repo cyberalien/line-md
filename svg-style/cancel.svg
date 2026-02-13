@@ -1,8 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .ntf2iq {
-    stroke-dasharray: 60;
-    animation: 0.6s linear forwards so-from-60;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.fz108y {
+  d: path('M6 6l12 12');
 }
 
 .o5mfmg {
@@ -15,18 +20,11 @@
     stroke-dashoffset: 20;
     animation: 0.3s linear 0.6s forwards so-to-0;
   }
-}
 
-.fz108y {
-  d: path('M6 6l12 12');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+  .ntf2iq {
+    stroke-dasharray: 60;
+    animation: 0.6s linear forwards so-from-60;
+  }
 }
 
 @keyframes so-from-60 {

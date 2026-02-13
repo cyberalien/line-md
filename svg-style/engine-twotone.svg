@@ -1,45 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .j_3vtd {
-    stroke-dasharray: 42;
-    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-42, 0.15s linear 1.3s forwards fill-to-0_3;
-  }
-}
-
-.vni3zr {
-  d: path('M17 13h4v-3h1v8h-1v-3h-4Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .i6qn2o {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-15binr;
-  }
-}
-
-.y4wbml {
-  fill: none;
-}
-
-.nsm7mq {
-  d: path('M6 14h-4M2 11v6');
-}
-
-@media not (prefers-reduced-motion) {
-  .yw3f7b {
-    opacity: 0;
-    animation: 0s 0.8s forwards fade-to-1, 0.2s linear 0.8s forwards d-vq39db;
-  }
-}
-
-.kxiy0s {
-  d: path('M11 9v-4M8 5h6');
-}
-
-@media not (prefers-reduced-motion) {
-  .twu__s {
-    opacity: 0;
-    animation: 0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-6j2qwa;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.f1c3qa {
+  d: path('M11 9h6v10h-6.5l-2 -2h-2.5v-6.5l1.5 -1.5Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
 }
 
 .iw1iew {
@@ -49,10 +11,42 @@
   stroke-width: 2px;
 }
 
-.f1c3qa {
-  d: path('M11 9h6v10h-6.5l-2 -2h-2.5v-6.5l1.5 -1.5Z');
-  fill-opacity: 0.3;
-  fill: currentColor;
+.kxiy0s {
+  d: path('M11 9v-4M8 5h6');
+}
+
+.nsm7mq {
+  d: path('M6 14h-4M2 11v6');
+}
+
+.vni3zr {
+  d: path('M17 13h4v-3h1v8h-1v-3h-4Z');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .i6qn2o {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-15binr;
+  }
+
+  .j_3vtd {
+    stroke-dasharray: 42;
+    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-42, 0.15s linear 1.3s forwards fill-to-0_3;
+  }
+
+  .twu__s {
+    opacity: 0;
+    animation: 0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-6j2qwa;
+  }
+
+  .yw3f7b {
+    opacity: 0;
+    animation: 0s 0.8s forwards fade-to-1, 0.2s linear 0.8s forwards d-vq39db;
+  }
 }
 
 @keyframes fill-to-0 {

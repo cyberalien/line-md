@@ -1,48 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .kaicwq {
-    stroke-dasharray: 66;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-66, 0.15s linear 0.6s forwards fill-to-0_3;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .p3v8vf {
-    stroke-dasharray: 10;
-    stroke-dashoffset: 10;
-    animation: 0.2s linear 0.85s forwards so-to-0;
-  }
-}
-
-.yt1ehl {
-  d: path('M8.63 15.31c2.18 -0.58 4.49 -0.34 6.5 0.69');
-}
-
-.y4wbml {
-  fill: none;
-}
-
-@media not (prefers-reduced-motion) {
-  .d8a2wo {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 1.05s forwards so-to-0;
-  }
-}
-
-.pazwgw {
-  d: path('M7.5 12.07c1.1 -0.37 2.28 -0.57 3.5 -0.57c2.02 0 3.92 0.55 5.55 1.5');
-}
-
-@media not (prefers-reduced-motion) {
-  .x_vy0m {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
-    animation: 0.2s linear 1.25s forwards so-to-0;
-  }
-}
-
-.q2okau {
-  d: path('M7 8.91c1.38 -0.59 2.9 -0.91 4.5 -0.91c2.41 0 4.65 0.74 6.5 2');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ehv_8i {
+  d: path('M2 12c0 -5.52 4.48 -10 10 -10c5.52 0 10 4.48 10 10c0 5.52 -4.48 10 -10 10c-5.52 0 -10 -4.48 -10 -10Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
 }
 
 .hzcwhu {
@@ -52,10 +11,45 @@
   stroke: currentColor;
 }
 
-.ehv_8i {
-  d: path('M2 12c0 -5.52 4.48 -10 10 -10c5.52 0 10 4.48 10 10c0 5.52 -4.48 10 -10 10c-5.52 0 -10 -4.48 -10 -10Z');
-  fill-opacity: 0.3;
-  fill: currentColor;
+.pazwgw {
+  d: path('M7.5 12.07c1.1 -0.37 2.28 -0.57 3.5 -0.57c2.02 0 3.92 0.55 5.55 1.5');
+}
+
+.q2okau {
+  d: path('M7 8.91c1.38 -0.59 2.9 -0.91 4.5 -0.91c2.41 0 4.65 0.74 6.5 2');
+}
+
+.y4wbml {
+  fill: none;
+}
+
+.yt1ehl {
+  d: path('M8.63 15.31c2.18 -0.58 4.49 -0.34 6.5 0.69');
+}
+
+@media not (prefers-reduced-motion) {
+  .d8a2wo {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1.05s forwards so-to-0;
+  }
+
+  .kaicwq {
+    stroke-dasharray: 66;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-66, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
+
+  .p3v8vf {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    animation: 0.2s linear 0.85s forwards so-to-0;
+  }
+
+  .x_vy0m {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 1.25s forwards so-to-0;
+  }
 }
 
 @keyframes fill-to-0 {

@@ -8,21 +8,18 @@
   },
   "classes": {
     "tkv19w": {
-      "rules": "",
       "animation": "stroke-dasharray:36;animation:0.5s linear forwards so-from-36;"
     },
     "drj0sh": {
       "rules": "d:path('M12 5c-3.87 0 -7 3.13 -7 7c0 3.87 3.13 7 7 7c3.87 0 7 -3.13 7 -7');"
     },
     "q-1rzi": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.5s forwards so-to-0;"
     },
     "wno8mp": {
       "rules": "d:path('M13 11l7 -7');"
     },
     "tgs9dx": {
-      "rules": "",
       "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.7s forwards so-to-0;"
     },
     "her3as": {
@@ -32,6 +29,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:external-link-rounded",
   "keyframes": {
     "so-from-36": "@keyframes so-from-36{0%{stroke-dashoffset:36}}",
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"

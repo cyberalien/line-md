@@ -1,70 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .a5ticy {
-    animation: 0s forwards fill-to-0, 0.15s linear 1s forwards fill-to-0_3;
-  }
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-@media not (prefers-reduced-motion) {
-  .dz4tsx {
-    stroke-dasharray: 14;
-    animation: 0.4s linear forwards so-from-14;
-  }
-}
-
-.ypc9-b {
-  d: path('M12 21h2.5c0.5 0 0.85 -0.5 0.85 -1c0 -0.5 -1.1 -4 -1.1 -4h-2.25M12 21h-2.5c-0.5 0 -0.85 -0.5 -0.85 -1c0 -0.5 1.1 -4 1.1 -4h2.25');
-}
-
-@media not (prefers-reduced-motion) {
-  .y5ykex {
-    stroke-dasharray: 26;
-    stroke-dashoffset: 26;
-    animation: 0.6s linear 0.4s forwards so-to-0;
-  }
-}
-
-.mjhdjt {
-  d: path('M12 13h8c0.55 0 1 -0.45 1 -1c0 -4.97 -4.03 -9 -9 -9M12 13h-8c-0.55 0 -1 -0.45 -1 -1c0 -4.97 4.03 -9 9 -9');
-}
-
-.kqeuxs {
-  r: 2px;
-}
-
-@media not (prefers-reduced-motion) {
-  .n9zcqg {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.25s forwards r-to-2px;
-  }
-}
-
-.yqoeal {
-  cx: 11px;
-  cy: 4px;
-}
-
-@media not (prefers-reduced-motion) {
-  .oi9c7l {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.45s forwards r-to-2px;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
 .f_840c {
   cx: 7px;
-  cy: 8px;
-}
-
-@media not (prefers-reduced-motion) {
-  .u0pyru {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.65s forwards r-to-2px;
-  }
-}
-
-.ydydsi {
-  cx: 15px;
   cy: 8px;
 }
 
@@ -73,12 +16,59 @@
   d: path('M20 13c0.55 0 1 -0.45 1 -1c0 -4.97 -4.03 -9 -9 -9c-4.97 0 -9 4.03 -9 9c0 0.55 0.45 1 1 1ZM14.5 21c0.5 0 0.85 -0.5 0.85 -1c0 -0.5 -1.1 -4 -1.1 -4h-4.5c0 0 -1.1 3.5 -1.1 4c0 0.5 0.35 1 0.85 1Z');
 }
 
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+.kqeuxs {
+  r: 2px;
+}
+
+.mjhdjt {
+  d: path('M12 13h8c0.55 0 1 -0.45 1 -1c0 -4.97 -4.03 -9 -9 -9M12 13h-8c-0.55 0 -1 -0.45 -1 -1c0 -4.97 4.03 -9 9 -9');
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+.ydydsi {
+  cx: 15px;
+  cy: 8px;
+}
+
+.ypc9-b {
+  d: path('M12 21h2.5c0.5 0 0.85 -0.5 0.85 -1c0 -0.5 -1.1 -4 -1.1 -4h-2.25M12 21h-2.5c-0.5 0 -0.85 -0.5 -0.85 -1c0 -0.5 1.1 -4 1.1 -4h2.25');
+}
+
+.yqoeal {
+  cx: 11px;
+  cy: 4px;
+}
+
+@media not (prefers-reduced-motion) {
+  .a5ticy {
+    animation: 0s forwards fill-to-0, 0.15s linear 1s forwards fill-to-0_3;
+  }
+
+  .dz4tsx {
+    stroke-dasharray: 14;
+    animation: 0.4s linear forwards so-from-14;
+  }
+
+  .n9zcqg {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.25s forwards r-to-2px;
+  }
+
+  .oi9c7l {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.45s forwards r-to-2px;
+  }
+
+  .u0pyru {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.65s forwards r-to-2px;
+  }
+
+  .y5ykex {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.6s linear 0.4s forwards so-to-0;
+  }
 }
 
 @keyframes fill-to-0 {

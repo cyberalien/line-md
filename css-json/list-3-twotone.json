@@ -8,42 +8,36 @@
   },
   "classes": {
     "jpao2x": {
-      "rules": "",
       "animation": "stroke-dasharray:28;animation:0s forwards fill-to-0, 0.4s linear forwards so-from-28, 0.15s linear 1.5s forwards fill-to-0_3;"
     },
     "mjcktl": {
       "rules": "d:path('M9.5 5c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "d8s38h": {
-      "rules": "",
       "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0s forwards fill-to-0, 0.4s linear 0.5s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;"
     },
     "oky53h": {
       "rules": "d:path('M9.5 12c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "y6ja1t": {
-      "rules": "",
       "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0s forwards fill-to-0, 0.4s linear 1s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;"
     },
     "fgc0lm": {
       "rules": "d:path('M9.5 19c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "ym3vio": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0s forwards fill-to-0, 0.2s linear 0.3s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;"
     },
     "nkhu3x": {
       "rules": "d:path('M3.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "p-arvr": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0s forwards fill-to-0, 0.2s linear 0.8s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;"
     },
     "v0h2ha": {
       "rules": "d:path('M3.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "dlvics": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0s forwards fill-to-0, 0.2s linear 1.3s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;"
     },
     "z5pijv": {
@@ -53,6 +47,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill-opacity:0.3;fill:currentColor;"
     }
   },
+  "fallback": "line-md:list-3-twotone",
   "keyframes": {
     "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
     "so-from-28": "@keyframes so-from-28{0%{stroke-dashoffset:28}}",

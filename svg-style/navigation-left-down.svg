@@ -1,8 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .u2fi2d {
-    stroke-dasharray: 26;
-    animation: 0.6s linear forwards so-from-26;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.h6sbvs {
+  d: path('M7 21l-4 -4M7 21l4 -4');
 }
 
 .nxkegt {
@@ -15,18 +20,11 @@
     stroke-dashoffset: 8;
     animation: 0.4s linear 0.6s forwards so-to-0;
   }
-}
 
-.h6sbvs {
-  d: path('M7 21l-4 -4M7 21l4 -4');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+  .u2fi2d {
+    stroke-dasharray: 26;
+    animation: 0.6s linear forwards so-from-26;
+  }
 }
 
 @keyframes so-from-26 {

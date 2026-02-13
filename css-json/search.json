@@ -8,14 +8,12 @@
   },
   "classes": {
     "ds6iuu": {
-      "rules": "",
       "animation": "stroke-dasharray:40;animation:0.5s linear forwards so-from-40;"
     },
     "c_xu5o": {
       "rules": "d:path('M10.76 13.24c-2.34 -2.34 -2.34 -6.14 0 -8.49c2.34 -2.34 6.14 -2.34 8.49 0c2.34 2.34 2.34 6.14 0 8.49c-2.34 2.34 -6.14 2.34 -8.49 0Z');"
     },
     "mhf06j": {
-      "rules": "",
       "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 0.5s forwards so-to-0;"
     },
     "chd5sw": {
@@ -25,6 +23,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:search",
   "keyframes": {
     "so-from-40": "@keyframes so-from-40{0%{stroke-dashoffset:40}}",
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"

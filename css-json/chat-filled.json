@@ -8,25 +8,21 @@
   },
   "classes": {
     "c8jviz": {
-      "rules": "",
       "animation": "stroke-dasharray:70;fill-opacity:0;animation:0.6s linear forwards so-from-70, 0.4s linear 0.7s forwards fill-to-1;"
     },
     "lfi4rs": {
-      "rules": "",
       "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.2s forwards so-to-0;"
     },
     "ag9sod": {
       "rules": "d:path('M8 7h8');"
     },
     "pij0-w": {
-      "rules": "",
       "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.3s forwards so-to-0;"
     },
     "sxsmtt": {
       "rules": "d:path('M8 10h8');"
     },
     "pr_73z": {
-      "rules": "",
       "animation": "stroke-dasharray:6;stroke-dashoffset:6;animation:0.2s linear 1.4s forwards so-to-0;"
     },
     "xvhttl": {
@@ -45,6 +41,7 @@
       "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:chat-filled",
   "keyframes": {
     "so-from-70": "@keyframes so-from-70{0%{stroke-dashoffset:70}}",
     "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",

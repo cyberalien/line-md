@@ -1,53 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .yy9dzd {
-    animation: 0.2s linear forwards d-3fqnuo;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .nknijc {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 0.3s forwards so-to-0;
-  }
-}
-
-.gl75xl {
-  d: path('M8 12h-5M16 12h5M12 16v5');
-}
-
-.zxndow {
-  stroke: #fff;
-}
-
-@media not (prefers-reduced-motion) {
-  .x-lvxe {
-    stroke-dasharray: 60;
-    stroke-dashoffset: 60;
-    animation: 0.6s linear 0.5s forwards so-to-0;
-  }
-}
-
-.gsunef {
-  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
-}
-
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-@media not (prefers-reduced-motion) {
-  .mgj96l {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0.4s linear 1.2s forwards so-to-0;
-  }
-}
-
-.wrpzix {
-  fill: #fff;
-  d: path('M7.5 12l3 -3h3l3 3l-0.5 0c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4Z');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .c5xdmn {
@@ -57,19 +10,60 @@
   fill: none;
 }
 
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
+.gl75xl {
+  d: path('M8 12h-5M16 12h5M12 16v5');
+}
+
+.gsunef {
+  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
+}
+
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.wrpzix {
+  fill: #fff;
+  d: path('M7.5 12l3 -3h3l3 3l-0.5 0c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4Z');
 }
 
-.gd_4-q {
-  d: path('M-1 13h26');
-  stroke: currentColor;
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .mgj96l {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.2s forwards so-to-0;
+  }
+
+  .nknijc {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.3s forwards so-to-0;
+  }
+
+  .x-lvxe {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: 0.6s linear 0.5s forwards so-to-0;
+  }
+
+  .yy9dzd {
+    animation: 0.2s linear forwards d-3fqnuo;
+  }
 }
 
 @keyframes d-3fqnuo {

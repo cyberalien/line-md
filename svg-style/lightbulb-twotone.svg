@@ -1,19 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .xd1fnf {
-    stroke-dasharray: 46;
-    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-46, 0.15s linear 0.7s forwards fill-to-0_3;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .yhccrg {
-    stroke-dasharray: 6;
-    stroke-dashoffset: 6;
-    animation: 0.2s linear 0.5s forwards so-to-0;
-  }
-}
-
-.iw1iew {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.iw1iew {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -29,6 +14,19 @@
 .xhum1e {
   d: path('M10 21h4');
   fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .xd1fnf {
+    stroke-dasharray: 46;
+    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-46, 0.15s linear 0.7s forwards fill-to-0_3;
+  }
+
+  .yhccrg {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
 }
 
 @keyframes fill-to-0 {

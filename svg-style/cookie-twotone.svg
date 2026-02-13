@@ -1,19 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .lsoe3z {
-    stroke-dasharray: 56;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.6s forwards fill-to-0_3;
-  }
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-@media not (prefers-reduced-motion) {
-  .nuvk0r {
-    opacity: 0;
-    animation: 0.1s linear 0.85s forwards fade-to-1;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a7j2at {
+  cx: 11.5px;
+  cy: 12.5px;
+  r: 1.5px;
 }
 
 .gtld9v {
@@ -22,37 +10,10 @@
   r: 1.5px;
 }
 
-@media not (prefers-reduced-motion) {
-  .nuudjp {
-    opacity: 0;
-    animation: 0.1s linear 0.95s forwards fade-to-1;
-  }
-}
-
 .ohx4kk {
   cx: 11px;
   cy: 17.5px;
   r: 1.5px;
-}
-
-@media not (prefers-reduced-motion) {
-  .fnfxyn {
-    opacity: 0;
-    animation: 0.1s linear 1.05s forwards fade-to-1;
-  }
-}
-
-.qe3oxa {
-  cx: 6.5px;
-  cy: 11.5px;
-  r: 1.5px;
-}
-
-@media not (prefers-reduced-motion) {
-  .pzc0lx {
-    opacity: 0;
-    animation: 0.1s linear 1.15s forwards fade-to-1;
-  }
 }
 
 .po0nwp {
@@ -61,16 +22,9 @@
   r: 1.5px;
 }
 
-@media not (prefers-reduced-motion) {
-  .f21tte {
-    opacity: 0;
-    animation: 0.1s linear 1.25s forwards fade-to-1;
-  }
-}
-
-.a7j2at {
-  cx: 11.5px;
-  cy: 12.5px;
+.qe3oxa {
+  cx: 6.5px;
+  cy: 11.5px;
   r: 1.5px;
 }
 
@@ -81,6 +35,42 @@
   stroke: currentColor;
   stroke-width: 2px;
   fill-opacity: 0.3;
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .f21tte {
+    opacity: 0;
+    animation: 0.1s linear 1.25s forwards fade-to-1;
+  }
+
+  .fnfxyn {
+    opacity: 0;
+    animation: 0.1s linear 1.05s forwards fade-to-1;
+  }
+
+  .lsoe3z {
+    stroke-dasharray: 56;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
+
+  .nuudjp {
+    opacity: 0;
+    animation: 0.1s linear 0.95s forwards fade-to-1;
+  }
+
+  .nuvk0r {
+    opacity: 0;
+    animation: 0.1s linear 0.85s forwards fade-to-1;
+  }
+
+  .pzc0lx {
+    opacity: 0;
+    animation: 0.1s linear 1.15s forwards fade-to-1;
+  }
 }
 
 @keyframes fill-to-0 {

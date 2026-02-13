@@ -1,55 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .s_h8wi {
-    stroke-dasharray: 70;
-    fill-opacity: 0;
-    animation: 0.6s linear forwards so-from-70, 0.4s linear 1.2s forwards fill-to-1;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .ey-aql {
   d: path('M12 17h-10v-14h20v14Z');
 }
 
-.g26hbu {
-  fill: #fff;
+.fr_rlf {
+  d: path('M12 7l3 3M12 7l-3 3');
 }
 
-.zxndow {
-  stroke: #fff;
+.g26hbu {
+  fill: #fff;
 }
 
 .j69b_u {
   d: path('M10 16h4v6h-4Z');
 }
 
-@media not (prefers-reduced-motion) {
-  .vzlc-k {
-    animation: 0s forwards d-fwg6_w, 0.2s linear 0.6s forwards d-7yzihk;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .m6lvki {
-    stroke-dasharray: 6;
-    stroke-dashoffset: 6;
-    animation: 0.4s linear 0.8s forwards so-to-0;
-  }
-}
-
 .kuqyvt {
   d: path('M12 21h3M12 21h-3');
-}
-
-.y4wbml {
-  fill: none;
-}
-
-@media not (prefers-reduced-motion) {
-  .xwz10b {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.7s forwards so-to-0;
-  }
 }
 
 .l8umly {
@@ -60,27 +31,48 @@
   stroke: #000;
 }
 
-@media not (prefers-reduced-motion) {
-  .g3jnly {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.9s forwards so-to-0;
-  }
-}
-
-.fr_rlf {
-  d: path('M12 7l3 3M12 7l-3 3');
-}
-
 .t5pxry {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2px;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.y4wbml {
+  fill: none;
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .g3jnly {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.9s forwards so-to-0;
+  }
+
+  .m6lvki {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.4s linear 0.8s forwards so-to-0;
+  }
+
+  .s_h8wi {
+    stroke-dasharray: 70;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-70, 0.4s linear 1.2s forwards fill-to-1;
+  }
+
+  .vzlc-k {
+    animation: 0s forwards d-fwg6_w, 0.2s linear 0.6s forwards d-7yzihk;
+  }
+
+  .xwz10b {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.7s forwards so-to-0;
+  }
 }
 
 @keyframes so-from-70 {

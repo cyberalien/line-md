@@ -1,49 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.djeo3r {
-  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ainywl {
+  stroke-width: 4px;
+  stroke: #000;
 }
 
-@media not (prefers-reduced-motion) {
-  .h29iij {
-    fill-opacity: 0;
-    animation: 0.4s linear forwards d-e0pf-z, 0.4s linear 0.4s forwards fill-to-1;
-  }
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.djeo3r {
+  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
 }
 
 .g_1xrq {
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-
-.n53t9u {
-  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .y92hzg {
-    fill-opacity: 0;
-    animation: 0.4s linear forwards d-h46djy, 0.4s linear 0.4s forwards fill-to-1;
-  }
-}
-
-.nf43cj {
-  fill: #000;
-}
-
-@media not (prefers-reduced-motion) {
-  .ysbmem {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
-  }
-}
-
-.q7qpvx {
-  fill: #fff;
-  stroke-width: 2px;
-  stroke: #fff;
-}
-
-.ainywl {
-  stroke-width: 4px;
-  stroke: #000;
 }
 
 .jf85im {
@@ -52,9 +23,34 @@
   r: 2.5px;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.n53t9u {
+  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+}
+
+.nf43cj {
+  fill: #000;
+}
+
+.q7qpvx {
+  fill: #fff;
+  stroke-width: 2px;
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .h29iij {
+    fill-opacity: 0;
+    animation: 0.4s linear forwards d-e0pf-z, 0.4s linear 0.4s forwards fill-to-1;
+  }
+
+  .y92hzg {
+    fill-opacity: 0;
+    animation: 0.4s linear forwards d-h46djy, 0.4s linear 0.4s forwards fill-to-1;
+  }
+
+  .ysbmem {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
+  }
 }
 
 @keyframes d-e0pf-z {

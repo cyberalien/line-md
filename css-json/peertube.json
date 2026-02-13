@@ -8,7 +8,6 @@
   },
   "classes": {
     "tj_mqo": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-tbwzce;"
     },
     "cne-5n": {
@@ -21,6 +20,7 @@
       "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:peertube",
   "keyframes": {
     "d-tbwzce": "@keyframes d-tbwzce{0%{d:path('M12 12l0 0l0 0Z')}}"
   }

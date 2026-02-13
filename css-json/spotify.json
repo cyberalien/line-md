@@ -8,28 +8,24 @@
   },
   "classes": {
     "ao492n": {
-      "rules": "",
       "animation": "stroke-dasharray:66;animation:0.6s linear forwards so-from-66;"
     },
     "qxtz8v": {
       "rules": "d:path('M2 12c0 -5.52 4.48 -10 10 -10c5.52 0 10 4.48 10 10c0 5.52 -4.48 10 -10 10c-5.52 0 -10 -4.48 -10 -10Z');"
     },
     "c3vzue": {
-      "rules": "",
       "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 0.6s forwards so-to-0;"
     },
     "yt1ehl": {
       "rules": "d:path('M8.63 15.31c2.18 -0.58 4.49 -0.34 6.5 0.69');"
     },
     "kowswq": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.8s forwards so-to-0;"
     },
     "pazwgw": {
       "rules": "d:path('M7.5 12.07c1.1 -0.37 2.28 -0.57 3.5 -0.57c2.02 0 3.92 0.55 5.55 1.5');"
     },
     "rz1dnz": {
-      "rules": "",
       "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 1s forwards so-to-0;"
     },
     "q2okau": {
@@ -39,6 +35,7 @@
       "rules": "stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:none;"
     }
   },
+  "fallback": "line-md:spotify",
   "keyframes": {
     "so-from-66": "@keyframes so-from-66{0%{stroke-dashoffset:66}}",
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"

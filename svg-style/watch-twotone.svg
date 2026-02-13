@@ -1,20 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .ebjzdz {
-    animation: 0s forwards fill-to-0, 0.5s linear forwards d-45nhxp, 0.15s linear 0.5s forwards fill-to-0_3;
-  }
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-@media not (prefers-reduced-motion) {
-  .iazevu {
-    animation: 0.2s linear forwards r-from-0px;
-  }
-}
-
-.c94bwx {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.c94bwx {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -27,6 +11,20 @@
   cx: 12px;
   cy: 12px;
   r: 3px;
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .ebjzdz {
+    animation: 0s forwards fill-to-0, 0.5s linear forwards d-45nhxp, 0.15s linear 0.5s forwards fill-to-0_3;
+  }
+
+  .iazevu {
+    animation: 0.2s linear forwards r-from-0px;
+  }
 }
 
 @keyframes fill-to-0 {

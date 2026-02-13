@@ -8,18 +8,15 @@
   },
   "classes": {
     "cbm7zl": {
-      "rules": "",
       "animation": "animation:9s linear infinite y-z56c7r;"
     },
     "uzceux": {
-      "rules": "",
       "animation": "animation:0s forwards fill-to-0, 0.15s linear 0.9s forwards fill-to-0_3;"
     },
     "ydovum": {
       "rules": "fill:currentColor;"
     },
     "kokv_p": {
-      "rules": "",
       "animation": "stroke-dasharray:32;animation:0.6s linear forwards so-from-32;"
     },
     "py01hn": {
@@ -29,7 +26,6 @@
       "rules": "d:path('M9 19c-1.41 0 -2.84 -0.56 -3.69 -1.19c-0.84 -0.62 -1.09 -1.66 -2.31 -2.31');"
     },
     "tl-w8o": {
-      "rules": "",
       "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:3s linear infinite d-18l3_d, 0.2s linear 0.7s forwards so-to-0;"
     },
     "lsejuv": {
@@ -48,6 +44,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:github-twotone-loop",
   "keyframes": {
     "y-z56c7r": "@keyframes y-z56c7r{45%, 55%{y:7px}46%, 54%{y:11px}}",
     "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",

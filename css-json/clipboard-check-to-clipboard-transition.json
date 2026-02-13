@@ -17,7 +17,6 @@
       "rules": "d:path('M14.5 3.5v3h-5v-3');"
     },
     "vfnada": {
-      "rules": "",
       "animation": "stroke-dasharray:12;animation:0.2s linear forwards so-to-12;"
     },
     "yrju3u": {
@@ -27,6 +26,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:none;"
     }
   },
+  "fallback": "line-md:clipboard-check-to-clipboard-transition",
   "keyframes": {
     "so-to-12": "@keyframes so-to-12{100%{stroke-dashoffset:12}}"
   }

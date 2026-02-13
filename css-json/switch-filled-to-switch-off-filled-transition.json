@@ -8,7 +8,6 @@
   },
   "classes": {
     "efki8y": {
-      "rules": "",
       "animation": "animation:0.2s linear forwards cx-from-17px;"
     },
     "snl_hb": {
@@ -21,6 +20,7 @@
       "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:switch-filled-to-switch-off-filled-transition",
   "keyframes": {
     "cx-from-17px": "@keyframes cx-from-17px{0%{cx:17px}}"
   }

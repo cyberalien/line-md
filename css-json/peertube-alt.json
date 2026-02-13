@@ -11,7 +11,6 @@
       "rules": "d:path('M12 6.67l8 5.33l-8 5.34Z');"
     },
     "y5-jwp": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-y0k17z;"
     },
     "ydovum": {
@@ -21,17 +20,16 @@
       "rules": "d:path('M4 1.34l8 5.33l-8 5.33Z');"
     },
     "ilryer": {
-      "rules": "",
       "animation": "animation:0s forwards d-eo5vsf, 0.4s linear 0.2s forwards d-hy4_ez;"
     },
     "m_gxky": {
       "rules": "d:path('M4 12l8 5.34l-8 5.33Z');"
     },
     "x6y11c": {
-      "rules": "",
       "animation": "animation:0s forwards d-zqf0qv, 0.4s linear 0.4s forwards d-h1s04y;"
     }
   },
+  "fallback": "line-md:peertube-alt",
   "keyframes": {
     "d-y0k17z": "@keyframes d-y0k17z{0%{d:path('M12 6.67l0 5.33l0 5.34Z')}}",
     "d-eo5vsf": "@keyframes d-eo5vsf{100%{d:path('M8 9.34l4 -2.67l-8 5.33Z')}}",

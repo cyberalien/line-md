@@ -1,24 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .fmr81y {
-    stroke-dasharray: 24;
-    animation: 0.3s linear forwards so-from-24;
-  }
-}
-
-.ur6k-t {
-  d: path('M11.5 5c0 -0.83 0.67 -1.5 1.5 -1.5h6c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-6c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .hxx_9t {
-    stroke-dasharray: 24;
-    stroke-dashoffset: 24;
-    animation: 0.3s linear 0.4s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.al_u7w {
+  d: path('M3 12l2 2l4 -4');
 }
 
 .iigxpk {
   d: path('M11.5 12c0 -0.83 0.67 -1.5 1.5 -1.5h6c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-6c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+}
+
+.pko3ag {
+  d: path('M3 5l2 2l4 -4');
+}
+
+.qa-o7h {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  fill: none;
+}
+
+.t8ulzj {
+  d: path('M3 19l2 2l4 -4');
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+.u95v8k {
+  d: path('M11.5 19c0 -0.83 0.67 -1.5 1.5 -1.5h6c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-6c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+}
+
+.ur6k-t {
+  d: path('M11.5 5c0 -0.83 0.67 -1.5 1.5 -1.5h6c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-6c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
 @media not (prefers-reduced-motion) {
@@ -27,57 +39,35 @@
     stroke-dashoffset: 24;
     animation: 0.3s linear 0.8s forwards so-to-0;
   }
-}
 
-.u95v8k {
-  d: path('M11.5 19c0 -0.83 0.67 -1.5 1.5 -1.5h6c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-6c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
-}
-
-@media not (prefers-reduced-motion) {
   .cy1axl {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 0.2s forwards so-to-0;
   }
-}
 
-.pko3ag {
-  d: path('M3 5l2 2l4 -4');
-}
+  .fmr81y {
+    stroke-dasharray: 24;
+    animation: 0.3s linear forwards so-from-24;
+  }
 
-.taf2xz {
-  stroke-width: 2px;
-}
-
-@media not (prefers-reduced-motion) {
   .g269ju {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 0.6s forwards so-to-0;
   }
-}
 
-.al_u7w {
-  d: path('M3 12l2 2l4 -4');
-}
+  .hxx_9t {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: 0.3s linear 0.4s forwards so-to-0;
+  }
 
-@media not (prefers-reduced-motion) {
   .pgj22w {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 1s forwards so-to-0;
   }
-}
-
-.t8ulzj {
-  d: path('M3 19l2 2l4 -4');
-}
-
-.qa-o7h {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  fill: none;
 }
 
 @keyframes so-from-24 {

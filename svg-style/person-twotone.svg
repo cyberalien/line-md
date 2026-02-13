@@ -1,24 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .r-xfbt {
-    stroke-dasharray: 22;
-    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-22, 0.15s linear 1.1s forwards fill-to-0_3;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.hejshb {
+  d: path('M12 14c4 0 7 2 7 3v2h-14v-2c0 -1 3 -3 7 -3Z');
 }
 
 .p2d4-m {
   d: path('M12 5c1.66 0 3 1.34 3 3c0 1.66 -1.34 3 -3 3c-1.66 0 -3 -1.34 -3 -3c0 -1.66 1.34 -3 3 -3Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .k0-s7p {
-    stroke-dasharray: 38;
-    stroke-dashoffset: 38;
-    animation: 0s forwards fill-to-0, 0.5s linear 0.5s forwards so-to-0, 0.15s linear 1.1s forwards fill-to-0_3;
-  }
-}
-
-.hejshb {
-  d: path('M12 14c4 0 7 2 7 3v2h-14v-2c0 -1 3 -3 7 -3Z');
 }
 
 .qc2ppy {
@@ -28,6 +13,19 @@
   stroke-width: 2px;
   fill-opacity: 0.3;
   fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .k0-s7p {
+    stroke-dasharray: 38;
+    stroke-dashoffset: 38;
+    animation: 0s forwards fill-to-0, 0.5s linear 0.5s forwards so-to-0, 0.15s linear 1.1s forwards fill-to-0_3;
+  }
+
+  .r-xfbt {
+    stroke-dasharray: 22;
+    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-22, 0.15s linear 1.1s forwards fill-to-0_3;
+  }
 }
 
 @keyframes fill-to-0 {

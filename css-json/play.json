@@ -8,13 +8,13 @@
   },
   "classes": {
     "qb3u_k": {
-      "rules": "",
       "animation": "stroke-dasharray:38;animation:0.5s linear forwards so-from-38;"
     },
     "ka7muu": {
       "rules": "d:path('M8 6l10 6l-10 6Z');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:play",
   "keyframes": {
     "so-from-38": "@keyframes so-from-38{0%{stroke-dashoffset:38}}"
   }

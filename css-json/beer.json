@@ -8,11 +8,9 @@
   },
   "classes": {
     "cx3gut": {
-      "rules": "",
       "animation": "stroke-dasharray:18;stroke-dashoffset:18;animation:0.3s linear 0.6s forwards so-to-0;"
     },
     "j6lqly": {
-      "rules": "",
       "animation": "stroke-dasharray:62;animation:0.6s linear forwards so-from-62;"
     },
     "rwx0uh": {
@@ -31,6 +29,7 @@
       "rules": "d:path('M18 3l-2 18h-9l-2 -18Z');stroke:currentColor;"
     }
   },
+  "fallback": "line-md:beer",
   "keyframes": {
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
     "so-from-62": "@keyframes so-from-62{0%{stroke-dashoffset:62}}"

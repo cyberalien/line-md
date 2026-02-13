@@ -1,9 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .g269ju {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 0.6s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
+
+.fo5bbb {
+  d: path('M0 13h26');
+  stroke: currentColor;
+}
+
+.g_1xrq {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.g26hbu {
+  fill: #fff;
+}
+
+.nb4ngv {
+  d: path('M12 10.5l-9 2.5');
+}
+
+.qc_pkd {
+  stroke: #000;
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+.uv8ddv {
+  fill: #000;
+  stroke-width: 4px;
+}
+
+.x8ywvh {
+  d: path('M12 15.5l-9 2.5');
 }
 
 .xorvsn {
@@ -14,93 +46,53 @@
   fill: none;
 }
 
-.zxndow {
-  stroke: #fff;
-}
-
-.taf2xz {
-  stroke-width: 2px;
-}
-
-.g_1xrq {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-@media not (prefers-reduced-motion) {
-  .kowswq {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 0.8s forwards so-to-0;
-  }
-}
-
-.nb4ngv {
-  d: path('M12 10.5l-9 2.5');
-}
-
-@media not (prefers-reduced-motion) {
-  .pgj22w {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 1s forwards so-to-0;
-  }
-}
-
-.x8ywvh {
-  d: path('M12 15.5l-9 2.5');
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
 .z_b1hb {
   d: path('M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z');
 }
 
-.qc_pkd {
-  stroke: #000;
+.z8slok {
+  d: path('M0 11h26');
+}
+
+.zxndow {
+  stroke: #fff;
 }
 
 @media not (prefers-reduced-motion) {
-  .pxqrag {
-    stroke-dasharray: 40;
-    fill-opacity: 0;
-    animation: 0.5s linear forwards so-from-40, 0.4s linear 1.6s forwards fill-to-1;
+  .g269ju {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.6s forwards so-to-0;
   }
-}
 
-.g26hbu {
-  fill: #fff;
-}
+  .kowswq {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.8s forwards so-to-0;
+  }
 
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-@media not (prefers-reduced-motion) {
   .mgj96l {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.2s forwards so-to-0;
   }
-}
 
-.z8slok {
-  d: path('M0 11h26');
-}
+  .pgj22w {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1s forwards so-to-0;
+  }
 
-.uv8ddv {
-  fill: #000;
-  stroke-width: 4px;
-}
-
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
-
-.fo5bbb {
-  d: path('M0 13h26');
-  stroke: currentColor;
+  .pxqrag {
+    stroke-dasharray: 40;
+    fill-opacity: 0;
+    animation: 0.5s linear forwards so-from-40, 0.4s linear 1.6s forwards fill-to-1;
+  }
 }
 
 @keyframes so-to-0 {

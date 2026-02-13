@@ -8,42 +8,36 @@
   },
   "classes": {
     "vu2phh": {
-      "rules": "",
       "animation": "stroke-dasharray:28;animation:0.4s linear forwards so-from-28;"
     },
     "mjcktl": {
       "rules": "d:path('M9.5 5c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "xlj3dj": {
-      "rules": "",
       "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 0.5s forwards so-to-0;"
     },
     "oky53h": {
       "rules": "d:path('M9.5 12c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "ndkzyn": {
-      "rules": "",
       "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1s forwards so-to-0;"
     },
     "fgc0lm": {
       "rules": "d:path('M9.5 19c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "isz7uc": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.3s forwards so-to-0;"
     },
     "nkhu3x": {
       "rules": "d:path('M3.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "kowswq": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.8s forwards so-to-0;"
     },
     "v0h2ha": {
       "rules": "d:path('M3.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');"
     },
     "t5j5kf": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 1.3s forwards so-to-0;"
     },
     "z5pijv": {
@@ -53,6 +47,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:none;"
     }
   },
+  "fallback": "line-md:list-3",
   "keyframes": {
     "so-from-28": "@keyframes so-from-28{0%{stroke-dashoffset:28}}",
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"

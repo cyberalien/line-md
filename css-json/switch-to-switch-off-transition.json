@@ -8,7 +8,6 @@
   },
   "classes": {
     "efki8y": {
-      "rules": "",
       "animation": "animation:0.2s linear forwards cx-from-17px;"
     },
     "g36zgr": {
@@ -18,6 +17,7 @@
       "rules": "cx:7px;cy:12px;r:3px;fill:currentColor;"
     }
   },
+  "fallback": "line-md:switch-to-switch-off-transition",
   "keyframes": {
     "cx-from-17px": "@keyframes cx-from-17px{0%{cx:17px}}"
   }

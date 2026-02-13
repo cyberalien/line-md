@@ -1,48 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .ebjzdz {
-    animation: 0s forwards fill-to-0, 0.5s linear forwards d-45nhxp, 0.15s linear 0.5s forwards fill-to-0_3;
-  }
-}
-
-.g26hbu {
-  fill: #fff;
-}
-
-@media not (prefers-reduced-motion) {
-  .iazevu {
-    animation: 0.2s linear forwards r-from-0px;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .b02fap {
-    stroke-dasharray: 26;
-    stroke-dashoffset: 26;
-    animation: 0.4s linear 0.75s forwards so-to-0;
-  }
-}
-
-.t5pxry {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2px;
-}
-
-.id_j6z {
-  d: path('M2 12c1.72 -3.83 5.53 -6.5 10 -6.5c4.47 0 8.28 2.67 10 6.5c-1.72 3.83 -5.53 6.5 -10 6.5c-4.47 0 -8.28 -2.67 -10 -6.5Z');
-  fill-opacity: 0.3;
-  stroke: #fff;
-}
-
-.ho5icp {
-  cx: 12px;
-  cy: 12px;
-  r: 3px;
-}
-
-.lwtq5s {
-  stroke: #000;
-  d: path('M0 11h24');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .eycklu {
@@ -51,14 +9,52 @@
   transform-origin: 12px 12px;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.g26hbu {
+  fill: #fff;
+}
+
+.ho5icp {
+  cx: 12px;
+  cy: 12px;
+  r: 3px;
+}
+
+.id_j6z {
+  d: path('M2 12c1.72 -3.83 5.53 -6.5 10 -6.5c4.47 0 8.28 2.67 10 6.5c-1.72 3.83 -5.53 6.5 -10 6.5c-4.47 0 -8.28 -2.67 -10 -6.5Z');
+  fill-opacity: 0.3;
+  stroke: #fff;
+}
+
+.lwtq5s {
+  stroke: #000;
+  d: path('M0 11h24');
 }
 
 .r5412d {
   d: path('M0 13h24');
   stroke: currentColor;
+}
+
+.t5pxry {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+@media not (prefers-reduced-motion) {
+  .b02fap {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.4s linear 0.75s forwards so-to-0;
+  }
+
+  .ebjzdz {
+    animation: 0s forwards fill-to-0, 0.5s linear forwards d-45nhxp, 0.15s linear 0.5s forwards fill-to-0_3;
+  }
+
+  .iazevu {
+    animation: 0.2s linear forwards r-from-0px;
+  }
 }
 
 @keyframes fill-to-0 {

@@ -8,13 +8,13 @@
   },
   "classes": {
     "uvn6wq": {
-      "rules": "",
       "animation": "stroke-dasharray:30;animation:0.6s linear forwards so-from-30;"
     },
     "an6i3m": {
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;d:path('M12 8c0 0 0 0 -0.76 -1c-0.88 -1.16 -2.18 -2 -3.74 -2c-2.49 0 -4.5 2.01 -4.5 4.5c0 0.93 0.28 1.79 0.76 2.5c0.81 1.21 8.24 9 8.24 9M12 8c0 0 0 0 0.76 -1c0.88 -1.16 2.18 -2 3.74 -2c2.49 0 4.5 2.01 4.5 4.5c0 0.93 -0.28 1.79 -0.76 2.5c-0.81 1.21 -8.24 9 -8.24 9');stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:heart",
   "keyframes": {
     "so-from-30": "@keyframes so-from-30{0%{stroke-dashoffset:30}}"
   }

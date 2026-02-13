@@ -1,32 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .pqoixy {
-    stroke-dasharray: 18;
-    animation: 0.5s linear forwards so-from-18;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
 .t-dgaf {
   d: path('M6.5 17.53c3.29 -1.9 5.5 -5.46 5.5 -9.53v-4M12 20v-16');
 }
 
+.v_ldth {
+  d: path('M12 4l3 3M12 4l-3 3');
+}
+
 @media not (prefers-reduced-motion) {
+  .pqoixy {
+    stroke-dasharray: 18;
+    animation: 0.5s linear forwards so-from-18;
+  }
+
   .w4w4hp {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.5s forwards so-to-0;
   }
-}
-
-.v_ldth {
-  d: path('M12 4l3 3M12 4l-3 3');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
 }
 
 @keyframes so-from-18 {

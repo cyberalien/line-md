@@ -1,37 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .algbaa {
-    stroke-dasharray: 56;
-    fill-opacity: 0;
-    animation: 0.6s linear forwards so-from-56, 0.4s linear 0.6s forwards fill-to-1;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .t50frf {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.1s forwards r-to-1px;
-  }
-}
-
-.y2385h {
-  cx: 13px;
-  cy: 15px;
-}
-
-@media not (prefers-reduced-motion) {
-  .gp10le {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.3s forwards r-to-1px;
-  }
-}
-
-.lgwfxl {
-  cx: 13px;
-  cy: 6px;
-}
-
-@media not (prefers-reduced-motion) {
-  .j1_c0f {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.5s forwards r-to-1px;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .dps93d {
@@ -39,15 +8,19 @@
   cy: 17px;
 }
 
-@media not (prefers-reduced-motion) {
-  .n15bxy {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.7s forwards r-to-1px;
-  }
+.f2oxlq {
+  fill: #000;
+  r: 1px;
 }
 
-.yxzmwb {
-  cx: 14px;
-  cy: 18px;
+.lgwfxl {
+  cx: 13px;
+  cy: 6px;
+}
+
+.y2385h {
+  cx: 13px;
+  cy: 15px;
 }
 
 .yesp2h {
@@ -59,14 +32,33 @@
   stroke: #fff;
 }
 
-.f2oxlq {
-  fill: #000;
-  r: 1px;
+.yxzmwb {
+  cx: 14px;
+  cy: 18px;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+@media not (prefers-reduced-motion) {
+  .algbaa {
+    stroke-dasharray: 56;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-56, 0.4s linear 0.6s forwards fill-to-1;
+  }
+
+  .gp10le {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.3s forwards r-to-1px;
+  }
+
+  .j1_c0f {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.5s forwards r-to-1px;
+  }
+
+  .n15bxy {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.7s forwards r-to-1px;
+  }
+
+  .t50frf {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.1s forwards r-to-1px;
+  }
 }
 
 @keyframes so-from-56 {

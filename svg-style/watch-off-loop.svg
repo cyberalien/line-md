@@ -1,29 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .gp9zbu {
-    animation: 0s forwards d-h_4q1i, 6s linear infinite d-p1bg5r;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a9g3hp {
+  stroke: currentColor;
+  d: path('M0 13h24');
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
-@media not (prefers-reduced-motion) {
-  .e224fx {
-    animation: 0s forwards r-to-0px, 6s linear infinite r-cqmtvg;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .dfthaq {
-    stroke-dasharray: 26;
-    stroke-dashoffset: 26;
-    animation: 0.4s linear 0.5s forwards so-to-0;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .j48sou {
-    stroke-dasharray: 26;
-    stroke-dashoffset: 26;
-    animation: 0s forwards d-_ufr0f, 6s linear infinite d-_hat9q, 0.4s linear 0.5s forwards so-to-0;
-  }
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .c5xdmn {
@@ -31,6 +15,13 @@
   stroke-linejoin: round;
   stroke-width: 2px;
   fill: none;
+}
+
+.f30zlm {
+  stroke: #000;
+  d: path('M0 11h24');
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
 .l9t0nw {
@@ -45,23 +36,26 @@
   r: 3px;
 }
 
-.f30zlm {
-  stroke: #000;
-  d: path('M0 11h24');
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
+@media not (prefers-reduced-motion) {
+  .dfthaq {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.4s linear 0.5s forwards so-to-0;
+  }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
+  .e224fx {
+    animation: 0s forwards r-to-0px, 6s linear infinite r-cqmtvg;
+  }
 
-.a9g3hp {
-  stroke: currentColor;
-  d: path('M0 13h24');
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
+  .gp9zbu {
+    animation: 0s forwards d-h_4q1i, 6s linear infinite d-p1bg5r;
+  }
+
+  .j48sou {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0s forwards d-_ufr0f, 6s linear infinite d-_hat9q, 0.4s linear 0.5s forwards so-to-0;
+  }
 }
 
 @keyframes d-h_4q1i {

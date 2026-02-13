@@ -8,7 +8,6 @@
   },
   "classes": {
     "xu2hxs": {
-      "rules": "",
       "animation": "stroke-dasharray:14;animation:0.2s linear forwards so-to-14;"
     },
     "p8wpfy": {
@@ -24,6 +23,7 @@
       "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:confirm-circle-filled-to-circle-filled-transition",
   "keyframes": {
     "so-to-14": "@keyframes so-to-14{100%{stroke-dashoffset:14}}"
   }

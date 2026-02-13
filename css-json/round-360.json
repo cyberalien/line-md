@@ -8,11 +8,9 @@
   },
   "classes": {
     "ds6iuu": {
-      "rules": "",
       "animation": "stroke-dasharray:40;animation:0.5s linear forwards so-from-40;"
     },
     "hfb9et": {
-      "rules": "",
       "animation": "opacity:0;animation:0s 0.5s forwards fade-to-1, 0.2s linear 0.5s forwards d-stq6uv;"
     },
     "hdn6cj": {
@@ -25,6 +23,7 @@
       "rules": "d:path('M12.25 16l-2.75 -2.75l0 5.5Z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:round-360",
   "keyframes": {
     "so-from-40": "@keyframes so-from-40{0%{stroke-dashoffset:40}}",
     "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",

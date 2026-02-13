@@ -8,11 +8,9 @@
   },
   "classes": {
     "whygcj": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-0mee5h;"
     },
     "eyo_nx": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-r5jj3y;"
     },
     "iw1iew": {
@@ -25,6 +23,7 @@
       "rules": "d:path('M8 8h8M8 12h8M8 16h5M4 5v14c0 0.55 0.45 1 1 1h14');fill:none;"
     }
   },
+  "fallback": "line-md:text-box-multiple-twotone-to-text-box-twotone-transition",
   "keyframes": {
     "d-0mee5h": "@keyframes d-0mee5h{0%{d:path('M22 3v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z')}}",
     "d-r5jj3y": "@keyframes d-r5jj3y{0%{d:path('M10 6h8M10 10h8M10 14h5M2 6v15c0 0.55 0.45 1 1 1h15')}}"

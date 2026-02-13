@@ -1,11 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .pvp4mq {
-    stroke-dasharray: 28;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-28, 0.15s linear 0.6s forwards fill-to-0_3;
-  }
-}
-
-.n-ls4p {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.n-ls4p {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 3c0 0 7 6 7 12c0 2 -1 6 -7 6M12 3c0 0 -7 6 -7 12c0 2 1 6 7 6');
@@ -13,6 +6,13 @@
   stroke-width: 2px;
   fill-opacity: 0.3;
   fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .pvp4mq {
+    stroke-dasharray: 28;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-28, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
 }
 
 @keyframes fill-to-0 {

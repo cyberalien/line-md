@@ -1,15 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .bpe6qe {
-    fill-opacity: 0;
-    animation: 0.4s linear 0.5s forwards fill-to-1;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .qsudlx {
-    stroke-dasharray: 22;
-    animation: 0.5s linear forwards so-from-22;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.n4qeej {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  d: path('M12 5c0 0 5 6 5 9c0 2.76 -2.24 5 -5 5M12 5c0 0 -5 6 -5 9c0 2.76 2.24 5 5 5');
+  fill: none;
 }
 
 .tmf4tz {
@@ -17,13 +12,16 @@
   fill: currentColor;
 }
 
-.n4qeej {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  d: path('M12 5c0 0 5 6 5 9c0 2.76 -2.24 5 -5 5M12 5c0 0 -5 6 -5 9c0 2.76 2.24 5 5 5');
-  fill: none;
+@media not (prefers-reduced-motion) {
+  .bpe6qe {
+    fill-opacity: 0;
+    animation: 0.4s linear 0.5s forwards fill-to-1;
+  }
+
+  .qsudlx {
+    stroke-dasharray: 22;
+    animation: 0.5s linear forwards so-from-22;
+  }
 }
 
 @keyframes fill-to-1 {

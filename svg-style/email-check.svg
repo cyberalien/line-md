@@ -1,43 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .ao492n {
-    stroke-dasharray: 66;
-    animation: 0.6s linear forwards so-from-66;
-  }
-}
-
-.m913mt {
-  d: path('M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z');
-}
-
-.zxndow {
-  stroke: #fff;
-}
-
-@media not (prefers-reduced-motion) {
-  .nt4shc {
-    stroke-dasharray: 24;
-    stroke-dashoffset: 24;
-    animation: 0.3s linear 0.6s forwards so-to-0;
-  }
-}
-
-.w7zdcu {
-  d: path('M3 6.5l9 5.5l9 -5.5');
-}
-
-@media not (prefers-reduced-motion) {
-  .qd1m_p {
-    opacity: 0;
-    animation: 0s 0.9s forwards fade-to-1;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .jpwh9n {
-    stroke-dasharray: 10;
-    stroke-dashoffset: 10;
-    animation: 0.2s linear 0.9s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .c5xdmn {
@@ -47,19 +10,50 @@
   fill: none;
 }
 
-.yq7r9x {
-  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
-  fill: #000;
+.m913mt {
+  d: path('M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z');
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.w7zdcu {
+  d: path('M3 6.5l9 5.5l9 -5.5');
 }
 
 .xfz8xp {
   stroke: currentColor;
   d: path('M16 19l1.75 1.75l3.75 -3.75');
+}
+
+.yq7r9x {
+  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
+  fill: #000;
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .ao492n {
+    stroke-dasharray: 66;
+    animation: 0.6s linear forwards so-from-66;
+  }
+
+  .jpwh9n {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    animation: 0.2s linear 0.9s forwards so-to-0;
+  }
+
+  .nt4shc {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: 0.3s linear 0.6s forwards so-to-0;
+  }
+
+  .qd1m_p {
+    opacity: 0;
+    animation: 0s 0.9s forwards fade-to-1;
+  }
 }
 
 @keyframes so-from-66 {

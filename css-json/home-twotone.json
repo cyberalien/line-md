@@ -8,32 +8,27 @@
   },
   "classes": {
     "nd40qc": {
-      "rules": "",
       "animation": "animation:0s forwards fill-to-0, 0.15s linear 1.5s forwards fill-to-0_3;"
     },
     "bia62z": {
-      "rules": "",
       "animation": "stroke-dasharray:18;animation:0.3s linear forwards so-from-18;"
     },
     "ue82nq": {
       "rules": "d:path('M4.5 21.5h15');"
     },
     "gknbpr": {
-      "rules": "",
       "animation": "stroke-dasharray:16;stroke-dashoffset:16;animation:0.3s linear 0.3s forwards so-to-0;"
     },
     "l6920o": {
       "rules": "d:path('M4.5 21.5v-13.5M19.5 21.5v-13.5');"
     },
     "m5g-ms": {
-      "rules": "",
       "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 0.6s forwards so-to-0;"
     },
     "ino2qn": {
       "rules": "d:path('M2 10l10 -8l10 8');"
     },
     "dnce5w": {
-      "rules": "",
       "animation": "stroke-dasharray:26;stroke-dashoffset:26;animation:0.6s linear 0.9s forwards so-to-0;"
     },
     "ikgsqo": {
@@ -46,6 +41,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:home-twotone",
   "keyframes": {
     "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
     "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",

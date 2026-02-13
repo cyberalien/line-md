@@ -1,20 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .l5bica {
-    stroke-dasharray: 22;
-    animation: 0.3s linear forwards so-from-22;
-  }
-}
-
-.nd5q0m {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.nd5q0m {
   d: path('M2.5 11.5h19M2.5 18.5h19');
-}
-
-@media not (prefers-reduced-motion) {
-  .u3kwlo {
-    stroke-dasharray: 50;
-    stroke-dashoffset: 50;
-    animation: 0.6s linear 0.4s forwards so-to-0;
-  }
 }
 
 .qa-o7h {
@@ -27,6 +12,19 @@
 .xome2j {
   d: path('M12 6h6v12h-12v-12Z');
   stroke-width: 2px;
+}
+
+@media not (prefers-reduced-motion) {
+  .l5bica {
+    stroke-dasharray: 22;
+    animation: 0.3s linear forwards so-from-22;
+  }
+
+  .u3kwlo {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: 0.6s linear 0.4s forwards so-to-0;
+  }
 }
 
 @keyframes so-from-22 {

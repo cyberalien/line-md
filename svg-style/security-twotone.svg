@@ -1,11 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .akhljk {
-    stroke-dasharray: 60;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 0.6s forwards fill-to-0_3;
-  }
-}
-
-.q5bzku {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.q5bzku {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 2l-8 3.5v6.5c0 3.5 3.5 8 8 10c4.5 -1 8 -6.5 8 -10v-6.5l-8 -3.5Z');
@@ -13,6 +6,13 @@
   stroke-width: 2px;
   fill-opacity: 0.3;
   fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .akhljk {
+    stroke-dasharray: 60;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
 }
 
 @keyframes fill-to-0 {

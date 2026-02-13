@@ -8,7 +8,6 @@
   },
   "classes": {
     "g269ju": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.6s forwards so-to-0;"
     },
     "xorvsn": {
@@ -21,14 +20,12 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;"
     },
     "kowswq": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.8s forwards so-to-0;"
     },
     "nb4ngv": {
       "rules": "d:path('M12 10.5l-9 2.5');"
     },
     "pgj22w": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 1s forwards so-to-0;"
     },
     "x8ywvh": {
@@ -41,14 +38,12 @@
       "rules": "stroke:#000;"
     },
     "ds6iuu": {
-      "rules": "",
       "animation": "stroke-dasharray:40;animation:0.5s linear forwards so-from-40;"
     },
     "yl0nmc": {
       "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
     },
     "mgj96l": {
-      "rules": "",
       "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.2s forwards so-to-0;"
     },
     "z8slok": {
@@ -67,6 +62,7 @@
       "rules": "d:path('M0 13h26');stroke:currentColor;"
     }
   },
+  "fallback": "line-md:car-light-dimmed-off",
   "keyframes": {
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
     "so-from-40": "@keyframes so-from-40{0%{stroke-dashoffset:40}}"

@@ -1,49 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .pprenl {
-    stroke-dasharray: 64;
-    fill-opacity: 0;
-    animation: 0.6s linear forwards so-from-64, 0.4s linear 1s forwards fill-to-1;
-  }
-}
-
-.zxndow {
-  stroke: #fff;
-}
-
-@media not (prefers-reduced-motion) {
-  .h7habt {
-    stroke-dasharray: 16;
-    stroke-dashoffset: 16;
-    animation: 0.3s linear 0.6s forwards so-to-0;
-  }
-}
-
-.jco1mq {
-  d: path('M9 7v-3c0 -0.55 0.45 -1 1 -1h4c0.55 0 1 0.45 1 1v3');
-}
-
-.y4wbml {
-  fill: none;
-}
-
-@media not (prefers-reduced-motion) {
-  .gni6yj {
-    opacity: 0;
-    animation: 0s 1.5s forwards fade-to-1;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .mkig6i {
-    stroke-dasharray: 10;
-    stroke-dashoffset: 10;
-    animation: 0.2s linear 1.5s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .j70-bw {
   fill: #fff;
   d: path('M9 7h11c0.55 0 1 0.45 1 1v11c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11c0 -0.55 0.45 -1 1 -1Z');
+}
+
+.jco1mq {
+  d: path('M9 7v-3c0 -0.55 0.45 -1 1 -1h4c0.55 0 1 0.45 1 1v3');
 }
 
 .t5pxry {
@@ -52,19 +18,47 @@
   stroke-width: 2px;
 }
 
+.xfz8xp {
+  stroke: currentColor;
+  d: path('M16 19l1.75 1.75l3.75 -3.75');
+}
+
+.y4wbml {
+  fill: none;
+}
+
 .yq7r9x {
   d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
   fill: #000;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.zxndow {
+  stroke: #fff;
 }
 
-.xfz8xp {
-  stroke: currentColor;
-  d: path('M16 19l1.75 1.75l3.75 -3.75');
+@media not (prefers-reduced-motion) {
+  .gni6yj {
+    opacity: 0;
+    animation: 0s 1.5s forwards fade-to-1;
+  }
+
+  .h7habt {
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    animation: 0.3s linear 0.6s forwards so-to-0;
+  }
+
+  .mkig6i {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    animation: 0.2s linear 1.5s forwards so-to-0;
+  }
+
+  .pprenl {
+    stroke-dasharray: 64;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-64, 0.4s linear 1s forwards fill-to-1;
+  }
 }
 
 @keyframes so-from-64 {

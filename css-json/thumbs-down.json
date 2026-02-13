@@ -8,13 +8,13 @@
   },
   "classes": {
     "g1bs-c": {
-      "rules": "",
       "animation": "stroke-dasharray:76;animation:0.6s linear forwards so-from-76;"
     },
     "rr55xz": {
       "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M7 4h11l3 7v3h-7l1 6l-3 1l-5 -8h-4v-9h4v9');stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:thumbs-down",
   "keyframes": {
     "so-from-76": "@keyframes so-from-76{0%{stroke-dashoffset:76}}"
   }

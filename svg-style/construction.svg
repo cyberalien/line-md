@@ -1,60 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .low20g {
-    stroke-dasharray: 46;
-    animation: 0.5s linear forwards so-from-46;
-  }
-}
-
-.sd1qie {
-  d: path('M21 21h-18v-2c0 -1 1 -2 2 -2h14c1 0 2 1 2 2v2Z');
-}
-
-.taf2xz {
-  stroke-width: 2px;
-}
-
-@media not (prefers-reduced-motion) {
-  .j2vy2u {
-    stroke-dasharray: 20;
-    stroke-dashoffset: 20;
-    animation: 0.5s linear 0.6s forwards so-to-0;
-  }
-}
-
-.vpu_ei {
-  d: path('M6 17l6 -15M18 17l-6 -15');
-}
-
-@media not (prefers-reduced-motion) {
-  .z7trln {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.2s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.e1n93j {
+  d: path('M6 16l7.5 -4');
 }
 
 .f19pln {
   d: path('M8 12l4.5 -2.5');
-}
-
-@media not (prefers-reduced-motion) {
-  .rb9zxj {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 1.4s forwards so-to-0;
-  }
-}
-
-.e1n93j {
-  d: path('M6 16l7.5 -4');
-}
-
-@media not (prefers-reduced-motion) {
-  .cyn_ng {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.6s forwards so-to-0;
-  }
 }
 
 .g3yr1p {
@@ -66,6 +15,49 @@
   stroke-linejoin: round;
   stroke: currentColor;
   fill: none;
+}
+
+.sd1qie {
+  d: path('M21 21h-18v-2c0 -1 1 -2 2 -2h14c1 0 2 1 2 2v2Z');
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+.vpu_ei {
+  d: path('M6 17l6 -15M18 17l-6 -15');
+}
+
+@media not (prefers-reduced-motion) {
+  .cyn_ng {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.6s forwards so-to-0;
+  }
+
+  .j2vy2u {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: 0.5s linear 0.6s forwards so-to-0;
+  }
+
+  .low20g {
+    stroke-dasharray: 46;
+    animation: 0.5s linear forwards so-from-46;
+  }
+
+  .rb9zxj {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1.4s forwards so-to-0;
+  }
+
+  .z7trln {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.2s forwards so-to-0;
+  }
 }
 
 @keyframes so-from-46 {

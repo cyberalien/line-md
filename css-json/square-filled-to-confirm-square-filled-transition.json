@@ -8,7 +8,6 @@
   },
   "classes": {
     "ec16_t": {
-      "rules": "",
       "animation": "stroke-dasharray:14;animation:0.2s linear forwards so-from-14;"
     },
     "p7dawc": {
@@ -24,6 +23,7 @@
       "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:square-filled-to-confirm-square-filled-transition",
   "keyframes": {
     "so-from-14": "@keyframes so-from-14{0%{stroke-dashoffset:14}}"
   }

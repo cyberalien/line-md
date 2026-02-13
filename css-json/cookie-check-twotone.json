@@ -8,53 +8,45 @@
   },
   "classes": {
     "lsoe3z": {
-      "rules": "",
       "animation": "stroke-dasharray:56;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.6s forwards fill-to-0_3;"
     },
     "g26hbu": {
       "rules": "fill:#fff;"
     },
     "nuvk0r": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 0.85s forwards fade-to-1;"
     },
     "gtld9v": {
       "rules": "cx:9.5px;cy:7.5px;r:1.5px;"
     },
     "nuudjp": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 0.95s forwards fade-to-1;"
     },
     "ohx4kk": {
       "rules": "cx:11px;cy:17.5px;r:1.5px;"
     },
     "fnfxyn": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 1.05s forwards fade-to-1;"
     },
     "qe3oxa": {
       "rules": "cx:6.5px;cy:11.5px;r:1.5px;"
     },
     "pzc0lx": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 1.15s forwards fade-to-1;"
     },
     "po0nwp": {
       "rules": "cx:16.5px;cy:14.5px;r:1.5px;"
     },
     "f21tte": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 1.25s forwards fade-to-1;"
     },
     "a7j2at": {
       "rules": "cx:11.5px;cy:12.5px;r:1.5px;"
     },
     "yqcbyo": {
-      "rules": "",
       "animation": "opacity:0;animation:0s 1.35s forwards fade-to-1;"
     },
     "lez6jh": {
-      "rules": "",
       "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.35s forwards so-to-0;"
     },
     "fzislr": {
@@ -73,6 +65,7 @@
       "rules": "stroke:currentColor;d:path('M16 19l1.75 1.75l3.75 -3.75');fill:none;"
     }
   },
+  "fallback": "line-md:cookie-check-twotone",
   "keyframes": {
     "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
     "so-from-56": "@keyframes so-from-56{0%{stroke-dashoffset:56}}",

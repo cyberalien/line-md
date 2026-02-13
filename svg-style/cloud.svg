@@ -1,8 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .qsudlx {
-    stroke-dasharray: 22;
-    animation: 0.5s linear forwards so-from-22;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.k1oc5g {
+  d: path('M7 11v-1c0 -2.5 2 -5 5 -5M17 11v-1c0 -2.5 -2 -5 -5 -5');
 }
 
 .v9gp5p {
@@ -15,18 +20,11 @@
     stroke-dashoffset: 12;
     animation: 0.4s linear 0.5s forwards so-to-0;
   }
-}
 
-.k1oc5g {
-  d: path('M7 11v-1c0 -2.5 2 -5 5 -5M17 11v-1c0 -2.5 -2 -5 -5 -5');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+  .qsudlx {
+    stroke-dasharray: 22;
+    animation: 0.5s linear forwards so-from-22;
+  }
 }
 
 @keyframes so-from-22 {

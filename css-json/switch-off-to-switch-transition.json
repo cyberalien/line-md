@@ -8,7 +8,6 @@
   },
   "classes": {
     "rslhfn": {
-      "rules": "",
       "animation": "animation:0.2s linear forwards cx-from-7px;"
     },
     "g36zgr": {
@@ -18,6 +17,7 @@
       "rules": "cx:17px;cy:12px;r:3px;fill:currentColor;"
     }
   },
+  "fallback": "line-md:switch-off-to-switch-transition",
   "keyframes": {
     "cx-from-7px": "@keyframes cx-from-7px{0%{cx:7px}}"
   }

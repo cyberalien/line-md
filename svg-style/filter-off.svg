@@ -1,21 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .gf993l {
-    stroke-dasharray: 54;
-    animation: 0.6s linear forwards so-from-54;
-  }
-}
-
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-@media not (prefers-reduced-motion) {
-  .bf8xld {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0.4s linear 0.7s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .c5xdmn {
@@ -30,19 +15,32 @@
   stroke: #fff;
 }
 
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
+}
+
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
-.gd_4-q {
-  d: path('M-1 13h26');
-  stroke: currentColor;
+@media not (prefers-reduced-motion) {
+  .bf8xld {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 0.7s forwards so-to-0;
+  }
+
+  .gf993l {
+    stroke-dasharray: 54;
+    animation: 0.6s linear forwards so-from-54;
+  }
 }
 
 @keyframes so-from-54 {

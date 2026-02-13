@@ -8,11 +8,9 @@
   },
   "classes": {
     "g2rv8z": {
-      "rules": "",
       "animation": "stroke-dasharray:48;fill-opacity:0;animation:0.6s linear forwards so-from-48, 0.4s linear 0.7s forwards fill-to-1;"
     },
     "qzmcuq": {
-      "rules": "",
       "animation": "animation:0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;"
     },
     "lzziqk": {
@@ -25,6 +23,7 @@
       "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:map-marker-filled",
   "keyframes": {
     "so-from-48": "@keyframes so-from-48{0%{stroke-dashoffset:48}}",
     "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",

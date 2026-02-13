@@ -1,37 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .nlzowj {
-    stroke-dasharray: 54;
-    fill-opacity: 0;
-    animation: 0.6s linear forwards so-from-54, 0.4s linear 1.3s forwards fill-to-1;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .rxh5or {
-    stroke-dasharray: 20;
-    stroke-dashoffset: 20;
-    animation: 0.3s linear 0.7s forwards so-to-0;
-  }
-}
-
-.i6daxm {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.i6daxm {
   d: path('M4.22 4.22c-4.29 4.3 -4.29 11.26 0 15.56');
 }
 
-.y4wbml {
-  fill: none;
-}
-
-@media not (prefers-reduced-motion) {
-  .apv-zh {
-    stroke-dasharray: 20;
-    stroke-dashoffset: 20;
-    animation: 0.3s linear 1s forwards so-to-0;
-  }
-}
-
-.z5pf2k {
-  d: path('M19.78 4.22c4.29 4.3 4.29 11.26 0 15.56');
+.in1lrz {
+  fill: currentColor;
+  d: path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8');
 }
 
 .iw1iew {
@@ -41,9 +14,32 @@
   stroke-width: 2px;
 }
 
-.in1lrz {
-  fill: currentColor;
-  d: path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8');
+.y4wbml {
+  fill: none;
+}
+
+.z5pf2k {
+  d: path('M19.78 4.22c4.29 4.3 4.29 11.26 0 15.56');
+}
+
+@media not (prefers-reduced-motion) {
+  .apv-zh {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: 0.3s linear 1s forwards so-to-0;
+  }
+
+  .nlzowj {
+    stroke-dasharray: 54;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-54, 0.4s linear 1.3s forwards fill-to-1;
+  }
+
+  .rxh5or {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: 0.3s linear 0.7s forwards so-to-0;
+  }
 }
 
 @keyframes so-from-54 {

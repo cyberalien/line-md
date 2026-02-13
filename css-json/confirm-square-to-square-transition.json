@@ -11,7 +11,6 @@
       "rules": "d:path('M4 12v-7c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1Z');"
     },
     "xu2hxs": {
-      "rules": "",
       "animation": "stroke-dasharray:14;animation:0.2s linear forwards so-to-14;"
     },
     "mxf5wz": {
@@ -21,6 +20,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:confirm-square-to-square-transition",
   "keyframes": {
     "so-to-14": "@keyframes so-to-14{100%{stroke-dashoffset:14}}"
   }

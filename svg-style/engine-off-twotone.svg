@@ -1,62 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .mevslr {
-    stroke-dasharray: 42;
-    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-42, 0.15s linear 1.7s forwards fill-to-0_3;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
-.zxndow {
-  stroke: #fff;
-}
-
-.vni3zr {
-  d: path('M17 13h4v-3h1v8h-1v-3h-4Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .i6qn2o {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-15binr;
-  }
-}
-
-.y4wbml {
-  fill: none;
-}
-
-.nsm7mq {
-  d: path('M6 14h-4M2 11v6');
-}
-
-@media not (prefers-reduced-motion) {
-  .yw3f7b {
-    opacity: 0;
-    animation: 0s 0.8s forwards fade-to-1, 0.2s linear 0.8s forwards d-vq39db;
-  }
+.fo5bbb {
+  d: path('M0 13h26');
+  stroke: currentColor;
 }
 
 .kxiy0s {
   d: path('M11 9v-4M8 5h6');
 }
 
-@media not (prefers-reduced-motion) {
-  .twu__s {
-    opacity: 0;
-    animation: 0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-6j2qwa;
-  }
+.nsm7mq {
+  d: path('M6 14h-4M2 11v6');
 }
 
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-@media not (prefers-reduced-motion) {
-  .ggl9ne {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0.4s linear 1.3s forwards so-to-0;
-  }
+.oeeggn {
+  stroke: #000;
+  d: path('M0 11h26');
 }
 
 .s-r82y {
@@ -71,19 +33,49 @@
   stroke-width: 2px;
 }
 
-.oeeggn {
-  stroke: #000;
-  d: path('M0 11h26');
+.vni3zr {
+  d: path('M17 13h4v-3h1v8h-1v-3h-4Z');
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.y4wbml {
+  fill: none;
 }
 
-.fo5bbb {
-  d: path('M0 13h26');
-  stroke: currentColor;
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .ggl9ne {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.3s forwards so-to-0;
+  }
+
+  .i6qn2o {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-15binr;
+  }
+
+  .mevslr {
+    stroke-dasharray: 42;
+    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-42, 0.15s linear 1.7s forwards fill-to-0_3;
+  }
+
+  .twu__s {
+    opacity: 0;
+    animation: 0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-6j2qwa;
+  }
+
+  .yw3f7b {
+    opacity: 0;
+    animation: 0s 0.8s forwards fade-to-1, 0.2s linear 0.8s forwards d-vq39db;
+  }
 }
 
 @keyframes fill-to-0 {

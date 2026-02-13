@@ -1,44 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .ntf2iq {
-    stroke-dasharray: 60;
-    animation: 0.6s linear forwards so-from-60;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
 .d_7zna {
   d: path('M12 3l9 17h-18l9 -17Z');
 }
 
-@media not (prefers-reduced-motion) {
-  .uxpaqu {
-    stroke-dasharray: 6;
-    stroke-dashoffset: 6;
-    animation: 3s linear 0.7s infinite sw-cnj-zb, 0.2s linear 0.7s forwards so-to-0;
-  }
-}
-
 .hg4jfh {
   d: path('M12 10v4');
-}
-
-@media not (prefers-reduced-motion) {
-  .t_eeob {
-    stroke-dasharray: 4;
-    stroke-dashoffset: 4;
-    animation: 0.2s linear 0.7s forwards so-to-0, 3s linear 1s infinite sw-cnj-zb;
-  }
 }
 
 .xlm2_l {
   d: path('M12 17v0.01');
 }
 
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+@media not (prefers-reduced-motion) {
+  .ntf2iq {
+    stroke-dasharray: 60;
+    animation: 0.6s linear forwards so-from-60;
+  }
+
+  .t_eeob {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.7s forwards so-to-0, 3s linear 1s infinite sw-cnj-zb;
+  }
+
+  .uxpaqu {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 3s linear 0.7s infinite sw-cnj-zb, 0.2s linear 0.7s forwards so-to-0;
+  }
 }
 
 @keyframes so-from-60 {

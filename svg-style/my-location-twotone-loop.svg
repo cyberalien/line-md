@@ -1,31 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .m0ptra {
-    stroke-dasharray: 54;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.7s forwards fill-to-0_3;
-  }
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-@media not (prefers-reduced-motion) {
-  .lj9w8v {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.15s forwards r-to-4px;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .cpem4r {
-    opacity: 0;
-    transform-origin: 12px 12px;
-    animation: 0s 0.95s forwards fade-to-1, 0.2s linear 0.95s forwards d-pjbx7p, 30s linear 0.95s infinite transform-2c6-rw;
-  }
-}
-
-.j8pktn {
-  d: path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8Z');
-  fill-opacity: 0.3;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.e3_-nw {
+  cx: 12px;
+  cy: 12px;
+  r: 4px;
 }
 
 .iw1iew {
@@ -35,15 +11,35 @@
   stroke-width: 2px;
 }
 
-.e3_-nw {
-  cx: 12px;
-  cy: 12px;
-  r: 4px;
+.j8pktn {
+  d: path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8Z');
+  fill-opacity: 0.3;
 }
 
 .s-3i0n {
   d: path('M12 4v-2M20 12h2M12 20v2M4 12h-2');
   fill: none;
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .cpem4r {
+    opacity: 0;
+    transform-origin: 12px 12px;
+    animation: 0s 0.95s forwards fade-to-1, 0.2s linear 0.95s forwards d-pjbx7p, 30s linear 0.95s infinite transform-2c6-rw;
+  }
+
+  .lj9w8v {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.15s forwards r-to-4px;
+  }
+
+  .m0ptra {
+    stroke-dasharray: 54;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.7s forwards fill-to-0_3;
+  }
 }
 
 @keyframes fill-to-0 {

@@ -1,23 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .gf993l {
-    stroke-dasharray: 54;
-    animation: 0.6s linear forwards so-from-54;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
-.uxjfsx {
-  d: path('M12 6h7c0.55 0 1 0.45 1 1v8c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-9Z');
+.gbl2pu {
+  d: path('M10 20h4v2h-4Z');
 }
 
 .gm6-0i {
   d: path('M12 6h-8v-1c0 -0.55 0.45 -1 1 -1h5Z');
 }
 
-@media not (prefers-reduced-motion) {
-  .kwn6fo {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-c7v0ns;
-  }
+.p8mphf {
+  d: path('M12 16v5');
+}
+
+.uxjfsx {
+  d: path('M12 6h7c0.55 0 1 0.45 1 1v8c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-9Z');
+}
+
+.x7uruc {
+  d: path('M12 21h9M12 21h-9');
 }
 
 @media not (prefers-reduced-motion) {
@@ -26,41 +32,27 @@
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.8s forwards so-to-0;
   }
-}
 
-.p8mphf {
-  d: path('M12 16v5');
-}
+  .gf993l {
+    stroke-dasharray: 54;
+    animation: 0.6s linear forwards so-from-54;
+  }
 
-@media not (prefers-reduced-motion) {
+  .kwn6fo {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-c7v0ns;
+  }
+
   .pgj22w {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 1s forwards so-to-0;
   }
-}
 
-.x7uruc {
-  d: path('M12 21h9M12 21h-9');
-}
-
-.gbl2pu {
-  d: path('M10 20h4v2h-4Z');
-}
-
-@media not (prefers-reduced-motion) {
   .whs99s {
     opacity: 0;
     animation: 0s 1.2s forwards fade-to-1, 0.2s linear 1.2s forwards d-o0luwi;
   }
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
 }
 
 @keyframes so-from-54 {

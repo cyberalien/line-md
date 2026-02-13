@@ -1,29 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .nlzowj {
-    stroke-dasharray: 54;
-    fill-opacity: 0;
-    animation: 0.6s linear forwards so-from-54, 0.4s linear 1.3s forwards fill-to-1;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
-@media not (prefers-reduced-motion) {
-  .izfxvk {
-    stroke-dasharray: 22;
-    stroke-dashoffset: 22;
-    animation: 0.5s linear 1.8s forwards so-to-0;
-  }
-}
-
-.y4wbml {
-  fill: none;
-}
-
-@media not (prefers-reduced-motion) {
-  .rxh5or {
-    stroke-dasharray: 20;
-    stroke-dashoffset: 20;
-    animation: 0.3s linear 0.7s forwards so-to-0;
-  }
+.cyq_uv {
+  d: path('M10.5 16v-8h3c0.55 0 1 0.45 1 1v2c0 0.55 -0.45 1 -1 1h-3');
+  stroke: #000;
 }
 
 .i6daxm {
@@ -34,12 +16,14 @@
   stroke: currentColor;
 }
 
-@media not (prefers-reduced-motion) {
-  .apv-zh {
-    stroke-dasharray: 20;
-    stroke-dashoffset: 20;
-    animation: 0.3s linear 1s forwards so-to-0;
-  }
+.t5pxry {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+.y4wbml {
+  fill: none;
 }
 
 .z5pf2k {
@@ -52,20 +36,30 @@
   stroke: #fff;
 }
 
-.t5pxry {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2px;
-}
+@media not (prefers-reduced-motion) {
+  .apv-zh {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: 0.3s linear 1s forwards so-to-0;
+  }
 
-.cyq_uv {
-  d: path('M10.5 16v-8h3c0.55 0 1 0.45 1 1v2c0 0.55 -0.45 1 -1 1h-3');
-  stroke: #000;
-}
+  .izfxvk {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 22;
+    animation: 0.5s linear 1.8s forwards so-to-0;
+  }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+  .nlzowj {
+    stroke-dasharray: 54;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-54, 0.4s linear 1.3s forwards fill-to-1;
+  }
+
+  .rxh5or {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: 0.3s linear 0.7s forwards so-to-0;
+  }
 }
 
 @keyframes so-from-54 {

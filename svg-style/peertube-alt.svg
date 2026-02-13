@@ -2,33 +2,29 @@
   d: path('M12 6.67l8 5.33l-8 5.34Z');
 }
 
-@media not (prefers-reduced-motion) {
-  .y5-jwp {
-    animation: 0.4s linear forwards d-y0k17z;
-  }
-}
-
-.ydovum {
-  fill: currentColor;
+.m_gxky {
+  d: path('M4 12l8 5.34l-8 5.33Z');
 }
 
 .y4c9di {
   d: path('M4 1.34l8 5.33l-8 5.33Z');
 }
 
+.ydovum {
+  fill: currentColor;
+}
+
 @media not (prefers-reduced-motion) {
   .ilryer {
     animation: 0s forwards d-eo5vsf, 0.4s linear 0.2s forwards d-hy4_ez;
   }
-}
 
-.m_gxky {
-  d: path('M4 12l8 5.34l-8 5.33Z');
-}
-
-@media not (prefers-reduced-motion) {
   .x6y11c {
     animation: 0s forwards d-zqf0qv, 0.4s linear 0.4s forwards d-h1s04y;
+  }
+
+  .y5-jwp {
+    animation: 0.4s linear forwards d-y0k17z;
   }
 }
 

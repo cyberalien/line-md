@@ -1,37 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .ikkfxy {
-    stroke-dasharray: 34;
-    fill-opacity: 0;
-    animation: 0.4s linear forwards so-from-34, 0.4s linear 0.8s forwards fill-to-1;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .i-bxho {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 0.4s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.f7kadz {
+  d: path('M20 10l-4 4');
 }
 
 .fzk-hn {
   d: path('M16 10l4 4');
-}
-
-.y4wbml {
-  fill: none;
-}
-
-@media not (prefers-reduced-motion) {
-  .ff-xby {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 0.6s forwards so-to-0;
-  }
-}
-
-.f7kadz {
-  d: path('M20 10l-4 4');
 }
 
 .iw1iew {
@@ -44,6 +16,30 @@
 .v_ku0s {
   d: path('M4 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
   fill: currentColor;
+}
+
+.y4wbml {
+  fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .ff-xby {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+
+  .i-bxho {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.4s forwards so-to-0;
+  }
+
+  .ikkfxy {
+    stroke-dasharray: 34;
+    fill-opacity: 0;
+    animation: 0.4s linear forwards so-from-34, 0.4s linear 0.8s forwards fill-to-1;
+  }
 }
 
 @keyframes so-from-34 {

@@ -1,65 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .v-85uu {
-    stroke-dasharray: 56;
-    animation: 0.6s linear forwards so-from-56;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.amunky {
+  fill: #fff;
+  r: 1px;
 }
 
-@media not (prefers-reduced-motion) {
-  .f2ev_y {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.6s forwards r-to-1px;
-  }
-}
-
-.y2385h {
-  cx: 13px;
-  cy: 15px;
-}
-
-@media not (prefers-reduced-motion) {
-  .c2cv1z {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.8s forwards r-to-1px;
-  }
-}
-
-.lgwfxl {
-  cx: 13px;
-  cy: 6px;
-}
-
-@media not (prefers-reduced-motion) {
-  .zy-n7t {
-    animation: 0s forwards r-to-0px, 0.2s linear 1s forwards r-to-1px;
-  }
-}
-
-.dps93d {
-  cx: 11px;
-  cy: 17px;
-}
-
-@media not (prefers-reduced-motion) {
-  .pfm3ta {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-1px;
-  }
-}
-
-.yxzmwb {
-  cx: 14px;
-  cy: 18px;
-}
-
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-@media not (prefers-reduced-motion) {
-  .lb7hir {
-    stroke-dasharray: 26;
-    stroke-dashoffset: 26;
-    animation: 0.4s linear 1.4s forwards so-to-0;
-  }
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .c5xdmn {
@@ -69,14 +15,29 @@
   fill: none;
 }
 
+.ca4rkt {
+  d: path('M1 13h24');
+  stroke: currentColor;
+}
+
+.dps93d {
+  cx: 11px;
+  cy: 17px;
+}
+
 .i73ysc {
   d: path('M12 2c2.5 0 5 2 5 5c0 1.13 -0.37 2.16 -1 3c-0.28 0.38 -0.5 1 -0.5 1.5c0 0.5 0.2 0.91 0.5 1.23c0.93 0.98 1.5 2.31 1.5 3.77c0 3.04 -2.46 5.5 -5.5 5.5c-3.04 0 -5.5 -2.46 -5.5 -5.5c0 -1.46 0.57 -2.79 1.5 -3.77c0.3 -0.32 0.5 -0.73 0.5 -1.23c0 -0.5 -0.22 -1.12 -0.5 -1.5c-0.63 -0.84 -1 -1.87 -1 -3c0 -2.76 2 -5 5 -5Z');
   stroke: #fff;
 }
 
-.amunky {
-  fill: #fff;
-  r: 1px;
+.lgwfxl {
+  cx: 13px;
+  cy: 6px;
+}
+
+.y2385h {
+  cx: 13px;
+  cy: 15px;
 }
 
 .yhq8un {
@@ -84,14 +45,43 @@
   d: path('M1 11h24');
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
-.ca4rkt {
-  d: path('M1 13h24');
-  stroke: currentColor;
+.yxzmwb {
+  cx: 14px;
+  cy: 18px;
+}
+
+@media not (prefers-reduced-motion) {
+  .c2cv1z {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.8s forwards r-to-1px;
+  }
+
+  .f2ev_y {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.6s forwards r-to-1px;
+  }
+
+  .lb7hir {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.4s linear 1.4s forwards so-to-0;
+  }
+
+  .pfm3ta {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-1px;
+  }
+
+  .v-85uu {
+    stroke-dasharray: 56;
+    animation: 0.6s linear forwards so-from-56;
+  }
+
+  .zy-n7t {
+    animation: 0s forwards r-to-0px, 0.2s linear 1s forwards r-to-1px;
+  }
 }
 
 @keyframes so-from-56 {

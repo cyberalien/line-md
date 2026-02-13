@@ -1,9 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .zkzi5e {
-    stroke-dasharray: 20;
-    fill-opacity: 0;
-    animation: 1.5s linear infinite d-viliiy, 0.5s linear forwards so-from-20, 0.4s linear 0.7s forwards fill-to-1;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.iw1iew {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+.o17d7n {
+  d: path('M6 19h12');
+  fill: none;
+}
+
+.qk16nl {
+  d: path('M12 15h2v-6h2.5l-4.5 -4.5M12 15h-2v-6h-2.5l4.5 -4.5');
+  fill: currentColor;
 }
 
 @media not (prefers-reduced-motion) {
@@ -12,23 +21,12 @@
     stroke-dashoffset: 14;
     animation: 0.2s linear 0.5s forwards so-to-0;
   }
-}
 
-.iw1iew {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-}
-
-.qk16nl {
-  d: path('M12 15h2v-6h2.5l-4.5 -4.5M12 15h-2v-6h-2.5l4.5 -4.5');
-  fill: currentColor;
-}
-
-.o17d7n {
-  d: path('M6 19h12');
-  fill: none;
+  .zkzi5e {
+    stroke-dasharray: 20;
+    fill-opacity: 0;
+    animation: 1.5s linear infinite d-viliiy, 0.5s linear forwards so-from-20, 0.4s linear 0.7s forwards fill-to-1;
+  }
 }
 
 @keyframes d-viliiy {

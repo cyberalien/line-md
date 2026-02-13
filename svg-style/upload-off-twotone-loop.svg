@@ -1,44 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .r3q2cf {
-    stroke-dasharray: 20;
-    animation: 0s forwards fill-to-0, 1.5s linear infinite d-viliiy, 0.5s linear forwards so-from-20, 0.15s linear 0.7s forwards fill-to-0_3;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
-.zxndow {
-  stroke: #fff;
-}
-
-@media not (prefers-reduced-motion) {
-  .mhf06j {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
-    animation: 0.2s linear 0.5s forwards so-to-0;
-  }
+.hp8wlu {
+  stroke: currentColor;
+  d: path('M0 13h22');
+  transform: rotate(45deg);
+  transform-origin: 13px 12px;
 }
 
 .ifg_mc {
   d: path('M6 19h12');
-}
-
-.y4wbml {
-  fill: none;
-}
-
-@media not (prefers-reduced-motion) {
-  .wbi_bg {
-    stroke-dasharray: 26;
-    stroke-dashoffset: 26;
-    animation: 0.4s linear 0.95s forwards so-to-0;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .oihivq {
-    stroke-dasharray: 24;
-    stroke-dashoffset: 24;
-    animation: 6s linear infinite d-l5brra, 0.3s linear 0.95s forwards so-to-0;
-  }
 }
 
 .nfrhjh {
@@ -60,16 +33,37 @@
   transform-origin: 13px 12px;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.y4wbml {
+  fill: none;
 }
 
-.hp8wlu {
-  stroke: currentColor;
-  d: path('M0 13h22');
-  transform: rotate(45deg);
-  transform-origin: 13px 12px;
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .mhf06j {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+
+  .oihivq {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: 6s linear infinite d-l5brra, 0.3s linear 0.95s forwards so-to-0;
+  }
+
+  .r3q2cf {
+    stroke-dasharray: 20;
+    animation: 0s forwards fill-to-0, 1.5s linear infinite d-viliiy, 0.5s linear forwards so-from-20, 0.15s linear 0.7s forwards fill-to-0_3;
+  }
+
+  .wbi_bg {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.4s linear 0.95s forwards so-to-0;
+  }
 }
 
 @keyframes fill-to-0 {

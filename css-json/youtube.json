@@ -8,11 +8,9 @@
   },
   "classes": {
     "ntf2iq": {
-      "rules": "",
       "animation": "stroke-dasharray:60;animation:0.6s linear forwards so-from-60;"
     },
     "v-4_bc": {
-      "rules": "",
       "animation": "opacity:0;animation:0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d--8d_6b;"
     },
     "zd90xn": {
@@ -22,6 +20,7 @@
       "rules": "d:path('M10 8.5l6 3.5l-6 3.5Z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:youtube",
   "keyframes": {
     "so-from-60": "@keyframes so-from-60{0%{stroke-dashoffset:60}}",
     "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",

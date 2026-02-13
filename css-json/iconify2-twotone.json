@@ -8,35 +8,30 @@
   },
   "classes": {
     "pxa2hl": {
-      "rules": "",
       "animation": "stroke-dasharray:12;animation:0.4s linear forwards so-from-12;"
     },
     "zxndow": {
       "rules": "stroke:#fff;"
     },
     "mi6c1o": {
-      "rules": "",
       "animation": "stroke-dasharray:6;animation:0s forwards fade-to-0, 0s 0.9s forwards fade-to-0_33, 0.2s linear 0.9s forwards so-from-6;"
     },
     "taf2xz": {
       "rules": "stroke-width:2px;"
     },
     "nqzctg": {
-      "rules": "",
       "animation": "stroke-dasharray:20;animation:0.5s linear forwards so-from-20;"
     },
     "mzz5je": {
       "rules": "d:path('M12 19h-7v-11M12 19h7v-11');opacity:0.6;"
     },
     "hp_14j": {
-      "rules": "",
       "animation": "opacity:0;stroke-dasharray:8;animation:0s 1.3s forwards fade-to-1, 0.2s linear 1.3s forwards so-from-8;"
     },
     "b54gjh": {
       "rules": "d:path('M12 16v4.5');"
     },
     "td0euq": {
-      "rules": "",
       "animation": "opacity:0;stroke-dasharray:14;animation:0s 0.5s forwards fade-to-1, 0.4s linear 0.5s forwards so-from-14;"
     },
     "w_o-7b": {
@@ -46,14 +41,12 @@
       "rules": "opacity:0.6;"
     },
     "q63h7n": {
-      "rules": "",
       "animation": "stroke-dasharray:14;animation:0s forwards fade-to-0, 0s 0.5s forwards fade-to-0_6, 0.4s linear 0.5s forwards so-from-14;"
     },
     "mdiuwa": {
       "rules": "d:path('M12 3l-8.5 5.5');"
     },
     "crxyau": {
-      "rules": "",
       "animation": "opacity:0;stroke-dasharray:12;animation:0s 1.3s forwards fade-to-1, 0.2s linear 1.3s forwards so-from-12;"
     },
     "nvw5hd": {
@@ -66,7 +59,6 @@
       "rules": "fill:currentColor;"
     },
     "xlexqc": {
-      "rules": "",
       "animation": "animation:0s forwards r-to-0px, 0.2s linear 1.1s forwards r-to-1_5px;"
     },
     "gk5pty": {
@@ -88,6 +80,7 @@
       "rules": "cx:12px;cy:11.5px;r:1.5px;"
     }
   },
+  "fallback": "line-md:iconify2-twotone",
   "keyframes": {
     "so-from-12": "@keyframes so-from-12{0%{stroke-dashoffset:12}}",
     "fade-to-0": "@keyframes fade-to-0{100%{opacity:0}}",

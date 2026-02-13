@@ -8,11 +8,9 @@
   },
   "classes": {
     "r3q2cf": {
-      "rules": "",
       "animation": "stroke-dasharray:20;animation:0s forwards fill-to-0, 1.5s linear infinite d-viliiy, 0.5s linear forwards so-from-20, 0.15s linear 0.7s forwards fill-to-0_3;"
     },
     "mhf06j": {
-      "rules": "",
       "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 0.5s forwards so-to-0;"
     },
     "iw1iew": {
@@ -25,6 +23,7 @@
       "rules": "d:path('M6 19h12');fill:none;"
     }
   },
+  "fallback": "line-md:upload-twotone-loop",
   "keyframes": {
     "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
     "d-viliiy": "@keyframes d-viliiy{50%{d:path('M12 15h2v-3h2.5l-4.5 -4.5M12 15h-2v-3h-2.5l4.5 -4.5')}}",

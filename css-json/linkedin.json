@@ -8,25 +8,21 @@
   },
   "classes": {
     "avrtvl": {
-      "rules": "",
       "animation": "opacity:0;animation:0.2s linear forwards fade-to-1;"
     },
     "cy1axl": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.2s forwards so-to-0;"
     },
     "l4j5dd": {
       "rules": "d:path('M4 10v10');"
     },
     "q-1rzi": {
-      "rules": "",
       "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.5s forwards so-to-0;"
     },
     "qy6ibh": {
       "rules": "d:path('M10 10v10');"
     },
     "vxbdkg": {
-      "rules": "",
       "animation": "stroke-dasharray:24;stroke-dashoffset:24;animation:0.3s linear 0.7s forwards so-to-0;"
     },
     "phbefj": {
@@ -39,6 +35,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:4px;stroke:currentColor;fill:none;"
     }
   },
+  "fallback": "line-md:linkedin",
   "keyframes": {
     "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"

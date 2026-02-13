@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .jdfwax {
-    animation: 0.6s linear forwards d-zrqjti;
-  }
-}
-
-.y_rmew {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.y_rmew {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
   d: path('M9 18l-2 0l0 -12l2 0l0 12M15 6l2 0l0 12l-2 0l0 -12');
   stroke-width: 2px;
   fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .jdfwax {
+    animation: 0.6s linear forwards d-zrqjti;
+  }
 }
 
 @keyframes d-zrqjti {

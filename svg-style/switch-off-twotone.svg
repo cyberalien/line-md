@@ -1,22 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .eh2j3t {
-    stroke-dasharray: 54;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.6s forwards fill-to-0_3;
-  }
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-@media not (prefers-reduced-motion) {
-  .ukrehj {
-    opacity: 0;
-    animation: 0.2s linear 0.6s forwards fade-to-1;
-  }
-}
-
-.dx6m8b {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.dx6m8b {
   cx: 7px;
   cy: 12px;
   r: 3px;
@@ -29,6 +11,22 @@
   stroke: currentColor;
   stroke-width: 2px;
   fill-opacity: 0.3;
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .eh2j3t {
+    stroke-dasharray: 54;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
+
+  .ukrehj {
+    opacity: 0;
+    animation: 0.2s linear 0.6s forwards fade-to-1;
+  }
 }
 
 @keyframes fill-to-0 {

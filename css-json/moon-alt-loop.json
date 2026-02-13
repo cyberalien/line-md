@@ -8,11 +8,9 @@
   },
   "classes": {
     "v-85uu": {
-      "rules": "",
       "animation": "stroke-dasharray:56;animation:0.6s linear forwards so-from-56;"
     },
     "sejb3b": {
-      "rules": "",
       "animation": "stroke-dashoffset:4;animation:6s linear 0.7s infinite so-_lg20b;"
     },
     "tcqpek": {
@@ -22,56 +20,48 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:4;"
     },
     "zf89cr": {
-      "rules": "",
       "animation": "stroke-dashoffset:4;animation:6s linear 1.37s infinite so-_lg20b;"
     },
     "az-36w": {
       "rules": "d:path('M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5');"
     },
     "whmues": {
-      "rules": "",
       "animation": "stroke-dashoffset:4;animation:6s linear 2.04s infinite so-_lg20b;"
     },
     "urr6zz": {
       "rules": "d:path('M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5');"
     },
     "pqoqbv": {
-      "rules": "",
       "animation": "stroke-dashoffset:4;animation:6s linear 2.71s infinite so-_lg20b;"
     },
     "psd16s": {
       "rules": "d:path('M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5');"
     },
     "zgb64b": {
-      "rules": "",
       "animation": "stroke-dashoffset:4;animation:6s linear 3.38s infinite so-_lg20b;"
     },
     "m671dg": {
       "rules": "d:path('M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5');"
     },
     "j-whex": {
-      "rules": "",
       "animation": "stroke-dashoffset:4;animation:6s linear 4.05s infinite so-_lg20b;"
     },
     "k2cc9e": {
       "rules": "d:path('M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5');"
     },
     "vws3iz": {
-      "rules": "",
       "animation": "stroke-dashoffset:4;animation:6s linear 4.72s infinite so-_lg20b;"
     },
     "o_sype": {
       "rules": "d:path('M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5');"
     },
     "fld58n": {
-      "rules": "",
       "animation": "stroke-dashoffset:4;animation:6s linear 5.39s infinite so-_lg20b;"
     },
     "g_iubo": {
       "rules": "d:path('M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5');"
     },
     "r0ttyd": {
-      "rules": "",
       "animation": "stroke-dashoffset:4;animation:6s linear 6.06s infinite so-_lg20b;"
     },
     "y2f3-c": {
@@ -81,6 +71,7 @@
       "rules": "stroke:currentColor;fill:none;"
     }
   },
+  "fallback": "line-md:moon-alt-loop",
   "keyframes": {
     "so-from-56": "@keyframes so-from-56{0%{stroke-dashoffset:56}}",
     "so-_lg20b": "@keyframes so-_lg20b{8%, 22%{stroke-dashoffset:0}30%{stroke-dashoffset:4}}"

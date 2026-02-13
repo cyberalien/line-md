@@ -1,16 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .mpb8fv {
-    stroke-dasharray: 40;
-    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-40, 0.15s linear 0.7s forwards fill-to-0_3;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .mhf06j {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
-    animation: 0.2s linear 0.5s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.iw1iew {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
 }
 
 .si4vaf {
@@ -19,16 +11,22 @@
   fill: currentColor;
 }
 
-.iw1iew {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-}
-
 .wv5ibl {
   d: path('M10.5 13.5l-7.5 7.5');
   fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .mhf06j {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+
+  .mpb8fv {
+    stroke-dasharray: 40;
+    animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-40, 0.15s linear 0.7s forwards fill-to-0_3;
+  }
 }
 
 @keyframes fill-to-0 {

@@ -11,20 +11,19 @@
       "rules": "d:path('M5 5l14 0M5 19l14 0');"
     },
     "lo71rd": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-wzkz9p;"
     },
     "c2px5j": {
       "rules": "d:path('M5 12h14');"
     },
     "hq11_u": {
-      "rules": "",
       "animation": "animation:0.4s linear forwards d-szjhyc;"
     },
     "a0m25c": {
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:close-to-menu-alt-transition",
   "keyframes": {
     "d-wzkz9p": "@keyframes d-wzkz9p{0%{d:path('M5 5l14 14M5 19l14 -14')}}",
     "d-szjhyc": "@keyframes d-szjhyc{0%{d:path('M12 12h0')}}"

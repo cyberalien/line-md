@@ -8,18 +8,15 @@
   },
   "classes": {
     "uxt6dp": {
-      "rules": "",
       "animation": "stroke-dasharray:52;animation:0.6s linear forwards so-from-52;"
     },
     "aa2-ga": {
-      "rules": "",
       "animation": "animation:0s forwards r-to-0px, 0.2s linear 0.6s forwards r-to-2px;"
     },
     "p55zhs": {
       "rules": "cx:9px;cy:7px;"
     },
     "zt240j": {
-      "rules": "",
       "animation": "animation:0s forwards r-to-0px, 0.2s linear 0.8s forwards r-to-2px;"
     },
     "ietbxk": {
@@ -29,7 +26,6 @@
       "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
     },
     "ndkzyn": {
-      "rules": "",
       "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1s forwards so-to-0;"
     },
     "c5xdmn": {
@@ -51,6 +47,7 @@
       "rules": "d:path('M-1 13h26');stroke:currentColor;"
     }
   },
+  "fallback": "line-md:pizza-off",
   "keyframes": {
     "so-from-52": "@keyframes so-from-52{0%{stroke-dashoffset:52}}",
     "r-to-0px": "@keyframes r-to-0px{100%{r:0px}}",

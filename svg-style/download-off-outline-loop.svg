@@ -1,44 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.q7sgvw {
-  d: path('M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5');
-}
-
-@media not (prefers-reduced-motion) {
-  .jv-ocg {
-    stroke-dasharray: 20;
-    animation: 1.5s linear infinite d-vro9sl, 0.5s linear forwards so-from-20;
-  }
-}
-
-.zxndow {
-  stroke: #fff;
-}
-
-@media not (prefers-reduced-motion) {
-  .mhf06j {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
-    animation: 0.2s linear 0.5s forwards so-to-0;
-  }
-}
-
-.ifg_mc {
-  d: path('M6 19h12');
-}
-
-@media not (prefers-reduced-motion) {
-  .anx38b {
-    stroke-dasharray: 26;
-    stroke-dashoffset: 26;
-    animation: 0.4s linear 0.7s forwards so-to-0;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .k_55qq {
-    stroke-dasharray: 24;
-    stroke-dashoffset: 24;
-    animation: 6s linear infinite d-l5brra, 0.3s linear 0.7s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .c5xdmn {
@@ -48,6 +10,21 @@
   fill: none;
 }
 
+.hp8wlu {
+  stroke: currentColor;
+  d: path('M0 13h22');
+  transform: rotate(45deg);
+  transform-origin: 13px 12px;
+}
+
+.ifg_mc {
+  d: path('M6 19h12');
+}
+
+.q7sgvw {
+  d: path('M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5');
+}
+
 .we7e5s {
   stroke: #000;
   d: path('M0 11h24');
@@ -55,16 +32,33 @@
   transform-origin: 13px 12px;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.zxndow {
+  stroke: #fff;
 }
 
-.hp8wlu {
-  stroke: currentColor;
-  d: path('M0 13h22');
-  transform: rotate(45deg);
-  transform-origin: 13px 12px;
+@media not (prefers-reduced-motion) {
+  .anx38b {
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    animation: 0.4s linear 0.7s forwards so-to-0;
+  }
+
+  .jv-ocg {
+    stroke-dasharray: 20;
+    animation: 1.5s linear infinite d-vro9sl, 0.5s linear forwards so-from-20;
+  }
+
+  .k_55qq {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: 6s linear infinite d-l5brra, 0.3s linear 0.7s forwards so-to-0;
+  }
+
+  .mhf06j {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
 }
 
 @keyframes d-vro9sl {

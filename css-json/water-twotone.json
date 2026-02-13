@@ -8,11 +8,9 @@
   },
   "classes": {
     "pm_4rd": {
-      "rules": "",
       "animation": "animation:0s forwards fill-to-0, 0.15s linear 0.5s forwards fill-to-0_3;"
     },
     "qsudlx": {
-      "rules": "",
       "animation": "stroke-dasharray:22;animation:0.5s linear forwards so-from-22;"
     },
     "louw0v": {
@@ -22,6 +20,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;d:path('M12 5c0 0 5 6 5 9c0 2.76 -2.24 5 -5 5M12 5c0 0 -5 6 -5 9c0 2.76 2.24 5 5 5');fill:none;"
     }
   },
+  "fallback": "line-md:water-twotone",
   "keyframes": {
     "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
     "fill-to-0_3": "@keyframes fill-to-0_3{100%{fill-opacity:0.3}}",

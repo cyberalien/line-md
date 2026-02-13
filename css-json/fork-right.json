@@ -8,14 +8,12 @@
   },
   "classes": {
     "pqoixy": {
-      "rules": "",
       "animation": "stroke-dasharray:18;animation:0.5s linear forwards so-from-18;"
     },
     "k_yngj": {
       "rules": "d:path('M10 20v-16M10 20v-2c0 -2.76 2.24 -5 5 -5h4');"
     },
     "w4w4hp": {
-      "rules": "",
       "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.5s forwards so-to-0;"
     },
     "nkvw7z": {
@@ -25,6 +23,7 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:fork-right",
   "keyframes": {
     "so-from-18": "@keyframes so-from-18{0%{stroke-dashoffset:18}}",
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"

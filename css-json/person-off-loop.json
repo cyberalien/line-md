@@ -8,7 +8,6 @@
   },
   "classes": {
     "qsudlx": {
-      "rules": "",
       "animation": "stroke-dasharray:22;animation:0.5s linear forwards so-from-22;"
     },
     "yjonwg": {
@@ -18,18 +17,15 @@
       "rules": "stroke:#fff;"
     },
     "qvol-z": {
-      "rules": "",
       "animation": "stroke-dasharray:38;stroke-dashoffset:38;animation:0.5s linear 0.5s forwards so-to-0;"
     },
     "d9pajc": {
       "rules": "d:path('M10 14c4 0 7 2 7 3v2h-14v-2c0 -1 3 -3 7 -3Z');"
     },
     "g29_zo": {
-      "rules": "",
       "animation": "stroke-dasharray:26;stroke-dashoffset:26;animation:0.4s linear 1.1s forwards so-to-0;"
     },
     "nxqahl": {
-      "rules": "",
       "animation": "stroke-dasharray:24;stroke-dashoffset:24;animation:0s forwards d-2dk93e, 6s linear infinite d-l5brra, 0.3s linear 1.1s forwards so-to-0;"
     },
     "c5xdmn": {
@@ -45,6 +41,7 @@
       "rules": "d:path('M1 13h22');transform:rotate(45deg);transform-origin:12px 12px;stroke:currentColor;"
     }
   },
+  "fallback": "line-md:person-off-loop",
   "keyframes": {
     "so-from-22": "@keyframes so-from-22{0%{stroke-dashoffset:22}}",
     "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",

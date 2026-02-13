@@ -1,12 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .q3i-gg {
-    stroke-dasharray: 34;
-    animation: 0.4s linear forwards so-from-34;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.lqld4k {
+  d: path('M14.5 12l-3.5 -3.5M14.5 12l-3.5 3.5');
 }
 
 .p3p68g {
   d: path('M13 4l7 0c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-7');
+}
+
+.pxo-2v {
+  d: path('M3 12h11.5');
 }
 
 @media not (prefers-reduced-motion) {
@@ -15,30 +24,17 @@
     stroke-dashoffset: 14;
     animation: 0.2s linear 0.5s forwards so-to-0;
   }
-}
 
-.pxo-2v {
-  d: path('M3 12h11.5');
-}
+  .q3i-gg {
+    stroke-dasharray: 34;
+    animation: 0.4s linear forwards so-from-34;
+  }
 
-@media not (prefers-reduced-motion) {
   .tgs9dx {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.7s forwards so-to-0;
   }
-}
-
-.lqld4k {
-  d: path('M14.5 12l-3.5 -3.5M14.5 12l-3.5 3.5');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
 }
 
 @keyframes so-from-34 {

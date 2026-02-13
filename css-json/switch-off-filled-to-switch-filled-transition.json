@@ -8,7 +8,6 @@
   },
   "classes": {
     "rslhfn": {
-      "rules": "",
       "animation": "animation:0.2s linear forwards cx-from-7px;"
     },
     "snl_hb": {
@@ -21,6 +20,7 @@
       "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
     }
   },
+  "fallback": "line-md:switch-off-filled-to-switch-filled-transition",
   "keyframes": {
     "cx-from-7px": "@keyframes cx-from-7px{0%{cx:7px}}"
   }

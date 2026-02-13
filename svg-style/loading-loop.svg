@@ -1,17 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .olnkek {
-    transform-origin: 12px 12px;
-    animation: 1.5s linear infinite transform-2c6-rw;
-  }
-}
-
-.j7c0tv {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.j7c0tv {
   d: path('M12 3c4.97 0 9 4.03 9 9');
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
   stroke-width: 2px;
   fill: none;
+}
+
+@media not (prefers-reduced-motion) {
+  .olnkek {
+    transform-origin: 12px 12px;
+    animation: 1.5s linear infinite transform-2c6-rw;
+  }
 }
 
 @keyframes transform-2c6-rw {

@@ -1,24 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .pvp2-a {
-    stroke-dasharray: 44;
-    stroke-dashoffset: 44;
-    animation: 0.5s linear 0.3s forwards so-to-0;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
-.ps5g7j {
-  d: path('M7 17v-4l10 -10l4 4l-10 10h-4');
-}
-
-@media not (prefers-reduced-motion) {
-  .mz6rrw {
-    stroke-dasharray: 20;
-    animation: 0.3s linear forwards so-from-20;
-  }
+.bc9s0q {
+  d: path('M14 6l4 4');
 }
 
 .coduqd {
   d: path('M3 21h18');
+}
+
+.ps5g7j {
+  d: path('M7 17v-4l10 -10l4 4l-10 10h-4');
 }
 
 @media not (prefers-reduced-motion) {
@@ -27,18 +24,17 @@
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.8s forwards so-to-0;
   }
-}
 
-.bc9s0q {
-  d: path('M14 6l4 4');
-}
+  .mz6rrw {
+    stroke-dasharray: 20;
+    animation: 0.3s linear forwards so-from-20;
+  }
 
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+  .pvp2-a {
+    stroke-dasharray: 44;
+    stroke-dashoffset: 44;
+    animation: 0.5s linear 0.3s forwards so-to-0;
+  }
 }
 
 @keyframes so-to-0 {

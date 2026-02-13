@@ -1,20 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .gf993l {
-    stroke-dasharray: 54;
-    animation: 0.6s linear forwards so-from-54;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
 }
 
 .hcijst {
   d: path('M3 4h14l-5 6.5v9.5l-4 -4v-5.5Z');
 }
 
-@media not (prefers-reduced-motion) {
-  .tgs9dx {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 0.7s forwards so-to-0;
-  }
+.l56f6q {
+  d: path('M19 15v6');
 }
 
 .vpbo3j {
@@ -22,23 +19,22 @@
 }
 
 @media not (prefers-reduced-motion) {
+  .gf993l {
+    stroke-dasharray: 54;
+    animation: 0.6s linear forwards so-from-54;
+  }
+
   .svm8-t {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.9s forwards so-to-0;
   }
-}
 
-.l56f6q {
-  d: path('M19 15v6');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+  .tgs9dx {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.7s forwards so-to-0;
+  }
 }
 
 @keyframes so-from-54 {

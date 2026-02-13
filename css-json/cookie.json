@@ -8,11 +8,9 @@
   },
   "classes": {
     "v-85uu": {
-      "rules": "",
       "animation": "stroke-dasharray:56;animation:0.6s linear forwards so-from-56;"
     },
     "v00kgq": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 0.6s forwards fade-to-1;"
     },
     "gtld9v": {
@@ -22,28 +20,24 @@
       "rules": "fill:currentColor;"
     },
     "iead2g": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 0.7s forwards fade-to-1;"
     },
     "ohx4kk": {
       "rules": "cx:11px;cy:17.5px;r:1.5px;"
     },
     "r6ktwi": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 0.8s forwards fade-to-1;"
     },
     "qe3oxa": {
       "rules": "cx:6.5px;cy:11.5px;r:1.5px;"
     },
     "u727bf": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 0.9s forwards fade-to-1;"
     },
     "po0nwp": {
       "rules": "cx:16.5px;cy:14.5px;r:1.5px;"
     },
     "ueqhvk": {
-      "rules": "",
       "animation": "opacity:0;animation:0.1s linear 1s forwards fade-to-1;"
     },
     "a7j2at": {
@@ -53,6 +47,7 @@
       "rules": "d:path('M12 4c-4.42 0 -8 3.58 -8 8c0 4.42 3.58 8 8 8c4.42 0 8 -3.58 8 -8v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-1c-0.55 0 -1 -0.45 -1 -1Z');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:cookie",
   "keyframes": {
     "so-from-56": "@keyframes so-from-56{0%{stroke-dashoffset:56}}",
     "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}"

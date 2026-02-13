@@ -1,51 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .ryf9kn {
-    stroke-dasharray: 34;
-    animation: 0s forwards fill-to-0, 0.4s linear forwards so-from-34, 0.15s linear 0.5s forwards fill-to-0_3;
-  }
-}
-
-.zxndow {
-  stroke: #fff;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .dxya9h {
   d: path('M12 21v1M21 12h1M12 3v-1M3 12h-1');
 }
 
-@media not (prefers-reduced-motion) {
-  .g2o8os {
-    opacity: 0;
-    animation: 0s 0.75s forwards fade-to-1, 0.2s linear 0.75s forwards d-9_o5mj;
-  }
-}
-
-.y4wbml {
-  fill: none;
+.gd_4-q {
+  d: path('M-1 13h26');
+  stroke: currentColor;
 }
 
 .lr3xdl {
   d: path('M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5');
 }
 
-@media not (prefers-reduced-motion) {
-  .t3n1nz {
-    opacity: 0;
-    animation: 0s 0.95s forwards fade-to-1, 0.2s linear 0.95s forwards d-s9ijad;
-  }
-}
-
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-@media not (prefers-reduced-motion) {
-  .quv8lj {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0.4s linear 1.15s forwards so-to-0;
-  }
+.oxx-om {
+  d: path('M-1 11h26');
+  stroke: #000;
 }
 
 .rn__li {
@@ -60,19 +33,40 @@
   stroke-width: 2px;
 }
 
-.oxx-om {
-  d: path('M-1 11h26');
-  stroke: #000;
+.y4wbml {
+  fill: none;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+.yl0nmc {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
-.gd_4-q {
-  d: path('M-1 13h26');
-  stroke: currentColor;
+.zxndow {
+  stroke: #fff;
+}
+
+@media not (prefers-reduced-motion) {
+  .g2o8os {
+    opacity: 0;
+    animation: 0s 0.75s forwards fade-to-1, 0.2s linear 0.75s forwards d-9_o5mj;
+  }
+
+  .quv8lj {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.15s forwards so-to-0;
+  }
+
+  .ryf9kn {
+    stroke-dasharray: 34;
+    animation: 0s forwards fill-to-0, 0.4s linear forwards so-from-34, 0.15s linear 0.5s forwards fill-to-0_3;
+  }
+
+  .t3n1nz {
+    opacity: 0;
+    animation: 0s 0.95s forwards fade-to-1, 0.2s linear 0.95s forwards d-s9ijad;
+  }
 }
 
 @keyframes fill-to-0 {

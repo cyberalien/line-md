@@ -1,72 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .jpao2x {
-    stroke-dasharray: 28;
-    animation: 0s forwards fill-to-0, 0.4s linear forwards so-from-28, 0.15s linear 1.5s forwards fill-to-0_3;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.fgc0lm {
+  d: path('M9.5 19c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
 .mjcktl {
   d: path('M9.5 5c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
-@media not (prefers-reduced-motion) {
-  .d8s38h {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0s forwards fill-to-0, 0.4s linear 0.5s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
-  }
+.nkhu3x {
+  d: path('M3.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
 .oky53h {
   d: path('M9.5 12c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
-@media not (prefers-reduced-motion) {
-  .y6ja1t {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0s forwards fill-to-0, 0.4s linear 1s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
-  }
-}
-
-.fgc0lm {
-  d: path('M9.5 19c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .ym3vio {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0s forwards fill-to-0, 0.2s linear 0.3s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
-  }
-}
-
-.nkhu3x {
-  d: path('M3.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .p-arvr {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0s forwards fill-to-0, 0.2s linear 0.8s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
-  }
-}
-
 .v0h2ha {
   d: path('M3.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .dlvics {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0s forwards fill-to-0, 0.2s linear 1.3s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
-  }
-}
-
-.z5pijv {
-  d: path('M3.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
 .w5x6ze {
@@ -75,6 +24,47 @@
   stroke: currentColor;
   fill-opacity: 0.3;
   fill: currentColor;
+}
+
+.z5pijv {
+  d: path('M3.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+}
+
+@media not (prefers-reduced-motion) {
+  .d8s38h {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0s forwards fill-to-0, 0.4s linear 0.5s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
+  }
+
+  .dlvics {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0s forwards fill-to-0, 0.2s linear 1.3s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
+  }
+
+  .jpao2x {
+    stroke-dasharray: 28;
+    animation: 0s forwards fill-to-0, 0.4s linear forwards so-from-28, 0.15s linear 1.5s forwards fill-to-0_3;
+  }
+
+  .p-arvr {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0s forwards fill-to-0, 0.2s linear 0.8s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
+  }
+
+  .y6ja1t {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0s forwards fill-to-0, 0.4s linear 1s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
+  }
+
+  .ym3vio {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0s forwards fill-to-0, 0.2s linear 0.3s forwards so-to-0, 0.15s linear 1.5s forwards fill-to-0_3;
+  }
 }
 
 @keyframes fill-to-0 {

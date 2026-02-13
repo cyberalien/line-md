@@ -8,13 +8,13 @@
   },
   "classes": {
     "ntf2iq": {
-      "rules": "",
       "animation": "stroke-dasharray:60;animation:0.6s linear forwards so-from-60;"
     },
     "b-z_le": {
       "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M12 2l-8 3.5v6.5c0 3.5 3.5 8 8 10c4.5 -1 8 -6.5 8 -10v-6.5l-8 -3.5Z');stroke:currentColor;stroke-width:2px;fill:none;"
     }
   },
+  "fallback": "line-md:security",
   "keyframes": {
     "so-from-60": "@keyframes so-from-60{0%{stroke-dashoffset:60}}"
   }

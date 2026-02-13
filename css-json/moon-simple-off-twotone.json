@@ -8,11 +8,9 @@
   },
   "classes": {
     "u78vec": {
-      "rules": "",
       "animation": "stroke-dasharray:62;animation:0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 0.6s forwards fill-to-0_3;"
     },
     "awro1t": {
-      "rules": "",
       "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 0.85s forwards so-to-0;"
     },
     "u1mu_y": {
@@ -34,6 +32,7 @@
       "rules": "d:path('M-1 13h26');stroke:currentColor;"
     }
   },
+  "fallback": "line-md:moon-simple-off-twotone",
   "keyframes": {
     "fill-to-0": "@keyframes fill-to-0{100%{fill-opacity:0}}",
     "so-from-62": "@keyframes so-from-62{0%{stroke-dashoffset:62}}",

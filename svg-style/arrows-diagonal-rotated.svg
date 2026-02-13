@@ -1,24 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .pxa2hl {
-    stroke-dasharray: 12;
-    animation: 0.4s linear forwards so-from-12;
-  }
-}
-
-.a0co1a {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0co1a {
   d: path('M14 14l6.5 6.5M10 10l-6.5 -6.5');
-}
-
-@media not (prefers-reduced-motion) {
-  .i-bxho {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 0.4s forwards so-to-0;
-  }
-}
-
-.oqlbij {
-  d: path('M3 3h6M21 21v-6M3 3v6M21 21h-6');
 }
 
 .a0m25c {
@@ -27,6 +8,23 @@
   stroke: currentColor;
   stroke-width: 2px;
   fill: none;
+}
+
+.oqlbij {
+  d: path('M3 3h6M21 21v-6M3 3v6M21 21h-6');
+}
+
+@media not (prefers-reduced-motion) {
+  .i-bxho {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.4s forwards so-to-0;
+  }
+
+  .pxa2hl {
+    stroke-dasharray: 12;
+    animation: 0.4s linear forwards so-from-12;
+  }
 }
 
 @keyframes so-from-12 {

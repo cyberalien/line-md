@@ -8,7 +8,6 @@
   },
   "classes": {
     "kokv_p": {
-      "rules": "",
       "animation": "stroke-dasharray:32;animation:0.6s linear forwards so-from-32;"
     },
     "rqwf4i": {
@@ -18,18 +17,15 @@
       "rules": "stroke-linecap:round;stroke-linejoin:round;"
     },
     "i2x_3m": {
-      "rules": "",
       "animation": "opacity:0;transform-origin:12px 12px;animation:0s 0.45s forwards fade-to-1, 0.6s linear 0.45s forwards transform-l6a01f;"
     },
     "p3v8vf": {
-      "rules": "",
       "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 0.85s forwards so-to-0;"
     },
     "etvz8c": {
       "rules": "d:path('M12 8v7.5');"
     },
     "s0wfsy": {
-      "rules": "",
       "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1.05s forwards so-to-0;"
     },
     "k3e74g": {
@@ -42,6 +38,7 @@
       "rules": "d:path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9');stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2 4;"
     }
   },
+  "fallback": "line-md:downloading",
   "keyframes": {
     "so-from-32": "@keyframes so-from-32{0%{stroke-dashoffset:32}}",
     "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",

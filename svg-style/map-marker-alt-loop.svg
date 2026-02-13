@@ -1,14 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .dw_f0r {
-    transform-origin: 12px 20.5px;
-    animation: 0.4s linear forwards d-jkxijw, 3s linear infinite transform-7ecuqx;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .aytguj {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.4s forwards r-to-2_5px;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ib3_1k {
+  r: 2.5px;
+  cx: 12px;
+  cy: 9px;
+  fill: currentColor;
 }
 
 .k3qojd {
@@ -20,11 +14,15 @@
   fill: none;
 }
 
-.ib3_1k {
-  r: 2.5px;
-  cx: 12px;
-  cy: 9px;
-  fill: currentColor;
+@media not (prefers-reduced-motion) {
+  .aytguj {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.4s forwards r-to-2_5px;
+  }
+
+  .dw_f0r {
+    transform-origin: 12px 20.5px;
+    animation: 0.4s linear forwards d-jkxijw, 3s linear infinite transform-7ecuqx;
+  }
 }
 
 @keyframes d-jkxijw {

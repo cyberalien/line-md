@@ -1,16 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .l5bica {
-    stroke-dasharray: 22;
-    animation: 0.3s linear forwards so-from-22;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.lwqx6m {
+  d: path('M12 3h6v12h-12v-12Z');
+  stroke-width: 2px;
+  fill-opacity: 0.3;
+  fill: currentColor;
 }
 
-@media not (prefers-reduced-motion) {
-  .d4768r {
-    stroke-dasharray: 50;
-    stroke-dashoffset: 50;
-    animation: 0s forwards fill-to-0, 0.6s linear 0.4s forwards so-to-0, 0.15s linear 1s forwards fill-to-0_3;
-  }
+.n-sbuq {
+  d: path('M2.5 8.5h19M2.5 15.5h19');
+  fill: none;
 }
 
 .s1ui7u {
@@ -19,16 +16,17 @@
   stroke: currentColor;
 }
 
-.n-sbuq {
-  d: path('M2.5 8.5h19M2.5 15.5h19');
-  fill: none;
-}
+@media not (prefers-reduced-motion) {
+  .d4768r {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: 0s forwards fill-to-0, 0.6s linear 0.4s forwards so-to-0, 0.15s linear 1s forwards fill-to-0_3;
+  }
 
-.lwqx6m {
-  d: path('M12 3h6v12h-12v-12Z');
-  stroke-width: 2px;
-  fill-opacity: 0.3;
-  fill: currentColor;
+  .l5bica {
+    stroke-dasharray: 22;
+    animation: 0.3s linear forwards so-from-22;
+  }
 }
 
 @keyframes so-from-22 {

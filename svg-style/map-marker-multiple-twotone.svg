@@ -1,8 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .iw3ndt {
-    stroke-dasharray: 48;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-48, 0.15s linear 0.7s forwards fill-to-0_3;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.fnqksf {
+  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+  fill: #fff;
+  stroke: #fff;
 }
 
 .g_1xrq {
@@ -10,45 +9,18 @@
   stroke-linejoin: round;
 }
 
-@media not (prefers-reduced-motion) {
-  .oyxszr {
-    stroke-dasharray: 48;
-    fill-opacity: 0;
-    animation: 0.6s linear forwards so-from-48, 0.15s linear 0.7s forwards fill-to-1;
-  }
-}
-
-.n53t9u {
-  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+.jf85im {
+  cx: 14px;
+  cy: 9px;
+  r: 2.5px;
 }
 
 .lsejuv {
   d: path('M0 0h24v24H0z');
 }
 
-.ydovum {
-  fill: currentColor;
-}
-
-.s8e22g {
-  stroke: currentColor;
-}
-
-@media not (prefers-reduced-motion) {
-  .wjit4q {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.95s forwards r-to-2_5px;
-  }
-}
-
-.fnqksf {
-  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
-  fill: #fff;
-  stroke: #fff;
-}
-
-.r7cnsg {
-  stroke-width: 2px;
-  fill-opacity: 0.3;
+.n53t9u {
+  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
 }
 
 .qw8aly {
@@ -57,10 +29,34 @@
   stroke: #000;
 }
 
-.jf85im {
-  cx: 14px;
-  cy: 9px;
-  r: 2.5px;
+.r7cnsg {
+  stroke-width: 2px;
+  fill-opacity: 0.3;
+}
+
+.s8e22g {
+  stroke: currentColor;
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+@media not (prefers-reduced-motion) {
+  .iw3ndt {
+    stroke-dasharray: 48;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-48, 0.15s linear 0.7s forwards fill-to-0_3;
+  }
+
+  .oyxszr {
+    stroke-dasharray: 48;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-48, 0.15s linear 0.7s forwards fill-to-1;
+  }
+
+  .wjit4q {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.95s forwards r-to-2_5px;
+  }
 }
 
 @keyframes fill-to-0 {

@@ -1,32 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.zxndow {
-  stroke: #fff;
-}
-
-.kivj7d {
-  d: path('M7 6v-3');
-  opacity: 0.33;
-}
-
-.taf2xz {
-  stroke-width: 2px;
-}
-
-.zmr21h {
-  d: path('M5 8v11h14v-11');
-  opacity: 0.6;
-}
-
-.dizlzg {
-  d: path('M12 16v4.5M12 3l8.5 5.5');
-}
-
-.ll8taz {
-  d: path('M12 3l8.5 5.5');
-  opacity: 0.6;
-}
-
-.mdiuwa {
-  d: path('M12 3l-8.5 5.5');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ainywl {
+  stroke-width: 4px;
+  stroke: #000;
 }
 
 .deodqn {
@@ -34,22 +8,8 @@
   opacity: 0.6;
 }
 
-.nvw5hd {
-  d: path('M12 11.5v9');
-}
-
-.lsejuv {
-  d: path('M0 0h24v24H0z');
-}
-
-.ydovum {
-  fill: currentColor;
-}
-
-.mr6-qm {
-  cx: 12px;
-  cy: 11.5px;
-  r: 1.5px;
+.dizlzg {
+  d: path('M12 16v4.5M12 3l8.5 5.5');
 }
 
 .k4vf-t {
@@ -58,15 +18,9 @@
   opacity: 0.33;
 }
 
-.r1menc {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
-
-.ainywl {
-  stroke-width: 4px;
-  stroke: #000;
+.kivj7d {
+  d: path('M7 6v-3');
+  opacity: 0.33;
 }
 
 .lejxcg {
@@ -74,5 +28,51 @@
   cx: 12px;
   cy: 11.5px;
   r: 3.5px;
+}
+
+.ll8taz {
+  d: path('M12 3l8.5 5.5');
+  opacity: 0.6;
+}
+
+.lsejuv {
+  d: path('M0 0h24v24H0z');
+}
+
+.mdiuwa {
+  d: path('M12 3l-8.5 5.5');
+}
+
+.mr6-qm {
+  cx: 12px;
+  cy: 11.5px;
+  r: 1.5px;
+}
+
+.nvw5hd {
+  d: path('M12 11.5v9');
+}
+
+.r1menc {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.taf2xz {
+  stroke-width: 2px;
+}
+
+.ydovum {
+  fill: currentColor;
+}
+
+.zmr21h {
+  d: path('M5 8v11h14v-11');
+  opacity: 0.6;
+}
+
+.zxndow {
+  stroke: #fff;
 }
 </style><defs><mask id="SVGIopoceRX"><path class="k4vf-t r1menc zxndow"/><path class="kivj7d r1menc taf2xz zxndow"/><path class="r1menc taf2xz zmr21h zxndow"/><path class="ainywl dizlzg r1menc"/><path class="ll8taz r1menc taf2xz zxndow"/><path class="ainywl mdiuwa r1menc"/><path class="deodqn r1menc taf2xz zxndow"/><path class="nvw5hd r1menc taf2xz zxndow"/><circle class="lejxcg"/></mask></defs><path mask="url(#SVGIopoceRX)" class="lsejuv ydovum"/><circle class="mr6-qm ydovum"/></svg>

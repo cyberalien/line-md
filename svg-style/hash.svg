@@ -1,12 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .mz6rrw {
-    stroke-dasharray: 20;
-    animation: 0.3s linear forwards so-from-20;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.e7kr0i {
+  d: path('M16 3l-2 18');
 }
 
 .geijln {
   d: path('M4 9h17');
+}
+
+.ic_dda {
+  d: path('M3 15h17');
+}
+
+.rxuepg {
+  d: path('M10 3l-2 18');
 }
 
 @media not (prefers-reduced-motion) {
@@ -15,42 +28,23 @@
     stroke-dashoffset: 20;
     animation: 0.3s linear 0.3s forwards so-to-0;
   }
-}
 
-.ic_dda {
-  d: path('M3 15h17');
-}
-
-@media not (prefers-reduced-motion) {
-  .zdqwkw {
-    stroke-dasharray: 22;
-    stroke-dashoffset: 22;
-    animation: 0.3s linear 0.7s forwards so-to-0;
+  .mz6rrw {
+    stroke-dasharray: 20;
+    animation: 0.3s linear forwards so-from-20;
   }
-}
 
-.rxuepg {
-  d: path('M10 3l-2 18');
-}
-
-@media not (prefers-reduced-motion) {
   .rrf1he {
     stroke-dasharray: 22;
     stroke-dashoffset: 22;
     animation: 0.3s linear 1s forwards so-to-0;
   }
-}
 
-.e7kr0i {
-  d: path('M16 3l-2 18');
-}
-
-.a0m25c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: currentColor;
-  stroke-width: 2px;
-  fill: none;
+  .zdqwkw {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 22;
+    animation: 0.3s linear 0.7s forwards so-to-0;
+  }
 }
 
 @keyframes so-from-20 {

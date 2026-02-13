@@ -8,13 +8,13 @@
   },
   "classes": {
     "mrmg1u": {
-      "rules": "",
       "animation": "stroke-dasharray:38;fill-opacity:0;animation:0.5s linear forwards so-from-38, 0.4s linear 0.5s forwards fill-to-1;"
     },
     "evy9un": {
       "rules": "d:path('M8 6l10 6l-10 6Z');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:currentColor;"
     }
   },
+  "fallback": "line-md:play-filled",
   "keyframes": {
     "so-from-38": "@keyframes so-from-38{0%{stroke-dashoffset:38}}",
     "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}"

@@ -1,60 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>@media not (prefers-reduced-motion) {
-  .gk7tul {
-    stroke-dasharray: 62;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.2s forwards fill-to-0_3;
-  }
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
-.ssyogl {
-  d: path('M14 3.5l0 4.5l4.5 0Z');
-}
-
-@media not (prefers-reduced-motion) {
-  .tdr3zy {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .ikux3q {
-    opacity: 0;
-    animation: 0s 0.8s forwards fade-to-1;
-  }
-}
-
-@media not (prefers-reduced-motion) {
-  .g7fxuo {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 0.8s forwards so-to-0;
-  }
-}
-
-.n96tiz {
-  d: path('M17 17l4 4');
-}
-
-@media not (prefers-reduced-motion) {
-  .kdlk-o {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1s forwards so-to-0;
-  }
+.eusm4q {
+  fill: #fff;
+  stroke: #fff;
 }
 
 .lbvfhd {
   d: path('M21 17l-4 4');
 }
 
-.xfk-ax {
-  d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
-  fill-opacity: 0.3;
+.n96tiz {
+  d: path('M17 17l4 4');
 }
 
-.eusm4q {
-  fill: #fff;
-  stroke: #fff;
+.ssyogl {
+  d: path('M14 3.5l0 4.5l4.5 0Z');
 }
 
 .t5pxry {
@@ -63,19 +26,48 @@
   stroke-width: 2px;
 }
 
+.ufposl {
+  stroke: currentColor;
+  fill: none;
+}
+
+.xfk-ax {
+  d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
+  fill-opacity: 0.3;
+}
+
 .yq7r9x {
   d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
   fill: #000;
 }
 
-.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
+@media not (prefers-reduced-motion) {
+  .g7fxuo {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.8s forwards so-to-0;
+  }
 
-.ufposl {
-  stroke: currentColor;
-  fill: none;
+  .gk7tul {
+    stroke-dasharray: 62;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.2s forwards fill-to-0_3;
+  }
+
+  .ikux3q {
+    opacity: 0;
+    animation: 0s 0.8s forwards fade-to-1;
+  }
+
+  .kdlk-o {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1s forwards so-to-0;
+  }
+
+  .tdr3zy {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
+  }
 }
 
 @keyframes fill-to-0 {
