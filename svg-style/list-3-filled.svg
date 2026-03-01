@@ -1,17 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.fgc0lm {
-  d: path('M9.5 19c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.c27knl {
+  d: path('M3.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
-.mjcktl {
-  d: path('M9.5 5c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+.fx1p8d {
+  d: path('M3.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
-.nkhu3x {
+.m9360y {
   d: path('M3.5 5c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
-.oky53h {
-  d: path('M9.5 12c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+.qgyc9w {
+  d: path('M9.5 5c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
 .qtbnay {
@@ -21,54 +21,54 @@
   fill: currentColor;
 }
 
-.v0h2ha {
-  d: path('M3.5 12c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+.sg398e {
+  d: path('M9.5 12c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
-.z5pijv {
-  d: path('M3.5 19c0 -0.83 0.67 -1.5 1.5 -1.5c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
+.wtf4wz {
+  d: path('M9.5 19c0 -0.83 0.67 -1.5 1.5 -1.5h8c0.83 0 1.5 0.67 1.5 1.5c0 0.83 -0.67 1.5 -1.5 1.5h-8c-0.83 0 -1.5 -0.67 -1.5 -1.5Z');
 }
 
 @media not (prefers-reduced-motion) {
-  .b_nx6i {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    fill-opacity: 0;
-    animation: 0.4s linear 0.5s forwards so-to-0, 0.4s linear 1.5s forwards fill-to-1;
-  }
-
-  .d3uqha {
+  .c27knl {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     fill-opacity: 0;
-    animation: 0.2s linear 0.3s forwards so-to-0, 0.4s linear 1.5s forwards fill-to-1;
+    animation: 0.2s linear 0.8s forwards so-to-0, 0.4s linear 1.5s forwards fill-to-1;
   }
 
-  .eitiim {
-    stroke-dasharray: 28;
-    fill-opacity: 0;
-    animation: 0.4s linear forwards so-from-28, 0.4s linear 1.5s forwards fill-to-1;
-  }
-
-  .h-n2iz {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    fill-opacity: 0;
-    animation: 0.4s linear 1s forwards so-to-0, 0.4s linear 1.5s forwards fill-to-1;
-  }
-
-  .uz30vy {
+  .fx1p8d {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     fill-opacity: 0;
     animation: 0.2s linear 1.3s forwards so-to-0, 0.4s linear 1.5s forwards fill-to-1;
   }
 
-  .yysrfg {
+  .m9360y {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     fill-opacity: 0;
-    animation: 0.2s linear 0.8s forwards so-to-0, 0.4s linear 1.5s forwards fill-to-1;
+    animation: 0.2s linear 0.3s forwards so-to-0, 0.4s linear 1.5s forwards fill-to-1;
+  }
+
+  .qgyc9w {
+    stroke-dasharray: 28;
+    fill-opacity: 0;
+    animation: 0.4s linear forwards so-from-28, 0.4s linear 1.5s forwards fill-to-1;
+  }
+
+  .sg398e {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    fill-opacity: 0;
+    animation: 0.4s linear 0.5s forwards so-to-0, 0.4s linear 1.5s forwards fill-to-1;
+  }
+
+  .wtf4wz {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    fill-opacity: 0;
+    animation: 0.4s linear 1s forwards so-to-0, 0.4s linear 1.5s forwards fill-to-1;
   }
 }
 
@@ -89,4 +89,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="eitiim mjcktl qtbnay"/><path class="b_nx6i oky53h qtbnay"/><path class="fgc0lm h-n2iz qtbnay"/><path class="d3uqha nkhu3x qtbnay"/><path class="qtbnay v0h2ha yysrfg"/><path class="qtbnay uz30vy z5pijv"/></svg>
+</style><path class="qgyc9w qtbnay"/><path class="qtbnay sg398e"/><path class="qtbnay wtf4wz"/><path class="m9360y qtbnay"/><path class="c27knl qtbnay"/><path class="fx1p8d qtbnay"/></svg>

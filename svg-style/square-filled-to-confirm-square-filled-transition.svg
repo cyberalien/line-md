@@ -3,7 +3,7 @@
   fill: currentColor;
 }
 
-.o9o10l {
+.ovwh-q {
   d: path('M8 12l3 3l5 -5');
   stroke: #000;
   fill: none;
@@ -22,7 +22,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ec16_t {
+  .ovwh-q {
     stroke-dasharray: 14;
     animation: 0.2s linear forwards so-from-14;
   }
@@ -33,4 +33,4 @@
     stroke-dashoffset: 14;
   }
 }
-</style><defs><mask id="SVGbcy3SdaO"><path class="p7dawc t5pxry"/><path class="ec16_t o9o10l t5pxry"/></mask></defs><path mask="url(#SVGbcy3SdaO)" class="botfzx"/></svg>
+</style><defs><mask id="SVGepJYqeIi"><path class="p7dawc t5pxry"/><path class="ovwh-q t5pxry"/></mask></defs><path mask="url(#SVGepJYqeIi)" class="botfzx"/></svg>

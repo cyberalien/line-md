@@ -1,24 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a7j2at {
-  cx: 11.5px;
-  cy: 12.5px;
-  r: 1.5px;
-}
-
-.botfzx {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
   d: path('M0 0h24v24H0z');
   fill: currentColor;
 }
 
-.eycklu {
-  fill: none;
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-.fzislr {
-  d: path('M12 4c-4.42 0 -8 3.58 -8 8c0 4.42 3.58 8 8 8c4.42 0 8 -3.58 8 -8v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-1c-0.55 0 -1 -0.45 -1 -1Z');
-  fill-opacity: 0.3;
-  stroke: #fff;
+.eoxhsr {
+  cx: 11.5px;
+  cy: 12.5px;
+  r: 1.5px;
 }
 
 .g26hbu {
@@ -30,16 +18,22 @@
   stroke: currentColor;
 }
 
-.gtld9v {
-  cx: 9.5px;
-  cy: 7.5px;
+.jhjq8f {
+  cx: 16.5px;
+  cy: 14.5px;
   r: 1.5px;
 }
 
-.ohx4kk {
+.mzhj7m {
   cx: 11px;
   cy: 17.5px;
   r: 1.5px;
+}
+
+.n4kztl {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
 .oxx-om {
@@ -47,13 +41,13 @@
   stroke: #000;
 }
 
-.po0nwp {
-  cx: 16.5px;
-  cy: 14.5px;
-  r: 1.5px;
+.ozv_sl {
+  d: path('M12 4c-4.42 0 -8 3.58 -8 8c0 4.42 3.58 8 8 8c4.42 0 8 -3.58 8 -8v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-1c-0.55 0 -1 -0.45 -1 -1Z');
+  fill-opacity: 0.3;
+  stroke: #fff;
 }
 
-.qe3oxa {
+.qi810h {
   cx: 6.5px;
   cy: 11.5px;
   r: 1.5px;
@@ -65,41 +59,47 @@
   stroke-width: 2px;
 }
 
+.ul5pkm {
+  cx: 9.5px;
+  cy: 7.5px;
+  r: 1.5px;
+}
+
 @media not (prefers-reduced-motion) {
-  .f21tte {
+  .eoxhsr {
     opacity: 0;
     animation: 0.1s linear 1.25s forwards fade-to-1;
   }
 
-  .fnfxyn {
-    opacity: 0;
-    animation: 0.1s linear 1.05s forwards fade-to-1;
-  }
-
-  .lsoe3z {
-    stroke-dasharray: 56;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.6s forwards fill-to-0_3;
-  }
-
-  .nuudjp {
-    opacity: 0;
-    animation: 0.1s linear 0.95s forwards fade-to-1;
-  }
-
-  .nuvk0r {
-    opacity: 0;
-    animation: 0.1s linear 0.85s forwards fade-to-1;
-  }
-
-  .pzc0lx {
+  .jhjq8f {
     opacity: 0;
     animation: 0.1s linear 1.15s forwards fade-to-1;
   }
 
-  .zcszqp {
+  .mzhj7m {
+    opacity: 0;
+    animation: 0.1s linear 0.95s forwards fade-to-1;
+  }
+
+  .n4kztl {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.35s forwards so-to-0;
+  }
+
+  .ozv_sl {
+    stroke-dasharray: 56;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
+
+  .qi810h {
+    opacity: 0;
+    animation: 0.1s linear 1.05s forwards fade-to-1;
+  }
+
+  .ul5pkm {
+    opacity: 0;
+    animation: 0.1s linear 0.85s forwards fade-to-1;
   }
 }
 
@@ -132,4 +132,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGa6zS1bvo"><path class="fzislr g26hbu lsoe3z t5pxry"/><circle class="g26hbu gtld9v nuvk0r"/><circle class="g26hbu nuudjp ohx4kk"/><circle class="fnfxyn g26hbu qe3oxa"/><circle class="g26hbu po0nwp pzc0lx"/><circle class="a7j2at f21tte g26hbu"/><path class="eycklu oxx-om t5pxry zcszqp"/></mask></defs><path mask="url(#SVGa6zS1bvo)" class="botfzx"/><path class="eycklu gd_4-q t5pxry zcszqp"/></svg>
+</style><defs><mask id="SVG3cEDgeJW"><path class="g26hbu ozv_sl t5pxry"/><circle class="g26hbu ul5pkm"/><circle class="g26hbu mzhj7m"/><circle class="g26hbu qi810h"/><circle class="g26hbu jhjq8f"/><circle class="eoxhsr g26hbu"/><path class="n4kztl oxx-om t5pxry"/></mask></defs><path mask="url(#SVG3cEDgeJW)" class="botfzx"/><path class="gd_4-q n4kztl t5pxry"/></svg>

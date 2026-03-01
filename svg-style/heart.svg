@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.an6i3m {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.yi8b0f {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .uvn6wq {
+  .yi8b0f {
     stroke-dasharray: 30;
     animation: 0.6s linear forwards so-from-30;
   }
@@ -19,4 +19,4 @@
     stroke-dashoffset: 30;
   }
 }
-</style><path class="an6i3m uvn6wq"/></svg>
+</style><path class="yi8b0f"/></svg>

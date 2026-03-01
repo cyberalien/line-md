@@ -1,6 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.irefei {
-  d: path('M12 21h3M12 21h-3');
-  fill: none;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.dcllpe {
+  d: path('M12 17h-10v-14h20v14Z');
+  fill-opacity: 0.3;
+}
+
+.ik5ydf {
+  d: path('M10 16h4v6h-4Z');
 }
 
 .iw1iew {
@@ -10,13 +14,9 @@
   stroke-width: 2px;
 }
 
-.j69b_u {
-  d: path('M10 16h4v6h-4Z');
-}
-
-.l6k0or {
-  d: path('M12 17h-10v-14h20v14Z');
-  fill-opacity: 0.3;
+.o71y-l {
+  d: path('M12 21h3M12 21h-3');
+  fill: none;
 }
 
 .ydovum {
@@ -24,19 +24,19 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .eo78tx {
+  .dcllpe {
     stroke-dasharray: 70;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-70, 0.15s linear 1.2s forwards fill-to-0_3;
   }
 
-  .m6lvki {
+  .ik5ydf {
+    animation: 0s forwards d-fwg6_w, 0.2s linear 0.6s forwards d-7yzihk;
+  }
+
+  .o71y-l {
     stroke-dasharray: 6;
     stroke-dashoffset: 6;
     animation: 0.4s linear 0.8s forwards so-to-0;
-  }
-
-  .vzlc-k {
-    animation: 0s forwards d-fwg6_w, 0.2s linear 0.6s forwards d-7yzihk;
   }
 }
 
@@ -75,4 +75,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="eo78tx iw1iew l6k0or ydovum"/><path class="j69b_u vzlc-k ydovum"/><path class="irefei iw1iew m6lvki"/></svg>
+</style><path class="dcllpe iw1iew ydovum"/><path class="ik5ydf ydovum"/><path class="iw1iew o71y-l"/></svg>

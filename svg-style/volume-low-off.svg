@@ -15,9 +15,9 @@
   stroke: currentColor;
 }
 
-.jajjpt {
-  d: path('M8 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
-  stroke: #fff;
+.n_ur3u {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
 .oxx-om {
@@ -25,19 +25,19 @@
   stroke: #000;
 }
 
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
+.w1_ilv {
+  d: path('M8 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
+  stroke: #fff;
 }
 
 @media not (prefers-reduced-motion) {
-  .ko2cgq {
+  .n_ur3u {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 0.4s forwards so-to-0;
   }
 
-  .q3i-gg {
+  .w1_ilv {
     stroke-dasharray: 34;
     animation: 0.4s linear forwards so-from-34;
   }
@@ -54,4 +54,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVG5eDu2dUd"><path class="c5xdmn jajjpt q3i-gg"/><path class="c5xdmn ko2cgq oxx-om yl0nmc"/></mask></defs><path mask="url(#SVG5eDu2dUd)" class="botfzx"/><path class="c5xdmn gd_4-q ko2cgq yl0nmc"/></svg>
+</style><defs><mask id="SVGTjdugdJA"><path class="c5xdmn w1_ilv"/><path class="c5xdmn n_ur3u oxx-om"/></mask></defs><path mask="url(#SVGTjdugdJA)" class="botfzx"/><path class="c5xdmn gd_4-q n_ur3u"/></svg>

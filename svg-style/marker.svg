@@ -1,26 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.crz5_k {
-  d: path('M9 17l-2.5 2.5l-4 0l4.5 -4.5Z');
-}
-
-.qa-o7h {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.qa-o7h {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
   fill: none;
 }
 
-.y8duux {
+.t5zxbs {
+  d: path('M9 17l-2.5 2.5l-4 0l4.5 -4.5Z');
+}
+
+.zntd8k {
   d: path('M6 14l11 -11l4 4l-11 11l-4 -4Z');
   stroke-width: 2px;
 }
 
 @media not (prefers-reduced-motion) {
-  .c1hxos {
+  .t5zxbs {
     opacity: 0;
     animation: 0s 0.5s forwards fade-to-1, 0.3s linear 0.5s forwards d-9jpx1r;
   }
 
-  .low20g {
+  .zntd8k {
     stroke-dasharray: 46;
     animation: 0.5s linear forwards so-from-46;
   }
@@ -43,4 +43,4 @@
     d: path('M9 17l0 0l-2 -2l0 0Z');
   }
 }
-</style><path class="low20g qa-o7h y8duux"/><path class="c1hxos crz5_k qa-o7h"/></svg>
+</style><path class="qa-o7h zntd8k"/><path class="qa-o7h t5zxbs"/></svg>

@@ -6,30 +6,30 @@
   fill: none;
 }
 
-.dxya9h {
-  d: path('M12 21v1M21 12h1M12 3v-1M3 12h-1');
-}
-
-.hhvpjp {
-  d: path('M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');
-}
-
-.lr3xdl {
+.fyi9-p {
   d: path('M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5');
 }
 
+.ml9e2l {
+  d: path('M12 21v1M21 12h1M12 3v-1M3 12h-1');
+}
+
+.mo0t0x {
+  d: path('M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');
+}
+
 @media not (prefers-reduced-motion) {
-  .ixhwlv {
+  .fyi9-p {
     opacity: 0;
     animation: 0s 0.7s forwards fade-to-1, 0.2s linear 0.7s forwards d-s9ijad;
   }
 
-  .pnqmhj {
+  .ml9e2l {
     opacity: 0;
     animation: 0s 0.5s forwards fade-to-1, 0.2s linear 0.5s forwards d-9_o5mj;
   }
 
-  .q3i-gg {
+  .mo0t0x {
     stroke-dasharray: 34;
     animation: 0.4s linear forwards so-from-34;
   }
@@ -58,4 +58,4 @@
     d: path('M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5');
   }
 }
-</style><path class="a0m25c hhvpjp q3i-gg"/><path class="a0m25c dxya9h pnqmhj"/><path class="a0m25c ixhwlv lr3xdl"/></svg>
+</style><path class="a0m25c mo0t0x"/><path class="a0m25c ml9e2l"/><path class="a0m25c fyi9-p"/></svg>

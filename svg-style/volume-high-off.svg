@@ -19,7 +19,12 @@
   stroke: currentColor;
 }
 
-.lwlurj {
+.lvtybe {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.njj14b {
   d: path('M14 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');
 }
 
@@ -28,38 +33,33 @@
   stroke: #000;
 }
 
-.qetw5h {
-  d: path('M14 3.23c4 0.91 7 4.49 7 8.77c0 4.28 -3 7.86 -7 8.77v-2.07c2.89 -0.86 5 -3.53 5 -6.7c0 -3.17 -2.11 -5.85 -5 -6.71Z');
-}
-
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-.zf0xnu {
+.r56_hn {
   d: path('M4 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
   stroke: #fff;
 }
 
-@media not (prefers-reduced-motion) {
-  .q3i-gg {
-    stroke-dasharray: 34;
-    animation: 0.4s linear forwards so-from-34;
-  }
+.zq9xpz {
+  d: path('M14 3.23c4 0.91 7 4.49 7 8.77c0 4.28 -3 7.86 -7 8.77v-2.07c2.89 -0.86 5 -3.53 5 -6.7c0 -3.17 -2.11 -5.85 -5 -6.71Z');
+}
 
-  .uwglvc {
+@media not (prefers-reduced-motion) {
+  .lvtybe {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 0.8s forwards so-to-0;
   }
 
-  .wzieoo {
-    animation: 0s forwards d-ap4uuv, 0.4s linear 0.4s forwards d-yv2e7k;
+  .njj14b {
+    animation: 0s forwards d-k6ve5o, 0.2s linear 0.4s forwards d-c-ymvb;
   }
 
-  .xw5yzg {
-    animation: 0s forwards d-k6ve5o, 0.2s linear 0.4s forwards d-c-ymvb;
+  .r56_hn {
+    stroke-dasharray: 34;
+    animation: 0.4s linear forwards so-from-34;
+  }
+
+  .zq9xpz {
+    animation: 0s forwards d-ap4uuv, 0.4s linear 0.4s forwards d-yv2e7k;
   }
 }
 
@@ -98,4 +98,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGmwq1SbmF"><path class="c5xdmn q3i-gg zf0xnu"/><path class="g26hbu lwlurj xw5yzg"/><path class="g26hbu qetw5h wzieoo"/><path class="c5xdmn oxx-om uwglvc yl0nmc"/></mask></defs><path mask="url(#SVGmwq1SbmF)" class="botfzx"/><path class="c5xdmn gd_4-q uwglvc yl0nmc"/></svg>
+</style><defs><mask id="SVGDxydDcqu"><path class="c5xdmn r56_hn"/><path class="g26hbu njj14b"/><path class="g26hbu zq9xpz"/><path class="c5xdmn lvtybe oxx-om"/></mask></defs><path mask="url(#SVGDxydDcqu)" class="botfzx"/><path class="c5xdmn gd_4-q lvtybe"/></svg>

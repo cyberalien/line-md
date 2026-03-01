@@ -1,9 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.dkhxwk {
-  d: path('M2 5h3v14h-3ZM22 5h-3v14h3Z');
-  fill: currentColor;
-}
-
-.kiossm {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.corykn {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 5h9c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-18c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z');
@@ -12,14 +7,19 @@
   fill: none;
 }
 
-@media not (prefers-reduced-motion) {
-  .gljw6l {
-    animation: 0s forwards d-4c0-hc, 0.2s linear 0.6s forwards d-i58k3z;
-  }
+.nhjobb {
+  d: path('M2 5h3v14h-3ZM22 5h-3v14h3Z');
+  fill: currentColor;
+}
 
-  .p-jc7h {
+@media not (prefers-reduced-motion) {
+  .corykn {
     stroke-dasharray: 70;
     animation: 0.6s linear forwards so-from-70;
+  }
+
+  .nhjobb {
+    animation: 0s forwards d-4c0-hc, 0.2s linear 0.6s forwards d-i58k3z;
   }
 }
 
@@ -40,4 +40,4 @@
     d: path('M2 5h3v14h-3ZM22 5h-3v14h3Z');
   }
 }
-</style><path class="kiossm p-jc7h"/><path class="dkhxwk gljw6l"/></svg>
+</style><path class="corykn"/><path class="nhjobb"/></svg>

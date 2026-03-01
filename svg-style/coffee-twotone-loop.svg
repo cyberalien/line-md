@@ -1,23 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.j9mljp {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.cwkuux {
   d: path('M8 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M12 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4M16 -8c0 2 -2 2 -2 4s2 2 2 4s-2 2 -2 4s2 2 2 4');
   stroke: #fff;
+}
+
+.ikb_db {
+  d: path('M17 9h3c0.55 0 1 0.45 1 1v3c0 0.55 -0.45 1 -1 1h-3');
 }
 
 .lsejuv {
   d: path('M0 0h24v24H0z');
 }
 
-.mw6qgz {
-  d: path('M17 9h3c0.55 0 1 0.45 1 1v3c0 0.55 -0.45 1 -1 1h-3');
-}
-
-.o2566m {
-  d: path('M17 9v9c0 1.66 -1.34 3 -3 3h-6c-1.66 0 -3 -1.34 -3 -3v-9Z');
-  fill-opacity: 0.3;
-}
-
 .s8e22g {
   stroke: currentColor;
+}
+
+.sjqqhg {
+  d: path('M17 9v9c0 1.66 -1.34 3 -3 3h-6c-1.66 0 -3 -1.34 -3 -3v-9Z');
+  fill-opacity: 0.3;
 }
 
 .t5pxry {
@@ -26,7 +26,7 @@
   stroke-width: 2px;
 }
 
-.y32eri {
+.tsuhuq {
   fill: #000;
   d: path('M4 2h16v5h-16v12h16v-24h-16Z');
 }
@@ -40,22 +40,22 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .aqtkrb {
+  .cwkuux {
     animation: 3s linear infinite d-2eh0tx;
   }
 
-  .h7habt {
+  .ikb_db {
     stroke-dasharray: 16;
     stroke-dashoffset: 16;
     animation: 0.3s linear 0.6s forwards so-to-0;
   }
 
-  .mroyrs {
+  .sjqqhg {
     stroke-dasharray: 48;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-48, 0.15s linear 1.6s forwards fill-to-0_3;
   }
 
-  .qlc9kd {
+  .tsuhuq {
     animation: 0s forwards d-gxzt2d, 0.6s linear 1s forwards d--ye3im;
   }
 }
@@ -101,4 +101,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVG7mG8jdwZ"><path class="aqtkrb j9mljp t5pxry y4wbml"/><path class="qlc9kd y32eri"/></mask></defs><path class="mroyrs o2566m s8e22g t5pxry ydovum"/><path class="h7habt mw6qgz s8e22g t5pxry y4wbml"/><path mask="url(#SVG7mG8jdwZ)" class="lsejuv ydovum"/></svg>
+</style><defs><mask id="SVGEhFb2dZS"><path class="cwkuux t5pxry y4wbml"/><path class="tsuhuq"/></mask></defs><path class="s8e22g sjqqhg t5pxry ydovum"/><path class="ikb_db s8e22g t5pxry y4wbml"/><path mask="url(#SVGEhFb2dZS)" class="lsejuv ydovum"/></svg>

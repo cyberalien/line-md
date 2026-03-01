@@ -11,39 +11,39 @@
   fill: currentColor;
 }
 
-.cug7_u {
+.eh8t5z {
   fill: #000;
   d: path('M22 -4c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
 }
 
-.dxya9h {
-  d: path('M12 21v1M21 12h1M12 3v-1M3 12h-1');
-}
-
-.lr3xdl {
-  d: path('M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5');
-}
-
-.rutrix {
+.o9gm1m {
   fill: #fff;
   d: path('M12 6c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
 }
 
+.p-q0-i {
+  d: path('M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5');
+}
+
+.sq4kkj {
+  d: path('M12 21v1M21 12h1M12 3v-1M3 12h-1');
+}
+
 @media not (prefers-reduced-motion) {
-  .dv20ga {
+  .eh8t5z {
+    animation: 0.4s linear forwards d-qro6by, 0s 0.4s forwards fade-to-0;
+  }
+
+  .o9gm1m {
     animation: 0.4s linear forwards d-ve15dr;
   }
 
-  .ewco0l {
+  .p-q0-i {
     opacity: 0;
     animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-s9ijad;
   }
 
-  .p1mz8m {
-    animation: 0.4s linear forwards d-qro6by, 0s 0.4s forwards fade-to-0;
-  }
-
-  .upbx4p {
+  .sq4kkj {
     opacity: 0;
     animation: 0s 0.4s forwards fade-to-1, 0.2s linear 0.4s forwards d-9_o5mj;
   }
@@ -84,4 +84,4 @@
     d: path('M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5');
   }
 }
-</style><defs><mask id="SVGK81nRfep"><path class="dv20ga rutrix"/><path class="cug7_u p1mz8m"/></mask></defs><path mask="url(#SVGK81nRfep)" class="botfzx"/><path class="a0m25c dxya9h upbx4p"/><path class="a0m25c ewco0l lr3xdl"/></svg>
+</style><defs><mask id="SVGJBr8ydsw"><path class="o9gm1m"/><path class="eh8t5z"/></mask></defs><path mask="url(#SVGJBr8ydsw)" class="botfzx"/><path class="a0m25c sq4kkj"/><path class="a0m25c p-q0-i"/></svg>

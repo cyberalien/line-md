@@ -6,24 +6,24 @@
   fill: none;
 }
 
-.i9x52y {
-  d: path('M19 5l-14 14');
-}
-
-.w_mzoh {
+.r-ddil {
   d: path('M5 5l14 14');
 }
 
+.zoysdu {
+  d: path('M19 5l-14 14');
+}
+
 @media not (prefers-reduced-motion) {
-  .g2-uei {
+  .r-ddil {
+    stroke-dasharray: 22;
+    animation: 0.5s linear forwards so-from-22;
+  }
+
+  .zoysdu {
     stroke-dasharray: 22;
     stroke-dashoffset: 22;
     animation: 0.5s linear 0.5s forwards so-to-0;
-  }
-
-  .qsudlx {
-    stroke-dasharray: 22;
-    animation: 0.5s linear forwards so-from-22;
   }
 }
 
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c qsudlx w_mzoh"/><path class="a0m25c g2-uei i9x52y"/></svg>
+</style><path class="a0m25c r-ddil"/><path class="a0m25c zoysdu"/></svg>

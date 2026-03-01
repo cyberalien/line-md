@@ -6,22 +6,22 @@
   fill: none;
 }
 
-.ifg_mc {
+.okiwoc {
   d: path('M6 19h12');
 }
 
-.ijzdcy {
+.qu8zmn {
   d: path('M12 15h2v-6h2.5l-4.5 -4.5M12 15h-2v-6h-2.5l4.5 -4.5');
 }
 
 @media not (prefers-reduced-motion) {
-  .mhf06j {
+  .okiwoc {
     stroke-dasharray: 14;
     stroke-dashoffset: 14;
     animation: 0.2s linear 0.5s forwards so-to-0;
   }
 
-  .zl00pq {
+  .qu8zmn {
     stroke-dasharray: 20;
     animation: 1.5s linear infinite d-viliiy, 0.5s linear forwards so-from-20;
   }
@@ -44,4 +44,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c ijzdcy zl00pq"/><path class="a0m25c ifg_mc mhf06j"/></svg>
+</style><path class="a0m25c qu8zmn"/><path class="a0m25c okiwoc"/></svg>

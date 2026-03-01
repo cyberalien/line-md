@@ -6,23 +6,23 @@
   fill: none;
 }
 
-.c5bs6d {
+.c2m0_y {
   d: path('M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28');
 }
 
-.ejxu_a {
+.vwcgvo {
   d: path('M12 3v13');
 }
 
 @media not (prefers-reduced-motion) {
-  .bgxodj {
-    stroke-dasharray: 16;
-    animation: 0.5s linear forwards so-from-16;
-  }
-
-  .se98io {
+  .c2m0_y {
     stroke-dasharray: 34;
     animation: 0.5s linear forwards so-from-34;
+  }
+
+  .vwcgvo {
+    stroke-dasharray: 16;
+    animation: 0.5s linear forwards so-from-16;
   }
 }
 
@@ -37,4 +37,4 @@
     stroke-dashoffset: 16;
   }
 }
-</style><path class="a0m25c c5bs6d se98io"/><path class="a0m25c bgxodj ejxu_a"/></svg>
+</style><path class="a0m25c c2m0_y"/><path class="a0m25c vwcgvo"/></svg>

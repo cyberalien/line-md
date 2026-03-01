@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.hy4b2z {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.txhpbi {
+  d: path('M6 2h12v3h-12ZM6 22h12v-3h-12Z');
+  fill: currentColor;
+}
+
+.x9r6jx {
   d: path('M12 2h5c0.55 0 1 0.45 1 1v18c0 0.55 -0.45 1 -1 1h-10c-0.55 0 -1 -0.45 -1 -1v-18c0 -0.55 0.45 -1 1 -1Z');
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -7,19 +12,14 @@
   fill: none;
 }
 
-.r4or_g {
-  d: path('M6 2h12v3h-12ZM6 22h12v-3h-12Z');
-  fill: currentColor;
-}
-
 @media not (prefers-reduced-motion) {
-  .ao492n {
-    stroke-dasharray: 66;
-    animation: 0.6s linear forwards so-from-66;
+  .txhpbi {
+    animation: 0s forwards d-3crpcp, 0.2s linear 0.6s forwards d-70g21a;
   }
 
-  .r32i8c {
-    animation: 0s forwards d-3crpcp, 0.2s linear 0.6s forwards d-70g21a;
+  .x9r6jx {
+    stroke-dasharray: 66;
+    animation: 0.6s linear forwards so-from-66;
   }
 }
 
@@ -40,4 +40,4 @@
     d: path('M6 2h12v3h-12ZM6 22h12v-3h-12Z');
   }
 }
-</style><path class="ao492n hy4b2z"/><path class="r32i8c r4or_g"/></svg>
+</style><path class="x9r6jx"/><path class="txhpbi"/></svg>

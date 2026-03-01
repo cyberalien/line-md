@@ -6,24 +6,24 @@
   fill: none;
 }
 
-.a6q8pc {
+.blypte {
   d: path('M20 10l-3 -3M20 10l-3 3');
 }
 
-.xik4sm {
+.hg47tl {
   d: path('M8 19v-8c0 -0.55 0.45 -1 1 -1h11');
 }
 
 @media not (prefers-reduced-motion) {
-  .e121nz {
-    stroke-dasharray: 24;
-    animation: 0.5s linear forwards so-from-24;
-  }
-
-  .w4w4hp {
+  .blypte {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+
+  .hg47tl {
+    stroke-dasharray: 24;
+    animation: 0.5s linear forwards so-from-24;
   }
 }
 
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c e121nz xik4sm"/><path class="a0m25c a6q8pc w4w4hp"/></svg>
+</style><path class="a0m25c hg47tl"/><path class="a0m25c blypte"/></svg>

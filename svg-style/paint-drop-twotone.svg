@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.n-ls4p {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.urvapf {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 3c0 0 7 6 7 12c0 2 -1 6 -7 6M12 3c0 0 -7 6 -7 12c0 2 1 6 7 6');
@@ -9,7 +9,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .pvp4mq {
+  .urvapf {
     stroke-dasharray: 28;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-28, 0.15s linear 0.6s forwards fill-to-0_3;
   }
@@ -32,4 +32,4 @@
     fill-opacity: 0.3;
   }
 }
-</style><path class="n-ls4p pvp4mq"/></svg>
+</style><path class="urvapf"/></svg>

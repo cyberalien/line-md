@@ -3,26 +3,26 @@
   fill: currentColor;
 }
 
-.eycklu {
-  fill: none;
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
 .gd_4-q {
   d: path('M-1 13h26');
   stroke: currentColor;
 }
 
-.lk_39m {
-  fill: #fff;
-  d: path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');
-  stroke: #fff;
-}
-
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
+}
+
+.p2_l7t {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.so5a6b {
+  fill: #fff;
+  d: path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');
+  stroke: #fff;
 }
 
 .t5pxry {
@@ -32,16 +32,16 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .c8jviz {
-    stroke-dasharray: 70;
-    fill-opacity: 0;
-    animation: 0.6s linear forwards so-from-70, 0.4s linear 0.7s forwards fill-to-1;
-  }
-
-  .mgj96l {
+  .p2_l7t {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.2s forwards so-to-0;
+  }
+
+  .so5a6b {
+    stroke-dasharray: 70;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-70, 0.4s linear 0.7s forwards fill-to-1;
   }
 }
 
@@ -62,4 +62,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVG21394bia"><path class="c8jviz lk_39m t5pxry"/><path class="eycklu mgj96l oxx-om t5pxry"/></mask></defs><path mask="url(#SVG21394bia)" class="botfzx"/><path class="eycklu gd_4-q mgj96l t5pxry"/></svg>
+</style><defs><mask id="SVGgjXEIdDQ"><path class="so5a6b t5pxry"/><path class="oxx-om p2_l7t t5pxry"/></mask></defs><path mask="url(#SVGgjXEIdDQ)" class="botfzx"/><path class="gd_4-q p2_l7t t5pxry"/></svg>

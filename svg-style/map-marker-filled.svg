@@ -3,14 +3,7 @@
   fill: currentColor;
 }
 
-.cne63n {
-  r: 2.5px;
-  fill: #000;
-  cx: 12px;
-  cy: 9px;
-}
-
-.lzziqk {
+.t_tayl {
   fill: #fff;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -19,14 +12,21 @@
   stroke: #fff;
 }
 
+.xbw4tl {
+  r: 2.5px;
+  fill: #000;
+  cx: 12px;
+  cy: 9px;
+}
+
 @media not (prefers-reduced-motion) {
-  .g2rv8z {
+  .t_tayl {
     stroke-dasharray: 48;
     fill-opacity: 0;
     animation: 0.6s linear forwards so-from-48, 0.4s linear 0.7s forwards fill-to-1;
   }
 
-  .qzmcuq {
+  .xbw4tl {
     animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;
   }
 }
@@ -54,4 +54,4 @@
     r: 2.5px;
   }
 }
-</style><defs><mask id="SVGesgfneSK"><path class="g2rv8z lzziqk"/><circle class="cne63n qzmcuq"/></mask></defs><path mask="url(#SVGesgfneSK)" class="botfzx"/></svg>
+</style><defs><mask id="SVGG73SyevI"><path class="t_tayl"/><circle class="xbw4tl"/></mask></defs><path mask="url(#SVGG73SyevI)" class="botfzx"/></svg>

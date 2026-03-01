@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a9g3hp {
-  stroke: currentColor;
-  d: path('M0 13h24');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.b68w5t {
+  stroke: #000;
+  d: path('M0 11h24');
   transform: rotate(45deg);
   transform-origin: 12px 12px;
 }
@@ -17,19 +17,19 @@
   fill: none;
 }
 
-.f30zlm {
-  stroke: #000;
-  d: path('M0 11h24');
+.jlhoox {
+  stroke: currentColor;
+  d: path('M0 13h24');
   transform: rotate(45deg);
   transform-origin: 12px 12px;
 }
 
-.l9t0nw {
+.qugfui {
   d: path('M2 12c1.72 -3.83 5.53 -6.5 10 -6.5c4.47 0 8.28 2.67 10 6.5c-1.72 3.83 -5.53 6.5 -10 6.5c-4.47 0 -8.28 -2.67 -10 -6.5Z');
   stroke: #fff;
 }
 
-.t2elts {
+.w2_ztl {
   fill: #fff;
   cx: 12px;
   cy: 12px;
@@ -37,24 +37,24 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .dfthaq {
+  .b68w5t {
     stroke-dasharray: 26;
     stroke-dashoffset: 26;
     animation: 0.4s linear 0.5s forwards so-to-0;
   }
 
-  .e224fx {
-    animation: 0s forwards r-to-0px, 6s linear infinite r-cqmtvg;
-  }
-
-  .gp9zbu {
-    animation: 0s forwards d-h_4q1i, 6s linear infinite d-p1bg5r;
-  }
-
-  .j48sou {
+  .jlhoox {
     stroke-dasharray: 26;
     stroke-dashoffset: 26;
     animation: 0s forwards d-_ufr0f, 6s linear infinite d-_hat9q, 0.4s linear 0.5s forwards so-to-0;
+  }
+
+  .qugfui {
+    animation: 0s forwards d-h_4q1i, 6s linear infinite d-p1bg5r;
+  }
+
+  .w2_ztl {
+    animation: 0s forwards r-to-0px, 6s linear infinite r-cqmtvg;
   }
 }
 
@@ -99,4 +99,4 @@
     d: path('M1 13h24');
   }
 }
-</style><defs><mask id="SVGlrcU1blY"><path class="c5xdmn gp9zbu l9t0nw"/><circle class="e224fx t2elts"/><path class="c5xdmn dfthaq f30zlm"/></mask></defs><path mask="url(#SVGlrcU1blY)" class="botfzx"/><path class="a9g3hp c5xdmn j48sou"/></svg>
+</style><defs><mask id="SVGan5qtd5H"><path class="c5xdmn qugfui"/><circle class="w2_ztl"/><path class="b68w5t c5xdmn"/></mask></defs><path mask="url(#SVGan5qtd5H)" class="botfzx"/><path class="c5xdmn jlhoox"/></svg>

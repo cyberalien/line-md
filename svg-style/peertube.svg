@@ -3,7 +3,7 @@
   fill: currentColor;
 }
 
-.cne-5n {
+.g7trfy {
   fill: #fff;
   d: path('M4 1.34l16 10.66l-16 10.67Z');
 }
@@ -14,7 +14,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .tj_mqo {
+  .g7trfy {
     animation: 0.4s linear forwards d-tbwzce;
   }
 }
@@ -24,4 +24,4 @@
     d: path('M12 12l0 0l0 0Z');
   }
 }
-</style><defs><mask id="SVGRtACpbnL"><path class="cne-5n tj_mqo"/><path class="yfo60c"/></mask></defs><path mask="url(#SVGRtACpbnL)" class="botfzx"/></svg>
+</style><defs><mask id="SVGOgwoJbQI"><path class="g7trfy"/><path class="yfo60c"/></mask></defs><path mask="url(#SVGOgwoJbQI)" class="botfzx"/></svg>

@@ -1,38 +1,21 @@
 {
-  "content": "<path class=\"bpe6qe hou5qh\"/><path class=\"a0m25c ay9ppe se98io\"/><path class=\"a0m25c bgxodj ejxu_a\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "bpe6qe": {
-      "animation": "fill-opacity:0;animation:0.4s linear 0.5s forwards fill-to-1;"
-    },
-    "se98io": {
-      "animation": "stroke-dasharray:34;animation:0.5s linear forwards so-from-34;"
-    },
-    "ay9ppe": {
-      "rules": "d:path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28');"
-    },
-    "bgxodj": {
-      "animation": "stroke-dasharray:16;animation:0.5s linear forwards so-from-16;"
-    },
-    "ejxu_a": {
-      "rules": "d:path('M12 3v13');"
-    },
-    "hou5qh": {
-      "rules": "d:path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28Z');fill:currentColor;"
-    },
-    "a0m25c": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<path class=\"dc-b3s\"/><path class=\"a0m25c bsgi6p\"/><path class=\"a0m25c vwcgvo\"/>",
   "fallback": "line-md:star-half-alt-filled",
   "keyframes": {
-    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
-    "so-from-34": "@keyframes so-from-34{0%{stroke-dashoffset:34}}",
-    "so-from-16": "@keyframes so-from-16{0%{stroke-dashoffset:16}}"
+    "fill-to-1": "100%{fill-opacity:1}",
+    "so-from-34": "0%{stroke-dashoffset:34}",
+    "so-from-16": "0%{stroke-dashoffset:16}"
+  },
+  "classes": {
+    "dc-b3s": "d:path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28Z');fill:currentColor;",
+    "bsgi6p": "d:path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28');",
+    "a0m25c": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;",
+    "vwcgvo": "d:path('M12 3v13');"
+  },
+  "animations": {
+    "dc-b3s": "fill-opacity:0;animation:0.4s linear 0.5s forwards fill-to-1;",
+    "bsgi6p": "stroke-dasharray:34;animation:0.5s linear forwards so-from-34;",
+    "vwcgvo": "stroke-dasharray:16;animation:0.5s linear forwards so-from-16;"
   }
 }

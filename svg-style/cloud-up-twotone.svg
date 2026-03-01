@@ -6,54 +6,54 @@
   fill: none;
 }
 
-.k1oc5g {
+.cn_flp {
   d: path('M7 11v-1c0 -2.5 2 -5 5 -5M17 11v-1c0 -2.5 -2 -5 -5 -5');
 }
 
-.sylsnu {
-  d: path('M12 13l2 2M12 13l-2 2');
+.l_ywrm {
+  d: path('M12 20v-6');
 }
 
-.um6q5f {
+.qjmzsy {
+  d: path('M8 19h-1c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c1 0 1.5 0.5 1.5 0.5M16 19h1c2.5 0 4 -2 4 -4c0 -2 -1.5 -4 -4 -4c-1 0 -1.5 0.5 -1.5 0.5');
+}
+
+.ra8x7z {
   d: path('M7 19c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c0 -3.5 2 -6 5 -6c3 0 5 2.5 5 5v1c2.5 0 4 2 4 4c0 2 -1.5 4 -4 4Z');
   fill-opacity: 0.3;
   fill: currentColor;
 }
 
-.vewt7g {
-  d: path('M12 20v-6');
-}
-
-.z590fb {
-  d: path('M8 19h-1c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c1 0 1.5 0.5 1.5 0.5M16 19h1c2.5 0 4 -2 4 -4c0 -2 -1.5 -4 -4 -4c-1 0 -1.5 0.5 -1.5 0.5');
+.x27gon {
+  d: path('M12 13l2 2M12 13l-2 2');
 }
 
 @media not (prefers-reduced-motion) {
-  .cr950v {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.15s forwards so-to-0;
-  }
-
-  .hv3c6m {
+  .cn_flp {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.4s linear 0.5s forwards so-to-0;
   }
 
-  .njga2k {
-    stroke-dasharray: 6;
-    stroke-dashoffset: 6;
-    animation: 0.2s linear 1.35s forwards so-to-0;
+  .l_ywrm {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.15s forwards so-to-0;
   }
 
-  .pqoixy {
+  .qjmzsy {
     stroke-dasharray: 18;
     animation: 0.5s linear forwards so-from-18;
   }
 
-  .uzceux {
+  .ra8x7z {
     animation: 0s forwards fill-to-0, 0.15s linear 0.9s forwards fill-to-0_3;
+  }
+
+  .x27gon {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.2s linear 1.35s forwards so-to-0;
   }
 }
 
@@ -80,4 +80,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="um6q5f uzceux"/><path class="a0m25c pqoixy z590fb"/><path class="a0m25c hv3c6m k1oc5g"/><path class="a0m25c cr950v vewt7g"/><path class="a0m25c njga2k sylsnu"/></svg>
+</style><path class="ra8x7z"/><path class="a0m25c qjmzsy"/><path class="a0m25c cn_flp"/><path class="a0m25c l_ywrm"/><path class="a0m25c x27gon"/></svg>

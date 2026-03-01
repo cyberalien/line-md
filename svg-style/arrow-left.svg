@@ -6,22 +6,22 @@
   fill: none;
 }
 
-.hijfem {
-  d: path('M21 12h-17.5');
-}
-
-.pnj63y {
+.ewwyqq {
   d: path('M3 12l7 7M3 12l7 -7');
 }
 
+.pkg6ma {
+  d: path('M21 12h-17.5');
+}
+
 @media not (prefers-reduced-motion) {
-  .isz7uc {
+  .ewwyqq {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 0.3s forwards so-to-0;
   }
 
-  .mz6rrw {
+  .pkg6ma {
     stroke-dasharray: 20;
     animation: 0.3s linear forwards so-from-20;
   }
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c hijfem mz6rrw"/><path class="a0m25c isz7uc pnj63y"/></svg>
+</style><path class="a0m25c pkg6ma"/><path class="a0m25c ewwyqq"/></svg>

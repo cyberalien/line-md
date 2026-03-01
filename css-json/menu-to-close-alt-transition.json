@@ -1,32 +1,19 @@
 {
-  "content": "<path class=\"a0m25c i0it8r jp_1ez\"/><path class=\"a0m25c j2nsvg zl3syp\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "i0it8r": {
-      "rules": "d:path('M5 5l14 14M5 19l14 -14');"
-    },
-    "jp_1ez": {
-      "animation": "animation:0.4s linear forwards d-1kwl8z;"
-    },
-    "j2nsvg": {
-      "rules": "d:path('M12 12h0');"
-    },
-    "zl3syp": {
-      "animation": "animation:0.4s linear forwards d-aqgbfy, 0s 0.4s forwards fade-to-0;"
-    },
-    "a0m25c": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<path class=\"a0m25c s3q1-f\"/><path class=\"a0m25c jdu_bz\"/>",
   "fallback": "line-md:menu-to-close-alt-transition",
   "keyframes": {
-    "d-1kwl8z": "@keyframes d-1kwl8z{0%{d:path('M5 5l14 0M5 19l14 0')}}",
-    "d-aqgbfy": "@keyframes d-aqgbfy{0%{d:path('M5 12h14')}}",
-    "fade-to-0": "@keyframes fade-to-0{100%{opacity:0}}"
+    "d-1kwl8z": "0%{d:path('M5 5l14 0M5 19l14 0')}",
+    "d-aqgbfy": "0%{d:path('M5 12h14')}",
+    "fade-to-0": "100%{opacity:0}"
+  },
+  "classes": {
+    "a0m25c": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;",
+    "s3q1-f": "d:path('M5 5l14 14M5 19l14 -14');",
+    "jdu_bz": "d:path('M12 12h0');"
+  },
+  "animations": {
+    "s3q1-f": "animation:0.4s linear forwards d-1kwl8z;",
+    "jdu_bz": "animation:0.4s linear forwards d-aqgbfy, 0s 0.4s forwards fade-to-0;"
   }
 }

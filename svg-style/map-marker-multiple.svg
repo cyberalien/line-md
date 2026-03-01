@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.g_1xrq {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.brep_k {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -6,12 +6,6 @@
 .gbpw0b {
   d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
   stroke: #fff;
-}
-
-.jf85im {
-  cx: 14px;
-  cy: 9px;
-  r: 2.5px;
 }
 
 .lsejuv {
@@ -32,6 +26,12 @@
   stroke: currentColor;
 }
 
+.w9rtnm {
+  cx: 14px;
+  cy: 9px;
+  r: 2.5px;
+}
+
 .ydovum {
   fill: currentColor;
 }
@@ -42,12 +42,12 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .awc_3v {
+  .brep_k {
     stroke-dasharray: 48;
     animation: 0.6s linear forwards so-from-48;
   }
 
-  .hhtdug {
+  .w9rtnm {
     animation: 0s forwards r-to-0px, 0.2s linear 0.7s forwards r-to-2_5px;
   }
 }
@@ -69,4 +69,4 @@
     r: 2.5px;
   }
 }
-</style><defs><mask id="SVGERWtpdBB"><path class="awc_3v g_1xrq gbpw0b yuzzkf"/><path class="awc_3v g_1xrq n53t9u qw8aly"/></mask></defs><path mask="url(#SVGERWtpdBB)" class="lsejuv ydovum"/><path class="awc_3v g_1xrq n53t9u s8e22g yuzzkf"/><circle class="hhtdug jf85im ydovum"/></svg>
+</style><defs><mask id="SVGGZUJ6bMb"><path class="brep_k gbpw0b yuzzkf"/><path class="brep_k n53t9u qw8aly"/></mask></defs><path mask="url(#SVGGZUJ6bMb)" class="lsejuv ydovum"/><path class="brep_k n53t9u s8e22g yuzzkf"/><circle class="w9rtnm ydovum"/></svg>

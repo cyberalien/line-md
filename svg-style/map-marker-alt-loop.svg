@@ -1,11 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ib3_1k {
-  r: 2.5px;
-  cx: 12px;
-  cy: 9px;
-  fill: currentColor;
-}
-
-.k3qojd {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.c4yg0k {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
@@ -14,14 +7,21 @@
   fill: none;
 }
 
+.ntj7kf {
+  r: 2.5px;
+  cx: 12px;
+  cy: 9px;
+  fill: currentColor;
+}
+
 @media not (prefers-reduced-motion) {
-  .aytguj {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.4s forwards r-to-2_5px;
+  .c4yg0k {
+    transform-origin: 12px 20.5px;
+    animation: 0.4s linear forwards d-jkxijw, 3s linear infinite tr-7ecuqx;
   }
 
-  .dw_f0r {
-    transform-origin: 12px 20.5px;
-    animation: 0.4s linear forwards d-jkxijw, 3s linear infinite transform-7ecuqx;
+  .ntj7kf {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.4s forwards r-to-2_5px;
   }
 }
 
@@ -34,7 +34,7 @@
   }
 }
 
-@keyframes transform-7ecuqx {
+@keyframes tr-7ecuqx {
   30%, 54%, 70%, 100% {
     transform: rotate(0deg);
   }
@@ -60,4 +60,4 @@
     r: 2.5px;
   }
 }
-</style><path class="dw_f0r k3qojd"/><circle class="aytguj ib3_1k"/></svg>
+</style><path class="c4yg0k"/><circle class="ntj7kf"/></svg>

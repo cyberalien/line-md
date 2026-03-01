@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.x4jrid {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.s08asx {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M5 4h14l-5 6.5v9.5l-4 -4v-5.5Z');
@@ -9,7 +9,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .m0ptra {
+  .s08asx {
     stroke-dasharray: 54;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.7s forwards fill-to-0_3;
   }
@@ -32,4 +32,4 @@
     fill-opacity: 0.3;
   }
 }
-</style><path class="m0ptra x4jrid"/></svg>
+</style><path class="s08asx"/></svg>

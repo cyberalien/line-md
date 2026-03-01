@@ -12,12 +12,7 @@
   d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
 }
 
-.g_1xrq {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.jf85im {
+.lprv6a {
   cx: 14px;
   cy: 9px;
   r: 2.5px;
@@ -37,15 +32,20 @@
   stroke: #fff;
 }
 
+.vutizf {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 @media not (prefers-reduced-motion) {
-  .g2rv8z {
+  .lprv6a {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;
+  }
+
+  .vutizf {
     stroke-dasharray: 48;
     fill-opacity: 0;
     animation: 0.6s linear forwards so-from-48, 0.4s linear 0.7s forwards fill-to-1;
-  }
-
-  .qzmcuq {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;
   }
 }
 
@@ -72,4 +72,4 @@
     r: 2.5px;
   }
 }
-</style><defs><mask id="SVGBQdTfdfb"><path class="djeo3r g2rv8z g_1xrq q7qpvx"/><path class="ainywl g2rv8z g_1xrq n53t9u nf43cj"/><path class="g2rv8z g_1xrq n53t9u q7qpvx"/><circle class="jf85im nf43cj qzmcuq"/></mask></defs><path mask="url(#SVGBQdTfdfb)" class="botfzx"/></svg>
+</style><defs><mask id="SVGPbIDAbLY"><path class="djeo3r q7qpvx vutizf"/><path class="ainywl n53t9u nf43cj vutizf"/><path class="n53t9u q7qpvx vutizf"/><circle class="lprv6a nf43cj"/></mask></defs><path mask="url(#SVGPbIDAbLY)" class="botfzx"/></svg>

@@ -6,31 +6,31 @@
   fill: none;
 }
 
-.ew--oj {
-  d: path('M19 23h-17c-0.55 0 -1 -0.45 -1 -1v-13');
-}
-
-.r4q6fs {
-  d: path('M5 8.06c0 -0.35 0.18 -0.67 0.48 -0.85l8.52 -5.21l8.52 5.21c0.3 0.18 0.48 0.5 0.48 0.85v9.94c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-9.94Z');
-}
-
-.w762fe {
+.qfvpsi {
   d: path('M5 8.5l9 5.5l9 -5.5');
 }
 
-@media not (prefers-reduced-motion) {
-  .kw5qnk {
-    stroke-dasharray: 64;
-    animation: 0.6s linear forwards so-from-64;
-  }
+.te6v-x {
+  d: path('M5 8.06c0 -0.35 0.18 -0.67 0.48 -0.85l8.52 -5.21l8.52 5.21c0.3 0.18 0.48 0.5 0.48 0.85v9.94c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-9.94Z');
+}
 
-  .nt4shc {
+.z4421m {
+  d: path('M19 23h-17c-0.55 0 -1 -0.45 -1 -1v-13');
+}
+
+@media not (prefers-reduced-motion) {
+  .qfvpsi {
     stroke-dasharray: 24;
     stroke-dashoffset: 24;
     animation: 0.3s linear 0.6s forwards so-to-0;
   }
 
-  .w4rv5x {
+  .te6v-x {
+    stroke-dasharray: 64;
+    animation: 0.6s linear forwards so-from-64;
+  }
+
+  .z4421m {
     stroke-dasharray: 34;
     stroke-dashoffset: 34;
     animation: 0.3s linear 0.3s forwards so-to-0;
@@ -48,4 +48,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c kw5qnk r4q6fs"/><path class="a0m25c ew--oj w4rv5x"/><path class="a0m25c nt4shc w762fe"/></svg>
+</style><path class="a0m25c te6v-x"/><path class="a0m25c z4421m"/><path class="a0m25c qfvpsi"/></svg>

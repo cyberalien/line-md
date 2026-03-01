@@ -6,21 +6,21 @@
   fill: none;
 }
 
-.guupha {
+.sihh1k {
   d: path('M16 19v-8c0 -0.55 -0.45 -1 -1 -1h-11');
 }
 
-.q8jeto {
+.ztfx7w {
   d: path('M4 10l3 -3M4 10l3 3');
 }
 
 @media not (prefers-reduced-motion) {
-  .e121nz {
+  .sihh1k {
     stroke-dasharray: 24;
     animation: 0.5s linear forwards so-from-24;
   }
 
-  .w4w4hp {
+  .ztfx7w {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.5s forwards so-to-0;
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c e121nz guupha"/><path class="a0m25c q8jeto w4w4hp"/></svg>
+</style><path class="a0m25c sihh1k"/><path class="a0m25c ztfx7w"/></svg>

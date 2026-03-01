@@ -3,21 +3,30 @@
   fill: currentColor;
 }
 
-.bvdxfy {
-  stroke: currentColor;
-  d: path('M16 19h6');
+.fhjy5e {
+  d: path('M9 13h6');
 }
 
 .g26hbu {
   fill: #fff;
 }
 
-.jt68vb {
-  d: path('M9 17h3');
+.k50i_c {
+  d: path('M14 3.5l0 4.5l4.5 0Z');
 }
 
-.ssyogl {
-  d: path('M14 3.5l0 4.5l4.5 0Z');
+.n95x5i {
+  stroke: currentColor;
+  d: path('M16 19h6');
+}
+
+.njb3_a {
+  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
+  fill: #000;
+}
+
+.oyeo5a {
+  d: path('M9 17h3');
 }
 
 .t5pxry {
@@ -26,7 +35,7 @@
   stroke-width: 2px;
 }
 
-.xfk-ax {
+.u7av_v {
   d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
   fill-opacity: 0.3;
 }
@@ -35,51 +44,42 @@
   fill: none;
 }
 
-.yq7r9x {
-  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
-  fill: #000;
-}
-
-.zmepzg {
-  d: path('M9 13h6');
-}
-
 .zxndow {
   stroke: #fff;
 }
 
 @media not (prefers-reduced-motion) {
-  .de4vdo {
-    stroke-dasharray: 62;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.4s forwards fill-to-0_3;
-  }
-
-  .g1hzuk {
-    opacity: 0;
-    animation: 0s 1.2s forwards fade-to-1;
-  }
-
-  .g7fxuo {
+  .fhjy5e {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.8s forwards so-to-0;
   }
 
-  .qj5tay {
+  .k50i_c {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
+  }
+
+  .n95x5i {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.2s forwards so-to-0;
+  }
+
+  .njb3_a {
+    opacity: 0;
+    animation: 0s 1.2s forwards fade-to-1;
+  }
+
+  .oyeo5a {
     stroke-dasharray: 6;
     stroke-dashoffset: 6;
     animation: 0.2s linear 1s forwards so-to-0;
   }
 
-  .tdr3zy {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
-  }
-
-  .z7trln {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.2s forwards so-to-0;
+  .u7av_v {
+    stroke-dasharray: 62;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.4s forwards fill-to-0_3;
   }
 }
 
@@ -118,4 +118,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGQo142BAe"><path class="de4vdo g26hbu t5pxry xfk-ax zxndow"/><path class="g26hbu ssyogl t5pxry tdr3zy zxndow"/><path class="g7fxuo t5pxry y4wbml zmepzg zxndow"/><path class="jt68vb qj5tay t5pxry y4wbml zxndow"/><path class="g1hzuk yq7r9x"/></mask></defs><path mask="url(#SVGQo142BAe)" class="botfzx"/><path class="bvdxfy t5pxry y4wbml z7trln"/></svg>
+</style><defs><mask id="SVGeSOOCRGs"><path class="g26hbu t5pxry u7av_v zxndow"/><path class="g26hbu k50i_c t5pxry zxndow"/><path class="fhjy5e t5pxry y4wbml zxndow"/><path class="oyeo5a t5pxry y4wbml zxndow"/><path class="njb3_a"/></mask></defs><path mask="url(#SVGeSOOCRGs)" class="botfzx"/><path class="n95x5i t5pxry y4wbml"/></svg>

@@ -4,9 +4,9 @@ There are many icon sets that are designed to Material Design guidelines. You ca
 
 This icon set is different:
 
--   Icons are animated without JavaScript.
--   It follows guidelines that are used for 'Round' and 'TwoTone' icons in the official Material Design Icons set.
--   Sometimes 1px thin lines are used where it makes sense.
+- Icons are animated without JavaScript.
+- It follows guidelines that are used for 'Round' and 'TwoTone' icons in the official Material Design Icons set.
+- Sometimes 1px thin lines are used where it makes sense.
 
 You can browse all icons at https://icon-sets.iconify.design/line-md/
 
@@ -22,8 +22,8 @@ Why is that?
 
 Typical "bounce" animations make UX worse because:
 
--   They take user's focus from actual content.
--   Looping animations use a lot of resources, making page slower. CPU is always busy, so on mobile devices such animations deplete battery.
+- They take user's focus from actual content.
+- Looping animations use a lot of resources, making page slower. CPU is always busy, so on mobile devices such animations deplete battery.
 
 Rendering animation, if used correctly, can improve user experience. Animation takes user focus only temporarily, when icon is rendered. Animation duration is very short, so it does not use too much resources.
 
@@ -37,11 +37,11 @@ Pull requests with icons are not accepted. This icon set is used as for testing 
 
 There are several directories with different variations of the same icons:
 
--   `svg-static` contains icons without animations.
--   `svg` contains icons animated with [SVG animations](https://svgwg.org/specs/animations/) spec.
--   `svg-style` contains icons that use CSS animations, CSS is embedded using `<style>` tag.
--   `css-json` contains icons that use CSS animations, but CSS is separate from SVG (see below).
--   `svg-frames-120fps` contains SVG files for each animation frame, rendered at 120 frames per second.
+- `svg-static` contains icons without animations.
+- `svg` contains icons animated with [SVG animations](https://svgwg.org/specs/animations/) spec.
+- `svg-style` contains icons that use CSS animations, CSS is embedded using `<style>` tag.
+- `css-json` contains icons that use CSS animations, but CSS is separate from SVG (see below).
+- `svg-frames-120fps` contains SVG files for each animation frame, rendered at 120 frames per second.
 
 ### SVG animations level 2
 
@@ -55,10 +55,10 @@ Icons in `svg-style` and `css-json` directories rely on CSS to animate icons.
 
 These are superior to SVG animations because:
 
--   CSS animations are usually faster and use less resources.
--   Icons are compact because CSS can be moved to a `.css` file and cached in browser, also avoiding content duplication.
--   Icons check user `prefers-reduced-motion` settings, rendering static icon for users that do not want animations.
--   CSS animations have predictable timing. Show icon and animation starts. Change display mode in CSS to show/hide icon. With SVG animations level 2 spec, display has no effect, so triggering animation is not always trivial.
+- CSS animations are usually faster and use less resources.
+- Icons are compact because CSS can be moved to a `.css` file and cached in browser, also avoiding content duplication.
+- Icons check user `prefers-reduced-motion` settings, rendering static icon for users that do not want animations.
+- CSS animations have predictable timing. Show icon and animation starts. Change display mode in CSS to show/hide icon. With SVG animations level 2 spec, display has no effect, so triggering animation is not always trivial.
 
 However, there is one downside - browser support.
 
@@ -76,15 +76,15 @@ These files are for developers, so you can render final icons yourself.
 
 JSON format has the following properties:
 
--   `content` contains SVG content, as string.
--   `viewBox` contains icon viewBox attribute value, as object.
--   `classes` contains list of used CSS classes, where key is class name, value is an object (see below).
--   `keyframes` contains list of used animations, where key is an animation name, value is CSS.
+- `content` contains SVG content, as string.
+- `viewBox` contains icon viewBox attribute value, as object.
+- `classes` contains list of used CSS classes, where key is class name, value is an object (see below).
+- `keyframes` contains list of used animations, where key is an animation name, value is CSS.
 
 Classes property is an object, with the following keys (all keys are optional):
 
--   `rules` contains rules as string.
--   `animation` contains rules for animations, as string. It is separate from `rules`, so you can wrap it in `@media not (prefers-reduced-motion)` if needed to make sure icons are not animated for users that prefer non-animated icons.
+- `rules` contains rules as string.
+- `animation` contains rules for animations, as string. It is separate from `rules`, so you can wrap it in `@media not (prefers-reduced-motion)` if needed to make sure icons are not animated for users that prefer non-animated icons.
 
 TypeScript type used in generator for exporting these JSON files:
 
@@ -143,8 +143,8 @@ Most icons use "render" animation: icon shapes appearing one by one.
 
 Other icons:
 
--   Icons that end with `-loop` use infinite animtions.
--   Icons that end with `-transition` transition between two icons.
+- Icons that end with `-loop` use infinite animtions.
+- Icons that end with `-transition` transition between two icons.
 
 ## Licence
 

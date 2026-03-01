@@ -6,41 +6,41 @@
   fill: none;
 }
 
-.e7kr0i {
-  d: path('M16 3l-2 18');
-}
-
-.geijln {
+.h4mqdv {
   d: path('M4 9h17');
 }
 
-.ic_dda {
+.o4_xet {
   d: path('M3 15h17');
 }
 
-.rxuepg {
+.rw5kru {
+  d: path('M16 3l-2 18');
+}
+
+.xmkx1n {
   d: path('M10 3l-2 18');
 }
 
 @media not (prefers-reduced-motion) {
-  .h2mb7i {
+  .h4mqdv {
+    stroke-dasharray: 20;
+    animation: 0.3s linear forwards so-from-20;
+  }
+
+  .o4_xet {
     stroke-dasharray: 20;
     stroke-dashoffset: 20;
     animation: 0.3s linear 0.3s forwards so-to-0;
   }
 
-  .mz6rrw {
-    stroke-dasharray: 20;
-    animation: 0.3s linear forwards so-from-20;
-  }
-
-  .rrf1he {
+  .rw5kru {
     stroke-dasharray: 22;
     stroke-dashoffset: 22;
     animation: 0.3s linear 1s forwards so-to-0;
   }
 
-  .zdqwkw {
+  .xmkx1n {
     stroke-dasharray: 22;
     stroke-dashoffset: 22;
     animation: 0.3s linear 0.7s forwards so-to-0;
@@ -58,4 +58,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c geijln mz6rrw"/><path class="a0m25c h2mb7i ic_dda"/><path class="a0m25c rxuepg zdqwkw"/><path class="a0m25c e7kr0i rrf1he"/></svg>
+</style><path class="a0m25c h4mqdv"/><path class="a0m25c o4_xet"/><path class="a0m25c xmkx1n"/><path class="a0m25c rw5kru"/></svg>

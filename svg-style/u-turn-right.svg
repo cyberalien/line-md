@@ -6,21 +6,21 @@
   fill: none;
 }
 
-.eh87wi {
+.i15xoo {
   d: path('M7 20v-11c0 -2.76 2.24 -5 5 -5c2.76 0 5 2.24 5 5v7');
 }
 
-.uvh0oe {
+.th6o3g {
   d: path('M17 16l3 -3M17 16l-3 -3');
 }
 
 @media not (prefers-reduced-motion) {
-  .tkv19w {
+  .i15xoo {
     stroke-dasharray: 36;
     animation: 0.5s linear forwards so-from-36;
   }
 
-  .w4w4hp {
+  .th6o3g {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.5s forwards so-to-0;
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c eh87wi tkv19w"/><path class="a0m25c uvh0oe w4w4hp"/></svg>
+</style><path class="a0m25c i15xoo"/><path class="a0m25c th6o3g"/></svg>

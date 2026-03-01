@@ -7,7 +7,7 @@
   fill: none;
 }
 
-.pkyeex {
+.mux-7n {
   cx: 7px;
   cy: 12px;
   r: 3px;
@@ -15,7 +15,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .efki8y {
+  .mux-7n {
     animation: 0.2s linear forwards cx-from-17px;
   }
 }
@@ -25,4 +25,4 @@
     cx: 17px;
   }
 }
-</style><path class="g36zgr"/><circle class="efki8y pkyeex"/></svg>
+</style><path class="g36zgr"/><circle class="mux-7n"/></svg>

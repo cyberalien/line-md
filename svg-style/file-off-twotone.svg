@@ -3,15 +3,15 @@
   fill: currentColor;
 }
 
-.eusm4q {
-  fill: #fff;
-  stroke: #fff;
-}
-
-.eycklu {
+.c651wi {
   fill: none;
   transform: rotate(45deg);
   transform-origin: 12px 12px;
+}
+
+.eusm4q {
+  fill: #fff;
+  stroke: #fff;
 }
 
 .gd_4-q {
@@ -19,13 +19,18 @@
   stroke: currentColor;
 }
 
+.k50i_c {
+  d: path('M14 3.5l0 4.5l4.5 0Z');
+}
+
+.kilinm {
+  d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
+  fill-opacity: 0.3;
+}
+
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
-}
-
-.ssyogl {
-  d: path('M14 3.5l0 4.5l4.5 0Z');
 }
 
 .t5pxry {
@@ -34,26 +39,21 @@
   stroke-width: 2px;
 }
 
-.xfk-ax {
-  d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
-  fill-opacity: 0.3;
-}
-
 @media not (prefers-reduced-motion) {
-  .i44_ky {
+  .c651wi {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.05s forwards so-to-0;
   }
 
-  .sgvilr {
-    stroke-dasharray: 62;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 0.8s forwards fill-to-0_3;
-  }
-
-  .tdr3zy {
+  .k50i_c {
     opacity: 0;
     animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
+  }
+
+  .kilinm {
+    stroke-dasharray: 62;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 0.8s forwards fill-to-0_3;
   }
 }
 
@@ -92,4 +92,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGNJCIEeas"><path class="eusm4q sgvilr t5pxry xfk-ax"/><path class="eusm4q ssyogl t5pxry tdr3zy"/><path class="eycklu i44_ky oxx-om t5pxry"/></mask></defs><path mask="url(#SVGNJCIEeas)" class="botfzx"/><path class="eycklu gd_4-q i44_ky t5pxry"/></svg>
+</style><defs><mask id="SVGcufG5bmq"><path class="eusm4q kilinm t5pxry"/><path class="eusm4q k50i_c t5pxry"/><path class="c651wi oxx-om t5pxry"/></mask></defs><path mask="url(#SVGcufG5bmq)" class="botfzx"/><path class="c651wi gd_4-q t5pxry"/></svg>

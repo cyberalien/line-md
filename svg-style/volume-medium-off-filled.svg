@@ -1,16 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.bj5gdh {
-  d: path('M16 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');
-}
-
-.botfzx {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
   d: path('M0 0h24v24H0z');
   fill: currentColor;
-}
-
-.eycklu {
-  fill: none;
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
 }
 
 .g26hbu {
@@ -27,32 +17,42 @@
   stroke: #000;
 }
 
+.s0iank {
+  d: path('M6 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
+  stroke: #fff;
+}
+
 .t5pxry {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2px;
 }
 
-.x1ix5u {
-  d: path('M6 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
-  stroke: #fff;
+.x1bqbh {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.zyfiet {
+  d: path('M16 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');
 }
 
 @media not (prefers-reduced-motion) {
-  .m7vvkq {
-    animation: 0s forwards d-u-uo_p, 0.2s linear 0.4s forwards d-5-a1ir;
-  }
-
-  .nhm6vx {
+  .s0iank {
     stroke-dasharray: 34;
     fill-opacity: 0;
     animation: 0.4s linear forwards so-from-34, 0.4s linear 0.6s forwards fill-to-1;
   }
 
-  .wif67a {
+  .x1bqbh {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.1s forwards so-to-0;
+  }
+
+  .zyfiet {
+    animation: 0s forwards d-u-uo_p, 0.2s linear 0.4s forwards d-5-a1ir;
   }
 }
 
@@ -85,4 +85,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGnIe2sekJ"><path class="g26hbu nhm6vx t5pxry x1ix5u"/><path class="bj5gdh g26hbu m7vvkq"/><path class="eycklu oxx-om t5pxry wif67a"/></mask></defs><path mask="url(#SVGnIe2sekJ)" class="botfzx"/><path class="eycklu gd_4-q t5pxry wif67a"/></svg>
+</style><defs><mask id="SVGKTzbTcTM"><path class="g26hbu s0iank t5pxry"/><path class="g26hbu zyfiet"/><path class="oxx-om t5pxry x1bqbh"/></mask></defs><path mask="url(#SVGKTzbTcTM)" class="botfzx"/><path class="gd_4-q t5pxry x1bqbh"/></svg>

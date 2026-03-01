@@ -10,7 +10,7 @@
   fill: none;
 }
 
-.hfnyth {
+.g_xo4m {
   d: path('M18 7c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2c-2 0 -3 -2 -5 -2c-2 0 -3 2 -5 2');
   stroke: #fff;
 }
@@ -20,24 +20,24 @@
   d: path('M18 3l-2 18h-9l-2 -18h-5v21h24v-20Z');
 }
 
-.k4tgzu {
+.yx0aom {
   d: path('M18 3l-2 18h-9l-2 -18Z');
   stroke: currentColor;
 }
 
 @media not (prefers-reduced-motion) {
-  .j6lqly {
+  .g_xo4m {
+    opacity: 0;
+    animation: 3s linear infinite tr-g4nv7i, 0.2s linear 0.6s forwards fade-to-1;
+  }
+
+  .yx0aom {
     stroke-dasharray: 62;
     animation: 0.6s linear forwards so-from-62;
   }
-
-  .xy6l5k {
-    opacity: 0;
-    animation: 3s linear infinite transform-g4nv7i, 0.2s linear 0.6s forwards fade-to-1;
-  }
 }
 
-@keyframes transform-g4nv7i {
+@keyframes tr-g4nv7i {
   100% {
     transform: translateX(10px);
   }
@@ -54,4 +54,4 @@
     stroke-dashoffset: 62;
   }
 }
-</style><defs><mask id="SVG5MR3XbeA"><path class="c5xdmn hfnyth xy6l5k"/><path class="j3vs1j"/></mask></defs><path mask="url(#SVG5MR3XbeA)" class="botfzx"/><path class="c5xdmn j6lqly k4tgzu"/></svg>
+</style><defs><mask id="SVGZtvrVczU"><path class="c5xdmn g_xo4m"/><path class="j3vs1j"/></mask></defs><path mask="url(#SVGZtvrVczU)" class="botfzx"/><path class="c5xdmn yx0aom"/></svg>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ibm05o {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.efzwqq {
   d: path('M12 17h-9v-12h18v12Z');
   fill: currentColor;
 }
@@ -10,22 +10,22 @@
   stroke-width: 2px;
 }
 
-.kwp8si {
+.odwtxx {
   d: path('M12 21h5M12 21h-5M12 21v-4');
   fill: none;
 }
 
 @media not (prefers-reduced-motion) {
-  .r7_1mr {
-    stroke-dasharray: 8;
-    animation: 0.4s linear forwards so-from-8;
-  }
-
-  .z3hn7d {
+  .efzwqq {
     stroke-dasharray: 62;
     stroke-dashoffset: 62;
     fill-opacity: 0;
     animation: 0.6s linear 0.4s forwards so-to-0, 0.4s linear 1s forwards fill-to-1;
+  }
+
+  .odwtxx {
+    stroke-dasharray: 8;
+    animation: 0.4s linear forwards so-from-8;
   }
 }
 
@@ -46,4 +46,4 @@
     fill-opacity: 1;
   }
 }
-</style><path class="iw1iew kwp8si r7_1mr"/><path class="ibm05o iw1iew z3hn7d"/></svg>
+</style><path class="iw1iew odwtxx"/><path class="efzwqq iw1iew"/></svg>

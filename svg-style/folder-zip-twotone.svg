@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.elyx-m {
-  d: path('M15 17v0.01');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ggh1oi {
+  d: path('M15 13v0.01M17 15v0.01');
 }
 
 .iw1iew {
@@ -9,22 +9,22 @@
   stroke-width: 2px;
 }
 
-.q43u2m {
+.kcr6_t {
+  d: path('M15 17v0.01');
+}
+
+.l6j71m {
+  d: path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');
+}
+
+.tqo60u {
   d: path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');
   fill-opacity: 0.3;
   fill: currentColor;
 }
 
-.qwuois {
-  d: path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');
-}
-
-.us1q_j {
+.wpioji {
   d: path('M15 9v0.01M17 11v0.01');
-}
-
-.v_dbwc {
-  d: path('M15 13v0.01M17 15v0.01');
 }
 
 .y4wbml {
@@ -32,29 +32,29 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .e6cmxg {
+  .ggh1oi {
     stroke-dasharray: 4;
     stroke-dashoffset: 4;
     animation: 0.2s linear 0.9s forwards so-to-0;
   }
 
-  .gk7tul {
-    stroke-dasharray: 62;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.2s forwards fill-to-0_3;
-  }
-
-  .ro5eeq {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;
-  }
-
-  .vm5j4c {
+  .kcr6_t {
     stroke-dasharray: 4;
     stroke-dashoffset: 4;
     animation: 0.2s linear 1s forwards so-to-0;
   }
 
-  .zo2mgx {
+  .l6j71m {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;
+  }
+
+  .tqo60u {
+    stroke-dasharray: 62;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.2s forwards fill-to-0_3;
+  }
+
+  .wpioji {
     stroke-dasharray: 4;
     stroke-dashoffset: 4;
     animation: 0.2s linear 0.8s forwards so-to-0;
@@ -96,4 +96,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="gk7tul iw1iew q43u2m"/><path class="iw1iew qwuois ro5eeq y4wbml"/><path class="iw1iew us1q_j y4wbml zo2mgx"/><path class="e6cmxg iw1iew v_dbwc y4wbml"/><path class="elyx-m iw1iew vm5j4c y4wbml"/></svg>
+</style><path class="iw1iew tqo60u"/><path class="iw1iew l6j71m y4wbml"/><path class="iw1iew wpioji y4wbml"/><path class="ggh1oi iw1iew y4wbml"/><path class="iw1iew kcr6_t y4wbml"/></svg>

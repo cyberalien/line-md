@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.cpkqvi {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.aedcft {
+  d: path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.chdxye {
   d: path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28');
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -7,18 +13,12 @@
   fill: none;
 }
 
-.kmipui {
-  d: path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28Z');
-  fill-opacity: 0.3;
-  fill: currentColor;
-}
-
 @media not (prefers-reduced-motion) {
-  .pm_4rd {
+  .aedcft {
     animation: 0s forwards fill-to-0, 0.15s linear 0.5s forwards fill-to-0_3;
   }
 
-  .se98io {
+  .chdxye {
     stroke-dasharray: 34;
     animation: 0.5s linear forwards so-from-34;
   }
@@ -41,4 +41,4 @@
     stroke-dashoffset: 34;
   }
 }
-</style><path class="kmipui pm_4rd"/><path class="cpkqvi se98io"/></svg>
+</style><path class="aedcft"/><path class="chdxye"/></svg>

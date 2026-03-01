@@ -1,27 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.d1hf6u {
-  d: path('M8 12l3 3l5 -5');
-  fill: none;
-}
-
-.i6sxug {
-  d: path('M4 12v-7c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1Z');
-  fill-opacity: 0.3;
-  fill: currentColor;
-}
-
-.iw1iew {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.iw1iew {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
   stroke-width: 2px;
 }
 
+.y591zt {
+  d: path('M4 12v-7c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.yp2axg {
+  d: path('M8 12l3 3l5 -5');
+  fill: none;
+}
+
 @media not (prefers-reduced-motion) {
-  .e5nzit {
+  .y591zt {
     animation: 0.2s linear forwards fill-from-0;
   }
 
-  .n9d78o {
+  .yp2axg {
     stroke-dasharray: 14;
     animation: 0.2s linear 0.2s forwards so-to-14;
   }
@@ -38,4 +38,4 @@
     stroke-dashoffset: 14;
   }
 }
-</style><path class="e5nzit i6sxug iw1iew"/><path class="d1hf6u iw1iew n9d78o"/></svg>
+</style><path class="iw1iew y591zt"/><path class="iw1iew yp2axg"/></svg>

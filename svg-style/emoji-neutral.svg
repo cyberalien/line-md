@@ -6,41 +6,41 @@
   fill: none;
 }
 
-.j6xfyo {
+.bc6pfq {
   d: path('M8 15h8');
 }
 
-.kfg56g {
-  d: path('M15 9v1');
-}
-
-.rlwpmy {
-  d: path('M9 9v1');
-}
-
-.z9lw0g {
+.k__vmq {
   d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9');
 }
 
+.rje0ii {
+  d: path('M9 9v1');
+}
+
+.ul_dtz {
+  d: path('M15 9v1');
+}
+
 @media not (prefers-reduced-motion) {
-  .cyegwe {
-    stroke-dasharray: 4;
-    stroke-dashoffset: 4;
-    animation: 0.2s linear 0.6s forwards so-to-0;
-  }
-
-  .ntf2iq {
-    stroke-dasharray: 60;
-    animation: 0.6s linear forwards so-from-60;
-  }
-
-  .osct-b {
+  .bc6pfq {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.2s linear 1s forwards so-to-0;
   }
 
-  .zo2mgx {
+  .k__vmq {
+    stroke-dasharray: 60;
+    animation: 0.6s linear forwards so-from-60;
+  }
+
+  .rje0ii {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+
+  .ul_dtz {
     stroke-dasharray: 4;
     stroke-dashoffset: 4;
     animation: 0.2s linear 0.8s forwards so-to-0;
@@ -58,4 +58,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c ntf2iq z9lw0g"/><path class="a0m25c cyegwe rlwpmy"/><path class="a0m25c kfg56g zo2mgx"/><path class="a0m25c j6xfyo osct-b"/></svg>
+</style><path class="a0m25c k__vmq"/><path class="a0m25c rje0ii"/><path class="a0m25c ul_dtz"/><path class="a0m25c bc6pfq"/></svg>

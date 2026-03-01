@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.q0dpgz {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.yantfb {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .jdfwax {
+  .yantfb {
     animation: 0.6s linear forwards d-zrqjti;
   }
 }
@@ -21,4 +21,4 @@
     d: path('M13 15l-5 3l0 -12l5 3l0 6M13 9l5 3l0 0l-5 3l0 -6');
   }
 }
-</style><path class="jdfwax q0dpgz"/></svg>
+</style><path class="yantfb"/></svg>

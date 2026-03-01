@@ -6,34 +6,34 @@
   fill: none;
 }
 
-.dixc2s {
+.a97wxd {
+  d: path('M12 8c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4');
+}
+
+.hdrl-z {
   d: path('M16 3c2.76 0 5 2.24 5 5v8c0 2.76 -2.24 5 -5 5h-8c-2.76 0 -5 -2.24 -5 -5v-8c0 -2.76 2.24 -5 5 -5h4Z');
 }
 
-.mjbjcq {
+.p-0kvr {
   cx: 17px;
   cy: 7px;
   r: 1.5px;
   fill: currentColor;
 }
 
-.yikbux {
-  d: path('M12 8c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4');
-}
-
 @media not (prefers-reduced-motion) {
-  .ao492n {
-    stroke-dasharray: 66;
-    animation: 0.6s linear forwards so-from-66;
-  }
-
-  .ez9eeo {
+  .a97wxd {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.6s linear 0.7s forwards so-to-0;
   }
 
-  .jwvhdr {
+  .hdrl-z {
+    stroke-dasharray: 66;
+    animation: 0.6s linear forwards so-from-66;
+  }
+
+  .p-0kvr {
     opacity: 0;
     animation: 0.2s linear 1.3s forwards fade-to-1;
   }
@@ -56,4 +56,4 @@
     opacity: 1;
   }
 }
-</style><path class="a0m25c ao492n dixc2s"/><path class="a0m25c ez9eeo yikbux"/><circle class="jwvhdr mjbjcq"/></svg>
+</style><path class="a0m25c hdrl-z"/><path class="a0m25c a97wxd"/><circle class="p-0kvr"/></svg>

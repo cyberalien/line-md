@@ -1,16 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.kf6rgq {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.dmm0ha {
   d: path('M16.5 9c0 -0.52 -0.48 -1 -1 -1c-0.52 0 -1 0.48 -1 1v1.44c0 0.52 0.48 1.06 1 1.06c0.52 0 1 -0.48 1 -1v-1.5Z');
 }
 
-.mdpcpx {
-  d: path('M9.5 9c0 -0.52 -0.48 -1 -1 -1c-0.52 0 -1 0.48 -1 1v1.44c0 0.52 0.48 1.06 1 1.06c0.52 0 1 -0.48 1 -1v-1.5Z');
-}
-
-.qto51o {
-  d: path('M12 18c3.13 0 5.33 -2.88 5 -3.5c-0.33 -0.63 -1.5 1.5 -5 1.5c-3.5 0 -4.69 -2.13 -5 -1.5c-0.31 0.63 1.88 3.5 5 3.5Z');
-}
-
-.ud8s4o {
+.jqy-zd {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
@@ -19,29 +11,37 @@
   fill: none;
 }
 
+.vpa1li {
+  d: path('M12 18c3.13 0 5.33 -2.88 5 -3.5c-0.33 -0.63 -1.5 1.5 -5 1.5c-3.5 0 -4.69 -2.13 -5 -1.5c-0.31 0.63 1.88 3.5 5 3.5Z');
+}
+
+.x9nrmw {
+  d: path('M9.5 9c0 -0.52 -0.48 -1 -1 -1c-0.52 0 -1 0.48 -1 1v1.44c0 0.52 0.48 1.06 1 1.06c0.52 0 1 -0.48 1 -1v-1.5Z');
+}
+
 .ydovum {
   fill: currentColor;
 }
 
 @media not (prefers-reduced-motion) {
-  .en1oqr {
+  .dmm0ha {
     opacity: 0;
-    animation: 0.2s linear 1s forwards fade-to-1;
+    animation: 0.2s linear 0.8s forwards fade-to-1;
   }
 
-  .m5m0df {
-    opacity: 0;
-    animation: 0.2s linear 0.7s forwards fade-to-1;
-  }
-
-  .ntf2iq {
+  .jqy-zd {
     stroke-dasharray: 60;
     animation: 0.6s linear forwards so-from-60;
   }
 
-  .vknz6y {
+  .vpa1li {
     opacity: 0;
-    animation: 0.2s linear 0.8s forwards fade-to-1;
+    animation: 0.2s linear 1s forwards fade-to-1;
+  }
+
+  .x9nrmw {
+    opacity: 0;
+    animation: 0.2s linear 0.7s forwards fade-to-1;
   }
 }
 
@@ -56,4 +56,4 @@
     opacity: 1;
   }
 }
-</style><path class="ntf2iq ud8s4o"/><path class="m5m0df mdpcpx ydovum"/><path class="kf6rgq vknz6y ydovum"/><path class="en1oqr qto51o ydovum"/></svg>
+</style><path class="jqy-zd"/><path class="x9nrmw ydovum"/><path class="dmm0ha ydovum"/><path class="vpa1li ydovum"/></svg>

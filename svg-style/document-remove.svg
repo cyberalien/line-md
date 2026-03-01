@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.dcyi9s {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ab0nvj {
+  d: path('M12.5 3v5.5h6.5');
+}
+
+.fri20d {
   d: path('M9 14h6');
 }
 
@@ -13,30 +17,26 @@
   stroke-width: 2px;
 }
 
-.tdzpzj {
-  d: path('M12.5 3v5.5h6.5');
-}
-
-.tfc-xl {
+.vlmmxw {
   d: path('M13 3l6 6v12h-14v-18h8');
 }
 
 @media not (prefers-reduced-motion) {
-  .kw5qnk {
-    stroke-dasharray: 64;
-    animation: 0.6s linear forwards so-from-64;
+  .ab0nvj {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.7s forwards so-to-0;
   }
 
-  .svm8-t {
+  .fri20d {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.9s forwards so-to-0;
   }
 
-  .wejynf {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
-    animation: 0.2s linear 0.7s forwards so-to-0;
+  .vlmmxw {
+    stroke-dasharray: 64;
+    animation: 0.6s linear forwards so-from-64;
   }
 }
 
@@ -51,4 +51,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="kw5qnk qa-o7h taf2xz tfc-xl"/><path class="qa-o7h tdzpzj wejynf"/><path class="dcyi9s qa-o7h svm8-t taf2xz"/></svg>
+</style><path class="qa-o7h taf2xz vlmmxw"/><path class="ab0nvj qa-o7h"/><path class="fri20d qa-o7h taf2xz"/></svg>

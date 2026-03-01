@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.aa_kzu {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.d_veic {
+  d: path('M13.5 17h5v3.5c0 0.75 -0.75 1.5 -1.5 1.5h-3.5Z');
+}
+
+.is_bib {
   d: path('M6 3.5c0 -0.75 0.75 -1.5 1.5 -1.5h3.5v20h-5Z');
 }
 
-.ds0quc {
+.rek8ly {
   d: path('M13.5 2h5v8.5c0 0.75 -0.75 1.5 -1.5 1.5h-3.5Z');
-}
-
-.tjuqkb {
-  d: path('M13.5 17h5v3.5c0 0.75 -0.75 1.5 -1.5 1.5h-3.5Z');
 }
 
 .ydovum {
@@ -15,16 +15,16 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .acik7k {
+  .d_veic {
     animation: 0s forwards d-y53qgi, 0.2s linear 0.8s forwards d-ysi9rn;
   }
 
-  .al4lwa {
-    animation: 0s forwards d-u2wfvb, 0.2s linear 0.5s forwards d-tpcgta;
+  .is_bib {
+    animation: 0.4s linear forwards d-g-t0ye;
   }
 
-  .v_mzvi {
-    animation: 0.4s linear forwards d-g-t0ye;
+  .rek8ly {
+    animation: 0s forwards d-u2wfvb, 0.2s linear 0.5s forwards d-tpcgta;
   }
 }
 
@@ -57,4 +57,4 @@
     d: path('M13.5 17h5v3.5c0 0.75 -0.75 1.5 -1.5 1.5h-3.5Z');
   }
 }
-</style><path class="aa_kzu v_mzvi ydovum"/><path class="al4lwa ds0quc ydovum"/><path class="acik7k tjuqkb ydovum"/></svg>
+</style><path class="is_bib ydovum"/><path class="rek8ly ydovum"/><path class="d_veic ydovum"/></svg>

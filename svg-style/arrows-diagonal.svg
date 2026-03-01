@@ -6,22 +6,22 @@
   fill: none;
 }
 
-.qtngmr {
-  d: path('M10 14l-6.5 6.5M14 10l6.5 -6.5');
-}
-
-.w2r6li {
+.i9gq7u {
   d: path('M21 3h-6M3 21v-6M21 3v6M3 21h6');
 }
 
+.ytusak {
+  d: path('M10 14l-6.5 6.5M14 10l6.5 -6.5');
+}
+
 @media not (prefers-reduced-motion) {
-  .i-bxho {
+  .i9gq7u {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.4s forwards so-to-0;
   }
 
-  .pxa2hl {
+  .ytusak {
     stroke-dasharray: 12;
     animation: 0.4s linear forwards so-from-12;
   }
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c pxa2hl qtngmr"/><path class="a0m25c i-bxho w2r6li"/></svg>
+</style><path class="a0m25c ytusak"/><path class="a0m25c i9gq7u"/></svg>

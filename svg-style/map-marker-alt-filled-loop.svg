@@ -3,14 +3,14 @@
   fill: currentColor;
 }
 
-.cne63n {
+.dr9rsw {
   r: 2.5px;
   fill: #000;
   cx: 12px;
   cy: 9px;
 }
 
-.lzziqk {
+.ojvagr {
   fill: #fff;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -20,14 +20,14 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ni1l-t {
-    fill-opacity: 0;
-    transform-origin: 12px 20.5px;
-    animation: 0.4s linear forwards d-jkxijw, 3s linear infinite transform-7ecuqx, 0.4s linear 0.4s forwards fill-to-1;
+  .dr9rsw {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
   }
 
-  .ysbmem {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
+  .ojvagr {
+    fill-opacity: 0;
+    transform-origin: 12px 20.5px;
+    animation: 0.4s linear forwards d-jkxijw, 3s linear infinite tr-7ecuqx, 0.4s linear 0.4s forwards fill-to-1;
   }
 }
 
@@ -40,7 +40,7 @@
   }
 }
 
-@keyframes transform-7ecuqx {
+@keyframes tr-7ecuqx {
   30%, 54%, 70%, 100% {
     transform: rotate(0deg);
   }
@@ -72,4 +72,4 @@
     r: 2.5px;
   }
 }
-</style><defs><mask id="SVGkgOztckp"><path class="lzziqk ni1l-t"/><circle class="cne63n ysbmem"/></mask></defs><path mask="url(#SVGkgOztckp)" class="botfzx"/></svg>
+</style><defs><mask id="SVGvoBESbEU"><path class="ojvagr"/><circle class="dr9rsw"/></mask></defs><path mask="url(#SVGvoBESbEU)" class="botfzx"/></svg>

@@ -1,16 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a7j2at {
-  cx: 11.5px;
-  cy: 12.5px;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.djbuks {
+  cx: 16.5px;
+  cy: 14.5px;
   r: 1.5px;
 }
 
-.gtld9v {
-  cx: 9.5px;
-  cy: 7.5px;
+.gq-uqf {
+  cx: 6.5px;
+  cy: 11.5px;
   r: 1.5px;
 }
 
-.jotszk {
+.lx2oxu {
+  cx: 11px;
+  cy: 17.5px;
+  r: 1.5px;
+}
+
+.ox-nzf {
   d: path('M12 4c-4.42 0 -8 3.58 -8 8c0 4.42 3.58 8 8 8c4.42 0 8 -3.58 8 -8v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-2c-0.55 0 -1 -0.45 -1 -1v-1h-1c-0.55 0 -1 -0.45 -1 -1Z');
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -19,21 +25,15 @@
   fill: none;
 }
 
-.ohx4kk {
-  cx: 11px;
-  cy: 17.5px;
+.th60ya {
+  cx: 11.5px;
+  cy: 12.5px;
   r: 1.5px;
 }
 
-.po0nwp {
-  cx: 16.5px;
-  cy: 14.5px;
-  r: 1.5px;
-}
-
-.qe3oxa {
-  cx: 6.5px;
-  cy: 11.5px;
+.u6fdno {
+  cx: 9.5px;
+  cy: 7.5px;
   r: 1.5px;
 }
 
@@ -42,32 +42,32 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .iead2g {
-    opacity: 0;
-    animation: 0.1s linear 0.7s forwards fade-to-1;
-  }
-
-  .r6ktwi {
-    opacity: 0;
-    animation: 0.1s linear 0.8s forwards fade-to-1;
-  }
-
-  .u727bf {
+  .djbuks {
     opacity: 0;
     animation: 0.1s linear 0.9s forwards fade-to-1;
   }
 
-  .ueqhvk {
+  .gq-uqf {
     opacity: 0;
-    animation: 0.1s linear 1s forwards fade-to-1;
+    animation: 0.1s linear 0.8s forwards fade-to-1;
   }
 
-  .v-85uu {
+  .lx2oxu {
+    opacity: 0;
+    animation: 0.1s linear 0.7s forwards fade-to-1;
+  }
+
+  .ox-nzf {
     stroke-dasharray: 56;
     animation: 0.6s linear forwards so-from-56;
   }
 
-  .v00kgq {
+  .th60ya {
+    opacity: 0;
+    animation: 0.1s linear 1s forwards fade-to-1;
+  }
+
+  .u6fdno {
     opacity: 0;
     animation: 0.1s linear 0.6s forwards fade-to-1;
   }
@@ -84,4 +84,4 @@
     opacity: 1;
   }
 }
-</style><path class="jotszk v-85uu"/><circle class="gtld9v v00kgq ydovum"/><circle class="iead2g ohx4kk ydovum"/><circle class="qe3oxa r6ktwi ydovum"/><circle class="po0nwp u727bf ydovum"/><circle class="a7j2at ueqhvk ydovum"/></svg>
+</style><path class="ox-nzf"/><circle class="u6fdno ydovum"/><circle class="lx2oxu ydovum"/><circle class="gq-uqf ydovum"/><circle class="djbuks ydovum"/><circle class="th60ya ydovum"/></svg>

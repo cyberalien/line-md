@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.atdllv {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.botfzx {
   d: path('M0 0h24v24H0z');
   fill: currentColor;
 }
@@ -8,18 +13,13 @@
   stroke: currentColor;
 }
 
+.l6j71m {
+  d: path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');
+}
+
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
-}
-
-.qsm1zq {
-  fill: #fff;
-  d: path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');
-}
-
-.qwuois {
-  d: path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');
 }
 
 .t5pxry {
@@ -28,13 +28,13 @@
   stroke-width: 2px;
 }
 
-.y4wbml {
-  fill: none;
+.vz72ed {
+  fill: #fff;
+  d: path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');
 }
 
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
+.y4wbml {
+  fill: none;
 }
 
 .zxndow {
@@ -42,18 +42,18 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ggl9ne {
+  .atdllv {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.3s forwards so-to-0;
   }
 
-  .ro5eeq {
+  .l6j71m {
     opacity: 0;
     animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;
   }
 
-  .ziwl5l {
+  .vz72ed {
     stroke-dasharray: 62;
     fill-opacity: 0;
     animation: 0.6s linear forwards so-from-62, 0.4s linear 0.8s forwards fill-to-1;
@@ -89,4 +89,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGvMwLIn7s"><path class="qsm1zq t5pxry ziwl5l zxndow"/><path class="qwuois ro5eeq t5pxry y4wbml zxndow"/><path class="ggl9ne oxx-om t5pxry y4wbml yl0nmc"/></mask></defs><path mask="url(#SVGvMwLIn7s)" class="botfzx"/><path class="gd_4-q ggl9ne t5pxry y4wbml yl0nmc"/></svg>
+</style><defs><mask id="SVGHfjvHcGl"><path class="t5pxry vz72ed zxndow"/><path class="l6j71m t5pxry y4wbml zxndow"/><path class="atdllv oxx-om t5pxry y4wbml"/></mask></defs><path mask="url(#SVGHfjvHcGl)" class="botfzx"/><path class="atdllv gd_4-q t5pxry y4wbml"/></svg>

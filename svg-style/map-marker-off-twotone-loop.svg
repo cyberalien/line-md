@@ -3,18 +3,6 @@
   fill: currentColor;
 }
 
-.crodlc {
-  d: path('M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
-  fill-opacity: 0.3;
-  stroke: #fff;
-}
-
-.eycklu {
-  fill: none;
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
 .g26hbu {
   fill: #fff;
 }
@@ -24,15 +12,21 @@
   stroke: currentColor;
 }
 
+.jnqe1f {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
 }
 
-.rbvuog {
-  r: 2.5px;
-  cx: 12px;
-  cy: 9px;
+.snr79k {
+  d: path('M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+  fill-opacity: 0.3;
+  stroke: #fff;
 }
 
 .t5pxry {
@@ -41,20 +35,26 @@
   stroke-width: 2px;
 }
 
-@media not (prefers-reduced-motion) {
-  .j_2v5e {
-    stroke-dasharray: 48;
-    transform-origin: 12px 20.5px;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.15s linear 0.7s forwards fill-to-0_3;
-  }
+.xopa8c {
+  r: 2.5px;
+  cx: 12px;
+  cy: 9px;
+}
 
-  .quv8lj {
+@media not (prefers-reduced-motion) {
+  .jnqe1f {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.15s forwards so-to-0;
   }
 
-  .wjit4q {
+  .snr79k {
+    stroke-dasharray: 48;
+    transform-origin: 12px 20.5px;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-48, 3s linear infinite tr-7ecuqx, 0.15s linear 0.7s forwards fill-to-0_3;
+  }
+
+  .xopa8c {
     animation: 0s forwards r-to-0px, 0.2s linear 0.95s forwards r-to-2_5px;
   }
 }
@@ -71,7 +71,7 @@
   }
 }
 
-@keyframes transform-7ecuqx {
+@keyframes tr-7ecuqx {
   30%, 54%, 70%, 100% {
     transform: rotate(0deg);
   }
@@ -109,4 +109,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGoMtQleFF"><path class="crodlc g26hbu j_2v5e t5pxry"/><circle class="g26hbu rbvuog wjit4q"/><path class="eycklu oxx-om quv8lj t5pxry"/></mask></defs><path mask="url(#SVGoMtQleFF)" class="botfzx"/><path class="eycklu gd_4-q quv8lj t5pxry"/></svg>
+</style><defs><mask id="SVGAjvIScyN"><path class="g26hbu snr79k t5pxry"/><circle class="g26hbu xopa8c"/><path class="jnqe1f oxx-om t5pxry"/></mask></defs><path mask="url(#SVGAjvIScyN)" class="botfzx"/><path class="gd_4-q jnqe1f t5pxry"/></svg>

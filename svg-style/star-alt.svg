@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.w11_9o {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.wtwpul {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ao492n {
+  .wtwpul {
     stroke-dasharray: 66;
     animation: 0.6s linear forwards so-from-66;
   }
@@ -19,4 +19,4 @@
     stroke-dashoffset: 66;
   }
 }
-</style><path class="ao492n w11_9o"/></svg>
+</style><path class="wtwpul"/></svg>

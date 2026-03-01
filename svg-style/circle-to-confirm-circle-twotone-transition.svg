@@ -1,27 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.d1hf6u {
-  d: path('M8 12l3 3l5 -5');
-  fill: none;
-}
-
-.e-d90l {
-  d: path('M3 12c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9Z');
-  fill-opacity: 0.3;
-  fill: currentColor;
-}
-
-.iw1iew {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.iw1iew {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
   stroke-width: 2px;
 }
 
+.kcsuak {
+  d: path('M3 12c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.kofr8g {
+  d: path('M8 12l3 3l5 -5');
+  fill: none;
+}
+
 @media not (prefers-reduced-motion) {
-  .e5nzit {
+  .kcsuak {
     animation: 0.2s linear forwards fill-from-0;
   }
 
-  .l6pkid {
+  .kofr8g {
     stroke-dasharray: 14;
     stroke-dashoffset: 14;
     animation: 0.2s linear 0.2s forwards so-to-0;
@@ -39,4 +39,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="e-d90l e5nzit iw1iew"/><path class="d1hf6u iw1iew l6pkid"/></svg>
+</style><path class="iw1iew kcsuak"/><path class="iw1iew kofr8g"/></svg>

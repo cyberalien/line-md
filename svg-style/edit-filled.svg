@@ -6,44 +6,44 @@
   fill: none;
 }
 
-.bc9s0q {
-  d: path('M14 6l4 4');
-}
-
-.coduqd {
-  d: path('M3 21h18');
-}
-
-.cpzdxw {
+.bu6x9p {
   fill: currentColor;
   d: path('M14 6l4 4l3 -3l-4 -4Z');
 }
 
-.ps5g7j {
+.d-uxzh {
+  d: path('M3 21h18');
+}
+
+.ddx_6x {
   d: path('M7 17v-4l10 -10l4 4l-10 10h-4');
 }
 
+.idmydr {
+  d: path('M14 6l4 4');
+}
+
 @media not (prefers-reduced-motion) {
-  .awy-_x {
+  .bu6x9p {
     fill-opacity: 0;
     animation: 0.4s linear 1s forwards fill-to-1;
   }
 
-  .g7fxuo {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 0.8s forwards so-to-0;
-  }
-
-  .mz6rrw {
+  .d-uxzh {
     stroke-dasharray: 20;
     animation: 0.3s linear forwards so-from-20;
   }
 
-  .pvp2-a {
+  .ddx_6x {
     stroke-dasharray: 44;
     stroke-dashoffset: 44;
     animation: 0.5s linear 0.3s forwards so-to-0;
+  }
+
+  .idmydr {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.8s forwards so-to-0;
   }
 }
 
@@ -64,4 +64,4 @@
     stroke-dashoffset: 20;
   }
 }
-</style><path class="awy-_x cpzdxw"/><path class="a0m25c ps5g7j pvp2-a"/><path class="a0m25c coduqd mz6rrw"/><path class="a0m25c bc9s0q g7fxuo"/></svg>
+</style><path class="bu6x9p"/><path class="a0m25c ddx_6x"/><path class="a0m25c d-uxzh"/><path class="a0m25c idmydr"/></svg>

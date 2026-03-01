@@ -15,22 +15,22 @@
   stroke: currentColor;
 }
 
+.lvtybe {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
 }
 
-.reyauu {
+.sxex9y {
   d: path('M15 6h2v12h-2Z');
 }
 
-.vqwviu {
+.yxu38m {
   d: path('M7 6h2v12h-2Z');
-}
-
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
 }
 
 .zxndow {
@@ -38,21 +38,21 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .m1syek {
-    stroke-dasharray: 30;
-    animation: 0.4s linear forwards so-from-30;
-  }
-
-  .uwglvc {
+  .lvtybe {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 0.8s forwards so-to-0;
   }
 
-  .w4oy8k {
+  .sxex9y {
     stroke-dasharray: 30;
     stroke-dashoffset: 30;
     animation: 0.4s linear 0.4s forwards so-to-0;
+  }
+
+  .yxu38m {
+    stroke-dasharray: 30;
+    animation: 0.4s linear forwards so-from-30;
   }
 }
 
@@ -67,4 +67,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGlSsF8dLO"><path class="c5xdmn m1syek vqwviu zxndow"/><path class="c5xdmn reyauu w4oy8k zxndow"/><path class="c5xdmn oxx-om uwglvc yl0nmc"/></mask></defs><path mask="url(#SVGlSsF8dLO)" class="botfzx"/><path class="c5xdmn gd_4-q uwglvc yl0nmc"/></svg>
+</style><defs><mask id="SVGnTzHEi9Z"><path class="c5xdmn yxu38m zxndow"/><path class="c5xdmn sxex9y zxndow"/><path class="c5xdmn lvtybe oxx-om"/></mask></defs><path mask="url(#SVGnTzHEi9Z)" class="botfzx"/><path class="c5xdmn gd_4-q lvtybe"/></svg>

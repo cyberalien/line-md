@@ -1,19 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ietbxk {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.h2n28i {
   cx: 12px;
   cy: 13px;
 }
 
-.k2j92f {
-  r: 2px;
-  fill: currentColor;
-}
-
-.p55zhs {
-  cx: 9px;
-  cy: 7px;
-}
-
-.y264fv {
+.i2tubu {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M4 6.45c2.01 -2.12 4.85 -3.45 8 -3.45c3.15 0 5.99 1.33 8 3.45l-8 13.55Z');
@@ -22,18 +12,28 @@
   fill: none;
 }
 
+.k2j92f {
+  r: 2px;
+  fill: currentColor;
+}
+
+.u_6lhy {
+  cx: 9px;
+  cy: 7px;
+}
+
 @media not (prefers-reduced-motion) {
-  .aa2-ga {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.6s forwards r-to-2px;
+  .h2n28i {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.8s forwards r-to-2px;
   }
 
-  .uxt6dp {
+  .i2tubu {
     stroke-dasharray: 52;
     animation: 0.6s linear forwards so-from-52;
   }
 
-  .zt240j {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.8s forwards r-to-2px;
+  .u_6lhy {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.6s forwards r-to-2px;
   }
 }
 
@@ -54,4 +54,4 @@
     r: 2px;
   }
 }
-</style><path class="uxt6dp y264fv"/><circle class="aa2-ga k2j92f p55zhs"/><circle class="ietbxk k2j92f zt240j"/></svg>
+</style><path class="i2tubu"/><circle class="k2j92f u_6lhy"/><circle class="h2n28i k2j92f"/></svg>

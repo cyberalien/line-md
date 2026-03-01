@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.g_1xrq {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.br5pwd {
+  d: path('M12 10.5l-9 2.5');
+}
+
+.g_1xrq {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -12,8 +16,8 @@
   d: path('M0 0h24v24H0z');
 }
 
-.nb4ngv {
-  d: path('M12 10.5l-9 2.5');
+.m0rwxu {
+  d: path('M12 5.5l-9 2.5');
 }
 
 .qw8aly {
@@ -22,24 +26,20 @@
   stroke: #000;
 }
 
-.s8e22g {
-  stroke: currentColor;
-}
-
 .taf2xz {
   stroke-width: 2px;
 }
 
-.x8ywvh {
-  d: path('M12 15.5l-9 2.5');
-}
-
-.xorvsn {
-  d: path('M12 5.5l-9 2.5');
+.wwdeql {
+  stroke: currentColor;
 }
 
 .ydovum {
   fill: currentColor;
+}
+
+.ysmgkm {
+  d: path('M12 15.5l-9 2.5');
 }
 
 .z_b1hb {
@@ -47,28 +47,28 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .g269ju {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 0.6s forwards so-to-0;
-  }
-
-  .kowswq {
+  .br5pwd {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 0.8s forwards so-to-0;
   }
 
-  .pgj22w {
+  .m0rwxu {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
-    animation: 0.2s linear 1s forwards so-to-0;
+    animation: 0.2s linear 0.6s forwards so-to-0;
   }
 
-  .tcd37r {
+  .wwdeql {
     stroke-dasharray: 40;
     fill-opacity: 0;
     animation: 0.5s linear forwards so-from-40, 0.4s linear 1.2s forwards fill-to-1;
+  }
+
+  .ysmgkm {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1s forwards so-to-0;
   }
 }
 
@@ -89,4 +89,4 @@
     fill-opacity: 1;
   }
 }
-</style><defs><mask id="SVGgSDG3cnA"><path class="g269ju g_1xrq l6h9ud taf2xz xorvsn"/><path class="g_1xrq kowswq l6h9ud nb4ngv taf2xz"/><path class="g_1xrq l6h9ud pgj22w taf2xz x8ywvh"/><path class="g_1xrq qw8aly z_b1hb"/></mask></defs><path mask="url(#SVGgSDG3cnA)" class="lsejuv ydovum"/><path class="g_1xrq s8e22g taf2xz tcd37r ydovum z_b1hb"/></svg>
+</style><defs><mask id="SVGj76sOsdQ"><path class="g_1xrq l6h9ud m0rwxu taf2xz"/><path class="br5pwd g_1xrq l6h9ud taf2xz"/><path class="g_1xrq l6h9ud taf2xz ysmgkm"/><path class="g_1xrq qw8aly z_b1hb"/></mask></defs><path mask="url(#SVGj76sOsdQ)" class="lsejuv ydovum"/><path class="g_1xrq taf2xz wwdeql ydovum z_b1hb"/></svg>

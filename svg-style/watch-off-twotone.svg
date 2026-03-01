@@ -3,31 +3,31 @@
   fill: currentColor;
 }
 
-.eycklu {
+.g26hbu {
+  fill: #fff;
+}
+
+.he5onh {
   fill: none;
   transform: rotate(45deg);
   transform-origin: 12px 12px;
 }
 
-.g26hbu {
-  fill: #fff;
-}
-
-.ho5icp {
+.jmnoxq {
   cx: 12px;
   cy: 12px;
   r: 3px;
 }
 
-.id_j6z {
-  d: path('M2 12c1.72 -3.83 5.53 -6.5 10 -6.5c4.47 0 8.28 2.67 10 6.5c-1.72 3.83 -5.53 6.5 -10 6.5c-4.47 0 -8.28 -2.67 -10 -6.5Z');
-  fill-opacity: 0.3;
-  stroke: #fff;
-}
-
 .lwtq5s {
   stroke: #000;
   d: path('M0 11h24');
+}
+
+.pqummf {
+  d: path('M2 12c1.72 -3.83 5.53 -6.5 10 -6.5c4.47 0 8.28 2.67 10 6.5c-1.72 3.83 -5.53 6.5 -10 6.5c-4.47 0 -8.28 -2.67 -10 -6.5Z');
+  fill-opacity: 0.3;
+  stroke: #fff;
 }
 
 .r5412d {
@@ -42,18 +42,18 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .b02fap {
+  .he5onh {
     stroke-dasharray: 26;
     stroke-dashoffset: 26;
     animation: 0.4s linear 0.75s forwards so-to-0;
   }
 
-  .ebjzdz {
-    animation: 0s forwards fill-to-0, 0.5s linear forwards d-45nhxp, 0.15s linear 0.5s forwards fill-to-0_3;
+  .jmnoxq {
+    animation: 0.2s linear forwards r-from-0px;
   }
 
-  .iazevu {
-    animation: 0.2s linear forwards r-from-0px;
+  .pqummf {
+    animation: 0s forwards fill-to-0, 0.5s linear forwards d-45nhxp, 0.15s linear 0.5s forwards fill-to-0_3;
   }
 }
 
@@ -86,4 +86,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGUBfgHcxE"><path class="ebjzdz g26hbu id_j6z t5pxry"/><circle class="g26hbu ho5icp iazevu"/><path class="b02fap eycklu lwtq5s t5pxry"/></mask></defs><path mask="url(#SVGUBfgHcxE)" class="botfzx"/><path class="b02fap eycklu r5412d t5pxry"/></svg>
+</style><defs><mask id="SVGUUCipbIJ"><path class="g26hbu pqummf t5pxry"/><circle class="g26hbu jmnoxq"/><path class="he5onh lwtq5s t5pxry"/></mask></defs><path mask="url(#SVGUUCipbIJ)" class="botfzx"/><path class="he5onh r5412d t5pxry"/></svg>

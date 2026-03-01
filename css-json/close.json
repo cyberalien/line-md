@@ -1,21 +1,14 @@
 {
-  "content": "<path class=\"pxa2hl rng0bt\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "pxa2hl": {
-      "animation": "stroke-dasharray:12;animation:0.4s linear forwards so-from-12;"
-    },
-    "rng0bt": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;d:path('M12 12l7 7M12 12l-7 -7M12 12l-7 7M12 12l7 -7');fill:none;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<path class=\"eo47_w\"/>",
   "fallback": "line-md:close",
   "keyframes": {
-    "so-from-12": "@keyframes so-from-12{0%{stroke-dashoffset:12}}"
+    "so-from-12": "0%{stroke-dashoffset:12}"
+  },
+  "classes": {
+    "eo47_w": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;d:path('M12 12l7 7M12 12l-7 -7M12 12l-7 7M12 12l7 -7');fill:none;"
+  },
+  "animations": {
+    "eo47_w": "stroke-dasharray:12;animation:0.4s linear forwards so-from-12;"
   }
 }

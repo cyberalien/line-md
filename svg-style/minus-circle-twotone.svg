@@ -1,12 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.e-d90l {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.i4qc7h {
   d: path('M3 12c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9Z');
   fill-opacity: 0.3;
   fill: currentColor;
-}
-
-.il8k6w {
-  d: path('M7 12h10');
-  fill: none;
 }
 
 .iw1iew {
@@ -16,13 +11,18 @@
   stroke-width: 2px;
 }
 
+.lc9ssn {
+  d: path('M7 12h10');
+  fill: none;
+}
+
 @media not (prefers-reduced-motion) {
-  .akhljk {
+  .i4qc7h {
     stroke-dasharray: 60;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 0.6s forwards fill-to-0_3;
   }
 
-  .v57oev {
+  .lc9ssn {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 0.85s forwards so-to-0;
@@ -52,4 +52,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="akhljk e-d90l iw1iew"/><path class="il8k6w iw1iew v57oev"/></svg>
+</style><path class="i4qc7h iw1iew"/><path class="iw1iew lc9ssn"/></svg>

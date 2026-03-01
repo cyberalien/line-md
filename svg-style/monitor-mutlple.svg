@@ -6,42 +6,42 @@
   fill: none;
 }
 
-.gte8yd {
-  d: path('M14 22h3M14 22h-3');
+.f7aalh {
+  d: path('M1 14v-12h18');
 }
 
-.qq0lkh {
+.trkq7y {
   d: path('M12 17h4v6h-4Z');
   fill: currentColor;
 }
 
-.rfda0t {
+.wu6yao {
+  d: path('M14 22h3M14 22h-3');
+}
+
+.zxx5oi {
   d: path('M14 18h-9v-12h18v12Z');
 }
 
-.yfi25h {
-  d: path('M1 14v-12h18');
-}
-
 @media not (prefers-reduced-motion) {
-  .j6lqly {
-    stroke-dasharray: 62;
-    animation: 0.6s linear forwards so-from-62;
-  }
-
-  .jsgk0t {
-    animation: 0s forwards d-1oz9bx, 0.2s linear 0.6s forwards d-fpnoxl;
-  }
-
-  .kokv_p {
+  .f7aalh {
     stroke-dasharray: 32;
     animation: 0.6s linear forwards so-from-32;
   }
 
-  .m6lvki {
+  .trkq7y {
+    animation: 0s forwards d-1oz9bx, 0.2s linear 0.6s forwards d-fpnoxl;
+  }
+
+  .wu6yao {
     stroke-dasharray: 6;
     stroke-dashoffset: 6;
     animation: 0.4s linear 0.8s forwards so-to-0;
+  }
+
+  .zxx5oi {
+    stroke-dasharray: 62;
+    animation: 0.6s linear forwards so-from-62;
   }
 }
 
@@ -74,4 +74,4 @@
     stroke-dashoffset: 32;
   }
 }
-</style><path class="a0m25c j6lqly rfda0t"/><path class="jsgk0t qq0lkh"/><path class="a0m25c gte8yd m6lvki"/><path class="a0m25c kokv_p yfi25h"/></svg>
+</style><path class="a0m25c zxx5oi"/><path class="trkq7y"/><path class="a0m25c wu6yao"/><path class="a0m25c f7aalh"/></svg>

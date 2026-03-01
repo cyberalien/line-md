@@ -1,68 +1,31 @@
 {
-  "content": "<defs><mask id=\"SVGnrtACcDE\"><path class=\"ff-xby g_1xrq gjm16n l6h9ud taf2xz\"/><path class=\"f-0v_z g7fxuo g_1xrq l6h9ud taf2xz\"/><path class=\"g_1xrq kdlk-o l6h9ud sjx9fd taf2xz\"/><path class=\"b7k19f g_1xrq l6h9ud taf2xz z7trln\"/><path class=\"g_1xrq qw8aly z_b1hb\"/></mask></defs><path mask=\"url(#SVGnrtACcDE)\" class=\"lsejuv ydovum\"/><path class=\"d9kn3w g_1xrq s8e22g taf2xz ydovum z_b1hb\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "ff-xby": {
-      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.6s forwards so-to-0;"
-    },
-    "gjm16n": {
-      "rules": "d:path('M11 6h-6');"
-    },
-    "taf2xz": {
-      "rules": "stroke-width:2px;"
-    },
-    "g_1xrq": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;"
-    },
-    "g7fxuo": {
-      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.8s forwards so-to-0;"
-    },
-    "f-0v_z": {
-      "rules": "d:path('M11 10h-6');"
-    },
-    "kdlk-o": {
-      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1s forwards so-to-0;"
-    },
-    "sjx9fd": {
-      "rules": "d:path('M11 14h-6');"
-    },
-    "z7trln": {
-      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1.2s forwards so-to-0;"
-    },
-    "b7k19f": {
-      "rules": "d:path('M11 18h-6');"
-    },
-    "z_b1hb": {
-      "rules": "d:path('M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z');"
-    },
-    "lsejuv": {
-      "rules": "d:path('M0 0h24v24H0z');"
-    },
-    "ydovum": {
-      "rules": "fill:currentColor;"
-    },
-    "d9kn3w": {
-      "animation": "stroke-dasharray:40;fill-opacity:0;animation:0.5s linear forwards so-from-40, 0.4s linear 1.4s forwards fill-to-1;"
-    },
-    "s8e22g": {
-      "rules": "stroke:currentColor;"
-    },
-    "l6h9ud": {
-      "rules": "fill:none;stroke:#fff;"
-    },
-    "qw8aly": {
-      "rules": "fill:#000;stroke-width:4px;stroke:#000;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<defs><mask id=\"SVG0oCRBbDw\"><path class=\"g_1xrq l6h9ud m8fuxk taf2xz\"/><path class=\"g_1xrq l6h9ud taf2xz u50o9y\"/><path class=\"g_1xrq l6h9ud taf2xz yl47yi\"/><path class=\"g_1xrq ka8tpa l6h9ud taf2xz\"/><path class=\"g_1xrq qw8aly z_b1hb\"/></mask></defs><path mask=\"url(#SVG0oCRBbDw)\" class=\"lsejuv ydovum\"/><path class=\"g_1xrq taf2xz ydovum z_b1hb zk7pgc\"/>",
   "fallback": "line-md:car-light-filled",
   "keyframes": {
-    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}",
-    "so-from-40": "@keyframes so-from-40{0%{stroke-dashoffset:40}}",
-    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}"
+    "so-to-0": "100%{stroke-dashoffset:0}",
+    "so-from-40": "0%{stroke-dashoffset:40}",
+    "fill-to-1": "100%{fill-opacity:1}"
+  },
+  "classes": {
+    "taf2xz": "stroke-width:2px;",
+    "g_1xrq": "stroke-linecap:round;stroke-linejoin:round;",
+    "z_b1hb": "d:path('M21 12c0 -3.31 -3.5 -6.25 -8.25 -6.25c-0.5 0 -1.75 2.75 -1.75 6.25c0 3.5 1.25 6.25 1.75 6.25c4.75 0 8.25 -2.94 8.25 -6.25Z');",
+    "lsejuv": "d:path('M0 0h24v24H0z');",
+    "ydovum": "fill:currentColor;",
+    "m8fuxk": "d:path('M11 6h-6');",
+    "l6h9ud": "fill:none;stroke:#fff;",
+    "u50o9y": "d:path('M11 10h-6');",
+    "yl47yi": "d:path('M11 14h-6');",
+    "ka8tpa": "d:path('M11 18h-6');",
+    "qw8aly": "fill:#000;stroke-width:4px;stroke:#000;",
+    "zk7pgc": "stroke:currentColor;"
+  },
+  "animations": {
+    "m8fuxk": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.6s forwards so-to-0;",
+    "u50o9y": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.8s forwards so-to-0;",
+    "yl47yi": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1s forwards so-to-0;",
+    "ka8tpa": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 1.2s forwards so-to-0;",
+    "zk7pgc": "stroke-dasharray:40;fill-opacity:0;animation:0.5s linear forwards so-from-40, 0.4s linear 1.4s forwards fill-to-1;"
   }
 }

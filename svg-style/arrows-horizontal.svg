@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a_ekwb {
+  d: path('M15 7h-11.5M9 17h11.5');
+}
+
+.a0m25c {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -6,21 +10,17 @@
   fill: none;
 }
 
-.m_yfic {
+.j4akdb {
   d: path('M3 7l4 4M3 7l4 -4M21 17l-4 4M21 17l-4 -4');
 }
 
-.xef8fr {
-  d: path('M15 7h-11.5M9 17h11.5');
-}
-
 @media not (prefers-reduced-motion) {
-  .dz4tsx {
+  .a_ekwb {
     stroke-dasharray: 14;
     animation: 0.4s linear forwards so-from-14;
   }
 
-  .i-bxho {
+  .j4akdb {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.4s forwards so-to-0;
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c dz4tsx xef8fr"/><path class="a0m25c i-bxho m_yfic"/></svg>
+</style><path class="a0m25c a_ekwb"/><path class="a0m25c j4akdb"/></svg>

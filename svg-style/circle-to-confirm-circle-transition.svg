@@ -6,7 +6,7 @@
   fill: none;
 }
 
-.mxf5wz {
+.czrd3c {
   d: path('M8 12l3 3l5 -5');
 }
 
@@ -15,7 +15,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ec16_t {
+  .czrd3c {
     stroke-dasharray: 14;
     animation: 0.2s linear forwards so-from-14;
   }
@@ -26,4 +26,4 @@
     stroke-dashoffset: 14;
   }
 }
-</style><path class="a0m25c q9aucu"/><path class="a0m25c ec16_t mxf5wz"/></svg>
+</style><path class="a0m25c q9aucu"/><path class="a0m25c czrd3c"/></svg>

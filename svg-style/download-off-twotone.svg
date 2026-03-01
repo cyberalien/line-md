@@ -1,21 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
-
-.gtqlgp {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.b0bjes {
   fill: #fff;
   d: path('M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5');
   fill-opacity: 0.3;
 }
 
-.ifg_mc {
-  d: path('M6 19h12');
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
-.lwtq5s {
-  stroke: #000;
-  d: path('M0 11h24');
+.hzf00h {
+  d: path('M1 13h22');
+  stroke: currentColor;
+}
+
+.okiwoc {
+  d: path('M6 19h12');
 }
 
 .t5pxry {
@@ -29,9 +29,9 @@
   transform-origin: 13px 12px;
 }
 
-.wgacfi {
-  d: path('M1 13h22');
-  stroke: currentColor;
+.vtdnol {
+  stroke: #000;
+  d: path('M0 11h24');
 }
 
 .y4wbml {
@@ -43,24 +43,24 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .mhf06j {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
-    animation: 0.2s linear 0.5s forwards so-to-0;
-  }
-
-  .mzrbox {
+  .b0bjes {
     stroke-dasharray: 20;
     animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-20, 0.15s linear 0.7s forwards fill-to-0_3;
   }
 
-  .tlz33s {
+  .hzf00h {
     stroke-dasharray: 24;
     stroke-dashoffset: 24;
     animation: 0.3s linear 0.95s forwards so-to-0;
   }
 
-  .wbi_bg {
+  .okiwoc {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+
+  .vtdnol {
     stroke-dasharray: 26;
     stroke-dashoffset: 26;
     animation: 0.4s linear 0.95s forwards so-to-0;
@@ -90,4 +90,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGlsezjbRV"><path class="gtqlgp mzrbox t5pxry zxndow"/><path class="ifg_mc mhf06j t5pxry y4wbml zxndow"/><path class="lwtq5s t5pxry tp2lab wbi_bg y4wbml"/></mask></defs><path mask="url(#SVGlsezjbRV)" class="botfzx"/><path class="t5pxry tlz33s tp2lab wgacfi y4wbml"/></svg>
+</style><defs><mask id="SVGwLLcweNu"><path class="b0bjes t5pxry zxndow"/><path class="okiwoc t5pxry y4wbml zxndow"/><path class="t5pxry tp2lab vtdnol y4wbml"/></mask></defs><path mask="url(#SVGwLLcweNu)" class="botfzx"/><path class="hzf00h t5pxry tp2lab y4wbml"/></svg>

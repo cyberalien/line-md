@@ -1,40 +1,21 @@
 {
-  "content": "<path class=\"kw5qnk qa-o7h taf2xz tfc-xl\"/><path class=\"qa-o7h tdzpzj wejynf\"/><path class=\"dcyi9s qa-o7h svm8-t taf2xz\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "kw5qnk": {
-      "animation": "stroke-dasharray:64;animation:0.6s linear forwards so-from-64;"
-    },
-    "tfc-xl": {
-      "rules": "d:path('M13 3l6 6v12h-14v-18h8');"
-    },
-    "taf2xz": {
-      "rules": "stroke-width:2px;"
-    },
-    "wejynf": {
-      "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 0.7s forwards so-to-0;"
-    },
-    "tdzpzj": {
-      "rules": "d:path('M12.5 3v5.5h6.5');"
-    },
-    "svm8-t": {
-      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.9s forwards so-to-0;"
-    },
-    "dcyi9s": {
-      "rules": "d:path('M9 14h6');"
-    },
-    "qa-o7h": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:none;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<path class=\"qa-o7h taf2xz vlmmxw\"/><path class=\"ab0nvj qa-o7h\"/><path class=\"fri20d qa-o7h taf2xz\"/>",
   "fallback": "line-md:document-remove",
   "keyframes": {
-    "so-from-64": "@keyframes so-from-64{0%{stroke-dashoffset:64}}",
-    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+    "so-from-64": "0%{stroke-dashoffset:64}",
+    "so-to-0": "100%{stroke-dashoffset:0}"
+  },
+  "classes": {
+    "taf2xz": "stroke-width:2px;",
+    "qa-o7h": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:none;",
+    "vlmmxw": "d:path('M13 3l6 6v12h-14v-18h8');",
+    "ab0nvj": "d:path('M12.5 3v5.5h6.5');",
+    "fri20d": "d:path('M9 14h6');"
+  },
+  "animations": {
+    "vlmmxw": "stroke-dasharray:64;animation:0.6s linear forwards so-from-64;",
+    "ab0nvj": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.2s linear 0.7s forwards so-to-0;",
+    "fri20d": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.9s forwards so-to-0;"
   }
 }

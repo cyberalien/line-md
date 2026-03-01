@@ -1,21 +1,14 @@
 {
-  "content": "<path class=\"ka7muu qb3u_k\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "qb3u_k": {
-      "animation": "stroke-dasharray:38;animation:0.5s linear forwards so-from-38;"
-    },
-    "ka7muu": {
-      "rules": "d:path('M8 6l10 6l-10 6Z');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<path class=\"adnoxa\"/>",
   "fallback": "line-md:play",
   "keyframes": {
-    "so-from-38": "@keyframes so-from-38{0%{stroke-dashoffset:38}}"
+    "so-from-38": "0%{stroke-dashoffset:38}"
+  },
+  "classes": {
+    "adnoxa": "d:path('M8 6l10 6l-10 6Z');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+  },
+  "animations": {
+    "adnoxa": "stroke-dasharray:38;animation:0.5s linear forwards so-from-38;"
   }
 }

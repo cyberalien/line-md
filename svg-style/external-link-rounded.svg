@@ -6,32 +6,32 @@
   fill: none;
 }
 
-.drj0sh {
-  d: path('M12 5c-3.87 0 -7 3.13 -7 7c0 3.87 3.13 7 7 7c3.87 0 7 -3.13 7 -7');
-}
-
-.her3as {
+.avyd9d {
   d: path('M21 3h-6M21 3v6');
 }
 
-.wno8mp {
+.erpyod {
   d: path('M13 11l7 -7');
 }
 
-@media not (prefers-reduced-motion) {
-  .q-1rzi {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 0.5s forwards so-to-0;
-  }
+.p19e3a {
+  d: path('M12 5c-3.87 0 -7 3.13 -7 7c0 3.87 3.13 7 7 7c3.87 0 7 -3.13 7 -7');
+}
 
-  .tgs9dx {
+@media not (prefers-reduced-motion) {
+  .avyd9d {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.7s forwards so-to-0;
   }
 
-  .tkv19w {
+  .erpyod {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+
+  .p19e3a {
     stroke-dasharray: 36;
     animation: 0.5s linear forwards so-from-36;
   }
@@ -48,4 +48,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c drj0sh tkv19w"/><path class="a0m25c q-1rzi wno8mp"/><path class="a0m25c her3as tgs9dx"/></svg>
+</style><path class="a0m25c p19e3a"/><path class="a0m25c erpyod"/><path class="a0m25c avyd9d"/></svg>

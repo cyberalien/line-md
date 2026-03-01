@@ -3,19 +3,9 @@
   fill: currentColor;
 }
 
-.djeo3r {
-  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
-}
-
 .eusm4q {
   fill: #fff;
   stroke: #fff;
-}
-
-.eycklu {
-  fill: none;
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
 }
 
 .g_1xrq {
@@ -28,14 +18,8 @@
   stroke: currentColor;
 }
 
-.jf85im {
-  cx: 14px;
-  cy: 9px;
-  r: 2.5px;
-}
-
-.n53t9u {
-  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+.k0rqjk {
+  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
 }
 
 .nf43cj {
@@ -46,6 +30,12 @@
   d: path('M-1 11h26');
 }
 
+.o3umjd {
+  cx: 14px;
+  cy: 9px;
+  r: 2.5px;
+}
+
 .q0shub {
   stroke-width: 4px;
 }
@@ -54,29 +44,39 @@
   stroke: #000;
 }
 
+.sfuyde {
+  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+}
+
 .taf2xz {
   stroke-width: 2px;
 }
 
+.x1bqbh {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
 @media not (prefers-reduced-motion) {
-  .h29iij {
+  .k0rqjk {
     fill-opacity: 0;
     animation: 0.4s linear forwards d-e0pf-z, 0.4s linear 0.4s forwards fill-to-1;
   }
 
-  .wif67a {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0.4s linear 1.1s forwards so-to-0;
+  .o3umjd {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
   }
 
-  .y92hzg {
+  .sfuyde {
     fill-opacity: 0;
     animation: 0.4s linear forwards d-h46djy, 0.4s linear 0.4s forwards fill-to-1;
   }
 
-  .ysbmem {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
+  .x1bqbh {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.1s forwards so-to-0;
   }
 }
 
@@ -121,4 +121,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGYecWfeTh"><path class="djeo3r eusm4q g_1xrq h29iij taf2xz"/><path class="g_1xrq n53t9u nf43cj q0shub qc_pkd y92hzg"/><path class="eusm4q g_1xrq n53t9u taf2xz y92hzg"/><circle class="jf85im nf43cj ysbmem"/><path class="eycklu g_1xrq nsraqz qc_pkd taf2xz wif67a"/></mask></defs><path mask="url(#SVGYecWfeTh)" class="botfzx"/><path class="eycklu g_1xrq gd_4-q taf2xz wif67a"/></svg>
+</style><defs><mask id="SVGNZqW5dCk"><path class="eusm4q g_1xrq k0rqjk taf2xz"/><path class="g_1xrq nf43cj q0shub qc_pkd sfuyde"/><path class="eusm4q g_1xrq sfuyde taf2xz"/><circle class="nf43cj o3umjd"/><path class="g_1xrq nsraqz qc_pkd taf2xz x1bqbh"/></mask></defs><path mask="url(#SVGNZqW5dCk)" class="botfzx"/><path class="g_1xrq gd_4-q taf2xz x1bqbh"/></svg>

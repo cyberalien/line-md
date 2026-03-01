@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.b34a5r {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.hqdyhl {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ypjaod {
+  .hqdyhl {
     stroke-dasharray: 66;
     fill-opacity: 0;
     animation: 0.6s linear forwards so-from-66, 0.4s linear 0.6s forwards fill-to-1;
@@ -26,4 +26,4 @@
     fill-opacity: 1;
   }
 }
-</style><path class="b34a5r ypjaod"/></svg>
+</style><path class="hqdyhl"/></svg>

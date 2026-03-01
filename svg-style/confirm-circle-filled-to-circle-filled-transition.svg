@@ -3,7 +3,7 @@
   fill: currentColor;
 }
 
-.o9o10l {
+.fb-lrs {
   d: path('M8 12l3 3l5 -5');
   stroke: #000;
   fill: none;
@@ -22,7 +22,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .xu2hxs {
+  .fb-lrs {
     stroke-dasharray: 14;
     animation: 0.2s linear forwards so-to-14;
   }
@@ -33,4 +33,4 @@
     stroke-dashoffset: 14;
   }
 }
-</style><defs><mask id="SVGzIL5pdtz"><path class="p8wpfy t5pxry"/><path class="o9o10l t5pxry xu2hxs"/></mask></defs><path mask="url(#SVGzIL5pdtz)" class="botfzx"/></svg>
+</style><defs><mask id="SVGmTAR7Qud"><path class="p8wpfy t5pxry"/><path class="fb-lrs t5pxry"/></mask></defs><path mask="url(#SVGmTAR7Qud)" class="botfzx"/></svg>

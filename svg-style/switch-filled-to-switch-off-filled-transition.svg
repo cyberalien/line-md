@@ -3,7 +3,7 @@
   fill: currentColor;
 }
 
-.ojej7l {
+.e3x2ay {
   fill: #000;
   cx: 7px;
   cy: 12px;
@@ -20,7 +20,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .efki8y {
+  .e3x2ay {
     animation: 0.2s linear forwards cx-from-17px;
   }
 }
@@ -30,4 +30,4 @@
     cx: 17px;
   }
 }
-</style><defs><mask id="SVGfvnCtewP"><path class="snl_hb"/><circle class="efki8y ojej7l"/></mask></defs><path mask="url(#SVGfvnCtewP)" class="botfzx"/></svg>
+</style><defs><mask id="SVGjcmRbbQu"><path class="snl_hb"/><circle class="e3x2ay"/></mask></defs><path mask="url(#SVGjcmRbbQu)" class="botfzx"/></svg>

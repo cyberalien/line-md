@@ -1,21 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.cpc8qp {
-  d: path('M6 11h12v11h-12Z');
-}
-
-.e5uhgl {
-  d: path('M7 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h-1v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z');
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2px;
-  fill-opacity: 0.3;
-  stroke: #fff;
-}
-
-.g26hbu {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.g26hbu {
   fill: #fff;
 }
 
-.l-y5oo {
+.hzgnxr {
+  d: path('M6 11h12v11h-12Z');
+}
+
+.l2l4oo {
   d: path('M8 13h8v7h-8Z');
   fill: #000;
 }
@@ -24,7 +15,7 @@
   d: path('M0 0h24v24H0z');
 }
 
-.t-mrol {
+.qpz_9g {
   d: path('M9 12h6v1h-6ZM9 14h6v1h-6ZM9 16h6v1h-6ZM9 18h6v1h-6Z');
 }
 
@@ -32,23 +23,32 @@
   fill: currentColor;
 }
 
+.ykhfhc {
+  d: path('M7 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h-1v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z');
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  fill-opacity: 0.3;
+  stroke: #fff;
+}
+
 @media not (prefers-reduced-motion) {
-  .akhljk {
-    stroke-dasharray: 60;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 0.6s forwards fill-to-0_3;
+  .hzgnxr {
+    animation: 0s forwards d-eq6hjf, 0.2s linear 0.85s forwards d-h32jkf, 0.6s linear 1.05s forwards d-6r6z8f;
   }
 
-  .avytgl {
+  .l2l4oo {
+    animation: 0s forwards d-3t3e2u, 0.6s linear 1.05s forwards d-qldk7p;
+  }
+
+  .qpz_9g {
     opacity: 0;
     animation: 0s 1.05s forwards fade-to-1, 0.6s linear 1.05s forwards d-0rke9k;
   }
 
-  .nq347l {
-    animation: 0s forwards d-3t3e2u, 0.6s linear 1.05s forwards d-qldk7p;
-  }
-
-  .yarszh {
-    animation: 0s forwards d-eq6hjf, 0.2s linear 0.85s forwards d-h32jkf, 0.6s linear 1.05s forwards d-6r6z8f;
+  .ykhfhc {
+    stroke-dasharray: 60;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 0.6s forwards fill-to-0_3;
   }
 }
 
@@ -117,4 +117,4 @@
     d: path('M9 12h6v1h-6ZM9 12h6v1h-6ZM9 14h6v1h-6ZM9 16h6v1h-6Z');
   }
 }
-</style><defs><mask id="SVG6rdmSdEL"><path class="akhljk e5uhgl g26hbu"/><path class="cpc8qp g26hbu yarszh"/><path class="l-y5oo nq347l"/></mask></defs><path mask="url(#SVG6rdmSdEL)" class="lsejuv ydovum"/><path class="avytgl t-mrol ydovum"/></svg>
+</style><defs><mask id="SVG77xkJeug"><path class="g26hbu ykhfhc"/><path class="g26hbu hzgnxr"/><path class="l2l4oo"/></mask></defs><path mask="url(#SVG77xkJeug)" class="lsejuv ydovum"/><path class="qpz_9g ydovum"/></svg>

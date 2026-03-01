@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ge47sm {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.pde8iy {
   cx: 17px;
   cy: 12px;
   r: 3px;
 }
 
-.psp_wn {
+.uk8z0l {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 7h5c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5h-10c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');
@@ -18,14 +18,14 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .eh2j3t {
-    stroke-dasharray: 54;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.6s forwards fill-to-0_3;
-  }
-
-  .ukrehj {
+  .pde8iy {
     opacity: 0;
     animation: 0.2s linear 0.6s forwards fade-to-1;
+  }
+
+  .uk8z0l {
+    stroke-dasharray: 54;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.6s forwards fill-to-0_3;
   }
 }
 
@@ -52,4 +52,4 @@
     opacity: 1;
   }
 }
-</style><path class="eh2j3t psp_wn ydovum"/><circle class="ge47sm ukrehj ydovum"/></svg>
+</style><path class="uk8z0l ydovum"/><circle class="pde8iy ydovum"/></svg>

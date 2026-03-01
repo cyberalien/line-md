@@ -3,6 +3,10 @@
   fill: currentColor;
 }
 
+.br5pwd {
+  d: path('M12 10.5l-9 2.5');
+}
+
 .fo5bbb {
   d: path('M0 13h26');
   stroke: currentColor;
@@ -13,12 +17,8 @@
   stroke-linejoin: round;
 }
 
-.g26hbu {
-  fill: #fff;
-}
-
-.nb4ngv {
-  d: path('M12 10.5l-9 2.5');
+.m0rwxu {
+  d: path('M12 5.5l-9 2.5');
 }
 
 .qc_pkd {
@@ -34,21 +34,21 @@
   stroke-width: 4px;
 }
 
-.x8ywvh {
-  d: path('M12 15.5l-9 2.5');
+.ux4wzr {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
-.xorvsn {
-  d: path('M12 5.5l-9 2.5');
+.uyho1w {
+  fill: #fff;
 }
 
 .y4wbml {
   fill: none;
 }
 
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
+.ysmgkm {
+  d: path('M12 15.5l-9 2.5');
 }
 
 .z_b1hb {
@@ -64,34 +64,34 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .g269ju {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 0.6s forwards so-to-0;
-  }
-
-  .kowswq {
+  .br5pwd {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 0.8s forwards so-to-0;
   }
 
-  .mgj96l {
+  .m0rwxu {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+
+  .ux4wzr {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.2s forwards so-to-0;
   }
 
-  .pgj22w {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 1s forwards so-to-0;
-  }
-
-  .pxqrag {
+  .uyho1w {
     stroke-dasharray: 40;
     fill-opacity: 0;
     animation: 0.5s linear forwards so-from-40, 0.4s linear 1.6s forwards fill-to-1;
+  }
+
+  .ysmgkm {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1s forwards so-to-0;
   }
 }
 
@@ -112,4 +112,4 @@
     fill-opacity: 1;
   }
 }
-</style><defs><mask id="SVGwQb79IMa"><path class="g269ju g_1xrq taf2xz xorvsn y4wbml zxndow"/><path class="g_1xrq kowswq nb4ngv taf2xz y4wbml zxndow"/><path class="g_1xrq pgj22w taf2xz x8ywvh y4wbml zxndow"/><path class="g_1xrq qc_pkd uv8ddv z_b1hb"/><path class="g26hbu g_1xrq pxqrag taf2xz z_b1hb zxndow"/><path class="g_1xrq mgj96l qc_pkd taf2xz y4wbml yl0nmc z8slok"/></mask></defs><path mask="url(#SVGwQb79IMa)" class="botfzx"/><path class="fo5bbb g_1xrq mgj96l taf2xz y4wbml yl0nmc"/></svg>
+</style><defs><mask id="SVGNcdBSchN"><path class="g_1xrq m0rwxu taf2xz y4wbml zxndow"/><path class="br5pwd g_1xrq taf2xz y4wbml zxndow"/><path class="g_1xrq taf2xz y4wbml ysmgkm zxndow"/><path class="g_1xrq qc_pkd uv8ddv z_b1hb"/><path class="g_1xrq taf2xz uyho1w z_b1hb zxndow"/><path class="g_1xrq qc_pkd taf2xz ux4wzr y4wbml z8slok"/></mask></defs><path mask="url(#SVGNcdBSchN)" class="botfzx"/><path class="fo5bbb g_1xrq taf2xz ux4wzr y4wbml"/></svg>

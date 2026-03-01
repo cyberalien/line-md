@@ -6,23 +6,23 @@
   fill: none;
 }
 
-.ay9ppe {
+.bsgi6p {
   d: path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28');
 }
 
-.ejxu_a {
+.vwcgvo {
   d: path('M12 3v13');
 }
 
 @media not (prefers-reduced-motion) {
-  .bgxodj {
-    stroke-dasharray: 16;
-    animation: 0.5s linear forwards so-from-16;
-  }
-
-  .se98io {
+  .bsgi6p {
     stroke-dasharray: 34;
     animation: 0.5s linear forwards so-from-34;
+  }
+
+  .vwcgvo {
+    stroke-dasharray: 16;
+    animation: 0.5s linear forwards so-from-16;
   }
 }
 
@@ -37,4 +37,4 @@
     stroke-dashoffset: 16;
   }
 }
-</style><path class="a0m25c ay9ppe se98io"/><path class="a0m25c bgxodj ejxu_a"/></svg>
+</style><path class="a0m25c bsgi6p"/><path class="a0m25c vwcgvo"/></svg>

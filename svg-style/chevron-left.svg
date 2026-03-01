@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.fmaybn {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.nduyem {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M8 12l7 -7M8 12l7 7');
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .pxa2hl {
+  .nduyem {
     stroke-dasharray: 12;
     animation: 0.4s linear forwards so-from-12;
   }
@@ -19,4 +19,4 @@
     stroke-dashoffset: 12;
   }
 }
-</style><path class="fmaybn pxa2hl"/></svg>
+</style><path class="nduyem"/></svg>

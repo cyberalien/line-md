@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.c94bwx {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.jmnoxq {
+  cx: 12px;
+  cy: 12px;
+  r: 3px;
+}
+
+.kclhqr {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -7,23 +13,17 @@
   fill-opacity: 0.3;
 }
 
-.ho5icp {
-  cx: 12px;
-  cy: 12px;
-  r: 3px;
-}
-
 .ydovum {
   fill: currentColor;
 }
 
 @media not (prefers-reduced-motion) {
-  .ebjzdz {
-    animation: 0s forwards fill-to-0, 0.5s linear forwards d-45nhxp, 0.15s linear 0.5s forwards fill-to-0_3;
+  .jmnoxq {
+    animation: 0.2s linear forwards r-from-0px;
   }
 
-  .iazevu {
-    animation: 0.2s linear forwards r-from-0px;
+  .kclhqr {
+    animation: 0s forwards fill-to-0, 0.5s linear forwards d-45nhxp, 0.15s linear 0.5s forwards fill-to-0_3;
   }
 }
 
@@ -50,4 +50,4 @@
     r: 0px;
   }
 }
-</style><path class="c94bwx ebjzdz ydovum"/><circle class="ho5icp iazevu ydovum"/></svg>
+</style><path class="kclhqr ydovum"/><circle class="jmnoxq ydovum"/></svg>

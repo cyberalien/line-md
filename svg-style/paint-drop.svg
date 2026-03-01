@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.m-3aqy {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a8v7zs {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 3c0 0 7 6 7 12c0 2 -1 6 -7 6M12 3c0 0 -7 6 -7 12c0 2 1 6 7 6');
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ufhjau {
+  .a8v7zs {
     stroke-dasharray: 28;
     animation: 0.6s linear forwards so-from-28;
   }
@@ -19,4 +19,4 @@
     stroke-dashoffset: 28;
   }
 }
-</style><path class="m-3aqy ufhjau"/></svg>
+</style><path class="a8v7zs"/></svg>

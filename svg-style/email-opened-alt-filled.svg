@@ -6,32 +6,32 @@
   fill: none;
 }
 
-.g5xjar {
+.nrq0xo {
   d: path('M3 8.5l9 5.5l9 -5.5');
 }
 
-.h_zuqe {
+.ofn98h {
+  d: path('M3 8.06c0 -0.35 0.18 -0.67 0.48 -0.85l8.52 -5.21l8.52 5.21c0.3 0.18 0.48 0.5 0.48 0.85v9.94c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-9.94Z');
+}
+
+.zt5c4z {
   d: path('M12 15l-8 -5v8h16v-8l-8 5Z');
   fill: currentColor;
 }
 
-.tt4w2c {
-  d: path('M3 8.06c0 -0.35 0.18 -0.67 0.48 -0.85l8.52 -5.21l8.52 5.21c0.3 0.18 0.48 0.5 0.48 0.85v9.94c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-9.94Z');
-}
-
 @media not (prefers-reduced-motion) {
-  .kw5qnk {
-    stroke-dasharray: 64;
-    animation: 0.6s linear forwards so-from-64;
-  }
-
-  .nt4shc {
+  .nrq0xo {
     stroke-dasharray: 24;
     stroke-dashoffset: 24;
     animation: 0.3s linear 0.6s forwards so-to-0;
   }
 
-  .z327oc {
+  .ofn98h {
+    stroke-dasharray: 64;
+    animation: 0.6s linear forwards so-from-64;
+  }
+
+  .zt5c4z {
     fill-opacity: 0;
     animation: 0.4s linear 0.9s forwards fill-to-1;
   }
@@ -54,4 +54,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="h_zuqe z327oc"/><path class="a0m25c kw5qnk tt4w2c"/><path class="a0m25c g5xjar nt4shc"/></svg>
+</style><path class="zt5c4z"/><path class="a0m25c ofn98h"/><path class="a0m25c nrq0xo"/></svg>

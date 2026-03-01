@@ -1,43 +1,22 @@
 {
-  "content": "<circle class=\"avrtvl kkg6le\"/><path class=\"cy1axl l4j5dd oxmpwq\"/><path class=\"oxmpwq q-1rzi qy6ibh\"/><path class=\"oxmpwq phbefj vxbdkg\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "avrtvl": {
-      "animation": "opacity:0;animation:0.2s linear forwards fade-to-1;"
-    },
-    "cy1axl": {
-      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.2s forwards so-to-0;"
-    },
-    "l4j5dd": {
-      "rules": "d:path('M4 10v10');"
-    },
-    "q-1rzi": {
-      "animation": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.5s forwards so-to-0;"
-    },
-    "qy6ibh": {
-      "rules": "d:path('M10 10v10');"
-    },
-    "vxbdkg": {
-      "animation": "stroke-dasharray:24;stroke-dashoffset:24;animation:0.3s linear 0.7s forwards so-to-0;"
-    },
-    "phbefj": {
-      "rules": "d:path('M10 15c0 -2.76 2.24 -5 5 -5c2.76 0 5 2.24 5 5v5');"
-    },
-    "kkg6le": {
-      "rules": "cx:4px;cy:4px;r:2px;fill:currentColor;"
-    },
-    "oxmpwq": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:4px;stroke:currentColor;fill:none;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<circle class=\"mhxajb\"/><path class=\"oxmpwq yk_wkq\"/><path class=\"oxmpwq teqz3l\"/><path class=\"oxmpwq q5p-eg\"/>",
   "fallback": "line-md:linkedin",
   "keyframes": {
-    "fade-to-1": "@keyframes fade-to-1{100%{opacity:1}}",
-    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+    "fade-to-1": "100%{opacity:1}",
+    "so-to-0": "100%{stroke-dashoffset:0}"
+  },
+  "classes": {
+    "mhxajb": "cx:4px;cy:4px;r:2px;fill:currentColor;",
+    "yk_wkq": "d:path('M4 10v10');",
+    "oxmpwq": "stroke-linecap:round;stroke-linejoin:round;stroke-width:4px;stroke:currentColor;fill:none;",
+    "teqz3l": "d:path('M10 10v10');",
+    "q5p-eg": "d:path('M10 15c0 -2.76 2.24 -5 5 -5c2.76 0 5 2.24 5 5v5');"
+  },
+  "animations": {
+    "mhxajb": "opacity:0;animation:0.2s linear forwards fade-to-1;",
+    "yk_wkq": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.2s forwards so-to-0;",
+    "teqz3l": "stroke-dasharray:12;stroke-dashoffset:12;animation:0.2s linear 0.5s forwards so-to-0;",
+    "q5p-eg": "stroke-dasharray:24;stroke-dashoffset:24;animation:0.3s linear 0.7s forwards so-to-0;"
   }
 }

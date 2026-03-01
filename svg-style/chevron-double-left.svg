@@ -6,24 +6,24 @@
   fill: none;
 }
 
-.n7e28v {
+.i7ci2f {
   d: path('M5 12l7 -7M5 12l7 7');
 }
 
-.oaa4xh {
+.qe03jo {
   d: path('M11 12l7 -7M11 12l7 7');
 }
 
 @media not (prefers-reduced-motion) {
-  .m_y_ig {
+  .i7ci2f {
+    stroke-dasharray: 12;
+    animation: 0.4s linear forwards so-from-12;
+  }
+
+  .qe03jo {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.4s linear 0.4s forwards so-to-0;
-  }
-
-  .pxa2hl {
-    stroke-dasharray: 12;
-    animation: 0.4s linear forwards so-from-12;
   }
 }
 
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c n7e28v pxa2hl"/><path class="a0m25c m_y_ig oaa4xh"/></svg>
+</style><path class="a0m25c i7ci2f"/><path class="a0m25c qe03jo"/></svg>

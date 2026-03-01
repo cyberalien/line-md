@@ -3,30 +3,9 @@
   fill: currentColor;
 }
 
-.cmosrj {
-  cx: 9.71px;
-  cy: 13.04px;
-  r: 1.04px;
-}
-
-.d-0vpa {
-  d: path('M12 9.71c3.22 0 5.83 1.82 5.83 4.06c0 2.24 -2.61 4.06 -5.83 4.06c-3.22 0 -5.83 -1.82 -5.83 -4.06c0 -2.24 2.61 -4.06 5.83 -4.06Z');
-}
-
-.dg60tn {
-  cx: 16.18px;
-  cy: 7.01px;
-  r: 1.04px;
-}
-
 .ef_tay {
   stroke-width: 0.8px;
   fill: none;
-}
-
-.ezellv {
-  stroke: #000;
-  d: path('M12 9.91l0.76 -3.64l3.24 0.71');
 }
 
 .g_1xrq {
@@ -38,73 +17,94 @@
   fill: #fff;
 }
 
-.istk6t {
-  d: path('M6.79 10.54c0.8 0 1.45 0.65 1.45 1.45c0 0.8 -0.65 1.45 -1.45 1.45c-0.8 0 -1.45 -0.65 -1.45 -1.45c0 -0.8 0.65 -1.45 1.45 -1.45ZM17.21 9.75c0.8 0 1.45 0.65 1.45 1.45c0 0.8 -0.65 1.45 -1.45 1.45c-0.8 0 -1.45 -0.65 -1.45 -1.45c0 -0.8 0.65 -1.45 1.45 -1.45Z');
+.h38x3a {
+  cx: 16.18px;
+  cy: 7.01px;
+  r: 1.04px;
 }
 
-.jmygxv {
+.je4ser {
+  cx: 9.71px;
+  cy: 13.04px;
+  r: 1.04px;
+}
+
+.js5jrs {
+  stroke: #000;
+  d: path('M12 9.91l0.76 -3.64l3.24 0.71');
+}
+
+.lxk6ft {
   d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
   stroke-width: 2px;
   stroke: #fff;
+}
+
+.mhkv6x {
+  d: path('M9.72 15.6c0 0 0.61 0.69 2.28 0.69c1.67 -0 2.28 -0.69 2.28 -0.69');
+  stroke: currentColor;
 }
 
 .nf43cj {
   fill: #000;
 }
 
-.r0puod {
-  d: path('M9.72 15.6c0 0 0.61 0.69 2.28 0.69c1.67 -0 2.28 -0.69 2.28 -0.69');
-  stroke: currentColor;
+.t0pyet {
+  d: path('M6.79 10.54c0.8 0 1.45 0.65 1.45 1.45c0 0.8 -0.65 1.45 -1.45 1.45c-0.8 0 -1.45 -0.65 -1.45 -1.45c0 -0.8 0.65 -1.45 1.45 -1.45ZM17.21 9.75c0.8 0 1.45 0.65 1.45 1.45c0 0.8 -0.65 1.45 -1.45 1.45c-0.8 0 -1.45 -0.65 -1.45 -1.45c0 -0.8 0.65 -1.45 1.45 -1.45Z');
 }
 
-.xi5icn {
+.uu4isr {
   cx: 14.29px;
   cy: 13.04px;
   r: 1.04px;
 }
 
+.z0w32v {
+  d: path('M12 9.71c3.22 0 5.83 1.82 5.83 4.06c0 2.24 -2.61 4.06 -5.83 4.06c-3.22 0 -5.83 -1.82 -5.83 -4.06c0 -2.24 2.61 -4.06 5.83 -4.06Z');
+}
+
 @media not (prefers-reduced-motion) {
-  .ag7_yc {
-    opacity: 0;
-    animation: 0.4s linear 1.8s forwards fade-to-1;
-  }
-
-  .gmto1g {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 2.6s forwards so-to-0;
-  }
-
-  .hpq_pp {
-    opacity: 0;
-    animation: 0s 1.6s forwards fade-to-1, 0.2s linear 1.6s forwards d-plv4yp;
-  }
-
-  .i7uxhl {
-    opacity: 0;
-    animation: 0.4s linear 2.2s forwards fade-to-1;
-  }
-
-  .oamz2k {
-    opacity: 0;
-    animation: 0.4s linear 1.2s forwards fade-to-1;
-  }
-
-  .t33o4a {
+  .h38x3a {
     opacity: 0;
     animation: 6s linear 2.6s infinite cx-zbnciw, 0s 2.8s forwards fade-to-1;
   }
 
-  .w4vw1b {
+  .je4ser {
+    opacity: 0;
+    animation: 0.4s linear 1.8s forwards fade-to-1;
+  }
+
+  .js5jrs {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 6s linear 2.6s infinite d-b-o5lf, 0.2s linear 2.6s forwards so-to-0;
   }
 
-  .xd2eui {
+  .lxk6ft {
     stroke-dasharray: 60;
     fill-opacity: 0;
     animation: 0.5s linear forwards so-from-60, 0.5s linear 0.6s forwards fill-to-1;
+  }
+
+  .mhkv6x {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 2.6s forwards so-to-0;
+  }
+
+  .t0pyet {
+    opacity: 0;
+    animation: 0s 1.6s forwards fade-to-1, 0.2s linear 1.6s forwards d-plv4yp;
+  }
+
+  .uu4isr {
+    opacity: 0;
+    animation: 0.4s linear 2.2s forwards fade-to-1;
+  }
+
+  .z0w32v {
+    opacity: 0;
+    animation: 0.4s linear 1.2s forwards fade-to-1;
   }
 }
 
@@ -152,4 +152,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGPwbePmPD"><path class="g26hbu g_1xrq jmygxv xd2eui"/><path class="d-0vpa nf43cj oamz2k"/><path class="hpq_pp istk6t nf43cj"/><circle class="dg60tn nf43cj t33o4a"/><circle class="ag7_yc cmosrj g26hbu"/><circle class="g26hbu i7uxhl xi5icn"/><path class="ef_tay ezellv g_1xrq w4vw1b"/></mask></defs><path mask="url(#SVGPwbePmPD)" class="botfzx"/><path class="ef_tay g_1xrq gmto1g r0puod"/></svg>
+</style><defs><mask id="SVG3hCPbdZO"><path class="g26hbu g_1xrq lxk6ft"/><path class="nf43cj z0w32v"/><path class="nf43cj t0pyet"/><circle class="h38x3a nf43cj"/><circle class="g26hbu je4ser"/><circle class="g26hbu uu4isr"/><path class="ef_tay g_1xrq js5jrs"/></mask></defs><path mask="url(#SVG3hCPbdZO)" class="botfzx"/><path class="ef_tay g_1xrq mhkv6x"/></svg>

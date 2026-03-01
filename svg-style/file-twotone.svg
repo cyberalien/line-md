@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.kyznsp {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.k50i_c {
+  d: path('M14 3.5l0 4.5l4.5 0Z');
+}
+
+.kilinm {
+  d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
+  fill-opacity: 0.3;
+}
+
+.kyznsp {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -6,24 +15,15 @@
   fill: currentColor;
 }
 
-.ssyogl {
-  d: path('M14 3.5l0 4.5l4.5 0Z');
-}
-
-.xfk-ax {
-  d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
-  fill-opacity: 0.3;
-}
-
 @media not (prefers-reduced-motion) {
-  .sgvilr {
-    stroke-dasharray: 62;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 0.8s forwards fill-to-0_3;
-  }
-
-  .tdr3zy {
+  .k50i_c {
     opacity: 0;
     animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
+  }
+
+  .kilinm {
+    stroke-dasharray: 62;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 0.8s forwards fill-to-0_3;
   }
 }
 
@@ -56,4 +56,4 @@
     d: path('M14 3.5l2.25 2.25l2.25 2.25Z');
   }
 }
-</style><path class="kyznsp sgvilr xfk-ax"/><path class="kyznsp ssyogl tdr3zy"/></svg>
+</style><path class="kilinm kyznsp"/><path class="k50i_c kyznsp"/></svg>

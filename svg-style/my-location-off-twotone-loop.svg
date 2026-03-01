@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
-
-.e3_-nw {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ahky_j {
   cx: 12px;
   cy: 12px;
   r: 4px;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .g26hbu {
@@ -18,14 +18,13 @@
   stroke: currentColor;
 }
 
-.j8pktn {
-  d: path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8Z');
-  fill-opacity: 0.3;
-}
-
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
+}
+
+.s1i-gg {
+  d: path('M12 4v-2M20 12h2M12 20v2M4 12h-2');
 }
 
 .t5pxry {
@@ -34,17 +33,18 @@
   stroke-width: 2px;
 }
 
-.x9c-ii {
-  d: path('M12 4v-2M20 12h2M12 20v2M4 12h-2');
+.tncpqz {
+  d: path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8Z');
+  fill-opacity: 0.3;
+}
+
+.xu6rmp {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
 .y4wbml {
   fill: none;
-}
-
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
 }
 
 .zxndow {
@@ -52,22 +52,22 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .cpem4r {
-    opacity: 0;
-    transform-origin: 12px 12px;
-    animation: 0s 0.95s forwards fade-to-1, 0.2s linear 0.95s forwards d-pjbx7p, 30s linear 0.95s infinite transform-2c6-rw;
-  }
-
-  .lj9w8v {
+  .ahky_j {
     animation: 0s forwards r-to-0px, 0.2s linear 1.15s forwards r-to-4px;
   }
 
-  .m0ptra {
+  .s1i-gg {
+    opacity: 0;
+    transform-origin: 12px 12px;
+    animation: 0s 0.95s forwards fade-to-1, 0.2s linear 0.95s forwards d-pjbx7p, 30s linear 0.95s infinite tr-2c6-rw;
+  }
+
+  .tncpqz {
     stroke-dasharray: 54;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.7s forwards fill-to-0_3;
   }
 
-  .zcszqp {
+  .xu6rmp {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.35s forwards so-to-0;
@@ -116,7 +116,7 @@
   }
 }
 
-@keyframes transform-2c6-rw {
+@keyframes tr-2c6-rw {
   100% {
     transform: rotate(360deg);
   }
@@ -127,4 +127,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGsIfa3c7k"><path class="g26hbu j8pktn m0ptra t5pxry zxndow"/><circle class="e3_-nw g26hbu lj9w8v"/><path class="cpem4r t5pxry x9c-ii y4wbml zxndow"/><path class="oxx-om t5pxry y4wbml yl0nmc zcszqp"/></mask></defs><path mask="url(#SVGsIfa3c7k)" class="botfzx"/><path class="gd_4-q t5pxry y4wbml yl0nmc zcszqp"/></svg>
+</style><defs><mask id="SVGd7QlbdVZ"><path class="g26hbu t5pxry tncpqz zxndow"/><circle class="ahky_j g26hbu"/><path class="s1i-gg t5pxry y4wbml zxndow"/><path class="oxx-om t5pxry xu6rmp y4wbml"/></mask></defs><path mask="url(#SVGd7QlbdVZ)" class="botfzx"/><path class="gd_4-q t5pxry xu6rmp y4wbml"/></svg>

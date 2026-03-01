@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.smar4f {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.qpwd9l {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 16l-7 -7M12 16l7 -7');
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .pxa2hl {
+  .qpwd9l {
     stroke-dasharray: 12;
     animation: 0.4s linear forwards so-from-12;
   }
@@ -19,4 +19,4 @@
     stroke-dashoffset: 12;
   }
 }
-</style><path class="pxa2hl smar4f"/></svg>
+</style><path class="qpwd9l"/></svg>

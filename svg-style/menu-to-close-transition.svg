@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a9b6wr {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.xro_uz {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M5 5l7 7l7 -7M12 12h0M5 19l7 -7l7 7');
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .qcs7nb {
+  .xro_uz {
     animation: 0.4s linear forwards d-xntmfl;
   }
 }
@@ -18,4 +18,4 @@
     d: path('M5 5l7 0l7 0M5 12h14M5 19l7 0l7 0');
   }
 }
-</style><path class="a9b6wr qcs7nb"/></svg>
+</style><path class="xro_uz"/></svg>

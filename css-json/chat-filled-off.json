@@ -1,65 +1,30 @@
 {
-  "content": "<defs><mask id=\"SVGQOZe0bpd\"><path class=\"c8jviz lk_39m t5pxry\"/><path class=\"ag9sod lfi4rs qc_pkd t5pxry y4wbml\"/><path class=\"pij0-w qc_pkd sxsmtt t5pxry y4wbml\"/><path class=\"pr_73z qc_pkd t5pxry xvhttl y4wbml\"/><path class=\"nsraqz qc_pkd t5pxry ulyf0n y4wbml yl0nmc\"/></mask></defs><path mask=\"url(#SVGQOZe0bpd)\" class=\"botfzx\"/><path class=\"gd_4-q t5pxry ulyf0n y4wbml yl0nmc\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "c8jviz": {
-      "animation": "stroke-dasharray:70;fill-opacity:0;animation:0.6s linear forwards so-from-70, 0.4s linear 0.7s forwards fill-to-1;"
-    },
-    "lfi4rs": {
-      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.2s forwards so-to-0;"
-    },
-    "ag9sod": {
-      "rules": "d:path('M8 7h8');"
-    },
-    "y4wbml": {
-      "rules": "fill:none;"
-    },
-    "qc_pkd": {
-      "rules": "stroke:#000;"
-    },
-    "pij0-w": {
-      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.3s forwards so-to-0;"
-    },
-    "sxsmtt": {
-      "rules": "d:path('M8 10h8');"
-    },
-    "pr_73z": {
-      "animation": "stroke-dasharray:6;stroke-dashoffset:6;animation:0.2s linear 1.4s forwards so-to-0;"
-    },
-    "xvhttl": {
-      "rules": "d:path('M8 13h4');"
-    },
-    "yl0nmc": {
-      "rules": "transform:rotate(45deg);transform-origin:12px 12px;"
-    },
-    "ulyf0n": {
-      "animation": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.7s forwards so-to-0;"
-    },
-    "nsraqz": {
-      "rules": "d:path('M-1 11h26');"
-    },
-    "lk_39m": {
-      "rules": "fill:#fff;d:path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');stroke:#fff;"
-    },
-    "t5pxry": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;"
-    },
-    "botfzx": {
-      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
-    },
-    "gd_4-q": {
-      "rules": "d:path('M-1 13h26');stroke:currentColor;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<defs><mask id=\"SVGmbROrbkQ\"><path class=\"so5a6b t5pxry\"/><path class=\"qc_pkd t5pxry y4wbml ycqeef\"/><path class=\"jrczgc qc_pkd t5pxry y4wbml\"/><path class=\"qc_pkd t5pxry uv8njc y4wbml\"/><path class=\"nsraqz p9atcd qc_pkd t5pxry y4wbml\"/></mask></defs><path mask=\"url(#SVGmbROrbkQ)\" class=\"botfzx\"/><path class=\"gd_4-q p9atcd t5pxry y4wbml\"/>",
   "fallback": "line-md:chat-filled-off",
   "keyframes": {
-    "so-from-70": "@keyframes so-from-70{0%{stroke-dashoffset:70}}",
-    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
-    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+    "so-from-70": "0%{stroke-dashoffset:70}",
+    "fill-to-1": "100%{fill-opacity:1}",
+    "so-to-0": "100%{stroke-dashoffset:0}"
+  },
+  "classes": {
+    "y4wbml": "fill:none;",
+    "qc_pkd": "stroke:#000;",
+    "nsraqz": "d:path('M-1 11h26');",
+    "so5a6b": "fill:#fff;d:path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');stroke:#fff;",
+    "t5pxry": "stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;",
+    "ycqeef": "d:path('M8 7h8');",
+    "jrczgc": "d:path('M8 10h8');",
+    "uv8njc": "d:path('M8 13h4');",
+    "p9atcd": "transform:rotate(45deg);transform-origin:12px 12px;",
+    "botfzx": "d:path('M0 0h24v24H0z');fill:currentColor;",
+    "gd_4-q": "d:path('M-1 13h26');stroke:currentColor;"
+  },
+  "animations": {
+    "so5a6b": "stroke-dasharray:70;fill-opacity:0;animation:0.6s linear forwards so-from-70, 0.4s linear 0.7s forwards fill-to-1;",
+    "ycqeef": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.2s forwards so-to-0;",
+    "jrczgc": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.2s linear 1.3s forwards so-to-0;",
+    "uv8njc": "stroke-dasharray:6;stroke-dashoffset:6;animation:0.2s linear 1.4s forwards so-to-0;",
+    "p9atcd": "stroke-dasharray:28;stroke-dashoffset:28;animation:0.4s linear 1.7s forwards so-to-0;"
   }
 }

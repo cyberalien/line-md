@@ -6,44 +6,44 @@
   fill: none;
 }
 
-.ag9sod {
+.dxl7-q {
   d: path('M8 7h8');
 }
 
-.i6g44t {
+.hmd6rr {
   d: path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');
 }
 
-.sxsmtt {
-  d: path('M8 10h8');
-}
-
-.xvhttl {
+.kivm5z {
   d: path('M8 13h4');
 }
 
-@media not (prefers-reduced-motion) {
-  .a1w1_h {
-    stroke-dasharray: 6;
-    stroke-dashoffset: 6;
-    animation: 0.2s linear 0.9s forwards so-to-0;
-  }
+.ruuz6o {
+  d: path('M8 10h8');
+}
 
-  .ek9rqv {
+@media not (prefers-reduced-motion) {
+  .dxl7-q {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.2s linear 0.7s forwards so-to-0;
   }
 
-  .ialoxs {
+  .hmd6rr {
+    stroke-dasharray: 70;
+    animation: 0.6s linear forwards so-from-70;
+  }
+
+  .kivm5z {
+    stroke-dasharray: 6;
+    stroke-dashoffset: 6;
+    animation: 0.2s linear 0.9s forwards so-to-0;
+  }
+
+  .ruuz6o {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.2s linear 0.8s forwards so-to-0;
-  }
-
-  .p-jc7h {
-    stroke-dasharray: 70;
-    animation: 0.6s linear forwards so-from-70;
   }
 }
 
@@ -58,4 +58,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c i6g44t p-jc7h"/><path class="a0m25c ag9sod ek9rqv"/><path class="a0m25c ialoxs sxsmtt"/><path class="a0m25c a1w1_h xvhttl"/></svg>
+</style><path class="a0m25c hmd6rr"/><path class="a0m25c dxl7-q"/><path class="a0m25c ruuz6o"/><path class="a0m25c kivm5z"/></svg>

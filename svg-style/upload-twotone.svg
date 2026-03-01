@@ -5,25 +5,25 @@
   stroke-width: 2px;
 }
 
-.o17d7n {
+.lotvgl {
   d: path('M6 19h12');
   fill: none;
 }
 
-.og96xj {
+.srmuwv {
   d: path('M12 15h2v-6h2.5l-4.5 -4.5M12 15h-2v-6h-2.5l4.5 -4.5');
   fill-opacity: 0.3;
   fill: currentColor;
 }
 
 @media not (prefers-reduced-motion) {
-  .mhf06j {
+  .lotvgl {
     stroke-dasharray: 14;
     stroke-dashoffset: 14;
     animation: 0.2s linear 0.5s forwards so-to-0;
   }
 
-  .mzrbox {
+  .srmuwv {
     stroke-dasharray: 20;
     animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-20, 0.15s linear 0.7s forwards fill-to-0_3;
   }
@@ -52,4 +52,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="iw1iew mzrbox og96xj"/><path class="iw1iew mhf06j o17d7n"/></svg>
+</style><path class="iw1iew srmuwv"/><path class="iw1iew lotvgl"/></svg>

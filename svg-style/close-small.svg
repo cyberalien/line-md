@@ -6,21 +6,21 @@
   fill: none;
 }
 
-.b1y44o {
+.jo671t {
   d: path('M7 7l10 10');
 }
 
-.cpcmca {
+.nhqgyd {
   d: path('M17 7l-10 10');
 }
 
 @media not (prefers-reduced-motion) {
-  .pqoixy {
+  .jo671t {
     stroke-dasharray: 18;
     animation: 0.5s linear forwards so-from-18;
   }
 
-  .xkr9jh {
+  .nhqgyd {
     stroke-dasharray: 18;
     stroke-dashoffset: 18;
     animation: 0.5s linear 0.5s forwards so-to-0;
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c b1y44o pqoixy"/><path class="a0m25c cpcmca xkr9jh"/></svg>
+</style><path class="a0m25c jo671t"/><path class="a0m25c nhqgyd"/></svg>

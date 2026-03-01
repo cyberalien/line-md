@@ -1,50 +1,25 @@
 {
-  "content": "<path class=\"a0m25c qwtflh rircft\"/><path class=\"a0m25c clj10j t1pytn\"/><path class=\"a0m25c fqzgfm g05k7c\"/><path class=\"a0m25c dingaj tqu-bo\"/><path class=\"a0m25c rwu5fn ymkb1u\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "rircft": {
-      "animation": "stroke-dasharray:18;animation:0.4s linear forwards so-from-18;"
-    },
-    "qwtflh": {
-      "rules": "d:path('M21 5l-2.5 15M21 5l-12 8.5');"
-    },
-    "t1pytn": {
-      "animation": "stroke-dasharray:24;animation:0.4s linear forwards so-from-24;"
-    },
-    "clj10j": {
-      "rules": "d:path('M21 5l-19 7.5');"
-    },
-    "fqzgfm": {
-      "animation": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.3s linear 0.4s forwards so-to-0;"
-    },
-    "g05k7c": {
-      "rules": "d:path('M18.5 20l-9.5 -6.5');"
-    },
-    "dingaj": {
-      "animation": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.3s linear 0.4s forwards so-to-0;"
-    },
-    "tqu-bo": {
-      "rules": "d:path('M2 12.5l7 1');"
-    },
-    "rwu5fn": {
-      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.3s linear 0.7s forwards so-to-0;"
-    },
-    "ymkb1u": {
-      "rules": "d:path('M12 16l-3 3M9 13.5l0 5.5');"
-    },
-    "a0m25c": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<path class=\"a0m25c cxjz-n\"/><path class=\"a0m25c k3detq\"/><path class=\"a0m25c lo698u\"/><path class=\"a0m25c dy_5ci\"/><path class=\"a0m25c qr4g-m\"/>",
   "fallback": "line-md:telegram",
   "keyframes": {
-    "so-from-18": "@keyframes so-from-18{0%{stroke-dashoffset:18}}",
-    "so-from-24": "@keyframes so-from-24{0%{stroke-dashoffset:24}}",
-    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+    "so-from-18": "0%{stroke-dashoffset:18}",
+    "so-from-24": "0%{stroke-dashoffset:24}",
+    "so-to-0": "100%{stroke-dashoffset:0}"
+  },
+  "classes": {
+    "a0m25c": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;",
+    "cxjz-n": "d:path('M21 5l-2.5 15M21 5l-12 8.5');",
+    "k3detq": "d:path('M21 5l-19 7.5');",
+    "lo698u": "d:path('M18.5 20l-9.5 -6.5');",
+    "dy_5ci": "d:path('M2 12.5l7 1');",
+    "qr4g-m": "d:path('M12 16l-3 3M9 13.5l0 5.5');"
+  },
+  "animations": {
+    "cxjz-n": "stroke-dasharray:18;animation:0.4s linear forwards so-from-18;",
+    "k3detq": "stroke-dasharray:24;animation:0.4s linear forwards so-from-24;",
+    "lo698u": "stroke-dasharray:14;stroke-dashoffset:14;animation:0.3s linear 0.4s forwards so-to-0;",
+    "dy_5ci": "stroke-dasharray:10;stroke-dashoffset:10;animation:0.3s linear 0.4s forwards so-to-0;",
+    "qr4g-m": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.3s linear 0.7s forwards so-to-0;"
   }
 }

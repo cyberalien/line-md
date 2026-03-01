@@ -6,21 +6,21 @@
   fill: none;
 }
 
-.t-dgaf {
+.kdf_wr {
   d: path('M6.5 17.53c3.29 -1.9 5.5 -5.46 5.5 -9.53v-4M12 20v-16');
 }
 
-.v_ldth {
+.kmfqat {
   d: path('M12 4l3 3M12 4l-3 3');
 }
 
 @media not (prefers-reduced-motion) {
-  .pqoixy {
+  .kdf_wr {
     stroke-dasharray: 18;
     animation: 0.5s linear forwards so-from-18;
   }
 
-  .w4w4hp {
+  .kmfqat {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.5s forwards so-to-0;
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c pqoixy t-dgaf"/><path class="a0m25c v_ldth w4w4hp"/></svg>
+</style><path class="a0m25c kdf_wr"/><path class="a0m25c kmfqat"/></svg>

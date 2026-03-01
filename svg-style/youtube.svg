@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ux21el {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.bxtoun {
   d: path('M10 8.5l6 3.5l-6 3.5Z');
   fill: currentColor;
 }
 
-.zd90xn {
+.kgpquq {
   d: path('M12 5c9 0 9 0 9 7c0 7 0 7 -9 7c-9 0 -9 0 -9 -7c0 -7 0 -7 9 -7Z');
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -13,14 +13,14 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ntf2iq {
-    stroke-dasharray: 60;
-    animation: 0.6s linear forwards so-from-60;
-  }
-
-  .v-4_bc {
+  .bxtoun {
     opacity: 0;
     animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d--8d_6b;
+  }
+
+  .kgpquq {
+    stroke-dasharray: 60;
+    animation: 0.6s linear forwards so-from-60;
   }
 }
 
@@ -41,4 +41,4 @@
     d: path('M12 11l0 1l0 1Z');
   }
 }
-</style><path class="ntf2iq zd90xn"/><path class="ux21el v-4_bc"/></svg>
+</style><path class="kgpquq"/><path class="bxtoun"/></svg>

@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.fz6q7i {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.b92-iz {
+  fill: none;
+  d: path('M10 6h8M10 10h8M10 14h5M2 6v15c0 0.55 0.45 1 1 1h15');
+}
+
+.econho {
   d: path('M22 3v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z');
   fill-opacity: 0.3;
   fill: currentColor;
@@ -11,18 +16,13 @@
   stroke-width: 2px;
 }
 
-.l57gjv {
-  fill: none;
-  d: path('M10 6h8M10 10h8M10 14h5M2 6v15c0 0.55 0.45 1 1 1h15');
-}
-
 @media not (prefers-reduced-motion) {
-  .i5t7wu {
-    animation: 0.4s linear forwards d-3gok0n;
+  .b92-iz {
+    animation: 0.4s linear forwards d-5rxztz;
   }
 
-  .sz0z-j {
-    animation: 0.4s linear forwards d-5rxztz;
+  .econho {
+    animation: 0.4s linear forwards d-3gok0n;
   }
 }
 
@@ -37,4 +37,4 @@
     d: path('M8 8h8M8 12h8M8 16h5M4 5v14c0 0.55 0.45 1 1 1h14');
   }
 }
-</style><path class="fz6q7i i5t7wu iw1iew"/><path class="iw1iew l57gjv sz0z-j"/></svg>
+</style><path class="econho iw1iew"/><path class="b92-iz iw1iew"/></svg>

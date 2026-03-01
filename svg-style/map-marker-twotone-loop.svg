@@ -1,10 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.rbvuog {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.xopa8c {
   r: 2.5px;
   cx: 12px;
   cy: 9px;
 }
 
-.tyiptx {
+.ydovum {
+  fill: currentColor;
+}
+
+.yk2dha {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
@@ -13,19 +17,15 @@
   fill-opacity: 0.3;
 }
 
-.ydovum {
-  fill: currentColor;
-}
-
 @media not (prefers-reduced-motion) {
-  .j_2v5e {
-    stroke-dasharray: 48;
-    transform-origin: 12px 20.5px;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.15s linear 0.7s forwards fill-to-0_3;
+  .xopa8c {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.95s forwards r-to-2_5px;
   }
 
-  .wjit4q {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.95s forwards r-to-2_5px;
+  .yk2dha {
+    stroke-dasharray: 48;
+    transform-origin: 12px 20.5px;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-48, 3s linear infinite tr-7ecuqx, 0.15s linear 0.7s forwards fill-to-0_3;
   }
 }
 
@@ -41,7 +41,7 @@
   }
 }
 
-@keyframes transform-7ecuqx {
+@keyframes tr-7ecuqx {
   30%, 54%, 70%, 100% {
     transform: rotate(0deg);
   }
@@ -73,4 +73,4 @@
     r: 2.5px;
   }
 }
-</style><path class="j_2v5e tyiptx ydovum"/><circle class="rbvuog wjit4q ydovum"/></svg>
+</style><path class="ydovum yk2dha"/><circle class="xopa8c ydovum"/></svg>

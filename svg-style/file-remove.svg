@@ -1,27 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.bofaos {
-  fill: #fff;
-  d: path('M14 3.5l0 4.5l4.5 0Z');
-}
-
-.botfzx {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
   d: path('M0 0h24v24H0z');
   fill: currentColor;
 }
 
-.fvotmv {
-  d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
-}
-
-.lbvfhd {
-  d: path('M21 17l-4 4');
-}
-
-.n96tiz {
+.d0t6gm {
   d: path('M17 17l4 4');
+}
+
+.fr4-ze {
+  fill: #fff;
+  d: path('M14 3.5l0 4.5l4.5 0Z');
+}
+
+.qrxbwy {
+  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
+  fill: #000;
 }
 
 .s8e22g {
   stroke: currentColor;
+}
+
+.sgi08m {
+  d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
 }
 
 .t5pxry {
@@ -34,9 +35,8 @@
   fill: none;
 }
 
-.yq7r9x {
-  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
-  fill: #000;
+.zh_e7d {
+  d: path('M21 17l-4 4');
 }
 
 .zxndow {
@@ -44,31 +44,31 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .g7fxuo {
+  .d0t6gm {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.8s forwards so-to-0;
   }
 
-  .ikux3q {
+  .fr4-ze {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
+  }
+
+  .qrxbwy {
     opacity: 0;
     animation: 0s 0.8s forwards fade-to-1;
   }
 
-  .j6lqly {
+  .sgi08m {
     stroke-dasharray: 62;
     animation: 0.6s linear forwards so-from-62;
   }
 
-  .kdlk-o {
+  .zh_e7d {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 1s forwards so-to-0;
-  }
-
-  .tdr3zy {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
   }
 }
 
@@ -95,4 +95,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGtObeldeQ"><path class="fvotmv j6lqly t5pxry y4wbml zxndow"/><path class="bofaos t5pxry tdr3zy zxndow"/><path class="ikux3q yq7r9x"/></mask></defs><path mask="url(#SVGtObeldeQ)" class="botfzx"/><path class="g7fxuo n96tiz s8e22g t5pxry y4wbml"/><path class="kdlk-o lbvfhd s8e22g t5pxry y4wbml"/></svg>
+</style><defs><mask id="SVGQT3oue8g"><path class="sgi08m t5pxry y4wbml zxndow"/><path class="fr4-ze t5pxry zxndow"/><path class="qrxbwy"/></mask></defs><path mask="url(#SVGQT3oue8g)" class="botfzx"/><path class="d0t6gm s8e22g t5pxry y4wbml"/><path class="s8e22g t5pxry y4wbml zh_e7d"/></svg>

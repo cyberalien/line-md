@@ -8,18 +8,23 @@
   stroke: currentColor;
 }
 
-.lk_39m {
-  fill: #fff;
-  d: path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');
-  stroke: #fff;
-}
-
 .nsraqz {
   d: path('M-1 11h26');
 }
 
+.p9atcd {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
 .qc_pkd {
   stroke: #000;
+}
+
+.so5a6b {
+  fill: #fff;
+  d: path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');
+  stroke: #fff;
 }
 
 .t5pxry {
@@ -28,46 +33,41 @@
   stroke-width: 2px;
 }
 
-.tlfxtn {
+.wb185e {
   d: path('M12 13v0.01');
+}
+
+.wi9aei {
+  d: path('M12 7v2');
 }
 
 .y4wbml {
   fill: none;
 }
 
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
-}
-
-.z73sgh {
-  d: path('M12 7v2');
-}
-
 @media not (prefers-reduced-motion) {
-  .c8jviz {
+  .p9atcd {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.7s forwards so-to-0;
+  }
+
+  .so5a6b {
     stroke-dasharray: 70;
     fill-opacity: 0;
     animation: 0.6s linear forwards so-from-70, 0.4s linear 0.7s forwards fill-to-1;
   }
 
-  .ok8zaq {
-    stroke-dasharray: 4;
-    stroke-dashoffset: 4;
-    animation: 0.2s linear 1.2s forwards so-to-0;
-  }
-
-  .tvqgae {
+  .wb185e {
     stroke-dasharray: 4;
     stroke-dashoffset: 4;
     animation: 0.2s linear 1.4s forwards so-to-0;
   }
 
-  .ulyf0n {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0.4s linear 1.7s forwards so-to-0;
+  .wi9aei {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 1.2s forwards so-to-0;
   }
 }
 
@@ -88,4 +88,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGfHX0abkd"><path class="c8jviz lk_39m t5pxry"/><path class="ok8zaq qc_pkd t5pxry y4wbml z73sgh"/><path class="qc_pkd t5pxry tlfxtn tvqgae y4wbml"/><path class="nsraqz qc_pkd t5pxry ulyf0n y4wbml yl0nmc"/></mask></defs><path mask="url(#SVGfHX0abkd)" class="botfzx"/><path class="gd_4-q t5pxry ulyf0n y4wbml yl0nmc"/></svg>
+</style><defs><mask id="SVGEblU5d4H"><path class="so5a6b t5pxry"/><path class="qc_pkd t5pxry wi9aei y4wbml"/><path class="qc_pkd t5pxry wb185e y4wbml"/><path class="nsraqz p9atcd qc_pkd t5pxry y4wbml"/></mask></defs><path mask="url(#SVGEblU5d4H)" class="botfzx"/><path class="gd_4-q p9atcd t5pxry y4wbml"/></svg>

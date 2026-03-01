@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a-v8cn {
+  d: path('M12 7l0 9.5');
+}
+
+.a0m25c {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -6,31 +10,27 @@
   fill: none;
 }
 
-.ark37w {
-  d: path('M12 17l4 -4M12 17l-4 -4');
-}
-
-.d-p_ib {
+.f5s6pk {
   d: path('M20 12v7c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.44 -1 -1v-14c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1Z');
 }
 
-.ni3-gk {
-  d: path('M12 7l0 9.5');
+.osy4ff {
+  d: path('M12 17l4 -4M12 17l-4 -4');
 }
 
 @media not (prefers-reduced-motion) {
-  .ao492n {
-    stroke-dasharray: 66;
-    animation: 0.6s linear forwards so-from-66;
-  }
-
-  .j5x6ga {
+  .a-v8cn {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 0.7s forwards so-to-0;
   }
 
-  .svm8-t {
+  .f5s6pk {
+    stroke-dasharray: 66;
+    animation: 0.6s linear forwards so-from-66;
+  }
+
+  .osy4ff {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.9s forwards so-to-0;
@@ -48,4 +48,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c ao492n d-p_ib"/><path class="a0m25c j5x6ga ni3-gk"/><path class="a0m25c ark37w svm8-t"/></svg>
+</style><path class="a0m25c f5s6pk"/><path class="a-v8cn a0m25c"/><path class="a0m25c osy4ff"/></svg>

@@ -1,11 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.f8rgnk {
-  d: path('M5.63 7.38l-2.13 -2.13l0 4.25l4.25 0Z');
-}
-
-.gfr-4o {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.foc1nq {
   stroke-width: 2px;
   d: path('M4.25 14c0.89 3.45 4.02 6 7.75 6c4.42 0 8 -3.58 8 -8c0 -4.42 -3.58 -8 -8 -8c-2.39 0 -4.53 1.05 -6 2.71l-2 2.29');
   fill: none;
+}
+
+.ggrt7r {
+  r: 2px;
+  cx: 12px;
+  cy: 12px;
+}
+
+.ldiosp {
+  d: path('M5.63 7.38l-2.13 -2.13l0 4.25l4.25 0Z');
 }
 
 .s1ui7u {
@@ -14,29 +20,23 @@
   stroke: currentColor;
 }
 
-.x5uwqi {
-  r: 2px;
-  cx: 12px;
-  cy: 12px;
-}
-
 .ydovum {
   fill: currentColor;
 }
 
 @media not (prefers-reduced-motion) {
-  .awc_3v {
+  .foc1nq {
     stroke-dasharray: 48;
     animation: 0.6s linear forwards so-from-48;
   }
 
-  .xscteu {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-k7l8fc;
+  .ggrt7r {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.8s forwards r-to-2px;
   }
 
-  .zt240j {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.8s forwards r-to-2px;
+  .ldiosp {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-k7l8fc;
   }
 }
 
@@ -69,4 +69,4 @@
     r: 2px;
   }
 }
-</style><path class="awc_3v gfr-4o s1ui7u"/><path class="f8rgnk s1ui7u xscteu ydovum"/><circle class="x5uwqi ydovum zt240j"/></svg>
+</style><path class="foc1nq s1ui7u"/><path class="ldiosp s1ui7u ydovum"/><circle class="ggrt7r ydovum"/></svg>

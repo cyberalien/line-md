@@ -1,20 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.btx71a {
-  d: path('M18.12 18.12l2.83 2.83');
-  fill: none;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.cmsyud {
+  fill: #000;
+  d: path('M16 10c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
+}
+
+.gqqd2j {
+  d: path('M10 14c4 0 7 2 7 3v2h-14v-2c0 -1 3 -3 7 -3Z');
+  fill: #fff;
+  stroke: #fff;
+}
+
+.jjtghh {
+  d: path('M18.12 18.12c-1.17 1.17 -3.07 1.17 -4.24 0c-1.17 -1.17 -1.17 -3.07 0 -4.24c1.17 -1.17 3.07 -1.17 4.24 0c1.17 1.17 1.17 3.07 0 4.24Z');
 }
 
 .lsejuv {
   d: path('M0 0h24v24H0z');
 }
 
-.mhlqqc {
-  d: path('M18.12 18.12c-1.17 1.17 -3.07 1.17 -4.24 0c-1.17 -1.17 -1.17 -3.07 0 -4.24c1.17 -1.17 3.07 -1.17 4.24 0c1.17 1.17 1.17 3.07 0 4.24Z');
-}
-
-.nqt1bb {
-  d: path('M10 14c4 0 7 2 7 3v2h-14v-2c0 -1 3 -3 7 -3Z');
-  fill: #fff;
-  stroke: #fff;
+.o0bcgl {
+  d: path('M18.12 18.12l2.83 2.83');
+  fill: none;
 }
 
 .s8e22g {
@@ -27,50 +32,45 @@
   stroke-width: 2px;
 }
 
-.x5rkfs {
-  fill-opacity: 0.3;
+.u5-4fn {
+  d: path('M10 5c1.66 0 3 1.34 3 3c0 1.66 -1.34 3 -3 3c-1.66 0 -3 -1.34 -3 -3c0 -1.66 1.34 -3 3 -3Z');
 }
 
-.xnec5h {
-  fill: #000;
-  d: path('M16 10c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
+.x5rkfs {
+  fill-opacity: 0.3;
 }
 
 .ydovum {
   fill: currentColor;
 }
 
-.yjonwg {
-  d: path('M10 5c1.66 0 3 1.34 3 3c0 1.66 -1.34 3 -3 3c-1.66 0 -3 -1.34 -3 -3c0 -1.66 1.34 -3 3 -3Z');
-}
-
 @media not (prefers-reduced-motion) {
-  .dni0us {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.4s forwards so-to-0;
+  .cmsyud {
+    opacity: 0;
+    animation: 0s 1.1s forwards fade-to-1;
   }
 
-  .hmi38a {
+  .gqqd2j {
+    stroke-dasharray: 38;
+    stroke-dashoffset: 38;
+    animation: 0s forwards fill-to-0, 0.5s linear 0.5s forwards so-to-0, 0.15s linear 1.7s forwards fill-to-0_3;
+  }
+
+  .jjtghh {
     stroke-dasharray: 22;
     stroke-dashoffset: 22;
     animation: 0s forwards fill-to-0, 0.3s linear 1.1s forwards so-to-0, 0.15s linear 1.7s forwards fill-to-0_3;
   }
 
-  .mgtapb {
-    opacity: 0;
-    animation: 0s 1.1s forwards fade-to-1;
+  .o0bcgl {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.4s forwards so-to-0;
   }
 
-  .qe2hku {
+  .u5-4fn {
     stroke-dasharray: 22;
     animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-22, 0.15s linear 1.7s forwards fill-to-0_3;
-  }
-
-  .zh38ug {
-    stroke-dasharray: 38;
-    stroke-dashoffset: 38;
-    animation: 0s forwards fill-to-0, 0.5s linear 0.5s forwards so-to-0, 0.15s linear 1.7s forwards fill-to-0_3;
   }
 }
 
@@ -103,4 +103,4 @@
     stroke-dashoffset: 22;
   }
 }
-</style><defs><mask id="SVGJyfezb4b"><path class="nqt1bb t5pxry x5rkfs zh38ug"/><path class="mgtapb xnec5h"/></mask></defs><path class="qe2hku s8e22g t5pxry x5rkfs ydovum yjonwg"/><path mask="url(#SVGJyfezb4b)" class="lsejuv ydovum"/><path class="hmi38a mhlqqc s8e22g t5pxry x5rkfs ydovum"/><path class="btx71a dni0us s8e22g t5pxry"/></svg>
+</style><defs><mask id="SVGRvyajeDj"><path class="gqqd2j t5pxry x5rkfs"/><path class="cmsyud"/></mask></defs><path class="s8e22g t5pxry u5-4fn x5rkfs ydovum"/><path mask="url(#SVGRvyajeDj)" class="lsejuv ydovum"/><path class="jjtghh s8e22g t5pxry x5rkfs ydovum"/><path class="o0bcgl s8e22g t5pxry"/></svg>

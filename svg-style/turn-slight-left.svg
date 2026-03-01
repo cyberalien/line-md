@@ -6,24 +6,24 @@
   fill: none;
 }
 
-.jdp-nt {
+.cqcobr {
   d: path('M7 5h4M7 5v4');
 }
 
-.v2kdhd {
+.nj1jhf {
   d: path('M14 19v-7l-7 -7');
 }
 
 @media not (prefers-reduced-motion) {
-  .nqzctg {
-    stroke-dasharray: 20;
-    animation: 0.5s linear forwards so-from-20;
-  }
-
-  .yhccrg {
+  .cqcobr {
     stroke-dasharray: 6;
     stroke-dashoffset: 6;
     animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+
+  .nj1jhf {
+    stroke-dasharray: 20;
+    animation: 0.5s linear forwards so-from-20;
   }
 }
 
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c nqzctg v2kdhd"/><path class="a0m25c jdp-nt yhccrg"/></svg>
+</style><path class="a0m25c nj1jhf"/><path class="a0m25c cqcobr"/></svg>

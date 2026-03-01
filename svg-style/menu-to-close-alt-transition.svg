@@ -6,21 +6,21 @@
   fill: none;
 }
 
-.i0it8r {
-  d: path('M5 5l14 14M5 19l14 -14');
-}
-
-.j2nsvg {
+.jdu_bz {
   d: path('M12 12h0');
 }
 
+.s3q1-f {
+  d: path('M5 5l14 14M5 19l14 -14');
+}
+
 @media not (prefers-reduced-motion) {
-  .jp_1ez {
-    animation: 0.4s linear forwards d-1kwl8z;
+  .jdu_bz {
+    animation: 0.4s linear forwards d-aqgbfy, 0s 0.4s forwards fade-to-0;
   }
 
-  .zl3syp {
-    animation: 0.4s linear forwards d-aqgbfy, 0s 0.4s forwards fade-to-0;
+  .s3q1-f {
+    animation: 0.4s linear forwards d-1kwl8z;
   }
 }
 
@@ -41,4 +41,4 @@
     opacity: 0;
   }
 }
-</style><path class="a0m25c i0it8r jp_1ez"/><path class="a0m25c j2nsvg zl3syp"/></svg>
+</style><path class="a0m25c s3q1-f"/><path class="a0m25c jdu_bz"/></svg>

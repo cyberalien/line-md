@@ -6,22 +6,22 @@
   fill: none;
 }
 
-.qltsyx {
+.mq2u7y {
   d: path('M12 13l-7 -7M12 13l7 -7');
 }
 
-.tsburv {
+.rb1yuy {
   d: path('M12 19l-7 -7M12 19l7 -7');
 }
 
 @media not (prefers-reduced-motion) {
-  .m_y_ig {
+  .mq2u7y {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.4s linear 0.4s forwards so-to-0;
   }
 
-  .pxa2hl {
+  .rb1yuy {
     stroke-dasharray: 12;
     animation: 0.4s linear forwards so-from-12;
   }
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c pxa2hl tsburv"/><path class="a0m25c m_y_ig qltsyx"/></svg>
+</style><path class="a0m25c rb1yuy"/><path class="a0m25c mq2u7y"/></svg>

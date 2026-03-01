@@ -3,7 +3,14 @@
   fill: currentColor;
 }
 
-.eycklu {
+.fe2s5o {
+  fill: #fff;
+  d: path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');
+  fill-opacity: 0.3;
+  stroke: #fff;
+}
+
+.fp70ia {
   fill: none;
   transform: rotate(45deg);
   transform-origin: 12px 12px;
@@ -12,13 +19,6 @@
 .gd_4-q {
   d: path('M-1 13h26');
   stroke: currentColor;
-}
-
-.mmtcls {
-  fill: #fff;
-  d: path('M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z');
-  fill-opacity: 0.3;
-  stroke: #fff;
 }
 
 .oxx-om {
@@ -33,12 +33,12 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .mj1pmb {
+  .fe2s5o {
     stroke-dasharray: 70;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-70, 0.15s linear 0.7s forwards fill-to-0_3;
   }
 
-  .neydvc {
+  .fp70ia {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 0.95s forwards so-to-0;
@@ -68,4 +68,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGXD259bBW"><path class="mj1pmb mmtcls t5pxry"/><path class="eycklu neydvc oxx-om t5pxry"/></mask></defs><path mask="url(#SVGXD259bBW)" class="botfzx"/><path class="eycklu gd_4-q neydvc t5pxry"/></svg>
+</style><defs><mask id="SVGoYEKOdOL"><path class="fe2s5o t5pxry"/><path class="fp70ia oxx-om t5pxry"/></mask></defs><path mask="url(#SVGoYEKOdOL)" class="botfzx"/><path class="fp70ia gd_4-q t5pxry"/></svg>

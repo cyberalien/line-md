@@ -6,32 +6,32 @@
   fill: none;
 }
 
-.feu1ve {
+.rb0cwy {
   d: path('M20 12l-5 -5M20 12l-5 5');
 }
 
-.m3ymfe {
+.zf6m_y {
   d: path('M15 12l-5 -5M15 12l-5 5');
 }
 
-.ohr_nf {
+.zu019c {
   d: path('M10 12l-5 -5M10 12l-5 5');
 }
 
 @media not (prefers-reduced-motion) {
-  .lwm5fn {
+  .rb0cwy {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.4s linear 0.8s forwards so-to-0;
   }
 
-  .tg915p {
+  .zf6m_y {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.4s linear 0.4s forwards so-to-0;
   }
 
-  .y55c5q {
+  .zu019c {
     stroke-dasharray: 10;
     animation: 0.4s linear forwards so-from-10;
   }
@@ -48,4 +48,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c ohr_nf y55c5q"/><path class="a0m25c m3ymfe tg915p"/><path class="a0m25c feu1ve lwm5fn"/></svg>
+</style><path class="a0m25c zu019c"/><path class="a0m25c zf6m_y"/><path class="a0m25c rb0cwy"/></svg>

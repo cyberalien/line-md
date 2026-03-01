@@ -1,9 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.gbl2pu {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.cv7-ts {
   d: path('M10 20h4v2h-4Z');
-}
-
-.gm6-0i {
-  d: path('M12 6h-8v-1c0 -0.55 0.45 -1 1 -1h5Z');
 }
 
 .iw1iew {
@@ -13,17 +9,21 @@
   stroke-width: 2px;
 }
 
-.p8mphf {
+.mhfxos {
   d: path('M12 16v5');
 }
 
-.vsey6l {
-  d: path('M12 6h7c0.55 0 1 0.45 1 1v8c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-9Z');
-  fill: currentColor;
+.pdut_d {
+  d: path('M12 6h-8v-1c0 -0.55 0.45 -1 1 -1h5Z');
 }
 
-.x7uruc {
+.qmc18a {
   d: path('M12 21h9M12 21h-9');
+}
+
+.wdlgln {
+  d: path('M12 6h7c0.55 0 1 0.45 1 1v8c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1v-9Z');
+  fill: currentColor;
 }
 
 .y4wbml {
@@ -31,32 +31,32 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .b-hm3g {
-    stroke-dasharray: 54;
-    fill-opacity: 0;
-    animation: 0.6s linear forwards so-from-54, 0.4s linear 0.8s forwards fill-to-1;
+  .cv7-ts {
+    opacity: 0;
+    animation: 0s 1.7s forwards fade-to-1, 0.2s linear 1.7s forwards d-o0luwi;
   }
 
-  .bfkr-v {
+  .mhfxos {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 1.3s forwards so-to-0;
   }
 
-  .ex3b9k {
+  .pdut_d {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-c7v0ns;
+  }
+
+  .qmc18a {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 1.5s forwards so-to-0;
   }
 
-  .kwn6fo {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-c7v0ns;
-  }
-
-  .luun2t {
-    opacity: 0;
-    animation: 0s 1.7s forwards fade-to-1, 0.2s linear 1.7s forwards d-o0luwi;
+  .wdlgln {
+    stroke-dasharray: 54;
+    fill-opacity: 0;
+    animation: 0.6s linear forwards so-from-54, 0.4s linear 0.8s forwards fill-to-1;
   }
 }
 
@@ -95,4 +95,4 @@
     d: path('M12 21h0v0h0Z');
   }
 }
-</style><path class="b-hm3g iw1iew vsey6l"/><path class="gm6-0i iw1iew kwn6fo y4wbml"/><path class="bfkr-v iw1iew p8mphf y4wbml"/><path class="ex3b9k iw1iew x7uruc y4wbml"/><path class="gbl2pu iw1iew luun2t y4wbml"/></svg>
+</style><path class="iw1iew wdlgln"/><path class="iw1iew pdut_d y4wbml"/><path class="iw1iew mhfxos y4wbml"/><path class="iw1iew qmc18a y4wbml"/><path class="cv7-ts iw1iew y4wbml"/></svg>

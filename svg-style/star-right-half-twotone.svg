@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.u9-tyy {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.h5_car {
+  d: path('M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28Z');
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
+.n5xegl {
   d: path('M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28');
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -7,18 +13,12 @@
   fill: none;
 }
 
-.ulnypd {
-  d: path('M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28Z');
-  fill-opacity: 0.3;
-  fill: currentColor;
-}
-
 @media not (prefers-reduced-motion) {
-  .pm_4rd {
+  .h5_car {
     animation: 0s forwards fill-to-0, 0.15s linear 0.5s forwards fill-to-0_3;
   }
 
-  .se98io {
+  .n5xegl {
     stroke-dasharray: 34;
     animation: 0.5s linear forwards so-from-34;
   }
@@ -41,4 +41,4 @@
     stroke-dashoffset: 34;
   }
 }
-</style><path class="pm_4rd ulnypd"/><path class="se98io u9-tyy"/></svg>
+</style><path class="h5_car"/><path class="n5xegl"/></svg>

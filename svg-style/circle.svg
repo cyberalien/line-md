@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.l83n7x {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.hi0mne {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M3 12c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9Z');
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ntf2iq {
+  .hi0mne {
     stroke-dasharray: 60;
     animation: 0.6s linear forwards so-from-60;
   }
@@ -19,4 +19,4 @@
     stroke-dashoffset: 60;
   }
 }
-</style><path class="l83n7x ntf2iq"/></svg>
+</style><path class="hi0mne"/></svg>

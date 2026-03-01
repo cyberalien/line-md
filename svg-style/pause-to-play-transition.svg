@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.q81cve {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.yb4hln {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M13 15l-5 3l0 -12l5 3l0 0M13 9l5 3l0 0l-5 3l0 0');
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .jadoab {
+  .yb4hln {
     animation: 0.6s linear forwards d-d0cg1x;
   }
 }
@@ -21,4 +21,4 @@
     d: path('M13 15l-5 3l0 -12l5 3l0 6M13 9l5 3l0 0l-5 3l0 -6');
   }
 }
-</style><path class="jadoab q81cve"/></svg>
+</style><path class="yb4hln"/></svg>

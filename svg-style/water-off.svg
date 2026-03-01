@@ -15,7 +15,7 @@
   stroke: currentColor;
 }
 
-.mb2n4a {
+.of3gku {
   d: path('M12 5c0 0 5 6 5 9c0 2.76 -2.24 5 -5 5M12 5c0 0 -5 6 -5 9c0 2.76 2.24 5 5 5');
   stroke: #fff;
 }
@@ -25,18 +25,18 @@
   stroke: #000;
 }
 
-.yl0nmc {
+.qaqxso {
   transform: rotate(45deg);
   transform-origin: 12px 12px;
 }
 
 @media not (prefers-reduced-motion) {
-  .qsudlx {
+  .of3gku {
     stroke-dasharray: 22;
     animation: 0.5s linear forwards so-from-22;
   }
 
-  .xlj3dj {
+  .qaqxso {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 0.5s forwards so-to-0;
@@ -54,4 +54,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVG7mFkQbVc"><path class="c5xdmn mb2n4a qsudlx"/><path class="c5xdmn oxx-om xlj3dj yl0nmc"/></mask></defs><path mask="url(#SVG7mFkQbVc)" class="botfzx"/><path class="c5xdmn gd_4-q xlj3dj yl0nmc"/></svg>
+</style><defs><mask id="SVGcMlHtdME"><path class="c5xdmn of3gku"/><path class="c5xdmn oxx-om qaqxso"/></mask></defs><path mask="url(#SVGcMlHtdME)" class="botfzx"/><path class="c5xdmn gd_4-q qaqxso"/></svg>

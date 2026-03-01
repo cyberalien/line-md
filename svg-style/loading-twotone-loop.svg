@@ -6,23 +6,23 @@
   fill: none;
 }
 
-.cw549a {
+.dza1eb {
   d: path('M12 3c4.97 0 9 4.03 9 9');
 }
 
-.mds46n {
+.z9_d1p {
   d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
   opacity: 0.3;
 }
 
 @media not (prefers-reduced-motion) {
-  .cfc-5f {
+  .dza1eb {
     stroke-dasharray: 18;
     transform-origin: 12px 12px;
-    animation: 0.3s linear forwards so-from-18, 1.5s linear infinite transform-2c6-rw;
+    animation: 0.3s linear forwards so-from-18, 1.5s linear infinite tr-2c6-rw;
   }
 
-  .y220iv {
+  .z9_d1p {
     stroke-dasharray: 60;
     animation: 1.2s linear forwards so-from-60;
   }
@@ -34,7 +34,7 @@
   }
 }
 
-@keyframes transform-2c6-rw {
+@keyframes tr-2c6-rw {
   100% {
     transform: rotate(360deg);
   }
@@ -45,4 +45,4 @@
     stroke-dashoffset: 60;
   }
 }
-</style><path class="a0m25c cfc-5f cw549a"/><path class="a0m25c mds46n y220iv"/></svg>
+</style><path class="a0m25c dza1eb"/><path class="a0m25c z9_d1p"/></svg>

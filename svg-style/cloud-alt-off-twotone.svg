@@ -1,12 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a48-cx {
+  d: path('M7 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h-1v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z');
+  fill: #fff;
+  fill-opacity: 0.3;
+  stroke: #fff;
 }
 
-.eycklu {
-  fill: none;
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .gd_4-q {
@@ -14,11 +15,10 @@
   stroke: currentColor;
 }
 
-.mkttot {
-  d: path('M7 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h-1v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z');
-  fill: #fff;
-  fill-opacity: 0.3;
-  stroke: #fff;
+.i8_pay {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
 .oxx-om {
@@ -33,12 +33,12 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .akhljk {
+  .a48-cx {
     stroke-dasharray: 60;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 0.6s forwards fill-to-0_3;
   }
 
-  .awro1t {
+  .i8_pay {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 0.85s forwards so-to-0;
@@ -68,4 +68,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGZ18QCbaI"><path class="akhljk mkttot t5pxry"/><path class="awro1t eycklu oxx-om t5pxry"/></mask></defs><path mask="url(#SVGZ18QCbaI)" class="botfzx"/><path class="awro1t eycklu gd_4-q t5pxry"/></svg>
+</style><defs><mask id="SVGoDsE4bqS"><path class="a48-cx t5pxry"/><path class="i8_pay oxx-om t5pxry"/></mask></defs><path mask="url(#SVGoDsE4bqS)" class="botfzx"/><path class="gd_4-q i8_pay t5pxry"/></svg>

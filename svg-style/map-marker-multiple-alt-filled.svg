@@ -8,27 +8,23 @@
   fill: currentColor;
 }
 
-.djeo3r {
-  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
-}
-
 .g_1xrq {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.jf85im {
-  cx: 14px;
-  cy: 9px;
-  r: 2.5px;
-}
-
-.n53t9u {
-  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+.k0rqjk {
+  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
 }
 
 .nf43cj {
   fill: #000;
+}
+
+.o3umjd {
+  cx: 14px;
+  cy: 9px;
+  r: 2.5px;
 }
 
 .q7qpvx {
@@ -37,19 +33,23 @@
   stroke: #fff;
 }
 
+.sfuyde {
+  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+}
+
 @media not (prefers-reduced-motion) {
-  .h29iij {
+  .k0rqjk {
     fill-opacity: 0;
     animation: 0.4s linear forwards d-e0pf-z, 0.4s linear 0.4s forwards fill-to-1;
   }
 
-  .y92hzg {
-    fill-opacity: 0;
-    animation: 0.4s linear forwards d-h46djy, 0.4s linear 0.4s forwards fill-to-1;
+  .o3umjd {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
   }
 
-  .ysbmem {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
+  .sfuyde {
+    fill-opacity: 0;
+    animation: 0.4s linear forwards d-h46djy, 0.4s linear 0.4s forwards fill-to-1;
   }
 }
 
@@ -88,4 +88,4 @@
     r: 2.5px;
   }
 }
-</style><defs><mask id="SVGaBiQkwue"><path class="djeo3r g_1xrq h29iij q7qpvx"/><path class="ainywl g_1xrq n53t9u nf43cj y92hzg"/><path class="g_1xrq n53t9u q7qpvx y92hzg"/><circle class="jf85im nf43cj ysbmem"/></mask></defs><path mask="url(#SVGaBiQkwue)" class="botfzx"/></svg>
+</style><defs><mask id="SVGFXbOgesC"><path class="g_1xrq k0rqjk q7qpvx"/><path class="ainywl g_1xrq nf43cj sfuyde"/><path class="g_1xrq q7qpvx sfuyde"/><circle class="nf43cj o3umjd"/></mask></defs><path mask="url(#SVGFXbOgesC)" class="botfzx"/></svg>

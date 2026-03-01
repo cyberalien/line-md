@@ -10,15 +10,30 @@
   fill: none;
 }
 
-.lbvfhd {
-  d: path('M21 17l-4 4');
+.j2uidj {
+  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
+  fill: #000;
 }
 
-.m913mt {
+.lew-ud {
   d: path('M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z');
 }
 
-.n96tiz {
+.lufy5p {
+  d: path('M3 6.5l9 5.5l9 -5.5');
+}
+
+.mzvvbq {
+  fill: #fff;
+  d: path('M12 11l-8 -5h16l-8 5Z');
+  fill-opacity: 0.3;
+}
+
+.p_3fzf {
+  d: path('M21 17l-4 4');
+}
+
+.pl9q7n {
   d: path('M17 17l4 4');
 }
 
@@ -26,56 +41,41 @@
   stroke: currentColor;
 }
 
-.w7zdcu {
-  d: path('M3 6.5l9 5.5l9 -5.5');
-}
-
-.x6jp9x {
-  fill: #fff;
-  d: path('M12 11l-8 -5h16l-8 5Z');
-  fill-opacity: 0.3;
-}
-
-.yq7r9x {
-  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
-  fill: #000;
-}
-
 .zxndow {
   stroke: #fff;
 }
 
 @media not (prefers-reduced-motion) {
-  .ao492n {
-    stroke-dasharray: 66;
-    animation: 0.6s linear forwards so-from-66;
-  }
-
-  .bql79y {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.35s forwards so-to-0;
-  }
-
-  .cr950v {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 1.15s forwards so-to-0;
-  }
-
-  .le47jm {
+  .j2uidj {
     opacity: 0;
     animation: 0s 1.15s forwards fade-to-1;
   }
 
-  .nt4shc {
+  .lew-ud {
+    stroke-dasharray: 66;
+    animation: 0.6s linear forwards so-from-66;
+  }
+
+  .lufy5p {
     stroke-dasharray: 24;
     stroke-dashoffset: 24;
     animation: 0.3s linear 0.6s forwards so-to-0;
   }
 
-  .uzceux {
+  .mzvvbq {
     animation: 0s forwards fill-to-0, 0.15s linear 0.9s forwards fill-to-0_3;
+  }
+
+  .p_3fzf {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.35s forwards so-to-0;
+  }
+
+  .pl9q7n {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 1.15s forwards so-to-0;
   }
 }
 
@@ -108,4 +108,4 @@
     opacity: 1;
   }
 }
-</style><defs><mask id="SVGHqQY5cDD"><path class="uzceux x6jp9x"/><path class="ao492n c5xdmn m913mt zxndow"/><path class="c5xdmn nt4shc w7zdcu zxndow"/><path class="le47jm yq7r9x"/></mask></defs><path mask="url(#SVGHqQY5cDD)" class="botfzx"/><path class="c5xdmn cr950v n96tiz s8e22g"/><path class="bql79y c5xdmn lbvfhd s8e22g"/></svg>
+</style><defs><mask id="SVGWnNn8cuI"><path class="mzvvbq"/><path class="c5xdmn lew-ud zxndow"/><path class="c5xdmn lufy5p zxndow"/><path class="j2uidj"/></mask></defs><path mask="url(#SVGWnNn8cuI)" class="botfzx"/><path class="c5xdmn pl9q7n s8e22g"/><path class="c5xdmn p_3fzf s8e22g"/></svg>

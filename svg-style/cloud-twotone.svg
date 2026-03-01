@@ -6,33 +6,33 @@
   fill: none;
 }
 
-.k1oc5g {
+.ae_viy {
+  d: path('M12 19h-5c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c1 0 1.5 0.5 1.5 0.5M12 19h5c2.5 0 4 -2 4 -4c0 -2 -1.5 -4 -4 -4c-1 0 -1.5 0.5 -1.5 0.5');
+}
+
+.cn_flp {
   d: path('M7 11v-1c0 -2.5 2 -5 5 -5M17 11v-1c0 -2.5 -2 -5 -5 -5');
 }
 
-.um6q5f {
+.ra8x7z {
   d: path('M7 19c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c0 -3.5 2 -6 5 -6c3 0 5 2.5 5 5v1c2.5 0 4 2 4 4c0 2 -1.5 4 -4 4Z');
   fill-opacity: 0.3;
   fill: currentColor;
 }
 
-.v9gp5p {
-  d: path('M12 19h-5c-2.5 0 -4 -2 -4 -4c0 -2 1.5 -4 4 -4c1 0 1.5 0.5 1.5 0.5M12 19h5c2.5 0 4 -2 4 -4c0 -2 -1.5 -4 -4 -4c-1 0 -1.5 0.5 -1.5 0.5');
-}
-
 @media not (prefers-reduced-motion) {
-  .hv3c6m {
+  .ae_viy {
+    stroke-dasharray: 22;
+    animation: 0.5s linear forwards so-from-22;
+  }
+
+  .cn_flp {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.4s linear 0.5s forwards so-to-0;
   }
 
-  .qsudlx {
-    stroke-dasharray: 22;
-    animation: 0.5s linear forwards so-from-22;
-  }
-
-  .uzceux {
+  .ra8x7z {
     animation: 0s forwards fill-to-0, 0.15s linear 0.9s forwards fill-to-0_3;
   }
 }
@@ -60,4 +60,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="um6q5f uzceux"/><path class="a0m25c qsudlx v9gp5p"/><path class="a0m25c hv3c6m k1oc5g"/></svg>
+</style><path class="ra8x7z"/><path class="a0m25c ae_viy"/><path class="a0m25c cn_flp"/></svg>

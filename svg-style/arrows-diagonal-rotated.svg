@@ -1,8 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0co1a {
-  d: path('M14 14l6.5 6.5M10 10l-6.5 -6.5');
-}
-
-.a0m25c {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a0m25c {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -10,20 +6,24 @@
   fill: none;
 }
 
-.oqlbij {
+.hrlpcp {
+  d: path('M14 14l6.5 6.5M10 10l-6.5 -6.5');
+}
+
+.pchtax {
   d: path('M3 3h6M21 21v-6M3 3v6M21 21h-6');
 }
 
 @media not (prefers-reduced-motion) {
-  .i-bxho {
+  .hrlpcp {
+    stroke-dasharray: 12;
+    animation: 0.4s linear forwards so-from-12;
+  }
+
+  .pchtax {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.4s forwards so-to-0;
-  }
-
-  .pxa2hl {
-    stroke-dasharray: 12;
-    animation: 0.4s linear forwards so-from-12;
   }
 }
 
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0co1a a0m25c pxa2hl"/><path class="a0m25c i-bxho oqlbij"/></svg>
+</style><path class="a0m25c hrlpcp"/><path class="a0m25c pchtax"/></svg>

@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.atdllv {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
+.botfzx {
   d: path('M0 0h24v24H0z');
   fill: currentColor;
 }
@@ -8,20 +13,12 @@
   stroke: currentColor;
 }
 
-.kxiy0s {
-  d: path('M11 9v-4M8 5h6');
-}
-
-.nsm7mq {
-  d: path('M6 14h-4M2 11v6');
-}
-
 .oeeggn {
   stroke: #000;
   d: path('M0 11h26');
 }
 
-.s-r82y {
+.t_h0ty {
   fill: #fff;
   d: path('M11 9h6v10h-6.5l-2 -2h-2.5v-6.5l1.5 -1.5Z');
   fill-opacity: 0.3;
@@ -33,17 +30,20 @@
   stroke-width: 2px;
 }
 
-.vni3zr {
-  d: path('M17 13h4v-3h1v8h-1v-3h-4Z');
-}
-
 .y4wbml {
   fill: none;
 }
 
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
+.ybdrwu {
+  d: path('M17 13h4v-3h1v8h-1v-3h-4Z');
+}
+
+.ylapqi {
+  d: path('M11 9v-4M8 5h6');
+}
+
+.ywsv3c {
+  d: path('M6 14h-4M2 11v6');
 }
 
 .zxndow {
@@ -51,28 +51,28 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ggl9ne {
+  .atdllv {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.3s forwards so-to-0;
   }
 
-  .i6qn2o {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-15binr;
-  }
-
-  .mevslr {
+  .t_h0ty {
     stroke-dasharray: 42;
     animation: 0s forwards fill-to-0, 0.5s linear forwards so-from-42, 0.15s linear 1.7s forwards fill-to-0_3;
   }
 
-  .twu__s {
+  .ybdrwu {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-15binr;
+  }
+
+  .ylapqi {
     opacity: 0;
     animation: 0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-6j2qwa;
   }
 
-  .yw3f7b {
+  .ywsv3c {
     opacity: 0;
     animation: 0s 0.8s forwards fade-to-1, 0.2s linear 0.8s forwards d-vq39db;
   }
@@ -125,4 +125,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGwv4vO9OO"><path class="mevslr s-r82y t5pxry zxndow"/><path class="i6qn2o t5pxry vni3zr y4wbml zxndow"/><path class="nsm7mq t5pxry y4wbml yw3f7b zxndow"/><path class="kxiy0s t5pxry twu__s y4wbml zxndow"/><path class="ggl9ne oeeggn t5pxry y4wbml yl0nmc"/></mask></defs><path mask="url(#SVGwv4vO9OO)" class="botfzx"/><path class="fo5bbb ggl9ne t5pxry y4wbml yl0nmc"/></svg>
+</style><defs><mask id="SVGShVdJbpF"><path class="t5pxry t_h0ty zxndow"/><path class="t5pxry y4wbml ybdrwu zxndow"/><path class="t5pxry y4wbml ywsv3c zxndow"/><path class="t5pxry y4wbml ylapqi zxndow"/><path class="atdllv oeeggn t5pxry y4wbml"/></mask></defs><path mask="url(#SVGShVdJbpF)" class="botfzx"/><path class="atdllv fo5bbb t5pxry y4wbml"/></svg>

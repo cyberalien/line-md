@@ -6,24 +6,24 @@
   fill: none;
 }
 
-.ho_x1t {
-  d: path('M12 5l0 13.5');
-}
-
-.qdimzm {
+.b6nptq {
   d: path('M12 19l5 -5M12 19l-5 -5');
 }
 
-@media not (prefers-reduced-motion) {
-  .lk7j7i {
-    stroke-dasharray: 16;
-    animation: 0.3s linear forwards so-from-16;
-  }
+.gos8dj {
+  d: path('M12 5l0 13.5');
+}
 
-  .vr4r2y {
+@media not (prefers-reduced-motion) {
+  .b6nptq {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.2s linear 0.3s forwards so-to-0;
+  }
+
+  .gos8dj {
+    stroke-dasharray: 16;
+    animation: 0.3s linear forwards so-from-16;
   }
 }
 
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c ho_x1t lk7j7i"/><path class="a0m25c qdimzm vr4r2y"/></svg>
+</style><path class="a0m25c gos8dj"/><path class="a0m25c b6nptq"/></svg>

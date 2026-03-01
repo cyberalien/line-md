@@ -3,17 +3,11 @@
   fill: currentColor;
 }
 
-.cne63n {
+.dr9rsw {
   r: 2.5px;
   fill: #000;
   cx: 12px;
   cy: 9px;
-}
-
-.eycklu {
-  fill: none;
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
 }
 
 .gd_4-q {
@@ -26,7 +20,7 @@
   stroke: #000;
 }
 
-.p_v-km {
+.rkefbw {
   fill: #fff;
   d: path('M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
   stroke: #fff;
@@ -38,20 +32,26 @@
   stroke-width: 2px;
 }
 
+.x1bqbh {
+  fill: none;
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
+}
+
 @media not (prefers-reduced-motion) {
-  .quh0qi {
+  .dr9rsw {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
+  }
+
+  .rkefbw {
     fill-opacity: 0;
     animation: 0.4s linear forwards d-jkxijw, 0.4s linear 0.4s forwards fill-to-1;
   }
 
-  .wif67a {
+  .x1bqbh {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.1s forwards so-to-0;
-  }
-
-  .ysbmem {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-2_5px;
   }
 }
 
@@ -87,4 +87,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVG9oGYYcZC"><path class="p_v-km quh0qi t5pxry"/><circle class="cne63n ysbmem"/><path class="eycklu oxx-om t5pxry wif67a"/></mask></defs><path mask="url(#SVG9oGYYcZC)" class="botfzx"/><path class="eycklu gd_4-q t5pxry wif67a"/></svg>
+</style><defs><mask id="SVGDMme5c7q"><path class="rkefbw t5pxry"/><circle class="dr9rsw"/><path class="oxx-om t5pxry x1bqbh"/></mask></defs><path mask="url(#SVGDMme5c7q)" class="botfzx"/><path class="gd_4-q t5pxry x1bqbh"/></svg>

@@ -12,8 +12,18 @@
   stroke-linejoin: round;
 }
 
-.qwuois {
+.l6j71m {
   d: path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');
+}
+
+.n43ciz {
+  d: path('M16 16l5 5');
+}
+
+.pb3o_z {
+  fill: #fff;
+  d: path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');
+  fill-opacity: 0.3;
 }
 
 .s8e22g {
@@ -24,17 +34,7 @@
   stroke-width: 2px;
 }
 
-.ur73aa {
-  fill: #fff;
-  d: path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');
-  fill-opacity: 0.3;
-}
-
-.v4kj9k {
-  d: path('M16 16l5 5');
-}
-
-.vu4u0i {
+.x5hzwo {
   stroke-width: 6px;
   fill: #000;
   stroke: #000;
@@ -49,20 +49,9 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .de4vdo {
-    stroke-dasharray: 62;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.4s forwards fill-to-0_3;
-  }
-
-  .ikux3q {
+  .l6j71m {
     opacity: 0;
-    animation: 0s 0.8s forwards fade-to-1;
-  }
-
-  .lfi4rs {
-    stroke-dasharray: 10;
-    stroke-dashoffset: 10;
-    animation: 0.2s linear 1.2s forwards so-to-0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;
   }
 
   .m28jng {
@@ -71,9 +60,20 @@
     animation: 0.4s linear 0.8s forwards so-to-0;
   }
 
-  .ro5eeq {
+  .n43ciz {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    animation: 0.2s linear 1.2s forwards so-to-0;
+  }
+
+  .pb3o_z {
+    stroke-dasharray: 62;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.4s forwards fill-to-0_3;
+  }
+
+  .x5hzwo {
     opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;
+    animation: 0s 0.8s forwards fade-to-1;
   }
 }
 
@@ -112,4 +112,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGXV6i03lH"><path class="de4vdo g_1xrq taf2xz ur73aa zxndow"/><path class="g_1xrq qwuois ro5eeq taf2xz y4wbml zxndow"/><path class="em33eh g_1xrq ikux3q vu4u0i"/></mask></defs><path mask="url(#SVGXV6i03lH)" class="botfzx"/><path class="em33eh g_1xrq m28jng s8e22g taf2xz y4wbml"/><path class="g_1xrq lfi4rs s8e22g taf2xz v4kj9k y4wbml"/></svg>
+</style><defs><mask id="SVGot7QSdXN"><path class="g_1xrq pb3o_z taf2xz zxndow"/><path class="g_1xrq l6j71m taf2xz y4wbml zxndow"/><path class="em33eh g_1xrq x5hzwo"/></mask></defs><path mask="url(#SVGot7QSdXN)" class="botfzx"/><path class="em33eh g_1xrq m28jng s8e22g taf2xz y4wbml"/><path class="g_1xrq n43ciz s8e22g taf2xz y4wbml"/></svg>

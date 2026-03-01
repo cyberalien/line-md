@@ -1,21 +1,14 @@
 {
-  "content": "<path class=\"l83n7x ntf2iq\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "ntf2iq": {
-      "animation": "stroke-dasharray:60;animation:0.6s linear forwards so-from-60;"
-    },
-    "l83n7x": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;d:path('M3 12c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9Z');stroke:currentColor;stroke-width:2px;fill:none;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<path class=\"hi0mne\"/>",
   "fallback": "line-md:circle",
   "keyframes": {
-    "so-from-60": "@keyframes so-from-60{0%{stroke-dashoffset:60}}"
+    "so-from-60": "0%{stroke-dashoffset:60}"
+  },
+  "classes": {
+    "hi0mne": "stroke-linecap:round;stroke-linejoin:round;d:path('M3 12c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9Z');stroke:currentColor;stroke-width:2px;fill:none;"
+  },
+  "animations": {
+    "hi0mne": "stroke-dasharray:60;animation:0.6s linear forwards so-from-60;"
   }
 }

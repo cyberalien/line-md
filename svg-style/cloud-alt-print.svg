@@ -1,9 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.dvenpf {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.l-xeoe {
   d: path('M6 11h12v11h-12Z');
   fill: #fff;
 }
 
-.fcr_ic {
+.lsejuv {
+  d: path('M0 0h24v24H0z');
+}
+
+.odhx_f {
   d: path('M7 19h11c2.21 0 4 -1.79 4 -4c0 -2.21 -1.79 -4 -4 -4h-1v-1c0 -2.76 -2.24 -5 -5 -5c-2.42 0 -4.44 1.72 -4.9 4h-0.1c-2.76 0 -5 2.24 -5 5c0 2.76 2.24 5 5 5Z');
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -12,16 +16,12 @@
   stroke: #fff;
 }
 
-.l-y5oo {
+.urkxmr {
   d: path('M8 13h8v7h-8Z');
   fill: #000;
 }
 
-.lsejuv {
-  d: path('M0 0h24v24H0z');
-}
-
-.t-mrol {
+.xopy9n {
   d: path('M9 12h6v1h-6ZM9 14h6v1h-6ZM9 16h6v1h-6ZM9 18h6v1h-6Z');
 }
 
@@ -30,22 +30,22 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .em0y2e {
-    animation: 0s forwards d-3t3e2u, 0.6s linear 0.8s forwards d-qldk7p;
+  .l-xeoe {
+    animation: 0s forwards d-eq6hjf, 0.2s linear 0.6s forwards d-h32jkf, 0.6s linear 0.8s forwards d-6r6z8f;
   }
 
-  .fqp-in {
-    opacity: 0;
-    animation: 0s 0.8s forwards fade-to-1, 0.6s linear 0.8s forwards d-0rke9k;
-  }
-
-  .ntf2iq {
+  .odhx_f {
     stroke-dasharray: 60;
     animation: 0.6s linear forwards so-from-60;
   }
 
-  .yme18h {
-    animation: 0s forwards d-eq6hjf, 0.2s linear 0.6s forwards d-h32jkf, 0.6s linear 0.8s forwards d-6r6z8f;
+  .urkxmr {
+    animation: 0s forwards d-3t3e2u, 0.6s linear 0.8s forwards d-qldk7p;
+  }
+
+  .xopy9n {
+    opacity: 0;
+    animation: 0s 0.8s forwards fade-to-1, 0.6s linear 0.8s forwards d-0rke9k;
   }
 }
 
@@ -102,4 +102,4 @@
     d: path('M9 12h6v1h-6ZM9 12h6v1h-6ZM9 14h6v1h-6ZM9 16h6v1h-6Z');
   }
 }
-</style><defs><mask id="SVGPAghieyr"><path class="fcr_ic ntf2iq"/><path class="dvenpf yme18h"/><path class="em0y2e l-y5oo"/></mask></defs><path mask="url(#SVGPAghieyr)" class="lsejuv ydovum"/><path class="fqp-in t-mrol ydovum"/></svg>
+</style><defs><mask id="SVG8ffvAenv"><path class="odhx_f"/><path class="l-xeoe"/><path class="urkxmr"/></mask></defs><path mask="url(#SVG8ffvAenv)" class="lsejuv ydovum"/><path class="xopy9n ydovum"/></svg>

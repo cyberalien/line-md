@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.j7c0tv {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.tqogua {
   d: path('M12 3c4.97 0 9 4.03 9 9');
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -8,15 +8,15 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .olnkek {
+  .tqogua {
     transform-origin: 12px 12px;
-    animation: 1.5s linear infinite transform-2c6-rw;
+    animation: 1.5s linear infinite tr-2c6-rw;
   }
 }
 
-@keyframes transform-2c6-rw {
+@keyframes tr-2c6-rw {
   100% {
     transform: rotate(360deg);
   }
 }
-</style><path class="j7c0tv olnkek"/></svg>
+</style><path class="tqogua"/></svg>

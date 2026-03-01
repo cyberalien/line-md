@@ -3,8 +3,8 @@
   fill: currentColor;
 }
 
-.fve1pk {
-  d: path('M11 11h-1c-2.21 0 -4.5 1.79 -4.5 4c0 2.21 1.5 4.5 4.5 4.5c2.21 0 4 -2.29 4 -4.5v-12.5');
+.hoafol {
+  d: path('M18 2.5v8');
 }
 
 .lvinjf {
@@ -15,8 +15,8 @@
   fill: none;
 }
 
-.qcrekj {
-  d: path('M18 2.5v8');
+.swsrfi {
+  d: path('M11 11h-1c-2.21 0 -4.5 1.79 -4.5 4c0 2.21 1.5 4.5 4.5 4.5c2.21 0 4 -2.29 4 -4.5v-12.5');
 }
 
 .v57ckn {
@@ -25,13 +25,13 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .uve3qq {
+  .hoafol {
     stroke-dasharray: 10;
     stroke-dashoffset: 20;
     animation: 0.1s linear 0.5s forwards so-to-10;
   }
 
-  .zwgmdq {
+  .swsrfi {
     stroke-dasharray: 36;
     animation: 0.6s linear forwards so-yqhc8a;
   }
@@ -51,4 +51,4 @@
     stroke-dashoffset: 10;
   }
 }
-</style><defs><mask id="SVG1cKwWd6L"><path class="v57ckn"/><path class="fve1pk lvinjf zwgmdq"/><path class="lvinjf qcrekj uve3qq"/></mask></defs><path mask="url(#SVG1cKwWd6L)" class="botfzx"/></svg>
+</style><defs><mask id="SVG4hTeXcJA"><path class="v57ckn"/><path class="lvinjf swsrfi"/><path class="hoafol lvinjf"/></mask></defs><path mask="url(#SVG4hTeXcJA)" class="botfzx"/></svg>

@@ -6,41 +6,41 @@
   fill: none;
 }
 
-.aqp5us {
+.o9d-ht {
   d: path('M14 13l-8 -5l8 -5l8 5l-8 5Z');
   fill-opacity: 0.3;
   fill: currentColor;
 }
 
-.ew--oj {
-  d: path('M19 23h-17c-0.55 0 -1 -0.45 -1 -1v-13');
-}
-
-.r4q6fs {
-  d: path('M5 8.06c0 -0.35 0.18 -0.67 0.48 -0.85l8.52 -5.21l8.52 5.21c0.3 0.18 0.48 0.5 0.48 0.85v9.94c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-9.94Z');
-}
-
-.w762fe {
+.qfvpsi {
   d: path('M5 8.5l9 5.5l9 -5.5');
 }
 
+.te6v-x {
+  d: path('M5 8.06c0 -0.35 0.18 -0.67 0.48 -0.85l8.52 -5.21l8.52 5.21c0.3 0.18 0.48 0.5 0.48 0.85v9.94c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-9.94Z');
+}
+
+.z4421m {
+  d: path('M19 23h-17c-0.55 0 -1 -0.45 -1 -1v-13');
+}
+
 @media not (prefers-reduced-motion) {
-  .kw5qnk {
-    stroke-dasharray: 64;
-    animation: 0.6s linear forwards so-from-64;
+  .o9d-ht {
+    animation: 0s forwards fill-to-0, 0.15s linear 0.9s forwards fill-to-0_3;
   }
 
-  .nt4shc {
+  .qfvpsi {
     stroke-dasharray: 24;
     stroke-dashoffset: 24;
     animation: 0.3s linear 0.6s forwards so-to-0;
   }
 
-  .uzceux {
-    animation: 0s forwards fill-to-0, 0.15s linear 0.9s forwards fill-to-0_3;
+  .te6v-x {
+    stroke-dasharray: 64;
+    animation: 0.6s linear forwards so-from-64;
   }
 
-  .w4rv5x {
+  .z4421m {
     stroke-dasharray: 34;
     stroke-dashoffset: 34;
     animation: 0.3s linear 0.3s forwards so-to-0;
@@ -70,4 +70,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="aqp5us uzceux"/><path class="a0m25c kw5qnk r4q6fs"/><path class="a0m25c ew--oj w4rv5x"/><path class="a0m25c nt4shc w762fe"/></svg>
+</style><path class="o9d-ht"/><path class="a0m25c te6v-x"/><path class="a0m25c z4421m"/><path class="a0m25c qfvpsi"/></svg>

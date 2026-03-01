@@ -6,81 +6,81 @@
   fill: none;
 }
 
-.b73wso {
-  d: path('M4 15h0.01');
-}
-
-.c38opa {
-  d: path('M4 10h0.01');
-}
-
-.e6lg3n {
-  d: path('M4 5h0.01');
-}
-
-.ephuum {
-  d: path('M8 10h12');
-}
-
-.g4u4ph {
-  d: path('M8 20h12');
-}
-
-.w_yb1d {
-  d: path('M8 5h12');
-}
-
-.y7cbko {
-  d: path('M8 15h12');
-}
-
-.yboqnw {
+.b_308z {
   d: path('M4 20h0.01');
 }
 
-@media not (prefers-reduced-motion) {
-  .cyegwe {
-    stroke-dasharray: 4;
-    stroke-dashoffset: 4;
-    animation: 0.2s linear 0.6s forwards so-to-0;
-  }
+.d-ws9p {
+  d: path('M4 10h0.01');
+}
 
-  .e6cmxg {
+.d7me0u {
+  d: path('M4 5h0.01');
+}
+
+.hr-5ik {
+  d: path('M8 5h12');
+}
+
+.j-nn7d {
+  d: path('M8 10h12');
+}
+
+.rm29ae {
+  d: path('M4 15h0.01');
+}
+
+.xua9zv {
+  d: path('M8 20h12');
+}
+
+.z6ly7z {
+  d: path('M8 15h12');
+}
+
+@media not (prefers-reduced-motion) {
+  .b_308z {
     stroke-dasharray: 4;
     stroke-dashoffset: 4;
     animation: 0.2s linear 0.9s forwards so-to-0;
   }
 
-  .ej4fay {
-    stroke-dasharray: 4;
-    animation: 0.2s linear forwards so-from-4;
-  }
-
-  .ls-dmp {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
-    animation: 0.2s linear 0.1s forwards so-to-0;
-  }
-
-  .lvc60w {
+  .d-ws9p {
     stroke-dasharray: 4;
     stroke-dashoffset: 4;
     animation: 0.2s linear 0.3s forwards so-to-0;
   }
 
-  .pa-3xu {
+  .d7me0u {
+    stroke-dasharray: 4;
+    animation: 0.2s linear forwards so-from-4;
+  }
+
+  .hr-5ik {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.1s forwards so-to-0;
+  }
+
+  .j-nn7d {
     stroke-dasharray: 14;
     stroke-dashoffset: 14;
     animation: 0.2s linear 0.4s forwards so-to-0;
   }
 
-  .rz1dnz {
+  .rm29ae {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+
+  .xua9zv {
     stroke-dasharray: 14;
     stroke-dashoffset: 14;
     animation: 0.2s linear 1s forwards so-to-0;
   }
 
-  .wejynf {
+  .z6ly7z {
     stroke-dasharray: 14;
     stroke-dashoffset: 14;
     animation: 0.2s linear 0.7s forwards so-to-0;
@@ -98,4 +98,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c e6lg3n ej4fay"/><path class="a0m25c ls-dmp w_yb1d"/><path class="a0m25c c38opa lvc60w"/><path class="a0m25c ephuum pa-3xu"/><path class="a0m25c b73wso cyegwe"/><path class="a0m25c wejynf y7cbko"/><path class="a0m25c e6cmxg yboqnw"/><path class="a0m25c g4u4ph rz1dnz"/></svg>
+</style><path class="a0m25c d7me0u"/><path class="a0m25c hr-5ik"/><path class="a0m25c d-ws9p"/><path class="a0m25c j-nn7d"/><path class="a0m25c rm29ae"/><path class="a0m25c z6ly7z"/><path class="a0m25c b_308z"/><path class="a0m25c xua9zv"/></svg>

@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ecu16w {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.b1659c {
+  d: path('M9 13l2 2l4 -4');
+}
+
+.ecu16w {
   d: path('M14.5 3.5v3h-5v-3');
 }
 
@@ -17,12 +21,8 @@
   d: path('M12 3h7v18h-14v-18h7Z');
 }
 
-.yrju3u {
-  d: path('M9 13l2 2l4 -4');
-}
-
 @media not (prefers-reduced-motion) {
-  .f3gh4n {
+  .b1659c {
     stroke-dasharray: 12;
     animation: 0.2s linear forwards so-from-12;
   }
@@ -33,4 +33,4 @@
     stroke-dashoffset: 12;
   }
 }
-</style><path class="qa-o7h taf2xz wc7n7b"/><path class="ecu16w qa-o7h"/><path class="f3gh4n qa-o7h taf2xz yrju3u"/></svg>
+</style><path class="qa-o7h taf2xz wc7n7b"/><path class="ecu16w qa-o7h"/><path class="b1659c qa-o7h taf2xz"/></svg>

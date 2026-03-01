@@ -1,41 +1,22 @@
 {
-  "content": "<path class=\"ikkfxy iw1iew v_ku0s\"/><path class=\"fzk-hn i-bxho iw1iew y4wbml\"/><path class=\"f7kadz ff-xby iw1iew y4wbml\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "ikkfxy": {
-      "animation": "stroke-dasharray:34;fill-opacity:0;animation:0.4s linear forwards so-from-34, 0.4s linear 0.8s forwards fill-to-1;"
-    },
-    "i-bxho": {
-      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.4s forwards so-to-0;"
-    },
-    "fzk-hn": {
-      "rules": "d:path('M16 10l4 4');"
-    },
-    "y4wbml": {
-      "rules": "fill:none;"
-    },
-    "ff-xby": {
-      "animation": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.6s forwards so-to-0;"
-    },
-    "f7kadz": {
-      "rules": "d:path('M20 10l-4 4');"
-    },
-    "iw1iew": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;"
-    },
-    "v_ku0s": {
-      "rules": "d:path('M4 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');fill:currentColor;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<path class=\"iw1iew rtbl7y\"/><path class=\"i794zx iw1iew y4wbml\"/><path class=\"iw1iew y4wbml yvqxys\"/>",
   "fallback": "line-md:volume-remove-filled",
   "keyframes": {
-    "so-from-34": "@keyframes so-from-34{0%{stroke-dashoffset:34}}",
-    "fill-to-1": "@keyframes fill-to-1{100%{fill-opacity:1}}",
-    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+    "so-from-34": "0%{stroke-dashoffset:34}",
+    "fill-to-1": "100%{fill-opacity:1}",
+    "so-to-0": "100%{stroke-dashoffset:0}"
+  },
+  "classes": {
+    "y4wbml": "fill:none;",
+    "iw1iew": "stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;",
+    "rtbl7y": "d:path('M4 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');fill:currentColor;",
+    "i794zx": "d:path('M16 10l4 4');",
+    "yvqxys": "d:path('M20 10l-4 4');"
+  },
+  "animations": {
+    "rtbl7y": "stroke-dasharray:34;fill-opacity:0;animation:0.4s linear forwards so-from-34, 0.4s linear 0.8s forwards fill-to-1;",
+    "i794zx": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.4s forwards so-to-0;",
+    "yvqxys": "stroke-dasharray:8;stroke-dashoffset:8;animation:0.2s linear 0.6s forwards so-to-0;"
   }
 }

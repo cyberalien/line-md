@@ -3,33 +3,33 @@
   fill: currentColor;
 }
 
-.hp8wlu {
+.f7g9hd {
+  fill: #fff;
+  d: path('M12 15h2v-6h2.5l-4.5 -4.5M12 15h-2v-6h-2.5l4.5 -4.5');
+}
+
+.j-gigb {
+  stroke: #000;
+  d: path('M0 11h24');
+  transform: rotate(45deg);
+  transform-origin: 13px 12px;
+}
+
+.okiwoc {
+  d: path('M6 19h12');
+}
+
+.rgeonx {
   stroke: currentColor;
   d: path('M0 13h22');
   transform: rotate(45deg);
   transform-origin: 13px 12px;
 }
 
-.ifg_mc {
-  d: path('M6 19h12');
-}
-
-.o5osxe {
-  fill: #fff;
-  d: path('M12 15h2v-6h2.5l-4.5 -4.5M12 15h-2v-6h-2.5l4.5 -4.5');
-}
-
 .t5pxry {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2px;
-}
-
-.we7e5s {
-  stroke: #000;
-  d: path('M0 11h24');
-  transform: rotate(45deg);
-  transform-origin: 13px 12px;
 }
 
 .y4wbml {
@@ -41,28 +41,28 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .mhf06j {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
-    animation: 0.2s linear 0.5s forwards so-to-0;
+  .f7g9hd {
+    stroke-dasharray: 20;
+    fill-opacity: 0;
+    animation: 1.5s linear infinite d-viliiy, 0.5s linear forwards so-from-20, 0.4s linear 0.7s forwards fill-to-1;
   }
 
-  .wspike {
-    stroke-dasharray: 24;
-    stroke-dashoffset: 24;
-    animation: 6s linear infinite d-l5brra, 0.3s linear 1.2s forwards so-to-0;
-  }
-
-  .x2zyzv {
+  .j-gigb {
     stroke-dasharray: 26;
     stroke-dashoffset: 26;
     animation: 0.4s linear 1.2s forwards so-to-0;
   }
 
-  .zkzi5e {
-    stroke-dasharray: 20;
-    fill-opacity: 0;
-    animation: 1.5s linear infinite d-viliiy, 0.5s linear forwards so-from-20, 0.4s linear 0.7s forwards fill-to-1;
+  .okiwoc {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.5s forwards so-to-0;
+  }
+
+  .rgeonx {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: 6s linear infinite d-l5brra, 0.3s linear 1.2s forwards so-to-0;
   }
 }
 
@@ -95,4 +95,4 @@
     d: path('M2 13h22');
   }
 }
-</style><defs><mask id="SVG8K7J8Sbb"><path class="o5osxe t5pxry zkzi5e zxndow"/><path class="ifg_mc mhf06j t5pxry y4wbml zxndow"/><path class="t5pxry we7e5s x2zyzv y4wbml"/></mask></defs><path mask="url(#SVG8K7J8Sbb)" class="botfzx"/><path class="hp8wlu t5pxry wspike y4wbml"/></svg>
+</style><defs><mask id="SVGOcEevbot"><path class="f7g9hd t5pxry zxndow"/><path class="okiwoc t5pxry y4wbml zxndow"/><path class="j-gigb t5pxry y4wbml"/></mask></defs><path mask="url(#SVGOcEevbot)" class="botfzx"/><path class="rgeonx t5pxry y4wbml"/></svg>

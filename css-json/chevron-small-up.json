@@ -1,21 +1,14 @@
 {
-  "content": "<path class=\"j4dfyu y55c5q\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "y55c5q": {
-      "animation": "stroke-dasharray:10;animation:0.4s linear forwards so-from-10;"
-    },
-    "j4dfyu": {
-      "rules": "d:path('M12 9l-5 5M12 9l5 5');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<path class=\"xr2bya\"/>",
   "fallback": "line-md:chevron-small-up",
   "keyframes": {
-    "so-from-10": "@keyframes so-from-10{0%{stroke-dashoffset:10}}"
+    "so-from-10": "0%{stroke-dashoffset:10}"
+  },
+  "classes": {
+    "xr2bya": "d:path('M12 9l-5 5M12 9l5 5');stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-width:2px;fill:none;"
+  },
+  "animations": {
+    "xr2bya": "stroke-dasharray:10;animation:0.4s linear forwards so-from-10;"
   }
 }

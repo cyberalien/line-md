@@ -5,26 +5,26 @@
   stroke-width: 2px;
 }
 
-.m743bu {
-  d: path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');
-  fill: none;
-}
-
-.za-onm {
+.jvs9gf {
   d: path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');
   fill: currentColor;
 }
 
-@media not (prefers-reduced-motion) {
-  .ro5eeq {
-    opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;
-  }
+.t59ijc {
+  d: path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');
+  fill: none;
+}
 
-  .ziwl5l {
+@media not (prefers-reduced-motion) {
+  .jvs9gf {
     stroke-dasharray: 62;
     fill-opacity: 0;
     animation: 0.6s linear forwards so-from-62, 0.4s linear 0.8s forwards fill-to-1;
+  }
+
+  .t59ijc {
+    opacity: 0;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;
   }
 }
 
@@ -51,4 +51,4 @@
     d: path('M12 7h-9v0c0 0 0.45 0 1 0h6Z');
   }
 }
-</style><path class="iw1iew za-onm ziwl5l"/><path class="iw1iew m743bu ro5eeq"/></svg>
+</style><path class="iw1iew jvs9gf"/><path class="iw1iew t59ijc"/></svg>

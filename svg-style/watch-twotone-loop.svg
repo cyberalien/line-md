@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.c94bwx {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.sha3jm {
+  cx: 12px;
+  cy: 12px;
+  r: 3px;
+}
+
+.vybm5r {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -7,22 +13,16 @@
   fill-opacity: 0.3;
 }
 
-.ho5icp {
-  cx: 12px;
-  cy: 12px;
-  r: 3px;
-}
-
 .ydovum {
   fill: currentColor;
 }
 
 @media not (prefers-reduced-motion) {
-  .e224fx {
+  .sha3jm {
     animation: 0s forwards r-to-0px, 6s linear infinite r-cqmtvg;
   }
 
-  .ue8xzu {
+  .vybm5r {
     animation: 0s forwards d-h_4q1i, 0s forwards fill-to-0, 6s linear infinite d-p1bg5r, 0.15s linear 0.5s forwards fill-to-0_3;
   }
 }
@@ -62,4 +62,4 @@
     r: 3px;
   }
 }
-</style><path class="c94bwx ue8xzu ydovum"/><circle class="e224fx ho5icp ydovum"/></svg>
+</style><path class="vybm5r ydovum"/><circle class="sha3jm ydovum"/></svg>

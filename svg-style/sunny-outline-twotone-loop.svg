@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.dxya9h {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a5p_oc {
   d: path('M12 21v1M21 12h1M12 3v-1M3 12h-1');
 }
 
@@ -9,14 +9,14 @@
   stroke-width: 2px;
 }
 
-.k6ollr {
+.qspgsy {
+  d: path('M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5');
+}
+
+.uib4oa {
   d: path('M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5Z');
   fill-opacity: 0.3;
   fill: currentColor;
-}
-
-.lr3xdl {
-  d: path('M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5');
 }
 
 .y4wbml {
@@ -24,21 +24,21 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .gc5drr {
+  .a5p_oc {
     opacity: 0;
     transform-origin: 12px 12px;
-    animation: 30s linear infinite transform-2c6-rw, 0s 0.75s forwards fade-to-1, 0.2s linear 0.75s forwards d-9_o5mj;
+    animation: 30s linear infinite tr-2c6-rw, 0s 0.75s forwards fade-to-1, 0.2s linear 0.75s forwards d-9_o5mj;
   }
 
-  .ryf9kn {
+  .qspgsy {
+    opacity: 0;
+    transform-origin: 12px 12px;
+    animation: 30s linear infinite tr-2c6-rw, 0s 0.95s forwards fade-to-1, 0.2s linear 0.95s forwards d-s9ijad;
+  }
+
+  .uib4oa {
     stroke-dasharray: 34;
     animation: 0s forwards fill-to-0, 0.4s linear forwards so-from-34, 0.15s linear 0.5s forwards fill-to-0_3;
-  }
-
-  .wnfk9i {
-    opacity: 0;
-    transform-origin: 12px 12px;
-    animation: 30s linear infinite transform-2c6-rw, 0s 0.95s forwards fade-to-1, 0.2s linear 0.95s forwards d-s9ijad;
   }
 }
 
@@ -60,7 +60,7 @@
   }
 }
 
-@keyframes transform-2c6-rw {
+@keyframes tr-2c6-rw {
   100% {
     transform: rotate(360deg);
   }
@@ -83,4 +83,4 @@
     d: path('M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5');
   }
 }
-</style><path class="iw1iew k6ollr ryf9kn"/><path class="dxya9h gc5drr iw1iew y4wbml"/><path class="iw1iew lr3xdl wnfk9i y4wbml"/></svg>
+</style><path class="iw1iew uib4oa"/><path class="a5p_oc iw1iew y4wbml"/><path class="iw1iew qspgsy y4wbml"/></svg>

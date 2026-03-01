@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.etvz8c {
-  d: path('M12 8v7.5');
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.dg-3gv {
+  d: path('M12 21c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9');
 }
 
 .g_1xrq {
@@ -7,8 +7,15 @@
   stroke-linejoin: round;
 }
 
-.k3e74g {
+.gba_zk {
   d: path('M12 15.5l3.5 -3.5M12 15.5l-3.5 -3.5');
+}
+
+.jiuz1u {
+  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9');
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2 4;
 }
 
 .o77nnc {
@@ -17,40 +24,33 @@
   fill: none;
 }
 
-.rqwf4i {
-  d: path('M12 21c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9');
-}
-
-.sj76ki {
-  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9');
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 2 4;
+.po5j-h {
+  d: path('M12 8v7.5');
 }
 
 @media not (prefers-reduced-motion) {
-  .kokv_p {
+  .dg-3gv {
     stroke-dasharray: 32;
     animation: 0.6s linear forwards so-from-32;
   }
 
-  .nwwb_s {
-    opacity: 0;
-    stroke-dashoffset: 6;
-    transform-origin: 12px 12px;
-    animation: 0s 0.45s forwards fade-to-1, 0.6s linear 0.45s forwards transform-l6a01f, 0.6s linear 0.85s infinite so-to-0;
-  }
-
-  .p3v8vf {
-    stroke-dasharray: 10;
-    stroke-dashoffset: 10;
-    animation: 0.2s linear 0.85s forwards so-to-0;
-  }
-
-  .s0wfsy {
+  .gba_zk {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 1.05s forwards so-to-0;
+  }
+
+  .jiuz1u {
+    opacity: 0;
+    stroke-dashoffset: 6;
+    transform-origin: 12px 12px;
+    animation: 0s 0.45s forwards fade-to-1, 0.6s linear 0.45s forwards tr-l6a01f, 0.6s linear 0.85s infinite so-to-0;
+  }
+
+  .po5j-h {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    animation: 0.2s linear 0.85s forwards so-to-0;
   }
 }
 
@@ -66,7 +66,7 @@
   }
 }
 
-@keyframes transform-l6a01f {
+@keyframes tr-l6a01f {
   0% {
     transform: rotate(-180deg);
   }
@@ -77,4 +77,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="g_1xrq kokv_p o77nnc rqwf4i"/><path class="nwwb_s o77nnc sj76ki"/><path class="etvz8c g_1xrq o77nnc p3v8vf"/><path class="g_1xrq k3e74g o77nnc s0wfsy"/></svg>
+</style><path class="dg-3gv g_1xrq o77nnc"/><path class="jiuz1u o77nnc"/><path class="g_1xrq o77nnc po5j-h"/><path class="g_1xrq gba_zk o77nnc"/></svg>

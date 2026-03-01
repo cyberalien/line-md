@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.hou5qh {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ikxouk {
   d: path('M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28Z');
   fill: currentColor;
 }
 
-.w11_9o {
+.wtwpul {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -13,14 +13,14 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ao492n {
-    stroke-dasharray: 66;
-    animation: 0.6s linear forwards so-from-66;
-  }
-
-  .ieb1fn {
+  .ikxouk {
     fill-opacity: 0;
     animation: 0.4s linear 0.6s forwards fill-to-1;
+  }
+
+  .wtwpul {
+    stroke-dasharray: 66;
+    animation: 0.6s linear forwards so-from-66;
   }
 }
 
@@ -35,4 +35,4 @@
     stroke-dashoffset: 66;
   }
 }
-</style><path class="hou5qh ieb1fn"/><path class="ao492n w11_9o"/></svg>
+</style><path class="ikxouk"/><path class="wtwpul"/></svg>

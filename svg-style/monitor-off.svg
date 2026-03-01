@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ay17qu {
+  d: path('M12 21h3M12 21h-3');
+}
+
+.botfzx {
   d: path('M0 0h24v24H0z');
   fill: currentColor;
 }
@@ -10,12 +14,7 @@
   fill: none;
 }
 
-.dvn_ub {
-  fill: #fff;
-  d: path('M10 16h4v6h-4Z');
-}
-
-.ey-aql {
+.crwepn {
   d: path('M12 17h-10v-14h20v14Z');
 }
 
@@ -24,16 +23,17 @@
   stroke: currentColor;
 }
 
-.kuqyvt {
-  d: path('M12 21h3M12 21h-3');
-}
-
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
 }
 
-.yl0nmc {
+.r8g71q {
+  fill: #fff;
+  d: path('M10 16h4v6h-4Z');
+}
+
+.ux4wzr {
   transform: rotate(45deg);
   transform-origin: 12px 12px;
 }
@@ -43,25 +43,25 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .m6lvki {
+  .ay17qu {
     stroke-dasharray: 6;
     stroke-dashoffset: 6;
     animation: 0.4s linear 0.8s forwards so-to-0;
   }
 
-  .mgj96l {
-    stroke-dasharray: 28;
-    stroke-dashoffset: 28;
-    animation: 0.4s linear 1.2s forwards so-to-0;
-  }
-
-  .p-jc7h {
+  .crwepn {
     stroke-dasharray: 70;
     animation: 0.6s linear forwards so-from-70;
   }
 
-  .vzlc-k {
+  .r8g71q {
     animation: 0s forwards d-fwg6_w, 0.2s linear 0.6s forwards d-7yzihk;
+  }
+
+  .ux4wzr {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+    animation: 0.4s linear 1.2s forwards so-to-0;
   }
 }
 
@@ -88,4 +88,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGnSMDHbEk"><path class="c5xdmn ey-aql p-jc7h zxndow"/><path class="dvn_ub vzlc-k"/><path class="c5xdmn kuqyvt m6lvki zxndow"/><path class="c5xdmn mgj96l oxx-om yl0nmc"/></mask></defs><path mask="url(#SVGnSMDHbEk)" class="botfzx"/><path class="c5xdmn gd_4-q mgj96l yl0nmc"/></svg>
+</style><defs><mask id="SVGJquZhcYm"><path class="c5xdmn crwepn zxndow"/><path class="r8g71q"/><path class="ay17qu c5xdmn zxndow"/><path class="c5xdmn oxx-om ux4wzr"/></mask></defs><path mask="url(#SVGJquZhcYm)" class="botfzx"/><path class="c5xdmn gd_4-q ux4wzr"/></svg>

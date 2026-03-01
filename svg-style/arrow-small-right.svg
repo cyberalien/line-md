@@ -6,21 +6,21 @@
   fill: none;
 }
 
-.a3g97f {
+.ouq-2x {
   d: path('M5 12h13.5');
 }
 
-.cf_0kb {
+.xc5v5l {
   d: path('M19 12l-5 5M19 12l-5 -5');
 }
 
 @media not (prefers-reduced-motion) {
-  .lk7j7i {
+  .ouq-2x {
     stroke-dasharray: 16;
     animation: 0.3s linear forwards so-from-16;
   }
 
-  .vr4r2y {
+  .xc5v5l {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.2s linear 0.3s forwards so-to-0;
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c a3g97f lk7j7i"/><path class="a0m25c cf_0kb vr4r2y"/></svg>
+</style><path class="a0m25c ouq-2x"/><path class="a0m25c xc5v5l"/></svg>

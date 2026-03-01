@@ -3,8 +3,24 @@
   fill: currentColor;
 }
 
-.qwuois {
+.duz44e {
+  stroke: currentColor;
+  d: path('M16 19l1.75 1.75l3.75 -3.75');
+}
+
+.l6j71m {
   d: path('M12 7h-9v-1c0 -0.55 0.45 -1 1 -1h6Z');
+}
+
+.m454yy {
+  fill: #fff;
+  d: path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');
+  fill-opacity: 0.3;
+}
+
+.qrxbwy {
+  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
+  fill: #000;
 }
 
 .t5pxry {
@@ -13,24 +29,8 @@
   stroke-width: 2px;
 }
 
-.ur73aa {
-  fill: #fff;
-  d: path('M12 7h8c0.55 0 1 0.45 1 1v10c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11Z');
-  fill-opacity: 0.3;
-}
-
-.xfz8xp {
-  stroke: currentColor;
-  d: path('M16 19l1.75 1.75l3.75 -3.75');
-}
-
 .y4wbml {
   fill: none;
-}
-
-.yq7r9x {
-  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
-  fill: #000;
 }
 
 .zxndow {
@@ -38,25 +38,25 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ialoxs {
+  .duz44e {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.2s linear 0.8s forwards so-to-0;
   }
 
-  .ikux3q {
+  .l6j71m {
     opacity: 0;
-    animation: 0s 0.8s forwards fade-to-1;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;
   }
 
-  .ksseqp {
+  .m454yy {
     stroke-dasharray: 62;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1s forwards fill-to-0_3;
   }
 
-  .ro5eeq {
+  .qrxbwy {
     opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-tnsd9f;
+    animation: 0s 0.8s forwards fade-to-1;
   }
 }
 
@@ -95,4 +95,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGgRF75clS"><path class="ksseqp t5pxry ur73aa zxndow"/><path class="qwuois ro5eeq t5pxry y4wbml zxndow"/><path class="ikux3q yq7r9x"/></mask></defs><path mask="url(#SVGgRF75clS)" class="botfzx"/><path class="ialoxs t5pxry xfz8xp y4wbml"/></svg>
+</style><defs><mask id="SVGXY5uSW4A"><path class="m454yy t5pxry zxndow"/><path class="l6j71m t5pxry y4wbml zxndow"/><path class="qrxbwy"/></mask></defs><path mask="url(#SVGXY5uSW4A)" class="botfzx"/><path class="duz44e t5pxry y4wbml"/></svg>

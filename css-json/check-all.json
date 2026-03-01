@@ -1,43 +1,22 @@
 {
-  "content": "<defs><mask id=\"SVGsTApnetk\"><path class=\"dky7gh e121nz r1menc taf2xz\"/><path class=\"bgw7ds ozblmq r1menc rmtlsl\"/></mask></defs><path mask=\"url(#SVGsTApnetk)\" class=\"botfzx\"/><path class=\"ozblmq r1menc rmtlsl s8e22g taf2xz\"/>",
-  "viewBox": {
-    "left": 0,
-    "top": 0,
-    "width": 24,
-    "height": 24
-  },
-  "classes": {
-    "e121nz": {
-      "animation": "stroke-dasharray:24;animation:0.5s linear forwards so-from-24;"
-    },
-    "taf2xz": {
-      "rules": "stroke-width:2px;"
-    },
-    "ozblmq": {
-      "animation": "stroke-dasharray:24;stroke-dashoffset:24;animation:0.3s linear 0.5s forwards so-to-0;"
-    },
-    "rmtlsl": {
-      "rules": "d:path('M7.5 13.5l4 4l10.75 -10.75');"
-    },
-    "s8e22g": {
-      "rules": "stroke:currentColor;"
-    },
-    "r1menc": {
-      "rules": "stroke-linecap:round;stroke-linejoin:round;fill:none;"
-    },
-    "dky7gh": {
-      "rules": "d:path('M2 13.5l4 4l10.75 -10.75');stroke:#fff;"
-    },
-    "bgw7ds": {
-      "rules": "stroke-width:6px;stroke:#000;"
-    },
-    "botfzx": {
-      "rules": "d:path('M0 0h24v24H0z');fill:currentColor;"
-    }
-  },
+  "viewBox": "0 0 24 24",
+  "content": "<defs><mask id=\"SVGIsHtBd6M\"><path class=\"r1menc rtdw8m taf2xz\"/><path class=\"bgw7ds hds10w r1menc\"/></mask></defs><path mask=\"url(#SVGIsHtBd6M)\" class=\"botfzx\"/><path class=\"hds10w r1menc s8e22g taf2xz\"/>",
   "fallback": "line-md:check-all",
   "keyframes": {
-    "so-from-24": "@keyframes so-from-24{0%{stroke-dashoffset:24}}",
-    "so-to-0": "@keyframes so-to-0{100%{stroke-dashoffset:0}}"
+    "so-from-24": "0%{stroke-dashoffset:24}",
+    "so-to-0": "100%{stroke-dashoffset:0}"
+  },
+  "classes": {
+    "taf2xz": "stroke-width:2px;",
+    "s8e22g": "stroke:currentColor;",
+    "rtdw8m": "d:path('M2 13.5l4 4l10.75 -10.75');stroke:#fff;",
+    "r1menc": "stroke-linecap:round;stroke-linejoin:round;fill:none;",
+    "bgw7ds": "stroke-width:6px;stroke:#000;",
+    "hds10w": "d:path('M7.5 13.5l4 4l10.75 -10.75');",
+    "botfzx": "d:path('M0 0h24v24H0z');fill:currentColor;"
+  },
+  "animations": {
+    "rtdw8m": "stroke-dasharray:24;animation:0.5s linear forwards so-from-24;",
+    "hds10w": "stroke-dasharray:24;stroke-dashoffset:24;animation:0.3s linear 0.5s forwards so-to-0;"
   }
 }

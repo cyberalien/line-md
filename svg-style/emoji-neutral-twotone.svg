@@ -1,51 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.iw1iew {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.bc6pfq {
+  d: path('M8 15h8');
+}
+
+.iw1iew {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
   stroke-width: 2px;
 }
 
-.j6xfyo {
-  d: path('M8 15h8');
-}
-
-.kfg56g {
-  d: path('M15 9v1');
-}
-
-.rlwpmy {
+.rje0ii {
   d: path('M9 9v1');
+}
+
+.rs9o5v {
+  fill-opacity: 0.3;
+  fill: currentColor;
+  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9');
+}
+
+.ul_dtz {
+  d: path('M15 9v1');
 }
 
 .y4wbml {
   fill: none;
 }
 
-.yynpiv {
-  fill-opacity: 0.3;
-  fill: currentColor;
-  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9');
-}
-
 @media not (prefers-reduced-motion) {
-  .cyegwe {
-    stroke-dasharray: 4;
-    stroke-dashoffset: 4;
-    animation: 0.2s linear 0.6s forwards so-to-0;
-  }
-
-  .la80af {
-    stroke-dasharray: 60;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 1.2s forwards fill-to-0_3;
-  }
-
-  .osct-b {
+  .bc6pfq {
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
     animation: 0.2s linear 1s forwards so-to-0;
   }
 
-  .zo2mgx {
+  .rje0ii {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.6s forwards so-to-0;
+  }
+
+  .rs9o5v {
+    stroke-dasharray: 60;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-60, 0.15s linear 1.2s forwards fill-to-0_3;
+  }
+
+  .ul_dtz {
     stroke-dasharray: 4;
     stroke-dashoffset: 4;
     animation: 0.2s linear 0.8s forwards so-to-0;
@@ -75,4 +75,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="iw1iew la80af yynpiv"/><path class="cyegwe iw1iew rlwpmy y4wbml"/><path class="iw1iew kfg56g y4wbml zo2mgx"/><path class="iw1iew j6xfyo osct-b y4wbml"/></svg>
+</style><path class="iw1iew rs9o5v"/><path class="iw1iew rje0ii y4wbml"/><path class="iw1iew ul_dtz y4wbml"/><path class="bc6pfq iw1iew y4wbml"/></svg>

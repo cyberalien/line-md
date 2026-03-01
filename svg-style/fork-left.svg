@@ -6,21 +6,21 @@
   fill: none;
 }
 
-.eji01e {
+.avt-qh {
   d: path('M14 20v-16M14 20v-2c0 -2.76 -2.24 -5 -5 -5h-4');
 }
 
-.l4gw4w {
+.tskgbc {
   d: path('M5 13l3 -3M5 13l3 3M14 4l3 3M14 4l-3 3');
 }
 
 @media not (prefers-reduced-motion) {
-  .pqoixy {
+  .avt-qh {
     stroke-dasharray: 18;
     animation: 0.5s linear forwards so-from-18;
   }
 
-  .w4w4hp {
+  .tskgbc {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 0.5s forwards so-to-0;
@@ -38,4 +38,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c eji01e pqoixy"/><path class="a0m25c l4gw4w w4w4hp"/></svg>
+</style><path class="a0m25c avt-qh"/><path class="a0m25c tskgbc"/></svg>

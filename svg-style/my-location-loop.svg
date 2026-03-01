@@ -6,35 +6,35 @@
   fill: none;
 }
 
-.fwwm3z {
-  d: path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8Z');
-}
-
-.s70jdq {
+.bqwbxe {
   cx: 12px;
   cy: 12px;
   fill: currentColor;
   r: 4px;
 }
 
-.x9c-ii {
+.mefbpt {
+  d: path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8Z');
+}
+
+.tld4bd {
   d: path('M12 4v-2M20 12h2M12 20v2M4 12h-2');
 }
 
 @media not (prefers-reduced-motion) {
-  .en60le {
+  .bqwbxe {
     animation: 0s forwards r-to-0px, 0.2s linear 0.9s forwards r-to-4px;
   }
 
-  .gf993l {
+  .mefbpt {
     stroke-dasharray: 54;
     animation: 0.6s linear forwards so-from-54;
   }
 
-  .k87axy {
+  .tld4bd {
     opacity: 0;
     transform-origin: 12px 12px;
-    animation: 0s 0.7s forwards fade-to-1, 0.2s linear 0.7s forwards d-pjbx7p, 30s linear 0.7s infinite transform-2c6-rw;
+    animation: 0s 0.7s forwards fade-to-1, 0.2s linear 0.7s forwards d-pjbx7p, 30s linear 0.7s infinite tr-2c6-rw;
   }
 }
 
@@ -68,9 +68,9 @@
   }
 }
 
-@keyframes transform-2c6-rw {
+@keyframes tr-2c6-rw {
   100% {
     transform: rotate(360deg);
   }
 }
-</style><path class="a0m25c fwwm3z gf993l"/><circle class="en60le s70jdq"/><path class="a0m25c k87axy x9c-ii"/></svg>
+</style><path class="a0m25c mefbpt"/><circle class="bqwbxe"/><path class="a0m25c tld4bd"/></svg>

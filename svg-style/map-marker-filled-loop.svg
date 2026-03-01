@@ -1,16 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
-
-.cne63n {
-  r: 2.5px;
-  fill: #000;
-  cx: 12px;
-  cy: 9px;
-}
-
-.lzziqk {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a6imhw {
   fill: #fff;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -19,16 +7,28 @@
   stroke: #fff;
 }
 
-@media not (prefers-reduced-motion) {
-  .qzmcuq {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;
-  }
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
+}
 
-  .va5xin {
+.xbw4tl {
+  r: 2.5px;
+  fill: #000;
+  cx: 12px;
+  cy: 9px;
+}
+
+@media not (prefers-reduced-motion) {
+  .a6imhw {
     stroke-dasharray: 48;
     fill-opacity: 0;
     transform-origin: 12px 20.5px;
-    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
+    animation: 0.6s linear forwards so-from-48, 3s linear infinite tr-7ecuqx, 0.4s linear 0.7s forwards fill-to-1;
+  }
+
+  .xbw4tl {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.2s forwards r-to-2_5px;
   }
 }
 
@@ -38,7 +38,7 @@
   }
 }
 
-@keyframes transform-7ecuqx {
+@keyframes tr-7ecuqx {
   30%, 54%, 70%, 100% {
     transform: rotate(0deg);
   }
@@ -70,4 +70,4 @@
     r: 2.5px;
   }
 }
-</style><defs><mask id="SVGH4CN7IfL"><path class="lzziqk va5xin"/><circle class="cne63n qzmcuq"/></mask></defs><path mask="url(#SVGH4CN7IfL)" class="botfzx"/></svg>
+</style><defs><mask id="SVGhmwRcbbQ"><path class="a6imhw"/><circle class="xbw4tl"/></mask></defs><path mask="url(#SVGhmwRcbbQ)" class="botfzx"/></svg>

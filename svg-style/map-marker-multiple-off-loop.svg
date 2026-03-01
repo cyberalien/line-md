@@ -1,17 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.botfzx {
-  d: path('M0 0h24v24H0z');
-  fill: currentColor;
-}
-
-.djeo3r {
-  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
-}
-
-.enjdds {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.b45h2f {
   cx: 14px;
   cy: 9px;
   r: 2.5px;
   fill: #fff;
+}
+
+.botfzx {
+  d: path('M0 0h24v24H0z');
+  fill: currentColor;
 }
 
 .g_1xrq {
@@ -24,26 +20,30 @@
   stroke: currentColor;
 }
 
-.n53t9u {
-  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+.kw9ssi {
+  d: path('M10 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
 }
 
 .nsraqz {
   d: path('M-1 11h26');
 }
 
+.pwds4w {
+  d: path('M14 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z');
+}
+
 .qc_pkd {
   stroke: #000;
+}
+
+.tbv09e {
+  transform: rotate(45deg);
+  transform-origin: 12px 12px;
 }
 
 .uv8ddv {
   fill: #000;
   stroke-width: 4px;
-}
-
-.yl0nmc {
-  transform: rotate(45deg);
-  transform-origin: 12px 12px;
 }
 
 .yuzzkf {
@@ -56,23 +56,23 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .a1lm6p {
-    stroke-dasharray: 48;
-    transform-origin: 14px 20.5px;
-    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx;
-  }
-
-  .gws3ay {
-    stroke-dasharray: 48;
-    transform-origin: 10px 20.5px;
-    animation: 0.6s linear forwards so-from-48, 3s linear infinite transform-7ecuqx;
-  }
-
-  .hhtdug {
+  .b45h2f {
     animation: 0s forwards r-to-0px, 0.2s linear 0.7s forwards r-to-2_5px;
   }
 
-  .l_snni {
+  .kw9ssi {
+    stroke-dasharray: 48;
+    transform-origin: 10px 20.5px;
+    animation: 0.6s linear forwards so-from-48, 3s linear infinite tr-7ecuqx;
+  }
+
+  .pwds4w {
+    stroke-dasharray: 48;
+    transform-origin: 14px 20.5px;
+    animation: 0.6s linear forwards so-from-48, 3s linear infinite tr-7ecuqx;
+  }
+
+  .tbv09e {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 0.9s forwards so-to-0;
@@ -85,7 +85,7 @@
   }
 }
 
-@keyframes transform-7ecuqx {
+@keyframes tr-7ecuqx {
   30%, 54%, 70%, 100% {
     transform: rotate(0deg);
   }
@@ -117,4 +117,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGHPHBacBx"><path class="djeo3r g_1xrq gws3ay yuzzkf zxndow"/><path class="a1lm6p g_1xrq n53t9u qc_pkd uv8ddv"/><path class="a1lm6p g_1xrq n53t9u yuzzkf zxndow"/><circle class="enjdds hhtdug"/><path class="g_1xrq l_snni nsraqz qc_pkd yl0nmc yuzzkf"/></mask></defs><path mask="url(#SVGHPHBacBx)" class="botfzx"/><path class="g_1xrq gd_4-q l_snni yl0nmc yuzzkf"/></svg>
+</style><defs><mask id="SVGUaJJlcYB"><path class="g_1xrq kw9ssi yuzzkf zxndow"/><path class="g_1xrq pwds4w qc_pkd uv8ddv"/><path class="g_1xrq pwds4w yuzzkf zxndow"/><circle class="b45h2f"/><path class="g_1xrq nsraqz qc_pkd tbv09e yuzzkf"/></mask></defs><path mask="url(#SVGUaJJlcYB)" class="botfzx"/><path class="g_1xrq gd_4-q tbv09e yuzzkf"/></svg>

@@ -16,7 +16,7 @@
   fill: currentColor;
 }
 
-.fqwlqa {
+.dgjdcp {
   d: path('M4 4h0v5h0Z');
 }
 
@@ -24,19 +24,15 @@
   fill: #fff;
 }
 
-.juzc5y {
-  d: path('M8 10h8v0h-8Z');
-}
-
 .nf43cj {
   fill: #000;
 }
 
-.p0g0wo {
-  d: path('M8 4c1.1 -0.57 2 -1 4 -1c2 0 4.5 0.5 4.5 3');
+.ntfd5n {
+  d: path('M8 10h8v0h-8Z');
 }
 
-.suxc5o {
+.uu-53j {
   d: path('M7.5 10.5c0 0 0.83 6.93 1 8.5c0.17 1.57 1.5 2 2.5 2l2 0c1.5 0 2.88 -1.14 3 -2c0.13 -0.86 1 -12 1 -12');
 }
 
@@ -44,24 +40,28 @@
   d: path('M5 6c0 -2 2 0 6.5 0c4.5 0 7.5 -2 7.5 0l0 1c0 1.5 -2 2 -6.5 2c-4.5 0 -7.5 0 -7.5 -2l0 -1Z');
 }
 
+.zl4c-b {
+  d: path('M8 4c1.1 -0.57 2 -1 4 -1c2 0 4.5 0.5 4.5 3');
+}
+
 @media not (prefers-reduced-motion) {
-  .b60r1q {
+  .dgjdcp {
+    animation: 0s forwards d-4-9ugh, 0.4s linear 0.4s forwards d-n8ltvl;
+  }
+
+  .ntfd5n {
     animation: 0s forwards d-mjtjes, 0.4s linear 1s forwards d-q_3c1b;
   }
 
-  .g7pijc {
-    stroke-dasharray: 14;
-    stroke-dashoffset: 14;
-    animation: 0.2s linear 0.8s forwards so-to-0;
-  }
-
-  .xcsb4v {
+  .uu-53j {
     stroke-dasharray: 32;
     animation: 0.4s linear forwards so-from-32;
   }
 
-  .xwjfcp {
-    animation: 0s forwards d-4-9ugh, 0.4s linear 0.4s forwards d-n8ltvl;
+  .zl4c-b {
+    stroke-dasharray: 14;
+    stroke-dashoffset: 14;
+    animation: 0.2s linear 0.8s forwards so-to-0;
   }
 }
 
@@ -100,4 +100,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGDWcBMbgy"><path class="g26hbu ww4euh"/><path class="fqwlqa nf43cj xwjfcp"/></mask><mask id="SVGc0jEceWr"><path class="b15c7b g26hbu"/><path class="b60r1q juzc5y nf43cj"/></mask></defs><path class="a0m25c suxc5o xcsb4v"/><path class="a0m25c g7pijc p0g0wo"/><path mask="url(#SVGDWcBMbgy)" class="botfzx"/><path mask="url(#SVGc0jEceWr)" class="botfzx"/></svg>
+</style><defs><mask id="SVGRmlaebPq"><path class="g26hbu ww4euh"/><path class="dgjdcp nf43cj"/></mask><mask id="SVGPhDhmeRR"><path class="b15c7b g26hbu"/><path class="nf43cj ntfd5n"/></mask></defs><path class="a0m25c uu-53j"/><path class="a0m25c zl4c-b"/><path mask="url(#SVGRmlaebPq)" class="botfzx"/><path mask="url(#SVGPhDhmeRR)" class="botfzx"/></svg>

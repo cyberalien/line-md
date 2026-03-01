@@ -3,13 +3,6 @@
   fill: currentColor;
 }
 
-.gqzmpm {
-  cx: 17px;
-  fill: #000;
-  cy: 12px;
-  r: 3px;
-}
-
 .snl_hb {
   fill: #fff;
   stroke-linecap: round;
@@ -19,8 +12,15 @@
   stroke: #fff;
 }
 
+.x93a4q {
+  cx: 17px;
+  fill: #000;
+  cy: 12px;
+  r: 3px;
+}
+
 @media not (prefers-reduced-motion) {
-  .rslhfn {
+  .x93a4q {
     animation: 0.2s linear forwards cx-from-7px;
   }
 }
@@ -30,4 +30,4 @@
     cx: 7px;
   }
 }
-</style><defs><mask id="SVGWKS3HdbR"><path class="snl_hb"/><circle class="gqzmpm rslhfn"/></mask></defs><path mask="url(#SVGWKS3HdbR)" class="botfzx"/></svg>
+</style><defs><mask id="SVG262Nbd6S"><path class="snl_hb"/><circle class="x93a4q"/></mask></defs><path mask="url(#SVG262Nbd6S)" class="botfzx"/></svg>

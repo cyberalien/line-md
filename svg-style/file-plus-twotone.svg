@@ -8,12 +8,21 @@
   stroke: #fff;
 }
 
-.ssyogl {
+.k50i_c {
   d: path('M14 3.5l0 4.5l4.5 0Z');
 }
 
-.sz__tp {
+.krj35h {
+  d: path('M19 16v6');
+}
+
+.mc-a_v {
   d: path('M16 19h6');
+}
+
+.qrxbwy {
+  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
+  fill: #000;
 }
 
 .t5pxry {
@@ -27,46 +36,37 @@
   fill: none;
 }
 
-.v5d92y {
-  d: path('M19 16v6');
-}
-
-.xfk-ax {
+.vxodnn {
   d: path('M13.5 3l5.5 5.5v11.5c0 0.55 -0.45 1 -1 1h-12c-0.55 0 -1 -0.45 -1 -1v-16c0 -0.55 0.45 -1 1 -1Z');
   fill-opacity: 0.3;
 }
 
-.yq7r9x {
-  d: path('M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z');
-  fill: #000;
-}
-
 @media not (prefers-reduced-motion) {
-  .g7fxuo {
-    stroke-dasharray: 8;
-    stroke-dashoffset: 8;
-    animation: 0.2s linear 0.8s forwards so-to-0;
-  }
-
-  .gk7tul {
-    stroke-dasharray: 62;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.2s forwards fill-to-0_3;
-  }
-
-  .ikux3q {
+  .k50i_c {
     opacity: 0;
-    animation: 0s 0.8s forwards fade-to-1;
+    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
   }
 
-  .kdlk-o {
+  .krj35h {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 0.2s linear 1s forwards so-to-0;
   }
 
-  .tdr3zy {
+  .mc-a_v {
+    stroke-dasharray: 8;
+    stroke-dashoffset: 8;
+    animation: 0.2s linear 0.8s forwards so-to-0;
+  }
+
+  .qrxbwy {
     opacity: 0;
-    animation: 0s 0.6s forwards fade-to-1, 0.2s linear 0.6s forwards d-_-jasl;
+    animation: 0s 0.8s forwards fade-to-1;
+  }
+
+  .vxodnn {
+    stroke-dasharray: 62;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 1.2s forwards fill-to-0_3;
   }
 }
 
@@ -105,4 +105,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGg3MIseki"><path class="eusm4q gk7tul t5pxry xfk-ax"/><path class="eusm4q ssyogl t5pxry tdr3zy"/><path class="ikux3q yq7r9x"/></mask></defs><path mask="url(#SVGg3MIseki)" class="botfzx"/><path class="g7fxuo sz__tp t5pxry ufposl"/><path class="kdlk-o t5pxry ufposl v5d92y"/></svg>
+</style><defs><mask id="SVGLeMJPeiV"><path class="eusm4q t5pxry vxodnn"/><path class="eusm4q k50i_c t5pxry"/><path class="qrxbwy"/></mask></defs><path mask="url(#SVGLeMJPeiV)" class="botfzx"/><path class="mc-a_v t5pxry ufposl"/><path class="krj35h t5pxry ufposl"/></svg>

@@ -1,11 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.h6qcuj {
-  d: path('M12 9h6v12h-12v-12Z');
-  stroke-width: 2px;
-  fill-opacity: 0.3;
-  fill: currentColor;
-}
-
-.n-sbuq {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.jt0hkp {
   d: path('M2.5 8.5h19M2.5 15.5h19');
   fill: none;
 }
@@ -16,16 +9,23 @@
   stroke: currentColor;
 }
 
+.vihrgw {
+  d: path('M12 9h6v12h-12v-12Z');
+  stroke-width: 2px;
+  fill-opacity: 0.3;
+  fill: currentColor;
+}
+
 @media not (prefers-reduced-motion) {
-  .d4768r {
+  .jt0hkp {
+    stroke-dasharray: 22;
+    animation: 0.3s linear forwards so-from-22;
+  }
+
+  .vihrgw {
     stroke-dasharray: 50;
     stroke-dashoffset: 50;
     animation: 0s forwards fill-to-0, 0.6s linear 0.4s forwards so-to-0, 0.15s linear 1s forwards fill-to-0_3;
-  }
-
-  .l5bica {
-    stroke-dasharray: 22;
-    animation: 0.3s linear forwards so-from-22;
   }
 }
 
@@ -52,4 +52,4 @@
     fill-opacity: 0.3;
   }
 }
-</style><path class="l5bica n-sbuq s1ui7u"/><path class="d4768r h6qcuj s1ui7u"/></svg>
+</style><path class="jt0hkp s1ui7u"/><path class="s1ui7u vihrgw"/></svg>

@@ -3,17 +3,17 @@
   fill: currentColor;
 }
 
-.p8wpfy {
+.ermg4a {
+  d: path('M7 12h10');
+}
+
+.pyx2zp {
   fill: #fff;
   d: path('M3 12c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9Z');
   stroke: #fff;
 }
 
-.pgsw-e {
-  d: path('M7 12h10');
-}
-
-.sfgsad {
+.rk72je {
   d: path('M12 7v10');
 }
 
@@ -29,22 +29,22 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ceb96a {
+  .ermg4a {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    animation: 0.2s linear 1.1s forwards so-to-0;
+  }
+
+  .pyx2zp {
     stroke-dasharray: 60;
     fill-opacity: 0;
     animation: 0.6s linear forwards so-from-60, 0.4s linear 0.6s forwards fill-to-1;
   }
 
-  .t5j5kf {
+  .rk72je {
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
     animation: 0.2s linear 1.3s forwards so-to-0;
-  }
-
-  .tfihep {
-    stroke-dasharray: 12;
-    stroke-dashoffset: 12;
-    animation: 0.2s linear 1.1s forwards so-to-0;
   }
 }
 
@@ -65,4 +65,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGe6mnZbjc"><path class="ceb96a p8wpfy t5pxry"/><path class="pgsw-e t5pxry tfihep u63-fz"/><path class="sfgsad t5j5kf t5pxry u63-fz"/></mask></defs><path mask="url(#SVGe6mnZbjc)" class="botfzx"/></svg>
+</style><defs><mask id="SVGOv6HZyWk"><path class="pyx2zp t5pxry"/><path class="ermg4a t5pxry u63-fz"/><path class="rk72je t5pxry u63-fz"/></mask></defs><path mask="url(#SVGOv6HZyWk)" class="botfzx"/></svg>

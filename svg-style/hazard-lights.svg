@@ -6,21 +6,21 @@
   fill: none;
 }
 
-.cbj-8o {
+.ckfi2i {
   d: path('M12 4l9.25 16h-18.5Z');
 }
 
-.e6n8fc {
+.ockota {
   d: path('M12 10l4 7h-8Z');
 }
 
 @media not (prefers-reduced-motion) {
-  .e-9iop {
+  .ckfi2i {
     opacity: 0;
     animation: 0s 0.4s forwards fade-to-1, 0.2s linear 0.4s forwards d-z2xg2d;
   }
 
-  .vu2phh {
+  .ockota {
     stroke-dasharray: 28;
     animation: 0.4s linear forwards so-from-28;
   }
@@ -43,4 +43,4 @@
     d: path('M12 10l4 7h-8Z');
   }
 }
-</style><path class="a0m25c e6n8fc vu2phh"/><path class="a0m25c cbj-8o e-9iop"/></svg>
+</style><path class="a0m25c ockota"/><path class="a0m25c ckfi2i"/></svg>

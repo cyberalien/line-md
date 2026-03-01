@@ -8,9 +8,8 @@
   fill: currentColor;
 }
 
-.dky7gh {
-  d: path('M2 13.5l4 4l10.75 -10.75');
-  stroke: #fff;
+.hds10w {
+  d: path('M7.5 13.5l4 4l10.75 -10.75');
 }
 
 .r1menc {
@@ -19,8 +18,9 @@
   fill: none;
 }
 
-.rmtlsl {
-  d: path('M7.5 13.5l4 4l10.75 -10.75');
+.rtdw8m {
+  d: path('M2 13.5l4 4l10.75 -10.75');
+  stroke: #fff;
 }
 
 .s8e22g {
@@ -32,15 +32,15 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .e121nz {
-    stroke-dasharray: 24;
-    animation: 0.5s linear forwards so-from-24;
-  }
-
-  .ozblmq {
+  .hds10w {
     stroke-dasharray: 24;
     stroke-dashoffset: 24;
     animation: 0.3s linear 0.5s forwards so-to-0;
+  }
+
+  .rtdw8m {
+    stroke-dasharray: 24;
+    animation: 0.5s linear forwards so-from-24;
   }
 }
 
@@ -55,4 +55,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGsTApnetk"><path class="dky7gh e121nz r1menc taf2xz"/><path class="bgw7ds ozblmq r1menc rmtlsl"/></mask></defs><path mask="url(#SVGsTApnetk)" class="botfzx"/><path class="ozblmq r1menc rmtlsl s8e22g taf2xz"/></svg>
+</style><defs><mask id="SVGIsHtBd6M"><path class="r1menc rtdw8m taf2xz"/><path class="bgw7ds hds10w r1menc"/></mask></defs><path mask="url(#SVGIsHtBd6M)" class="botfzx"/><path class="hds10w r1menc s8e22g taf2xz"/></svg>

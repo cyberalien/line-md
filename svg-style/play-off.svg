@@ -15,28 +15,28 @@
   stroke: currentColor;
 }
 
+.kxe35p {
+  d: path('M8 6l10 6l-10 6Z');
+  stroke: #fff;
+}
+
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
 }
 
-.vvhxgz {
-  d: path('M8 6l10 6l-10 6Z');
-  stroke: #fff;
-}
-
-.yl0nmc {
+.qaqxso {
   transform: rotate(45deg);
   transform-origin: 12px 12px;
 }
 
 @media not (prefers-reduced-motion) {
-  .qb3u_k {
+  .kxe35p {
     stroke-dasharray: 38;
     animation: 0.5s linear forwards so-from-38;
   }
 
-  .xlj3dj {
+  .qaqxso {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 0.5s forwards so-to-0;
@@ -54,4 +54,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGUehXYbbC"><path class="c5xdmn qb3u_k vvhxgz"/><path class="c5xdmn oxx-om xlj3dj yl0nmc"/></mask></defs><path mask="url(#SVGUehXYbbC)" class="botfzx"/><path class="c5xdmn gd_4-q xlj3dj yl0nmc"/></svg>
+</style><defs><mask id="SVGKiVtKeAo"><path class="c5xdmn kxe35p"/><path class="c5xdmn oxx-om qaqxso"/></mask></defs><path mask="url(#SVGKiVtKeAo)" class="botfzx"/><path class="c5xdmn gd_4-q qaqxso"/></svg>

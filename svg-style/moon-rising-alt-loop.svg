@@ -1,17 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.az-36w {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.bbw7vs {
+  d: path('M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5');
+}
+
+.clz4mc {
+  d: path('M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5');
+}
+
+.kg_b-h {
   d: path('M17 11h1.5M17 11h-1.5M17 11v1.5M17 11v-1.5');
-}
-
-.g_iubo {
-  d: path('M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5');
-}
-
-.k2cc9e {
-  d: path('M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5');
-}
-
-.m671dg {
-  d: path('M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5');
 }
 
 .m9pw2i {
@@ -20,15 +16,26 @@
   stroke-dasharray: 4;
 }
 
-.o_sype {
-  d: path('M13 4h1.5M13 4h-1.5M13 4v1.5M13 4v-1.5');
+.n707we {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  d: path('M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z');
+  stroke-width: 2px;
 }
 
-.psd16s {
-  d: path('M12 4h1.5M12 4h-1.5M12 4v1.5M12 4v-1.5');
+.q_hzxa {
+  d: path('M19 4h1.5M19 4h-1.5M19 4v1.5M19 4v-1.5');
 }
 
-.tcqpek {
+.qr6ndy {
+  d: path('M19 11h1.5M19 11h-1.5M19 11v1.5M19 11v-1.5');
+}
+
+.r0t14p {
+  d: path('M18 12h1.5M18 12h-1.5M18 12v1.5M18 12v-1.5');
+}
+
+.tcpy8m {
   d: path('M12 5h1.5M12 5h-1.5M12 5v1.5M12 5v-1.5');
 }
 
@@ -41,31 +48,39 @@
   d: path('M20 5h1.5M20 5h-1.5M20 5v1.5M20 5v-1.5');
 }
 
-.y2f3-c {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  d: path('M7 6c0 6.08 4.92 11 11 11c0.53 0 1.05 -0.04 1.56 -0.11c-1.61 2.47 -4.39 4.11 -7.56 4.11c-4.97 0 -9 -4.03 -9 -9c0 -3.17 1.64 -5.95 4.11 -7.56c-0.07 0.51 -0.11 1.03 -0.11 1.56Z');
-  stroke-width: 2px;
-}
-
 @media not (prefers-reduced-motion) {
-  .fld58n {
+  .bbw7vs {
     stroke-dashoffset: 4;
-    animation: 6s linear 5.39s infinite so-_lg20b;
+    animation: 6s linear 4.72s infinite so-_lg20b;
   }
 
-  .iqrc4o {
+  .clz4mc {
+    stroke-dashoffset: 4;
+    animation: 6s linear 2.71s infinite so-_lg20b;
+  }
+
+  .kg_b-h {
+    stroke-dashoffset: 4;
+    animation: 6s linear 1.37s infinite so-_lg20b;
+  }
+
+  .n707we {
     animation: 0.6s linear forwards d-k-hl-x;
   }
 
-  .j-whex {
+  .q_hzxa {
     stroke-dashoffset: 4;
     animation: 6s linear 4.05s infinite so-_lg20b;
   }
 
-  .pqoqbv {
+  .qr6ndy {
     stroke-dashoffset: 4;
-    animation: 6s linear 2.71s infinite so-_lg20b;
+    animation: 6s linear 5.39s infinite so-_lg20b;
+  }
+
+  .r0t14p {
+    stroke-dashoffset: 4;
+    animation: 6s linear 3.38s infinite so-_lg20b;
   }
 
   .r0ttyd {
@@ -73,29 +88,14 @@
     animation: 6s linear 6.06s infinite so-_lg20b;
   }
 
-  .sejb3b {
+  .tcpy8m {
     stroke-dashoffset: 4;
     animation: 6s linear 0.7s infinite so-_lg20b;
-  }
-
-  .vws3iz {
-    stroke-dashoffset: 4;
-    animation: 6s linear 4.72s infinite so-_lg20b;
   }
 
   .whmues {
     stroke-dashoffset: 4;
     animation: 6s linear 2.04s infinite so-_lg20b;
-  }
-
-  .zf89cr {
-    stroke-dashoffset: 4;
-    animation: 6s linear 1.37s infinite so-_lg20b;
-  }
-
-  .zgb64b {
-    stroke-dashoffset: 4;
-    animation: 6s linear 3.38s infinite so-_lg20b;
   }
 }
 
@@ -113,4 +113,4 @@
     stroke-dashoffset: 4;
   }
 }
-</style><path class="iqrc4o ufposl y2f3-c"/><path class="m9pw2i sejb3b tcqpek ufposl"/><path class="az-36w m9pw2i ufposl zf89cr"/><path class="m9pw2i ufposl urr6zz whmues"/><path class="m9pw2i pqoqbv psd16s ufposl"/><path class="m671dg m9pw2i ufposl zgb64b"/><path class="j-whex k2cc9e m9pw2i ufposl"/><path class="m9pw2i o_sype ufposl vws3iz"/><path class="fld58n g_iubo m9pw2i ufposl"/><path class="m9pw2i r0ttyd ufposl urr6zz"/></svg>
+</style><path class="n707we ufposl"/><path class="m9pw2i tcpy8m ufposl"/><path class="kg_b-h m9pw2i ufposl"/><path class="m9pw2i ufposl urr6zz whmues"/><path class="clz4mc m9pw2i ufposl"/><path class="m9pw2i r0t14p ufposl"/><path class="m9pw2i q_hzxa ufposl"/><path class="bbw7vs m9pw2i ufposl"/><path class="m9pw2i qr6ndy ufposl"/><path class="m9pw2i r0ttyd ufposl urr6zz"/></svg>

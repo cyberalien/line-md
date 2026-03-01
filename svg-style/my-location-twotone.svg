@@ -1,7 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.e3_-nw {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ahky_j {
   cx: 12px;
   cy: 12px;
   r: 4px;
+}
+
+.cytc7d {
+  d: path('M12 4v-2M20 12h2M12 20v2M4 12h-2');
+  fill: none;
 }
 
 .iw1iew {
@@ -11,14 +16,9 @@
   stroke-width: 2px;
 }
 
-.j8pktn {
+.tncpqz {
   d: path('M12 4c4.42 0 8 3.58 8 8c0 4.42 -3.58 8 -8 8c-4.42 0 -8 -3.58 -8 -8c0 -4.42 3.58 -8 8 -8Z');
   fill-opacity: 0.3;
-}
-
-.s-3i0n {
-  d: path('M12 4v-2M20 12h2M12 20v2M4 12h-2');
-  fill: none;
 }
 
 .ydovum {
@@ -26,16 +26,16 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ie4x4j {
+  .ahky_j {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.15s forwards r-to-4px;
+  }
+
+  .cytc7d {
     opacity: 0;
     animation: 0s 0.95s forwards fade-to-1, 0.2s linear 0.95s forwards d-pjbx7p;
   }
 
-  .lj9w8v {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.15s forwards r-to-4px;
-  }
-
-  .m0ptra {
+  .tncpqz {
     stroke-dasharray: 54;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-54, 0.15s linear 0.7s forwards fill-to-0_3;
   }
@@ -82,4 +82,4 @@
     d: path('M12 4v0M20 12h0M12 20v0M4 12h0');
   }
 }
-</style><path class="iw1iew j8pktn m0ptra ydovum"/><circle class="e3_-nw lj9w8v ydovum"/><path class="ie4x4j iw1iew s-3i0n"/></svg>
+</style><path class="iw1iew tncpqz ydovum"/><circle class="ahky_j ydovum"/><path class="cytc7d iw1iew"/></svg>

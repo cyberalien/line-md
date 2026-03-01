@@ -8,19 +8,6 @@
   stroke: currentColor;
 }
 
-.jcrytm {
-  transform: rotate(135deg);
-  transform-origin: 12px 12px;
-  fill: none;
-}
-
-.l425ow {
-  fill: #fff;
-  d: path('M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z');
-  fill-opacity: 0.3;
-  stroke: #fff;
-}
-
 .oxx-om {
   d: path('M-1 11h26');
   stroke: #000;
@@ -32,13 +19,26 @@
   stroke-width: 2px;
 }
 
+.u0ab-g {
+  fill: #fff;
+  d: path('M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z');
+  fill-opacity: 0.3;
+  stroke: #fff;
+}
+
+.yd_53v {
+  transform: rotate(135deg);
+  transform-origin: 12px 12px;
+  fill: none;
+}
+
 @media not (prefers-reduced-motion) {
-  .dqb13t {
+  .u0ab-g {
     stroke-dasharray: 62;
     animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-62, 0.15s linear 0.7s forwards fill-to-0_3;
   }
 
-  .neydvc {
+  .yd_53v {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 0.95s forwards so-to-0;
@@ -68,4 +68,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGa3Ad8cuq"><path class="dqb13t l425ow t5pxry"/><path class="jcrytm neydvc oxx-om t5pxry"/></mask></defs><path mask="url(#SVGa3Ad8cuq)" class="botfzx"/><path class="gd_4-q jcrytm neydvc t5pxry"/></svg>
+</style><defs><mask id="SVGQq5DHddH"><path class="t5pxry u0ab-g"/><path class="oxx-om t5pxry yd_53v"/></mask></defs><path mask="url(#SVGQq5DHddH)" class="botfzx"/><path class="gd_4-q t5pxry yd_53v"/></svg>

@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.rbvuog {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ggwg4n {
   r: 2.5px;
   cx: 12px;
   cy: 9px;
 }
 
-.tyiptx {
+.xrzvno {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: currentColor;
@@ -18,11 +18,11 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .enq05i {
+  .ggwg4n {
     animation: 0s forwards r-to-0px, 0.2s linear 0.65s forwards r-to-2_5px;
   }
 
-  .ymqg7r {
+  .xrzvno {
     animation: 0s forwards fill-to-0, 0.4s linear forwards d-jkxijw, 0.15s linear 0.4s forwards fill-to-0_3;
   }
 }
@@ -59,4 +59,4 @@
     r: 2.5px;
   }
 }
-</style><path class="tyiptx ydovum ymqg7r"/><circle class="enq05i rbvuog ydovum"/></svg>
+</style><path class="xrzvno ydovum"/><circle class="ggwg4n ydovum"/></svg>

@@ -3,7 +3,7 @@
   fill: currentColor;
 }
 
-.eycklu {
+.c651wi {
   fill: none;
   transform: rotate(45deg);
   transform-origin: 12px 12px;
@@ -18,13 +18,7 @@
   stroke: currentColor;
 }
 
-.jt9zxm {
-  d: path('M4 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
-  fill-opacity: 0.3;
-  stroke: #fff;
-}
-
-.lwlurj {
+.njj14b {
   d: path('M14 16c1.5 -0.71 2.5 -2.24 2.5 -4c0 -1.77 -1 -3.26 -2.5 -4Z');
 }
 
@@ -33,8 +27,10 @@
   stroke: #000;
 }
 
-.qetw5h {
-  d: path('M14 3.23c4 0.91 7 4.49 7 8.77c0 4.28 -3 7.86 -7 8.77v-2.07c2.89 -0.86 5 -3.53 5 -6.7c0 -3.17 -2.11 -5.85 -5 -6.71Z');
+.ssq0kc {
+  d: path('M4 10h3.5l3.5 -3.5v10.5l-3.5 -3.5h-3.5Z');
+  fill-opacity: 0.3;
+  stroke: #fff;
 }
 
 .t5pxry {
@@ -43,24 +39,28 @@
   stroke-width: 2px;
 }
 
+.zq9xpz {
+  d: path('M14 3.23c4 0.91 7 4.49 7 8.77c0 4.28 -3 7.86 -7 8.77v-2.07c2.89 -0.86 5 -3.53 5 -6.7c0 -3.17 -2.11 -5.85 -5 -6.71Z');
+}
+
 @media not (prefers-reduced-motion) {
-  .i44_ky {
+  .c651wi {
     stroke-dasharray: 28;
     stroke-dashoffset: 28;
     animation: 0.4s linear 1.05s forwards so-to-0;
   }
 
-  .ij6ooi {
+  .njj14b {
+    animation: 0s forwards d-k6ve5o, 0.2s linear 0.4s forwards d-c-ymvb;
+  }
+
+  .ssq0kc {
     stroke-dasharray: 34;
     animation: 0s forwards fill-to-0, 0.4s linear forwards so-from-34, 0.15s linear 0.8s forwards fill-to-0_3;
   }
 
-  .wzieoo {
+  .zq9xpz {
     animation: 0s forwards d-ap4uuv, 0.4s linear 0.4s forwards d-yv2e7k;
-  }
-
-  .xw5yzg {
-    animation: 0s forwards d-k6ve5o, 0.2s linear 0.4s forwards d-c-ymvb;
   }
 }
 
@@ -111,4 +111,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><defs><mask id="SVGBflWpbxn"><path class="g26hbu ij6ooi jt9zxm t5pxry"/><path class="g26hbu lwlurj xw5yzg"/><path class="g26hbu qetw5h wzieoo"/><path class="eycklu i44_ky oxx-om t5pxry"/></mask></defs><path mask="url(#SVGBflWpbxn)" class="botfzx"/><path class="eycklu gd_4-q i44_ky t5pxry"/></svg>
+</style><defs><mask id="SVGH8s0AcYa"><path class="g26hbu ssq0kc t5pxry"/><path class="g26hbu njj14b"/><path class="g26hbu zq9xpz"/><path class="c651wi oxx-om t5pxry"/></mask></defs><path mask="url(#SVGH8s0AcYa)" class="botfzx"/><path class="c651wi gd_4-q t5pxry"/></svg>

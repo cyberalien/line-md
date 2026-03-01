@@ -6,24 +6,24 @@
   fill: none;
 }
 
-.fjamgc {
+.c-b7rz {
   d: path('M4 16h1c2 0 3.5 -2 3.5 -2c0 0 1.5 2 3.5 2c2 0 3.5 -2 3.5 -2c0 0 1.5 2 3.5 2h1');
 }
 
-.gsq_vy {
-  d: path('M15.5 14c0 0 -1.5 2 -3.5 2c-2 0 -3.5 -2 -3.5 -2c0 0 -1.5 2 -3.5 2h-1v5h16v-5h-1c-2 0 -3.5 -2 -3.5 -2Z');
-}
-
-.r5aews {
-  d: path('M14 4c0 1.1 -0.9 2 -2 2c-1.1 0 -2 -0.9 -2 -2c0 -1.1 2 -4 2 -4c0 0 2 2.9 2 4Z');
-}
-
-.ssiztv {
+.dm-51m {
   d: path('M12 10v-2');
 }
 
-.y4naak {
+.e9-zai {
   d: path('M12 21h8v-9c0 -1.1 -0.9 -2 -2 -2h-6M12 21h-8v-9c0 -1.1 0.9 -2 2 -2h6');
+}
+
+.euxzke {
+  d: path('M14 4c0 1.1 -0.9 2 -2 2c-1.1 0 -2 -0.9 -2 -2c0 -1.1 2 -4 2 -4c0 0 2 2.9 2 4Z');
+}
+
+.wv2k7z {
+  d: path('M15.5 14c0 0 -1.5 2 -3.5 2c-2 0 -3.5 -2 -3.5 -2c0 0 -1.5 2 -3.5 2h-1v5h16v-5h-1c-2 0 -3.5 -2 -3.5 -2Z');
 }
 
 .ydovum {
@@ -31,31 +31,31 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .fj5khp {
+  .c-b7rz {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 22;
+    animation: 0.3s linear 0.7s forwards so-to-0;
+  }
+
+  .dm-51m {
     stroke-dasharray: 4;
     stroke-dashoffset: 4;
     animation: 0.2s linear 0.5s forwards so-to-0;
   }
 
-  .m1syek {
+  .e9-zai {
     stroke-dasharray: 30;
     animation: 0.4s linear forwards so-from-30;
   }
 
-  .ql7o2c {
-    fill-opacity: 0;
-    animation: 0.4s linear 1.2s forwards fill-to-1;
-  }
-
-  .vfbvbd {
+  .euxzke {
     opacity: 0;
     animation: 0s 1s forwards fade-to-1, 0.2s linear 1s forwards d-ll345f;
   }
 
-  .zdqwkw {
-    stroke-dasharray: 22;
-    stroke-dashoffset: 22;
-    animation: 0.3s linear 0.7s forwards so-to-0;
+  .wv2k7z {
+    fill-opacity: 0;
+    animation: 0.4s linear 1.2s forwards fill-to-1;
   }
 }
 
@@ -88,4 +88,4 @@
     fill-opacity: 1;
   }
 }
-</style><path class="a0m25c m1syek y4naak"/><path class="a0m25c fj5khp ssiztv"/><path class="a0m25c fjamgc zdqwkw"/><path class="r5aews vfbvbd ydovum"/><path class="gsq_vy ql7o2c ydovum"/></svg>
+</style><path class="a0m25c e9-zai"/><path class="a0m25c dm-51m"/><path class="a0m25c c-b7rz"/><path class="euxzke ydovum"/><path class="wv2k7z ydovum"/></svg>

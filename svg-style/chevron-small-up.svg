@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.j4dfyu {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.xr2bya {
   d: path('M12 9l-5 5M12 9l5 5');
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -8,7 +8,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .y55c5q {
+  .xr2bya {
     stroke-dasharray: 10;
     animation: 0.4s linear forwards so-from-10;
   }
@@ -19,4 +19,4 @@
     stroke-dashoffset: 10;
   }
 }
-</style><path class="j4dfyu y55c5q"/></svg>
+</style><path class="xr2bya"/></svg>

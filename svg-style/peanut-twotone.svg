@@ -1,14 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.dps93d {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.a-wxtk {
   cx: 11px;
   cy: 17px;
 }
 
-.lgwfxl {
-  cx: 13px;
-  cy: 6px;
-}
-
-.t36zte {
+.clg9ja {
   stroke-linecap: round;
   stroke-linejoin: round;
   d: path('M12 2c2.5 0 5 2 5 5c0 1.13 -0.37 2.16 -1 3c-0.28 0.38 -0.5 1 -0.5 1.5c0 0.5 0.2 0.91 0.5 1.23c0.93 0.98 1.5 2.31 1.5 3.77c0 3.04 -2.46 5.5 -5.5 5.5c-3.04 0 -5.5 -2.46 -5.5 -5.5c0 -1.46 0.57 -2.79 1.5 -3.77c0.3 -0.32 0.5 -0.73 0.5 -1.23c0 -0.5 -0.22 -1.12 -0.5 -1.5c-0.63 -0.84 -1 -1.87 -1 -3c0 -2.76 2 -5 5 -5Z');
@@ -17,44 +12,49 @@
   fill-opacity: 0.3;
 }
 
-.tsch9o {
-  r: 1px;
+.fftggp {
+  cx: 14px;
+  cy: 18px;
 }
 
-.y2385h {
+.oah_lw {
+  cx: 13px;
+  cy: 6px;
+}
+
+.qmefch {
   cx: 13px;
   cy: 15px;
+}
+
+.tsch9o {
+  r: 1px;
 }
 
 .ydovum {
   fill: currentColor;
 }
 
-.yxzmwb {
-  cx: 14px;
-  cy: 18px;
-}
-
 @media not (prefers-reduced-motion) {
-  .d2qd-f {
-    animation: 0s forwards r-to-0px, 0.2s linear 1.05s forwards r-to-1px;
-  }
-
-  .ed71md {
-    animation: 0s forwards r-to-0px, 0.2s linear 0.85s forwards r-to-1px;
-  }
-
-  .g8xj7j {
+  .a-wxtk {
     animation: 0s forwards r-to-0px, 0.2s linear 1.25s forwards r-to-1px;
   }
 
-  .gdot5n {
+  .clg9ja {
+    stroke-dasharray: 56;
+    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.6s forwards fill-to-0_3;
+  }
+
+  .fftggp {
     animation: 0s forwards r-to-0px, 0.2s linear 1.45s forwards r-to-1px;
   }
 
-  .lsoe3z {
-    stroke-dasharray: 56;
-    animation: 0s forwards fill-to-0, 0.6s linear forwards so-from-56, 0.15s linear 0.6s forwards fill-to-0_3;
+  .oah_lw {
+    animation: 0s forwards r-to-0px, 0.2s linear 1.05s forwards r-to-1px;
+  }
+
+  .qmefch {
+    animation: 0s forwards r-to-0px, 0.2s linear 0.85s forwards r-to-1px;
   }
 }
 
@@ -87,4 +87,4 @@
     r: 1px;
   }
 }
-</style><path class="lsoe3z t36zte ydovum"/><circle class="ed71md tsch9o y2385h ydovum"/><circle class="d2qd-f lgwfxl tsch9o ydovum"/><circle class="dps93d g8xj7j tsch9o ydovum"/><circle class="gdot5n tsch9o ydovum yxzmwb"/></svg>
+</style><path class="clg9ja ydovum"/><circle class="qmefch tsch9o ydovum"/><circle class="oah_lw tsch9o ydovum"/><circle class="a-wxtk tsch9o ydovum"/><circle class="fftggp tsch9o ydovum"/></svg>

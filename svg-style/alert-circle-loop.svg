@@ -6,34 +6,34 @@
   fill: none;
 }
 
-.fp8d8g {
-  d: path('M12 7v6');
-}
-
-.gsunef {
-  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
-}
-
-.xlm2_l {
+.i--0rr {
   d: path('M12 17v0.01');
 }
 
+.sjppje {
+  d: path('M12 7v6');
+}
+
+.y2h43n {
+  d: path('M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z');
+}
+
 @media not (prefers-reduced-motion) {
-  .cdn18h {
+  .i--0rr {
+    stroke-dasharray: 4;
+    stroke-dashoffset: 4;
+    animation: 0.2s linear 0.7s forwards so-to-0, 3s linear 1s infinite sw-cnj-zb;
+  }
+
+  .sjppje {
     stroke-dasharray: 8;
     stroke-dashoffset: 8;
     animation: 3s linear 0.7s infinite sw-cnj-zb, 0.2s linear 0.7s forwards so-to-0;
   }
 
-  .ntf2iq {
+  .y2h43n {
     stroke-dasharray: 60;
     animation: 0.6s linear forwards so-from-60;
-  }
-
-  .t_eeob {
-    stroke-dasharray: 4;
-    stroke-dashoffset: 4;
-    animation: 0.2s linear 0.7s forwards so-to-0, 3s linear 1s infinite sw-cnj-zb;
   }
 }
 
@@ -57,4 +57,4 @@
     stroke-dashoffset: 0;
   }
 }
-</style><path class="a0m25c gsunef ntf2iq"/><path class="a0m25c cdn18h fp8d8g"/><path class="a0m25c t_eeob xlm2_l"/></svg>
+</style><path class="a0m25c y2h43n"/><path class="a0m25c sjppje"/><path class="a0m25c i--0rr"/></svg>

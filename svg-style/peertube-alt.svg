@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.ijrfmj {
-  d: path('M12 6.67l8 5.33l-8 5.34Z');
-}
-
-.m_gxky {
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.bqezkf {
   d: path('M4 12l8 5.34l-8 5.33Z');
 }
 
-.y4c9di {
+.jerajh {
   d: path('M4 1.34l8 5.33l-8 5.33Z');
+}
+
+.km11tn {
+  d: path('M12 6.67l8 5.33l-8 5.34Z');
 }
 
 .ydovum {
@@ -15,15 +15,15 @@
 }
 
 @media not (prefers-reduced-motion) {
-  .ilryer {
-    animation: 0s forwards d-eo5vsf, 0.4s linear 0.2s forwards d-hy4_ez;
-  }
-
-  .x6y11c {
+  .bqezkf {
     animation: 0s forwards d-zqf0qv, 0.4s linear 0.4s forwards d-h1s04y;
   }
 
-  .y5-jwp {
+  .jerajh {
+    animation: 0s forwards d-eo5vsf, 0.4s linear 0.2s forwards d-hy4_ez;
+  }
+
+  .km11tn {
     animation: 0.4s linear forwards d-y0k17z;
   }
 }
@@ -57,4 +57,4 @@
     d: path('M4 12l8 5.34l-8 5.33Z');
   }
 }
-</style><path class="ijrfmj y5-jwp ydovum"/><path class="ilryer y4c9di ydovum"/><path class="m_gxky x6y11c ydovum"/></svg>
+</style><path class="km11tn ydovum"/><path class="jerajh ydovum"/><path class="bqezkf ydovum"/></svg>
