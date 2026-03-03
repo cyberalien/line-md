@@ -78,13 +78,13 @@ JSON format has the following properties:
 
 - `content` contains SVG content, as string.
 - `viewBox` contains icon viewBox attribute value, as object.
-- `classes` contains list of used CSS classes, where key is class name, value is an object (see below).
+- `classes` contains list of used CSS classes, where key is class name, value is string with rules.
+- `animations` is the same as `classes`, but for animation rules, so you can wrap it in `@media not (prefers-reduced-motion)` if needed.
 - `keyframes` contains list of used animations, where key is an animation name, value is CSS.
 
-Classes property is an object, with the following keys (all keys are optional):
+This is the final format used in [SVG Utils](https://github.com/cyberalien/svg-utils) package, supported by [Iconify Unplugin](https://github.com/iconify/iconify-unplugin).
 
-- `rules` contains rules as string.
-- `animation` contains rules for animations, as string. It is separate from `rules`, so you can wrap it in `@media not (prefers-reduced-motion)` if needed to make sure icons are not animated for users that prefer non-animated icons.
+Also, `@iconify-vue/line-md` and `@iconify-svelte/line-md` have pre-made components that are generated from this data and use CSS animations, see [Iconify documentation](https://iconify.design/docs/usage/svg-css/).
 
 TypeScript type used in generator for exporting these JSON files:
 
