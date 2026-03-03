@@ -89,26 +89,25 @@ Classes property is an object, with the following keys (all keys are optional):
 TypeScript type used in generator for exporting these JSON files:
 
 ```ts
-interface CSSJSONExport {
+// From @cyberalien/svg-utils/lib/svg-css/icon/types.js
+// Reduced to include only properties used in this icon set, all rules and
+// keyframes in this repository are converted to strings to simplify parsing.
+interface SVGCSSIcon {
 	// SVG content
 	content: string;
 
 	// viewBox
-	viewBox: IconViewBox;
+	viewBox: IconViewBox | string;
 
 	// Classes, key is class name
-	classes: Record<string, CSSJSONExportRules>;
+	classes: Record<string, string>;
+
+	// Animations for classes
+	// Same as 'classes', but for animation properties, so it can be separated in the output CSS
+	animations?: Record<string, string>;
 
 	// Used keyframes, key is animation name
 	keyframes?: Record<string, string>;
-}
-
-interface CSSJSONExportRules {
-	// Basic rules, excluding animations
-	rules: string;
-
-	// Rules used by animations
-	animation?: string;
 }
 
 // From @cyberalien/svg-utils/lib/svg/viewbox/types.js
